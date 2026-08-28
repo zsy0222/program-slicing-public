@@ -1,19 +1,41 @@
-﻿# Sensitive config
-.env.local
+# Secrets and local configuration
 .env
+.env.*
+!.env.example
+.claude/
+.mygit/
 
-# Python
+# Python and system files
 __pycache__/
-*.pyc
-
-# Generated temp files
-*.tmp
-*.temp
-scratch/
-
-# System
+*.py[cod]
 .DS_Store
 Thumbs.db
 
-.mygit/
+# Local archive: retained on this computer, never released
+/90_local_only/
 
+# Ephemeral experiment output. Move public, reviewed summaries to results/ or reports/.
+/03_experiments/outputs/*
+!/03_experiments/outputs/README.md
+
+# Downloaded external benchmark clone; retain locally, not as an embedded Git repository.
+/03_experiments/benchmarks/sv-benchmarks/
+
+# Third-party formal-analysis source trees are local dependencies only.
+/04_formal_tools/*
+!/04_formal_tools/README.md
+
+# Dependency and build products
+node_modules/
+target/
+build/
+*.class
+*.jar
+*.exe
+*.log
+
+# Temporary render and QA products
+*_render/
+*_qa*/
+preview/
+rendered*/

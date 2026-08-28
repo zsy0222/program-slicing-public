@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1",
+  "case_id": "SV06_Mono6_1",
+  "source": {
+    "normalized_program": "03_experiments/benchmarks/pilot/normalized/Mono6_1_errorinv.c",
+    "analyzer_output": "03_experiments/outputs/error_invariants_seeded_2026-08-15/SV06_Mono6_1.out",
+    "analysis_mode": "full / polyhedra"
+  },
+  "error": {
+    "location_id": 13,
+    "location_ref": "L13",
+    "statement": "assert( z < x || z > x )",
+    "error_invariant": "x == 10000000 && z == 10000000",
+    "variables": [
+      "x",
+      "z"
+    ]
+  },
+  "evidence_locations": [
+    {
+      "id": "L4",
+      "location_id": 4,
+      "statement": "z := 5000000",
+      "error_invariant": "x == 0",
+      "role": "state_update",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L7",
+      "location_id": 7,
+      "statement": "if ( x >= 5000000 ) then",
+      "error_invariant": "-x+z >= 0",
+      "role": "control_guard",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L8",
+      "location_id": 8,
+      "statement": "z := z + 1",
+      "error_invariant": "-x+z >= 0",
+      "role": "state_update",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L9",
+      "location_id": 9,
+      "statement": "else",
+      "error_invariant": "-x+z >= 1",
+      "role": "error_relevant_location",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L10",
+      "location_id": 10,
+      "statement": "endif",
+      "error_invariant": "z >= 5000000 && -x >= -4999999",
+      "role": "error_relevant_location",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L11",
+      "location_id": 11,
+      "statement": "x := x + 1",
+      "error_invariant": "-x+z >= 1",
+      "role": "state_update",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L12",
+      "location_id": 12,
+      "statement": "od",
+      "error_invariant": "-x+z >= 0",
+      "role": "error_relevant_location",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L13",
+      "location_id": 13,
+      "statement": "assert( z < x || z > x )",
+      "error_invariant": "x == 10000000 && z == 10000000",
+      "role": "error_state",
+      "source": "Error Invariants first Error Invariant Map"
+    }
+  ],
+  "pure_tool_baseline": {
+    "method": "direct-write-to-error-variable ranking",
+    "candidates": [
+      {
+        "location_id": 11,
+        "statement": "x := x + 1",
+        "rank": 1,
+        "score": 198,
+        "reason": "Directly writes error-state variable(s) ['x']; closer statements rank higher.",
+        "evidence_refs": [
+          "L11",
+          "L13"
+        ]
+      },
+      {
+        "location_id": 8,
+        "statement": "z := z + 1",
+        "rank": 2,
+        "score": 195,
+        "reason": "Directly writes error-state variable(s) ['z']; closer statements rank higher.",
+        "evidence_refs": [
+          "L8",
+          "L13"
+        ]
+      },
+      {
+        "location_id": 4,
+        "statement": "z := 5000000",
+        "rank": 3,
+        "score": 191,
+        "reason": "Directly writes error-state variable(s) ['z']; closer statements rank higher.",
+        "evidence_refs": [
+          "L4",
+          "L13"
+        ]
+      },
+      {
+        "location_id": 2,
+        "statement": "x := 0",
+        "rank": 4,
+        "score": 189,
+        "reason": "Directly writes error-state variable(s) ['x']; closer statements rank higher.",
+        "evidence_refs": [
+          "L2",
+          "L13"
+        ]
+      }
+    ],
+    "interpretation_limit": "Candidates are error-relevant statements, not established root-cause labels. Ground truth requires human confirmation or a known reference patch."
+  },
+  "annotation": {
+    "ground_truth_status": "needs_human_confirmation",
+    "ground_truth_location_id": null,
+    "ground_truth_source_line": null,
+    "ground_truth_kind": null,
+    "suggested_fault_location": null,
+    "suggested_fault_rationale": "unknown"
+  }
+}

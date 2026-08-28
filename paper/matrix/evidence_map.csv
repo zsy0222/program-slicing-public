@@ -1,0 +1,46 @@
+citation_key,cluster,evidence_direction,rq_mapped,contradictions,strength,notes
+Weiser1984,C1: Traditional Slicing,foundational,RQ3,Foundational definition of static slicing; no direct contradiction,high,Original slicing definition; all subsequent work builds on this
+KorelLaski1988,C1: Traditional Slicing,foundational,RQ3,Weiser slicing does not use execution trace,high,First dynamic slicing; Phase 1 of your framework is a variant
+Ferrante1987,C1: Traditional Slicing,foundational,RQ3,,high,PDG definition is essential for both Phase 1 and Phase 2
+JacksonRollins1994,C1: Traditional Slicing,supports,RQ5,,high,"Chop definition: Phase 2 backward must run in restricted forward subgraph; your cascaded approach is a chop variant"
+ZhangGupta2004,C1: Traditional Slicing,supports,RQ3,,medium,Practical binary dynamic slicing; compressed DDG for large traces
+ZhangGupta2006,C1: Traditional Slicing,supports,RQ3,,medium,Confidence-based pruning of backward dynamic slices; fault-localization baseline
+Barros2010,C1: Traditional Slicing,supports,RQ2,,medium,Assertions as slicing criteria; slice graphs for comparison; directly supports assertion-guided approach
+MultiStageISSTA2026,C1: Traditional Slicing,supports,RQ2,,medium,"Coarse-to-fine iterative slicing; multi-threaded; similar philosophy to cascaded stages"
+SLICEFORMER2026,C2: Neural/LLM Slicing,neutral,RQ3,,medium,"Dataflow-aware seq2seq slicing; not directly comparable to hybrid approach"
+SLICET52025,C2: Neural/LLM Slicing,neutral,RQ3,copy mechanism improves ExactMatch +27% over SOTA,medium,Seq2seq slicing; incomplete slice handling relevant
+NSSlicer2024,C2: Neural/LLM Slicing,neutral,RQ3,F1=97.41% but only on static slicing,medium,First neural static slicing; PDG-free approach
+NDSlicer2024,C2: Neural/LLM Slicing,neutral,RQ3,"Predictive dynamic vs. actual dynamic slicing gap unknown",medium,No actual execution needed; relevant as alternative
+Zhang2007,C5: FL Baseline,contrast,RQ1,RQ5,high,"Key baseline: MPS requires 3 input points; your framework requires only 1; MPS intersection may miss bugs"
+Wong2016,C5: FL Baseline,foundational,RQ3,,high,Comprehensive survey; FL landscape context
+Chang2025,C5: FL Baseline,contrast,RQ3,"LLM slicing w/o PDG; black-box not verifiable",high,SliceMate multi-agent LLM slicing; your framework argues for verifiable hybrid approach
+Shahandashti2025,C5: FL Baseline,neutral,RQ3,GPT-4o only 60.8% static slice accuracy,high,LLM slice capability evaluation; supports need for hybrid approach
+Arora2024,C5: FL Baseline,supports,RQ3,,medium,MASAI multi-agent architecture reference
+ASSERTIFY2024,C3: Assertion Generation,supports-core,RQ4,"SNE 97.4% but NO runtime correctness evaluation",high,Core assertion generation tool; lack of runtime eval is a research gap
+TOGLL2024,C3: Assertion Generation,supports-core,RQ4,"3.8x more correct assertion oracles and 4.9x more exception oracles than the stated neural baseline",high,Directly applicable test-oracle evidence; ICSE 2025 version
+Laurel2024,C3: Assertion Generation,supports,RQ4,SMT-solver verified assertions,high,"Dafny inline assertions; AVM-verified; most directly related approach"
+CIll2026,C3: Assertion Generation,supports,RQ4,,medium,Counterexample-guided LLM iteration for invariants
+PALM2025,C3: Assertion Generation,supports,RQ2;RQ4,"AST path enumeration and executable path variants; not a direct fault-localization evaluation",medium,Related path-aware assertion strategy for Phase 2 pruning, but the study itself focuses on LLM-based test generation
+PSCSelector2026,C3: Assertion Generation,supports,RQ1,Parameter-efficient lightweight LLM selects criteria; 74% defect detection with 69% slice reduction,medium,Criteria selection approach; relevant for automation
+ChatUniTest2023,C4: LLM Test Generation,supports,RQ1,Generate-verify-repair pipeline,medium,Framework for LLM-based unit test generation
+EvoOtter2026,C4: LLM Test Generation,supports-core,RQ4,"SOTA BRT; successive halving + crossover; low API cost",high,"Can directly generate failing tests for your framework; arXiv:2607.02854"
+LLMvsHuman2026,C4: LLM Test Generation,supports-core,RQ4,"LLM detects 69% bugs vs 17.2% human; coverage not proxy",high,"Proves LLM test generation effective; arXiv:2606.08588"
+SpecCoder2026,C4: LLM Test Generation,supports-core,RQ4,"Assertions hold on correct exec, reject faulty exec; +55.8%",high,Core alignment: executable assertions as evidence framework
+CunhaMacedo2026,C4: LLM Test Generation,supports,RQ4,"GPT-5 generates pos/neg tests; detects wrong Alloy specs",high,LLM can generate meaningful passing/failing test pairs
+OracleUnderstanding2026,C4: LLM Test Generation,neutral,RQ4,Semantic understanding is key gap in LLM oracle generation,medium,Failure mode analysis for LLM-generated oracles
+NESA2026,C6: Hybrid Analysis Framework,supports,RQ2,RQ3,"F1=0.72 for slicing+vulnerability; Datalog+LLM",high,"Neuro-symbolic; hybrid LLM+static analysis; directly relevant"
+codebadger2026,C7: Implementation Tools,neutral,RQ3,Uses CPG rather than Error Invariants and reports use cases rather than a fault-localization benchmark,medium,Implementation alternative: an MCP wrapper over Joern for slicing taint tracking and data-flow analysis
+code2prompt,C7: Implementation Tools,neutral,RQ3,,low,Codebase-to-prompt software utility; engineering reference only and not empirical evidence
+CLDK2025,C7: Implementation Tools,neutral,RQ3,CLDK supplies program-analysis context but is not an Error-Invariant engine,medium,Implementation bridge from program analysis to Code LLMs; not direct validation evidence
+FMAgent2026,C6: Hybrid Analysis Framework,supports,RQ3,,medium,LLM+Hoare reasoning for large systems
+WALA,C7: Implementation Tools,foundational,RQ3,,high,Java-oriented static-analysis framework using its own SSA IR; implementation candidate only
+dg,C7: Implementation Tools,foundational,RQ3,,medium,LLVM-bitcode analysis library and static slicer; implementation candidate only
+giri,C7: Implementation Tools,neutral,RQ3,Legacy availability and maintenance constrain reproducibility,low,Historical LLVM static/dynamic slicing infrastructure; not a current benchmark
+Slicer4J,C7: Implementation Tools,foundational,RQ3,,medium,Thread-aware Java dynamic slicing tool; not a benchmark dataset
+AssertMsg2025,C3: Assertion Generation,neutral,RQ1,Measures failure-message quality rather than oracle correctness,low,Relevant to presentation and interpretability only; not evidence for fault-localization effectiveness
+Dimovski2023,C8: Abstract Interpretation,supports-core,RQ2;RQ3;RQ5,,high,Introduces the Error Invariant concept that underlies the current research direction; full comparison with the 2024 version is still required
+Dimovski2024,C8: Abstract Interpretation,supports-core,RQ2;RQ3;RQ5,,high,Core infrastructure: iterative backward-forward abstract interpretation, BDD refinement, and statement-wise semantic fault localization
+Dimovski2025,C8: Abstract Interpretation,supports,RQ3,,medium,Extends Error Invariants to software product-line variability; supports the extensibility argument but is outside the main single-program setting
+Gallagher2025,C1: Traditional Slicing,foundational,RQ3,,medium,Retrospective survey used to position the historical development of slicing; not direct evidence for the LLM-invariant hypothesis
+GitIngest,C7: Implementation Tools,neutral,RQ3,,low,Repository-to-prompt engineering tool; not empirical evidence for fault localization
+

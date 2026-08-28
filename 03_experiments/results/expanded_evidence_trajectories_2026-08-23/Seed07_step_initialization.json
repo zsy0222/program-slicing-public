@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.2",
+  "case_id": "Seed07_step_initialization",
+  "source": {
+    "normalized_program": "03_experiments\\benchmarks\\seeded_faults\\Seed07_step_initialization_faulty.c",
+    "analyzer_output": "03_experiments/outputs/expanded_seeded_suite_2026-08-23/analysis/Seed07_step_initialization_faulty.out",
+    "analysis_mode": "full / polyhedra"
+  },
+  "error": {
+    "location_id": 13,
+    "location_ref": "L13",
+    "statement": "assert( z < 0 || z > 0 )",
+    "error_invariant": "z == 0",
+    "variables": [
+      "z"
+    ]
+  },
+  "evidence_locations": [
+    {
+      "id": "L3",
+      "location_id": 3,
+      "statement": "z := 10",
+      "error_invariant": "top",
+      "role": "state_update",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L8",
+      "location_id": 8,
+      "statement": "z := z - step",
+      "error_invariant": "top",
+      "role": "state_update",
+      "source": "Error Invariants first Error Invariant Map"
+    },
+    {
+      "id": "L13",
+      "location_id": 13,
+      "statement": "assert( z < 0 || z > 0 )",
+      "error_invariant": "z == 0",
+      "role": "error_state",
+      "source": "Error Invariants first Error Invariant Map"
+    }
+  ],
+  "pure_tool_baseline": {
+    "method": "direct-write-to-error-variable ranking",
+    "candidates": [
+      {
+        "location_id": 8,
+        "statement": "z := z - step",
+        "rank": 1,
+        "score": 195,
+        "reason": "Directly writes error-state variable(s) ['z']; closer statements rank higher.",
+        "evidence_refs": [
+          "L8",
+          "L13"
+        ]
+      },
+      {
+        "location_id": 3,
+        "statement": "z := 10",
+        "rank": 2,
+        "score": 190,
+        "reason": "Directly writes error-state variable(s) ['z']; closer statements rank higher.",
+        "evidence_refs": [
+          "L3",
+          "L13"
+        ]
+      }
+    ],
+    "interpretation_limit": "Candidates are error-relevant statements, not established root-cause labels. Ground truth requires human confirmation or a known reference patch."
+  },
+  "annotation": {
+    "ground_truth_status": "confirmed",
+    "ground_truth_location_id": 4,
+    "ground_truth_source_line": 4,
+    "ground_truth_kind": "initialization_constant",
+    "suggested_fault_location": null,
+    "suggested_fault_rationale": "unknown"
+  }
+}

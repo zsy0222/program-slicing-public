@@ -1,69 +1,51 @@
-# Cascaded Hybrid Slicing Research
+# Assertion-Guided Cascaded Hybrid Slicing for Fault Localization
 
-A research project on **assertion-guided cascaded hybrid slicing** for fault localization.
+This repository contains the research materials, original prototypes, controlled benchmarks, and reproducible summaries for an ongoing study of assertion-guided cascaded hybrid slicing and LLM-assisted fault analysis.
 
-## Current Progress
+## Research idea
 
-### Research Framework
+The method uses a **cascaded** two-stage analysis rather than a simple intersection of slices:
 
-A two-phase cascaded architecture for fault localization:
+1. Dynamic backward analysis starts at an observed failure and reconstructs the executed dependency path.
+2. Static forward analysis expands from candidate sources while assertions and runtime observations prune infeasible paths.
+3. The resulting Error Invariant acts as both a location-mapping rule and an auditable explanation of the candidate.
+4. Candidate repairs are checked with runtime counterfactual evidence, static differences, compilation, and tests.
 
-- **Phase 1 (Dynamic Backward)**: Scans execution trace from sink (assertion failure point) backward, identifying the last correct value point as the bug source.
-- **Phase 2 (Static Forward)**: From the source, traverses all program paths forward, using runtime assertion results for path pruning (assertion PASS = correct, prune; assertion FAIL = retain).
+The repository also contains a repair-oriented pilot that tests whether dynamic semantic slices become more useful to an LLM when translated into an explicit Error Invariant and constrained editing task.
 
-### Key Features
+## Repository map
 
-- Single input point (sink) — unlike Zhang 2007 MPS requiring three criteria
-- Cascaded not intersected — Phase 1 output feeds Phase 2 input, avoiding information loss
-- Assertion-guided path pruning — runtime assertion results as objective decision signals
-- LLM-constrained role — LLM limited to Phase 1 source hypothesis generation
-
-## Project Structure
-
-```
-.
-├── paper/                      # Literature review workflow
-│   ├── AGENTS.md              # Project rules
-│   ├── notes/                 # Research questions, screening criteria
-│   ├── matrix/                # Literature matrix (38 papers)
-│   ├── reports/               # Evidence map, research gaps
-│   └── scripts/               # Metadata fetch, QA scripts
-├── codex-research-workflow/   # Reusable workflow template
-├── chop4llm/                  # Initial prototype
-├── swp_harness/               # SWP harness
-├── WALA/                      # Program analysis framework
-├── dg/                        # LLVM PDG tool
-├── giri/                      # LLVM dynamic slicing tool
-├── Slicer4J/                  # Java slicing benchmark
-└── reference-tools/           # Reference implementations
+```text
+01_research/          Current framework, research questions, and workflow documentation
+02_literature/        Public literature entry points and source policy
+paper/                Literature matrix, evidence map, reading notes, and research reports
+03_experiments/       Original prototypes, self-authored benchmarks, structured results, and reports
+04_formal_tools/      Public tool inventory only; third-party source is local-only
+90_local_only/        Local archive: tools, PDFs, raw model outputs, logs, QA renders, and unrelated files
 ```
 
-## Literature Matrix
+`90_local_only/` is intentionally excluded from Git. It preserves local working material without making it part of a public release.
 
-Currently **38 papers** across 6 categories:
+## Current evidence and scope
 
-- **A**: Core papers on local disk (6)
-- **B**: LLM-based slicing (4)
-- **C**: Assertion / Oracle / Invariant (12)
-- **D**: Foundational slicing (6)
-- **E**: LLM + Code / Tools (6)
-- **F**: Implementation tools (4)
+The current results are controlled pilot results, not a claim of general effectiveness on all real defects. In the first Defects4J Gson-7 comparison, the trigger-test success counts across three repeated generations were:
 
-## Research Questions
+| Strategy | Trigger-test success |
+|---|---:|
+| Pure LLM with complete source | 0/3 |
+| Static local context | 1/3 |
+| Dynamic semantic slice without invariant | 0/3 |
+| Full workflow: slice + Error Invariant + constrained edit + validation | 3/3 |
 
-See `paper/notes/research_questions.md` for full definitions.
+This observation motivates the hypothesis that a slice is useful as **evidence for constructing a semantic constraint**, not as a complete repair instruction by itself. Full regression and larger multi-project evaluation remain necessary.
 
-- [CRQ] Can cascaded hybrid slicing produce more complete fault candidate sets than MPS?
-- [RQ1] Source localization accuracy of assertion-guided dynamic backward?
-- [RQ2] Assertion density effectiveness (cost-quality non-monotonic relationship)?
-- [RQ3] Comparative effectiveness vs MPS, SliceMate, SBFL?
-- [RQ4] Sensitivity to assertion quality and cost?
-- [RQ5] Cascaded vs. intersected architecture?
+## Reproducibility and release boundaries
 
-## Generated Documents
+- Run instructions, benchmarks, prototypes, reports, and structured evidence are kept in the public research tree.
+- Third-party tools are described but not redistributed; obtain them from their official repositories.
+- Original paper PDFs, API credentials, raw LLM requests/responses, execution traces, build products, and local environment files are excluded.
+- Before publishing, follow [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) and review the proposed Git file list rather than staging the entire directory.
 
-- `hybrid_slicing_plan.docx` — Full research plan with 5 experiments
-- `framework_desc.docx` — Detailed framework description
-- `workflow_overview.docx` — Workflow overview
-- `paper_list.docx` — Full paper list (167 entries)
-- `research_log.md` — Ongoing research log
+## Personal contribution
+
+This project records the research framework, workflow design, prototype integration, seeded-fault experiments, controlled repair comparisons, evidence-trajectory analysis, and limitation discussion completed in this workspace. Third-party analysis tools remain external dependencies and are not claimed as original work.
