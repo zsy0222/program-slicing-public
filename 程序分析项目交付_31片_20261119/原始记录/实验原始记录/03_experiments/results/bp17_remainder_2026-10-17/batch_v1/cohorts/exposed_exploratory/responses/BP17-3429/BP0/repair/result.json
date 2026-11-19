@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3429/BP0/repair/1",
+  "case_id": "BP17-3429",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "5724ab40bc6cd2dd5573fbb10eb60ac4fbf02523a949a38870cf761069e68b8f",
+  "started_utc": "2026-10-17T08:44:28.066630+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9f411f20-7580-440a-9f31-2d4fb87a588a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, i, j, cnt, x, m=0, t=0, a=0, b=0;\\n    scanf(\\\"%d\\\", &n);\\n    if (n < 1 && n > 200)\\n        return 0;\\n    char mas[n+1];\\n    scanf(\\\"%s\\\", mas);\\n    for(cnt = 0; cnt < n; cnt++)\\n    {\\n        t = cnt+1;\\n        while(t < n)\\n        {\\n            j = 0;\\n            i = 0;\\n            for(x = cnt; x <= t; x++)\\n            {\\n                if(mas[x] == 'U')\\n                {\\n                    j++;\\n                }\\n                if(mas[x] == 'D')\\n                {\\n                    j--;\\n                }\\n                if(mas[x] == 'R')\\n                {\\n                    i++;\\n                }\\n                if(mas[x] == 'L')\\n                {\\n                    i--;\\n                }\\n            }\\n            if(i == 0 && j == 0)\\n                m++;\\n            t++;\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",m);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1380,
+    "completion_tokens": 314,
+    "total_tokens": 1694,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1380
+  },
+  "raw_sha256": "002766eb279883fa3e755599b477aa33c137294f0ad1f27c693722033ddc019c",
+  "ended_utc": "2026-10-17T08:44:29.822284+00:00",
+  "elapsed_seconds": 1.75
+}

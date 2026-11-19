@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0554/BP2/repair/1",
+  "case_id": "BP17-0554",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "5356beb8c727e82c7efe04a456e055a42bed9e762a78d697e874cb8a56a9ef47",
+  "started_utc": "2026-11-16T17:40:00.083385+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "11230c81-ba3b-4d4e-ae3e-ccc0d10044ad",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n int n,k;\\n scanf(\\\"%d%d\\\",&n,&k);\\n int i,j=0,l=0,count=0;\\n int primes[1000];\\n int prime=1;\\n for(i=2;i<=1000;i++)\\n   {\\n     for(j=2;j<i;j++)\\n       {\\n\\t if(i%j==0)\\n\\t   {\\n\\t     prime=0;\\n\\t     break;\\n\\t   }\\n       }\\n      if(prime==1)\\n       {\\n\\t primes[l]=i;\\n\\t l++;\\n       }\\n     prime=1;\\n   }\\n\\n for(i=0;i<l && primes[i]<=n;i++)\\n   {\\n      for(j=0;j<l-1;j++)\\n        {\\n\\t if(primes[j]+primes[j+1]+1==primes[i])\\n\\t   count++;\\n\\t if(primes[j]+primes[j+1]+1 > primes[i])\\n\\t   break;\\n        }\\n   }\\n if(count==k)\\n   puts(\\\"YES\\\");\\n else\\n   puts(\\\"NO\\\");\\n return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1664,
+    "completion_tokens": 294,
+    "total_tokens": 1958,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1664
+  },
+  "raw_sha256": "c19bf70c160ad23a11219e2fe6e30ce6c32af8910891c2781bfe321cd6dc09e0",
+  "ended_utc": "2026-11-16T17:40:02.466815+00:00",
+  "elapsed_seconds": 2.3809
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2871/BP1/repair/1",
+  "case_id": "BP17-2871",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "dcf8f5b32f3ba9557a0f795be602e7c914195347129b712ca9e2a130f6a8e3c7",
+  "started_utc": "2026-11-16T15:41:18.523673+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "20e46a24-921d-461e-abac-6bfaff5126c7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n\\nlong int roads[1234567];\\n\\nint main(int argc, char *argv[]) {\\n\\tint n;\\n\\tscanf(\\\"%d\\\", &n);\\n\\n\\tint i = 0;\\n\\tint x = ( 1 << ( n + 1 ) ) - 1;\\n\\tfor ( i = 2; i <= x; i++ ) scanf(\\\"%ld\\\", roads+i);\\n\\n\\tlong int answer, a, b;\\n\\tanswer = 0;\\n\\tfor ( i = ( 1 << n ) - 1; i >= 1; i-- ) {\\n\\t\\ta = roads[i*2];\\n\\t\\tb = roads[i*2+1];\\n\\n\\t\\troads[i] += a > b ? a : b;\\n\\t\\tanswer += 2 * ( a > b ? a : b ) - a - b;\\n\\t}\\n\\n\\tprintf(\\\"%ld\\\\n\\\", answer);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 955,
+    "completion_tokens": 241,
+    "total_tokens": 1196,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 187
+  },
+  "raw_sha256": "ca210f1280abcaa8a88583f07f562936c6c0f88f1735a79834c2285990e3684f",
+  "ended_utc": "2026-11-16T15:41:20.744389+00:00",
+  "elapsed_seconds": 2.2175
+}

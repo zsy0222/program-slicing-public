@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2013/BP2/repair/1",
+  "case_id": "BP17-2013",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "b88e6a373e5a339217331b5df75d9007aeeb31f1a044707859500a061b299a74",
+  "started_utc": "2026-10-21T07:03:42.034292+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0ece84da-7c4f-452d-b413-ed70f932381e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n    int i;\\n    int n, p[1000];\\n    long long sum[1001], dp[1000], ans;\\n\\n    scanf(\\\"%d\\\", &n);\\n    for (i = 0; i < n; i++)\\n        scanf(\\\"%d\\\", p + i);\\n\\n    sum[0] = 0LL;\\n    for (i = 0; i < n; i++) {\\n        dp[i] = (sum[i] - sum[p[i]] + 2 + 1000000007LL + 1000000007LL) % 1000000007LL;\\n        sum[i + 1] = (sum[i] + dp[i]) % 1000000007LL;\\n    }\\n\\n    ans = 0LL;\\n    for (i = 0; i < n; i++)\\n        ans += dp[i];\\n\\n    printf(\\\"%lld\\\\n\\\", ans % 1000000007LL);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1277,
+    "completion_tokens": 253,
+    "total_tokens": 1530,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1277
+  },
+  "raw_sha256": "6c17562bda96bae07a3fcfcb3e33489f30334ef9c58c75ee02488a29a98e90bb",
+  "ended_utc": "2026-10-21T07:03:43.418671+00:00",
+  "elapsed_seconds": 1.391
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1769/BP3/repair/1",
+  "case_id": "BP17-1769",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "c3f8b0ba046d260b1ce83ffddeffd928bfea61bb15c7c6260b70396c68d7356c",
+  "started_utc": "2026-11-18T03:18:03.841345+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "44770039-0386-4e46-91d0-f81c26d5adb8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n,tm;\\n  int used[1200], dmg[1200], pw[1200], hp;\\n  int res[1200], use_tm[1200], res_size;\\n  int maxHP, reg, mx;\\n\\n  scanf(\\\"%d%d%d\\\",&n,&maxHP,&reg);\\n  rep(i,n) scanf(\\\"%d%d\\\",pw+i,dmg+i);\\n\\n  hp = maxHP;\\n  rep(i,n) used[i]=0;\\n  res_size=0;\\n\\n  for(tm=0;;tm++){\\n    int fg=0, bef_hp = hp;\\n\\n    rep(i,n) if(used[i]) hp -= dmg[i];\\n    hp += reg;\\n    if(hp > maxHP) hp = maxHP;\\n\\n    mx = 0;\\n    rep(i,n) if(!used[i]) if(pw[i]*maxHP >= hp*100) if(mx < dmg[i]){\\n      mx = dmg[i]; k = i;\\n    }\\n    if(mx){\\n      fg++;\\n      used[k] = 1;\\n      res[res_size]=k+1; use_tm[res_size] = tm;\\n      res_size++;\\n    }\\n\\n    if(bef_hp > hp) fg++;\\n    if(hp<=0) break;\\n    \\n    if(!fg) break;\\n  }\\n\\n  if(hp > 0)puts(\\\"NO\\\");\\n  else{\\n    puts(\\\"YES\\\");\\n    printf(\\\"%d %d\\\\n\\\",tm,res_size);\\n    rep(i,res_size) printf(\\\"%d %d\\\\n\\\",use_tm[i],res[i]);\\n  }\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2109,
+    "completion_tokens": 480,
+    "total_tokens": 2589,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2109
+  },
+  "raw_sha256": "1dbb7d92918797f1ea17f470bf67387979dd630124c496e56de83a3dcd5472c4",
+  "ended_utc": "2026-11-18T03:18:07.555980+00:00",
+  "elapsed_seconds": 3.7123
+}

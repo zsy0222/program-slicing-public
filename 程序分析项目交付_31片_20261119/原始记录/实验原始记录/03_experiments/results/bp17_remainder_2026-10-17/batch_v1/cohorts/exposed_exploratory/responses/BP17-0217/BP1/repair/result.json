@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0217/BP1/repair/1",
+  "case_id": "BP17-0217",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "52fea71bd9a587196783b5a1f7283e69387d3941c313d6a4995eba58028e9716",
+  "started_utc": "2026-11-18T09:55:05.865370+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e91f8c4c-6fe8-4d56-9931-1de14affd5d7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nvoid fill0(int *a) {\\n\\tint i;\\n\\tfor (i=0; i<101;i++) a[i] = 0;\\n}\\n\\nint *processInput(int n) {\\n\\tint *a = malloc(sizeof(int)*101);\\n\\tint i, tmp;\\n\\tfill0(a);\\n\\tfor (i=0; i<n; i++) {\\n\\t\\tscanf(\\\"%d\\\", &tmp);\\n\\t\\ta[tmp]++;\\n\\t}\\n\\treturn a;\\n}\\n\\nint sigma(int *a) {\\n\\tint i;\\n\\tint sum = 0;\\n\\tfor (i=0; i<101;i++) sum += a[i];\\n\\treturn sum;\\n}\\n\\t\\nint main(int argc, char *argv[]) {\\n\\tint n, i;\\n\\tint *a;\\n\\tscanf(\\\"%d\\\", &n);\\n\\ta = processInput(n);\\n\\tfor (i=0; i<n; i++) a[i] /= 2;\\n\\tprintf(\\\"%d\\\\n\\\", sigma(a)/2);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1000,
+    "completion_tokens": 276,
+    "total_tokens": 1276,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 232
+  },
+  "raw_sha256": "78a06e5cadfc25a13b5251dc5c35815ed3d16f22747b40d87fa3125cc623dbed",
+  "ended_utc": "2026-11-18T09:55:07.616377+00:00",
+  "elapsed_seconds": 1.7042
+}

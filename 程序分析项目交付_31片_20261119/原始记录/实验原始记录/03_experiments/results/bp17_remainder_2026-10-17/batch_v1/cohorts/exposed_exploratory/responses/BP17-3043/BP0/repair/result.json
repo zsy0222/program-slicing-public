@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3043/BP0/repair/1",
+  "case_id": "BP17-3043",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "4c436519d547490dbe6430c9d051568da00cc8c3b7aced79be6d624df470f4d2",
+  "started_utc": "2026-10-18T12:40:18.432663+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "740d9b2b-9581-41bd-b991-5303acdd1dd3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\n    int stu,min1,max1,min2,max2,min3,max3;\\n\\n    scanf(\\\"%d\\\",&stu);\\n    scanf(\\\"%d\\\",&min1);\\n    scanf(\\\"%d\\\",&max1);\\n    scanf(\\\"%d\\\",&min2);\\n    scanf(\\\"%d\\\",&max2);\\n    scanf(\\\"%d\\\",&min3);\\n    scanf(\\\"%d\\\",&max3);\\n\\n    int totalmin = min1+min2+min3;\\n    int totalmax = max1+max2+max3;\\n\\n    int one,two,three;\\n\\n    if (totalmax <= stu) {\\n        one = max1;\\n        two = max2;\\n        three = max3;\\n    } else {\\n        three = min3;\\n        two = min2;\\n        if (max1<stu-min3-min2) {\\n            one = max1;\\n        } else {\\n            one = stu-min3-min2;\\n        }\\n        stu -= one+two+three;\\n        if (stu>0) {\\n            if (stu>max2-min2) {\\n                stu -= max2-min2;\\n                two = max2;\\n                three += stu;\\n            } else {\\n                two += stu;\\n            }\\n        }\\n    }\\n\\n    printf(\\\"%d %d %d\\\\n\\\",one,two,three);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1091,
+    "completion_tokens": 369,
+    "total_tokens": 1460,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 195
+  },
+  "raw_sha256": "a815970366177819f887e2c0744f3df7821004b22527b9fc1443e5a863b490f9",
+  "ended_utc": "2026-10-18T12:40:20.783930+00:00",
+  "elapsed_seconds": 2.344
+}

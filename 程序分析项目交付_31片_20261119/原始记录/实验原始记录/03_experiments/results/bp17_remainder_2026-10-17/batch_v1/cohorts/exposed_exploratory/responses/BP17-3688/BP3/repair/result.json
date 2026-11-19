@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3688/BP3/repair/1",
+  "case_id": "BP17-3688",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "71d199b02846cce8798c882af2b6a300951896ddb06f920f4f3fbffde9df43f4",
+  "started_utc": "2026-11-16T05:15:35.661125+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "83ec0d6f-839a-4746-94d9-9bfb9d4ef9ec",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <stdbool.h>\\n#include <ctype.h>\\nint get(char ch){\\n    if (isdigit(ch)) return ch - 48;\\n    if (isupper(ch)) return ch - 'A' + 10;\\n    if (islower(ch)) return ch - 'a' + 36;\\n    if (ch == '-') return 62;\\n    if (ch == '_') return 63;\\n    return 0;\\n}\\nint main(int argc, char *argv[]){\\n    int And[64] = {0};\\n    int i = 0, j = 0;\\n    for(i = 0; i < 64; i++)\\n        for(j = 0; j < 64; j++)\\n            And[i & j]++;\\n    long long int ans = 1;\\n    char s[100001];\\n    scanf(\\\"%s\\\", s);\\n    i = 0;\\n    while(s[i]){\\n        ans *= And[get(s[i])];\\n        ans %= 1000000007;\\n        i++;\\n    }\\n    printf(\\\"%lld\\\\n\\\", ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1534,
+    "completion_tokens": 288,
+    "total_tokens": 1822,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1534
+  },
+  "raw_sha256": "09dbe13c6c1d61d3856ae30f851c7275041ec99ebee078b468b52a87fb75f810",
+  "ended_utc": "2026-11-16T05:15:37.436910+00:00",
+  "elapsed_seconds": 1.7098
+}

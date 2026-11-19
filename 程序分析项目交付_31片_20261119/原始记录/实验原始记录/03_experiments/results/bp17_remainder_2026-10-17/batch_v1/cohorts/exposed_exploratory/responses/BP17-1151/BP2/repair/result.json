@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1151/BP2/repair/1",
+  "case_id": "BP17-1151",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "76929a93472bbb4a64d02051af4597409479b7e6cb2c3e6046dd594c8c65e443",
+  "started_utc": "2026-11-16T18:27:00.953210+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f13b2e4e-6a1e-4aad-9cb6-61956f6c9c93",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint a[75],b[75];\\nvoid convert(int a[],int n,int i)\\n{\\n\\tif(n==0)\\n\\t\\treturn;\\n\\ta[i]=n%2;\\n\\tconvert(a,n/2,i+1);\\n}\\nint comp(int a[],int b[],int i)\\n{\\n\\tif(i<0)\\n\\t\\treturn -1;\\n\\tif(a[i]!=b[i])\\n\\t\\treturn i;\\n\\treturn comp(a,b,i-1);\\n}\\nlong long int power(int n)\\n{\\n\\tif(n==0)\\n\\t\\treturn 1;\\n\\tlong long int a=power(n/2);\\n\\tif(n%2==0)\\n\\t\\treturn a*a;\\n\\treturn a*a*2;\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tlong long int l,r;\\n\\tscanf(\\\"%lld %lld\\\",&l,&r);\\n\\tconvert(a,l,0);\\n\\tconvert(b,r,0);\\n\\tprintf(\\\"%lld\\\\n\\\",power(comp(a,b,74)+1)-1);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1668,
+    "completion_tokens": 274,
+    "total_tokens": 1942,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 772
+  },
+  "raw_sha256": "74384102319dd64284e2587578fc229c61a3b83e16e1d256bc9d7fb24357a655",
+  "ended_utc": "2026-11-16T18:27:03.352037+00:00",
+  "elapsed_seconds": 2.3955
+}

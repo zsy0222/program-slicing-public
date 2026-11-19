@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2944/BP0/repair/1",
+  "case_id": "BP17-2944",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "fcaf170855b671d1f2243981d1fa8b7532067976e566d410a2a1d09d95639b7c",
+  "started_utc": "2026-10-18T14:06:26.705273+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "74c2d65d-a883-4aeb-9401-adeeaac3c6e4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"/**Bismillahir Rahmanir Rahim.**/\\n\\n#include <stdio.h>\\nint ara[26];\\nint main(int argc, char *argv[])\\n{\\n    int k, cndtn=0, cnt=0, i;\\n    char str[200];\\n    scanf(\\\"%d\\\", &k);\\n    scanf(\\\"%s\\\", str);\\n    for(i=0, cnt=0; str[i]; i++)\\n    {\\n        if(ara[str[i]-97]==0)\\n        {\\n            cnt++;\\n            ara[str[i]-97] = 1;\\n        }\\n    }\\n    if(cnt<k)\\n    {\\n        printf(\\\"NO\\\\n\\\");\\n        return 0;\\n    }\\n    for(i=0; i<26; i++) ara[i]=0;\\n    printf(\\\"YES\\\");\\n    for(i=0, cnt=0, cndtn=0; str[i]; i++)\\n    {\\n        if(cnt==k)\\n            cndtn=1;\\n        if(cndtn==0)\\n        {\\n            if(ara[str[i]-97]==1)\\n                printf(\\\"%c\\\", str[i]);\\n            else\\n            {\\n                printf(\\\"\\\\n%c\\\", str[i]);\\n                ara[str[i]-97] = 1;\\n                cnt++;\\n            }\\n        }\\n        else\\n            printf(\\\"%c\\\", str[i]);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1230,
+    "completion_tokens": 347,
+    "total_tokens": 1577,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 206
+  },
+  "raw_sha256": "75920e17d3f818e39852155f7e9e40cc5d7c3727fd5777cefb0bd34a61046fca",
+  "ended_utc": "2026-10-18T14:06:28.549341+00:00",
+  "elapsed_seconds": 1.844
+}

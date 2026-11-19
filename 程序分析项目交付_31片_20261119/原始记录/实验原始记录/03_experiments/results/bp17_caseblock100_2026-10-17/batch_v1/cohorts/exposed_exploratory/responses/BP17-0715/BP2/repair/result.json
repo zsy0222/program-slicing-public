@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0715/BP2/repair/1",
+  "case_id": "BP17-0715",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "0a5e5f4f4d459251a4e34088b887a9602c0e96cd83858ed7480f40fba332bf8f",
+  "started_utc": "2026-10-17T07:04:02.215149+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9f8db1d5-c90f-45bd-84ae-09893562cb85",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define min(a, b) (a < b ? a : b)\\n\\nlong long power( int a, int b ) {\\n\\tif( b == 0 ) return 1;\\n\\n\\tlong long res = power(a, b/2);\\n\\tres *= res;\\n\\n\\tif( b % 2 ) res *= a;\\n\\treturn res;\\n}\\n\\nlong long length( long long N ) {\\n\\tint l = 0;\\n\\t\\n\\tif( N == 0 ) return 1;\\n\\n\\twhile( N ) {\\n\\t\\tN /= 10;\\n\\t\\tl++;\\n\\t}\\n\\n\\treturn l;\\n}\\n\\nlong long first( long long N ) {\\n\\treturn N / power(10, length(N)-1);\\n}\\n\\nlong long middle( long long N ) {\\n\\treturn (N - first(N) * power(10, length(N)-1)) / 10 + 1;\\n}\\n\\nlong long nways( int N ) {\\n\\tlong long res = 0;\\n\\n\\tres = min(9, N);\\n\\tres += min(N,99) / 11;\\n\\n\\tif( length(N) > 2 ) {\\n\\t\\tint i;\\n\\n\\t\\tfor( i = 3; i < length(N); i++ )\\n\\t\\t\\tres += 9 * power(10, i-2);\\n\\n\\t\\tfor( i = 1; i < first(N); i++ )\\n\\t\\t\\tres += power(10, length(N)-2);\\n\\n\\t\\tres += middle(N);\\n\\t\\t\\n\\t\\tint last = N % 10;\\n\\t\\tif( first(N) > last ) res--;\\n\\t}\\n\\n\\treturn res;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tlong long L, R;\\n\\tscanf(\\\"%lld %lld\\\", &L, &R);\\n\\n\\tprintf(\\\"%lld\\\\n\\\",nways(R) - nways(L-1));\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2355,
+    "completion_tokens": 485,
+    "total_tokens": 2840,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 1075
+  },
+  "raw_sha256": "69b07bd5059b989ea5931c215343926c0fb8eb623993cc232522d0cfcd520a78",
+  "ended_utc": "2026-10-17T07:04:04.554277+00:00",
+  "elapsed_seconds": 2.234
+}

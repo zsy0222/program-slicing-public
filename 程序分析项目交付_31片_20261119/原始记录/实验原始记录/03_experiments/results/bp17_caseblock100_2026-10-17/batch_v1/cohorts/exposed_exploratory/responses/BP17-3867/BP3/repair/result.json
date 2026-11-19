@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3867/BP3/repair/1",
+  "case_id": "BP17-3867",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "9742f2721c481f3c8769f5a192120bc63a14744e3973ba788466a5f030d23bbc",
+  "started_utc": "2026-10-17T07:12:51.021450+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0377179d-27f4-4220-a97e-cbc8d8e9b62e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define abs(a) (((a) < 0) ? (-(a)): (a))\\n\\ntypedef struct pair{\\n    double x;\\n    int y;\\n} pair;\\n\\npair ans[50][50];\\nint cnt[50], n, m;\\ndouble w, v;\\n\\ndouble eps = 0.00000000001;\\n\\nint eq(double a, double b){\\n    return abs(a - b) < eps;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%d%lf%d\\\", &n, &w, &m);\\n    v = (w * n) / m;\\n    if(v * 2 < m || (n < m && n % (m - n))){\\n        printf(\\\"NO\\\");\\n        return 0;\\n    }\\n    int i, j, curr = 0;\\n    double space = v;\\n    for(i = 0; i < n; ++i){\\n        if(w < space){\\n            ans[curr][cnt[curr]].y = i;\\n            ans[curr][cnt[curr]].x = w;\\n            ++cnt[curr];\\n            space -= w;\\n        } else {\\n            ans[curr][cnt[curr]].y = i;\\n            ans[curr][cnt[curr]].x = space;\\n            ++cnt[curr];\\n            ++curr;\\n            ans[curr][cnt[curr]].y = i;\\n            ans[curr][cnt[curr]].x = w - space;\\n            ++cnt[curr];\\n            space = v - (w - space);\\n        }\\n        if(eq(space, 0)){\\n                ++curr;\\n                space = v;\\n        }\\n    }\\n    printf(\\\"YES\\\\n\\\");\\n    for(i = 0; i < m; ++i){\\n        for(j = 0; j < cnt[i]; ++j){\\n            printf(\\\"%d %.8lf \\\", ans[i][j].y + 1, ans[i][j].x);\\n        }\\n        printf(\\\"\\\\n\\\");\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2590,
+    "completion_tokens": 511,
+    "total_tokens": 3101,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 670
+  },
+  "raw_sha256": "0684dc31898a4c8667e710479dadb00e5c2b9103d98b7a12a8e2e942cb58f93c",
+  "ended_utc": "2026-10-17T07:12:53.419835+00:00",
+  "elapsed_seconds": 2.391
+}

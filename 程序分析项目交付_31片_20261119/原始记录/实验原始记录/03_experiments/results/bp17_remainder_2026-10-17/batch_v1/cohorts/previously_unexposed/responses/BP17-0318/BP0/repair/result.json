@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0318/BP0/repair/1",
+  "case_id": "BP17-0318",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "175d692d11a8ddf28b77cfb178d8c42468eda7b8b5b70b1dd2dc2a242dcc6bd0",
+  "started_utc": "2026-11-16T04:05:47.400656+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e8c9f49d-8b7a-480d-a0de-8b2887ea9ef5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint x[200000], y[200000];\\n\\nvoid sort(int l, int r) {\\n\\tif (l < r) {\\n\\t\\tint i = l, j = r, m = (l + r) / 2, px = x[m], py = y[m];\\n\\t\\twhile (i <= j)\\n\\t\\t\\tif (x[i] < px || x[i] == px && y[i] < py)\\n\\t\\t\\t\\ti++;\\n\\t\\t\\telse if (px < x[j] || px == x[j] && py < y[j])\\n\\t\\t\\t\\tj--;\\n\\t\\t\\telse {\\n\\t\\t\\t\\tint t = x[i]; x[i] = x[j]; x[j] = t;\\n\\t\\t\\t\\tt = y[i]; y[i] = y[j]; y[j] = t;\\n\\t\\t\\t\\ti++; j--;\\n\\t\\t\\t}\\n\\n\\t\\tsort(l, j); sort(i, r);\\n\\t}\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, k;\\n\\tscanf(\\\"%d%d\\\", &n, &k);\\n\\n\\tif (k >= n) {\\n\\t\\tputs(\\\"-1\\\");\\n\\t\\treturn 0;\\n\\t}\\n\\n\\tint i;\\n\\tfor (i = 0; i < n; i++)\\n\\t\\tscanf(\\\"%d%d\\\", &x[i], &y[i]);\\n\\n\\tsort(0, n - 1);\\n\\n\\tint cn = 0, pi, pj, cx[11*11], cy[11*11];\\n\\tfor (pi = 0; pi <= k; pi++)\\n\\t\\tfor (pj = n - 1 - k + pi; pj < n; pj++) {\\n\\t\\t\\tint cxx = x[pi] + x[pj], cyy = y[pi] + y[pj];\\n\\n\\t\\t\\tint i = 0, j = n - 1, c = 0;\\n\\t\\t\\twhile (i <= j && c <= k) {\\n\\t\\t\\t\\tint sx = x[i] + x[j], sy = y[i] + y[j];\\n\\n\\t\\t\\t\\tif (sx < cxx)\\n\\t\\t\\t\\t\\ti++, c++;\\n\\t\\t\\t\\telse if (sx > cxx)\\n\\t\\t\\t\\t\\tj--, c++;\\n\\t\\t\\t\\telse if (sy < cyy)\\n\\t\\t\\t\\t\\ti++, c++;\\n\\t\\t\\t\\telse if (sy > cyy)\\n\\t\\t\\t\\t\\tj--, c++;\\n\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\ti++, j--;\\n\\t\\t\\t}\\n\\n\\t\\t\\tif (c <= k)\\n\\t\\t\\t\\tcx[cn] = cxx, cy[cn] = cyy, cn++;\\n\\t\\t}\\n\\n\\tint j;\\n\\tfor (i = 0; i < cn; i++)\\n\\t\\tfor (j = i + 1; j < cn; j++)\\n\\t\\t\\tif (cx[j] < cx[i] || cx[j] == cx[i] && cy[j] < cy[i]) {\\n\\t\\t\\t\\tint t = cx[i]; cx[i] = cx[j]; cx[j] = t;\\n\\t\\t\\t\\tt = cy[i]; cy[i] = cy[j]; cy[j] = t;\\n\\t\\t\\t}\\n\\n\\tj = 0;\\n\\tfor (i = 1; i < cn; i++)\\n\\t\\tif (!(cx[i] == cx[j] && cy[i] == cy[j]))\\n\\t\\t\\tj++, cx[j] = cx[i], cy[j] = cy[i];\\n\\n\\tcn = j + 1;\\n\\n\\tprintf(\\\"%d\\\\n\\\", cn);\\n\\tfor (i = 0; i < cn; i++)\\n\\t\\tprintf(\\\"%.1lf %.1lf\\\\n\\\", (double)cx[i] / 2, (double)cy[i] / 2);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1825,
+    "completion_tokens": 959,
+    "total_tokens": 2784,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1825
+  },
+  "raw_sha256": "c01110ed056b614e1b2bba2203c26ae519fa330212262cb7881435b1d87d27e6",
+  "ended_utc": "2026-11-16T04:05:50.878570+00:00",
+  "elapsed_seconds": 3.4519
+}

@@ -1,0 +1,16 @@
+# BP17 新启动身份与未完成准备接续 v7
+
+2026-10-23用户直接允许：“允许‘另存新启动绑定并接续未完成准备’，修复后，继续实验”（精确原文见授权JSON）。这次仅修复操作接续，不改变科学协议、输入、评分器、测试、资源保护线或外发范围。
+
+新boot固定为1a644513-9183-49c4-ba16-40f5ba7e1c0d；v5绑定49374671-12da-4fe6-835a-43d40b890541及更早身份原件不改。新host会话continuation_20261023_v7、新guest操作绑定manual_boot_continue_20261023_v7、新准备journal manual_preparation_continue_20261023_v7及新guard工具目录均独立新建。失败v6 host会话与manual_resource_continue_20261021_v6全部旧字节保留，process/progress不冒充完整result/completion；不重调用旧prepare，不补写失败journal。
+
+本次另存boot guard只改变新boot/绑定链与操作路径，固定核对原v5 guard/绑定SHA、科学identity/plan与运行时。旧v6 guest journal四份文件精确范围与SHA先冻结，准备前后及最终mapped_finish再核验。新guard不允许恢复第8片，封存入口至少13；第8片仍显式引用原v5 recovery，1–12不重封存，最终guest mapped completion仍为manual_restart_20261021_v5/completion.json。
+
+先连续三次15秒资源采样及无控制器检查，源/冻结离线控制全部通过。完整准备重新核对9876实际request/raw/result和9872原评分/2469波/1234完整案例、前12片保存载荷/整包SHA、原3158私有输入及原生receipt、3903对/9836文件基线保全和原100共同验收身份；缺失不当通过。host保全快照沿用v6既有100888文件并新增v6自身旧记录。准备只读科学记录，写入独立操作回执，不运行模型/C或重评分。全部准备、manifest metadata、源/冻结控制和资源通过后，按本次明确许可仅首次启动一个新控制器；prepare-and-continue遇任何失败即保留退出，不自动重启。
+
+先原wave2470复用BP17-0431四份原pin回答（BP0/repair、BP1/repair、BP2/understanding、BP3/understanding）各评价一次，固定来源另存saved_answer_selection.json，不请求这四项。之后仅15388原未预留项。原batch_v1槽账本9876行前缀SHA不变，v4物理977行和v5物理3476行不变，v6没有模型启动或物理账本。本次新增物理账本改由v7承载15388条first_attempt，累计序号16371起，extra=0；联合剩余25264唯一回答评分/25265物理尝试，引用原100后3258对/26064唯一评分/26065相关物理尝试。旧0464失败及唯一授权成功追加原件和选用绑定不改。
+
+deepseek-flash与pin e72d3c7f663d3e1383b00b3884cb4501不变，最多4并发，原transport/候选锁，主客机15GiB磁盘/2GiB MemAvailable及主机15秒采样不变。准备触线仅精确取消本次boot/UID/start_ticks/新guard/候选锁身份一致的自有只读准备PID。模型/基础设施/比较器/资源失败或pin缺失/变化均停止，不自动重试、补发、探针、改pin、清理、改VM/网络/认证或科学代码。
+
+全部32片精确互斥范围、保存字节审计、所有真实repair/heldout观测和失败分类、原记录/账本前缀保全及本机独立流式整包SHA/gzip/逐成员SHA验收后才完成。最终四组同案例理解/修复及P1/13U1分开；1858开发、1360已暴露扩展分别探索，旧40独立确认固定单列，新确认0。三个主对照与原确认bootstrap/Holm规则不变。0464人工追加、1434跨boot和0431跨资源/此次新boot准备时段的探索敏感性单列；不按结果挑选。只有最终独立验收和四组比较交付后删除bp17跟踪，同问题无新信息静默。
+

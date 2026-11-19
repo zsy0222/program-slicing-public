@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3131/BP3/repair/1",
+  "case_id": "BP17-3131",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "dc411159d66dd27279a23c33040af19d72a7245ff9ecfd0278ac4146b5f4959c",
+  "started_utc": "2026-10-21T06:35:58.503294+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "51318979-ae44-4a6d-9241-4cce1fcf47d9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\nint min(int a, int b, int c){\\n    if(a<=c && a<=b) return a;\\n    if(b<=c && b<=a) return b;\\n    return c;\\n}\\n\\nint main(int argc, char *argv[]){\\n    int n;\\n    int h[100005];\\n    scanf(\\\"%d\\\", &n);\\n    int i;\\n    for(i=0; i<n; i++){\\n        scanf(\\\"%d\\\", h+i);\\n    }\\n    int op[100005];\\n    op[0]=1;\\n    op[n-1]=1;\\n    for(i=1; i<n-1; i++){\\n        op[i]=min(h[i],i+1,n-i);\\n    }\\n    for(i=1; i<n-1; i++){\\n        op[i]=min(1+op[i-1],op[i],h[i]+1);\\n        op[n-i-1]=min(1+op[n-i],op[n-i-1],h[n-i-1]+1);\\n    }\\n    for(i=1; i<n-1; i++){\\n        op[i]=min(op[i-1]+1, op[i+1]+1, op[i]);\\n    }\\n    int max=0;\\n    for(i=0; i<n; i++){\\n        if(op[i]>max) max=op[i];\\n        printf(\\\"%d \\\", op[i]);\\n    }\\n    printf(\\\"%d\\\", max);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1734,
+    "completion_tokens": 373,
+    "total_tokens": 2107,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 710
+  },
+  "raw_sha256": "5365aac7efbd3a39b3c4598345373571bce6bf27a2e570141f485f0dfeba65cf",
+  "ended_utc": "2026-10-21T06:36:00.309269+00:00",
+  "elapsed_seconds": 1.813
+}

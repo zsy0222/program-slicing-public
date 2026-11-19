@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0513/BP0/repair/1",
+  "case_id": "BP17-0513",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "489d7cd9f668b0be5b913adebdac705fa8ce2972efc8f0ba57b05334c1b46200",
+  "started_utc": "2026-10-18T12:43:13.801320+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c8fc8e24-ced6-478e-84b6-0e3051a4f361",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int i , teams , pos , prob , time , max_prob = 0 ,found = 0, max_time = 0 , mat[50][50] = {0} , counter=0;\\n    scanf(\\\"%d %d\\\" , &teams ,&pos);\\n    for(i = 0 ; i < teams ; i++){\\n        scanf(\\\"%d %d\\\" , &prob  ,&time);\\n        mat[prob][time] ++ ;\\n        if(prob > max_prob)max_prob = prob;\\n        if(time > max_time)max_time = time;\\n    }\\n\\n    for(prob = max_prob ; prob > 0 && !found;prob--){\\n        for(time = 0 ; time <= max_time && !found; time++){\\n            counter += mat[prob][time];\\n            if(counter >= pos){\\n                printf(\\\"%d\\\" , mat[prob][time]);\\n                found = 1 ;\\n            }\\n        }\\n    }\\n    if(!found)printf(\\\"%d\\\" , 0);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1158,
+    "completion_tokens": 282,
+    "total_tokens": 1440,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 134
+  },
+  "raw_sha256": "cc8eec2c4a200b9569ffbbb197d59547f47a03063633310b44b312c67288fa10",
+  "ended_utc": "2026-10-18T12:43:15.977425+00:00",
+  "elapsed_seconds": 2.172
+}

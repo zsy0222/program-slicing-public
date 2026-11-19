@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1005/BP1/repair/1",
+  "case_id": "BP17-1005",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "9fc8b47c9dfcebed2f7b115d493e90cf6654926712d94f063216c4504f0335f3",
+  "started_utc": "2026-10-18T12:25:17.889830+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a33ca517-78d3-4d5d-b77d-70bc420a1992",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\nint cmp(const void *a,const void *b)\\n{\\n    return *(int *)b-*(int *)a;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,m,k,i,sum,a[55],max;\\n    while(scanf(\\\"%d%d%d\\\",&n,&m,&k)!=EOF)\\n    {\\n        sum=0;max=k;\\n        for(i=0;i<n;i++)\\n        {\\n            scanf(\\\"%d\\\",&a[i]);\\n        }\\n        qsort(a,n,sizeof(a[0]),cmp);\\n        for(i=0;i<n;i++)\\n        {\\n            if(max>=m)\\n            {\\n                break;\\n            }\\n            else\\n            {\\n                sum++;\\n                max--;\\n                max+=a[i];\\n            }\\n        }\\n        if(max>=m)\\n        printf(\\\"%d\\\\n\\\",sum);\\n        else\\n        printf(\\\"-1\\\\n\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 969,
+    "completion_tokens": 255,
+    "total_tokens": 1224,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 201
+  },
+  "raw_sha256": "58720f3842a9bdae2a8f88e072190d3dfd0239d77847481e47e0ce9a91820287",
+  "ended_utc": "2026-10-18T12:25:19.291399+00:00",
+  "elapsed_seconds": 1.407
+}

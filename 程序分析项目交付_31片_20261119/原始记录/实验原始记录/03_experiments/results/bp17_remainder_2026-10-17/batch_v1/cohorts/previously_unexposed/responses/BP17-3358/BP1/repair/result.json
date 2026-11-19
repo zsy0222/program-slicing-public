@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3358/BP1/repair/1",
+  "case_id": "BP17-3358",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "70458e20efd7ba4ae281ce4034fa19759c7b63bad74aad4956e6cbf48e100646",
+  "started_utc": "2026-11-16T19:09:52.500378+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0bf78e22-a786-4ce4-808f-633616a618a6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint a[1000005];\\nint vis[1000005];\\nint main(int argc, char *argv[])\\n{\\n    int n,k;\\n    scanf(\\\"%d%d\\\",&n,&k);\\n    for(int i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d\\\",a+i);\\n    }\\n    int ar=0,al=0,l=0,now=0;\\n    for(int i=0;i<n;i++)\\n    {\\n        vis[a[i]]++;\\n        if(vis[a[i]]==1) now++;\\n        while(now>k)\\n        {\\n            vis[a[l]]--;\\n            if(vis[a[l]]==0)\\n                now--;\\n            l++;\\n        }\\n        if(i-l+1>al-ar+1)\\n        {\\n            al=i+1;\\n            ar=l+1;\\n        }\\n\\n    }\\n    printf(\\\"%d %d\\\\n\\\",ar,al);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 960,
+    "completion_tokens": 247,
+    "total_tokens": 1207,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 960
+  },
+  "raw_sha256": "df55b63e925e2f5f0e826172d1b609c9055475788e4fcc85c83dc959611f4e38",
+  "ended_utc": "2026-11-16T19:09:54.532111+00:00",
+  "elapsed_seconds": 2.0283
+}

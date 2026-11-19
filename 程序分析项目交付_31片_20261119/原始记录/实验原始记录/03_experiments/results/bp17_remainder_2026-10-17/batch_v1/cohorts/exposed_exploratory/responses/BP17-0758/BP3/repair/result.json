@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0758/BP3/repair/1",
+  "case_id": "BP17-0758",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "6d12f35e542689a3f8ef04cc0648d504af6412f3a28a505ef55344aa05035290",
+  "started_utc": "2026-10-21T07:40:16.644494+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "16ba0fea-5717-4842-b13b-ed2f5a49a5a8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint A[5], B[5];\\n\\tint n, m, i, j;\\n\\n\\tscanf(\\\"%d\\\", &n);\\n\\tfor (i = 0; i < n; i++)\\n\\t\\tscanf(\\\"%d\\\", &A[i]);\\n\\n\\tscanf(\\\"%d\\\", &m);\\n\\tfor (i = 0; i < m; i++)\\n\\t\\tscanf(\\\"%d\\\", &B[i]);\\n\\n\\tint ratio = -1;\\n\\tint cou = 0;\\n\\tfor (i = 0; i < m; i++)\\n\\t{\\n\\t\\tfor (j = 0; j < n; j++)\\n\\t\\t\\tif (B[i] % A[j] == 0)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif (B[i] / A[j] > ratio)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tratio = B[i] / A[j];\\n\\t\\t\\t\\t\\tcou = 1;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse if (B[i] / A[j] == ratio)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tcou++;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t}\\n\\n\\tprintf(\\\"%d\\\", cou);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1569,
+    "completion_tokens": 335,
+    "total_tokens": 1904,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1569
+  },
+  "raw_sha256": "8952cb6516d0758777372c21f61c1e660079c039b50c20cf247b67911333e644",
+  "ended_utc": "2026-10-21T07:40:18.491386+00:00",
+  "elapsed_seconds": 1.782
+}

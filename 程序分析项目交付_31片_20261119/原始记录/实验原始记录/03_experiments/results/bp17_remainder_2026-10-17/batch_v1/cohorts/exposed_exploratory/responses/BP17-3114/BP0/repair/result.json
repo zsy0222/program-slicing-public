@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3114/BP0/repair/1",
+  "case_id": "BP17-3114",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "20039510729e950b283b795eff7ea2668eba63a8aaedb3a3e11b546a0a079732",
+  "started_utc": "2026-11-16T16:25:05.159347+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "72465fa7-c622-4b68-a963-b135eeefd455",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\ntypedef struct\\n{\\n    int x;\\n    char y;\\n} pairs;\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, m, i, s, q;\\n    scanf(\\\"%d %d\\\", &n, &m);\\n    char a[n];\\n    pairs b[m];\\n    char c;\\n    scanf(\\\"%c\\\", &c);\\n    while (c == 10 || c == 13)\\n        scanf(\\\"%c\\\", &c);\\n    a[0] = c;\\n    for (i = 1; i < n; i++)\\n        scanf(\\\"%c\\\", &a[i]);\\n    for (i = 0; i < m; i++)\\n        scanf(\\\"%d %c\\\", &b[i].x, &b[i].y);\\n    s = 0;\\n    for (i = 0; i < n - 1; i++)\\n        if (a[i] == '.' && a[i + 1] == '.')\\n            s++;\\n    if (n == 1)\\n    {\\n        for (i = 0; i < m; i++)\\n            printf(\\\"%d\\\\n\\\", 0);\\n        return 0;\\n    }\\n    for (i = 0; i < m; i++)\\n    {\\n        q = b[i].x - 1;\\n        if (q == 0)\\n        {\\n            if (a[0] == '.' && a[1] == '.' && b[i].y != '.')\\n                s -= 1;\\n            else if (a[0] != '.' && a[1] == '.' && b[i].y == '.')\\n                s += 1;\\n            a[0] = b[i].y;\\n        }\\n        else if (q == n - 1)\\n        {\\n            if (a[n - 1] == '.' && a[n - 2] == '.' && b[i].y != '.')\\n                s -= 1;\\n            else if (a[n - 1] != '.' && a[n - 2] == '.' && b[i].y == '.')\\n                s += 1;\\n            a[n - 1] = b[i].y;\\n        }\\n        else\\n        {\\n            if (a[q] == '.' && a[q + 1] == '.' && b[i].y != '.')\\n                s -= 1;\\n            else if (a[q] != '.' && a[q + 1] == '.' && b[i].y == '.')\\n                s += 1;\\n            if (a[q] == '.' && a[q - 1] == '.' && b[i].y != '.')\\n                s -= 1;\\n            else if (a[q] != '.' && a[q - 1] == '.' && b[i].y == '.')\\n                s += 1;\\n            a[q] = b[i].y;\\n        }\\n        printf(\\\"%d\\\\n\\\", s);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1495,
+    "completion_tokens": 711,
+    "total_tokens": 2206,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 215
+  },
+  "raw_sha256": "85efd06e54792520b3928fe0e08f9faee179ca5143f0166d731b6129e4ab08ac",
+  "ended_utc": "2026-11-16T16:25:08.056551+00:00",
+  "elapsed_seconds": 2.8944
+}

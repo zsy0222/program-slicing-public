@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0705/BP0/repair/1",
+  "case_id": "BP17-0705",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "f72e7c822e7cf20e1828b4b9bf32a3f8db09624e477e2c61b63fb763663a6d21",
+  "started_utc": "2026-10-21T07:28:05.784148+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "802b0693-baf9-4054-8d43-ec380e5bec68",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include <string.h>\\nchar lesha[4][11];\\nchar ivan[10][20][11];\\nint ivannum[10];\\nint desword, archpro;\\nint inversion=100;\\nint order[4]={0, 1, 2, 3};\\nint resultindex = 0;\\nint issubsequence(){\\n\\tint i, j, k;\\n\\tfor(i=0;i<archpro;++i){\\n\\t\\tfor(j=0, k=0;j<ivannum[i];++j){\\n\\t\\t\\tif(strcmp(lesha[order[k]], ivan[i][j])==0){\\n\\t\\t\\t\\t++k;\\n\\t\\t\\t\\tif(k==desword)\\n\\t\\t\\t\\t\\treturn i+1;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\\n\\nint getinversion(){\\n\\tint i, j, count;\\n\\tfor(i=0, count=0;i<desword;++i){\\n\\t\\tfor (j=i+1;j<desword;++j)\\n\\t\\t\\tif(order[i]>order[j])\\n\\t\\t\\t\\t++count;\\n\\t}\\n\\treturn count;\\n}\\nvoid permutation(int level){\\n\\tint i, tmp;\\n\\tif(level == desword-1){\\n\\t\\tint proindex = issubsequence();\\n\\t\\tif(proindex){\\n\\t\\t\\ttmp = getinversion();\\n\\t\\t\\tif(tmp < inversion){\\n\\t\\t\\t\\tinversion = tmp;\\n\\t\\t\\t\\tresultindex = proindex;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tfor(i=level;i<desword;++i){\\n\\t\\ttmp = order[level];\\n\\t\\torder[level] = order[i];\\n\\t\\torder[i] = tmp;\\n\\t\\tpermutation(level+1);\\n\\t\\torder[i] = order[level];\\n\\t\\torder[level] = tmp;\\n\\t}\\n}\\n\\nint main(int argc, char *argv[]){\\n\\t//freopen(\\\"in.txt\\\", \\\"r\\\", stdin);\\n\\tint i, j, similarity;\\n\\tscanf(\\\"%d\\\", &desword);\\n\\tfor (i=0;i<desword;++i)\\n\\t\\tscanf(\\\"%s\\\", lesha[i]);\\n\\tscanf(\\\"%d\\\", &archpro);\\n\\tfor(i=0;i<archpro;++i){\\n\\t\\tscanf(\\\"%d\\\", &ivannum[i]);\\n\\t\\tfor (j=0;j<ivannum[i];++j)\\n\\t\\t\\tscanf(\\\"%s\\\", ivan[i][j]);\\n\\t}\\n\\tpermutation(0);\\n\\tif(resultindex>0){\\n\\t\\tsimilarity = desword * (desword-1) / 2 - inversion + 1;\\n\\t\\tprintf(\\\"%d\\\\n[:\\\", resultindex);\\n\\t\\tfor(i=0;i<similarity;++i)\\n\\t\\t\\tprintf(\\\"|\\\");\\n\\t\\tprintf(\\\":]\\\\n\\\");\\n\\t}else{\\n\\t\\tprintf(\\\"Brand new problem!\\\\n\\\");\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1731,
+    "completion_tokens": 757,
+    "total_tokens": 2488,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1731
+  },
+  "raw_sha256": "c836898a02bf3cb52d3fea13cfcc148bc23a3636a6c5c89e73365faa3358dd89",
+  "ended_utc": "2026-10-21T07:28:09.016206+00:00",
+  "elapsed_seconds": 3.11
+}

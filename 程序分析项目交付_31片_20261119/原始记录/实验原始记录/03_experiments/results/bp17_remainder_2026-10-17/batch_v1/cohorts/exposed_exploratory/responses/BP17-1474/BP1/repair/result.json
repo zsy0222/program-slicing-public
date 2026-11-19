@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1474/BP1/repair/1",
+  "case_id": "BP17-1474",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "b89b51b1ba26b1a8a8f737649b60df13e4373376ac85a6c66efe3bc054473b6a",
+  "started_utc": "2026-10-21T08:02:26.706041+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d84749b8-9437-4348-9c43-f3dbf6299d06",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<string.h>\\n#define MAX 100005\\nint n,ans[MAX],visit[MAX];\\nint main(int argc, char *argv[])\\n{\\n    int i,j;\\n    scanf(\\\"%d\\\",&n);\\n    if(n%1)\\n    {\\n        printf(\\\"-1\\\\n\\\");\\n        return 0;\\n    }\\n    memset(visit,0,sizeof(int)*(n+1));\\n    ans[n]=0;\\n    for(i=n;i>0;i--)\\n    {\\n        visit[ans[i]]=1;\\n        ans[i-1]=ans[i]>>1;\\n        if(!visit[ans[i]^1])\\n            ans[i-1]+=n>>1;\\n    }\\n    for(i=0;i<=n;i++)\\n    {\\n        if(i)\\n            printf(\\\" \\\");\\n        printf(\\\"%d\\\",ans[i]);\\n    }\\n    printf(\\\"\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 933,
+    "completion_tokens": 244,
+    "total_tokens": 1177,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 165
+  },
+  "raw_sha256": "db978cdc416873e06788d594f70fc33e3b92dd79e15da8ad383f26b225c5feb6",
+  "ended_utc": "2026-10-21T08:02:28.230345+00:00",
+  "elapsed_seconds": 1.469
+}

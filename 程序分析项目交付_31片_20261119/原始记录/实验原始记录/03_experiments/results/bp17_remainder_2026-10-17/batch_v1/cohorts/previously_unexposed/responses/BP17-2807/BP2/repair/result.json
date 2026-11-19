@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2807/BP2/repair/1",
+  "case_id": "BP17-2807",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "72a2f90a39cb728aa714e80831b7734199e672cf1a8945dd841d774f33285d63",
+  "started_utc": "2026-11-16T17:26:39.828215+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1a24e6e5-c3e5-4df9-8274-37da286cecb5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,m,b,g,i=0,x,j=0;\\n    scanf(\\\"%d%d\\\",&n,&m);\\n\\n    int B[100]={0},G[100]={0};\\n\\n    scanf(\\\"%d\\\",&b);\\n    for(i=0;i<b;i++){\\n        scanf(\\\"%d\\\",&x);\\n        B[x]=1;\\n    }\\n\\n    scanf(\\\"%d\\\",&g);\\n    for(i=0;i<g;i++){\\n        scanf(\\\"%d\\\",&x);\\n        G[x]=1;\\n    }\\n\\n    for(i=0;i<m*n;i++){\\n        if(B[i%n]==0&&G[i%m]==1) B[i%n]=1;\\n        else if(B[i%n]==1&&G[i%m]==0) G[i%m]=1;\\n    }\\n\\n    for(i=0;i<n&&B[i];i++);\\n    for(j=0;j<m&&G[j];j++);\\n\\n    if(i==n&&j==m)printf(\\\"Yes\\\\n\\\");\\n    else printf(\\\"No\\\\n\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1728,
+    "completion_tokens": 301,
+    "total_tokens": 2029,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 832
+  },
+  "raw_sha256": "f2a755a64ae93515b7abb06f53d038c1c38f472369e596464358dc14786a0320",
+  "ended_utc": "2026-11-16T17:26:42.065428+00:00",
+  "elapsed_seconds": 2.2346
+}

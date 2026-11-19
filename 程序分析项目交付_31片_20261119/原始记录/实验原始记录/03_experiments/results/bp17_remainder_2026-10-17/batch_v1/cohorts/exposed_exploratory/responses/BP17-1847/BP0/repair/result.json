@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1847/BP0/repair/1",
+  "case_id": "BP17-1847",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "d369b51d8c7461ad30d1c3635230b0de72734e5abe05e2f9b89f337912cf5996",
+  "started_utc": "2026-10-17T08:49:33.181949+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "ac337123-a6ff-4641-be8e-66b582bb0561",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n//256megabytes=256000000bytes\\n//256megabytes=256000000bytes\\n//因为所有字母都不相同，所以最多有26个字母加一个|\\n#define N 13+1\\nint main(int argc, char *argv[]) {\\n\\t//因为最后左右两个字符串是需要相同的所以保持两个相同是必要的！\\n\\tchar left[N];\\n\\tint nleft=0;\\n\\twhile(1){\\n\\t\\tchar weight=getchar();\\n\\t\\tif(weight=='|')break;\\n\\t\\telse {\\n\\t\\t\\tleft[nleft]=weight;\\n\\t\\t\\tif(nleft==N-2){\\n\\t\\t\\t\\tprintf(\\\"我申请的内存不够\\\\n\\\");\\n\\t\\t\\t}\\n\\t\\t\\tnleft++;\\n\\t\\t}\\n\\t}\\n\\tleft[nleft]='\\\\0';\\n\\n\\tchar right[N];\\n\\tint nright=0;\\n\\twhile(1){\\n\\t\\tchar weight=getchar();\\n\\t\\tif(weight=='\\\\n')break;\\n\\t\\telse {\\n\\t\\t\\tright[nright]=weight;\\n\\t\\t\\tif(nright==N-2){\\n\\t\\t\\t\\tprintf(\\\"我申请的内存不够\\\\n\\\");\\n\\t\\t\\t}\\n\\t\\t\\tnright++;\\n\\t\\t}\\n\\t}\\n\\tright[nright]='\\\\0';\\n\\n\\n\\twhile(1){\\n\\t\\tchar weight=getchar();\\n\\t\\tif(weight=='\\\\n' || weight==EOF)break;\\n\\t\\telse {\\n\\t\\t\\tif(nleft>=nright){\\n\\t\\t\\t\\tright[nright]=weight;\\n\\t\\t\\t\\tif(nright==N-2){\\n\\t\\t\\t\\t\\tprintf(\\\"我申请的内存不够\\\\n\\\");\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tnright++;\\n\\t\\t\\t}else if(nleft<nright){\\n\\t\\t\\t\\tleft[nleft]=weight;\\n\\t\\t\\t\\tif(nleft==N-2){\\n\\t\\t\\t\\t\\tprintf(\\\"我申请的内存不够\\\\n\\\");\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tnleft++;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tleft[nleft]='\\\\0';\\n\\tright[nright]='\\\\0';\\n\\tif(nleft==nright){\\n\\t\\tprintf(\\\"%s|%s\\\\n\\\",left,right);\\n\\t}else{\\n\\t\\tprintf(\\\"Impossible\\\\n\\\");\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1448,
+    "completion_tokens": 580,
+    "total_tokens": 2028,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1448
+  },
+  "raw_sha256": "6e35d1dc7cb40aa5b40e547e26addb9db3392ff39e73e1f737206f480ae7bec3",
+  "ended_utc": "2026-10-17T08:49:35.380415+00:00",
+  "elapsed_seconds": 2.141
+}

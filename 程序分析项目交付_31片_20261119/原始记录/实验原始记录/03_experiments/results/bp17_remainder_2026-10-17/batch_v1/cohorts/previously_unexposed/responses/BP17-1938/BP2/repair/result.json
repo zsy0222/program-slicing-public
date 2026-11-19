@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1938/BP2/repair/1",
+  "case_id": "BP17-1938",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "eadc9be3c456b706cf9ace283dbd1ad2a1c25c9282b43cf0e116936ea14c4a79",
+  "started_utc": "2026-11-16T18:20:22.015640+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f6b421af-64fb-42da-a6ae-03793bd5715d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n    int i, d, sumTime, minTime[30], maxTime[30];\\n    scanf(\\\"%d %d\\\", &d, &sumTime);\\n\\n\\n    int minst[30], maxst[30], Maxst = 0, Minst = 0, realList[30];\\n    for (i = 0; i < d; i++) {\\n        scanf(\\\"%d %d\\\", &minTime[i], &maxTime[i]);\\n        Minst += minTime[i];\\n        Maxst += maxTime[i];\\n        minst[i] = Minst;\\n        maxst[i] = Maxst;\\n    }\\n\\n    if (sumTime >= Minst && sumTime <= Maxst) {\\n        printf(\\\"YES\\\\n\\\");\\n\\n        for (i = d-1; i > 0; i--) {\\n            int stage = maxTime[i];\\n            while (sumTime - stage < minst[i-1]) {\\n                stage--;\\n            }\\n            sumTime -= stage;\\n            realList[i] = stage;\\n        }\\n        realList[0] = sumTime;\\n\\n        for (i = 0; i < d; i++)\\n            printf(\\\"%d \\\", realList[i]);\\n        printf(\\\"\\\\n\\\");\\n    } else\\n            printf(\\\"NO\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1777,
+    "completion_tokens": 347,
+    "total_tokens": 2124,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1777
+  },
+  "raw_sha256": "86749f35c6b0d2a246740f6d717dfee7cb56c3a4e1d78f841ffa191a605fbfb3",
+  "ended_utc": "2026-11-16T18:20:24.335673+00:00",
+  "elapsed_seconds": 2.317
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1439/BP1/repair/1",
+  "case_id": "BP17-1439",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "665533e067a334775f2a050016f1938b5ea9ccf088b691d1ac9d372d3b823321",
+  "started_utc": "2026-10-21T08:00:53.359511+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "590c6060-0e85-49c8-8d0c-f5db8cd7a4e3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\ntypedef long long ll;\\n#define MOD 1000000007\\nll dp[1000100];\\n\\nint main(int argc, char *argv[]) {\\n    int n,two,i,a;\\n    ll r;\\n    scanf(\\\"%d\\\",&n);\\n    for(i=two=0;i<n;i++) scanf(\\\"%d\\\",&a),two+=a==1;\\n    dp[1]=1; dp[2]=2; dp[3]=4;\\n    for(i=4;i<=n;i++) dp[i]=(dp[i-1]+(i-1LL)*dp[i-2])%MOD;\\n    r=dp[two];\\n    for(i=two+1;i<=n;i++) r=(r*i)%MOD;\\n    printf(\\\"%lld\\\\n\\\",r);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 898,
+    "completion_tokens": 203,
+    "total_tokens": 1101,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 898
+  },
+  "raw_sha256": "156cdd5201b150ac40ac9342745a1a077a735043e4934cfa13ab59a5b66fa93f",
+  "ended_utc": "2026-10-21T08:00:55.059244+00:00",
+  "elapsed_seconds": 1.703
+}

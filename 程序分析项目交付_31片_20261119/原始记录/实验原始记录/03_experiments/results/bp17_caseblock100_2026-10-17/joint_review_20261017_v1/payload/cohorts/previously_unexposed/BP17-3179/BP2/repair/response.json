@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3179",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdbool.h>\\n\\n#define MAX 102\\n#define LIM 303\\n#define clr(ar) memset(ar, 0, sizeof(ar))\\n#define read() freopen(\\\"lol.txt\\\", \\\"r\\\", stdin)\\n\\nbool visited[MAX][MAX][LIM][2];\\nint n, t, counter[1010], ar[MAX], dp[MAX][MAX][LIM][2];\\n\\nint F(int i, int l, int r, int flag){\\n    if (i > n){\\n        if (r == t || r == LIM){\\n            if (!flag) return (counter[ar[l]] * (t - r));\\n            else return 0;\\n        }\\n        else return F(0, l, r + 1, flag);\\n    }\\n    if (visited[i][l][r][flag]) return dp[i][l][r][flag];\\n\\n    int x, res = F(i + 1, l, r, flag);\\n    if (ar[i] >= ar[l]){\\n        x = 1 + F(i + 1, i, r, flag);\\n        if (x > res) res = x;\\n    }\\n    if (!flag && t > LIM){\\n        x = F(i, l, r, 1) + (counter[ar[l]] * (t - LIM));\\n        if (x > res) res = x;\\n    }\\n\\n    visited[i][l][r][flag] = true;\\n    return (dp[i][l][r][flag] = res);\\n}\\n\\nint main(int argc, char *argv[]){\\n    int i, j, k;\\n\\n    while (scanf(\\\"%d %d\\\", &n, &t) != EOF){\\n        if (!n) break;\\n\\n        ar[0] = 0;\\n        clr(counter);\\n        for (i = 1; i <= n; i++){\\n            scanf(\\\"%d\\\", &ar[i]);\\n            counter[ar[i]]++;\\n        }\\n\\n        clr(visited);\\n        int res = F(1, 0, 1, 0);\\n        printf(\\\"%d\\\\n\\\", res);\\n    }\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 2.109,
+  "ended_utc": "2026-10-17T07:08:34.048433+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3179/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "733f1d4c3a06d7f9691db16ce16ce63dbd216ecf3d076371915f5f4255f490a6",
+  "request_model": "deepseek-flash",
+  "request_sha256": "36985325ea4353f0a1317caca2b132d9ab60a86ac698b0c31d543cc02346da62",
+  "response_id": "23e622b5-5146-4137-8d19-4202ada294d2",
+  "started_utc": "2026-10-17T07:08:31.837395+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 531,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2138,
+    "prompt_tokens": 2138,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2669
+  }
+}

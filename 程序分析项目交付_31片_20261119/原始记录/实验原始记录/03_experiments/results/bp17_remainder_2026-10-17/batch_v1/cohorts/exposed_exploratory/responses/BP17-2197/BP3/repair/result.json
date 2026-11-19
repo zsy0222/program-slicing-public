@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2197/BP3/repair/1",
+  "case_id": "BP17-2197",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "5385b2aee684dbe7d521846c38f0244fa69aa97c95cbe5f1e4b7f92802b589e1",
+  "started_utc": "2026-11-16T15:54:18.224763+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dce4b79e-3b8f-4357-86ef-4645383b9793",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n  int main(int argc, char *argv[]) {\\n  int sum, limit, arr[1000000], i, k = 0, j;\\n  scanf(\\\"%d %d\\\", &sum, &limit);\\n  for(i = 1 ; sum && i <= limit ; i <<= 1) {\\n      for(j = i ; j <= limit ; j += i*2) {\\n          if(sum)\\n              if(sum&j || j+i*2 <= limit) {\\n                  arr[k++] = j;  \\n                  sum -= i; \\n               }\\n      }\\n  }\\n  if(sum)\\n      printf(\\\"-1\\\");\\n  else {\\n      printf(\\\"%d\\\\n\\\",k); \\n      for(i = 0 ; i < k ; i++)\\n          printf(\\\"%d \\\",arr[i]);\\n  }  \\n  return 0;\\n  }\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2846,
+    "completion_tokens": 215,
+    "total_tokens": 3061,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432
+    },
+    "prompt_cache_hit_tokens": 2432,
+    "prompt_cache_miss_tokens": 414
+  },
+  "raw_sha256": "fbcaff49676ae07648a163e2bc8d9d87464ee0f750485a8489ef27c30531b992",
+  "ended_utc": "2026-11-16T15:54:20.326158+00:00",
+  "elapsed_seconds": 2.0991
+}

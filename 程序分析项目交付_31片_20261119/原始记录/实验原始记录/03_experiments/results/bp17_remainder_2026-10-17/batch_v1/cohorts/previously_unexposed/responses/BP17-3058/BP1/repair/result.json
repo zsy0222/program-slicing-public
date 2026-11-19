@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3058/BP1/repair/1",
+  "case_id": "BP17-3058",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "4bfef7bf1d9c5998f577ab8064a701353ea9a42cfe18ce883b62556ec4700dc9",
+  "started_utc": "2026-10-17T13:11:30.922736+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5d93378a-c896-4e18-874f-c1deea7f6f6f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[]){\\n    char str[][1000]={\\\"ABSINTH\\\", \\\"BEER\\\", \\\"BRANDY\\\", \\\"CHAMPAGNE\\\", \\\"GIN\\\", \\\"RUM\\\", \\\"SAKE\\\", \\\"TEQUILA\\\", \\\"VODKA\\\", \\\"WHISKEY\\\", \\\"WINE\\\"};\\n    int n,cnt=0,p=0,i,j;\\n    char t[10000];\\n    scanf(\\\"%d\\\",&n);\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%s\\\",t);\\n        if(t[0]>='0'&&t[0]<='9'){\\n            p=0;\\n            for(j=0;j<strlen(t);j++){\\n                p=p*10+t[j]-'0';\\n            }\\n            if(p<18) cnt+=1;\\n        }\\n        else{\\n            for(j=0;j<11;j++){\\n                if(strcmp(str[j],t)==0){\\n                    cnt+=1;\\n                    break;\\n                }\\n            }\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",cnt);\\n    return 0;\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1000,
+    "completion_tokens": 285,
+    "total_tokens": 1285,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 232
+  },
+  "raw_sha256": "ea08b3263261bd5ad1946ea4d1724af654b5d59d6fefcb85d4ccafb949e38909",
+  "ended_utc": "2026-10-17T13:11:32.788966+00:00",
+  "elapsed_seconds": 1.782
+}

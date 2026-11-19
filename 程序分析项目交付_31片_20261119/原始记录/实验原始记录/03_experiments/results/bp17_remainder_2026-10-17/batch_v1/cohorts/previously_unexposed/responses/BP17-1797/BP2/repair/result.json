@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1797/BP2/repair/1",
+  "case_id": "BP17-1797",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "6bef163dd5d996c20327d67b8d705fd0160cc1b1cf2626351b000deb1285e538",
+  "started_utc": "2026-11-18T03:07:39.689341+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "defd491d-5b36-4f14-afca-8547411e5130",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint cmpfunc (const void * a, const void * b)\\n{\\n\\t   return ( *(int*)a - *(int*)b );\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint k,n,a[500004],i;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tfor(i=0;i<n;i++)\\n\\t\\tscanf(\\\"%d\\\",&a[i]);\\n\\tqsort(a,n,sizeof(int),cmpfunc);\\n\\tint j=n;\\n\\tint m=0;\\n\\tint c=0;\\n\\tif(n%2==0)\\n\\t{\\n\\t\\tfor(i=n/2;i<n;i++)\\n\\t\\t{\\n\\t\\t\\tif(a[i]>=2*a[m])\\n\\t\\t\\t{\\n\\t\\t\\t\\tm++;\\n\\t\\t\\t\\tj--;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tfor(i=(n/2)+1;i<n;i++)\\n\\t\\t{\\n\\t\\t\\tif(a[i]>=2*a[m])\\n\\t\\t\\t{\\n\\t\\t\\t\\tm++;\\n\\t\\t\\t\\tj--;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\n\\n\\tprintf(\\\"%d\\\\n\\\",j);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1653,
+    "completion_tokens": 318,
+    "total_tokens": 1971,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1653
+  },
+  "raw_sha256": "d645d557c05344ef258a8456365d29c1479aa1b81c66f5be56d5a9e34b1c955f",
+  "ended_utc": "2026-11-18T03:07:42.038925+00:00",
+  "elapsed_seconds": 2.3097
+}

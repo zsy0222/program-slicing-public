@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0505/BP0/repair/1",
+  "case_id": "BP17-0505",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "72af21d7b6a34d5b17318edfe67a65398ab69d8326ef3a1f445ef055aca8ab65",
+  "started_utc": "2026-11-16T04:45:58.621256+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "711c4163-8fe8-43db-a549-4302fc35085c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\ntypedef struct {\\n     int c;\\n     int i;\\n} item;\\n\\nint cmp(const void *a, const void *b)\\n{\\n     return ((item *)a)->c - ((item *)b)->c;\\n}\\n\\nint d[1000][1000];\\n\\nint main(int argc, char *argv[])\\n{\\n     int n, k, p = 0, q = 0, i, j;\\n     double sum = 0;\\n     item a[1000], b[1000];\\n     int c[1000] = {0};\\n\\n     scanf(\\\"%d %d\\\", &n, &k);\\n\\n     for (i = 0; i < n; i++) {\\n\\t  int x, y;\\n\\n\\t  scanf(\\\"%d %d\\\", &x, &y);\\n\\n\\t  if (y == 1) {\\n\\t       a[p].c = x;\\n\\t       a[p++].i = i + 1;\\n\\t  } else {\\n\\t       b[q].c = x;\\n\\t       b[q++].i = i + 1;\\n\\t  }\\n\\n\\t  sum += x;\\n     }\\n\\n     qsort(a, p, sizeof(item), cmp);\\n     qsort(b, q, sizeof(item), cmp);\\n\\n     for (i = 0; i < p && i < k; i++) {\\n\\t  d[i][c[i]++] = a[p - i - 1].i;\\n\\n\\t  if (i < k - 1) sum -= a[p - i - 1].c / 2.0;\\n     }\\n\\n     for (; i < p; i++) {\\n\\t  d[k - 1][c[k - 1]++] = a[p - i - 1].i;\\n     }\\n\\n     for (i = 0; i < q; i++) {\\n\\t  if (c[k - i - 1] == 0) {\\n\\t       d[k - i - 1][c[k - i - 1]++] = b[i].i;\\n\\t  } else {\\n\\t       d[k - 1][c[k - 1]++] = b[i].i;\\n\\t  }\\n     }\\n\\n     if (p >= k) {\\n\\t  int m = a[0].c;\\n\\n\\t  if (q > 0 && b[0].c < m) m = b[0].c;\\n\\n\\t  sum -= m / 2.0;\\n     }\\n\\n     printf(\\\"%.1lf\\\\n\\\", sum);\\n\\n     for (i = 0; i < k; i++) {\\n\\t  printf(\\\"%d\\\", c[i]);\\n\\n\\t  for (j = 0; j < c[i]; j++) printf(\\\" %d\\\", d[i][j]);\\n\\n\\t  puts(\\\"\\\");\\n     }\\n\\n     return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1555,
+    "completion_tokens": 700,
+    "total_tokens": 2255,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 147
+  },
+  "raw_sha256": "b32cc69c4277822a13d02fc0cc12da5334f2033abc609055fbaebef845737851",
+  "ended_utc": "2026-11-16T04:46:01.923031+00:00",
+  "elapsed_seconds": 3.1966
+}

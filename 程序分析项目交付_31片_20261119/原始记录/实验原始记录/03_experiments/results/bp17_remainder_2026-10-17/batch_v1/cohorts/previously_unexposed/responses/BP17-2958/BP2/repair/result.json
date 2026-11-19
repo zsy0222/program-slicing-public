@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2958/BP2/repair/1",
+  "case_id": "BP17-2958",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "47e27734923038749b4171992d81708356c8891f99d249ac8355935030ba90ac",
+  "started_utc": "2026-11-16T16:33:27.028339+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c4857528-c791-4b7c-b577-b6bf6de314a9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<string.h>\\n#include<stdio.h>\\n#include<stdlib.h>\\n#include<time.h>\\n#include<math.h>\\n#include<ctype.h>\\n\\n#define MAX( a, b ) ( ( a > b) ? a : b ) \\n#define MIN( a, b ) ( ( a < b) ? a : b )\\n#define FOR(ii,aa,bb) for(ii=aa;ii<bb;ii++)\\n#define and &&\\n#define or ||\\nint a[100000],f=0;\\nvoid sort(int bas,int ort,int son){\\n  int s=0,m,b,temp[1000000],i;\\n  b=bas;\\n  m=ort+1;\\n  f=1;\\n  while((b<=ort) && (m<=son))\\n    if(a[b]<a[m])\\n    temp[s++] = a[b++];\\n    else\\n    temp[s++] = a[m++];\\n  while((b<=ort))\\n   temp[s++] = a[b++];\\n  while((m<=son))\\n    temp[s++] = a[m++];\\n  for(i=0; i<s; i++)\\n    a[bas+i] = temp[i];\\n}\\n\\n\\nvoid merg(int bas,int son){\\n  if(son<=bas)\\n  return;\\n  int ort=(bas+son)/2;\\n  merg(bas,ort);\\n  merg(ort+1,son);\\n  sort(bas,ort,son);}\\nint main(int argc, char *argv[]) {\\n\\nlong long int x=0,s=0,i,j,n;\\nscanf(\\\"%lld\\\",&n);\\nFOR(i,0,n)\\n  scanf(\\\"%d\\\",&a[i]);\\nmerg(0,n-1);\\nFOR(i,0,n){\\n\\tif(x<=a[i])\\n\\t\\ts++;\\n\\tx+=a[i];}\\nprintf(\\\"%lld\\\\n\\\",s);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2103,
+    "completion_tokens": 459,
+    "total_tokens": 2562,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 951
+  },
+  "raw_sha256": "dc3cd645cb2e24c2925227718440fed0af524b2ab679e51b263f73f452f6290e",
+  "ended_utc": "2026-11-16T16:33:29.678914+00:00",
+  "elapsed_seconds": 2.6479
+}

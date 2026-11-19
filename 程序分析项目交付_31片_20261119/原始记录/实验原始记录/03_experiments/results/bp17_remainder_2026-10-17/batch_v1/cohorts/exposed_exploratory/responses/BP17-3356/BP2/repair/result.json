@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3356/BP2/repair/1",
+  "case_id": "BP17-3356",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "7bcb6fa2e9d7e85433e546b4a8d06d614d8aa5d419c1d9800c6b8e8f754df637",
+  "started_utc": "2026-11-16T16:47:07.421486+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8189a12b-6eaf-4938-aa54-e68ca3b33505",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <ctype.h>\\n\\nint main(int argc, char *argv[]) {\\n    int restaurants[100][100];\\n    int numStreets, numAlleys;\\n    int i = 0, j = 0;\\n    int min = -1, curMin = -1, minRow = -1;\\n    \\n    fscanf(stdin, \\\"%d\\\", &numStreets);\\n    fscanf(stdin, \\\"%d\\\", &numAlleys);\\n    \\n    for(i = 0; i < numStreets; i++) {\\n        for(j = 0; j < numAlleys; j++) {\\n            fscanf(stdin, \\\"%d\\\", &restaurants[i][j]);\\n        }\\n    }\\n    \\n    for(i = 0; i < numStreets; i++) {\\n        curMin = -1;\\n        for(j = 0; j < numAlleys; j++) {\\n            if(curMin == -1) {\\n                curMin = restaurants[i][j];\\n            }\\n            else {\\n                if(restaurants[i][j]<curMin) {\\n                    curMin = restaurants[i][j];\\n                }\\n            }\\n        }\\n        if(min == -1) {\\n            min = curMin;\\n            minRow = i;\\n        }\\n        else {\\n            if(curMin > min) {\\n                min = curMin;\\n                minRow = i;\\n            }\\n        }\\n    }\\n    \\n    curMin = -1;\\n    for(j = 0; j < numAlleys; j++) {\\n        if(curMin == -1) {\\n            curMin = restaurants[minRow][j];\\n        }\\n        else {\\n            if(restaurants[minRow][j] < curMin) {\\n                curMin = restaurants[minRow][j];\\n            }\\n        }\\n    }\\n    \\n    fprintf(stdout, \\\"%d\\\\n\\\", curMin);\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1966,
+    "completion_tokens": 474,
+    "total_tokens": 2440,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 814
+  },
+  "raw_sha256": "0463feced9e7c4e1d4881a11c6b59de623cdcedb91fc1dc5840134c4613f95a8",
+  "ended_utc": "2026-11-16T16:47:09.856663+00:00",
+  "elapsed_seconds": 2.3742
+}

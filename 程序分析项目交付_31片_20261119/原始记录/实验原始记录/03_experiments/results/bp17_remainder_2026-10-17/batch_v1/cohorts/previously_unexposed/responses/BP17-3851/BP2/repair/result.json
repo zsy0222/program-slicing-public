@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3851/BP2/repair/1",
+  "case_id": "BP17-3851",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "75246592b723e5444bfbea9ce370575a4a44b929d9a892d010f69fe1e40c82a2",
+  "started_utc": "2026-11-16T18:33:46.510363+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3087b01e-5cc2-4f7c-86b6-8c091e4bd612",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <float.h>\\n#include <math.h>\\n#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[]) {\\n\\tint i, n, vb, vs;\\n\\tint *x;\\n\\tint xu, yu;\\n\\tint imin;\\n\\tdouble min, t;\\n\\n\\tscanf(\\\"%d%d%d\\\", &n, &vb, &vs);\\n\\tx = malloc(sizeof(int) * n);\\n\\tfor (i = 0; i < n; i++)\\n\\t\\tscanf(\\\"%d\\\", &x[i]);\\n\\tscanf(\\\"%d%d\\\", &xu, &yu);\\n\\tmin = DBL_MAX;\\n\\tfor (i = 1; i < n; i++) {\\n\\t\\tt = (double) x[i] / vb + hypot(yu, x[i] - xu) / vs;\\n\\n\\t\\tif (min > t) {\\n\\t\\t\\timin = i + 1;\\n\\t\\t\\tmin = t;\\n\\t\\t} else if (min == t\\n\\t\\t\\t\\t&& hypot(yu, x[i] - xu) < hypot(yu, x[imin - 1] - xu)) {\\n\\t\\t\\timin = i + 1;\\n\\t\\t\\tmin = t;\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\", imin);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1496,
+    "completion_tokens": 330,
+    "total_tokens": 1826,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1496
+  },
+  "raw_sha256": "42ac4c1238f1ede317187bb38ae9cfc8270d0fc7c7ef1b8c9f508d17649b61ca",
+  "ended_utc": "2026-11-16T18:33:48.900850+00:00",
+  "elapsed_seconds": 2.3864
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2127/BP1/repair/1",
+  "case_id": "BP17-2127",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "6ab73b8df460fa62a0f35dc3a61417f714f1c6452046934a1fc6f1d07170fe6e",
+  "started_utc": "2026-11-16T04:49:42.582130+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "009c4817-0f44-489e-a222-398e319c4725",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n//#include<conio.h>\\nint main(int argc, char *argv[])\\n{\\n int n,m,mid,i,temp1,temp2,found=0,j,count=0,ans=0;\\n int str[105][105];\\n// printf(\\\"enter the value of n and m:\\\");\\n scanf(\\\"%d %d\\\",&n,&m);\\n for(i=1;i<=n;i++)\\n {\\n  for(j=1;j<=m;j++)\\n   scanf(\\\"%d\\\",&str[i][j]);\\n }\\n ans=n;\\n if(n%2==1)\\n  mid=n;\\n else\\n {\\n  do\\n  {\\n   mid=ans/2;\\n   temp1=mid;\\n   temp2=mid+1;\\n   found=0;\\n   for(i=1;i<=mid && found==0 && mid>0;i++)\\n   {\\n    count=0;\\n    for(j=1;j<=m;j++)\\n    {\\n     if(str[temp1][j]==str[temp2][j])\\n     {\\n      count++;\\n//      printf(\\\"count=%d\\\\n\\\",count);\\n     }\\n    }\\n    if(count==m)\\n    {\\n     temp1--;\\n     temp2++;\\n    }\\n    else\\n     found=1;\\n   }\\n   if(found==0 && mid>0)\\n   {\\n//    printf(\\\"it comes here\\\\n\\\");\\n    ans=mid;\\n   }\\n   if(ans%2==1)\\n    break;\\n  }while(found<=0 && mid>=1);\\n }\\n printf(\\\"%d\\\",ans);\\n// getch();\\n// clrscr();\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1211,
+    "completion_tokens": 418,
+    "total_tokens": 1629,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1211
+  },
+  "raw_sha256": "50cbc80ac5335a5f9b4a5f7f4b23ad929c24df3a69217b5c16aaf5966ebca893",
+  "ended_utc": "2026-11-16T04:49:44.732787+00:00",
+  "elapsed_seconds": 2.0847
+}

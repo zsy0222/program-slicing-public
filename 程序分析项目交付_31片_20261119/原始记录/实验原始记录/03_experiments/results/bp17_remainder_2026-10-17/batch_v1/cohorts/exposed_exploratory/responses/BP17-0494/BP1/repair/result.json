@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0494/BP1/repair/1",
+  "case_id": "BP17-0494",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e5ddbccad3edb0c2204df6d472a057b397984e70e6f1f6dc0602910ebb00601f",
+  "started_utc": "2026-11-16T05:39:07.238064+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "98a07642-7fdd-4b43-94af-5856b0667715",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<string.h>\\n#include<math.h>\\n#include<ctype.h>\\n\\n#define N 112\\n\\nint a[N];\\n\\nint gett( )\\n{\\n  char s[1000], c;\\n  int x, y;\\n  gets( s );\\n  sscanf( s, \\\"[%d:%d \\\", &x, &y );\\n  c = s[7];\\n  if (x!=12)\\n  {\\n    if (c=='p') x += 12;\\n    return( x*100+y );\\n  }\\n  if (c=='a') x-=12;\\n  return(x*100+y);\\n}\\n  \\n\\nint main(int argc, char *argv[])\\n{\\n  int i, o, p, j, k, n, m;\\n  char s[100];\\n  scanf( \\\"%d\\\", &n ); gets( s );\\n  p = 1; k = 0;\\n  for (i=0;i<n;++i)\\n  {\\n    a[i] = gett();\\n    if (i>=1)\\n    {\\n      if (a[i]>a[i-1]) {k=0;continue;}\\n      if (a[i]<a[i-1])\\n      {\\n        ++p; k = 0;\\n        continue;\\n      }\\n      if (a[i]==a[i-1])\\n      {\\n        if (k<9)\\n        {\\n          ++k; continue;\\n        }\\n        else\\n        {\\n          k = 0; p++;\\n        }\\n      }\\n    }\\n  }\\n  printf( \\\"%d\\\\n\\\", p );\\n  return 0;\\n} \\n\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1483,
+    "completion_tokens": 418,
+    "total_tokens": 1901,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 203
+  },
+  "raw_sha256": "125001f8f8e95cb21ff325337aac8d813d557b4d2f3f957fee9efaba02950b15",
+  "ended_utc": "2026-11-16T05:39:09.895158+00:00",
+  "elapsed_seconds": 2.6541
+}

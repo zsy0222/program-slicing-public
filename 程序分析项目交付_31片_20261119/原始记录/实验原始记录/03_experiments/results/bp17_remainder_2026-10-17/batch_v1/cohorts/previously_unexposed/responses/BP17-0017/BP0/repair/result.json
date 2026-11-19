@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0017/BP0/repair/1",
+  "case_id": "BP17-0017",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "0cd6e04c9df943547090304713295d2ddfb3bce5e3bc34e639aa33caf77aa976",
+  "started_utc": "2026-10-17T08:15:48.393292+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f41c9a52-91b7-46e4-96ae-405cb7b81b55",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint a[100005];\\nint b[105][105];\\nint n,i,j,k,x,ans,m;\\nint main(int argc, char *argv[])\\n{\\nint hi ;\\nans = 40000000;\\nint n;\\nscanf(\\\"%d%d\\\",&n,&m);\\nfor(i=1;i<=n;i++)\\nscanf(\\\"%d\\\",&a[i]);\\nint x,y;\\nfor(i=0;i<m;i++)\\n{\\nscanf(\\\"%d%d\\\",&x,&y);\\nif(x>=1&&x<=n&&y>=1&&y<=n){b[x][y] = 1;b[y][x] = 1;}\\n}\\nhi = ans;\\n\\nfor(i=1;i<=n;i++)\\nfor(j=i+1;j<=n;j++)\\nfor(k=j+1;k<=n;k++)\\n{\\nif(b[i][j] && b[j][k] && b[k][i]){\\nx = a[i] + a[j] + a[k];\\nif(x<ans)ans = x;}\\n}\\nif(ans==hi)ans = -1;\\nprintf(\\\"%d\\\\n\\\",ans);\\n\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 947,
+    "completion_tokens": 292,
+    "total_tokens": 1239,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 179
+  },
+  "raw_sha256": "3f38096446ce668b4e5e2b97d50f8211760ad0ac570855381f60ac5832d6e60f",
+  "ended_utc": "2026-10-17T08:15:50.104559+00:00",
+  "elapsed_seconds": 1.64
+}

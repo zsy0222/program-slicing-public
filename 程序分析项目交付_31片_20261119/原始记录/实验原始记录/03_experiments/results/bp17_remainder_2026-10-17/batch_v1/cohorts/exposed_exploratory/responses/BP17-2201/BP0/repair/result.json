@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2201/BP0/repair/1",
+  "case_id": "BP17-2201",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "afd58baedce43f8ccf614e98707a57c6ad188c2b135746fd415f43517093de98",
+  "started_utc": "2026-10-17T13:55:24.395636+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "26536a7d-660e-41dc-80f5-2346fbbc6071",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint result[25];\\nint num ;\\n\\nvoid solve(int sum,int limit,int grade,int code)\\n{\\n\\tif(sum == 0||grade==0)\\n\\t\\treturn ;\\n\\tint t = code*grade ;\\n\\tif(sum>=grade&&t<=limit)\\n\\t{\\n\\t\\tresult[num] = t ;\\n\\t\\tnum++ ;\\n\\t\\tcode += 2 ;\\n\\t\\tsum = sum-grade ;\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tgrade = grade/2 ;\\n\\t\\tcode = 1 ;\\t\\n\\t}\\n\\tsolve(sum,limit,grade,code) ;\\t\\n\\treturn ;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint sum,limit ,i;\\n\\tint mm,copy,max;\\n\\tint x,xnum ;\\n\\twhile(scanf(\\\"%d%d\\\",&sum,&limit)!=EOF)\\n\\t{\\n\\t\\tnum = 0 ;\\n\\t\\tmm = 1 ;\\n\\t\\tcopy = limit ;\\n\\t\\tmax = 0 ;\\n\\t\\twhile(copy)\\n\\t\\t{\\n\\t\\t\\tmm = copy&(-copy) ;\\n\\t\\t\\tx = mm ;\\n\\t\\t\\txnum = 0 ;\\n\\t\\t\\twhile(x>1)\\n\\t\\t\\t{\\n\\t\\t\\t\\txnum++ ;\\n\\t\\t\\t\\tx = x>>1 ;\\n\\t\\t\\t}\\n\\t\\t\\tmax += mm/2*xnum+mm ;\\n\\t\\t\\tcopy -= mm ;\\n\\t\\t}\\n\\t\\tif(sum>max)\\n\\t\\t{\\n\\t\\t\\t\\tprintf(\\\"%d\\\\n\\\",-1);\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tsolve(sum,limit,mm,1);\\n\\t\\t\\tprintf(\\\"%d\\\\n\\\",num);\\n\\t\\t\\tfor(i=0;i<num-1;i++)\\n\\t\\t\\t\\tprintf(\\\"%d \\\",result[i]);\\n\\t\\t\\tprintf(\\\"%d\\\\n\\\",result[i]);\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2827,
+    "completion_tokens": 507,
+    "total_tokens": 3334,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2827
+  },
+  "raw_sha256": "a9607d024c2e59d22108ebdfe06ec2ea2d85a537872531ab1bfbff016053857e",
+  "ended_utc": "2026-10-17T13:55:26.831595+00:00",
+  "elapsed_seconds": 2.422
+}

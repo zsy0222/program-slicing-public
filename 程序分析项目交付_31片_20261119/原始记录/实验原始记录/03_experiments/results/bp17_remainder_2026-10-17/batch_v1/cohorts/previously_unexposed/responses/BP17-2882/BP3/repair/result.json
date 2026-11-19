@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2882/BP3/repair/1",
+  "case_id": "BP17-2882",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "92eb1a9684d03a29e6bff31a83cfd055519283767f9e3df66d2475c22a9729e0",
+  "started_utc": "2026-11-16T17:36:50.262549+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "519c7f97-31ae-4cc3-af24-ff31fbe2089b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define MAX(x, y) (((x) > (y)) ? (x) : (y))\\nint main(int argc, char *argv[])\\n{\\n    long long int a,b,c,d,move,move_p,move_v;\\n    scanf(\\\"%lld %lld %lld %lld\\\",&a,&b,&c,&d);\\n    if(a<=c&&b<=d)printf(\\\"Polycarp\\\");\\n    else if((a<c&&b>d)||(a>c&&b<d)||(a>c&&b>d)){\\n        move_p=a+b;\\n        move_v=MAX(c,d);\\n        if(move_p<=move_v)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n    else if(a==c&&b<d){\\n        move=d-b;\\n        a-=move;\\n        c-=move;\\n        d-=move;\\n        if(a<=c&&b<=d)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n     else if(a<c&&b==d){\\n        move=c-a;\\n        b-=move;\\n        c-=move;\\n        d-=move;\\n        if(a<=c&&b<=d)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1668,
+    "completion_tokens": 341,
+    "total_tokens": 2009,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 644
+  },
+  "raw_sha256": "81592bfd9ffbb1f3e66e4ce8c16468097354b92c2380d6d9440606cd792e71f5",
+  "ended_utc": "2026-11-16T17:36:52.495013+00:00",
+  "elapsed_seconds": 2.2301
+}

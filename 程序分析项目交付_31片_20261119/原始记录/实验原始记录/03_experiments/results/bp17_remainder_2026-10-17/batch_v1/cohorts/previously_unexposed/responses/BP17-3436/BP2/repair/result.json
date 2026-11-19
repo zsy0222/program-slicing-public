@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3436/BP2/repair/1",
+  "case_id": "BP17-3436",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "52e9bebdbe4bf6424a388a5c59135f6c4b271a288a31e1a9b31596b63708207d",
+  "started_utc": "2026-11-18T09:38:19.911232+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "314b2273-5bcf-4b51-bf61-503baf3da21d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#define MAXDIST 1000000000\\n#define MAXPUMP 200000\\n#define MAXPRICE 1000000\\ntypedef struct{\\n\\tint position, price;\\n}Strukt;\\n\\nint Median(Strukt *mat, int i, int j){\\n\\tint mid = (i + j) / 2;\\n\\tStrukt temp;\\n\\tif (mat[i].position > mat[j].position){\\n\\t\\ttemp = mat[i];\\n\\t\\tmat[i] = mat[j];\\n\\t\\tmat[j] = temp;\\n\\t}\\n\\tif (mat[mid].position > mat[j].position){\\n\\t\\ttemp = mat[mid];\\n\\t\\tmat[mid] = mat[j];\\n\\t\\tmat[j] = temp;\\n\\t}\\n\\tif (mat[i].position > mat[mid].position){\\n\\t\\ttemp = mat[mid];\\n\\t\\tmat[mid] = mat[i];\\n\\t\\tmat[i] = temp;\\n\\t}\\n\\treturn mid;\\n}\\n\\nvoid QuickSort(Strukt *mat, int i, int j){\\n\\tStrukt temp;\\n\\tint left = i, right = j, pivot;\\n\\tpivot = Median(mat, i, j);\\n\\twhile (left < right){\\n\\t\\twhile ((mat[left].position < mat[pivot].position) && (left < right))\\n\\t\\t\\tleft++;\\n\\t\\twhile ((mat[right].position > mat[pivot].position) && (left < right))\\n\\t\\t\\tright--;\\n\\t\\tif (left < right){\\n\\t\\t\\t\\ttemp = mat[left];\\n\\t\\t\\t\\tmat[left] = mat[right];\\n\\t\\t\\t\\tmat[right] = temp;\\n\\t\\t\\t\\tif (left == pivot || right == pivot){\\n\\t\\t\\t\\t\\t(pivot == left) ? (pivot = right, left++) : (pivot = left, right--);\\n\\t\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tif (pivot - i - 1 >= 1)\\n\\t\\tQuickSort(mat, i, pivot - 1);\\n\\tif (j - pivot - 1 >= 1)\\n\\t\\tQuickSort(mat, pivot + 1, j);\\n}\\n\\nlong long Greedy(Strukt *mat, long long M, long long N, long long D, long long balance, long long posind, long long minind){\\n\\tlong long areaind, i, tempind, sum=0;\\n\\twhile (mat[posind].position!=D){\\n\\t\\ti = minind;\\n\\t\\twhile ( (mat[i].position - mat[posind].position <= N) && ( (mat[i].price > mat[posind].price) ) ){\\n\\t\\t\\tif (mat[i].price <= mat[minind].price)\\n\\t\\t\\t\\tminind = i; \\n\\t\\t\\ti++;\\n\\t\\t}\\n\\t\\tif (mat[i].position - mat[posind].position <= N){\\n\\t\\t\\tif (balance >= (mat[i].position - mat[posind].position)){\\n\\t\\t\\t\\tbalance -= (mat[i].position - mat[posind].position);\\n\\t\\t\\t}\\n\\t\\t\\telse{\\n\\t\\t\\t\\tsum += (mat[i].position - mat[posind].position - balance)*mat[posind].price;\\n\\t\\t\\t\\tbalance = 0; \\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse{\\n\\t\\t\\tif (i - 1 == posind){\\n\\t\\t\\t\\treturn (-1); \\n\\t\\t\\t}\\n\\t\\t\\tsum = sum + (N - balance)*mat[posind].price;\\n\\t\\t\\tbalance = N - (mat[i].position - mat[posind].position);\\n\\t\\t\\ti = minind;\\n\\t\\t}\\n\\t\\tposind = i;\\n\\t\\tminind = i + 1;\\n\\t}\\n\\treturn sum;\\n}\\n\\nint main(int argc, char *argv[]){\\n\\tlong long D, N, M, i, x, p;\\n\\tStrukt *mat;\\n\\tlong long sum;\\n\\tdo{\\n\\t\\tscanf(\\\"%lld\\\", &D);\\n\\t} while (D<1 || D>MAXDIST);\\n\\tdo{\\n\\t\\tscanf(\\\"%lld\\\", &N);\\n\\t} while (N<1 || N>D);\\n\\tdo{\\n\\t\\tscanf(\\\"%lld\\\", &M);\\n\\t} while (M<1 || M>MAXPUMP);\\n\\tM = M + 2;\\n\\tmat = malloc(M * sizeof(Strukt));\\n\\tmat[0].position = 0;\\n\\tmat[0].price = 0;\\n\\tfor (i = 1; i < M-1; i++){\\n\\t\\tdo{\\n\\t\\t\\tscanf(\\\"%lld\\\", &x);\\n\\t\\t} while (x < 1 || x >= D);\\n\\t\\tdo{\\n\\t\\t\\tscanf(\\\"%lld\\\", &p);\\n\\t\\t} while (p<1 || p > MAXPRICE);\\n\\t\\tmat[i].position = x;\\n\\t\\tmat[i].price = p;\\n\\t}\\n\\tQuickSort(mat, 1,  M - 2);\\n\\tmat[M-1].position = D;\\n\\tmat[ M - 1].price = 0;\\n\\tsum = 0;\\n\\tif (mat[0].position > N){\\n\\t\\tsum = -1;\\n\\t}\\n\\telse{\\n\\t\\tif (D != N)\\n\\t\\t\\tsum = Greedy(mat, M, N, D, N, 0, 1);\\n\\t}\\n\\tprintf(\\\"%lld\\\\n\\\", sum);\\n\\tfree(mat);\\n\\treturn(0);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 4166,
+    "completion_tokens": 1354,
+    "total_tokens": 5520,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 4166
+  },
+  "raw_sha256": "d8837e5cf34d0a5ec5dc90d53c0786b872ec2d3e1fdc619516496b3bafb734c9",
+  "ended_utc": "2026-11-18T09:38:24.793096+00:00",
+  "elapsed_seconds": 4.8791
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3038/BP0/repair/1",
+  "case_id": "BP17-3038",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "9ce4f1cf8f9fe9d14fd6ff4807114bf86986c412845cd0ab7fe84571d88a14e4",
+  "started_utc": "2026-10-18T11:56:51.517058+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "bcb06edf-6d76-478f-a81b-e2ea4847fa4e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n,i,count=0;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tint arr[n+1];\\n\\tfor(i=1;i<=n;i++) scanf(\\\"%d\\\",&arr[i]);\\n\\tint k=n-arr[1];\\n\\tfor(i=1;i<=n;i++)\\n\\t{\\n\\t\\tif(i%2==1) arr[i]=(arr[i]+k)%n;\\n\\t\\telse arr[i]=(arr[i]-k + n)%n;\\n\\t\\tif(arr[i]!=(i-1)) \\n\\t\\t{\\n\\t\\t\\tcount=1;\\n\\t\\t\\tbreak;\\n\\t\\t}\\n\\t}\\n\\tif(count==1) printf(\\\"No\\\\n\\\");\\n\\telse printf(\\\"Yes\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 892,
+    "completion_tokens": 221,
+    "total_tokens": 1113,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 252
+  },
+  "raw_sha256": "77e38bd99b59873c276f8ff75e554312027d551aed2eaf9e9abe0d2beb449c80",
+  "ended_utc": "2026-10-18T11:56:53.281278+00:00",
+  "elapsed_seconds": 1.703
+}

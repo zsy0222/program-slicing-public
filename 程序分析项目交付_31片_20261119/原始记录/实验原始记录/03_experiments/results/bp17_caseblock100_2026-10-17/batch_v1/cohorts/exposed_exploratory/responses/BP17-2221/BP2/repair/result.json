@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2221/BP2/repair/1",
+  "case_id": "BP17-2221",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "b612e78ca624dc49456140e540ad4f89909976af0013d3baf46ad63fa86ef766",
+  "started_utc": "2026-10-17T07:09:11.642033+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "668e2b14-bf0f-458e-b032-dfddba5d2040",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"\\n#include <stdio.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[]) {\\n    char leaves[101][21]; // leaves\\n    int i, j, k, l, new, nleaves,tleaves, ncasos;\\n    char tree[11], color[11], leaf[21];\\n\\n        scanf(\\\"%d\\\",&tleaves);\\n        scanf(\\\"%s%s\\\",tree,color);\\n        strcpy(leaf,tree);\\n        strcat(leaf,\\\" \\\");\\n        strcat(leaf,color);\\n\\n        strcpy(leaves[0],leaf); /*min is 1 */\\n        nleaves = 1;\\n\\n        for (i=1;i<tleaves;i++) {\\n            scanf(\\\"%s%s\\\",tree,color);\\n            strcpy(leaf,tree);\\n            strcat(leaf,\\\" \\\");\\n            strcat(leaf,color);\\n             //printf(\\\"[%s]\\\\n\\\",&leaf);\\n\\n            new =1;\\n            for (l=0; l<nleaves; l++)\\n              if (!strcmp(leaf,leaves[l])) {\\n                  new = 0;\\n                  break;\\n                  }\\n            if (new==1) {\\n            strcpy(leaves[nleaves],leaf);\\n            nleaves++;\\n            }\\n        }\\n        //printf(\\\"nleaves=\\\");\\n        printf(\\\"%d\\\\n\\\",nleaves);\\n        return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1518,
+    "completion_tokens": 363,
+    "total_tokens": 1881,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1518
+  },
+  "raw_sha256": "697ce3f78edb4932026fb8be7f5d92407fc653ec8fbb08430c05f9d38b8aecdc",
+  "ended_utc": "2026-10-17T07:09:13.835064+00:00",
+  "elapsed_seconds": 2.188
+}

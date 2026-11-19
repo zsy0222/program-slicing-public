@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2946/BP2/repair/1",
+  "case_id": "BP17-2946",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "9dd1c15466d3a4234da809e255824e6cc56625f9d7cc8b2e609f79b9d6b83e73",
+  "started_utc": "2026-11-15T12:55:11.875750+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "43ad7d5e-5a09-4050-880c-333be27f6712",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n\\tint n,k;\\n\\tscanf(\\\"%d%d\\\",&n,&k);\\n\\t\\n\\tif(k>((n*n+1)/2)) {\\n\\t\\tprintf(\\\"NO\\\\n\\\");\\n\\t\\treturn 0;\\n\\t}\\n\\telse printf(\\\"YES\\\\n\\\");\\n\\tchar stripe[n+1],stripo[n+1];\\n\\tint i=0;\\n\\t\\n\\tfor( i=0 ; i<n ; i++){\\n\\t\\tif( i%2==0 ) {\\n\\t\\t\\tstripe[ i]='L';\\n\\t\\t\\tstripo[ i]='S';\\n\\t\\t}\\n\\t\\telse {\\n\\t\\t\\tstripe[ i]='S';\\n\\t\\t\\tstripo[ i]='L';\\n\\t\\t} \\n\\t}\\n\\tstripe[n]='\\\\0';\\n\\tstripo[n]='\\\\0';\\n\\n\\tint start=0;\\n\\tif(k==((n*n)/2)){\\n\\t\\tfor( i=0 ; i<n ; i++){\\n\\t\\t\\tif(i%2==0)printf(\\\"%s\\\\n\\\",stripe);\\n\\t\\t\\telse printf(\\\"%s\\\\n\\\",stripo );\\n\\t\\t}\\n\\t\\treturn 0;\\n\\t}\\n\\n\\tint top=( k)/( n);\\n\\tfor( i=0 ; i<top ; i++){\\t\\n\\t\\t\\tprintf(\\\"%s\\\\n\\\",stripe);\\n\\t\\t\\tprintf(\\\"%s\\\\n\\\",stripo );\\n\\t\\t\\t//start++;\\n\\t}\\n\\tint middle;\\n\\tif((k-top*n)>=((n+1)/2)) {\\n\\t\\tprintf(\\\"%s\\\\n\\\",stripe );\\n\\t\\tmiddle=k-top*n-(n+1)/2;\\n\\t\\ttop=2*top+1;\\n\\t}\\n\\telse {\\n\\t\\tmiddle=k-top*n;\\n\\t\\ttop=2*top;\\n\\t}\\n\\n\\tif(middle<=0) return 0;\\n\\tmiddle=2*middle;\\n\\tif(top%2==0){\\n\\t\\tfor(i=0;i<middle;i++){\\n\\t\\t\\tprintf(\\\"%c\\\",stripe[i]);\\n\\t\\t}\\n\\t}\\n\\telse{\\n\\t\\tfor(i=0;i<middle;i++){\\n\\t\\t\\tprintf(\\\"%c\\\",stripo[i]);\\n\\t\\t}\\n\\t}\\n\\n\\t\\n\\tfor(i=0;i<n-middle;i++) printf(\\\"S\\\");\\n\\tprintf(\\\"\\\\n\\\");\\n\\t\\n\\n\\tint bottom=n-top-1;\\n\\tfor(i=0;i<bottom;i++){\\n\\t\\tint j;\\n\\t\\tfor(j=0;j<n;j++) printf(\\\"S\\\");\\n\\t\\tprintf(\\\"\\\\n\\\");\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 7294,
+    "completion_tokens": 691,
+    "total_tokens": 7985,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 7294
+  },
+  "raw_sha256": "4c662d9a23b0012880d48892b0c4996718b256d6a2f03bca52cec884e3752c4b",
+  "ended_utc": "2026-11-15T12:55:14.843105+00:00",
+  "elapsed_seconds": 2.94
+}

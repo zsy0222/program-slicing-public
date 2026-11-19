@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3290/BP0/repair/1",
+  "case_id": "BP17-3290",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "68ba8a377e3e3aa2ba427f305a545698dfdf988483e8961eb308190e2dbbce77",
+  "started_utc": "2026-10-21T07:58:17.512198+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "be54ae7b-27b9-4ae2-8cbb-ab4ea0ef4224",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint cal(int, int, int);\\n\\nint main(int argc, char *argv[])\\n{\\n    unsigned int time[5];\\n    int mistake[5];\\n    int hack[2];\\n    int score[5];\\n    int i;\\n    int result = 0;\\n    \\n    while (5 == scanf(\\\"%d %d %d %d %d\\\", &time[0], &time[1], &time[2], &time[3], &time[4]))\\n    {\\n        getchar();\\n        scanf(\\\"%d %d %d %d %d\\\", &mistake[0], &mistake[1], &mistake[2], &mistake[3], &mistake[4]);\\n        getchar();\\n        scanf(\\\"%d %d\\\", &hack[0], &hack[1]);\\n        getchar();\\n        for (i = 0; i < 5; i++)\\n            score[i] = cal(time[i], mistake[i], i+1);\\n        for (i = 0; i < 5; i++)\\n            result += score[i];\\n        result += 100*hack[0];\\n        result -= 50*hack[1];\\n        printf(\\\"%d\\\\n\\\", result);\\n        result = 0;\\n    }\\n\\n    return 0;\\n}\\n\\nint cal(int time, int mistake, int i)\\n{\\n    int a, b;\\n    \\n    a = 500 * i * 3 / 10;\\n    b = (250-time)*20*i - 50*mistake;\\n    \\n    return a > b ? a : b;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1110,
+    "completion_tokens": 406,
+    "total_tokens": 1516,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1110
+  },
+  "raw_sha256": "20ed4ce007a6cfaa893c10f0ac4980c51944bbef26b8610442d4b855393b761a",
+  "ended_utc": "2026-10-21T07:58:19.316635+00:00",
+  "elapsed_seconds": 1.797
+}

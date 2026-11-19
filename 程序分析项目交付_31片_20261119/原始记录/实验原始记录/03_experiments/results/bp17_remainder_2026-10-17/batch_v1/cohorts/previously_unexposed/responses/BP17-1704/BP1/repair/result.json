@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1704/BP1/repair/1",
+  "case_id": "BP17-1704",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "ababc793f7b693e5de88882207fd8f8eaeeecd565ac0a950fed78694bf36f7a8",
+  "started_utc": "2026-11-16T19:03:21.899500+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9581f1c9-84af-432e-b12f-3a963f31eaf3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int t;\\n    int i,j;\\n    char a;\\n    int x1,y1,x2,y2;\\n    int sign=1;\\n\\n    scanf(\\\"%d\\\",&t);\\n    while(--t>=0)\\n    {\\n        sign=1;\\n        for(i=0;i<8;i++)\\n        {\\n            for(j=0;j<8;j++)\\n            {\\n                scanf(\\\"%c\\\",&a);\\n                if(a!='.'&&a!='#'&&a!='K')\\n                    j--;\\n                if(a=='K')\\n                    if(sign)\\n                    {\\n                        x1=i+1;\\n                        y1=j+1;\\n                        sign=0;\\n                    }\\n                    else\\n                    {\\n                        x2=i+1;\\n                        y2=j+1;\\n                    }\\n            }\\n        }\\n        if((x2-x1)%4==0&&(y2-y1)%4==0)\\n            printf(\\\"YES\\\\n\\\");\\n        else\\n            printf(\\\"NO\\\\n\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1662,
+    "completion_tokens": 284,
+    "total_tokens": 1946,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1662
+  },
+  "raw_sha256": "41dfeb9f942e1e165f1fdc96ae0453bbaa70c16199fac4384c5181cb10c9e6c2",
+  "ended_utc": "2026-11-16T19:03:23.821796+00:00",
+  "elapsed_seconds": 1.9193
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2195/BP2/repair/1",
+  "case_id": "BP17-2195",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "227e423fce9c99f6a678eec97397e49ba04a4325842a15b8f7d970801e4c77e2",
+  "started_utc": "2026-10-21T08:00:12.082313+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6542dd9b-1c64-41a4-a830-3ab7b347ecb6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define CHOICE 4\\n#define LENGTH 100+2+1+5\\nint main(int argc, char *argv[]) {\\n\\tint length[CHOICE];\\n\\tint great[CHOICE];\\n\\tint i,j;\\n\\tint count;\\n\\tfor(i=0;i<CHOICE;i++) {\\n\\t\\tcount=0;\\n\\t\\twhile(1) {\\n\\t\\t\\tchar get=getchar();\\n\\t\\t\\tif(get=='\\\\n') break;\\n\\t\\t\\telse if(get==EOF) break;\\n\\t\\t\\telse {\\n\\t\\t\\t\\tcount++;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tlength[i]=count;\\n\\t}\\n\\t/*\\n\\t   for(i=0;i<CHOICE;i++) {\\n\\t   printf(\\\"%d\\\\n\\\",length[i]);\\n\\t   }\\n\\t   */\\n\\tfor(i=0;i<CHOICE;i++) {\\n\\t\\tgreat[i]=0;\\n\\t}\\n\\tfor(i=0;i<CHOICE;i++) {\\n\\t\\tcount=0;\\n\\t\\tfor(j=0;j<CHOICE;j++) {\\n\\t\\t\\tif(j!=i) {\\n\\t\\t\\t\\tif(length[j]>=2*length[i]) {\\n\\t\\t\\t\\t\\tcount++;\\n\\t\\t\\t\\t} else {\\n\\t\\t\\t\\t\\tbreak;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif(count==3) {\\n\\t\\t\\tgreat[i]=1;\\n\\t\\t}\\n\\t}\\n\\t/*\\n\\t   for(i=0;i<CHOICE;i++) {\\n\\t   printf(\\\" %d\\\",great[i]);\\n\\t   }\\n\\t   printf(\\\"\\\\n\\\");\\n\\t   */\\n\\n\\tfor(i=0;i<CHOICE;i++) {\\n\\t\\tcount=0;\\n\\t\\tfor(j=0;j<CHOICE;j++) {\\n\\t\\t\\tif(j!=i) {\\n\\t\\t\\t\\tif(length[i]>=2*length[j]) {\\n\\t\\t\\t\\t\\tcount++;\\n\\t\\t\\t\\t} else {\\n\\t\\t\\t\\t\\tbreak;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif(count==3) {\\n\\t\\t\\tgreat[i]=1;\\n\\t\\t}\\n\\t}\\n\\tint which=-1;\\n\\tcount=0;\\n\\tfor(i=0;i<CHOICE;i++) {\\n\\t\\tif(great[i]==1) {\\n\\t\\t\\twhich=i;\\n\\t\\t\\tcount++;\\n\\t\\t}\\n\\t}\\n\\t/*\\n\\t   for(i=0;i<CHOICE;i++) {\\n\\t   printf(\\\" %d\\\",great[i]);\\n\\t   }\\n\\t   printf(\\\"\\\\n\\\");\\n\\t   */\\n\\n\\t//只能有一个great！\\n\\tif(count==1 && which>-1) printf(\\\"%c\\\\n\\\",'A'+which);\\n\\telse printf(\\\"C\\\\n\\\");\\n\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2706,
+    "completion_tokens": 694,
+    "total_tokens": 3400,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 1298
+  },
+  "raw_sha256": "26bc58950e9bcaf496c7fa44ed14ecda41f906e43dd7cdd5c877e417853af3ba",
+  "ended_utc": "2026-10-21T08:00:14.837194+00:00",
+  "elapsed_seconds": 2.766
+}

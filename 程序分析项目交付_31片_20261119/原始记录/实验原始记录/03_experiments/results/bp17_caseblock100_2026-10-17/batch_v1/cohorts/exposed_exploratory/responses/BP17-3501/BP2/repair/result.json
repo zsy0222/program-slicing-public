@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3501/BP2/repair/1",
+  "case_id": "BP17-3501",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "3307148e3ba2329aa8c64e5287778f58b6bf7a665d6e7cfea27e9b3a31f525a4",
+  "started_utc": "2026-10-17T06:56:35.984068+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f193dc12-c538-4f8a-975d-1d5c84659347",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define NMAX 200010\\n#define DEBUG\\n\\nint A[NMAX], B[NMAX];\\n\\nvoid swap(int *a, int *b) {\\n    int tmp = *a;\\n    *a = *b;\\n    *b = tmp;\\n}\\n\\nint check(int n, int A[], int B[]) {\\n    int ia = 0, ib = 0;\\n\\n    if (!B[ib])\\n        ib = (ib + 1) % n;\\n\\n    while (A[ia] != B[ib])\\n        ia = (ia + 1) % n;\\n\\n    int i;\\n    for(i = 1; i < n; i++){\\n        ia = (ia + 1) % n;\\n        ib = (ib + 1) % n;\\n\\n        if (!A[ia])\\n            ia = (ia + 1) % n;\\n        if (!B[ib])\\n            ib = (ib + 1) % n;\\n\\n        if (A[ia] != B[ib])\\n            return 0;\\n    }\\n\\n    return 1;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    #ifdef DEBUG\\n        freopen(\\\"input.txt\\\", \\\"r\\\", stdin);\\n        freopen(\\\"output.txt\\\", \\\"w\\\", stdout);\\n    #endif //DEBUG\\n\\n    int n;\\n    scanf(\\\"%d\\\", &n);\\n\\n    int ai0 = 0, bi0 = 0;\\n\\n    int i;\\n    for(i = 0; i < n; i++) {\\n        scanf(\\\"%d\\\", A + i);\\n        if (!A[i])\\n            ai0 = i;\\n    }\\n\\n    for(i = 0; i < n; i++) {\\n        scanf(\\\"%d\\\", B + i);\\n        if (!B[i])\\n            bi0 = i;\\n    }\\n\\n    while (ai0 != bi0) {\\n        swap(&A[ai0], &A[(ai0 + 1) % n]);\\n        ai0 = (ai0 + 1) % n;\\n    }\\n\\n    if (check(n, A, B))\\n        printf(\\\"YES\\\");\\n    else\\n        printf(\\\"NO\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2322,
+    "completion_tokens": 549,
+    "total_tokens": 2871,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2322
+  },
+  "raw_sha256": "81d54ed1f202f6ba9090154ba1657ec17ffc3ea66aebc9c64270538e9f83c630",
+  "ended_utc": "2026-10-17T06:56:38.144720+00:00",
+  "elapsed_seconds": 2.125
+}

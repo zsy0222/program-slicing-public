@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2791/BP3/repair/1",
+  "case_id": "BP17-2791",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "8f5528c884c36719087bdec7db078ce94b06e8a599747a80e30f5b804da65863",
+  "started_utc": "2026-10-17T07:11:48.606080+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f92cc514-fd84-4d26-b4c2-869b58364c48",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nlong long const M1 = 999999937;\\nlong long const M2 = 104857601;\\nlong long const X = 33533;\\n\\nvoid sort(long long * a, long long * b) {\\n  if (a + 1 >= b) return;\\n  long long * i = a;\\n  long long * j = b - 1;\\n  long long x = a[(b - a) * 2 / 7];\\n  while (i <= j) {\\n    while (*i < x) ++i;\\n    while (*j > x) --j;\\n    if (i <= j) {    \\n      long long tmp = *i;\\n      *i = *j;\\n      *j = tmp;\\n      ++i;\\n      --j;\\n    }\\n  }\\n  sort(a, j + 1);\\n  sort(i, b);\\n}\\n\\nlong long h[555555];\\nint s[555555];\\n\\nint main(int argc, char *argv[]) {\\n  int n, m;\\n  scanf(\\\"%d%d\\\", &n, &m);\\n  int i;\\n  for (i = 0; i < n; i++) {\\n    int c = getchar();\\n    while (c <= 32) c = getchar();\\n    long long h1 = 0;\\n    long long h2 = 0;\\n    while (c > 32) {\\n      h1 = (h1 * X + c) % M1;\\n      h2 = (h2 * X + c) % M2;\\n      c = getchar();\\n    }\\n    h[i] = (h1 << 32) | h2;\\n  }  \\n  sort(h, h + n);\\n  for (i = 0; i + 1 < n; i++) if (h[i] > h[i + 1]) {\\n    puts(\\\"bad\\\");\\n    return 1;\\n  }\\n  for (i = 0; i < m; i++) {\\n    int c = getchar();\\n    while (c <= 32) c = getchar();\\n    int len = 0;\\n    long long h1 = 0;\\n    long long h2 = 0;\\n    while (c > 32) {\\n      h1 = (h1 * X + c) % M1;\\n      h2 = (h2 * X + c) % M2;\\n      s[len++] = c;\\n      c = getchar();\\n    }\\n    int j;\\n    long long p1 = 1;\\n    long long p2 = 1;\\n    int ans = 0;\\n    for (j = len - 1; j >= 0; j--) {\\n      int let;\\n      for (let = 'a'; let <= 'c'; let++) {\\n        if (let == s[j]) continue;\\n        long long ch1 = (h1 + p1 * (let - s[j]) + M1 * M1) % M1;\\n        long long ch2 = (h2 + p2 * (let - s[j]) + M2 * M2) % M2;\\n        long long ch = (ch1 << 32) | ch2;\\n        int l = -1;\\n        int r = n;\\n        while (l < r - 1) {\\n          int mid = (l + r) / 2;\\n          if (h[mid] > ch) r = mid; else l = mid;\\n        }\\n        if (l >= 0 && h[l] == ch) {\\n          ans = 1;\\n          j = -1;\\n          break;\\n        }\\n      }\\n      p1 = p1 * X % M1;\\n      p2 = p2 * X % M2;\\n    }\\n    if (ans) puts(\\\"YES\\\"); else puts(\\\"NO\\\");\\n  }\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3218,
+    "completion_tokens": 928,
+    "total_tokens": 4146,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "prompt_cache_hit_tokens": 1792,
+    "prompt_cache_miss_tokens": 1426
+  },
+  "raw_sha256": "c9e502d0c3414e9d88100d564afd2990acedd208a5c73cef5b61b65b96297a53",
+  "ended_utc": "2026-10-17T07:11:52.286812+00:00",
+  "elapsed_seconds": 3.688
+}

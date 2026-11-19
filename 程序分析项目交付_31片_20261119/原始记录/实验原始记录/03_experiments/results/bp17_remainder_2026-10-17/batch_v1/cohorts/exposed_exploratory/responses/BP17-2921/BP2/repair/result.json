@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2921/BP2/repair/1",
+  "case_id": "BP17-2921",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "35423282f10e5018c4c3b31e4f1aca22c33beabcb4766637f9be9205868301fe",
+  "started_utc": "2026-11-16T16:56:04.136666+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "61617c30-1966-4af8-8f23-38d2a40bdd15",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/*you write down a number if it's a lucky\\n number the program return its order else the program \\n say that it's not a lucky number */\\n\\n#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n\\nint longueur(int N)\\n{\\n    int S=1;\\n    while((N/10)!=0)\\n    {\\n        N=N/10;\\n        S++;\\n    }\\nreturn S;\\n}\\n\\nint main(int argc, char *argv[])\\n\\n{\\n    int N,i,R,r,p=0,*t,m=0;\\n    scanf(\\\"%d\\\",&N);\\n    R=N;\\n    t=(int*)malloc(longueur(N)*4);\\n    for(i=0;i<longueur(N);i++)\\n    {\\n        r=R%10;\\n        R=R/10;\\n        if(r==4)t[i]=1;else if(r==7) t[i]=2;else m++;\\n        p+=pow(2,i)*t[i];\\n    }\\n        if(m==0)printf(\\\"%d\\\",p);\\n        else printf(\\\"%d is not a lucky number\\\",N);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1559,
+    "completion_tokens": 284,
+    "total_tokens": 1843,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1559
+  },
+  "raw_sha256": "6e028f128b8e30d544dc663025d858d3fdec210ec6f2ff8fa14d4404db53c71c",
+  "ended_utc": "2026-11-16T16:56:06.644466+00:00",
+  "elapsed_seconds": 2.5051
+}

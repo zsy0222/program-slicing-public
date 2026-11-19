@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1843/BP1/repair/1",
+  "case_id": "BP17-1843",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a93a541dc85873e7610a951cec7d22d82e6f73450b20d77fe0304001559e57d2",
+  "started_utc": "2026-11-16T17:12:40.375419+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2f0946c5-f118-4624-ad5f-d3ded0b07c8e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdlib.h>\\nint cmp(const void *a,const void *b)\\n{\\n    return *(int *)a-*(int *)b;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,a[100010],b[100010],c[100010],i,r,l,max;\\n    while(scanf(\\\"%d\\\",&n)!=EOF)\\n    {\\n        l=0;r=0;max=0;\\n        for(i=0;i<n;i++)\\n        {\\n            scanf(\\\"%d\\\",&a[i]);\\n            if(a[i]>max)\\n            max=a[i];\\n        }\\n        memset(b,0,sizeof(b[0]));\\n        qsort(a,n,sizeof(a[0]),cmp);\\n        for(i=0;i<n;i++)\\n        {\\n            if(a[i]==max)\\n            break;\\n            if(i%2==0)\\n            {\\n                b[l++]=a[i];\\n            }\\n            else\\n            {\\n                c[r++]=a[i];\\n            }\\n        }\\n        printf(\\\"%d\\\\n\\\",r+l+1);\\n        for(i=0;i<l;i++)\\n        printf(\\\"%d \\\",b[i]);\\n        printf(\\\"%d\\\",max);\\n        for(i=r-1;i>=0;i--)\\n        printf(\\\" %d\\\",c[i]);\\n        printf(\\\"\\\\n\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1242,
+    "completion_tokens": 360,
+    "total_tokens": 1602,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1242
+  },
+  "raw_sha256": "12c1585ac3ea96db7a57f450fa1e4b406f9bf40363d4021f360dc86bbe15aa89",
+  "ended_utc": "2026-11-16T17:12:42.817592+00:00",
+  "elapsed_seconds": 2.4394
+}

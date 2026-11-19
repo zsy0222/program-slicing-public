@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2006/BP1/repair/1",
+  "case_id": "BP17-2006",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "aa3caf9d330fb8ec565abf8b68696200c8516e485590c2727087f68512f35a98",
+  "started_utc": "2026-10-18T13:42:11.352790+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c36f7712-1028-46de-a8c6-4b2e27ef5a1a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"/* ***\\n* @codeforces problem 405D. Toy Sum\\n* @author:ckeling\\n* @date:2014.3.26\\n* @tag:greedy, implementation, math\\n******/\\n\\n#include <stdio.h>\\n#include <string.h>\\n#define MAXN 1000000\\n\\nint X[MAXN + 1];\\nint S[MAXN + 1];\\nint Y[MAXN + 1];\\n\\nint main(int argc, char *argv[]){\\n    memset(X, 0, sizeof(X));\\n    memset(S, 0, sizeof(S));\\n    memset(Y, 0, sizeof(Y));\\n\\n    int nx, ny;\\n    int i;\\n    scanf(\\\"%d\\\", &nx);\\n    for(i = 0; i < nx; ++i){\\n        scanf(\\\"%d\\\", X+i);\\n        S[X[i]] = 1;\\n    }\\n    ny = 0;\\n    for(i = 0; i < nx; ++i){\\n        if(S[X[i]] && !S[MAXN + 1 - X[i]]){\\n            Y[MAXN + 1 - X[i]] = 1;\\n            ny++;\\n       }\\n    }\\n    for(i = 1; i < MAXN && ny < nx; ++i){\\n        if(!S[i] && !S[MAXN + 1 - i]){\\n            Y[i] = 1;\\n            ny++;\\n            Y[MAXN + 1 - i] = 1;\\n            ny++;\\n        }\\n    }\\n    for(i = 0; i <= MAXN; ++i)\\n        if(Y[i])\\n            printf(\\\"%d \\\", i);\\n    printf(\\\"\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1192,
+    "completion_tokens": 416,
+    "total_tokens": 1608,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1192
+  },
+  "raw_sha256": "fffc0b92839dcd7606bc3bf9df8e7dca4ad324557ea6093e70ef453a2eaf0a47",
+  "ended_utc": "2026-10-18T13:42:13.552673+00:00",
+  "elapsed_seconds": 2.203
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1306/BP0/repair/1",
+  "case_id": "BP17-1306",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "9680a62774875621087296ca4c6aec6aaf0288fe276858c36da65a6f9b7c6532",
+  "started_utc": "2026-11-16T16:28:11.698775+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f56de1a8-75b3-44c5-942f-8e67556ae13a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int x1, y1, x2, y2,n, i , j , time =0;\\n    char way[100];\\n    scanf(\\\"%d%d%d%d%d\\\",&n,&x1,&y1,&x2,&y2);\\n    scanf(\\\"%s\\\",way);\\n    for (i=0; i<n; i++)\\n    {\\n        if(way[i]=='E')\\n        {\\n            x1 +=1;\\n            if (x1>x2)\\n            {\\n                x1--;\\n                time++;\\n            }\\n            else if (x1<=x2)\\n            {\\n                time++;\\n            }\\n        }\\n        else if (way[i]=='S')\\n        {\\n            y1-=1;\\n            if (y1<y2)\\n            {\\n                y1++;\\n                time++;\\n            }\\n            else if (y1>=y2)\\n            {\\n                time++;\\n            }\\n        }\\n        else if (way[i]=='W')\\n        {\\n            x1-=1;\\n             if (x1<x2)\\n            {\\n                x1++;\\n                time++;\\n            }\\n            else if (x1>=x2)\\n            {\\n                time++;\\n            }\\n        }\\n        else if (way[i]=='N')\\n        {\\n            y1+=1;\\n            if (y1>y2)\\n            {\\n                y1--;\\n                time++;\\n            }\\n            else if (y1<=y2)\\n            {\\n                time++;\\n            }\\n        }\\n        if ((x1==x2)&&(y1==y2))\\n        {\\n            break;\\n        }\\n    }\\n    if ((x1==x2)&&(y1==y2))\\n    {\\n        printf(\\\"%d\\\",time);\\n    }\\n    else\\n        printf(\\\"-1\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1605,
+    "completion_tokens": 490,
+    "total_tokens": 2095,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 197
+  },
+  "raw_sha256": "b03a6ed2a7fb71b7d3971d4ed3188a9bc595cbab718e446abf8a758b52796724",
+  "ended_utc": "2026-11-16T16:28:14.294864+00:00",
+  "elapsed_seconds": 2.5938
+}

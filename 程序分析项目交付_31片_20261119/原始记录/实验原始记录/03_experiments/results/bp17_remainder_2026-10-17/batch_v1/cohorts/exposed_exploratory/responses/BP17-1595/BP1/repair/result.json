@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1595/BP1/repair/1",
+  "case_id": "BP17-1595",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "dc3096805f43fd049a46845e503166a17f410ccf3f7eb3b45389495abbe5f6dc",
+  "started_utc": "2026-11-15T12:53:04.574678+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "488833cc-91f1-48f6-9d6d-59140e6df5a2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[]){\\n    int N;\\n    scanf(\\\"%i\\\",&N);\\n    int Pole[N];\\n    int i=0;\\n    for(i=0;i<N;i++){\\n        scanf(\\\"%i\\\", &Pole[i]);\\n    }\\n    int pocet[8];\\n    for(i=0;i<8;i++){\\n        pocet[i]=0;\\n    }\\n    for(i=0;i<N;i++){\\n        pocet[Pole[i]]++;\\n    }\\n    int stav=1;\\n    if(pocet[5]!=0||pocet[7]!=0) stav=0;\\n    if(pocet[1]!=pocet[2]+pocet[3]) stav=0;\\n    if(pocet[4]+pocet[6]!=pocet[1]) stav=0;\\n    if(pocet[4]>pocet[2]) stav=0;\\n    if(stav){\\n        for(i=0;i<pocet[4];i++){\\n            printf(\\\"1 2 4\\\\n\\\");\\n        }\\n        for(i=pocet[4];i<pocet[2];i++){\\n            printf(\\\"1 2 6\\\\n\\\");\\n        }\\n        for(i=pocet[2];i<pocet[1];i++){\\n            printf(\\\"1 3 6\\\\n\\\");\\n        }\\n    } else {\\n        printf(\\\"-1\\\\n\\\");\\n    }\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1088,
+    "completion_tokens": 377,
+    "total_tokens": 1465,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1088
+  },
+  "raw_sha256": "d84bb3a91d6ee377a18a37e1e506fe0f660b9efd7d4db2abedf9843ecb8e5ea0",
+  "ended_utc": "2026-11-15T12:53:06.506135+00:00",
+  "elapsed_seconds": 1.9288
+}

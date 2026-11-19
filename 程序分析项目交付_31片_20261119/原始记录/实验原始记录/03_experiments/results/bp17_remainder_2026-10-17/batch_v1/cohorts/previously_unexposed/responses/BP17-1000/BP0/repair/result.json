@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1000/BP0/repair/1",
+  "case_id": "BP17-1000",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "156e91a3abf30af4157c7b1fc3912126ca1122ff416880df665267679452b245",
+  "started_utc": "2026-11-16T18:05:40.004203+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2cda6f12-61e2-459e-929f-9a23fc016391",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,m,k,i,j,t,sockets;\\n    scanf(\\\"%d %d %d\\\",&n,&m,&k);\\n    int a[n];\\n    sockets = k;\\n    for(i=0;i<n;i++)\\n    {scanf(\\\"%d\\\",&a[i]);\\n    sockets = sockets + a[i] -1;\\n    }\\n    if(sockets<m)\\n    {\\n        printf(\\\"-1\\\");\\n        return(0);\\n    }\\n    /*SORTING THE ARRAY*/\\n    for(i=0;i<n;i++)\\n    {\\n        for(j=i;j<n;j++)\\n        {\\n            if(a[j]>a[i])\\n            {\\n                t = a[i];\\n                a[i] = a[j];\\n                a[j] = t;\\n            }\\n        }\\n    }\\n    sockets = k;\\n    for(i=0;i<n;i++)\\n    {\\n     if(sockets>=m)\\n     {\\n         printf(\\\"%d\\\",i);\\n         break;\\n     }\\n     sockets = sockets + a[i] -1;\\n    }\\n    if(i==n && sockets>=m)\\n    {\\n        printf(\\\"%d\\\",n);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 967,
+    "completion_tokens": 319,
+    "total_tokens": 1286,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 199
+  },
+  "raw_sha256": "cb6648183e4f1f72e624b08d1d6532e7a7bc9dd88faa34259f8d7c11622a4d33",
+  "ended_utc": "2026-11-16T18:05:42.084957+00:00",
+  "elapsed_seconds": 2.0782
+}

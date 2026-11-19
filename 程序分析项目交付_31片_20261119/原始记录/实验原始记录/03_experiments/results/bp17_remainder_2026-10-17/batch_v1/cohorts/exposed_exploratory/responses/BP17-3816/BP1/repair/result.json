@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3816/BP1/repair/1",
+  "case_id": "BP17-3816",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "eaf142821e32c7e6380c461e145afa405554a013137345e8560da0ed43bc9235",
+  "started_utc": "2026-10-21T06:54:13.232263+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9d4e875c-1708-46a5-859c-899cb9f65752",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int i = 0 , j = 0;\\n    char A[300] , B[300];\\n    gets(A);\\n    if(A[i] == '.')\\n    {\\n        for(j = 0;j < 3;j++)\\n        {\\n            B[j] = '.';\\n        }\\n        i += 3;\\n    }\\n    while(A[i] != '\\\\0')\\n    {\\n        if(A[i] == ',' && A[i + 1] != '\\\\0')\\n        {\\n            B[j] = ',';j++;\\n            B[j] = ' ';j++;\\n            i++;\\n        }\\n        else if(A[i] == ',' && A[i + 1] == '\\\\0')\\n        {\\n            B[j] = ',';\\n            j++;\\n            i++;\\n        }\\n        else if(A[i] == '.' && (j == 0 || B[j-1] != ' '))\\n        {\\n            B[j] = ' ';\\n            B[j+1] = '.';\\n            B[j+2] = '.';\\n            B[j+3] = '.';\\n            j+=4;\\n            i += 3;\\n        }\\n        else if(A[i] == '.' && j > 0 && B[j-1] == ' ')\\n        {\\n            B[j] = '.';\\n            B[j+1] = '.';\\n            B[j+2] = '.';\\n            j+=3;\\n            i += 3;\\n        }\\n        else if(A[i] == ' ' && (A[i + 1] >= '0' && A[i + 1] <= '9') && j > 0 && (B[j-1] >= '0' && B[j-1] <= '9'))\\n        {\\n            B[j] = ' ';j++;i++;\\n        }\\n        else if(A[i] >= '0' && A[i] <= '9')\\n        {\\n            B[j] = A[i];\\n            j++;i++;\\n        }\\n        else\\n        {\\n            i++;\\n        }\\n    }\\n    B[j] = '\\\\0';\\n    printf(\\\"%s\\\",B);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2346,
+    "completion_tokens": 544,
+    "total_tokens": 2890,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176
+    },
+    "prompt_cache_hit_tokens": 2176,
+    "prompt_cache_miss_tokens": 170
+  },
+  "raw_sha256": "cec392a1ea62ea564a938af43dd777da1cb55fc9efe48dfe1c7155780f95deb8",
+  "ended_utc": "2026-10-21T06:54:15.618860+00:00",
+  "elapsed_seconds": 2.39
+}

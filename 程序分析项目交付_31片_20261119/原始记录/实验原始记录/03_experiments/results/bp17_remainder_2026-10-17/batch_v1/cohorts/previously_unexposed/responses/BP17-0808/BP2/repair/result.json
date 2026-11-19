@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0808/BP2/repair/1",
+  "case_id": "BP17-0808",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "0f2e7143ea05bf9c0ccb812c630b2a3fade80e68af4fe567b314c4a45451c215",
+  "started_utc": "2026-11-16T05:54:06.494690+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7c3b6208-1c32-4b7e-ab93-f1a544d0ba84",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\ntypedef struct{\\n\\tint isq;\\n\\tint der;\\n}punto;\\n\\nint min(int x,int y);\\nint max(int x,int y);\\nvoid ordenar( punto *v,int f);\\n\\nint main(int argc, char *argv[]){\\n\\tint n,i,p1,p2,segi,segd,cant=0;\\n\\tint mayor=2000;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tint clavo[n];\\n\\tpunto a[n+1];\\n\\tfor(i=0;i<n;i++){\\n\\t\\tscanf(\\\"%d%d\\\",&p1,&p2);\\n\\t\\ta[i].isq=min(p1,p2);\\n\\t\\ta[i].der=max(p1,p2);\\n\\t}\\n\\tordenar(a,n);\\n\\tsegi=a[0].isq;\\n\\tsegd=a[0].der;\\n\\ta[n].isq=mayor;\\n\\ta[n].der=mayor;\\n\\tfor(i=1;i<=n;i++){\\n\\t\\tif(a[i].isq>segd){\\n\\t\\t\\tclavo[cant]=segd;\\n\\t\\t\\tcant++;\\n\\t\\t\\tsegi=a[i].isq;\\n\\t\\t\\tsegd=a[i].der;\\n\\t\\t}else{\\n\\t\\t\\tif(a[i].isq>segi){\\n\\t\\t\\t\\tsegi=a[i].isq;\\n\\t\\t\\t}\\n\\t\\t\\tif(a[i].der<segd){\\n\\t\\t\\t\\tsegd=a[i].der;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",cant);\\n\\tfor(i=0;i<(cant/2+cant%2);i++){\\n\\t\\tif(clavo[i]!=clavo[cant-1-i]){\\n\\t\\t\\tprintf(\\\"%d %d \\\",clavo[i],clavo[cant-1-i]);\\n\\t\\t}else{\\n\\t\\t\\tprintf(\\\"%d \\\",clavo[i]);\\n\\t\\t}\\n\\t}\\n}\\n\\nint min(int x,int y){\\n\\tif(x>y){\\n\\t\\treturn y;\\n\\t}else{\\n\\t\\treturn x;\\n\\t}\\n}\\n\\nint max(int x,int y){\\n\\tif(x>y){\\n\\t\\treturn x;\\n\\t}else{\\n\\t\\treturn y;\\n\\t}\\n}\\nvoid ordenar( punto *v,int f){\\n    int i,j;\\n    punto aux;\\n    for(i=0;i<f-1;i++){\\n        for(j=i+1;j<f;j++){\\n            if(v[i].isq!=v[j].isq){\\n                if(v[i].isq>v[j].isq){\\n                    aux=v[i];\\n                    v[i]=v[j];\\n                    v[j]=aux;\\n                }\\n            }\\n            else{\\n                if(v[i].der>v[j].der){\\n                    aux=v[i];\\n                    v[i]=v[j];\\n                    v[j]=aux;\\n                }\\n            }\\n        }\\n    }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2787,
+    "completion_tokens": 727,
+    "total_tokens": 3514,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 1123
+  },
+  "raw_sha256": "34eed89f35a75c268c2a455787e0b4086b54e23c00f0b808781dfc639b8c2fb9",
+  "ended_utc": "2026-11-16T05:54:09.453985+00:00",
+  "elapsed_seconds": 2.9569
+}

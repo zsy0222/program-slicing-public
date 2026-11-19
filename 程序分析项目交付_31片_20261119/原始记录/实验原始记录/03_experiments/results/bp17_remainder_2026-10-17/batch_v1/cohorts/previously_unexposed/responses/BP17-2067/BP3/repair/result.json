@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2067/BP3/repair/1",
+  "case_id": "BP17-2067",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0325489a53787f7fb6bcc276f2b8fba7a966bf4a2e24e3407a3370fff6b922fa",
+  "started_utc": "2026-11-16T02:45:38.640654+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6db97346-9808-4253-a61a-1c0275e68880",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint N,K,dp[2003][2003];\\nint find(int cur,int cnt)\\n{\\n    if(cnt>K)\\n    {\\n        return 1;\\n    }\\n    if(dp[cur][cnt]>-1)\\n    {\\n        return dp[cur][cnt];\\n    }\\n    dp[cur][cnt]=0;\\n    int i;\\n    for(i=1;cur*i<=N;i++)\\n    {\\n        dp[cur][cnt]=(dp[cur][cnt]+find(cur*i,cnt+1))%1000000009;\\n    }\\n    return dp[cur][cnt];\\n}\\nint main(int argc, char *argv[])\\n{\\n    while(scanf(\\\"%d %d\\\",&N,&K)==2)\\n    {\\n        memset(dp,-1,sizeof(dp));\\n        printf(\\\"%d\\\\n\\\",find(1,0));\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1288,
+    "completion_tokens": 226,
+    "total_tokens": 1514,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1288
+  },
+  "raw_sha256": "d24d9112a7dad4a0b7aac5f3be7062861757b7dce367dad6049d82ea8143205a",
+  "ended_utc": "2026-11-16T02:45:40.597358+00:00",
+  "elapsed_seconds": 1.955
+}

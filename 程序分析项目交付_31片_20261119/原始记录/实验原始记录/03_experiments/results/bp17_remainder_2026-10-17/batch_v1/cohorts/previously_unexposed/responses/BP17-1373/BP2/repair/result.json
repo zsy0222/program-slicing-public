@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1373/BP2/repair/1",
+  "case_id": "BP17-1373",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "8e89ae0b4a9bcf66b06e01301c2a2e3d1e1b95b84b659495a5c47d4ba37b5c77",
+  "started_utc": "2026-10-17T14:07:22.106240+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "38019a6a-0e75-4eb0-a804-766cf803aeaf",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint aray[103], hold1[101], hold2[101];\\nint res[102];\\nint main(int argc, char *argv[])\\n{\\n    int n ,i, j, k,l=0, three=0, two=0, one=0, zero=0, p;\\n    scanf(\\\"%d\\\", &n);\\n    k=0;\\n    for(i=0;i<101;i++){\\n        res[i]=-2;\\n    }\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%d\\\", &aray[i]);\\n        if(aray[i]==100){\\n            three++;\\n        }\\n        else if(aray[i]>9 && aray[i]<100){\\n            two++;\\n            if((aray[i]%10)==0){\\n                hold1[k]=aray[i];\\n                k++;\\n            }\\n            else{\\n                hold2[l]=aray[i];\\n                l++;\\n            }\\n\\n        }\\n        else if(aray[i]==0){\\n            zero++;\\n        }\\n        else{\\n            one++;\\n            p=i;\\n        }\\n\\n    }\\n    i=0;\\n    if(n==1){\\n        printf(\\\"1\\\\n%d \\\", aray[0]);\\n        return 0;\\n    }\\n    if(three>=1){\\n        res[0]=100;\\n        if(one>0){\\n            if(hold1[0]!=0){\\n                res[1]=hold1[0];}\\n            res[2]=aray[p];\\n            if(zero>0){\\n                res[3]=0;\\n            }\\n        }\\n        else{\\n            if(hold2[0]!=0){\\n            res[1]=hold2[0];}\\n            if(zero>0){\\n                res[2]=0;\\n            }\\n        }\\n    }\\n    else{\\n        if(one>0){\\n            if(hold1[0]!=0){\\n                res[0]=hold1[0];\\n            }\\n            res[1]=aray[p];\\n            if(zero>0){\\n                res[2]=0;\\n            }\\n        }\\n        else{\\n            if(hold1[0]!=0){\\n                res[0]=hold1[0];\\n            }\\n            else if(hold2[0]!=0){\\n                res[0]=hold2[0];\\n            }\\n            if(zero>0){\\n                res[1]=0;\\n            }\\n        }\\n\\n\\n    }\\n    int count=0;\\n    for(i=0;i<101;i++){\\n        if(res[i]!=-2){\\n            count++;\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\", count);\\n    for(i=0;i<15;i++){\\n        if(res[i]!=-2){\\n            printf(\\\"%d \\\", res[i]);\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2850,
+    "completion_tokens": 713,
+    "total_tokens": 3563,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 1314
+  },
+  "raw_sha256": "831d912697a8c182a244361377a0742039bd550e731043554a2ed2b7f34cb7e4",
+  "ended_utc": "2026-10-17T14:07:24.651933+00:00",
+  "elapsed_seconds": 2.547
+}

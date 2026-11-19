@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0648/BP3/repair/1",
+  "case_id": "BP17-0648",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "2f3334a21785b60f7f95ec4d1326eb31e89fbb326bbcb19164fed16b3f4df56e",
+  "started_utc": "2026-11-16T16:46:01.424675+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cafae7f0-0a8c-48f9-91c9-c392a0306afe",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,i,j,num[2000],a[2000],min=2000,x,z;\\n    scanf(\\\"%d\\\",&n);\\n    for(i=1;i<=n;i++)\\n    {\\n        scanf(\\\"%d\\\",&num[i]);\\n        if(num[i]<min)\\n            {\\n                min=num[i];\\n                z=i;\\n            }\\n    }\\n    if(z==1 || z==n)\\n    {\\n        printf(\\\"%d\\\\n\\\",min);\\n        return 0;\\n    }\\n    //printf(\\\"%d\\\\n\\\",min);\\n    i=1;\\n    while(i<n)\\n    {\\n        if(i+2<=n && num[i+1]>num[i+2])\\n        {\\n            if(min>num[i+1])\\n            {\\n                min=num[i+1];\\n            }\\n            i=i+1;\\n        }\\n        else{\\n\\n            if(i+2<=n && min>num[i+2])\\n            {\\n                min=num[i+2];\\n            }\\n            i=i+2;\\n        }\\n    }\\n\\n    printf(\\\"%d\\\\n\\\",min);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1479,
+    "completion_tokens": 309,
+    "total_tokens": 1788,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1479
+  },
+  "raw_sha256": "3f9d0180430679fee4f10ae314e3ddafabc810042d48b91f523b5ce8084b0039",
+  "ended_utc": "2026-11-16T16:46:03.548643+00:00",
+  "elapsed_seconds": 2.1216
+}

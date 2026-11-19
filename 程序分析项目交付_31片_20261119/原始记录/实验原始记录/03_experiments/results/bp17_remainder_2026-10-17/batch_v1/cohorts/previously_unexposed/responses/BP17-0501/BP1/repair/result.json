@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0501/BP1/repair/1",
+  "case_id": "BP17-0501",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "56695aee90f93006e3f2869887d482ea7ea893ca3fb6777d07cbe4aedba4ba92",
+  "started_utc": "2026-11-16T02:39:20.618978+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "97cfa2a5-4560-4ae8-b349-6149c14cbe58",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint n,m,x,y,a[100000],b[100000],v[100000],i,j,k;\\n\\nint main(int argc, char *argv[]) {\\n\\tscanf(\\\"%d %d %d %d\\\", &n, &m, &x, &y);\\n\\tfor (i=0; i<n; ++i) scanf(\\\"%d\\\", &a[i]);\\n\\tfor (i=0; i<m; ++i) scanf(\\\"%d\\\", &b[i]);\\n\\tfor (i=0; i<n; ++i) {\\n\\t\\twhile (j<m && b[j]+x<a[i]) {\\n\\t\\t\\t++j;\\n\\t\\t}\\n\\t\\tif (j<m && a[i]-x<=b[j]&&b[j]<=a[i]+y) v[i]=++j;\\n\\t}\\n\\tfor (i=0; i<n; ++i) if (v[i]) ++k;\\n\\tprintf(\\\"%d\\\\n\\\", k);\\n\\tfor (i=0; i<n; ++i) if (v[i]) printf(\\\"%d %d\\\\n\\\", i+1, v[i]);\\n\\texit(EXIT_SUCCESS);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1295,
+    "completion_tokens": 294,
+    "total_tokens": 1589,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1295
+  },
+  "raw_sha256": "3565575b49d88db51a7db99d1caa5bb4801a12bae9d82caf8d40cbe260391ed0",
+  "ended_utc": "2026-11-16T02:39:22.573183+00:00",
+  "elapsed_seconds": 1.9518
+}

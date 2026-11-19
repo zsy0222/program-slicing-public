@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0776/BP3/repair/1",
+  "case_id": "BP17-0776",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "e3524041674775639fb7561f53097192de6f6a56bf9b5e126bebd161a58f415e",
+  "started_utc": "2026-11-16T04:55:44.563054+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "aa11da1b-d266-4e00-a8be-37def99aa5c9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAXV    100\\n#define MAXE    (MAXV*MAXV)\\n\\ntypedef struct\\n{\\n    int to;\\n    int next;\\n} Edge_t;\\nEdge_t E[MAXE];\\nint SizeE;\\nint Adj[MAXV];\\nchar Visited[MAXV];\\n\\ntypedef struct\\n{\\n    int x, y;\\n} Point_t;\\nPoint_t P[MAXV];\\n\\nvoid Init(int N)\\n{\\n    int i;\\n    for(i=0; i<=N; ++i)\\n    {\\n        Adj[i] = -1;\\n    }\\n    SizeE = 0;\\n}\\n\\nvoid Add_Edge(int u, int v)\\n{\\n    E[SizeE].to = v;\\n    E[SizeE].next = Adj[u];\\n    Adj[u] = SizeE++;\\n}\\n\\nvoid BFS(int start)\\n{\\n    int Queue[MAXV];\\n    int Head, Tail, Cnt, i, j;\\n    Head = 0;\\n    Tail = Cnt = 1;\\n    Queue[0] = start;\\n    Visited[start] = 1;\\n    while(Head < Tail)\\n    {\\n        for(i=Head; i<Tail; ++i)\\n        {\\n            for(j=Adj[Queue[i]]; ~j; j=E[j].next)\\n            {\\n                if(!Visited[E[j].to])\\n                {\\n                    Visited[E[j].to] = 1;\\n                    Queue[Cnt++] = E[j].to;\\n                }\\n            }\\n        }\\n        Head = Tail;\\n        Tail = Cnt;\\n    }\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int N, i, j, Cnt;\\n    scanf(\\\"%d\\\", &N);\\n    Init(N);\\n    for(i=0; i<N; ++i)\\n    {\\n        scanf(\\\"%d %d\\\", &P[i].x, &P[i].y);\\n        for(j=0; j<i; ++j)\\n        {\\n            if(P[i].x==P[j].x || P[i].y==P[j].y)\\n            {\\n                Add_Edge(i, j);\\n                Add_Edge(j, i);\\n            }\\n        }\\n    }\\n    Cnt = 0;\\n    for(i=0; i<N; ++i)\\n    {\\n        if(!Visited[i])\\n        {\\n            ++Cnt;\\n            BFS(i);\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\", Cnt-1);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2418,
+    "completion_tokens": 630,
+    "total_tokens": 3048,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 882
+  },
+  "raw_sha256": "94737ba1563c3423582f0b8cd6c037dc54f4d74f1e0cd03fe35b66e8420e3d54",
+  "ended_utc": "2026-11-16T04:55:47.367209+00:00",
+  "elapsed_seconds": 2.8008
+}

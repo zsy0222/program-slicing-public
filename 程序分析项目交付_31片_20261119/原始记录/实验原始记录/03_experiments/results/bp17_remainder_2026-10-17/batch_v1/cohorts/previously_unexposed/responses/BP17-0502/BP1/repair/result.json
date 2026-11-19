@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0502/BP1/repair/1",
+  "case_id": "BP17-0502",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a281839c427a66098112ab61300ea15ae54b963bfc4a7e613097a4ba138a3ba5",
+  "started_utc": "2026-11-16T19:11:05.506196+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f447fb12-5e74-40ab-bba7-803f28a2e8d9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#define NN 100005\\n\\ntypedef struct _soldier {\\n\\tint l, r;\\n\\tint id;\\n}SOLDIER;\\n\\ntypedef struct _match {\\n\\tint sid;\\n\\tint vid;\\n}MATCH;\\n\\nint cmp(const void* a, const void* b)\\n{\\n\\tSOLDIER* c = (SOLDIER*)a;\\n\\tSOLDIER* d = (SOLDIER*)b;\\n\\tif (c->r == d->r) {\\n\\t\\treturn c->l - d->l;\\n\\t}\\n\\treturn c->r - d->r;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n, m, x, y, i, j, cnt;\\n\\tint an[NN], am[NN];\\n\\tSOLDIER sd[NN];\\n\\tMATCH mt[NN];\\n\\tfreopen(\\\"input.txt\\\", \\\"r\\\", stdin);\\n\\tfreopen(\\\"output.txt\\\", \\\"w\\\", stdout);\\n\\twhile (scanf(\\\"%d%d%d%d\\\", &n, &m, &x, &y) != EOF) {\\n\\t\\tfor (i = 0; i < n; i++) {\\n\\t\\t\\tscanf(\\\"%d\\\", &an[i]);\\n\\t\\t\\tsd[i].id = i;\\n\\t\\t\\tsd[i].l = an[i] - x;\\n\\t\\t\\tsd[i].r = an[i] + y;\\n\\t\\t}\\n\\t\\tfor (i = 0; i < m; i++) {\\n\\t\\t\\tscanf(\\\"%d\\\", &am[i]);\\n\\t\\t}\\n\\t\\tqsort(sd, n, sizeof(sd[0]), cmp);\\n\\t\\tqsort(am, m, sizeof(am[0]), cmp);\\n\\t\\ti = j = cnt = 0;\\n\\t\\twhile (i < m && j < n) {\\n\\t\\t\\tif (am[i] >= sd[j].l && am[i] <= sd[j].r) {\\n\\t\\t\\t\\tmt[cnt].sid = sd[j].id;\\n\\t\\t\\t\\tmt[cnt].vid = i;\\n\\t\\t\\t\\tcnt++; i++; j++;\\n\\t\\t\\t} else if (am[i] < sd[j].l) {\\n\\t\\t\\t\\ti++;\\n\\t\\t\\t} else if (am[i] > sd[j].r) {\\n\\t\\t\\t\\tj++;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tprintf(\\\"%d\\\\n\\\", cnt);\\n\\t\\tfor (i = 0; i < cnt; i++) {\\n\\t\\t\\tprintf(\\\"%d %d\\\\n\\\", mt[i].sid + 1, mt[i].vid + 1);\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1520,
+    "completion_tokens": 669,
+    "total_tokens": 2189,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 240
+  },
+  "raw_sha256": "8c65936d30da3543188feedc0e662aa4ae6000d3de783148398e209448974b5a",
+  "ended_utc": "2026-11-16T19:11:09.389588+00:00",
+  "elapsed_seconds": 3.8189
+}

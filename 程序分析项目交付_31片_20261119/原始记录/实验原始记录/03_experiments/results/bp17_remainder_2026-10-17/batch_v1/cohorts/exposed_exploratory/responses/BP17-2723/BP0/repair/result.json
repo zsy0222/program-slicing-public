@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2723/BP0/repair/1",
+  "case_id": "BP17-2723",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "7e5ad09084671b1f8f723b6daf7dcbf1b87166ac6c4493a102ad2098277579a4",
+  "started_utc": "2026-10-18T12:11:24.968583+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "23f68a1b-b235-4845-82d7-d602fc2b0bef",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nvoid mySort(int ins,int A[ins]);\\n\\nint main(int argc, char *argv[])\\n{\\n    int ins,numOfDayAllowed,allowedIns=0,counter,flag=1;\\n    int i,j,k;\\n\\n\\n    ///scan input (instruments & number of days allowed)\\n    ///number of days requried\\n    ///if num of day required  == num of days allowed\\n    ///then can learn all instruments  else use loop\\n    ///once getting the number of instruments\\n    ///output should be the number (th) can learnt\\n\\n    scanf(\\\"%d %d\\\",&ins,&numOfDayAllowed);\\n\\n    int B[ins];\\n    int A[ins];\\n\\n   for(i = 0;i<ins;i++)\\n   {\\n       scanf(\\\"%d\\\",&A[i]);\\n       B[i] = A[i];\\n   }\\n   mySort(ins,A);\\n   for(counter=0; counter < ins && allowedIns + A[counter] <= numOfDayAllowed;counter++)\\n   {\\n       allowedIns = allowedIns + A[counter];\\n   }\\n   printf(\\\"%d\\\\n\\\",counter);\\n\\n   for(k=0;k<counter;k++)\\n   {\\n       flag =1;\\n       for(j=0;j<ins && flag;j++)\\n       {\\n           if(A[k]==B[j])\\n           {\\n               printf(\\\"%d \\\",j+1);\\n               B[j] = 0;\\n               flag = 0 ;\\n           }\\n       }\\n   }\\n\\n\\n\\n\\n    ///addition for the total number of days\\n\\n\\n    return 0;\\n}\\n\\n\\n///selection sort\\n\\nvoid mySort(int ins,int A[ins])\\n{\\n    int i,min,j,temp;\\n    for(i=0;i<ins-1;i++)\\n    {\\n        min = i;\\n        for(j=i+1;j<ins;j++)\\n        {\\n            if(A[min]>A[j])\\n            {\\n                min = j;\\n            }\\n\\n        }\\n        ///swap\\n        temp = A[min];\\n        A[min] = A[i];\\n        A[i] = temp;\\n    }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1325,
+    "completion_tokens": 536,
+    "total_tokens": 1861,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1325
+  },
+  "raw_sha256": "4eea7a773a7e0f502be2ff21c0321d51e5248da1dabf294053dc2b1c91a64e3e",
+  "ended_utc": "2026-10-18T12:11:27.130210+00:00",
+  "elapsed_seconds": 2.156
+}

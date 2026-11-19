@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3291/BP1/repair/1",
+  "case_id": "BP17-3291",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "49f091019cb8640c495e19e6ca9e516ceee7f55a8f08c69c53c5d6eb5ce2783c",
+  "started_utc": "2026-11-16T16:33:06.285212+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cce3bcbc-7a5e-49ae-ac32-0bfa7dc2a2fa",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    float x[5],m[5],w[5];\\n    int i=0;\\n    for(i=0;i<5;i++)\\n    {\\n        x[i]=(i+1)*500;\\n    }\\n    for(i=0;i<5;i++)\\n    {\\n        scanf(\\\"%f\\\",&m[i]);\\n    }\\n    for(i=0;i<5;i++)\\n    {\\n        scanf(\\\"%f\\\",&w[i]);\\n    }\\n    float h1,h2;\\n    scanf(\\\"%f %f\\\",&h1,&h2);\\n    float g[5],k[5];\\n    for(i=0;i<5;i++)\\n    {\\n       g[i]=  1-(m[i]/250) ;\\n       g[i]=(g[i])* x[i];\\n       k[i]=0.3*m[i];\\n    }\\n    float sum=0;\\n    for(i=0;i<5;i++)\\n    {\\n        if(k[i] >= (g[i]- (50 * w[i]) ) )\\n            sum= sum + k[i];\\n        else\\n            sum= sum +  (g[i]- (50 * w[i]) );\\n\\n\\n    }\\n    sum =sum + 100* h1 - 50*h2;\\n    int o=(int)sum;\\n    printf(\\\"%d\\\\n\\\",o);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1108,
+    "completion_tokens": 355,
+    "total_tokens": 1463,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 212
+  },
+  "raw_sha256": "6b77a07aa0328cdec32334dcaee40821d4fe47a1673df451e1aae53643b4973f",
+  "ended_utc": "2026-11-16T16:33:08.188454+00:00",
+  "elapsed_seconds": 1.9009
+}

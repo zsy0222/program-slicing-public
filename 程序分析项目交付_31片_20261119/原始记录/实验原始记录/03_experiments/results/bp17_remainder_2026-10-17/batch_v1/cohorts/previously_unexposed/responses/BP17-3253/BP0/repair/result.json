@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3253/BP0/repair/1",
+  "case_id": "BP17-3253",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "fd4fe7c0863348e307dc2faadbad75bdb47ed309fd29e7caf1bd28272f71f543",
+  "started_utc": "2026-10-18T11:56:35.577927+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e1e32c0a-8d20-44ec-be9d-f68746264b9a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nvoid rotate(char *s, int n, int k) {\\n\\tchar t[10000];\\n\\n\\tif (n <= 0) return;\\n\\tk %= n;\\n\\tif (k < 0) k += n;\\n\\tif (k == 0) return;\\n\\n\\tmemcpy(t, s + n - k, k);\\n\\tmemcpy(t + k, s, n - k); \\n\\tmemcpy(s, t, n);\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tchar s[10000];\\n\\tint m, l, r, k;\\n\\n\\tscanf(\\\"%s\\\", s);\\n\\tscanf(\\\"%d\\\", &m);\\n\\twhile (m-- > 0) {\\n\\t\\tscanf(\\\"%d%d%d\\\", &l, &r, &k);\\n\\t\\tl--;\\n\\t\\trotate(s + l, r - l, k);\\n\\t}\\n\\tprintf(\\\"%s\\\\n\\\", s);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 905,
+    "completion_tokens": 261,
+    "total_tokens": 1166,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 905
+  },
+  "raw_sha256": "fed789a60474b911e3308977635d7a34568869b8adb51178cb6f64029f23ed3b",
+  "ended_utc": "2026-10-18T11:56:37.330040+00:00",
+  "elapsed_seconds": 1.734
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1038/BP3/repair/1",
+  "case_id": "BP17-1038",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "d1bee351ca6f3b0ae97c9d4cad3fbc30d65b21ba7010af7280380d3417461926",
+  "started_utc": "2026-10-17T13:41:14.225428+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "86f6b903-3d5f-4c42-bd9f-284485495abc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint A[100000];\\n\\nint cmp(const void *a,const void *b)\\n{\\n    return *(int *)b-*(int *)a;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int M,N,Min,Sum,i,j;\\n    Min=100000;\\n    Sum=0;\\n    scanf(\\\"%d\\\",&M);\\n    for(i=0; i<M; ++i)\\n    {\\n        scanf(\\\"%d\\\",&N);\\n        if(Min>N)\\n        {\\n            Min=N;\\n        }\\n    }\\n    scanf(\\\"%d\\\",&N);\\n    for(i=0; i<N; ++i)\\n    {\\n        scanf(\\\"%d\\\",&A[i]);\\n    }\\n    qsort(A,N,sizeof(int),cmp);\\n    for(i=0; i<N; ++i)\\n    {\\n        for(j=0; j<Min&&i<N; ++i,++j)\\n        {\\n            Sum+=A[i];\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",Sum);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1481,
+    "completion_tokens": 283,
+    "total_tokens": 1764,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 585
+  },
+  "raw_sha256": "efa62b6177fd7a50092b3c2f2fb941fa3299d5afb311c258af75d5d38b68e0df",
+  "ended_utc": "2026-10-17T13:41:16.304548+00:00",
+  "elapsed_seconds": 1.968
+}

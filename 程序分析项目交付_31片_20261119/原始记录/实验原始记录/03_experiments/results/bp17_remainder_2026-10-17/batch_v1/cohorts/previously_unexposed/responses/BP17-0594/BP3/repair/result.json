@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0594/BP3/repair/1",
+  "case_id": "BP17-0594",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "dc0587ccf6cc49b7f2aac384a3afcf582484b9224a4e228c3a45e333276d5634",
+  "started_utc": "2026-10-21T06:48:37.099924+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a9facabd-8483-420d-96db-36603c94884e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#define MAX 10010\\nint prime[MAX];\\nint p[MAX];\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,n,c,x;\\n  prime[0]=-1;prime[1]=-1;p[0]=1;\\n  for(k=1,i=2;i<MAX;i++)\\n    if(!prime[i])\\n      for(prime[i]=k,p[k++]=i,j=i*2;j<MAX;j+=i)\\n        prime[j]=-1;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tc=n;\\n\\twhile(n>1){\\n\\t\\tfor(x=2;x<MAX;x++){\\n\\t\\t\\tif(prime[x]>=0&&n%x==0){\\n\\t\\t\\t\\tc+=n/x;\\n\\t\\t\\t\\tn/=x;\\n\\t\\t\\t\\t//printf(\\\"--%d\\\\n\\\",n);\\n\\t\\t\\t\\tgoto next;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif(x==MAX)break;\\n\\t\\tnext:;\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",c+(n>1?1:0));\\n  //for(j=1;j<k;j++)\\n\\t//printf(\\\"%d\\\",p[j]);\\n\\texit(0);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1422,
+    "completion_tokens": 310,
+    "total_tokens": 1732,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1422
+  },
+  "raw_sha256": "aa98bcbf0ed4abf3c8265e9999fce8c6ab8e52e3aa7ccbc83bec98206090264a",
+  "ended_utc": "2026-10-21T06:48:38.739721+00:00",
+  "elapsed_seconds": 1.532
+}

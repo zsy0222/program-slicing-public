@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3078/BP3/repair/1",
+  "case_id": "BP17-3078",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "4f668f6a9baf3293a674f499c3c278796d7b7423ecf5dfe8b13c60d6f157670e",
+  "started_utc": "2026-11-16T06:15:21.549446+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8a7b6ed4-7014-4a8f-9fd2-eea1bc15da2c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n,i;\\n    unsigned long max,max1,min,min1;\\n\\n\\tscanf(\\\"%d\\\", &n);\\n\\tint numbers[n];\\n\\n\\tfor(i = 0;i < n;i++){\\n\\t\\tscanf(\\\"%d\\\", &numbers[i]);\\n\\t}\\n\\tmin = 4294967295;\\n\\tmin1 = 4294967295;\\n\\tmax = 0;\\n\\tmax1 = 0;\\n\\tfor(i = 0;i < n;i++){\\n        max = fabs(numbers[i] - numbers[0]);\\n        max1 = fabs(numbers[i] - numbers[n-1]);\\n        if(max < max1)\\n            max = max1;\\n        if(i > 0 && i < n-1){\\n        min = fabs(numbers[i] - numbers[i-1]);\\n        min1 = fabs(numbers[i] - numbers[i+1]);\\n        }\\n        else if(i == 0)\\n            min = fabs(numbers[i] - numbers[i+1]);\\n        else\\n            min = fabs(numbers[i] - numbers[i-1]);\\n        if(min > min1)\\n            min = min1;\\n        printf(\\\"%ld %ld\\\\n\\\", min, max);\\n        min = 4294967295;\\n        min1 = 4294967295;\\n        max = 0;\\n        max1 = 0;\\n\\t}\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1690,
+    "completion_tokens": 369,
+    "total_tokens": 2059,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1690
+  },
+  "raw_sha256": "bd4c698d51e9b182945a8ba152a109baaf66e66881f8d40d7d74edd89336d087",
+  "ended_utc": "2026-11-16T06:15:23.853101+00:00",
+  "elapsed_seconds": 2.3011
+}

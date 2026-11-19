@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0435/BP3/repair/1",
+  "case_id": "BP17-0435",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "f6246414cef433fdf0743be9b0f4770182472d17e35dfa92f1409409d3dc7913",
+  "started_utc": "2026-10-21T08:31:50.720755+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e29a4db3-598a-47a3-86f5-3eeda9b76ff8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\ntypedef struct\\n{\\n    char m_Name[21];\\n    int  m_taxi,m_pizza,m_girl;\\n} Preson_t;\\nPreson_t P[100];\\n\\nint main(int argc, char *argv[])\\n{\\n    int N,M,a,b,c,Taxi,Pizza,Girl,i;\\n    char flag;\\n    scanf(\\\"%d\\\",&N);\\n    for(i=0; i<N; ++i)\\n    {\\n        P[i].m_taxi = P[i].m_pizza = P[i].m_girl = 0;\\n        scanf(\\\"%d %s\\\",&M,P[i].m_Name);\\n        while(M--)\\n        {\\n            scanf(\\\"%d-%d-%d\\\",&a,&b,&c);\\n            if(a==b&&b==c&&a/10==a%10)\\n            {\\n                ++P[i].m_taxi;\\n            }\\n            else if(a>b&&b>c&&a/10!=a%10&&b/10!=b%10&&c/10!=c%10)\\n            {\\n                ++P[i].m_pizza;\\n            }\\n            else\\n            {\\n                ++P[i].m_girl;\\n            }\\n        }\\n    }\\n    Taxi=Pizza=Girl=0;\\n    for(i=0; i<N; ++i)\\n    {\\n        if(P[i].m_taxi>Taxi)\\n        {\\n            Taxi=P[i].m_taxi;\\n        }\\n        if(P[i].m_pizza>Pizza)\\n        {\\n            Pizza=P[i].m_pizza;\\n        }\\n        if(P[i].m_girl>Girl)\\n        {\\n            Girl=P[i].m_girl;\\n        }\\n    }\\n    printf(\\\"If you want to call a taxi, you should call:\\\");\\n    flag=0;\\n    for(i=0; i<N; ++i)\\n    {\\n        if(P[i].m_taxi==Taxi)\\n        {\\n            if(flag)\\n            {\\n                printf(\\\",\\\");\\n            }\\n            printf(\\\" %s\\\",P[i].m_Name);\\n            flag=1;\\n        }\\n    }\\n    printf(\\\".\\\\n\\\");\\n    printf(\\\"If you want to order a pizza, you should call:\\\");\\n    flag=0;\\n    for(i=0; i<N; ++i)\\n    {\\n        if(P[i].m_pizza==Pizza)\\n        {\\n            if(flag)\\n            {\\n                printf(\\\",\\\");\\n            }\\n            printf(\\\" %s\\\",P[i].m_Name);\\n            flag=1;\\n        }\\n    }\\n    printf(\\\".\\\\n\\\");\\n    printf(\\\"If you want to go to a cafe with a wonderful girl, you should call:\\\");\\n    flag=0;\\n    for(i=0; i<N; ++i)\\n    {\\n        if(P[i].m_girl==Girl)\\n        {\\n            if(flag)\\n            {\\n                printf(\\\",\\\");\\n            }\\n            printf(\\\" %s\\\",P[i].m_Name);\\n            flag=1;\\n        }\\n    }\\n    printf(\\\".\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3211,
+    "completion_tokens": 773,
+    "total_tokens": 3984,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176
+    },
+    "prompt_cache_hit_tokens": 2176,
+    "prompt_cache_miss_tokens": 1035
+  },
+  "raw_sha256": "46ac648c6c52106d2d719054306efb3ecb8a9b82665ab8cde413421494f55c08",
+  "ended_utc": "2026-10-21T08:31:53.957360+00:00",
+  "elapsed_seconds": 3.109
+}

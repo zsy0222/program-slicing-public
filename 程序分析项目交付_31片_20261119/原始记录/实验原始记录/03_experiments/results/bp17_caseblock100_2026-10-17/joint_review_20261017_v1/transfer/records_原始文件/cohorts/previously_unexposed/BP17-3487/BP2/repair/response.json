@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3487",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\ntypedef unsigned u;\\nint F(const void*x,const void*y){return*(int*)x-*(int*)y;}\\nu A[222222],B[222222],M[222222],Si,L,R;\\nint N[222222],S[222222];\\nint main(int argc, char *argv[])\\n{\\n\\tu n,q,i=-1,j,k=0;\\n\\tfor(scanf(\\\"%u%u\\\",&n,&q);++i<n;)scanf(\\\"%i\\\",N+i);\\n\\tfor(i=-1;++i<q;)\\n\\t{\\n\\t\\tscanf(\\\"%u%u\\\",A+i,B+i);\\n\\t\\tif(k<B[i])k=B[i];\\n\\t}\\n\\tqsort(N,n,sizeof(int),F);\\n\\tfor(i=0;q--;)\\n\\t{\\n\\t\\tj=B[q];k=A[q];\\n\\t\\twhile(i<j)M[i++]=k;\\n\\t}\\n\\tL=0;R=n;\\n\\twhile(n--)\\n\\t{\\n\\t\\tif(M[n]==2)S[Si++]=N[L++];\\n\\t\\telse S[Si++]=N[--R];\\n\\t}\\n\\twhile(Si--)printf(\\\"%u%c\\\",S[Si],Si?' ':'\\\\n');\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 1.797,
+  "ended_utc": "2026-10-17T06:55:21.085647+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3487/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "7aefae0a3e07c151aebcc3ba91941e3c103a7a254606cb0d3e98df645fbb8355",
+  "request_model": "deepseek-flash",
+  "request_sha256": "fcd1acf8efc35ea4218914aad0c8ee30167353724fc8035a984e1fbdc4dfb906",
+  "response_id": "3167efcb-d64a-41be-9ec5-333e1744a8d1",
+  "started_utc": "2026-10-17T06:55:19.291935+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 325,
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 791,
+    "prompt_tokens": 1815,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "total_tokens": 2140
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1800/BP2/repair/1",
+  "case_id": "BP17-1800",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "6221d311b9d6eb53c0560b6a37897ebdca3540dd40e7afeb61f76fdca6574964",
+  "started_utc": "2026-11-16T17:47:05.465470+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "96d3d80f-08d0-4592-9f37-9826ec61f7d3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[]){\\n    int n,m,i,j,a,b,fa[2][2],fb[2][2],r,v=-1,s;\\n    scanf(\\\"%d%d%d%d%d%d\\\",&n,&m,&i,&j,&a,&b);\\n    s=n;\\n    r=(i-1)%(2*a);\\n    fa[0][1]=(i-1)/a;\\n    if(r==a)fa[0][0]=1;\\n    else if(r==0)fa[0][0]=2;\\n    else fa[0][0]=0;\\n    r=(n-i)%(2*a);\\n    fa[1][1]=(n-i)/a;\\n    if(r==a)fa[1][0]=1;\\n    else if(r==0)fa[1][0]=2;\\n    else fa[1][0]=0;\\n    r=(j-1)%(2*b);\\n    fb[0][1]=(j-1)/b;\\n    if(r==b)fb[0][0]=1;\\n    else if(r==0)fb[0][0]=2;\\n    else fb[0][0]=0;\\n    r=(m-j)%(2*b);\\n    fb[1][1]=(m-j)/b;\\n    if(r==b)fb[1][0]=1;\\n    else if(r==0)fb[1][0]=2;\\n    else fb[1][0]=0;\\n    r=-1;\\n    if(fa[0][0]==1)r=fa[0][1];\\n    if(fa[1][0]==1&&(fa[1][1]<r||!(r+1)))r=fa[1][1];\\n    n=-1;\\n    if(fb[0][0]==1)n=fb[0][1];\\n    if(fb[1][0]==1&&(fb[1][1]<n||!(n+1)))n=fb[1][1];\\n    if((r+1)&&(n+1))v=n>r?n:r;\\n    \\n    r=-1;\\n    if(fa[0][0]==2)r=fa[0][1];\\n    if(fa[1][0]==2&&(fa[1][1]<r||!(r+1)))r=fa[1][1];\\n    n=-1;\\n    if(fb[0][0]==2)n=fb[0][1];\\n    if(fb[1][0]==2&&(fb[1][1]<n||!(n+1)))n=fb[1][1];\\n    if((r+1)&&(n+1))if(!(v+1)||v>n&&v>r)v=n>r?n:r;\\n    \\n    \\n    \\n    \\n    if(v+1)printf(\\\"%d\\\",v);\\n    else printf(\\\"Poor Inna and pony!\\\");\\n    return 0;\\n}\\n    \"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2917,
+    "completion_tokens": 720,
+    "total_tokens": 3637,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2917
+  },
+  "raw_sha256": "381b97caf752e7b446ce1a3ecf8bc5579a548f0c9fa569d714d251e4c0ec3028",
+  "ended_utc": "2026-11-16T17:47:08.778963+00:00",
+  "elapsed_seconds": 3.311
+}

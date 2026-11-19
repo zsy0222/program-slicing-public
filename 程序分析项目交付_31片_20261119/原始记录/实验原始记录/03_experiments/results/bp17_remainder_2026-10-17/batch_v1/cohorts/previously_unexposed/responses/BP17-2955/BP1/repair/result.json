@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2955/BP1/repair/1",
+  "case_id": "BP17-2955",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e65e0cda91fac18a0d0184215c79ddf87172e605344404fce5cd3eb50e61ed2d",
+  "started_utc": "2026-11-16T16:47:51.663660+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fe71f4cb-85ef-4a9e-b452-d16de0b9a868",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint comparator(const void* a, const void* b)\\n{\\n    return (*(int *)a - *(int *)b);\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n;\\n    scanf(\\\"%d\\\",&n);\\n    int *arr=(int *)malloc(sizeof(int)*n);\\n    int i;\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d\\\",&arr[i]);\\n    }\\n    qsort(arr,n,sizeof(int),comparator);\\n    int cum=arr[0];\\n    int happy=1;\\n    for(i=1;i<n;i++)\\n    {\\n        if(arr[i]>=cum)\\n            happy++;\\n        cum+=arr[i];\\n\\n    }\\n    printf(\\\"%d\\\\n\\\",happy);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 916,
+    "completion_tokens": 215,
+    "total_tokens": 1131,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 916
+  },
+  "raw_sha256": "1cb9f3e072572374a904fab78a658e12e4872a9e3c799da517ff1e95e8ac53c0",
+  "ended_utc": "2026-11-16T16:47:53.738573+00:00",
+  "elapsed_seconds": 2.0212
+}

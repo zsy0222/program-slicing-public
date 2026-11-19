@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2930/BP1/repair/1",
+  "case_id": "BP17-2930",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "51182db482b8b4b04a058ba4500b6209d609614330f838eba7d2227fe6227be7",
+  "started_utc": "2026-10-18T12:31:45.401711+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c8e34296-94c7-4ed4-bc6d-3fa0df6b11a2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<limits.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n,m,max = INT_MIN,x,hi,di,hi_1,di_1;\\n\\tscanf(\\\"%i %i\\\",&n,&m);\\n\\n\\tscanf(\\\"%i %i\\\",&di,&hi);\\n\\n\\t//y = hi + di-x, x = 1\\n\\tx = 1;\\n\\tmax = hi + di-x;\\n\\t\\n\\twhile( m>1 )\\n\\t{\\n\\t\\tscanf(\\\"%i %i\\\",&di_1,&hi_1);\\n\\t\\t\\n\\t\\tx = ( di+di_1 + hi_1-hi )/2;\\n\\t\\tif( !( di<=x && x<=di_1 ) )\\n\\t\\t{\\n\\t\\t\\tprintf(\\\"IMPOSSIBLE\\\\n\\\");\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\n\\t\\tmax = ( max<(hi+x-di) ? (hi+x-di) : max ) ;\\n\\n\\t\\thi = hi_1;\\n\\t\\tdi = di_1;\\n\\t\\tm -= 1;\\n\\t}\\n\\n\\t// y = hi + x-di, x = n\\n\\tmax = ( max<(hi+n-di) ? (hi+n-di) : max ) ;\\n\\n\\tprintf(\\\"%i\\\\n\\\",max);\\n\\t\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1137,
+    "completion_tokens": 343,
+    "total_tokens": 1480,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 241
+  },
+  "raw_sha256": "c001db566a19c4c7512f1736f8431f71320e7b0e5ec0b384f29a7d99355fa287",
+  "ended_utc": "2026-10-18T12:31:47.185732+00:00",
+  "elapsed_seconds": 1.672
+}

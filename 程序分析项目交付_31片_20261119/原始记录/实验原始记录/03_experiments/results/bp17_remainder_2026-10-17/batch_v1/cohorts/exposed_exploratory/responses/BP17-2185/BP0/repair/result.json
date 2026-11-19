@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2185/BP0/repair/1",
+  "case_id": "BP17-2185",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "a5b03ec057f9f356edb65f979c81a98e04cbe7354a92cafcc9df57e3548482f4",
+  "started_utc": "2026-11-16T17:24:22.641823+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "57d74680-bdb1-4b8e-b58f-c85b2c055b6d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    char Str[20];\\n    int K, i, j, maxid;\\n    char max;\\n    scanf(\\\"%s %d\\\", Str, &K);\\n    for(i=0; i<K && Str[i]!='\\\\0'; ++i)\\n    {\\n        max = Str[i];\\n        maxid = i;\\n        for(j=i+1; j<i+1+K && Str[j]!='\\\\0'; ++j)\\n        {\\n            if(Str[j] > max)\\n            {\\n                max = Str[j];\\n                maxid = j;\\n            }\\n        }\\n        if(maxid != i)\\n        {\\n            K -= maxid - i;\\n            for(j=maxid; j>i; --j)\\n            {\\n                Str[j] = Str[j-1];\\n            }\\n            Str[i] = max;\\n        }\\n    }\\n    puts(Str);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 917,
+    "completion_tokens": 246,
+    "total_tokens": 1163,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 149
+  },
+  "raw_sha256": "a0289d379a5f5a5ce692813c2e6cabd898e9ad7c43270d9ea37f607307520446",
+  "ended_utc": "2026-11-16T17:24:24.707813+00:00",
+  "elapsed_seconds": 2.063
+}

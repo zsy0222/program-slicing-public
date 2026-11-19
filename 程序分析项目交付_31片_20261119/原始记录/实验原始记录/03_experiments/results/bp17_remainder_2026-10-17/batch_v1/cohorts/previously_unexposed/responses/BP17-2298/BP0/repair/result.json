@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2298/BP0/repair/1",
+  "case_id": "BP17-2298",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "93aed8f720e50527a5b6c6c487d3a0ae06d4f8d70ad8dabc40e086de8f185857",
+  "started_utc": "2026-11-16T04:48:06.941643+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "35d6eff5-6fc7-4fd2-b426-c8523388fc40",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int a[200], b[200], i, j, n, flag, count, min, max, slag;\\n\\n    scanf(\\\"%d\\\", &n);\\n    for( i=0; i<n; i++)\\n    {\\n        scanf(\\\"%d\\\", &a[i]);\\n    }\\n    for( i=0, count=0, flag=0; i<n; i++ ){\\n        if(a[i]==0 ) count++;\\n        if( a[i]<0 ) flag++;\\n    }\\n    if( count==n || (flag+count==n && flag==1 &&count>0) ) printf(\\\"0\\\\n\\\");\\n    else{\\n\\n        for( i=0, min=1000, count=0, j=0; i<n; i++ )\\n        {\\n            if( a[i] < min ) min = a[i];\\n            if( a[i]<0 ) count++;\\n            if( a[i]==0 ) continue;\\n            b[j++] = a[i];\\n        }\\n        n=j;\\n        if( n==1 ) printf(\\\"%d\\\\n\\\", b[0]);\\n        else if( count>0 && count%2==1 )\\n        {\\n            max = -1000;\\n            for( i=0; i<n; i++ )\\n            {\\n                if( b[i]<0 )\\n                {\\n                    if( b[i]>max ) max=b[i];\\n                }\\n            }\\n            for( i=0, flag=0, slag=0; i<n; i++ )\\n            {\\n                if( b[i]==max ){\\n                    if( slag==0 ){\\n                        slag=1;\\n                        continue;\\n                    }\\n                }\\n                if( flag==0 ) {\\n                    printf(\\\"%d\\\", b[i]);\\n                    flag=1;\\n                    continue;\\n                }\\n                printf(\\\" %d\\\", b[i]);\\n            }\\n            printf(\\\"\\\\n\\\");\\n        }\\n        else\\n        {\\n            for( i=0; i<n; i++ )\\n            {\\n                if( i==0 ) printf(\\\"%d\\\", b[i]);\\n                else printf(\\\" %d\\\", b[i]);\\n            }\\n            printf(\\\"\\\\n\\\");\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1309,
+    "completion_tokens": 571,
+    "total_tokens": 1880,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 157
+  },
+  "raw_sha256": "1d4a8f7c431fd043c8b59cc81ef32b394cf8514c8b9ec874d9fc876573db767b",
+  "ended_utc": "2026-11-16T04:48:09.580941+00:00",
+  "elapsed_seconds": 2.6266
+}

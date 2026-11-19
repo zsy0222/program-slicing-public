@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1776/BP3/repair/1",
+  "case_id": "BP17-1776",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "5149c5d0bbf6a312a550498b9b11e61648e2f6fa5a4dd499f4fc1a47a1fd0317",
+  "started_utc": "2026-10-21T07:14:35.947712+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f73ba30a-d6b6-4925-a5dd-7188332f89a3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\nint main(int argc, char const *argv[])\\n{\\n\\tint r1, c1, r2, c2;\\n\\tint rook, bishop , king;\\n\\tchar color1, color2;\\n\\t\\n\\tscanf(\\\"%d %d %d %d\\\", &r1, &c1, &r2, &c2);\\n\\n\\t//rook\\n\\tif (r1 == r2 || c1 == c2)\\n\\t\\trook = 1;\\n\\telse\\n\\t\\trook = 2;\\n\\n\\t//bishop\\n\\tif ((r1 + c1) % 2 == 0)\\n\\t{\\n\\t\\tcolor1 = 'B';\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tcolor1 = 'W';\\n\\t}\\n\\n\\tif ((r2 + c2) % 2 == 0)\\n\\t{\\n\\t\\tcolor2 = 'B';\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tcolor2 = 'W';\\n\\t}\\n\\n\\tif (color1 != color2)\\n\\t{\\n\\t\\tbishop = 0;\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tif (abs(r2 - r1) == abs(c2 - c1))\\n\\t\\t{\\n\\t\\t\\tbishop = 1;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tbishop = 2;\\n\\t\\t}\\n\\t}\\n\\n\\t//king\\n\\tif (abs(r2 - r1) == abs(c2 - c1))\\n\\t{\\n\\t\\tking = abs(r2 - r1);\\n\\t}\\n\\tif (abs(r2 - r1) > abs(c2 - c1))\\n\\t{\\n\\t\\tking = abs(r2 - r1);\\n\\t}\\n\\tif (abs(r2 - r1) < abs(c2 - c1))\\n\\t{\\n\\t\\tking = abs(c2 - c1);\\n\\t}\\n\\n\\n\\tprintf(\\\"%d %d %d\\\\n\\\", rook, bishop , king );\\n\\treturn 0;\\n}\\n\\n\\n\\n\\n\\n\\n/*\\nif ((i + j) % 2 == 0)\\n{\\n\\tChessboard[i][j] = 'B';\\n}\\nelse\\n{\\n\\tChessboard[i][j] = 'W';\\n}*/\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2009,
+    "completion_tokens": 550,
+    "total_tokens": 2559,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2009
+  },
+  "raw_sha256": "2fe7b8bcde31477b661460c0a31d2d5f6ad717bd24a1bdfab76bd20d7a991068",
+  "ended_utc": "2026-10-21T07:14:38.375017+00:00",
+  "elapsed_seconds": 2.422
+}

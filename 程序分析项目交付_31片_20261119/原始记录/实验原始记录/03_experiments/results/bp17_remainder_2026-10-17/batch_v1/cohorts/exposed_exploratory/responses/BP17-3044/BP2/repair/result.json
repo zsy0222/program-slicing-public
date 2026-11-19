@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3044/BP2/repair/1",
+  "case_id": "BP17-3044",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "b51bbe0152515f8a3ef37382f8a4183f52bb22e94f0c81c937fddf9018a59e5b",
+  "started_utc": "2026-11-16T04:21:46.721559+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "498ca171-3816-4a06-b85b-ac6acc0a075f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint n , min1, min2, min3, mx1, mx2, mx3 , dif1, dif2, dif3, x;\\n\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%d\\\", &n);\\n    scanf(\\\"%d %d\\\", &min1, &mx1);\\n    scanf(\\\"%d %d\\\", &min2, &mx2);\\n    scanf(\\\"%d %d\\\", &min3, &mx3);\\n\\n    dif1 = mx1 - min1;\\n    dif2 = mx2 - min2;\\n    dif3 = mx3 - min3;\\n\\n    x = n - min1 - min2 - min3;\\n\\n    if( x == 0)\\n    {\\n        printf(\\\"%d %d %d\\\", min1, min2, min3);\\n    }\\n    else\\n    {\\n        if ( x <= dif1 )\\n        {\\n            printf(\\\"%d %d %d\\\", min1+x, min2, min3);\\n        }\\n        else\\n        {\\n            x = x - dif1;\\n            if( x <= dif2 ) printf(\\\"%d %d %d\\\", mx1, min2+x, min3);\\n            else\\n            {\\n                       x = x - dif2;\\n                      if( x <= dif3 ) printf(\\\"%d %d %d\\\", mx1, mx2, min3+x);\\n                      else\\n                      {\\n                          printf(\\\"%d %d %d\\\", mx1, mx2, mx3);\\n                      }\\n            }\\n        }\\n    }\\n\\n return 0;\\n }\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1483,
+    "completion_tokens": 389,
+    "total_tokens": 1872,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 459
+  },
+  "raw_sha256": "343437d6cd2b5cc837a6ae72e2703bb63fbfc46a38dfd0b88d23fb05236ed481",
+  "ended_utc": "2026-11-16T04:21:48.846525+00:00",
+  "elapsed_seconds": 2.1219
+}

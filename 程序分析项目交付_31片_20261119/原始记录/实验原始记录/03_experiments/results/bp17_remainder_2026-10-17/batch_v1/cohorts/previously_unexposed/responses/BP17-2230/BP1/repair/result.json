@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2230/BP1/repair/1",
+  "case_id": "BP17-2230",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "20b8c1edd9a9a668387e4369c7eb3217a92734c594a9755e3c3b88466fac7df0",
+  "started_utc": "2026-10-17T08:19:53.300280+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "be638a38-a50e-4b0e-94b4-dffd5d34aec7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nlong long n,n1,sum,a[20],value;\\n\\nlong long findMinOnes(long long n,int i)\\n{\\n\\tint count = 0;\\n\\tlong long value1,value2;\\n\\tif(n<0)\\n\\t\\tn *=-1;\\n\\tif(i==1)\\n\\t\\treturn n;\\n\\tif(n==1)\\n\\t\\treturn 1;\\n\\twhile(n>=a[i])\\n\\t{\\n\\t\\tn-= a[i];\\n\\t\\tcount+=i;\\n\\t}\\n\\tvalue1 = count + findMinOnes(n,i-1);\\n\\tif(n>=a[i])\\n\\t{\\n\\t\\tn-= a[i];\\n\\t\\tcount+=i;\\n\\t}\\n\\tvalue2 = count + findMinOnes(n,i-1);\\n\\tif(value1 < value2)\\n\\t\\treturn value1;\\n\\telse\\n\\t\\treturn value2;\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint k=1,i=0,count;\\n\\tint mul = 10;\\n\\tscanf(\\\"%lld\\\",&n);\\n\\tn1=n;\\n\\twhile(n!=0)\\n\\t{\\n\\t\\tn=n/10;\\n\\t\\ti++;\\n\\t}\\n\\ta[k]=1;\\n\\tfor(k=2;k<=i+1;k++)\\n\\t{\\n\\t\\ta[k]=a[k-1]+mul;\\n\\t\\tmul*=10;\\n\\t}\\n\\tn=n1;\\n\\tprintf(\\\"%lld\\\\n\\\",findMinOnes(n,i+1));\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1184,
+    "completion_tokens": 382,
+    "total_tokens": 1566,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 160
+  },
+  "raw_sha256": "698603e0fe32ad2ba8aeecf9af65edddbafdd06d2f1055fc4775fcb735adfc88",
+  "ended_utc": "2026-10-17T08:19:55.262335+00:00",
+  "elapsed_seconds": 1.922
+}

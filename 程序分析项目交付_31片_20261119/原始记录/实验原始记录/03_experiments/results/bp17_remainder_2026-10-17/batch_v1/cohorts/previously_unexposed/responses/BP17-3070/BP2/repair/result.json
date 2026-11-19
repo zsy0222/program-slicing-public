@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3070/BP2/repair/1",
+  "case_id": "BP17-3070",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "fdd470092ef21d14e98fd771d3d5e55c94167d9c729139c3772aacdb8de21ca7",
+  "started_utc": "2026-11-16T16:27:09.914836+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c4f096a5-2fe5-4ddc-9a7a-1628d41b4ce2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n    int i,a[3],b[3];\\n    for(i=0;i<3;i++){\\n        scanf(\\\"%d%d\\\",&a[i],&b[i]);\\n    }\\n    int ok=0;\\n    int x,y;\\n    for(x=0;x<2;x++){\\n        for(y=0;y<2;y++){\\n            int W = x? b[0]:a[0];\\n            int H = x? a[0]:b[0];\\n            int w1 = y? b[1]:a[1];\\n            int h1 = y? a[1]:b[1];\\n            int w2 = y? b[2]:a[2];\\n            int h2 = y? a[2]:b[2];\\n            if(w1<=W && h1<=H && w2<=W && h2<=H) ok=1;\\n            if(w1+w2<=W && h1<=H && h2<=H) ok=1;\\n            if(h1+h2<=H && w1<=W && w2<=W) ok=1;\\n            if(w1+h2<=W && h1<=H && w2<=W) ok=1;\\n            if(h1+w2<=H && w1<=W && h2<=H) ok=1;\\n        }\\n    }\\n    if(ok) printf(\\\"YES\\\\n\\\");\\n    else printf(\\\"NO\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2005,
+    "completion_tokens": 372,
+    "total_tokens": 2377,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 981
+  },
+  "raw_sha256": "fafa04c120b164670269cb24f10d212d4300e4a2335be958982acfb3094aa372",
+  "ended_utc": "2026-11-16T16:27:12.370023+00:00",
+  "elapsed_seconds": 2.2602
+}

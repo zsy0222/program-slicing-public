@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2883/BP3/repair/1",
+  "case_id": "BP17-2883",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "d7ab5be74679073e296be0fe64dc5d4c7b6319598ca5c88beac920ac4275e11f",
+  "started_utc": "2026-11-18T09:28:09.354015+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "315b8995-51d9-4dab-a7ea-0140d77ea9f8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define MAX(x, y) (((x) > (y)) ? (x) : (y))\\nint main(int argc, char *argv[])\\n{\\n    long long int a,b,c,d,move,move_p,move_v;\\n    scanf(\\\"%lld %lld %lld %lld\\\",&a,&b,&c,&d);\\n    if(a<c&&b<d)printf(\\\"Polycarp\\\");\\n    else if((a<c&&b>d)||(a>c&&b<d)||(a>=c&&b>d)){\\n        move_p=a+b;\\n        move_v=MAX(c,d);\\n        if(move_p<=move_v)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n    else if(a==c&&b<d){\\n        move=d-b;\\n        a-=move;\\n        c-=move;\\n        d-=move;\\n        if(a<=c&&b<=d)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n     else if(a<c&&b==d){\\n        move=c-a;\\n        b-=move;\\n        c-=move;\\n        d-=move;\\n        if(a<=c&&b<=d)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n    else if(a==c&&b==d){\\n        printf(\\\"Polycarp\\\");\\n    }\\n    else if(a>c&&b==d){\\n        printf(\\\"Vasiliy\\\");\\n    }\\n    else if(a==c&&b>d){\\n        printf(\\\"Vasiliy\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1655,
+    "completion_tokens": 420,
+    "total_tokens": 2075,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 631
+  },
+  "raw_sha256": "e4ee293f0183afd2f8812c351ae7f9f56bc127aca7dcb9a16f6f4fc93fbb8763",
+  "ended_utc": "2026-11-18T09:28:11.420124+00:00",
+  "elapsed_seconds": 2.0642
+}

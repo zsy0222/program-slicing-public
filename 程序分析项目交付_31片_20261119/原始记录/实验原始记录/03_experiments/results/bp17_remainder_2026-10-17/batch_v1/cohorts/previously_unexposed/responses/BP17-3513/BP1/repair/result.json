@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3513/BP1/repair/1",
+  "case_id": "BP17-3513",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c7487237818f732a6d6cd8e7f541bdde7dac2e57c993a1de4971a5aa43afb3bc",
+  "started_utc": "2026-11-16T15:55:06.102224+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "ae9d17bb-c4d8-4279-975c-d16cff0097e2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/*\\n * To change this license header, choose License Headers in Project Properties.\\n * To change this template file, choose Tools | Templates\\n * and open the template in the editor.\\n */\\n#include<stdio.h>\\n#define ll long long\\nint main(int argc, char *argv[])\\n{\\n    ll n,a,b,i,j;\\n    scanf(\\\"%lld%lld%lld\\\",&n,&a,&b);\\n    if(n>a*b){\\n        printf(\\\"-1\\\");\\n    }\\n    else{\\n        ll array[101][101];\\n        for(i=0;i<a;i++){\\n            for(j=0;j<b;j++){\\n                array[i][j] = 0;\\n            }\\n        }\\n        ll sign = 1, count =1;\\n        i=0;\\n        \\n        while(count<=n){\\n            if(sign==1){\\n                for(j=0;j<b;j++){\\n                    if(count<=n){\\n                        array[i][j] = count;}\\n                    else{\\n                        break;\\n                    }\\n                    count++;\\n                }\\n                sign*=-1;\\n                i++;\\n            }\\n            else{\\n                for(j=b-1;j>=0;j--){\\n                    if(count<=n){\\n                        array[i][j]=count;}\\n                    else{\\n                        break;\\n                    }\\n                    count++;\\n                }\\n                i++;\\n                sign*=-1;\\n            }\\n        }\\n        \\n        for(i=0;i<a;i++){\\n            for(j=0;j<b;j++){\\n                printf(\\\"%lld \\\",array[i][j]);\\n            }\\n            printf(\\\"\\\\n\\\");\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1221,
+    "completion_tokens": 407,
+    "total_tokens": 1628,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1221
+  },
+  "raw_sha256": "55a0da4aaa79233d93c01f6958e180702293c956ee01ed71bb248bea1e645ab6",
+  "ended_utc": "2026-11-16T15:55:08.917126+00:00",
+  "elapsed_seconds": 2.6895
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3800/BP2/repair/1",
+  "case_id": "BP17-3800",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "0d7b2b698e9e09f7ee7da0100ecb3ab5f0685e1514cba0a31906c361c196e8bd",
+  "started_utc": "2026-11-16T16:15:09.672013+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "13d626f1-2b88-440d-9995-630ed5fbe7f8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\n#define TAM 300\\n\\nint grid[TAM][TAM];\\n\\nint main(int argc, char *argv[]) {\\n    char movs[101];\\n    while (scanf (\\\"%s \\\", movs) != EOF) {\\n        memset (grid, 0, sizeof(grid));\\n        int i, n = strlen(movs), x = 150, y = 150, ok = 1;\\n        grid[x][y] = 1;\\n        for (i = 0; i < n; i++) {\\n            switch (movs[i]) {\\n                case 'U':\\n                    y--;\\n                    ok = (grid[x][y-1] || grid[x-1][y] || grid[x+1][y]) ? 0 : ok;\\n                    break;\\n                case 'D':\\n                    y++;\\n                    ok = (grid[x][y+1] || grid[x-1][y] || grid[x+1][y]) ? 0 : ok;\\n                    break;\\n                case 'L':\\n                    x--;\\n                    ok = (grid[x-1][y] || grid[x][y-1] || grid[x][y+1]) ? 0 : ok;\\n                    break;\\n                case 'R':\\n                    x++;\\n                    ok = (grid[x+1][y] || grid[x][y-1] || grid[x][y+1]) ? 0 : ok;\\n                    break;\\n                default: break;\\n            }\\n            ok = (grid[x][y]) ? 0 : ok;\\n            grid[x][y] = 1;\\n        }\\n        if (!ok)\\n            printf (\\\"BUG\\\\n\\\");\\n        else\\n            printf (\\\"OK\\\\n\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2158,
+    "completion_tokens": 430,
+    "total_tokens": 2588,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 1006
+  },
+  "raw_sha256": "d67095d86586b81179a52991e033fce59958c1c04721d1bcf49005ee89e68558",
+  "ended_utc": "2026-11-16T16:15:12.006059+00:00",
+  "elapsed_seconds": 2.2183
+}

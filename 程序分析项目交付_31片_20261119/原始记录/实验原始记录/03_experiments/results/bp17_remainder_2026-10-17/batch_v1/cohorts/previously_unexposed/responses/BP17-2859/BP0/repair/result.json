@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2859/BP0/repair/1",
+  "case_id": "BP17-2859",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "f8d78ee81eb9978d4069ce8856a36ceffaeb85f662f2e5cd64ec6a81e7374e2d",
+  "started_utc": "2026-11-16T18:21:51.583829+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6ff8f3ba-8cf4-4d6b-87ea-d45b643e673f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define MAX_N (200000)\\n\\nint ws[MAX_N];\\nint hs[MAX_N];\\n\\nint main(int argc, char *argv[]) {\\n  int i,n,h,acc,mx1,mx2;\\n\\n  scanf(\\\"%d\\\", &n);\\n  for ( i=acc=mx1=mx2=0; i < n; ++i ) {\\n    scanf(\\\"%d %d\\\", ws+i, hs+i);\\n    acc += ws[i];\\n    if ( hs[i] > mx1 ) { mx2 = mx1; mx1 = hs[i]; }\\n    else if ( hs[i] > mx2 ) mx2 = hs[i];\\n  }\\n  for ( i=0; i < n; ++i ) {\\n    h = hs[i] == mx1 ? mx2 : mx1;\\n    printf(\\\"%d \\\", h*(acc-ws[i]));\\n  }\\n  printf(\\\"\\\\n\\\");\\n  return EXIT_SUCCESS;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 908,
+    "completion_tokens": 246,
+    "total_tokens": 1154,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 140
+  },
+  "raw_sha256": "bd4293e1a79a38b9664ab54433bca537d8d710ba0c6da58c365a349ee76dabe8",
+  "ended_utc": "2026-11-16T18:21:53.444201+00:00",
+  "elapsed_seconds": 1.8068
+}

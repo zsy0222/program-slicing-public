@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3860/BP3/repair/1",
+  "case_id": "BP17-3860",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "f51890b5654741fbb4222378b2ba18962e1557444551eb1fc9034250c6717da8",
+  "started_utc": "2026-10-21T08:02:45.096417+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4e02b6b3-3b56-494d-9cdf-302210b3b617",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint busquedaBin(int lista[],int aux[],int inicio,int fin, int clave);\\nint main(int argc, char *argv[])\\n{\\n    int dim,i,menor=0,mayor,posmay,posmen,r;\\n    scanf(\\\"%d\\\",&dim);\\n    int vect[dim],aux1[dim+1],aux2[dim+1],resul[dim];\\n    for(i=0;i<dim;i++)\\n    {\\n        scanf(\\\"%d\\\",&vect[i]);\\n    }\\n    mayor=vect[dim-1];\\n    posmay=dim-1;\\n    posmen=dim-1;\\n    for(i=dim-1;i>=0;i--)\\n    {\\n        if(i==dim-1 ||(vect[i]<menor && vect[i+1]>vect[i]))\\n        {\\n            menor=vect[i];\\n            aux1[posmen] = vect[i];\\n            aux2[posmen] = i;\\n            --posmen;\\n            resul[i]=-1;\\n        }\\n        else\\n        {\\n            if(vect[i]>mayor)\\n            {\\n                resul[i]=posmay-i-1;\\n                posmay=i;\\n            }\\n            else if(vect[i]>menor)\\n            {\\n                r=busquedaBin(aux1,aux2,posmen+1,dim,vect[i]);\\n                resul[i]=r-i-1;\\n            }\\n            else\\n            {\\n                resul[i]=-1;\\n            }\\n        }\\n\\n    }\\n    for(i=0;i<dim;i++)\\n        {\\n            printf(\\\"%d \\\",resul[i]);\\n        }\\n    return 0;\\n}\\nint busquedaBin(int lista[],int aux[],int inicio,int fin, int clave)\\n{\\n    int central, bajo, alto, valorCentral;\\n    bajo = inicio;\\n    alto = fin;\\n    while (bajo <= alto)\\n    {\\n        central = (bajo + alto)/2;\\n        valorCentral = lista[central];\\n        if (lista[central] < clave && lista[central+1] >= clave)\\n            return aux[central];\\n        else if (lista[central] < clave)\\n            bajo = central + 1;\\n        else if(lista[central] >= clave)\\n            alto = central - 1;\\n    }\\n    return -1;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2134,
+    "completion_tokens": 578,
+    "total_tokens": 2712,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 726
+  },
+  "raw_sha256": "57b2d2295ff562cbdca1201245d2074c6473b52403df8ff3c93618fdd666ca62",
+  "ended_utc": "2026-10-21T08:02:47.655158+00:00",
+  "elapsed_seconds": 2.468
+}

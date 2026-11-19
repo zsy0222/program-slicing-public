@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3276/BP3/repair/1",
+  "case_id": "BP17-3276",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "9e17d8c49549bc0df4d4d2d72ee14e6897afb70ddb2a3e37f00b672992aca17a",
+  "started_utc": "2026-10-18T12:40:04.501248+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "918245f7-6174-4df1-b3df-7e1a16516e37",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\nint n,i,j;\\nscanf(\\\"%d\\\",&n);\\n\\nif(n==1)\\n    { printf(\\\"1 0\\\\n\\\"); return 0; }\\n\\nint arr[n];\\n\\nfor(i=0;i<n;i++)\\nscanf(\\\"%d\\\",&arr[i]);\\n\\nint cna=0,cnb=0;\\nint t1=0,t2=0;\\n\\ni=0;\\nj=n-1;\\n\\ncna++; cnb++;\\nt1+=arr[0];\\nt2+=arr[n-1];\\n\\nwhile(i<j)\\n{\\n    if(t1<t2)\\n    {\\n        i++;\\n        cna++;\\n        t1+=arr[i];\\n    }\\n    else if(t2<t1)\\n    {\\n        j--;\\n        cnb++;\\n        t2+=arr[j];\\n    }\\n    else\\n    {\\n        if(i+1==j)\\n            break;\\n        j--;\\n        cnb++;\\n        t2+=arr[j];\\n\\n        i++;\\n        cna++;\\n        t1+=arr[i];\\n    }\\n}\\n\\nprintf(\\\"%d %d\\\\n\\\",cna,cnb);\\n\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1329,
+    "completion_tokens": 323,
+    "total_tokens": 1652,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 177
+  },
+  "raw_sha256": "dd77b7cec087e8a5088bf420c4e06265d8926650dc5b4b5511da19dd1fdf03c1",
+  "ended_utc": "2026-10-18T12:40:06.638650+00:00",
+  "elapsed_seconds": 2.14
+}

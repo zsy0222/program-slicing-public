@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3748/BP3/repair/1",
+  "case_id": "BP17-3748",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "01e22129973ab830f54e489330cba8e8045ae59e885a26e62cd6d3c133d286d2",
+  "started_utc": "2026-10-21T07:00:47.518665+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c8376ea4-6ec6-4f84-b39c-2c54809d7696",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,i,j,k;\\n\\n    char word[100];\\n    char l[2];\\n    char buf[4];\\n\\n    scanf(\\\"%d\\\",&n);\\n\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%s\\\",word);\\n        int len=strlen(word);\\n        if(len<=10)\\n        {\\n            printf(\\\"%s\\\\n\\\",word);\\n        }\\n        else\\n        {\\n            l[0]=word[len-1];\\n            snprintf(buf, sizeof(buf), \\\"%d\\\", len-2);\\n            for(j=0;buf[j]!='\\\\0';j++)\\n            {\\n                word[j+1]=buf[j];\\n            }\\n            word[j+1]=l[0];\\n            word[j+2]='\\\\0';\\n            printf(\\\"%s\\\\n\\\",word);\\n\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1354,
+    "completion_tokens": 254,
+    "total_tokens": 1608,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 330
+  },
+  "raw_sha256": "0431286ba310024405f9ed4aa9abd2855ce736c94bd2d543cf870a2ba92bcaf4",
+  "ended_utc": "2026-10-21T07:00:49.199937+00:00",
+  "elapsed_seconds": 1.593
+}

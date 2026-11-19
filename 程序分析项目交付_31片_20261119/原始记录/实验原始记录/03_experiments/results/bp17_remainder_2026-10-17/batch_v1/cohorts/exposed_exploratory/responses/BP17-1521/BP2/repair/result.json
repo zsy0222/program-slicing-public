@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1521/BP2/repair/1",
+  "case_id": "BP17-1521",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "84d345312794f586a5a08bb22db3de3039d7739f3dab4fcd3cef6bf9939752cd",
+  "started_utc": "2026-11-16T15:52:19.144691+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "00ebd532-9730-422c-aa58-9036b9092029",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint cmp(const void*a,const void*b)\\n{\\n\\tif(*(int*)a==*(int*)b)\\n\\t\\treturn (*(((int*)a)+1))-(*(((int*)b)+1));\\n\\treturn *(int*)a-*(int*)b;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint a[8][2],i;\\n\\tfor(i=0;i<8;i++)\\n\\t\\tscanf(\\\"%d%d\\\",&a[i][0],&a[i][1]);\\n\\tqsort(a,8,2*sizeof(int),cmp);\\n\\tfor(i=0;i<7;i++)\\n\\t\\tif(a[i][0]==a[i+1][0]&&a[i][1]==a[i+1][1])\\n\\t\\t{printf(\\\"ugly\\\\n\\\");return 0;}\\n\\tif(a[0][0]==a[1][0]&&a[1][0]==a[2][0]&&a[3][0]==a[4][0]&&a[5][0]==a[6][0]&&a[6][0]==a[7][0])\\n\\t{\\n\\t\\tif(a[0][1]==a[3][1]&&a[3][1]==a[5][1]&&a[1][1]==a[6][1]&&a[2][1]==a[4][1]&&a[4][1]==a[7][1])\\n\\t\\t\\tprintf(\\\"respectable\\\\n\\\");\\n\\t\\telse\\n\\t\\t\\tprintf(\\\"ugly\\\\n\\\");\\n\\t}\\n\\telse printf(\\\"ugly\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2084,
+    "completion_tokens": 412,
+    "total_tokens": 2496,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2084
+  },
+  "raw_sha256": "4f3303add701baa04a7d5f2284c2395c74facf9e54777a868b7acda6fedf3f87",
+  "ended_utc": "2026-11-16T15:52:21.483980+00:00",
+  "elapsed_seconds": 2.2851
+}

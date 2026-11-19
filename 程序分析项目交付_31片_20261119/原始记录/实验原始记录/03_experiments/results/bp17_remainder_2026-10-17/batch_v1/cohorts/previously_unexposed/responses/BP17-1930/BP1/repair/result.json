@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1930/BP1/repair/1",
+  "case_id": "BP17-1930",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "b935ef4e1c4924a8ea9b6a40f1421e61856e913a46e7910f385270b65fa96882",
+  "started_utc": "2026-11-16T04:48:27.158453+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "22faf29e-211e-4b02-b6a9-f9954968f873",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint d,sum,max[30],min[30];\\nint main(int argc, char *argv[])\\n{\\n\\tint i,ma=0,mi=0,de,p;\\n\\tscanf(\\\"%d %d\\\",&d,&sum);\\n\\tfor(i=0;i<d;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d %d\\\",&min[i],&max[i]);\\n\\t\\tma+=max[i];\\n\\t\\tmi+=min[i];\\n\\t}\\n\\tif(sum>=mi && ma>=sum)\\n\\t{\\n\\t\\tprintf(\\\"YES\\\\n\\\");\\n\\t\\tde=sum-mi;\\n\\t\\tp=0;\\n\\t\\twhile(de>0)\\n\\t\\t{\\n\\t\\t\\tif(de>=max[p]-min[p])\\n\\t\\t\\t{\\n\\t\\t\\t\\tde-=max[p]-min[p];\\n\\t\\t\\t\\tmin[p]=max[p];\\n\\t\\t\\t}\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tmin[p]+=de;\\n\\t\\t\\t\\tde=0;\\n\\t\\t\\t}\\n\\t\\t\\tp++;\\n\\t\\t}\\n\\t\\tfor(i=0;i<d;i++)\\n\\t\\t\\tprintf(\\\"%d \\\",min[i]);\\n\\t\\tprintf(\\\"\\\\n\\\");\\n\\t}\\n\\telse\\n\\t\\tprintf(\\\"NO\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1335,
+    "completion_tokens": 339,
+    "total_tokens": 1674,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 183
+  },
+  "raw_sha256": "716790afb22450a4b88f359e4c4e04e415ada814bc0a046373d751c1c9a9d7f8",
+  "ended_utc": "2026-11-16T04:48:29.217238+00:00",
+  "elapsed_seconds": 2.0563
+}

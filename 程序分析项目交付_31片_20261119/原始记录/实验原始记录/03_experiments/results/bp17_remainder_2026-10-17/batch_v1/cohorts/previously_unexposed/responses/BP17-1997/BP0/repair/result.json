@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1997/BP0/repair/1",
+  "case_id": "BP17-1997",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "366715f73bd28678d30e084ad489bee148cc29bd656b28365715e7106c5947c1",
+  "started_utc": "2026-10-18T12:06:18.224161+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "da78235b-fde4-45a2-83d6-5b99e4b4002f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n\\nint main()\\n{\\n    int i, j, k=0, n, a, b, c=0, sum=0, p, q;\\n    char st[3001];\\n    scanf(\\\"%d\\\", &n);\\n    scanf(\\\"%s\\\", st);\\n    for(i=0;st[i];i++){\\n        if(st[i]=='.') k++;\\n    }\\n    if(k==n){\\n        printf(\\\"%d\\\", n);\\n        return 0;\\n    }\\n    for(i=0;st[i]!='L' && st[i]!='R';i++){\\n        c++;\\n    }\\n    if(st[i]=='R') sum+=c;\\n    p=i;\\n    c=0;\\n    for(i=n-1;st[i]!='L' && st[i]!='R';i--){\\n        c++;\\n    }\\n    if(st[i]=='L') sum+=c;\\n    c=0;\\n    q=i;\\n    if(st[p]=='L') a=0;\\n    else a=1;\\n    p++;\\n    while(p<=q){\\n        if(st[p]=='.' && (a==0 || a==1)){\\n            c++;\\n        }\\n\\n        if(st[p]=='L'){\\n            a=0;\\n            if(c%2) sum+=1;\\n            c=0;\\n        }\\n        else if(st[p]=='R'){\\n            a=1;\\n            sum+=c;\\n            c=0;\\n        }\\n        p++;\\n    }\\n    printf(\\\"%d\\\", sum);\\n\\n\\n\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1182,
+    "completion_tokens": 403,
+    "total_tokens": 1585,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1182
+  },
+  "raw_sha256": "01ffbfba2376ff8bd3b47293615e8ff5fc341557a7a9998ab98451f7d94b291c",
+  "ended_utc": "2026-10-18T12:06:20.076325+00:00",
+  "elapsed_seconds": 1.844
+}

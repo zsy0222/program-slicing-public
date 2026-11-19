@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2123/BP0/repair/1",
+  "case_id": "BP17-2123",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "8738b15bba2886c753526e3561b90ac623ce43ebf1ac89b33ef502c794f015c0",
+  "started_utc": "2026-11-16T04:40:11.796831+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "26800af3-59e7-4a42-af58-53fac021eab7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n\\nvoid A(double ZA[], int ZB[], int a, int b)\\n{\\n    int c, d, e, f;\\n\\tdouble g;\\n\\n\\tif (a < b) {\\n\\t\\tc = (b - a + 1) / 2 + a;\\n\\t\\tg = ZA[c];\\n\\t\\tZA[c] = ZA[b];\\n\\t\\tZA[b] = g;\\n\\t\\td = ZB[c];\\n\\t\\tZB[c] = ZB[b];\\n\\t\\tZB[b] = d;\\n\\t\\tf = a - 1;\\n\\t\\tfor (e = a; e < b; ++e)\\n\\t\\t\\tif (ZA[e] < ZA[b]) {\\n\\t\\t\\t\\tf += 1;\\n\\t\\t\\t\\tg = ZA[f];\\n\\t\\t\\t\\tZA[f] = ZA[e];\\n\\t\\t\\t\\tZA[e] = g;\\n\\t\\t\\t\\td = ZB[f];\\n\\t\\t\\t\\tZB[f] = ZB[e];\\n\\t\\t\\t\\tZB[e] = d;\\n\\t\\t\\t}\\n\\t\\tf += 1;\\n\\t\\tg = ZA[f];\\n\\t\\tZA[f] = ZA[b];\\n\\t\\tZA[b] = g;\\n\\t\\td = ZB[f];\\n\\t\\tZB[f] = ZB[b];\\n\\t\\tZB[b] = d;\\n\\t\\tA(ZA, ZB, a, f - 1);\\n\\t\\tA(ZA, ZB, f + 1, b);\\n\\t}\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\t\\tint a, b, c, d, e;\\n\\t\\tdouble ZA[1000];\\n\\t\\tint ZB[1000];\\n\\t\\t\\n\\t\\tscanf(\\\"%d%d\\\", &a, &b);\\n\\t\\tfor (c = 0; c < a; ++c) {\\n\\t\\t\\tscanf(\\\"%d%d%d\\\", &d, &e, ZB + c);\\n\\t\\t\\tZA[c] = sqrt(d * d + e * e);\\n\\t\\t}\\n\\t\\tA(ZA, ZB, 0, a - 1);\\n\\t\\tfor (c = 0; c < a; ++c)\\n\\t\\t\\tprintf(\\\"%d %.6f\\\\n\\\", c, ZA[c]);\\n\\t\\tfor (c = 0; c < a && b < 1000000; ++c)\\n\\t\\t\\tb += ZB[c];\\n\\t\\tif (b > 999999)\\n\\t\\t\\tprintf(\\\"%.6f\\\\n\\\", ZA[c - 1]);\\n\\t\\telse\\n\\t\\t\\tprintf(\\\"-1\\\\n\\\");\\n\\t\\t\\t\\n\\t\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1514,
+    "completion_tokens": 676,
+    "total_tokens": 2190,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 234
+  },
+  "raw_sha256": "1d8dc1d52ce9c5a08ad4ce50dbd0815411480981a1895845cacef51b9b13b0fb",
+  "ended_utc": "2026-11-16T04:40:14.544416+00:00",
+  "elapsed_seconds": 2.7455
+}

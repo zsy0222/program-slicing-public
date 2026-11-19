@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2630/BP1/repair/1",
+  "case_id": "BP17-2630",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "2ac5d3f6e03d463555bc61c17385bb012e803d51623fdf2460782b56b547175a",
+  "started_utc": "2026-10-17T13:56:44.322085+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "315f8767-cd21-4bf3-9fa9-10c8c7734eda",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\n#define MAXXY 2000000\\n\\nint n, x, y;\\n\\nint gcd (int a, int b)\\n{\\n  int c;\\n  while (b)\\n    {\\n      c = a % b;\\n      a = b;\\n      b = c;\\n    }\\n\\n  return a;\\n}\\n\\nchar hitter[MAXXY];\\nchar *name[2] = { \\\"Vanya\\\", \\\"Vova\\\" };\\n\\nint main (int argc, char *argv[])\\n{\\n  int d, i, l, h1, h2;\\n\\n  scanf (\\\"%d %d %d\\\\n\\\", &n, &x, &y);\\n  d = gcd (x, y);\\n  x /= d;\\n  y /= d;\\n\\n  h1 = y;\\n  h2 = x;\\n  for (i = 0; i < x + y - 2; i++)\\n    {\\n      if (h1 < h2)\\n\\t{\\n\\t  hitter[i] = 0;\\n\\t  h2 -= h1;\\n\\t  h1 = y;\\n\\t}\\n      else\\n\\t{\\n\\t  hitter[i] = 1;\\n\\t  h1 -= h2;\\n\\t  h2 = x;\\n\\t}\\n    }\\n  /*\\n     for(i=0; i<x+y-2; i++) printf(\\\"%d\\\", hitter[i]);\\n     printf(\\\"\\\\n\\\");\\n   */\\n\\n  for (i = 0; i < n; i++)\\n    {\\n      scanf (\\\"%d\\\\n\\\", &l);\\n      l %= (x + y);\\n      if (l == 0 || l == x + y - 1)\\n\\tprintf (\\\"Both\\\\n\\\");\\n      else\\n\\tprintf (\\\"%s\\\\n\\\", name[hitter[l - 1]]);\\n    }\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1332,
+    "completion_tokens": 465,
+    "total_tokens": 1797,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1332
+  },
+  "raw_sha256": "88e4dee561baabe218882bfe0b3691009a355b03581cc19f97c1a04c2dbf4734",
+  "ended_utc": "2026-10-17T13:56:46.670948+00:00",
+  "elapsed_seconds": 2.344
+}

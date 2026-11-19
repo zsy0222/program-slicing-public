@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0606/BP1/repair/1",
+  "case_id": "BP17-0606",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "2d2fc92c242d81d2951292ebe6e6854bd96b08f3f7f9923c192ae59e0288fd90",
+  "started_utc": "2026-11-16T16:52:19.448295+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f2d439b0-00b5-4fe2-94f5-4b8e8df264cf",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    unsigned int i, N;\\n    long long int num, *sums;\\n    scanf(\\\"%u\\\", &N);\\n    sums = (long long int *)malloc(N*sizeof(long long int));\\n    for(i = 0; i < N; i++){\\n        scanf(\\\"%lld\\\", &num);\\n        if(i == 0)\\n            sums[i] = num;\\n        else\\n            sums[i] = sums[i-1]+num;\\n    }\\n    unsigned int goodcut = 0;\\n    for(i = 0; i < N-1; i++){\\n        if(sums[i] == sums[N-1]-sums[i])\\n            goodcut++;\\n    }\\n    printf(\\\"%u\\\", goodcut);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 907,
+    "completion_tokens": 212,
+    "total_tokens": 1119,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 907
+  },
+  "raw_sha256": "ad8820a2ba270cd9bf7fb2fbd756ba30e62d2fb417cba59e1b78d22924b29aec",
+  "ended_utc": "2026-11-16T16:52:20.997656+00:00",
+  "elapsed_seconds": 1.5463
+}

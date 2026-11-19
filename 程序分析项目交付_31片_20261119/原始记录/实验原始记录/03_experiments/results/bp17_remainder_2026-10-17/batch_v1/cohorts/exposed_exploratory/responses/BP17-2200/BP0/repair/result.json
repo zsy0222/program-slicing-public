@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2200/BP0/repair/1",
+  "case_id": "BP17-2200",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "436c60c96fd1d53d2286fc0892877eb71668f83e5a99b1a364803027796cf88e",
+  "started_utc": "2026-11-16T04:19:05.105777+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "60a48b8c-a4bc-4d54-a82e-cb0dec1c3ec4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nlong sum,lim,ans[10005],tot=0;\\nvoid add(long x)\\n{\\n\\tans[++tot]=x;\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tlong i,j,k;\\n\\tscanf(\\\"%ld %ld\\\",&sum,&lim);\\n\\ti=lim; j=k=0;\\n\\twhile(i)\\n\\t{\\n\\t\\tj+=(i-(i>>1))*(1<<k);\\n\\t\\ti>>=1;\\n\\t\\tk++;\\n\\t}\\n\\tif (j<sum) printf(\\\"-1\\\");\\n\\telse\\n\\t{\\n\\t\\tfor (j=0;1<<j<=lim;j++);\\n\\t\\tj=1<<j;\\n\\t\\tk=j>>1;\\n\\t\\twhile(sum)\\n\\t\\t{\\n\\t\\t\\tif (sum>=j>>1&&k<=lim)\\n\\t\\t\\t{\\n\\t\\t\\t\\tadd(k);\\n\\t\\t\\t\\tsum-=j>>1;\\n\\t\\t\\t\\tk+=j;\\n\\t\\t\\t}\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tj>>=1;\\n\\t\\t\\t\\tk=j>>1;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tprintf(\\\"%ld\\\\n\\\",tot);\\n\\t\\tfor (i=1;i<=tot;i++) printf(\\\"%ld \\\",ans[i]);\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 4168,
+    "completion_tokens": 348,
+    "total_tokens": 4516,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 4168
+  },
+  "raw_sha256": "4e6ac719eb8030d948903da93971ac0bed6b11d6f51bb37595d9e9eed6b67fcd",
+  "ended_utc": "2026-11-16T04:19:07.171590+00:00",
+  "elapsed_seconds": 2.0638
+}

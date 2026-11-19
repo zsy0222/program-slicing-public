@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2234/BP0/repair/1",
+  "case_id": "BP17-2234",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "451ad37ae0fae883eead44435128c75839792bee74704322f2cf840fe3059676",
+  "started_utc": "2026-11-16T06:12:48.089837+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a3b65a6c-6a1b-43ba-aac1-5427d481813e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]){\\n\\tint N[3003],v,i=1,n,m,k,tot=0,j=1,p,carry=0,l=0;\\n\\tscanf(\\\"%d %d %d\\\",&n,&m,&k);\\n\\twhile(k>1){\\n\\t\\tprintf(\\\"%d \\\",2);\\n\\t\\tif(!l&&j<m){\\n\\t\\t\\tprintf(\\\"%d %d %d %d\\\\n\\\",i,j,i,j+1);\\n\\t\\t\\tif(j<m-1) j=j+2;\\n\\t\\t\\telse{\\n\\t\\t\\t\\tj=j+1;\\n\\t\\t\\t\\ti=i+1;\\n\\t\\t\\t\\tl=1;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse if(!l&&j==m){\\n\\t\\t\\tprintf(\\\"%d %d %d %d\\\\n\\\",i,j,i+1,j);\\n\\t\\t\\tj=j-1;\\n\\t\\t\\ti=i+1;\\n\\t\\t\\tl=1;\\n\\t\\t}\\n\\t\\telse if(l&&j>1){\\n\\t\\t\\tprintf(\\\"%d %d %d %d\\\\n\\\",i,j,i,j-1);\\n\\t\\t\\tif(j>2) j=j-2;\\n\\t\\t\\telse{\\n\\t\\t\\t\\tj=j-1;\\n\\t\\t\\t\\ti=i+1;\\n\\t\\t\\t\\tl=0;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse if(l&&j==1){\\n\\t\\t\\tprintf(\\\"%d %d %d %d\\\\n\\\",i,j,i+1,j);\\n\\t\\t\\tj=j+1;\\n\\t\\t\\ti=i+1;\\n\\t\\t\\tl=0;\\n\\t\\t}\\n\\t\\tk--;\\n\\t}\\n\\tprintf(\\\"%d \\\",(n*m-2*(k-1))/2);\\n\\twhile(i<=n){\\n\\t\\tif(i==n&&((j==m&&!l)||(j==1&&l))){\\n\\t\\t\\tprintf(\\\"%d %d\\\",i,j);\\n\\t\\t\\t++i;\\n\\t\\t}\\n\\t\\telse if(!l&&j<m){\\n\\t\\t\\tprintf(\\\"%d %d %d %d \\\",i,j,i,j+1);\\n\\t\\t\\tif(j<m-1) j=j+2;\\n\\t\\t\\telse{\\n\\t\\t\\t\\tj=j+1;\\n\\t\\t\\t\\ti=i+1;\\n\\t\\t\\t\\tl=1;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse if(!l&&j==m){\\n\\t\\t\\tprintf(\\\"%d %d %d %d \\\",i,j,i+1,j);\\n\\t\\t\\tj=j-1;\\n\\t\\t\\ti=i+1;\\n\\t\\t\\tl=1;\\n\\t\\t}\\n\\t\\telse if(l&&j>1){\\n\\t\\t\\tprintf(\\\"%d %d %d %d \\\",i,j,i,j-1);\\n\\t\\t\\tif(j>2) j=j-2;\\n\\t\\t\\telse{\\n\\t\\t\\t\\tj=j-1;\\n\\t\\t\\t\\ti=i+1;\\n\\t\\t\\t\\tl=0;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse if(l&&j==1){\\n\\t\\t\\tprintf(\\\"%d %d %d %d \\\",i,j,i+1,j);\\n\\t\\t\\tj=j+1;\\n\\t\\t\\ti=i+1;\\n\\t\\t\\tl=0;\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1715,
+    "completion_tokens": 832,
+    "total_tokens": 2547,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 179
+  },
+  "raw_sha256": "bbd521155030293782003beaf054721687ca70a0809a7a17ef898fcb903a12b9",
+  "ended_utc": "2026-11-16T06:12:51.579193+00:00",
+  "elapsed_seconds": 3.4256
+}

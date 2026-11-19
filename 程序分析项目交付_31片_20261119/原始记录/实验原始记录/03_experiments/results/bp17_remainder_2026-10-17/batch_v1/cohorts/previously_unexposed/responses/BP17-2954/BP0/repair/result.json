@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2954/BP0/repair/1",
+  "case_id": "BP17-2954",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "a9d5ce783d779919761df75ab1481541143b831dd77ff8b3ba4d80121b014234",
+  "started_utc": "2026-11-16T17:14:53.135793+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2cc809c9-8d0b-44dc-b042-549fc8cfb476",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint compare (const void * a, const void * b) {\\n  return ( *(int*)a - *(int*)b );\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\n    int n, sum = 0, notdis = 0, j;\\n\\n\\n    scanf(\\\"%d\\\", &n);\\n    int* values = malloc(n*sizeof(int));\\n\\n    for(j = 0; j < n; j++){\\n        scanf(\\\"%d\\\", &values[j]);\\n    }\\n    qsort (values, n, sizeof(int), compare);\\n    for(j = 0; j < n; j++){\\n        if(sum <= values[j]) {\\n            notdis++;\\n            sum+=values[j];\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\", notdis);\\n\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 899,
+    "completion_tokens": 219,
+    "total_tokens": 1118,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 259
+  },
+  "raw_sha256": "ffed052fc9c04fe69e1f8d0ffee1c69ea0ad6ce30a961df0b9a563351b324574",
+  "ended_utc": "2026-11-16T17:14:54.892373+00:00",
+  "elapsed_seconds": 1.7537
+}

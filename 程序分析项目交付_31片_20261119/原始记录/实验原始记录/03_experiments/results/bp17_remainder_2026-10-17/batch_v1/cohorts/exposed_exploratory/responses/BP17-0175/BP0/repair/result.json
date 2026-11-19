@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0175/BP0/repair/1",
+  "case_id": "BP17-0175",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "7db488c592d760247e855fec332c14ad7f2a9e0e5dc3fcd26b66e00f571b8c65",
+  "started_utc": "2026-11-16T04:18:20.108688+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "92444cd4-da97-4725-a978-1527a8b91cbb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define TRUE  0\\n#define FALSE 1\\n\\nint lucky(int s)\\n{\\n\\t/* TRUE is a lucky number, FALSE is not */\\n\\tint ok = TRUE;\\n\\twhile (s > 0)\\n\\t{\\n\\t\\tint i = s % 10;\\n\\t\\tif (i != 4 && i != 7)\\n\\t\\t\\tok = FALSE;\\n\\t\\ts /= 10;\\n\\t}\\n\\treturn ok;\\n}\\n\\nint almost_lucky(int s)\\n{\\n\\tint i;\\n\\tint ok = FALSE;\\n\\t\\n\\tif (lucky(s) == TRUE)\\n\\t\\tok = TRUE;\\n\\t\\n\\tfor (i = 4; i * i <= s; ++i)\\n\\t\\tif (s % i == 0 && (lucky(i) == TRUE || lucky(s / i) == TRUE))\\n\\t\\t\\tok = TRUE;\\n\\t\\t\\n\\treturn ok;\\n}\\n\\nint main (int argc, char* *argv)\\n{\\n\\tint n;\\n\\tscanf(\\\"%d\\\", &n);\\n\\t\\n\\tif (almost_lucky(n) == TRUE)\\n\\t\\tprintf(\\\"YES\\\\n\\\");\\n\\telse\\n\\t\\tprintf(\\\"NO\\\\n\\\");\\n\\t\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1037,
+    "completion_tokens": 314,
+    "total_tokens": 1351,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1037
+  },
+  "raw_sha256": "f1fae18ded12c58eaed992d3571085053c9daf339aad43308932636b008dc743",
+  "ended_utc": "2026-11-16T04:18:21.831913+00:00",
+  "elapsed_seconds": 1.7208
+}

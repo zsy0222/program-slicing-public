@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3178/BP1/repair/1",
+  "case_id": "BP17-3178",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "65a40cc4304af25462cb1e4ff89ca1c57d8176f0e8f9cfd390531e63c96f488e",
+  "started_utc": "2026-11-16T05:26:37.552267+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1fba4a1b-065a-403e-bd18-743e919a7c16",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\nint main(int argc, char *argv[])\\n{\\n    int a[3][2],i,j,mx=0,ans=1,sum,s,k=0,ct1=0,ct2=0,sq;\\n    float area=0;\\n    for(i=0;i<3;i++)\\n    {\\n        scanf(\\\"%d%d\\\",&a[i][0],&a[i][1]);\\n        area+=a[i][0]*a[i][1];\\n        if(a[i][0]>a[mx][k])\\n        {\\n            mx=i;k=0;\\n        }\\n        if(a[i][1]>a[mx][k])\\n        {\\n            mx=i;k=1;\\n        }\\n\\n    }sq=sqrt(area);\\n    if(sq*sq==area)\\n    {\\n        s=sqrt(area);\\n        if(s==a[mx][k])\\n        {\\n            ans=1;\\n        }\\n    }\\n    if(ans==1)\\n    {\\n        for(i=0;i<3;i++)\\n        {\\n            if(a[mx][k]==a[i][0]||a[mx][k]==a[i][1])\\n                ct1++;\\n        }\\n        if(ct1==1)\\n        {\\n            sum=s-a[mx][(k+1)%2];\\n            if(sum==a[(mx+1)%3][0]||sum==a[(mx+1)%3][1])\\n                ct2++;\\n            if(sum==a[(mx+2)%3][0]||sum==a[(mx+2)%3][1])\\n                ct2++;\\n            if(ct2!=2)\\n                ans=0;\\n            else \\n            {printf(\\\"%d\\\\n\\\",s);\\n            for(j=0;j<s;j++)\\n            {\\n                for(i=0;i<s;i++)\\n                {\\n                if(i<a[mx][(k+1)%2])\\n                printf(\\\"%c\\\",65+mx);\\n                else \\n                {\\n                    if(j<a[(mx+1)%3][0]+a[(mx+1)%3][1]-sum)\\n                    printf(\\\"%c\\\",65+((mx+1)%3));\\n                    else \\n                    printf(\\\"%c\\\",65+((mx+2)%3));\\n                }\\n                }\\n                printf(\\\"\\\\n\\\");\\n            }\\n            }\\n        }\\n        else if(ct1==3)\\n        {\\n            sum=a[(mx)%3][0]+a[(mx)%3][1]+a[(mx+1)%3][0]+a[(mx+1)%3][1]+a[(mx+2)%3][0]+a[(mx+2)%3][1];\\n            if (sum!=4*s)\\n                ans=0;\\n            else\\n            {printf(\\\"%d\\\\n\\\",s);\\n                for(i=0;i<s;i++)\\n                {\\n                    for(j=0;j<s;j++)\\n                    {\\n                        if(i<a[mx][(k+1)%2])\\n                            printf(\\\"%c\\\",65+mx);\\n                        else if(i<a[mx][(k+1)%2]+a[(mx+1)%3][0]+a[(mx+1)%3][1]-s)\\n                            printf(\\\"%c\\\",65+((mx+1)%3));\\n                        else printf(\\\"%c\\\",65+((mx+2)%3));\\n                    }\\n                    printf(\\\"\\\\n\\\");\\n                }\\n            }\\n        }\\n    }\\n    if(ans==0)\\n        printf(\\\"-1\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1770,
+    "completion_tokens": 874,
+    "total_tokens": 2644,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 234
+  },
+  "raw_sha256": "49a8efbb806a3e21a535346dfe3430e97d50ef8791af09efb7047b7d54e3d1c4",
+  "ended_utc": "2026-11-16T05:26:41.474091+00:00",
+  "elapsed_seconds": 3.9198
+}

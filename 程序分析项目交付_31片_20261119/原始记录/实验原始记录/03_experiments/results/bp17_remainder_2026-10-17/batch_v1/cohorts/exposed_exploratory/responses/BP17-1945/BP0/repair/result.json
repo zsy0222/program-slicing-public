@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1945/BP0/repair/1",
+  "case_id": "BP17-1945",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "fb3989b86beac9c245fcd738d89c573e53d5bdf4247e07ab1867455bff717a0a",
+  "started_utc": "2026-11-16T16:37:57.204536+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3e777e68-0bcf-4992-8cb2-2fe8b9ce3484",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]){\\n  unsigned int n, m;\\n  unsigned int x, interx, intery, total, temp;\\n  scanf(\\\"%u %u\\\", &n, &m);\\n  scanf(\\\"%u\\\", &x);\\n\\n  total = (1+n*m)/2;\\n\\n  x--;\\n\\n  if (n < m){\\n    temp = n;\\n    n = m;\\n    m = temp;\\n  }\\n  if ((n > 2*x) && (m > 2*x)){\\n    n -= 2*x;\\n    m -= 2*x;\\n\\n    interx = (1+n)/2;\\n    if (m>1)\\n      interx *= 2;\\n    if(n%2 && (m%2 == 0))\\n      interx--;\\n\\n    if (m>1){\\n      intery = 2*((m-2)/2);\\n      if (m%2 && (n%2 == 0))\\n\\tintery++;\\n    }\\n    else\\n      intery = 0;\\n\\n    printf(\\\"%u\\\\n\\\", interx+intery);\\n  }\\n  else\\n    printf(\\\"0\\\\n\\\");\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1021,
+    "completion_tokens": 309,
+    "total_tokens": 1330,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1021
+  },
+  "raw_sha256": "02a9220e881d9a57da5318c1d24f0e62de5ed0e6f9c35c0d1e9a3b8297de567b",
+  "ended_utc": "2026-11-16T16:37:59.182125+00:00",
+  "elapsed_seconds": 1.9275
+}

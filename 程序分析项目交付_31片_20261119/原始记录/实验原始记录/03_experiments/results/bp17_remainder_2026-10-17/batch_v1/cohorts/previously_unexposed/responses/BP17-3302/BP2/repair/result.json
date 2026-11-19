@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3302/BP2/repair/1",
+  "case_id": "BP17-3302",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "b5bb88ee36f8478f705e92ffd2276e97115765f9f9820f1d3394dce4ed4ae68a",
+  "started_utc": "2026-10-21T08:13:41.803389+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "618f3021-9917-4d50-a4ae-88e1c11f33d0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,s,i;\\n    scanf(\\\"%d %d\\\",&n,&s);\\n\\n    int f[n],t[n];\\n    for(i=0;i<n;i++) {\\n        scanf(\\\"%d %d\\\",&f[i],&t[i]);\\n    }\\n\\n\\n    //f_t = s-f[n-1];7>>5 \\\\\\\\ 2\\n    int t_t=0,r,f_t;\\n\\n    for(i=(n-1);i>=0;i--) {\\n        if(i==(n-1))\\n            f_t = s-f[i];  //2\\n        else\\n            f_t = f[i+1]-f[i]; //printf(\\\"i=%d\\\\tF_t=%d\\\\t\\\",i,f_t);  //   /  5-3=2 /1\\n        r = t[i]-f_t-t_t; //0  /  8-2-2=4   /1-1-8=0\\n        if(r<0)\\n            r = 0;  //printf(\\\"r=%d\\\\t\\\",r);\\n        t_t = t_t+f_t+r;// 0+2+0==2  / 2+2+4=8 /8+1+0=9\\n        //printf(\\\"t_t=%d\\\\n\\\",t_t);\\n\\n    }\\n    int ans = t_t+f[0];\\n\\n\\n    printf(\\\"%d\\\\n\\\",ans);\\n\\n\\n\\n\\n\\n\\n\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1505,
+    "completion_tokens": 367,
+    "total_tokens": 1872,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 481
+  },
+  "raw_sha256": "7d0d1f9939108a89bd69121c4cb83ffe7d99dcd15315c2497607dc433cf189a5",
+  "ended_utc": "2026-10-21T08:13:43.946318+00:00",
+  "elapsed_seconds": 2.14
+}

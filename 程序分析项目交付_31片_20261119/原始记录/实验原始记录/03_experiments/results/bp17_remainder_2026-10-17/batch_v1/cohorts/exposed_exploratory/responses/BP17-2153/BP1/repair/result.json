@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2153/BP1/repair/1",
+  "case_id": "BP17-2153",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c9d5c0479f222991774388095de00699a3583d4f0b0ac0bf1862461b892eb288",
+  "started_utc": "2026-10-21T07:13:12.996921+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "bef4c127-803e-460e-bc97-3d67207688b7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#define Max 100010\\nint vis[Max],goal[Max],init[Max],cnt=0,ans[Max];\\ntypedef struct list\\n{\\n\\tint data;\\n\\tstruct list* next;\\n}list;\\nlist *head[Max];\\nvoid insert(int a,int b)\\n{\\n\\tlist *node=(list*)malloc(sizeof(list));\\n\\tnode->data=b;\\n\\tnode->next=head[a];\\n\\thead[a]=node;\\n}\\nvoid dfs(int i,int flipe,int flipo,int height)\\n{\\n\\tif(!vis[i])\\n\\t{\\n\\t\\tvis[i]=1;\\n\\t\\tif(goal[i]!=init[i])\\n\\t\\t{\\n\\t\\t\\tif(height%2==0 && flipe%2==0)\\n\\t\\t\\t{\\n\\t\\t\\t\\tcnt++;\\n\\t\\t\\t\\tans[cnt]=i;\\n\\t\\t\\t\\tflipe++;\\n\\t\\t\\t}\\n\\t\\t\\telse if(height%2==1 && flipo%2==0)\\n\\t\\t\\t{\\n\\t\\t\\t\\tcnt++;\\n\\t\\t\\t\\tans[cnt]=i;\\n\\t\\t\\t\\tflipo++;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tif(height%2==0 && flipe%2==1)\\n\\t\\t\\t{\\n\\t\\t\\t\\tcnt++;\\n\\t\\t\\t\\tans[cnt]=i;\\n\\t\\t\\t\\tflipe++;\\n\\t\\t\\t}\\n\\t\\t\\telse if(height%2==1 && flipo%2==1)\\n\\t\\t\\t{\\n\\t\\t\\t\\tcnt++;\\n\\t\\t\\t\\tans[cnt]=i;\\n\\t\\t\\t\\tflipo++;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tlist *temp=head[i];\\n\\t\\twhile(temp!=NULL)\\n\\t\\t{\\n\\t\\t\\tdfs(temp->data,flipe,flipo,height+1);\\n\\t\\t\\ttemp=temp->next;\\n\\t\\t}\\n\\t}\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint v,e,i,a,b;\\n\\tscanf(\\\"%d%d\\\",&v,&e);\\n\\tfor(i=0;i<e;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d%d\\\",&a,&b);\\n\\t\\tinsert(a,b);\\n\\t\\tinsert(b,a);\\n\\t}\\n\\tfor(i=1;i<=v;i++)\\n\\t\\tscanf(\\\"%d\\\",&init[i]);\\n\\tfor(i=1;i<=v;i++)\\n\\t\\tscanf(\\\"%d\\\",&goal[i]);\\n\\tdfs(1,0,0,0);\\n\\tprintf(\\\"%d\\\\n\\\",cnt);\\n\\tfor(i=1;i<=cnt;i++)\\n\\t\\tprintf(\\\"%d\\\\n\\\",ans[i]);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1920,
+    "completion_tokens": 685,
+    "total_tokens": 2605,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 256
+  },
+  "raw_sha256": "42907d2f44233e2f3bb83c4720a8ea7b6b8d6d0066985184dde37d27c227b538",
+  "ended_utc": "2026-10-21T07:13:15.618777+00:00",
+  "elapsed_seconds": 2.469
+}

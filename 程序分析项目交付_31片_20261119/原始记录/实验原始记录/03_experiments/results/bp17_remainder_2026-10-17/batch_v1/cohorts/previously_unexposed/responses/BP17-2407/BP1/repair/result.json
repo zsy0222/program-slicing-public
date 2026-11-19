@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2407/BP1/repair/1",
+  "case_id": "BP17-2407",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "910f3abeec802473d598cd93cd8e8ff3b92caedebff51d7737e3db34b296dd57",
+  "started_utc": "2026-10-18T13:46:25.444623+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7291e619-332f-4ea4-934c-ba1141ee6e46",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdlib.h>\\n#include <stdio.h>\\n#include <string.h>\\n#include <stdbool.h>\\n\\n#define MIN(X,Y) (X < Y ? X : Y)\\n#define MAX(X,Y) (X > Y ? X : Y)\\n\\nint compare(const void * a, const void * b) {\\n  return ( *(int*)a - *(int*)b );\\n}\\n\\nint main(int argc, char *argv[]){\\n  int letters;\\n  int current_letter, actions = 0;\\n  bool inside_letter = false;\\n  char buffer [2048];\\n\\n  letters = atoi(fgets(buffer, sizeof(buffer), stdin));\\n\\n  fgets(buffer, sizeof(buffer), stdin);\\n\\n  current_letter = atoi(strtok(buffer, \\\" \\\"));\\n  if(current_letter) {\\n    ++actions;\\n    inside_letter = true;\\n  }\\n\\n  int i;\\n  for(i = 1; i < letters; ++i) {\\n    current_letter = atoi(strtok(NULL, \\\" \\\"));\\n    if(current_letter && !inside_letter && actions != 0) {\\n      actions += 2;\\n      inside_letter = true;\\n    }\\n    else if(current_letter) {\\n      ++actions;\\n      inside_letter = true;\\n    }\\n    else {\\n      inside_letter = false;\\n    }\\n  }\\n\\n  printf(\\\"%d\\\\n\\\", actions);\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1206,
+    "completion_tokens": 349,
+    "total_tokens": 1555,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1206
+  },
+  "raw_sha256": "f688cc5f5d31494c1a348e86393b4cf1eab2e5d7ceb5d5c072b570639abd2964",
+  "ended_utc": "2026-10-18T13:46:27.404983+00:00",
+  "elapsed_seconds": 1.953
+}

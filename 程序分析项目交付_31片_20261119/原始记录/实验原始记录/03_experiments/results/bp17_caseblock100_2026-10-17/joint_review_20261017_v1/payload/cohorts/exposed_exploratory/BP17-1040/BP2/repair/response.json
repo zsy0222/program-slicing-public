@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-1040",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdlib.h>\\n#include <math.h>\\n#include <time.h>\\n\\n#define lli long long int\\n#define MAX INT_MAX\\n#define PI acos(-1)\\n#define FOR(ii,aa,bb) for(ii=aa;ii<=bb;ii++)\\n#define ROF(ii,aa,bb) for(ii=aa;ii>bb;ii--)\\n#define buyuk(a,b) (a<b)? b:a\\n#define kucuk(a,b) (a<b)? a:b\\n#define ort(a,b) (a+b)/2\\n#define carp(a,b) (a)*(b)\\nint a[10005],temp[10005];\\nvoid sort(int bas,int ort,int son){\\nint yer=bas,x=bas,y=ort+1,t,i;\\nwhile(x <= ort && y <= son){\\nif(a[x] < a[y]) temp[yer++]=a[x++];\\nelse temp[yer++]=a[y++];}\\nwhile(x <= ort) temp[yer++]=a[x++];\\nwhile(y <= son) temp[yer++]=a[y++];\\nfor(i=bas;i<=son;i++) a[i]=temp[i];}   \\nvoid merge(int bas,int son){\\nif(son <= bas)return;\\nint ort=(bas+son)/2;\\nmerge(bas,ort);\\nmerge(ort+1,son);\\nsort(bas,ort,son);}\\n\\nint main(int argc, char *argv[]) {\\n\\tlli i,r=0,n,k,t,m,q,p,top=0;\\n\\tscanf(\\\"%lld %lld\\\",&n,&k);\\n\\tq=1;\\n\\tp=10;\\n\\twhile(n--){\\n\\t\\tscanf(\\\"%lld\\\",&t);\\n\\t\\tfor(i=1;i<9;i++){\\n\\t\\tm=(t%p)/q;\\t\\n\\t\\tp*=10;\\n\\t\\t\\tq*=10;\\n\\t\\t\\t\\n\\t\\t\\tif(m==4 || m==7)\\n\\t\\t\\t\\tr++;\\n\\t\\t}\\n\\t\\tif(r<=k)\\n\\t\\t\\ttop++;\\n\\t\\tr=0;\\n\\t\\tq=1;\\n\\t\\tp=10;\\n\\t\\t\\t}\\n\\t\\t\\tprintf(\\\"%lld\\\\n\\\",top);\\n\\t}\\n\\t\\t\\t\\n\\n\"}",
+  "elapsed_seconds": 2.375,
+  "ended_utc": "2026-10-17T06:57:31.890463+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1040/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "60eafb615b8716e2ee578ccccbf8835d0be8b90598f0d1fe668ccd3f38da31be",
+  "request_model": "deepseek-flash",
+  "request_sha256": "bc6cad9b22fafb4d8fa4b0e255ead75f932847e491063d03f7cf51dc0d063d10",
+  "response_id": "7b778a6f-ccd0-4fc2-be2c-e714f4f74759",
+  "started_utc": "2026-10-17T06:57:29.504267+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 546,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2577,
+    "prompt_tokens": 2577,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 3123
+  }
+}

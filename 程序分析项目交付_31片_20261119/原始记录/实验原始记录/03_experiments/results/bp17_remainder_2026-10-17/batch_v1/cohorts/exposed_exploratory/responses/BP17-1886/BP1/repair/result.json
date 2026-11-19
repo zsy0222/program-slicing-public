@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1886/BP1/repair/1",
+  "case_id": "BP17-1886",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "6ab6094f5c825faed859dc68031f7d43a5a22ce6b2b1e9522e64f8c527394736",
+  "started_utc": "2026-10-18T13:42:46.154085+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2df85adc-cdf0-4144-967b-8b5efd34ec0b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <math.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,bank[105],pile,i,j,block;\\n\\n    while(scanf(\\\"%d\\\",&n)!=EOF)\\n    {\\n        for(i=0;i<=100;i++)\\n            bank[i]=0;\\n\\n        for(i=0;i<n;i++)\\n        {\\n            scanf(\\\"%d\\\",&j);\\n            bank[j]++;\\n        }\\n\\n        pile=0;\\n        block=n;\\n\\n        while(block>0)\\n        {\\n            for(i=100;i>=0;i--)\\n            {\\n                if(bank[i]>0)\\n                {\\n                    bank[i]--;\\n                    block--;\\n                }\\n                else\\n                {\\n                    for(j=i-1;j>=0;j--)\\n                    {\\n                        if(bank[j]>0)\\n                        {\\n                            bank[j]--;\\n                            block--;\\n                            break;\\n                        }\\n                    }\\n                }\\n            }\\n            pile++;\\n        }\\n        printf(\\\"%d\\\\n\\\",pile);\\n    }\\n\\n\\n\\n  return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1377,
+    "completion_tokens": 294,
+    "total_tokens": 1671,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 225
+  },
+  "raw_sha256": "dfc8b9b23d80b8c1e7c346bb469352826258ca0616a9bf9bc93dcc671e701407",
+  "ended_utc": "2026-10-18T13:42:47.910844+00:00",
+  "elapsed_seconds": 1.75
+}

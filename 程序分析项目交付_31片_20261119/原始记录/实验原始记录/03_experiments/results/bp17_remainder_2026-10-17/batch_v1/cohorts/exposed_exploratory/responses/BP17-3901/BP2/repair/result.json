@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3901/BP2/repair/1",
+  "case_id": "BP17-3901",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "8879c13fea0cdea77ec2b27b6566975ca8a60abf71a27dbde977e6d146a76761",
+  "started_utc": "2026-10-17T13:55:37.597542+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "75f3fc95-17f0-4e56-87b7-717573385f61",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\ntypedef struct{\\n   int val;\\n   int index;\\n}p;\\np arr[1001];\\nint cmp(const void *a,const void *b){\\n   return (*(p *)a).val-(*(p *)b).val;\\n}\\nint main(int argc, char *argv[]){\\n    int n,c=0,i,chk,sum=0;\\n    scanf(\\\"%d\\\",&n);\\n    for(i=0;i<n;i++){\\n            scanf(\\\"%d\\\",&arr[i].val);\\n            sum+=arr[i].val;\\n       arr[i].index=i+1;\\n    }\\n    qsort(arr,n,sizeof(p),cmp);\\n    chk=sum/n;\\n    for(i=0;i<n;i++)\\n        if(arr[i].val!=chk)\\n          c++;\\n    if(n==2&&(arr[0].val+arr[1].val)&1)\\n         printf(\\\"Unrecoverable configuration.\\\\n\\\");\\n    else if(c==0||n==1)\\n         printf(\\\"Exemplary pages.\\\\n\\\");\\n    else if((c==2||(n==2&&!((arr[0].val+arr[1].val)&1)))&&abs(arr[0].val-arr[n-1].val)/2>0)\\n       printf(\\\"%d ml. from cup #%d to cup #%d.\\\\n\\\",abs(arr[0].val-arr[n-1].val)/2,arr[0].index,arr[n-1].index);\\n    else\\n        printf(\\\"Unrecoverable configuration.\\\\n\\\");\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1818,
+    "completion_tokens": 400,
+    "total_tokens": 2218,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1818
+  },
+  "raw_sha256": "0ab2028eeac61e87af43dcd26a6fc748997340d0bbfc6c1331673ed0d3fb2587",
+  "ended_utc": "2026-10-17T13:55:39.680906+00:00",
+  "elapsed_seconds": 2.078
+}

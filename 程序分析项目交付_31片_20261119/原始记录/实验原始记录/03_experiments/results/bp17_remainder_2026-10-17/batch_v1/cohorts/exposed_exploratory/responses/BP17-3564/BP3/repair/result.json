@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3564/BP3/repair/1",
+  "case_id": "BP17-3564",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "264a56660a4aea752081e3c08295d417f21f0ec84fbc9bfb4283ef3dd2aa5417",
+  "started_utc": "2026-11-16T17:40:41.658958+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "238186a9-5fa3-4e52-8584-10d7a47931bd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\ntypedef struct node{\\n    char name[11];\\n    int a,b;\\n}node;\\nnode inp[100001];\\nint n,m;\\nvoid readinp(){\\n    FILE *inp2 = stdin;\\n    fscanf(inp2, \\\"%d %d \\\",&n,&m);\\n    int i;\\n    for(i=0;i<n;i++)\\n        fscanf(inp2,\\\"%s %d %d \\\",inp[i].name, &inp[i].a,&inp[i].b);\\n}\\n\\nint comp (const void * aa, const void * bb){\\n    node *a = (node*)aa;\\n    node *b = (node*)bb;\\n    if(a->a == b->a){\\n        return a->b-b->b;\\n    }\\n    return a->a-b->a;\\n}\\nint main(int argc, char *argv[]) {\\n\\treadinp();\\n\\tqsort(inp, n, sizeof(node), comp);\\n    int i=0,j;\\n    while(i<n){\\n        int k=i;\\n        while((k+1)<n && inp[k].a == inp[k+1].a)k++;\\n        if(k-2>=0 && inp[k-2].a == inp[k].a && inp[k-2].b == inp[k-1].b){\\n            printf(\\\"?\\\\n\\\");\\n            i=k+1;\\n            continue;\\n        }\\n        printf(\\\"%s %s\\\\n\\\",inp[k].name, inp[k-1].name);\\n        i=k+1;\\n    }\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1812,
+    "completion_tokens": 392,
+    "total_tokens": 2204,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 660
+  },
+  "raw_sha256": "6d7150338ddce996a7289221a0d20a31394b3e87c53d9241599dcdde84e87961",
+  "ended_utc": "2026-11-16T17:40:43.797846+00:00",
+  "elapsed_seconds": 2.1364
+}

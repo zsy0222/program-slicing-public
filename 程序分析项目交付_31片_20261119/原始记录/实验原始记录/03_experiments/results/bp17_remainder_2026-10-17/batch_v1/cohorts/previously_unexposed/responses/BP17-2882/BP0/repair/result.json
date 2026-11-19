@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2882/BP0/repair/1",
+  "case_id": "BP17-2882",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "499412669cc2b9e33a6d593e9c267ec9a4aaab6c86e072ac60885826f43e2101",
+  "started_utc": "2026-11-16T17:36:50.264055+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "634c9432-ac8b-4f47-a791-378fb41ecf59",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define MAX(x, y) (((x) > (y)) ? (x) : (y))\\nint main(int argc, char *argv[])\\n{\\n    long long int a,b,c,d,move,move_p,move_v;\\n    scanf(\\\"%lld %lld %lld %lld\\\",&a,&b,&c,&d);\\n    if(a<c&&b<d)printf(\\\"Polycarp\\\");\\n    else if((a<c&&b>d)||(a>c&&b<d)||(a>c&&b>d)){\\n        move_p=a+b;\\n        move_v=MAX(c,d);\\n        if(move_p<=move_v)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n    else if(a==c&&b<d){\\n        move=d-b;\\n        a-=move;\\n        c-=move;\\n        d-=move;\\n        if(a<=c&&b<=d)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n     else if(a<c&&b==d){\\n        move=c-a;\\n        b-=move;\\n        c-=move;\\n        d-=move;\\n        if(a<=c&&b<=d)printf(\\\"Polycarp\\\");\\n        else printf(\\\"Vasiliy\\\");\\n    }\\n    else if(a==c&&b==d){\\n        printf(\\\"Polycarp\\\");\\n    }\\n    else if(a>c&&b==d){\\n        printf(\\\"Vasiliy\\\");\\n    }\\n    else if(a==c&&b>d){\\n        printf(\\\"Vasiliy\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1012,
+    "completion_tokens": 420,
+    "total_tokens": 1432,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 244
+  },
+  "raw_sha256": "f85dd43f49ef7300d85e05bffbc11f3b38901a24d974570f2125c0339da2f9e1",
+  "ended_utc": "2026-11-16T17:36:52.664128+00:00",
+  "elapsed_seconds": 2.3117
+}

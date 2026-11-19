@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2864/BP2/repair/1",
+  "case_id": "BP17-2864",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "9565ff03910365bbd7106089c265f2ca52f5b370dddc5aa5a70fe335f4e4a8e2",
+  "started_utc": "2026-10-21T07:32:20.606948+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f642788f-56b2-4442-8f12-d5af1988f116",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    char s[1001];\\n    char t[1000001];\\n    char *p;\\n    char *f;\\n    char *first;\\n    char *last;\\n    int c;\\n\\n    //FILE *in = fopen(\\\"input.txt\\\", \\\"r\\\");\\n\\n    scanf(\\\"%s\\\", s);\\n    scanf(\\\"%s\\\", t);\\n\\n    p = t;\\n    f = s;\\n\\n    while (*p != '\\\\0')\\n    {\\n        if (*p == *f)\\n        {\\n            f++;\\n\\n            if (*f == '\\\\0')\\n            {\\n                first = p;\\n                break;\\n            }\\n        }\\n\\n        p++;\\n    }\\n\\n    while (*p != '\\\\0')\\n    {\\n        p++;\\n    }\\n\\n    f = s;\\n    while (*f != '\\\\0')\\n    {\\n        f++;\\n    }\\n    f--;\\n\\n    while (p >= t)\\n    {\\n        if (*p == *f)\\n        {\\n            f--;\\n\\n            if (f < s)\\n            {\\n                last = p;\\n                break;\\n            }\\n        }\\n\\n        p--;\\n    }\\n    printf(\\\"%d %d\\\\n\\\", last - t, first - t);\\n    c = last - first;\\n    printf(\\\"%d\\\\n\\\", c > 0? c: 0);\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1615,
+    "completion_tokens": 379,
+    "total_tokens": 1994,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 591
+  },
+  "raw_sha256": "787126f22383719d92d9f616912a6ec5712da4641c0a4a2f7f456d18f8ec718b",
+  "ended_utc": "2026-10-21T07:32:22.673078+00:00",
+  "elapsed_seconds": 1.922
+}

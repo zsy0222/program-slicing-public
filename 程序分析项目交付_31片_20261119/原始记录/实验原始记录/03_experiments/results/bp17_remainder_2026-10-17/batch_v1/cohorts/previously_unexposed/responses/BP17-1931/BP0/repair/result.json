@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1931/BP0/repair/1",
+  "case_id": "BP17-1931",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "e879b8aa77e7536a1cb3d950336fcda64678647a2921f15764743f4888c11ef6",
+  "started_utc": "2026-10-18T13:50:29.029148+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "68316f81-c465-4e44-a6cf-eba8cef4039b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint minTime[30], maxTime[30], solution[30];\\nvoid cpy(int des[30], int ori[30], int n){\\n    int i;\\n    for(i = 0; i<n; i++)\\n        des[i] = ori[i];\\n}\\nint solve(int d, int curSum, int total){\\n    int i, tmp;\\n    for(i = 0; i<d; i++){\\n        tmp = curSum - solution[i] + minTime[i];\\n        if(tmp >= total){\\n            solution[i] = minTime[i];\\n            curSum = tmp;\\n        }\\n        else{\\n            solution[i] -= curSum - total;\\n            curSum = total;\\n        }\\n        if(curSum == total)\\n            return 1;\\n    }\\n    return 0;\\n}\\nint main(int argc, char *argv[]){\\n    int d, sumTime, i, sumMin = 0, sumMax = 0;\\n    scanf(\\\"%d%d\\\", &d, &sumTime);\\n    for(i = 0; i<d; i++){\\n        scanf(\\\"%d%d\\\", &minTime[i], &maxTime[i]);\\n        sumMin += minTime[i];\\n        sumMax += maxTime[i];\\n    }\\n    if(sumMin > sumTime || sumMax < sumTime)\\n        printf(\\\"NO\\\\n\\\");\\n    else{\\n        printf(\\\"YES\\\\n\\\");\\n        cpy(solution, maxTime, d);\\n        solve(d, sumMax, sumTime);\\n        for(i = 0; i<d; i++)\\n            printf(\\\"%d \\\", solution[i]);\\n        printf(\\\"\\\\n\\\");\\n    }\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1286,
+    "completion_tokens": 424,
+    "total_tokens": 1710,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1286
+  },
+  "raw_sha256": "5606e31f6a0c11c13b41b7cd7b739dbf9a92b0b99df05e377fb006749a0ea0ee",
+  "ended_utc": "2026-10-18T13:50:31.277059+00:00",
+  "elapsed_seconds": 2.25
+}

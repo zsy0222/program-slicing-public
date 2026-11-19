@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3086",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAXN    10000001\\n\\nchar NotPrime[MAXN];\\n\\nvoid SieveOfEratosthenes()\\n{\\n    int i, j;\\n    NotPrime[0] = 1;\\n    NotPrime[1] = 1;\\n    for(i = 2; i < MAXN; ++i) {\\n        if(!NotPrime[i]) {\\n            for(j = i + i; j < MAXN; j += i) {\\n                NotPrime[j] = 1;\\n            }\\n        }\\n    }\\n}\\n\\nint IsPalindromic(int N)\\n{\\n    if(N < 10) {\\n        return 1;\\n    }\\n    int i, j, Len = 0;\\n    char NumDigit[10];\\n    while(N) {\\n        NumDigit[Len++] = N % 10;\\n        N /= 10;\\n    }\\n    for(i = 0, j = Len - 1; i < j; ++i, --j) {\\n        if(NumDigit[i] != NumDigit[j]) {\\n            return 0;\\n        }\\n    }\\n    return 1;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    SieveOfEratosthenes();\\n    int Ans = -1, pi = 0, rub = 0, p, q, i;\\n    scanf(\\\"%d %d\\\", &p, &q);\\n    for(i = 1; i < MAXN; ++i) {\\n        if(!NotPrime[i]) {\\n            ++pi;\\n        }\\n        if(IsPalindromic(i)) {\\n            ++rub;\\n        }\\n        if(q * pi <= p * rub) {\\n            Ans = i;\\n            break;\\n        }\\n    }\\n    if(Ans == -1) {\\n        puts(\\\"Palindromic tree is better than splay tree\\\");\\n        return 0;\\n    }\\n    printf(\\\"%d\\\\n\\\", Ans);\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 2.187,
+  "ended_utc": "2026-10-17T07:04:45.315265+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3086/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "b7dad276e1b8a90cca56116ba4ecc9727620549221b6e6e3f0ecaaebf82d79c6",
+  "request_model": "deepseek-flash",
+  "request_sha256": "e13f13870fead427d60c5b0b0b7db893b29ac4169d8aca2351ca7bce15234f43",
+  "response_id": "0516966d-d323-40cd-8291-418cbb0f436f",
+  "started_utc": "2026-10-17T07:04:43.135188+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 480,
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 188,
+    "prompt_tokens": 1212,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "total_tokens": 1692
+  }
+}

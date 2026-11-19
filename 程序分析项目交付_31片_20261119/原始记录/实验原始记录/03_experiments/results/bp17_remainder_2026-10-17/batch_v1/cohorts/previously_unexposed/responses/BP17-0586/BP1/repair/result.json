@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0586/BP1/repair/1",
+  "case_id": "BP17-0586",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1b9a4474a640731d7e555d1a8377a7a859499944636189e5d062cbb3b0fe93c9",
+  "started_utc": "2026-11-16T02:49:00.060351+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5a1a9c47-a4ff-4855-8dee-f622edff8c06",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#include<string.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nchar *in[2100]; int len[2100];\\nint con[2100];\\nint *next[26][2100];\\n\\nint m_st, mm_st;\\nchar c_arr[1100000];\\nint i_arr[31100000];\\n\\nint nf_fg[2100][26];\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n;\\n  int dp1[2100], dp2[2100], mx;\\n  char go[2100]; int go_len, go_now; int gn;\\n  int n1, n2;\\n  int dame = -1;\\n\\n  m_st = mm_st = 0;\\n\\n  scanf(\\\"%d\\\",&n);\\n  rep(i,n){\\n    in[i] = c_arr + m_st;\\n    scanf(\\\"%s\\\",in[i]);\\n    len[i] = strlen(in[i]);\\n    m_st += len[i] + 2;\\n    rep(j,26){\\n      next[j][i] = i_arr + mm_st;\\n      mm_st += len[i] + 2;\\n    }\\n  }\\n\\n  rep(i,n){\\n    rep(j,26) next[j][i][len[i]] = len[i];\\n    for(k=len[i]-1;k>=0;k--){\\n      rep(j,26) next[j][i][k] = next[j][i][k+1];\\n      next[in[i][k]-'a'][i][k] = k;\\n    }\\n  }\\n\\n  scanf(\\\"%d\\\",&m);\\n  rep(i,m) scanf(\\\"%d\\\",con+i), con[i]--;\\n\\n  mx = 0;\\n  dp1[0] = 0; dp2[0] = 0; rep(j,26) nf_fg[0][j] = 0;\\n\\n  scanf(\\\"%s\\\",&go);\\n  go_len = strlen(go);\\n  \\n  rep(go_now,go_len){\\n    gn = go[go_now] - 'a';\\n    for(i=mx; i>=0; i--){\\n      if(nf_fg[i][gn]) continue;\\n      n1 = dp1[i];\\n      n2 = dp2[i];\\n      while(n1 != dame){\\n        if(n1==m){ n1=dame; break; }\\n        if(next[gn][con[n1]][n2] < len[con[n1]]){\\n          n2 = next[gn][con[n1]][n2] + 1;\\n          if(n2 == len[con[n1]]) n1++, n2=0;\\n          break;\\n        } else {\\n          n1++;\\n          n2=0;\\n        }\\n      }\\n      if(n1 == dame || (i!=mx && (n1 < dp1[i+1] || (n1==dp1[i+1] && n2<=dp2[i+1])))){\\n        nf_fg[i][gn] = 1;\\n        continue;\\n      }\\n      dp1[i+1] = n1;\\n      dp2[i+1] = n2;\\n      rep(j,26) nf_fg[i+1][j] = 0;\\n      if(i==mx) mx++;\\n    }\\n  }\\n\\n  printf(\\\"%d\\\\n\\\",mx);\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1818,
+    "completion_tokens": 852,
+    "total_tokens": 2670,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1818
+  },
+  "raw_sha256": "65d1d2f368e877e50886f30389c0b797db17ae1a423f7022728a63901a9402a6",
+  "ended_utc": "2026-11-16T02:49:03.793274+00:00",
+  "elapsed_seconds": 3.7309
+}

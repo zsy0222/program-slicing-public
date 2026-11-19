@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1279/BP0/repair/1",
+  "case_id": "BP17-1279",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "288835cf342905d7d0b70e4ed4bd89a09442f9a656107225a0f61537c9daf6b0",
+  "started_utc": "2026-10-17T07:05:12.145568+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e075302b-043b-4473-891c-b1ca226508cb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint node[100001],sum[100001];\\nint main(int argc, char *argv[]){\\n    int n,m,a,b,i;\\n    scanf(\\\"%d%d\\\",&n,&m);\\n    while(m--){\\n        scanf(\\\"%d%d\\\",&a,&b);\\n        node[a]++,node[b]++;\\n    }\\n    for(i=1;i<=n;i++)\\n        sum[node[i]]++;\\n    if(sum[2]==n)\\n        printf(\\\"ring topology\\\");\\n    else if(sum[2]==n-2&&sum[1]==2)\\n         printf(\\\"bus topology\\\");\\n    else if(sum[1]==n-1&&sum[n-1]==1)\\n        printf(\\\"star topology\\\");\\n    else\\n        printf(\\\"unknown topology\\\");\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 900,
+    "completion_tokens": 208,
+    "total_tokens": 1108,
+    "prompt_tokens_details": {
+      "cached_tokens": 766
+    },
+    "prompt_cache_hit_tokens": 766,
+    "prompt_cache_miss_tokens": 134
+  },
+  "raw_sha256": "e493afa6dba00fd942d6941e57fc2578b8ce104ed6df5b6db63c4c1702934611",
+  "ended_utc": "2026-10-17T07:05:14.034367+00:00",
+  "elapsed_seconds": 1.891
+}

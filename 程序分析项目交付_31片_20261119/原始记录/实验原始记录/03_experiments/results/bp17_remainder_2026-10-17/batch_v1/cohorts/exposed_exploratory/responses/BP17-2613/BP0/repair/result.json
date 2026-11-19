@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2613/BP0/repair/1",
+  "case_id": "BP17-2613",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ebd6b331d9f9e3ec7a29b4cc105ef3dcc34d279ec5617305ddd6f2613a10e5bf",
+  "started_utc": "2026-10-18T14:15:32.882544+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8337a6d2-e416-418e-af57-064043f66d4f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint p10[8]={1,10,100,1000,10000,100000,1000000,10000000};\\nchar r[100000][16],s[16],*ps;\\nint main(int argc, char *argv[])\\n{\\n\\tint i,j,n,pl,p,l,a,k;\\n\\tpl = 0;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tfor(i=0;i<n;i++)\\n\\t{\\n\\t\\tscanf(\\\"%s\\\",s);\\n\\t\\tl = strlen(s);\\n\\t\\tif(l > pl)\\n\\t\\t{\\n\\t\\t\\tfor(j=0;j<l;j++)\\n\\t\\t\\tif(s[j]=='?')\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(j==0) r[i][j]='1';\\n\\t\\t\\t\\telse r[i][j]='0';\\n\\t\\t\\t}\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tr[i][j]=s[j];\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse if(l==pl)\\n\\t\\t{\\n\\t\\t\\ta = 0; ps = r[i-1];\\n\\t\\t\\tfor(j=0;j<l;j++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(s[j]=='?')\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif(a==1) r[i][j]='0';\\n\\t\\t\\t\\t\\telse r[i][j]=ps[j];\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse \\n\\t\\t\\t\\t{ \\n\\t\\t\\t\\t\\tr[i][j]=s[j];\\n\\t\\t\\t\\t\\tif(s[j]>ps[j]) a=1;\\n\\t\\t\\t\\t\\telse if(s[j]<ps[j]) break;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\tif(a==0)\\n\\t\\t\\t{\\n\\t\\t\\t\\tfor(k=j-1;k>=0;k--)\\n\\t\\t\\t\\tif(s[k]=='?')\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif(r[i][k]=='9') r[i][k]='0';\\n\\t\\t\\t\\t\\telse {r[i][k]=r[i][k]+1; break;}\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tif(k<0) break;\\n\\t\\t\\t\\tfor(k=j;k<l;k++)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif(s[k]=='?') r[i][k]='0';\\n\\t\\t\\t\\t\\telse r[i][k]=s[k];\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse break;\\n\\t\\tr[i][l]=0; pl = l;\\n\\t}\\n\\tif(i==n) {\\n\\tprintf(\\\"YES\\\\n\\\");\\n\\tfor(i=0;i<n;i++)\\n\\t\\tprintf(\\\"%s\\\\n\\\",r[i]);\\n\\t}\\n\\telse printf(\\\"NO\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1714,
+    "completion_tokens": 714,
+    "total_tokens": 2428,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 178
+  },
+  "raw_sha256": "a87f94f57b14d3f9a0e3683e1b0873ce5036c0a2211d98b4e045304c9be16c21",
+  "ended_utc": "2026-10-18T14:15:35.791384+00:00",
+  "elapsed_seconds": 2.907
+}

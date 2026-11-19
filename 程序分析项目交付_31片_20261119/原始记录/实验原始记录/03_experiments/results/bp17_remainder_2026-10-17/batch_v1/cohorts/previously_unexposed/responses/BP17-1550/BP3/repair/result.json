@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1550/BP3/repair/1",
+  "case_id": "BP17-1550",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "cd4552c7e12d057bbe8d895aa4f7772e083cfadce8f800468f1b8b82e684b993",
+  "started_utc": "2026-10-17T08:16:31.815022+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3c7cfcbc-bac9-4c2f-a941-c6455e855fe9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\nint cmp (const void * a, const void * b)\\n{\\n   return ( *(int*)a - *(int*)b );\\n}\\n\\nint main(int argc, char *argv[]){\\n\\n\\tint n, m;\\n\\tint puz[50];\\n\\tint min = 1001;\\n\\tscanf(\\\"%d %d\\\", &n, &m);\\n\\tfor(int i = 0; i < m; i++){\\n\\t\\tscanf(\\\"%d \\\",&puz[i]);\\n\\t}\\n\\t\\n\\tqsort(puz,m,sizeof(int),cmp);\\n\\t\\n\\tfor(int i = 0; i <= m-n; i++){\\n\\t\\tint cur = puz[i+n-1] - puz[i];\\n\\t\\tif(cur < min)\\n\\t\\t\\tmin = cur;\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",min);\\n\\n\\n\\treturn 0;\\t\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1311,
+    "completion_tokens": 235,
+    "total_tokens": 1546,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1311
+  },
+  "raw_sha256": "47d2b10d4309082fee74b0515238670e4463c22489134013192eb9239aace343",
+  "ended_utc": "2026-10-17T08:16:33.482781+00:00",
+  "elapsed_seconds": 1.468
+}

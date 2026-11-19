@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2673/BP2/repair/1",
+  "case_id": "BP17-2673",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "08cf793ff7daa641f86eb35af6e91ccf8d096d3a3a750c67c53e5c1e5acc2be1",
+  "started_utc": "2026-11-16T18:21:07.648503+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dfe7d3e5-d87b-4f3b-8a8a-ec4b69b5689e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#define MAX 1005\\n\\nint n;\\nchar min_number[MAX];\\nchar digits[MAX];\\n\\nchar tmp[MAX];\\n\\nvoid rotate(){\\n\\tint i;\\n\\tfor(i=0; i<n; i++)\\n\\t\\ttmp[i] = digits[i];\\n\\tfor(i=1; i<n; i++)\\n\\t\\tdigits[i] = tmp[i-1];\\t\\n\\tdigits[0] = tmp[n-1];\\n\\t\\n\\t//printf(\\\"%s\\\\n\\\", digits);\\n}\\n\\nvoid incr(){\\n\\tint i;\\n\\tfor(i=0; i<n; i++)\\n\\t\\tif(digits[i] == '9')\\n\\t\\t\\tdigits[i] = '0';\\n\\t\\telse\\n\\t\\t\\tdigits[i]++;\\n\\t//printf(\\\"%s\\\\n\\\", digits);\\n}\\n\\nint main(int argc, char *argv[]){\\n\\tint t, i, j; \\n\\tscanf(\\\"%d\\\", &n);\\n\\tgetchar();\\n\\tgets(digits);\\n\\n\\tt = n;\\n\\tstrcpy(min_number, digits);\\n\\twhile(t--){\\n\\t\\tfor(i=0; i<9; i++){\\n\\t\\t\\tincr();\\n\\t\\t\\tif(strcmp(digits, min_number) < 0)\\n\\t\\t\\t\\tstrcpy(min_number, digits);\\n\\t\\t}\\n\\t\\trotate();\\n\\t\\t//printf(\\\"\\\\n\\\");\\n\\t}\\n\\tprintf(\\\"%s\\\\n\\\", min_number);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1887,
+    "completion_tokens": 392,
+    "total_tokens": 2279,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1887
+  },
+  "raw_sha256": "b8ff5d2a8c5a4b2e812e7548a0a7a25e6c62f0c858fefe346828b0a496d5897d",
+  "ended_utc": "2026-11-16T18:21:10.202630+00:00",
+  "elapsed_seconds": 2.5514
+}

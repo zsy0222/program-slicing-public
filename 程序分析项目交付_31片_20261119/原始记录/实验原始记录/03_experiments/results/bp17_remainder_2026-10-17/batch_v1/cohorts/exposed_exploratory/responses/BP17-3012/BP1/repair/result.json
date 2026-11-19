@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3012/BP1/repair/1",
+  "case_id": "BP17-3012",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "31b7759f444cfe9a5d2e03c6cd509faa6752f0de0ef5956be556cf0ad6e58146",
+  "started_utc": "2026-11-16T04:00:52.845282+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9efce82a-2f43-473a-a682-261b0e9ce09e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n    int k;\\n    scanf(\\\"%i\\\", &k);\\n\\n    if( k % 2 == 0 ) {\\n\\tputs(\\\"NO\\\");\\n\\treturn 0;\\n    }\\n    \\n    int n = 4 * (k - 1) + 2;\\n    int m = k * n / 2;\\n\\n    printf(\\\"%i %i\\\\n\\\", n, m);\\n\\n    int shift = 2 * (k - 1);\\n    \\n    int i, j;\\n    for( i = 1; i <= k - 1; i++ )\\n\\tfor( j = k; j <= 2 * k - 2; j++ ) {\\n\\t    printf(\\\"%i %i\\\\n\\\", i, j);\\n\\t    printf(\\\"%i %i\\\\n\\\", i + shift, j + shift);\\n\\t}\\n\\n    for( i = k; i <= 2 * (k - 1); i += 2 ) {\\n\\tprintf(\\\"%i %i\\\\n\\\", i, i + 1);\\n\\tprintf(\\\"%i %i\\\\n\\\", i + shift, i + shift + 1);\\n    }\\n\\n    int l0 = n - 1, l1 = n;\\n\\n    printf(\\\"%i %i\\\\n\\\", l0, l1);\\n\\n    for( i = 1; i <= k - 1; i++ ) {\\n\\tprintf(\\\"%i %i\\\\n\\\", l0, i);\\n\\tprintf(\\\"%i %i\\\\n\\\", l1, i + shift);\\n    }\\n\\t\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1160,
+    "completion_tokens": 406,
+    "total_tokens": 1566,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1160
+  },
+  "raw_sha256": "1811a36c738a8f181842ffc0596f303e1068865c806ead64871127d5ff719736",
+  "ended_utc": "2026-11-16T04:00:55.095989+00:00",
+  "elapsed_seconds": 2.191
+}

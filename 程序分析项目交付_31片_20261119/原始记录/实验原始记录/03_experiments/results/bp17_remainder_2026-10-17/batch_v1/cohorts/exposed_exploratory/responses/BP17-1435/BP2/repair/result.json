@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1435/BP2/repair/1",
+  "case_id": "BP17-1435",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "12318180a7fb835b7c466dc45b683017da931f00f4a81cc45be4f3ae13e2c441",
+  "started_utc": "2026-11-16T18:54:13.618083+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "19d76e60-2444-4431-8216-8cf67e3660a1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\nint i,q=0,j,t,n,p=10,sum=1;\\nchar s[7],temp;\\nscanf(\\\"%s\\\",s);\\nn=strlen(s);\\n if((int)s[0]<63)\\n{\\nq=0;\\n}\\n\\nfor(i=0;i<n-1;i++)\\n  {for(j=i+1;j<n;j++)\\n  { if((int)s[i]>(int)s[j])\\n           {\\n\\n             temp=s[i];\\n             s[i]=s[j];\\n             s[j]=temp;\\n           }\\n  }\\n  }\\n\\nif((int)s[0]<63)\\n    sum=1;\\nelse if(s[0]=='?')\\n{sum=9;\\n}\\nelse\\n{sum=9;\\np=9;\\n}\\n\\nfor(i=1;i<n;i++)\\n{\\n\\n\\n                if(s[i]=='?')\\n                        sum*=10;\\n                else if((int)s[i]>63&&(s[i]!=s[i-1]))\\n                    {\\n                        sum=sum*p;\\n                        p--;\\n                    }\\n\\n}\\nif(q!=0&&(int)s[0]<62)\\n    sum=(sum/10)*9;\\nprintf(\\\"%d\\\\n\\\",sum);\\nreturn(0);\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1788,
+    "completion_tokens": 326,
+    "total_tokens": 2114,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 764
+  },
+  "raw_sha256": "77c33297e9480506a54b2e174fada40fd8b0dfa4489a5029aee3e12790de2c5c",
+  "ended_utc": "2026-11-16T18:54:16.247448+00:00",
+  "elapsed_seconds": 2.6265
+}

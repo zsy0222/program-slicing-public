@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2437/BP3/repair/1",
+  "case_id": "BP17-2437",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "7195f729aab79380fdb8511e2391991baa35270a7d0b6cad01b47b5cbdc41d02",
+  "started_utc": "2026-11-16T05:51:37.486110+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "40675fd5-809a-4f69-b649-adeec6524284",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nvoid shift_t (int *x, int n, int init, int end) {\\n    int i;\\n    x[init] = 0;\\n    if (end + 1 < n)\\n        x[end+1] = 1;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int *x, *z, *a, *b, *c, *d;\\n    int p, q, l, r, i, j, max_x, max_z, max, count = 0, stop;\\n    scanf (\\\"%d %d %d %d\\\", &p, &q, &l, &r);\\n    \\n    a = malloc (p * sizeof (int));\\n    b = malloc (p * sizeof (int));\\n    c = malloc (q * sizeof (int));\\n    d = malloc (q * sizeof (int));\\n        \\n    for (i = 0; i < p; i++)\\n        scanf (\\\"%d %d\\\", &a[i], &b[i]);    \\n    for (i = 0; i < q; i++)\\n        scanf (\\\"%d %d\\\", &c[i], &d[i]);\\n    \\n    max_x = d[q-1] + r + 1;\\n    max_z = b[p-1] + 1;\\n    if (max_z > max_x)\\n        max = max_z;\\n    else max = max_x;\\n    \\n    x = malloc (max_x * sizeof (int));\\n    \\n    z = malloc (max * sizeof (int));\\n    \\n    for (i = 0; i < max_x; i++)\\n        x[i] = 0;\\n        \\n    for (i = 0; i < max; i++)\\n        z[i] = 0;\\n    \\n    for (i = 0; i < p; i++) {\\n        for (j = a[i]; j <= b[i]; j++) {\\n            z[j] = 1;\\n        }\\n    }\\n\\n    for (i = 0; i < q; i++) \\n        for (j = c[i]; j <= d[i]; j++)\\n            x[j] = 1; \\n    \\n    for (i = l; i <= r; i++) {\\n        stop = 0;\\n        for (j = 0; j < max_x; j++)\\n            if (z[j] == 1 && x[j] == 1 && stop == 0) {\\n                count++;\\n                stop = 1;\\n            }\\n        for (j = 0; j < q; j++)\\n            shift_t (x, max_x, c[j]+i, d[j]+i);\\n    }\\n    printf (\\\"%d\\\\n\\\", count);\\n    free (a);\\n    free (b);\\n    free (c);\\n    free (d);\\n    free (x);\\n    free (z);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2635,
+    "completion_tokens": 721,
+    "total_tokens": 3356,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2635
+  },
+  "raw_sha256": "34a7b2508b936989653373b837ca56d8a79ef72c24b925e46f4f658f3ddd5609",
+  "ended_utc": "2026-11-16T05:51:40.279223+00:00",
+  "elapsed_seconds": 2.7895
+}

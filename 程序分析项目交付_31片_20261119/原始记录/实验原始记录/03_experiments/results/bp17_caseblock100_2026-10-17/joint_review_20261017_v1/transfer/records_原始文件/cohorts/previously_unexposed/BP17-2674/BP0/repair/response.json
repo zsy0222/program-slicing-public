@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-2674",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\n\\tchar arr[101][101];\\n\\tint n,m,i,j,k,s=0;\\n\\tscanf(\\\"%d %d\\\",&n,&m);\\n\\tfor(i=0;i<n;i++)\\n\\t\\tscanf(\\\"%s\\\",arr[i]);\\n\\tfor(i=1;i<n;)\\n\\t{\\n\\t\\tif(strcmp(arr[i],arr[i-1]) < 0)\\n\\t\\t{\\n\\t\\t\\tfor(j=0; j<m; j++)\\n\\t\\t\\t\\tif(arr[i][j]<arr[i-1][j])\\n\\t\\t\\t\\t\\tbreak;\\n\\t\\t\\tfor(k=0; k<n; k++)\\n\\t\\t\\t\\tarr[k][j]='d';\\n\\t\\t\\ts++;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t\\ti++;\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",s);\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 1.812,
+  "ended_utc": "2026-10-17T06:59:43.404576+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2674/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "17656ae372db5da757824329dfb3997d168f4abafd6beb87938756027b6958f0",
+  "request_model": "deepseek-flash",
+  "request_sha256": "ca953e57be20459073b9c43e08aa53f27d4e028e29a2803baa17f784beb69511",
+  "response_id": "c08a1e03-5bd9-4c4c-97f0-ce0587fa5688",
+  "started_utc": "2026-10-17T06:59:41.582055+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 242,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 936,
+    "prompt_tokens": 936,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1178
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1745/BP1/repair/1",
+  "case_id": "BP17-1745",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c4f83d251be8a132b476ffb20a112c655180640400f6977f88f55390a7039c83",
+  "started_utc": "2026-11-18T10:05:24.562506+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "67e986a5-0398-4706-894c-f6d1a28c77cd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<string.h>\\ntypedef unsigned u;\\nu a[200000],b[200000],B[200000],C[200000],Ok[200000];\\nint F(const void*x,const void*y){return(*(u*)x>=*(u*)y)+(*(u*)x>*(u*)y)-1;}\\nint main(int argc, char *argv[])\\n{\\n\\tu n,m,p,i,j,k,x,y,z,M,E,*v;\\n\\tscanf(\\\"%u%u%u\\\",&n,&m,&p);\\n\\tif(n/p<n){printf(\\\"0\\\\n\\\");return 0;}\\n\\tfor(i=0;i<n;scanf(\\\"%u\\\",a+i++));\\n\\tfor(i=0;i<m;scanf(\\\"%u\\\",b+i++));\\n\\tqsort(b,m,sizeof(u),F);\\n\\tfor(B[M=0]=i=1;i<m;i++)\\n\\t{\\n\\t\\tif(b[i]==b[M])B[M]++;\\n\\t\\telse{B[++M]=1;b[M]=b[i];}\\n\\t}\\n\\tfor(M++,k=y=0;k<p;k++)\\n\\t{\\n\\t\\tif(k+p*(m-1)>=n)break;\\n\\t\\tfor(i=E=0,j=k;i<m;j+=p,i++)\\n\\t\\t{\\n\\t\\t\\tv=(u*)bsearch(a+j,b,M,sizeof(u),F);\\n\\t\\t\\tif(v==NULL)E++;\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tC[x=v-b]++;\\n\\t\\t\\t\\tif(B[x]<C[x])E++;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif(E==0){Ok[k]=1;y++;}\\n\\t\\tfor(i=k;j<n;j+=p)\\n\\t\\t{\\n\\t\\t\\tv=(u*)bsearch(a+i,b,M,sizeof(u),F);\\n\\t\\t\\tif(v==NULL)E--;\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(B[v-b]<C[v-b])E--;\\n\\t\\t\\t\\tC[v-b]--;\\n\\t\\t\\t}\\n\\t\\t\\tv=(u*)bsearch(a+j,b,M,sizeof(u),F);\\n\\t\\t\\tif(v==NULL)E++;\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tC[x=v-b]++;\\n\\t\\t\\t\\tif(B[x]<C[x])E++;\\n\\t\\t\\t}\\n\\t\\t\\ti+=p;\\n\\t\\t\\tif(E==0){Ok[i]=1;y++;}\\n\\t\\t}\\n\\t\\tfor(j=0;j<M;C[j++]=0);\\n\\t}\\n\\tprintf(\\\"%u\\\\n\\\",y);\\n\\tfor(i=z=0;i<n;)\\n\\t{\\n\\t\\tif(Ok[i++])\\n\\t\\t{\\n\\t\\t\\tif(z)putchar(' ');\\n\\t\\t\\telse z=1;\\n\\t\\t\\tprintf(\\\"%u\\\",i);\\n\\t\\t}\\n\\t}\\n\\tputchar('\\\\n');\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1615,
+    "completion_tokens": 727,
+    "total_tokens": 2342,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1615
+  },
+  "raw_sha256": "2e514f03395776f3d5110312fe5d73617a43e4e6e83f51ea755017f2a6dd0db0",
+  "ended_utc": "2026-11-18T10:05:29.649819+00:00",
+  "elapsed_seconds": 5.0845
+}

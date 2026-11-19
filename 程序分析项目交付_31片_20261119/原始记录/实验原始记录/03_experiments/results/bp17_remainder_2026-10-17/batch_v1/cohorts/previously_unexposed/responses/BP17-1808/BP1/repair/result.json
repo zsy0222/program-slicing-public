@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1808/BP1/repair/1",
+  "case_id": "BP17-1808",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "50ab18648247240ad7ebd5567c45910a4ead0241d23e25f718ba00e9f7387766",
+  "started_utc": "2026-11-18T09:29:05.807306+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "aa54ceda-daa0-40c0-b699-e4a5d3af5520",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <stdint.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int i=0,j=0;\\n    char lever[1000000]= {0};\\n    int pivot=0,max=0;\\n    int64_t moment_l=0,moment_r=0;\\n\\n    gets(lever);\\n    max=strlen(lever);\\n    for (i=0; i<max; i++)\\n    {\\n        if (lever[i]=='^')\\n            pivot=i;\\n        else if (lever[i]=='=')\\n            lever[i]=0;\\n        else if (lever[i]=='\\\\n')\\n            lever[i]=0;\\n        else\\n            lever[i]-='0';\\n    }\\n    for (i=0; i<pivot; i++)\\n    {\\n        moment_l+=lever[i]*(pivot-i);\\n    }\\n    for (i=pivot+1; i<max; i++)\\n    {\\n        moment_r+=lever[i]*(i-pivot);\\n    }\\n    if (moment_l>moment_r)\\n        printf(\\\"left\\\");\\n    else if (moment_l<moment_r)\\n        printf(\\\"right\\\");\\n    else\\n        printf(\\\"balance\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1102,
+    "completion_tokens": 323,
+    "total_tokens": 1425,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1102
+  },
+  "raw_sha256": "126ce7a08fa7fe3a7e80492eff50563307469897b1a0fdfef83a876a62b62ce5",
+  "ended_utc": "2026-11-18T09:29:07.925028+00:00",
+  "elapsed_seconds": 2.1154
+}

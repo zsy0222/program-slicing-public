@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2062/BP0/repair/1",
+  "case_id": "BP17-2062",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "fa5a2cb4a7ac3df8670739035411826944e7659bba8b4e3a9d68a1b696813639",
+  "started_utc": "2026-11-16T05:22:36.906074+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4e8a799f-efca-4b31-af56-cd81220afede",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdlib.h>\\n#include <stdbool.h>\\n#include <time.h>\\n\\n#define clr(ar) memset(ar, 0, sizeof(ar))\\n#define read() freopen(\\\"lol.txt\\\", \\\"r\\\", stdin)\\n\\nint main(int argc, char *argv[]){\\n    int n, k;\\n\\n    while (scanf(\\\"%d %d\\\", &n, &k) != EOF){\\n        if (n == 1 && k == 0) puts(\\\"1\\\");\\n        else if ((k < (n >> 1)) || (n == 1)) puts(\\\"-1\\\");\\n        else{\\n            int f = k - ((n - 2) >> 1);\\n            printf(\\\"%d %d \\\", f, f << 1);\\n\\n            int x = (f << 1) + 2, lim = (n - 2) >> 1;\\n            while (lim--){\\n                printf(\\\"%d %d \\\", x, x + 1);\\n                x += 2;\\n            }\\n\\n            if (n & 1) printf(\\\"%d\\\", rand() * rand());\\n            puts(\\\"\\\");\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 975,
+    "completion_tokens": 304,
+    "total_tokens": 1279,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 207
+  },
+  "raw_sha256": "5bb5a04cb1c25e90a26e869f9e7ba41fec49953bf014339fa6bd73b996968864",
+  "ended_utc": "2026-11-16T05:22:40.091617+00:00",
+  "elapsed_seconds": 3.0167
+}

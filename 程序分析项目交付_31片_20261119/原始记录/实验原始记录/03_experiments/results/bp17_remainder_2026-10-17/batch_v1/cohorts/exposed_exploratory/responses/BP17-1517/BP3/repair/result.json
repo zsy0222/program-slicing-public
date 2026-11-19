@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1517/BP3/repair/1",
+  "case_id": "BP17-1517",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "6b4b8c95f54e94a6a956b3187f0a69575c2ebb8a95f7f61020e341f49fc26f01",
+  "started_utc": "2026-11-16T18:19:53.781480+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1258d431-2fc7-43d4-b668-781501e17efc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\nint n,m;\\nint map[1010][1010];\\nint mn = 1000000000,mx = -1;\\nshort flag[1010][1010];\\nshort check(int lim)\\n{\\n    int i,j,k,cnt,tmp[1010];\\n    memset(flag,0,sizeof(flag));\\n    for(i=1;i<=n;i++)\\n    {\\n        cnt = 0;\\n        for(j=1;j<=m;j++) if(map[i][j]>=lim) tmp[++cnt] = j;\\n        for(j=1;j<=cnt;j++) for(k=j+1;k<=cnt;k++)\\n        {\\n            if(!flag[tmp[j]][tmp[k]]) flag[tmp[j]][tmp[k]] = 1;\\n            else return 1;\\n        }\\n    }\\n    return 0;\\n}\\nint work()\\n{\\n    int head = mn,tail = mx,mid;\\n    while(head<tail)\\n    {\\n        mid = (head+tail+1)>>1;\\n        if(check(mid)) head = mid;\\n        else tail = mid-1;\\n    }\\n    return head;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int i,j;\\n    scanf(\\\"%d%d\\\",&n,&m);\\n    for(i=1;i<=n;i++) for(j=1;j<=m;j++)\\n    {\\n        scanf(\\\"%d\\\",&map[i][j]);\\n        mn = mn<map[i][j]?mn:map[i][j];\\n        mx = mx>map[i][j]?mx:map[i][j];\\n    }\\n    printf(\\\"%d\\\\n\\\",work());\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1955,
+    "completion_tokens": 421,
+    "total_tokens": 2376,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 931
+  },
+  "raw_sha256": "1ec1dc291c17b8acdb4942fcd29f3baf804f96522632f8bf3ebf99acfb80f942",
+  "ended_utc": "2026-11-16T18:19:56.607198+00:00",
+  "elapsed_seconds": 2.7534
+}

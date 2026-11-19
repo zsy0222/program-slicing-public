@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1546/BP1/repair/1",
+  "case_id": "BP17-1546",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "876d67a376ba55a7bcee597adb9ff678583598637dcd47a2b844b9fda67659eb",
+  "started_utc": "2026-11-16T16:37:51.441653+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5ae352e8-dff0-47b0-9249-ddd7c1ac8482",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <malloc.h>\\nint calc_arr_diff(int* arr,int start, int end){\\n\\tint i;\\n\\tint diff=0;\\n\\tfor(i=start;i<=end;i++,end--){\\n\\t\\tdiff += arr[end]-arr[i];\\n\\t}\\n\\treturn diff;\\n\\n}\\nvoid QuickSort( int* array, int startIdx, int endIdx ) { \\n     int pivot, left, right; \\n     left = startIdx; \\n     right = endIdx; \\n     pivot = array[ left ]; // 0��° ���Ҹ� �Ǻ����� ���� \\n     while( left < right ) { \\n            while ((array[right] >= pivot) && (left < right) ) \\n                right --; \\n            if( left != right ) \\n                 array[left] = array[right]; \\n            while( (array[left] <= pivot) && (left < right) ) \\n                left ++; \\n            if( left != right ) \\n                 array[right] = array[left]; \\n     } \\n     array[left] = pivot; \\n     pivot = left; \\n     if( startIdx < pivot ) \\n         QuickSort( array, startIdx, pivot - 1 ); \\n     if( endIdx > pivot) \\n         QuickSort( array, pivot + 1, endIdx ); \\n }\\nvoid PrintArray( int array[], int size ) { \\n     int i; \\n     for( i=0 ; i<size ; i++ ) \\n         printf( \\\"%d \\\", array[i] ); \\n     printf( \\\"\\\\n\\\" ); \\n} \\n\\nint main(int argc, char *argv[]){\\n\\tint selection;\\n\\tint display_cnt;\\n\\tint *display;\\n\\tint tmp;\\n\\tint result;\\n\\tint min=99999;\\n\\tint i;\\n\\tscanf(\\\"%d %d\\\",&selection,&display_cnt);\\n\\tif(selection<2 || display_cnt<2 || display_cnt>50 || selection>50 || display_cnt<selection){\\n\\t\\tprintf(\\\"wrong input\\\");\\n\\t\\treturn 0;\\n\\t}\\n\\tdisplay = (int*)malloc(sizeof(int)*display_cnt);\\n\\tfor(i=0;i<display_cnt;i++){\\n\\t\\tscanf(\\\"%d\\\",&display[i]);\\n\\t}\\n\\t//1. sorting\\n\\tQuickSort(display,0,display_cnt-1);\\n\\t//PrintArray(display,display_cnt);\\n\\t//2. calculate difference to find Min. diff.\\n\\tfor(i=0;i<=display_cnt-selection;i++){\\n\\t\\ttmp = calc_arr_diff(display,i,i+selection-1);\\n\\t\\t//printf(\\\"arr[%d]~arr[%d] hsd %d difference\\\\n\\\",i+selection-1,i,tmp);\\n\\t\\tif(tmp<min){\\n\\t\\t\\tmin=tmp;\\n\\t\\t\\t//printf(\\\"change min : %d\\\\n\\\\n\\\",min);\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",min);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1633,
+    "completion_tokens": 733,
+    "total_tokens": 2366,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 225
+  },
+  "raw_sha256": "944aac8dc22d1b7c5cf2127a18d493b8a3ee1c61d66d94b8d9385815fb5c532a",
+  "ended_utc": "2026-11-16T16:37:54.519084+00:00",
+  "elapsed_seconds": 2.9769
+}

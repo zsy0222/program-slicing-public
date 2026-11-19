@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1589/BP1/repair/1",
+  "case_id": "BP17-1589",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "5ca1bba347924b45406b62a092f54d2ac264d8e58c7d1b09e158a29564d542e1",
+  "started_utc": "2026-11-15T12:51:58.325517+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a4b30207-4df1-47a5-bf09-f4ce08e1a926",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nlong long a[100005];\\nlong long gcd(long long a,long long b)\\n{\\n    return b==0?a:gcd( b, a%b );\\n}\\nint comp(const void *a,const void *b)\\n{\\nreturn *(long long*)a-*(long long *)b;\\n}\\nint main(int argc, char *argv[])\\n{\\n    long long n,i,sum=0,s,b,yue,l;\\n    scanf(\\\"%lld\\\",&n);\\n    for(i=0;i<n;i++)\\n    scanf(\\\"%lld\\\",&a[i]);\\n    for(i=0;i<n;i++)\\n    sum+=a[i];\\n    qsort(a,n,sizeof(long long ),comp);\\n    s=0;b=n-1;\\n    l=n;\\n    while(s<b)\\n    {\\n        sum+=2*(l-1)*(a[b]-a[s]);\\n        s++;b--;l-=2;\\n    }\\n    yue=gcd(sum,n);\\n    printf(\\\"%lld %lld\\\\n\\\",sum/yue,n/yue);\\n    return 0;\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1045,
+    "completion_tokens": 276,
+    "total_tokens": 1321,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 149
+  },
+  "raw_sha256": "d0d20013494dacd4367e4dda3b0e519e9976b68420a56958925c089d8ba27d43",
+  "ended_utc": "2026-11-15T12:52:00.414215+00:00",
+  "elapsed_seconds": 2.0863
+}

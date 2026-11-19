@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1940/BP2/repair/1",
+  "case_id": "BP17-1940",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "b8e3725430f1dc5b651a0647f9805c70a658361dbafc90cb2d0c6726aa48ee14",
+  "started_utc": "2026-11-16T18:08:43.125620+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3c275997-ca1d-43ea-a082-da3c37704087",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nstruct envelope {\\n\\tint w, h, i, j, k;\\n} *ee;\\n\\nint compare(const void *a, const void *b) {\\n\\tstruct envelope *pa = (struct envelope *) a;\\n\\tstruct envelope *pb = (struct envelope *) b;\\n\\n\\treturn pb->w != pa->w ? pb->w - pa->w : pb->h - pa->h;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, w, h, i, j, jmax, kmax;\\n\\n\\tscanf(\\\"%d%d%d\\\", &n, &w, &h);\\n\\tee = malloc(n * sizeof(struct envelope));\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tscanf(\\\"%d%d\\\", &ee[i].w, &ee[i].h);\\n\\t\\tee[i].i = i;\\n\\t\\tee[i].j = -1;\\n\\t\\tee[i].k = 0;\\n\\t}\\n\\n\\tqsort(ee, n, sizeof(struct envelope), compare);\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tjmax = -1;\\n\\t\\tkmax = 0;\\n\\n\\t\\tfor (j = 0; j < i; j++)\\n\\t\\t\\tif (ee[j].w > ee[i].w && ee[j].h > ee[i].h && kmax < ee[j].k) {\\n\\t\\t\\t\\tkmax = ee[j].k;\\n\\t\\t\\t\\tjmax = j;\\n\\t\\t\\t}\\n\\t\\tee[i].k = kmax + 1;\\n\\t\\tee[i].j = jmax;\\n\\t}\\n\\n\\tkmax = 0;\\n\\tjmax = -1;\\n\\tfor (j = 0; j < n; j++)\\n\\t\\tif (ee[j].w > w && ee[j].h > h && kmax < ee[j].k) {\\n\\t\\t\\tkmax = ee[j].k;\\n\\t\\t\\tjmax = j;\\n\\t\\t}\\n\\tprintf(\\\"%d\\\\n\\\", kmax);\\n\\tfor (j = jmax; j != -1; j = ee[j].j)\\n\\t\\tprintf(\\\"%d \\\", ee[j].i + 1);\\n\\tprintf(\\\"\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2185,
+    "completion_tokens": 566,
+    "total_tokens": 2751,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 905
+  },
+  "raw_sha256": "49bf6302351d7ef531838f02ea2e8e1e2d14f357de90fd811bfc4ea972673d4e",
+  "ended_utc": "2026-11-16T18:08:45.954515+00:00",
+  "elapsed_seconds": 2.8206
+}

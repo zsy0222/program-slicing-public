@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2032/BP3/repair/1",
+  "case_id": "BP17-2032",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "a0065d8ae9547dc14571159a470df2a463bfbc3d335da78821660b985a29d723",
+  "started_utc": "2026-10-17T08:58:58.299065+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f81c2625-e68d-41a3-82f4-18c9a83ef38f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nchar s[101],c[101];\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%s\\\",s);\\n    int l=strlen(s),i,flag=0,n=1;\\n    c[0]=s[0];\\n    for(i=1;i<l-1;++i)\\n    {\\n        if(s[i]=='a' && !flag && s[i+1]=='t' && i+1!=l-1)\\n            c[n++]='@',i+=1,flag=1;\\n        else if(s[i]=='d' && s[i+1]=='o' && s[i+2]=='t' && i+2<l-1)\\n            c[n++]='.',i+=2;\\n        else\\n            c[n++]=s[i];\\n    }\\n    c[n++]=s[l-1];\\n    c[n]='\\\\0';\\n    printf(\\\"%s\\\",c);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1322,
+    "completion_tokens": 238,
+    "total_tokens": 1560,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 426
+  },
+  "raw_sha256": "9ba9fb83b72acb761e5939f8d59066f6b2546cec21215c17f1571c1020b09362",
+  "ended_utc": "2026-10-17T08:58:59.651634+00:00",
+  "elapsed_seconds": 1.281
+}

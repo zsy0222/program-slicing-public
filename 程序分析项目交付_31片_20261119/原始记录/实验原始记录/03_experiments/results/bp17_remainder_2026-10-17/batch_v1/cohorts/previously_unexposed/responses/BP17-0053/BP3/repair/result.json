@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0053/BP3/repair/1",
+  "case_id": "BP17-0053",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "8edab5da9e68f43fa92b5289c19a6295270fafbc8dd47ceaf4085dc586f0529a",
+  "started_utc": "2026-11-17T03:43:52.104084+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f910d47f-0b4d-49f6-9635-e7e4232e0379",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#define lowbit(a) ((a)&(-(a)))\\n\\nint rec[17],pos[17],ans[17],v[65537];\\nlong long f[65537];\\nint n;\\n\\nlong long work(int s)\\n{\\n   int i,j;\\n   memset(f,0,sizeof(f));\\n   memset(pos,0,sizeof(pos));\\n   for (i=1;i<=s;i++)\\n      pos[ans[i]]=i;\\n   f[0]=1;\\n   for (i=0;i<(1<<n)-1;i++)\\n      if (f[i])\\n         for (j=1;j<=n;j++)\\n            if (!(i&(1<<j-1))&&(!pos[v[i]+1]||pos[v[i]+1]==j)&&(i&rec[j])==rec[j])\\n               f[i+(1<<j-1)]+=f[i];\\n   return f[(1<<n)-1];\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n   int i,j,a,b,m,s=0;\\n   long long k,t;\\n   scanf(\\\"%d%lld%d\\\",&n,&k,&m);\\n   for (i=1;i<1<<n;i++)\\n      v[i]=v[i-lowbit(i)]+1;\\n   for (i=1;i<=m;i++)\\n   {\\n      scanf(\\\"%d%d\\\",&a,&b);\\n      rec[b]+=(1<<a-1);\\n   }\\n   if (work(0)<k)\\n      puts(\\\"The times have changed\\\");\\n   else\\n      for (i=1;i<=n;i++)\\n         for (j=1;j<=n;j++)\\n            if (!(s&(1<<j-1)))\\n            {\\n               ans[i]=j;\\n               t=work(i);\\n               if (t>=k)\\n               {\\n                  s+=(1<<j-1);\\n                  printf(\\\"%d%c\\\",j,(i==n)?'\\\\n':' ');\\n                  break;\\n               }\\n               k-=t;\\n            }\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2192,
+    "completion_tokens": 521,
+    "total_tokens": 2713,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2192
+  },
+  "raw_sha256": "ffae641fe4ae2ea8552a53687f9c563b41e3fb1bfa2b822b025e357632df3c09",
+  "ended_utc": "2026-11-17T03:43:54.923723+00:00",
+  "elapsed_seconds": 2.7752
+}

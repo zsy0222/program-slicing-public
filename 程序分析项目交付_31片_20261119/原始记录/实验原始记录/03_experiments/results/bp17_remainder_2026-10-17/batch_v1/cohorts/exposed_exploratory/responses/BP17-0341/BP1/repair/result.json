@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0341/BP1/repair/1",
+  "case_id": "BP17-0341",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "70e3395d9d7bf01e158d7abab2520b3c6bbb43d4d19d14bf9b14daf6334569f2",
+  "started_utc": "2026-10-17T08:41:03.902882+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b4eaa4f5-d7e9-409e-902b-9cbc03f7a7a3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int i,n,r1,r2,c1,c2,d1,d2,x[10];\\n    scanf(\\\"%d %d %d %d %d %d\\\",&r1,&r2,&c1,&c2,&d1,&d2);\\n    x[1]=((c1+d1)-r2)/2;\\n    x[3]=c1-x[1];\\n    x[4]=d1-x[1];\\n    x[2]=c2-x[4];\\n    for(n=1;n<4;n++) {\\n        for(i=n+1;i<=4;i++) {\\n            if(x[n]==x[i]) {\\n                printf(\\\"-1\\\\n\\\");\\n                return 0;\\n            }\\n        }\\n    }\\n    if(x[1]<1||x[1]>9||x[2]<1||x[2]>9||x[3]<1||x[3]>9||x[4]<1||x[4]>9) {\\n        printf(\\\"-1\\\\n\\\");\\n        return 0;\\n    }\\n    if(x[1]+x[2]!=r1||x[3]+x[4]!=r2||x[1]+x[3]!=c1||x[2]+x[4]!=c2||x[1]+x[4]!=d1||x[2]+x[3]!=d2) {\\n        printf(\\\"-1\\\\n\\\");\\n        return 0;\\n    }\\n    printf(\\\"%d %d\\\\n\\\",x[1],x[2]);\\n    printf(\\\"%d %d\\\\n\\\",x[3],x[4]);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 943,
+    "completion_tokens": 411,
+    "total_tokens": 1354,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 175
+  },
+  "raw_sha256": "cbf322035d18825d2ef03be12ab928fb12826215121ea39c0773df8583408765",
+  "ended_utc": "2026-10-17T08:41:05.837844+00:00",
+  "elapsed_seconds": 1.938
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3048/BP0/repair/1",
+  "case_id": "BP17-3048",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "f86cb70fe4dc9d762c81673d3160ed9479353b11c99952c82a736440cb94b02e",
+  "started_utc": "2026-11-16T16:44:05.389038+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5e5e1793-b09c-49d2-a8a6-dc14dc2e3d71",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\ntypedef struct LEG{\\n\\tint l;\\n\\tint d;\\n}LEG; \\n\\nint cmp(const void *,const void *);\\nint dc[202],count[100005],cost[100005];\\nLEG *ar;\\nint main(int argc, char *argv[]){\\n\\tint n,i,j,k,now,ncost,ans,left,ncount,db1,db2,db3;\\n\\tfor(i=0;i<202;i++)\\n\\t\\tdc[i]=0;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tar=(LEG *)malloc(sizeof(LEG)*n);\\n\\tfor(i=0;i<n;i++)\\n\\t\\tscanf(\\\"%d\\\",&(ar[i].l));\\n\\tfor(i=0;i<n;i++)\\n\\t\\tscanf(\\\"%d\\\",&(ar[i].d));\\n\\tqsort(ar,n,sizeof(LEG),cmp);\\n\\tfor(i=0;i<100005;i++)\\n\\t\\tcount[i]=0;\\n\\tnow=-1;\\n\\tncost=0;\\n\\tfor(i=n-1;i>=0;i--){\\n\\t\\tcount[ar[i].l]++;\\n\\t\\tif(ar[i].l!=now){\\n\\t\\t\\tcost[ar[i].l]=ncost;\\n\\t\\t\\tnow=ar[i].l;\\n\\t\\t}\\n\\t\\tncost+=ar[i].d;\\n\\t}\\n\\ti=0;\\n\\tnow=-1;\\n\\tncount=0;\\n\\tans=1000000007;\\n\\twhile(i<n){\\n\\t\\tif(ar[i].l==now){\\n\\t\\t\\tdc[ar[i].d]++;\\n\\t\\t\\ti++;\\n\\t\\t\\tncount++;\\n\\t\\t}\\n\\t\\telse{\\n\\t\\t\\tnow=ar[i].l;\\n\\t\\t\\tleft=ncount;\\n\\t\\t\\tif(left<count[ar[i].l]){\\n\\t\\t\\t\\tif(ans>cost[ar[i].l]){\\n\\t\\t\\t\\t\\tans=cost[ar[i].l];\\n\\t\\t\\t\\t\\tdb1=ar[i].l;\\n\\t\\t\\t\\t\\tdb2=cost[ar[i].l];\\n\\t\\t\\t\\t\\tdb3=0;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\telse{\\n\\t\\t\\t\\tncost=cost[ar[i].l];\\n\\t\\t\\t\\tj=left+1-count[ar[i].l];\\n\\t\\t\\t\\tk=1;\\n\\t\\t\\t\\twhile(j>0&&k<=200){\\n\\t\\t\\t\\t\\tif(dc[k]>j){\\n\\t\\t\\t\\t\\t\\tncost+=k*j;\\n\\t\\t\\t\\t\\t\\tj=0;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\telse{\\n\\t\\t\\t\\t\\t\\tncost+=dc[k]*k;\\n\\t\\t\\t\\t\\t\\tj-=dc[k];\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\tk++;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tif(j==0&&ncost<ans){\\n\\t\\t\\t\\t\\tans=ncost;\\n\\t\\t\\t\\t\\tdb1=ar[i].l;\\n\\t\\t\\t\\t\\tdb2=cost[ar[i].l];\\n\\t\\t\\t\\t\\tdb3=ncost;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\ti++;\\n\\t\\t\\tncount++;\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",ans);\\n\\t//\\tprintf(\\\"%d %d %d\\\\n\\\",db1,db2,db3);\\n\\treturn 0;\\n}\\n\\nint cmp(const void *a,const void *b){\\n\\tLEG *l1,*l2;\\n\\tl1=(LEG *)a;l2=(LEG *)b;\\n\\tif(l1->l>l2->l)\\n\\t\\treturn 1;\\n\\telse if(l1->l==l2->l)\\n\\t\\treturn 0;\\n\\telse\\n\\t\\treturn -1;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1881,
+    "completion_tokens": 966,
+    "total_tokens": 2847,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 217
+  },
+  "raw_sha256": "d5754240fdc13530809ce85c9fc045f04caae8ad9aab8d936cc1c1b1689dd674",
+  "ended_utc": "2026-11-16T16:44:09.141833+00:00",
+  "elapsed_seconds": 3.7496
+}

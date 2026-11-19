@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1654/BP1/repair/1",
+  "case_id": "BP17-1654",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c904af40a75ea634c8b57269806ff9809be33e5fa01dbf1891b5c07461308fa2",
+  "started_utc": "2026-10-21T08:15:28.874091+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d74ec0f6-6d71-498a-9958-d3499b7827e1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"/*interface*/\\n#include<stdio.h>\\n/*interface implementation*/\\n/*client*/\\n\\nint main(int argc, char *argv[]) {\\n    int n;\\n    scanf(\\\"%d\\\",&n);\\n    int odd_even=0;\\n    int even_odd=0;\\n    int odd_odd=0;\\n    int i;\\n    for(i=0; i<n; i++) {\\n        int x,y;\\n        scanf(\\\"%d%d\\\",&x,&y);\\n        if(x%2==1 && y%2==1) odd_odd++;\\n        if(x%2==0 && y%2==1) even_odd++;\\n        if(x%2==1 && y%2==0) odd_even++;\\n    }\\n    int change=0;\\n    //printf(\\\"upper_odd=%d,lower_odd=%d\\\\n\\\",upper_odd,lower_odd);\\n\\n    if(odd_even%2==0 && even_odd%2==0) {\\n        if(odd_odd%2==0) {\\n            change=0;\\n        } else {\\n            if(n==1) {\\n                change=-1;\\n            } else {\\n                change=1;\\n            }\\n        }\\n    } else if(odd_even%2==1 && even_odd%2==1) {\\n        if(odd_odd%2==1) {\\n            change=0;\\n        } else {\\n            change=1;\\n        }\\n    } else if(odd_even%2==0 && even_odd%2==1) {\\n        change=-1;\\n    } else if(odd_even%2==1 && even_odd%2==0) {\\n        change=-1;\\n    }\\n    printf(\\\"%d\\\\n\\\",change);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1191,
+    "completion_tokens": 431,
+    "total_tokens": 1622,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1191
+  },
+  "raw_sha256": "040456537ed61733457ed8137dad2f173700ea729b3c0339798be551432ed9d4",
+  "ended_utc": "2026-10-21T08:15:30.726191+00:00",
+  "elapsed_seconds": 1.797
+}

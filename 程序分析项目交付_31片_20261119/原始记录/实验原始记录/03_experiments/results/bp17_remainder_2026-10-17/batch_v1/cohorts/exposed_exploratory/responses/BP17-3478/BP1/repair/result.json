@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3478/BP1/repair/1",
+  "case_id": "BP17-3478",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1fbe75b6cb7329b67c3af8c9c66a76994cf200f9cdf35d7d39d6f39e238cadfe",
+  "started_utc": "2026-10-17T14:00:28.176223+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "123893a8-26f2-4a61-b102-8e5a7bd80b6f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n\\nint px, py, vx, vy, a, b, c, d;\\n\\ndouble G, K_sin, K_cos;\\ndouble p1x, p1y, p2x, p2y, p3x, p3y, p4x, p4y, p5x, p5y, p6x, p6y, p7x, p7y;\\ndouble P1x, P1y, P2x, P2y, P3x, P3y, P4x, P4y, P5x, P5y, P6x, P6y, P7x, P7y;\\n\\ndouble square (double a)\\n{\\n    return a * a;\\n}\\n\\ndouble PX (double x, double y)\\n{\\n    return px + (x * K_cos - y * K_sin);\\n}\\n\\ndouble PY (double x, double y)\\n{\\n    return py + (x * K_sin + y * K_cos);\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    scanf (\\\"%d %d %d %d %d %d %d %d\\\" , &px, &py, &vx, &vy, &a, &b, &c, &d) ;\\n\\n    // angle\\n    if (vx == 0 && vy == 0) {\\n        K_sin = 0.0;\\n        K_cos = 1.0;\\n    } else {\\n        G = sqrt (square(vx)+square(vy));\\n        K_sin = vy/G;\\n        K_cos = vx/G;\\n    }\\n\\n    // buils arrow\\n    p1x = b;\\n    p1y = 0.0;\\n    p2x = 0.0;\\n    p2y = a / 2.0;\\n    p3x = 0.0;\\n    p3y = c / 2.0;\\n    p4x = -d;\\n    p4y = p3y;\\n    p5x = -d;\\n    p5y = -p3y;\\n    p6x = 0.0;\\n    p6y = -p3y;\\n    p7x = 0.0;\\n    p7y = -p2y;\\n\\n    P1x = PX (p1x, p1y);\\n    P1y = PY (p1x, p1y);\\n\\n    P2x = PX (p2x, p2y);\\n    P2y = PY (p2x, p2y);\\n\\n    P3x = PX (p3x, p3y);\\n    P3y = PY (p3x, p3y);\\n\\n    P4x = PX (p4x, p4y);\\n    P4y = PY (p4x, p4y);\\n\\n    P5x = PX (p5x, p5y);\\n    P5y = PY (p5x, p5y);\\n\\n    P6x = PX (p6x, p6y);\\n    P6y = PY (p6x, p6y);\\n\\n    P7x = PX (p7x, p7y);\\n    P7y = PY (p7x, p7y);\\n\\n    // rotate arrow\\n/*\\n    printf (\\\"\\\\t%.9f %.9f %.9f\\\\n\\\" , G, K_sin, K_cos);\\n    // result\\n    printf (\\\"%.9f %.9f\\\\n\\\" , p1x, p1y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , p2x, p2y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , p3x, p3y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , p4x, p4y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , p5x, p5y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , p6x, p6y);\\n    printf (\\\"%.9f %.9f\\\\n\\\\n\\\" , p7x, p7y);\\n*/\\n    printf (\\\"%.9f %.9f\\\\n\\\" , P1x, P1y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , P2x, P2y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , P3x, P3y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , P4x, P4y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , P5x, P5y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , P6x, P6y);\\n    printf (\\\"%.9f %.9f\\\\n\\\" , P7x, P7y);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2455,
+    "completion_tokens": 1214,
+    "total_tokens": 3669,
+    "prompt_tokens_details": {
+      "cached_tokens": 2304
+    },
+    "prompt_cache_hit_tokens": 2304,
+    "prompt_cache_miss_tokens": 151
+  },
+  "raw_sha256": "131459666dd29b56b2c734752eb78bab856e84cc76af4c7fc270655350933f38",
+  "ended_utc": "2026-10-17T14:00:32.745460+00:00",
+  "elapsed_seconds": 4.563
+}

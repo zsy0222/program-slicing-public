@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1727/BP3/repair/1",
+  "case_id": "BP17-1727",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "786f1bddd2b7d9e136495aa1a3fa14d168658ab19b8dabbc9ba6e69972181e0d",
+  "started_utc": "2026-11-16T17:56:56.712476+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4523ff14-2435-42b8-9d2e-675fee550b4a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,k,arr[10],i,j,cnt,flag;\\n    char str[100][50];\\n\\n    while(scanf(\\\"%d %d\\\\n\\\",&n,&k)==2)\\n    {\\n        for(i=0; i<n; i++)\\n        {\\n            scanf(\\\"%s\\\",str[i]);\\n        }\\n\\n        cnt=0;\\n\\n        for(i=0; i<n; i++)\\n        {\\n            memset(arr,0,sizeof(arr));\\n\\n            for(j=0; str[i][j]; j++)\\n            {\\n                arr[str[i][j]-48]++;\\n            }\\n\\n            flag=0;\\n\\n            for(j=0; j<=k; j++)\\n            {\\n                if(arr[j]>=1&&arr[j]<=k)\\n                    flag=0;\\n\\n                else\\n                {\\n                    flag=1;\\n\\n                    break;\\n                }\\n            }\\n\\n            if(flag==0)\\n                cnt++;\\n        }\\n\\n        printf(\\\"%d\\\\n\\\",cnt);\\n    }\\n\\n    return (0);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1528,
+    "completion_tokens": 290,
+    "total_tokens": 1818,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 632
+  },
+  "raw_sha256": "2f6c9af8b97e7d3abb7a6f9bd7d74cc0d6a035613732e542883f728560cf38a2",
+  "ended_utc": "2026-11-16T17:56:58.632680+00:00",
+  "elapsed_seconds": 1.9174
+}

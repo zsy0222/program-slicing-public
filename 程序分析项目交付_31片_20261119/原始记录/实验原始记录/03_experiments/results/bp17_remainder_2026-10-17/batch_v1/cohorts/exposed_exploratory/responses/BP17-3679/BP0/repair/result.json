@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3679/BP0/repair/1",
+  "case_id": "BP17-3679",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "51ba83ed6d07d0efe72880d64a8d977fbf1a91beaa2d7067a88e32189b69e133",
+  "started_utc": "2026-11-16T16:25:35.968589+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3d24371a-8c84-472c-8abc-a5a0e12c4f6f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\n#include<string.h>\\n#include<stdlib.h>\\n#define MAXN 200000\\nchar s[MAXN];\\nlong long a[MAXN],b[MAXN];\\n\\nint main(int argc, char *argv[])\\n{\\n\\tlong long N,i,j,k,T;\\n\\tscanf(\\\"%lld%lld\\\\n\\\",&N,&T);\\n\\tfor(i=1;i<=N;i++){\\n\\t\\tscanf(\\\"%c\\\",&s[i]);\\n\\t\\tif(s[i]=='a'){\\n\\t\\t\\ta[i]=a[i-1]+1;\\n\\t\\t\\tb[i]=b[i-1];\\n\\t\\t}\\n\\t\\telse{\\n\\t\\t\\ta[i]=a[i-1];\\n\\t\\t\\tb[i]=b[i-1]+1;\\n\\t\\t}\\n\\t}\\n\\tlong long l=0,r=N+1,mid,flag,ans=0;\\n\\twhile(l+1<r){\\n\\t\\tflag=0;\\n\\t\\tmid=(l+r)/2;\\n\\tfor(i=0;i+mid<=N;i++)\\n\\t\\tif(a[i+mid]-a[i]<=T||b[i+mid]-b[i]<=T){\\n\\t\\t\\tflag=1;\\n\\t\\t\\tbreak;\\n\\t\\t}\\n\\t\\tif(flag==1)\\n\\t\\tl=mid;\\n\\t\\telse\\n\\t\\tr=mid;\\n\\t}\\n\\tprintf(\\\"%lld\\\",l);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1087,
+    "completion_tokens": 354,
+    "total_tokens": 1441,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1087
+  },
+  "raw_sha256": "2a9b56d71c24ce09fa4583b628436b7260563ec524a23ecf165114c0671ec4f4",
+  "ended_utc": "2026-11-16T16:25:38.014070+00:00",
+  "elapsed_seconds": 2.0426
+}

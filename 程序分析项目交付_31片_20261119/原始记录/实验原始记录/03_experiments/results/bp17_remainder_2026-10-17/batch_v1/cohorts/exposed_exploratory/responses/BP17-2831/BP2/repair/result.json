@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2831/BP2/repair/1",
+  "case_id": "BP17-2831",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "50a3d4dcfda77281c98ec16a0177154353672d89dffb8252373498f99ba09a5f",
+  "started_utc": "2026-11-18T09:53:56.780272+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9fc63c0e-f2af-4c14-8503-adf236bbd9b5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\ndouble d[2001][2001];\\nint main(int argc, char *argv[])\\n{\\n    int n,t,i,j;\\n    double p,f;\\n    scanf(\\\"%d%lf%d\\\",&n,&p,&t);\\n    for(i=1;i<=t;++i)\\n        d[0][i]=0;\\n    for(i=0;i<=n;++i)\\n        d[i][0]=0;\\n    for(i=1;i<=n;++i)\\n    {\\n        for(j=1;j<=t;++j)\\n            d[i][j]=(d[i-1][j-1]+1)*p+(1-p)*d[i][j-1];\\n    }\\n    printf(\\\"%lf\\\",d[n][t]);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1264,
+    "completion_tokens": 197,
+    "total_tokens": 1461,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1264
+  },
+  "raw_sha256": "c5902c0d8bb646592ba2e1132d3707a24614457d422a69c72e3d4137110c55a1",
+  "ended_utc": "2026-11-18T09:53:58.861901+00:00",
+  "elapsed_seconds": 2.0784
+}

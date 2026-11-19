@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1914/BP1/repair/1",
+  "case_id": "BP17-1914",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "07e20ebdd84d86ec7577b5e8db4f9b2b0c24235652f3040c31aff2fb1155c152",
+  "started_utc": "2026-11-18T09:32:28.745709+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9ecf4c8e-c858-43dc-a406-e81c54ccaabb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    /*freopen(\\\"input.txt\\\", \\\"r\\\", stdin);\\n    freopen(\\\"output.txt\\\", \\\"w\\\", stdout);*/\\n    int n, p, k;\\n    int page[100];\\n    int index = 0, i;\\n    scanf(\\\"%d%d%d\\\", &n, &p, &k);\\n    for(i = p - k; i <= p + k ; i++)\\n    {\\n        if(i > 0 && i <= n)\\n            page[index++] = i;\\n    }\\n    short flag = 0;\\n    if(page[0] != 1)\\n    {\\n        printf(\\\"<<\\\");\\n        flag = 1;\\n    }\\n\\n    for(i = 0; i < index; i++)\\n    {\\n        if(flag)\\n            printf(\\\" \\\");\\n        if(page[i] == p)\\n            printf(\\\"(%d)\\\", page[i]);\\n        else\\n            printf(\\\"%d\\\", page[i]);\\n        flag = 1;\\n    }\\n\\n    if(page[index - 1] != n)\\n        printf(\\\" >>\\\");\\n    printf(\\\"\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1051,
+    "completion_tokens": 310,
+    "total_tokens": 1361,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1051
+  },
+  "raw_sha256": "e3be3c9765b757aefd3d24b1b4657b9fa6a865c74818d814053ab1c7440a83bf",
+  "ended_utc": "2026-11-18T09:32:30.939257+00:00",
+  "elapsed_seconds": 2.1845
+}

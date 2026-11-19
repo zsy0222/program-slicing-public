@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0452/BP2/repair/1",
+  "case_id": "BP17-0452",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "9756365d8f2338e6809d5f51ac0f5ca44b6fd2581d60a6ed22d9b679414064e8",
+  "started_utc": "2026-10-17T08:22:14.184703+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "14aa5f66-de65-4bf4-92a0-011e311682f0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\ntypedef struct\\n{\\n    int value, extra;\\n} card;\\n\\nint card_cmp(const card *lhs, const card *rhs)\\n{\\n    if(lhs -> extra != rhs -> extra)\\n        return rhs -> extra - lhs -> extra;\\n    return rhs -> value - lhs -> value;\\n}\\n\\ncard cards[1000];\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, i, a, b, counter, pts;\\n\\n    scanf(\\\"%d\\\", &n);\\n\\n    for(i = 0; i < n; i ++)\\n        scanf(\\\"%d %d\\\", &cards[i].value, &cards[i].extra);\\n    \\n    qsort(cards, n, sizeof(card), card_cmp);\\n\\n    counter = 1;\\n    pts = 0;\\n    for(i = 0; i < n && counter; i ++)\\n    {\\n        pts += cards[i].value;\\n        counter += cards[i].extra - 1;\\n    }\\n\\n    printf(\\\"%d\\\\n\\\", pts);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1458,
+    "completion_tokens": 282,
+    "total_tokens": 1740,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 562
+  },
+  "raw_sha256": "fda99d6b138864f751f88ea9632073f16bbb1a79f5eac03081b0f1c8223c369f",
+  "ended_utc": "2026-10-17T08:22:15.772280+00:00",
+  "elapsed_seconds": 1.469
+}

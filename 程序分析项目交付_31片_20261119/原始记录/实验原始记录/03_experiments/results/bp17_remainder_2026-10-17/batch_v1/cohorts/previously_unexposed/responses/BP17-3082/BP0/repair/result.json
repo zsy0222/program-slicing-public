@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3082/BP0/repair/1",
+  "case_id": "BP17-3082",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "94b641539426941ee73f49d6727c383b189a6a278559aaca6b2159805568f8b3",
+  "started_utc": "2026-11-16T16:50:07.678776+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4303250e-8682-4b77-b18a-dc0aeefb8886",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include <stdlib.h>\\n\\n\\nint a[1000001][3]={0};\\nint cal[100]={0};\\n\\nint main(int argc, char *argv[]){\\n\\n    int i,j,temp;\\n    char io,trash;\\n    int num;\\n    int pos=0,neg=0,now=0,max=0,sum;\\n    scanf(\\\"%d\\\",&num);\\n    for(i=0;i<num;i++){\\n        scanf(\\\"%c\\\",&trash);\\n        scanf(\\\"%c %d\\\",&io,&temp);\\n        if(io=='+'){\\n            now++;\\n            a[temp][1]=1;\\n        }\\n        else if(io=='-'){\\n            if(a[temp][1]){\\n                now--;\\n                a[temp][1]=0;\\n            }\\n            else{\\n                for(j=0;j<i;j++){\\n                    cal[j]++;\\n                }\\n            }\\n        }\\n        cal[i]=now;\\n        for(j=0;j<=i;j++){\\n            if(cal[j]>max) max=cal[j];\\n        }\\n    }\\n\\n\\n    printf(\\\"%d\\\\n\\\",max);\\n\\n\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1053,
+    "completion_tokens": 306,
+    "total_tokens": 1359,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 157
+  },
+  "raw_sha256": "ccb2594d3fba4a454e49301bded25d5bec25bd9d179dbd05660a82c279af9a63",
+  "ended_utc": "2026-11-16T16:50:10.493769+00:00",
+  "elapsed_seconds": 2.6299
+}

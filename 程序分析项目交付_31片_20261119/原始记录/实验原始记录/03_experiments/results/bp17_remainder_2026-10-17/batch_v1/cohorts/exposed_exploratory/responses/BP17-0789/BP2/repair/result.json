@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0789/BP2/repair/1",
+  "case_id": "BP17-0789",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d389b0bc595a1e4677d58ff88ddeb7d2ae80282061fa7a099297a6d0dcb7c713",
+  "started_utc": "2026-10-18T14:09:58.061564+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "911a4e70-921b-4e92-a11a-23e13746063b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define N 1000\\n#include<stdlib.h>\\n#include<math.h>\\n#define MAX_N 10000\\nint heap[MAX_N],size=0;\\nvoid print(){\\n\\tint i;\\n\\tfor(i=0;i<size;i++){\\n\\t\\tprintf(\\\" %d\\\",heap[i]);\\n\\t}\\n\\tprintf(\\\"\\\\n\\\");\\n}\\n\\nvoid push(int x) {\\n\\tint i=size;\\n\\tsize++;\\n\\twhile(i>0) {\\n\\t\\tint p=(i-1)/2;\\n\\t\\tif(heap[p]>=x) break;//父亲节点小于等于儿子节点就停止！\\n\\t\\t//儿子节点就放这个新值\\n\\t\\theap[i]=heap[p];//新儿子节点上放上了父亲节点的值！\\n\\t\\t//相当于把父节点下移一层\\n\\t\\ti=p;//这时儿子可能要放在父节点上\\n\\t}\\n\\theap[i]=x;\\n}\\nint pop() {\\n\\tint ret=heap[0];\\n\\tsize--;\\n\\tint x=heap[size];\\n\\t//这里也只是提取了最后一个元素，但是这种提取也是没有必要的！\\n\\n\\tint i=0;\\n\\twhile(i*2+1<size) {\\n\\t\\tint a=i*2+1,b=i*2+2;\\n\\t\\tint max=a;\\n\\t\\tif(b<size && heap[b]>heap[a]) max=b;//保证左边儿子的值\\n\\t\\t//这里不是保证左边儿子比右边儿子小，\\n\\t\\t//只是取两个儿子中的最小值，来进行比较。\\n\\t\\t//即使左边儿子比右边的大，这里也没有做出一种更换！\\n\\t\\tif(heap[max]<=x) break;//认为heap[0]=x;=最后一个数\\n\\t\\theap[i]=heap[max];\\n\\t\\ti=max;\\n\\t}\\n\\theap[i]=x;\\n\\treturn ret;\\n}\\nvoid sort(int a[],int n){\\n\\tint i,j;\\n\\tfor(i=0;i<n-1;i++){\\n\\t\\tint min=i;\\n\\t\\tfor(j=i+1;j<n;j++){\\n\\t\\t\\tif(a[j]<a[min]){\\n\\t\\t\\t\\tmin=j;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif(min!=i){\\n\\t\\t\\tint tmp=a[min];\\n\\t\\t\\ta[min]=a[i];\\n\\t\\t\\ta[i]=tmp;\\n\\t\\t}\\n\\t}\\n}\\nint main(int argc, char *argv[]) {\\n\\tint n,m;\\n\\tscanf(\\\"%d%d\\\",&n,&m);\\n\\tint i;\\n\\tint seat[N];\\n\\tfor(i=0;i<m;i++){\\n\\t\\tscanf(\\\"%d\\\",&seat[i]);\\n\\t\\tpush(seat[i]);\\n\\t}\\n\\t//最大值的获得是总是去当前座位中的最大值\\n\\t//最小值的获得是总是取当前座位中的最小值\\n\\t//两者都可以用heap实现，但是最小值的获得可以不用heap！\\n\\t//这个问题很棒，把我最近学习的新知识都运用了！\\n\\t//所以要排序座位\\n\\tsort(seat,m);\\n\\tint min=0;\\n\\tint people=n;\\n\\t/*\\n\\tfor(i=0;i<m;i++){\\n\\t\\tprintf(\\\" %d\\\",seat[i]);\\n\\t}\\n\\tprintf(\\\"\\\\n\\\");\\n\\t*/\\n\\tfor(i=0;i<m;i++){\\n\\t\\tif(people==0)break;\\n\\t\\tif(seat[i]>=people){\\n\\t\\t\\t//全部使用\\n\\t\\t\\tint big=seat[i];\\n\\t\\t\\tint small=seat[i]-people+1;\\n\\t\\t\\tmin+=((big+small)*people)/2;\\n\\t\\t\\tpeople=0;\\n\\t\\t}else{\\n\\t\\t\\tmin+=seat[i]*(seat[i]+1)/2;\\n\\t\\t\\tpeople=people-seat[i];\\n\\t\\t}\\n\\t}\\n\\tint max=0;\\n\\tfor(i=0;i<n;i++){\\n\\t\\t//print();\\n\\t\\tint get=pop();\\n\\t\\t//print();\\n\\t\\tmax+=get;\\n\\t\\tif(get-1>0)push(get-1);\\n\\t\\t//print();\\n\\t\\t//printf(\\\"----------\\\\n\\\");\\n\\t}\\n\\tprintf(\\\"%d %d\\\\n\\\",max,min);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3448,
+    "completion_tokens": 1028,
+    "total_tokens": 4476,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3448
+  },
+  "raw_sha256": "9fd416e45621ef29dd5d151dbf19680eb4c837d1ac9a7da745128b23f516d14c",
+  "ended_utc": "2026-10-18T14:10:01.831752+00:00",
+  "elapsed_seconds": 3.766
+}

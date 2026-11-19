@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1160/BP1/repair/1",
+  "case_id": "BP17-1160",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c91665898befd9344ef2d98c6d9ad61714dc1d43468ee3f71115187ea4e5a92e",
+  "started_utc": "2026-11-16T15:40:24.063764+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "23646a37-4bd3-4183-bc7e-38712b1bfcb9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\ntypedef struct\\n{\\n\\tint x,y;\\n}Point_t ;\\nPoint_t Now;\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint x,y,add,Res;\\n\\tscanf(\\\"%d %d\\\",&x,&y);\\n\\tadd=1;\\n\\tNow.x=Now.y=0;\\n\\twhile(add)\\n\\t{\\n\\t\\tif(add&1)\\n\\t\\t{\\n\\t\\t\\tif(y==Now.y&&x>=Now.x&&x<=Now.x+add)\\n\\t\\t\\t{\\n\\t\\t\\t\\tRes=((add-1)<<1)+1;\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t}\\n\\t\\t\\tNow.x+=add;\\n\\t\\t\\tif(x==Now.x&&y>=Now.y&&y<=Now.y+add)\\n\\t\\t\\t{\\n\\t\\t\\t\\tRes=add<<1;\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t}\\n\\t\\t\\tNow.y+=add;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tif(y==Now.y&&x>=Now.x-add&&x<=Now.x)\\n\\t\\t\\t{\\n\\t\\t\\t\\tRes=((add-1)<<1)+1;\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t}\\n\\t\\t\\tNow.x-=add;\\n\\t\\t\\tif(x==Now.x&&y>=Now.y-add&&y<=Now.y)\\n\\t\\t\\t{\\n\\t\\t\\t\\tRes=add<<1;\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t}\\n\\t\\t\\tNow.y-=add;\\n\\t\\t}\\n\\t\\t++add;\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",Res);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1196,
+    "completion_tokens": 404,
+    "total_tokens": 1600,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 172
+  },
+  "raw_sha256": "6e6e8e41539306b332f1d6f6b07c480773aca45b422f098a653a4e6b9e0f0f7f",
+  "ended_utc": "2026-11-16T15:40:26.457132+00:00",
+  "elapsed_seconds": 2.2971
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3043/BP1/repair/1",
+  "case_id": "BP17-3043",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "86fdd299ea21efd69de951170e5b524ef471493d77c47185f1169c7a8d9bac87",
+  "started_utc": "2026-10-18T12:40:18.435593+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f22c8f36-1275-469c-aaa3-37cfda645e12",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\n    int stu,min1,max1,min2,max2,min3,max3;\\n\\n    scanf(\\\"%d\\\",&stu);\\n    scanf(\\\"%d\\\",&min1);\\n    scanf(\\\"%d\\\",&max1);\\n    scanf(\\\"%d\\\",&min2);\\n    scanf(\\\"%d\\\",&max2);\\n    scanf(\\\"%d\\\",&min3);\\n    scanf(\\\"%d\\\",&max3);\\n\\n    int totalmin = min1+min2+min3;\\n    int totalmax = max1+max2+max3;\\n\\n    int one,two,three;\\n\\n    if (totalmax <= stu) {\\n        one = max1;\\n        two = max2;\\n        three = max3;\\n    } else {\\n        three = min3;\\n        two = min2;\\n        if (max1<stu-min3-min2) {\\n            one = max1;\\n        } else {\\n            one = stu-min3-min2;\\n        }\\n        stu -= one+two+three;\\n        if (stu>0) {\\n            if (stu>max2-min2) {\\n                stu -= max2-min2;\\n                two = max2;\\n                if (stu>max3-min3) {\\n                    stu -= max3-min3;\\n                    three = max3;\\n                } else {\\n                    three += stu;\\n                    stu = 0;\\n                }\\n            } else {\\n                two += stu;\\n                stu = 0;\\n            }\\n        }\\n    }\\n\\n    printf(\\\"%d %d %d\\\\n\\\",one,two,three);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1155,
+    "completion_tokens": 419,
+    "total_tokens": 1574,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 259
+  },
+  "raw_sha256": "d298e89f4d35511b316bdee8f917ca087bec508dae188972e5e564ca782f85ed",
+  "ended_utc": "2026-10-18T12:40:20.572156+00:00",
+  "elapsed_seconds": 1.969
+}

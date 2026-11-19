@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0206/BP2/repair/1",
+  "case_id": "BP17-0206",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d61496210d6c177a9617e3086fbbda5cb7ec9f556b9a734feca4825f7327965b",
+  "started_utc": "2026-11-16T17:52:40.719815+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9c04618c-c3b0-4d48-8865-144a4b7b9f17",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"//Cr: P'March and P'Jumpwmk\\n#include <stdio.h>\\n#include <string.h>\\n#define PRIME 14122501\\nchar S[2000000];\\nint Pi[2000000];\\nint KHash[2000000] = {0};\\nint FHash[2000000];\\nint BHash[2000000];\\nint L;\\nvoid PreCal(int X)\\n{\\n    Pi[0] = -1;\\n    int j = -1;\\n    int i = 0;\\n    while (i < X)\\n    {\\n        while (j >= 0 && S[i] != S[j])\\n            j = Pi[j];\\n        i++;\\n        j++;\\n        Pi[i] = j;\\n\\n        if (i < X)\\n            KHash[j] = 1;\\n    }\\n}\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%s\\\", &S);\\n    L = strlen(S);\\n    PreCal(L);\\n\\n    int t;\\n    /*for (t = 0; t <= L; t++)\\n        printf(\\\"%d\\\\n\\\", Pi[t]);*/\\n\\n    //case 1:\\n    //####         prefix\\n    //        #### suffix\\n    int i = Pi[L];\\n    if (i > 0 && KHash[i])\\n    {\\n        S[i] = '\\\\0';\\n        printf(\\\"%s\\\\n\\\", S);\\n        return 0;\\n    }\\n\\n    //case 2:\\n    //########     prefix\\n    //    ######## suffix\\n    int j = Pi[Pi[L]];\\n    if (j > 0 && KHash[j])\\n    {\\n        S[Pi[L]] = '\\\\0';\\n        printf(\\\"%s\\\\n\\\", S);\\n        return 0;\\n    }\\n\\n    printf(\\\"Just a legend\\\");\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1796,
+    "completion_tokens": 459,
+    "total_tokens": 2255,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 772
+  },
+  "raw_sha256": "d9e3102b21028c323d29c1e5afa9214213512365bcb03dac3a398f0e89b90ceb",
+  "ended_utc": "2026-11-16T17:52:43.622364+00:00",
+  "elapsed_seconds": 2.9007
+}

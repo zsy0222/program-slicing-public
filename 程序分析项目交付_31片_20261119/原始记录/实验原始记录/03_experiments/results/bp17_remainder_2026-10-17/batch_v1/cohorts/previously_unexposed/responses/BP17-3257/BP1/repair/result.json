@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3257/BP1/repair/1",
+  "case_id": "BP17-3257",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "7376acf67c46b7e713a5f4fb5d3b5d6a53f034cb3da676f379587df0eba54f62",
+  "started_utc": "2026-11-16T04:06:45.474250+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0de92c70-6be7-4e20-97f5-1c2753d0765b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAX_SIZE 1001\\n\\nchar a[MAX_SIZE][MAX_SIZE];\\nint visited[MAX_SIZE][MAX_SIZE];\\nint compo_count;\\nint res[MAX_SIZE*MAX_SIZE];\\nint sum;\\nint n, m;\\n\\nvoid init()\\n{\\n    for(int i = 0; i < MAX_SIZE; ++i) {\\n\\tfor(int j = 0; j < MAX_SIZE; ++j) {\\n\\t    res[i*MAX_SIZE + j] = 0;\\n\\t    visited[i][j] = 0;\\n\\t}\\n    }\\n}\\n\\n/*\\nint calc(int x, int y)\\n{\\n    int result = 0;\\n    a[y][x] = '-';\\n    if(a[y][x + 1] == '*') {\\n\\tresult++;\\n    } else if(a[y][x + 1] == '.') {\\n\\tresult += calc(x + 1, y);\\n    }\\n    \\n    if(a[y - 1][x] == '*') {\\n\\tresult++;\\n    } else if(a[y - 1][x] == '.') {\\n\\tresult += calc(x, y - 1);\\n    }\\n     \\n    if(a[y][x - 1] == '*') {\\n\\tresult++;\\n    } else if(a[y][x - 1] == '.') {\\n\\tresult += calc(x - 1, y);\\n    }\\n    \\n    if(a[y + 1][x] == '*') {\\n\\tresult++;\\n    } else if(a[y + 1][x] == '.') {\\n\\tresult += calc(x, y + 1);\\n    }\\n\\n    return result;\\n}\\n*/\\n\\nvoid calc(int x, int y)\\n{\\n    if(x==0||y==0||y==n+1||x==m+1) return;\\n    if(a[y][x] == '*') {\\n\\t++sum;\\n\\treturn;\\n    }\\n    if(visited[y][x] != 0) return;\\n    visited[y][x] = compo_count;\\n    calc(x + 1, y);\\n    calc(x, y - 1);\\n    calc(x - 1, y);\\n    calc(x, y + 1);\\n}\\n\\n\\n\\nint main(int argc, char** argv)\\n{\\n    int k;\\n    scanf(\\\"%d %d %d\\\\n\\\", &n, &m, &k);\\n    for(int i = 0; i < n; ++i) {\\n\\tfor(int j = 0; j < m; ++j) {\\n\\t    scanf(\\\"%c \\\", &a[i + 1][j + 1]);\\n\\t}\\n    }\\n\\n    init();\\n    for(int i = 0; i < k; ++i) {\\n\\tint x, y;\\n\\tscanf(\\\"%d %d\\\\n\\\", &y, &x);\\n\\tsum = 0;\\n\\tcompo_count = i + 1;\\n\\tif(visited[y][x] == 0) {\\n\\t    calc(x, y);\\n\\t    res[compo_count] = sum;\\n\\t} else {\\n\\t    sum = res[visited[y][x]];\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\", sum);\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1869,
+    "completion_tokens": 797,
+    "total_tokens": 2666,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 205
+  },
+  "raw_sha256": "e385c3dbb299c062aace495c370d902e895f3aaa7f83c0b4d941e3649a549061",
+  "ended_utc": "2026-11-16T04:06:48.376196+00:00",
+  "elapsed_seconds": 2.8714
+}

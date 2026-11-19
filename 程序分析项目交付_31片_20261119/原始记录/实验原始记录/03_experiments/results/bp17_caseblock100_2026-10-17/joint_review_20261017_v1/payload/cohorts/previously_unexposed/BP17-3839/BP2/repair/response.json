@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3839",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\ntypedef struct {\\n    char c[30];\\n    int n;\\n} type;\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, p = 0, i, j, k;\\n    char s1[10], s2[50], s3[30];\\n    type t[100];\\n\\n    scanf(\\\"%d\\\", &n);\\n\\n    for (i = 0; i < n; i++) {\\n\\tscanf(\\\"%s\\\", s1);\\n\\n\\tif (strcmp(s1, \\\"typedef\\\") == 0) {\\n\\t    int x = 0, y = 0, a = 0, b = 0;\\n\\t    char c[30];\\n\\n\\t    scanf(\\\"%s %s\\\", s2, s3);\\n\\n\\t    while (s2[x] == '&') x++;\\n\\t    a = x;\\n\\t    while (s2[x] != '*' && s2[x] != '\\\\0') c[y++] = s2[x++];\\n\\t    c[y] = '\\\\0';\\n\\t    while (s2[x] == '*') {\\n\\t\\tx++; b++;\\n\\t    }\\n\\n\\t    if (strcmp(c, \\\"void\\\") == 0) {\\n\\t\\tfor (j = 0; j < p; j++) {\\n\\t\\t    if (strcmp(t[j].c, s3) == 0) {\\n\\t\\t\\tt[j].n = b - a;\\n\\t\\t\\tbreak;\\n\\t\\t    }\\n\\t\\t}\\n\\t\\tif (j == p) {\\n\\t\\t    strcpy(t[p].c, s3);\\n\\t\\t    t[p++].n = b - a;\\n\\t\\t}\\n\\t    } else if (strcmp(c, \\\"errtype\\\") == 0) {\\n\\t\\tfor (j = 0; j < p; j++) {\\n\\t\\t    if (strcmp(t[j].c, s3) == 0) {\\n\\t\\t\\tt[j].n = -1;\\n\\t\\t\\tbreak;\\n\\t\\t    }\\n\\t\\t}\\n\\t\\tif (j == p) {\\n\\t\\t    strcpy(t[p].c, s3);\\n\\t\\t    t[p++].n = -1;\\n\\t\\t}\\n\\t    } else {\\n\\t\\tfor (j = 0; j < p; j++) {\\n\\t\\t    if (strcmp(t[j].c, c) == 0) break;\\n\\t\\t}\\n\\n\\t\\tfor (k = 0; k < p; k++) {\\n\\t\\t    if (strcmp(t[k].c, s3) == 0) break;\\n\\t\\t}\\n\\n\\t\\tif (j == p || t[j].n < 0) {\\n\\t\\t    t[k].n = -1;\\n\\t\\t} else {\\n\\t\\t    t[k].n = t[j].n + b - a;\\n\\t\\t}\\n\\n\\t\\tif (k == p) strcpy(t[p++].c, s3);\\n\\t    }\\n\\t} else {\\n\\t    int x = 0, y = 0, a = 0, b = 0;\\n\\t    char c[30];\\n\\n\\t    scanf(\\\"%s\\\", s2);\\n\\n\\t    while (s2[x] == '&') x++;\\n\\t    a = x;\\n\\t    while (s2[x] != '*' && s2[x] != '\\\\0') c[y++] = s2[x++];\\n\\t    c[y] = '\\\\0';\\n\\t    while (s2[x] == '*') {\\n\\t\\tx++; b++;\\n\\t    }\\n\\n\\t    if (strcmp(c, \\\"void\\\") == 0) {\\n\\t\\tif (b - a >= 0) {\\n\\t\\t    printf(\\\"void\\\");\\n\\t\\t    while (b - a > 0) {\\n\\t\\t\\tputchar('*'); b--;\\n\\t\\t    }\\n\\t\\t    puts(\\\"\\\");\\n\\t\\t} else {\\n\\t\\t    puts(\\\"errtype\\\");\\n\\t\\t}\\n\\t    } else if (strcmp(c, \\\"errtype\\\") == 0) {\\n\\t\\tputs(\\\"errtype\\\");\\n\\t    } else {\\n\\t\\tfor (j = 0; j < p; j++) {\\n\\t\\t    if (strcmp(t[j].c, c) == 0) break;\\n\\t\\t}\\n\\n\\t\\tif (j == p || t[j].n < 0 || t[j].n + b - a < 0) {\\n\\t\\t    puts(\\\"errtype\\\");\\n\\t\\t} else {\\n\\t\\t    printf(\\\"void\\\");\\n\\t\\t    while (t[j].n + b - a > 0) {\\n\\t\\t\\tputchar('*'); b--;\\n\\t\\t    }\\n\\t\\t    puts(\\\"\\\");\\n\\t\\t}\\n\\t    }\\n\\t}\\n    }\\n\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 3.906,
+  "ended_utc": "2026-10-17T07:00:46.613789+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3839/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "ad3fc4b416308e151d0f10536a8c163cf1291fe191b4d1044474e19752a40405",
+  "request_model": "deepseek-flash",
+  "request_sha256": "f37810357b007ee765818358f1e7f7dd27d1aba3d402ffaa100d048f0cd3a367",
+  "response_id": "e21ed818-be02-4c78-8320-896c097077d7",
+  "started_utc": "2026-10-17T07:00:42.711536+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 1193,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 4264,
+    "prompt_tokens": 4264,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 5457
+  }
+}

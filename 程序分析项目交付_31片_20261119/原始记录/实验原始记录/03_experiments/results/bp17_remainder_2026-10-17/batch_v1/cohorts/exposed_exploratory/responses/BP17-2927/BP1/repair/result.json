@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2927/BP1/repair/1",
+  "case_id": "BP17-2927",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "950b972a6d500c0004f8c43e32982649336711dd8a6d9d98276d46570ef1c2c6",
+  "started_utc": "2026-10-17T08:42:09.757217+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7c0a7dbe-5a9d-45c1-b7ad-93508cd2a8be",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdlib.h>\\n#include <stdio.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tchar banner[100] = \\\"\\\";\\n\\t\\t\\t\\n\\tscanf(\\\"%s\\\", banner);\\n\\t\\n\\tchar codeforces[] = \\\"CODEFORCES\\\";\\n\\tint len = strlen(codeforces); // Although we know it's 10\\n\\t\\n\\tint i;\\n\\tint index = 0;\\n\\tint achieved = 0;\\n\\tint status = 0;\\n\\t\\n\\tfor (i = 0; i < strlen(banner); i++)\\n\\t{\\n\\t\\tif (index == len) // CODEFORCES completed but still iterating; reset index with achieved data\\n\\t\\t\\tindex = achieved; // index resetted, but must continue checking current letter\\n\\t\\t\\n\\t\\tif (banner[i] == codeforces[index])\\n\\t\\t{\\n\\t\\t\\tif (status == 1)\\n\\t\\t\\t{\\n\\t\\t\\t\\tstatus = 2;\\n\\t\\t\\t}\\t\\t\\t\\t\\n\\t\\t\\tindex++;\\n\\t\\t}\\t\\n\\t\\telse //if (banner[i] != codeforces[index])\\n\\t\\t{\\n\\t\\t\\tif (status == 0) // 1st error. save accumulated data\\n\\t\\t\\t{\\n\\t\\t\\t\\tachieved = index;\\n\\t\\t\\t\\tstatus = 1;\\n\\t\\t\\t}\\n\\t\\t\\telse if (status == 2) // Another error, reset index by loading achieved data\\n\\t\\t\\t{\\n\\t\\t\\t\\tindex = achieved;\\n\\t\\t\\t\\tstatus = 1;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\n\\tif (status == 0 && index == len) // Ideal case, received word is CODEFORCES\\n\\t\\tprintf(\\\"YES\\\\n\\\");\\t\\n\\telse if (status == 1 && achieved == len) // Completed CODEFORCES but got a substring after\\n\\t\\tprintf(\\\"YES\\\\n\\\");\\n\\telse if (status == 2 && index == len) // Got a substring but ended completing CODEFORCES\\n\\t\\tprintf(\\\"YES\\\\n\\\");\\n\\telse\\n\\t\\tprintf(\\\"NO\\\\n\\\");\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1452,
+    "completion_tokens": 530,
+    "total_tokens": 1982,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1452
+  },
+  "raw_sha256": "329d3b9b47f209c9c709878b5822697cc94117df9fba5949c340be0d92d76687",
+  "ended_utc": "2026-10-17T08:42:12.136249+00:00",
+  "elapsed_seconds": 2.313
+}

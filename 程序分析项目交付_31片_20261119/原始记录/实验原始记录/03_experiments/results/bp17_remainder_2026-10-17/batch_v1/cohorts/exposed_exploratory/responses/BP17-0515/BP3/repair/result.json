@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0515/BP3/repair/1",
+  "case_id": "BP17-0515",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0b896fafe39c31ce0fa92ccfec5f7c21b5cb447aae2dfa1b4bf950fb905f3b83",
+  "started_utc": "2026-11-16T04:07:37.674263+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a017ae6f-ae93-4a51-9d38-e2969c32464f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nstruct ss\\n{\\n    int a;int b;\\n}st[200],temp[200];\\nint main(int argc, char *argv[])\\n{\\n    int n,k,i,j,m;\\n    scanf(\\\"%d%d\\\",&n,&k);\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d%d\\\",&st[i].a,&st[i].b);\\n    }\\n    for(i=0;i<n;i++)\\n    {\\n        for(j=i+1;j<n;j++)\\n        {\\n            if(st[i].a<st[j].a)\\n            {\\n                temp[i]=st[i];\\n                st[i]=st[j];\\n                st[j]=temp[i];\\n            }\\n            else if(st[i].a==st[j].a&&st[i].b>st[j].b)\\n            {\\n                temp[i]=st[i];\\n                st[i]=st[j];\\n                st[j]=temp[i];\\n            }\\n        }\\n    }\\n    m=0;\\n    for(i=0;i<n;i++)\\n    {\\n        if(st[k-1].a==st[i].a&&st[k-1].b==st[i].b)\\n        m++;\\n    }\\n    printf(\\\"%d\\\\n\\\",m);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1537,
+    "completion_tokens": 319,
+    "total_tokens": 1856,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 513
+  },
+  "raw_sha256": "9baf63a1238def2cf0338aeb14d42df61bc8dfd1f9012502af6d74a4da3829f5",
+  "ended_utc": "2026-11-16T04:07:39.293182+00:00",
+  "elapsed_seconds": 1.6153
+}

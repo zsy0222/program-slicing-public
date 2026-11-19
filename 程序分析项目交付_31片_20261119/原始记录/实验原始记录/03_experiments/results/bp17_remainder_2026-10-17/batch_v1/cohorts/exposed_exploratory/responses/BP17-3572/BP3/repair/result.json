@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3572/BP3/repair/1",
+  "case_id": "BP17-3572",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "1792301aeefad33d13774c3c8f8725f8711cb5710688471a221e7ae79a9a4e2b",
+  "started_utc": "2026-10-17T08:57:08.667138+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f681d6a9-1daf-43e0-a5d0-63d019f2f008",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdlib.h>\\n#include <stdio.h>\\n\\nunsigned int BestCase  (unsigned int *list, size_t n);\\n\\nint main(int argc, char *argv[]) {\\n\\n  unsigned int *list;\\n  size_t n, i;\\n\\n  scanf(\\\"%u\\\", &n);\\n\\n  list = (unsigned int*)malloc(sizeof(unsigned int) * n);\\n\\n  for (i = 0; i < n; i++)\\n    scanf(\\\"%u\\\", &list[i]);\\n\\n  printf(\\\"%u\\\", BestCase(list, n));\\n\\n  return 0;\\n\\n}\\n\\nunsigned int LeftSide (unsigned int *list, size_t pos) {\\n\\n  unsigned int result = 0;\\n\\n  while (pos && list[pos-1] <= list[pos]) {\\n    result++;\\n    pos--;\\n  }\\n\\n  return result;\\n\\n}\\n\\nunsigned int RightSide (unsigned int *list, size_t pos, size_t max) {\\n\\n  unsigned int result = 0;\\n\\n  while (pos < max && list[pos+1] <= list[pos]) {\\n    result++;\\n    pos++;\\n  }\\n\\n  return result;\\n\\n}\\n\\nunsigned int BestCase (unsigned int *list, size_t n) {\\n\\n  unsigned int result = 0;\\n  unsigned int temp;\\n  size_t i;\\n\\n  for (i = 0; i < n; i++) {\\n    temp = LeftSide(list, i) + RightSide(list, i, n-1) + 1;\\n    if (result < temp)\\n      result = temp;\\n  }\\n\\n  return result;\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1835,
+    "completion_tokens": 391,
+    "total_tokens": 2226,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1835
+  },
+  "raw_sha256": "0968c7248a9c2d21ce93494ef92c5efea83a09fc4ade3f5b84993dd5754b829e",
+  "ended_utc": "2026-10-17T08:57:10.529066+00:00",
+  "elapsed_seconds": 1.859
+}

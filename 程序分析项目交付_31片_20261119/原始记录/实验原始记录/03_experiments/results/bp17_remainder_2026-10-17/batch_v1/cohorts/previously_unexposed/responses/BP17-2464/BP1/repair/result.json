@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2464/BP1/repair/1",
+  "case_id": "BP17-2464",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "b058927cd92477e79351df2429e3181a87e36afabd6d2636dc60f5705de85e55",
+  "started_utc": "2026-11-18T09:59:09.427875+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f29c03c9-fcd9-4286-a22e-21bfbad8011e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, aray[2005] ;\\n    scanf(\\\"%d\\\", &n);\\n    int a[n+1];\\n    int i, j, count=0;\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%d\\\", &aray[i]);\\n        a[i]=i+1;\\n    }\\n    for(i=0;i<n;i++){\\n        for(j=i+1;j<n;j++){\\n            if(aray[i]==aray[j]){\\n                count++;\\n                break;\\n            }\\n        }\\n    }\\n    if(count<2){\\n        printf(\\\"NO\\\");\\n        return 0;\\n    }\\n    printf(\\\"YES\\\\n\\\");\\n    int temp, t, d;\\n    for(i=1;i<n;i++){\\n        d = i;\\n        while(d>0 && aray[d]<aray[d-1]){\\n            temp=a[d];\\n            a[d]=a[d-1];\\n            a[d-1]=temp;\\n\\n            t=aray[d];\\n            aray[d]=aray[d-1];\\n            aray[d-1] = t;\\n            d--;\\n        }\\n    }\\n    int hold, least=2003 ,x, low=2001;\\n    for(i=0;i<n;i++){\\n        printf(\\\"%d \\\", a[i]);\\n        if(i+1<n && aray[i]==aray[i+1]){\\n            hold=i;\\n            if(least>hold){\\n                least=hold;\\n            }\\n            else if(low>hold){\\n                low=hold;\\n            }\\n        }\\n    }\\n    printf(\\\"\\\\n\\\");\\n    for(j=0;j<n;j++){\\n        if(least==j){\\n            printf(\\\"%d %d \\\", a[j+1], a[j]);\\n            x = a[j+1];\\n            a[j+1] = a[j];\\n            a[j]=x;\\n            j++;\\n        }\\n        else{\\n            printf(\\\"%d \\\", a[j]);\\n        }\\n    }\\n    printf(\\\"\\\\n\\\");\\n    for(j=0;j<n;j++){\\n        if(low==j){\\n            printf(\\\"%d %d \\\", a[j+1], a[j]);\\n            j++;\\n        }\\n        else{\\n            printf(\\\"%d \\\", a[j]);\\n        }\\n    }\\n    return 0;\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1504,
+    "completion_tokens": 608,
+    "total_tokens": 2112,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 224
+  },
+  "raw_sha256": "5c02040eceafda04904c632fa27d4e69dc315eaf2ccd2cfb2d03eeca5fee429b",
+  "ended_utc": "2026-11-18T09:59:13.117719+00:00",
+  "elapsed_seconds": 3.6366
+}

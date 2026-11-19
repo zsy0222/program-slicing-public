@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0060/BP3/repair/1",
+  "case_id": "BP17-0060",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "ff684178d8aac0d94f1e1fa575ed80b5d3078cb9bdded4b39073bde24ccdc4ed",
+  "started_utc": "2026-11-16T05:26:00.555703+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "975a3fe4-29d4-490f-89cc-6f7f69a20df9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint a[100001];\\nint n;\\n\\nvoid input()\\n{\\n\\tint i;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tfor(i=0;i<n;i++)\\n\\t\\tscanf(\\\"%d\\\",&a[i]);\\n}\\n\\nint compare(const void *a, const void *b)\\n{\\n\\treturn ( *(int*)a - *(int*)b);\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint i;\\n\\tinput();\\n\\tqsort(a,n,sizeof(int),compare);\\n\\tfor(i=0;i<n-1;i++)\\n\\t\\tif(a[i]*2 >a[i+1])\\n\\t\\t{\\n\\t\\t\\tprintf(\\\"YES\\\\n\\\");\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\tprintf(\\\"NO\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1434,
+    "completion_tokens": 220,
+    "total_tokens": 1654,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 538
+  },
+  "raw_sha256": "9228f2f9e252cb2e293c281a3e72c83b71b3d7b16e331d54ffd4f9bfe9422f7f",
+  "ended_utc": "2026-11-16T05:26:02.456398+00:00",
+  "elapsed_seconds": 1.8451
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2904/BP0/repair/1",
+  "case_id": "BP17-2904",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "36a2705f3449db2c58df6ccba417f8aefee869fc344777ae7d178a19e2496b05",
+  "started_utc": "2026-11-16T18:07:51.506194+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "140933f4-be0c-4710-9900-8884da51634e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define SIZE 102\\n#define min(a,b) a<b?a:b\\nint main(int argc, char *argv[])\\n{\\n    int v1,v2;\\n    scanf(\\\"%d%d\\\",&v1,&v2);\\n    int t,d;\\n    scanf(\\\"%d%d\\\",&t,&d);\\n    if(v1>v2)\\n        v1^=v2^=v1^=v2; //swap\\n    if(d==0)\\n    {\\n        printf(\\\"%d\\\",v1*t);\\n        return 0;\\n    }\\n    int req_time = (v2-v1)/d + ((v2-v1)%d!=0);\\n    long long int ans;\\n    int n = req_time+1;\\n    ans = (long long)n*v1 + (long long)n*(n-1)/2*d;       //sum of arithmetic series\\n    if(req_time+1==t)\\n    {\\n        v1 = v1 + req_time*d;\\n        ans-=v1-v2;\\n    }\\n    else\\n        ans+=v2;\\n    int i,j;\\n    i = req_time+2;\\n    j = t-1;\\n    v1 = v1+req_time*d;\\n    for(;i<=j;i++,j--)\\n    {\\n        if(i==j)\\n            ans += min(v1+d,v2+d);\\n        else\\n        {\\n            v1+=d;\\n            v2-=d;\\n            ans+=v1+v2;\\n        }\\n    }\\n    printf(\\\"%lld\\\",ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1060,
+    "completion_tokens": 382,
+    "total_tokens": 1442,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1060
+  },
+  "raw_sha256": "3ed598bebb9a33c0f5df360b4f5f0b40b423c7bc042145b8cc6504048729183a",
+  "ended_utc": "2026-11-16T18:07:53.926773+00:00",
+  "elapsed_seconds": 2.418
+}

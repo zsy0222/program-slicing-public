@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0147/BP1/repair/1",
+  "case_id": "BP17-0147",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "f3bef503b053af251b6548508ab30e030e519a8ea210092e1a3f49701db894c9",
+  "started_utc": "2026-10-17T13:17:46.445852+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "39bb57a9-70ba-40f6-b83d-0c5a4ca7da23",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\ntypedef struct {\\n     long long a;\\n     long long b;\\n     int c;\\n     int i;\\n} subjects;\\n\\nlong long dp[50][51][101][2];\\n\\nint cmp(const void *a, const void *b)\\n{\\n     if (((subjects *)a)->c != ((subjects *)b)->c) {\\n\\t  return ((subjects *)a)->c - ((subjects *)b)->c;\\n     }\\n     return 0;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n     int n, m, k, i, j, l, p, q;\\n     long long x = 0;\\n     subjects s[50];\\n     int a[50];\\n     long long b[50];\\n\\n     scanf(\\\"%d %d %d\\\", &n, &m, &k);\\n\\n     for (i = 0; i < m; i++) {\\n\\t  scanf(\\\"%lld %lld %d\\\", &s[i].a, &s[i].b, &s[i].c);\\n\\n\\t  s[i].i = i;\\n     }\\n\\n     qsort(s, m, sizeof(subjects), cmp);\\n\\n     for (i = 0; i < m; i++) {\\n\\t  for (j = 0; j <= n; j++) {\\n\\t       for (l = 0; l <= 100; l++) {\\n\\t\\t    dp[i][j][l][0] = -1;\\n\\t       }\\n\\t  }\\n     }\\n\\n     for (i = 0; i < m; i++) {\\n\\t  for (j = 0; j <= s[i].b - s[i].a; j++) {\\n\\t       dp[i][1][j][0] = s[i].a + j;\\n\\t  }\\n     }\\n\\n     for (i = 0; i < m; i++) {\\n\\t  for (j = 1; j < n; j++) {\\n\\t       for (l = 0; l <= s[i].b - s[i].a; l++) {\\n\\t\\t    if (dp[i][j][l][0] == -1) continue;\\n\\n\\t\\t    for (p = i + 1; p < m; p++) {\\n\\t\\t\\t if (s[i].c == s[p].c) continue;\\n\\n\\t\\t\\t if (l + s[i].a + k >= s[p].a && l + s[i].a + k <= s[p].b) {\\n\\t\\t\\t      if (dp[p][j + 1][l + s[i].a + k - s[p].a][0] == -1 || dp[p][j + 1][l + s[i].a + k - s[p].a][0] < dp[i][j][l][0] + l + s[i].a + k) {\\n\\t\\t\\t\\t   dp[p][j + 1][l + s[i].a + k - s[p].a][0] = dp[i][j][l][0] + l + s[i].a + k;\\n\\t\\t\\t\\t   dp[p][j + 1][l + s[i].a + k - s[p].a][1] = i;\\n\\t\\t\\t\\t   dp[p][j + 1][l + s[i].a + k - s[p].a][2] = l;\\n\\t\\t\\t      }\\n\\t\\t\\t }\\n\\n\\t\\t\\t if ((l + s[i].a) * k >= s[p].a && (l + s[i].a) * k <= s[p].b) {\\n\\t\\t\\t      if (dp[p][j + 1][(l + s[i].a) * k - s[p].a][0] == -1 || dp[p][j + 1][(l + s[i].a) * k - s[p].a][0] < dp[i][j][l][0] + (l + s[i].a) * k) {\\n\\t\\t\\t\\t   dp[p][j + 1][(l + s[i].a) * k - s[p].a][0] = dp[i][j][l][0] + (l + s[i].a) * k;\\n\\t\\t\\t\\t   dp[p][j + 1][(l + s[i].a) * k - s[p].a][1] = i;\\n\\t\\t\\t\\t   dp[p][j + 1][(l + s[i].a) * k - s[p].a][2] = l;\\n\\t\\t\\t      }\\n\\t\\t\\t }\\n\\t\\t    }\\n\\t       }\\n\\t  }\\n     }\\n\\n     for (i = 0; i < m; i++) {\\n\\t  for (j = 0; j <= s[i].b - s[i].a; j++) {\\n\\t       if (dp[i][n][j][0] > x) {\\n\\t\\t    x = dp[i][n][j][0];\\n\\t\\t    p = i;\\n\\t\\t    q = j;\\n\\t       }\\n\\t  }\\n     }\\n\\n     if (x == 0) {\\n\\t  puts(\\\"NO\\\");\\n     } else {\\n\\t  puts(\\\"YES\\\");\\n\\n\\t  for (i = 0; i < n; i++) {\\n\\t       int tmp = dp[p][n - i][q][2];\\n\\n\\t       a[n - i - 1] = s[p].i + 1;\\n\\t       b[n - i - 1] = s[p].a + q;\\n\\n\\t       p = dp[p][n - i][q][1];\\n\\t       q = tmp;\\n\\t  }\\n\\n\\t  for (i = 0; i < n; i++) printf(\\\"%d %lld\\\\n\\\", a[i], b[i]);\\n     }\\n\\n     return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2466,
+    "completion_tokens": 1375,
+    "total_tokens": 3841,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2466
+  },
+  "raw_sha256": "7d99dc74920482541dfffa6435718146bd47fde6cc89bd574a8dccfda5a27963",
+  "ended_utc": "2026-10-17T13:17:50.660730+00:00",
+  "elapsed_seconds": 4.203
+}

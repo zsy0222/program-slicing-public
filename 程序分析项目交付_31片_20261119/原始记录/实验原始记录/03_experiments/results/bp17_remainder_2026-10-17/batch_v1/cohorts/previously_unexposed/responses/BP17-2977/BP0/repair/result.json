@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2977/BP0/repair/1",
+  "case_id": "BP17-2977",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "6def101dc89b6ae4fb7acb59f8b3a8c26ee69d9165a6a4a2e82659b188690aea",
+  "started_utc": "2026-10-17T08:46:23.153316+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "37453ab2-a750-43af-aa9b-ea7c198b13ba",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include \\\"stdio.h\\\"\\n\\n\\nint main(int argc, char* argv[])\\n{\\n    int n,m,q;\\n    scanf(\\\"%d%d%d\\\",&n,&m,&q);\\n    int a[501][501];\\n    int i,j;\\n    int x,y,count[501],max[501];\\n    for(i=1;i<=n;i++){\\n        for(j=1;j<=m;j++){\\n            scanf(\\\"%d\\\",&a[i][j]);\\n        }\\n    }\\n    \\n    for(i=1;i<=n;i++){\\n        count[i]=0;\\n        max[i]=0;\\n        for(j=1;j<=m;j++){\\n            if(a[i][j]==1)\\n                count[i]++;\\n            else{\\n                if(count[i]>max[i])\\n                    max[i]=count[i];\\n                count[i]=0;\\n            }\\n        }\\n        if(count[i]>max[i])\\n            max[i]=count[i];\\n        \\n    }\\n    \\n    \\n    while(q--){\\n\\n        scanf(\\\"%d%d\\\",&x,&y);\\n\\n        if(a[x][y]==1)\\n            a[x][y]=0;\\n        else\\n            a[x][y]=1;\\n    \\n        count[x]=0;\\n        max[x]=0;\\n        for(j=1;j<=m;j++){\\n                \\n                if(a[x][j]==1)\\n                  count[x]++;\\n                else{\\n                    if(count[x]>max[x])\\n                        max[x]=count[x];\\n                    count[x]=0;\\n                }   \\n        }\\n        if(count[x]>max[x])\\n            max[x]=count[x];\\n        int t=-1;\\n        \\n        for(i=1;i<=n;i++){\\n            if(max[i]>t)\\n                t=max[i];\\n        }\\n        \\n        printf(\\\"%d\\\\n\\\",t);   \\n        \\n    }\\n\\n            \\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1495,
+    "completion_tokens": 484,
+    "total_tokens": 1979,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1495
+  },
+  "raw_sha256": "da25c01d770ce8f50f11cc3e104d55404bbe815fef6c4fb61392acd4ca7e20d2",
+  "ended_utc": "2026-10-17T08:46:25.458940+00:00",
+  "elapsed_seconds": 2.235
+}

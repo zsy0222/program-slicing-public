@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2274/BP1/repair/1",
+  "case_id": "BP17-2274",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "84dd02839da6d30f0ba4cecc2e82a834c31130f6a1ebbfc2883acefc29938279",
+  "started_utc": "2026-11-16T18:47:45.752859+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e7f2e515-c301-4fbe-b4ab-c2cc82c012ed",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\n\\n\\nvoid manuString(char s[150],char t[150]){\\n     \\n    \\n     \\n     \\n     \\n     \\n      if(strstr(s,t)!=NULL){\\n           printf(\\\"automaton\\\\n\\\");\\n           return;         \\n     }\\n     \\n      \\n     \\n     \\n      int aux=0,i,j,ultimo=0,anteriorok=0;\\n      \\n      \\n      \\n      \\n       for(i=0;i<(int)strlen(t);i++){\\n           for(j=ultimo;j<(int)strlen(s);j++){\\n            if(t[i]==s[j]){\\n                           \\n             aux++;\\n             ultimo=j+1;              \\n            break;\\n            }                        \\n           } \\n      }\\n      \\n      if(aux==(int)strlen(t)){\\n           printf(\\\"automaton\\\\n\\\");\\n           return;         \\n     }\\n      \\n      \\n      aux=0;ultimo=0;anteriorok=0;\\n      \\n      for(i=0;i<(int)strlen(t);i++){\\n           for(j=0;j<(int)strlen(s);j++){\\n            if(t[i]==s[j]){\\n                           \\n             aux++;\\n             if(j<ultimo && anteriorok==0){\\n             anteriorok=1;\\n             }\\n             ultimo=j;              \\n            break;\\n            }                        \\n           } \\n      }\\n      \\n      \\n      \\n      \\n      \\n      if(aux==(int)strlen(t) && strlen(t)!=strlen(s) && anteriorok!=0){\\n        printf(\\\"both\\\\n\\\");\\n        return;                  \\n      }\\n      if(aux==(int)strlen(t) && strlen(t)==strlen(s)){\\n        printf(\\\"array\\\\n\\\");\\n        return;                  \\n      }\\n    \\n           printf(\\\"need tree\\\\n\\\");\\n          \\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n\\nchar s[150],t[150];\\n\\nfgets(s,150,stdin);\\nfgets(t,150,stdin);\\n\\nmanuString(s,t);\\n\\n    \\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1536,
+    "completion_tokens": 572,
+    "total_tokens": 2108,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1536
+  },
+  "raw_sha256": "342e5c975ed45d048a37e41d7b42202185126ad5eb005e8c58195c9e835fc5a5",
+  "ended_utc": "2026-11-16T18:47:48.919634+00:00",
+  "elapsed_seconds": 3.1194
+}

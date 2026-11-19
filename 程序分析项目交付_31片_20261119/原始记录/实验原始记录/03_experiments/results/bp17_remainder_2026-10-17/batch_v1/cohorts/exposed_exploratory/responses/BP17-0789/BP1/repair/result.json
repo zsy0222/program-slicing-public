@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0789/BP1/repair/1",
+  "case_id": "BP17-0789",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "01e73765d105faca217a3313ef48c5f81aff27c91ad75b1e4be395b7332d1b52",
+  "started_utc": "2026-10-18T14:09:58.061564+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "bc9f1ba6-34fb-437b-ab2f-4b78ec7d346f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define N 1000\\n#include<stdlib.h>\\n#include<math.h>\\n#define MAX_N 10000\\nint heap[MAX_N],size=0;\\nvoid print(){\\n\\tint i;\\n\\tfor(i=0;i<size;i++){\\n\\t\\tprintf(\\\" %d\\\",heap[i]);\\n\\t}\\n\\tprintf(\\\"\\\\n\\\");\\n}\\n\\nvoid push(int x) {\\n\\tint i=size;\\n\\tsize++;\\n\\twhile(i>0) {\\n\\t\\tint p=(i-1)/2;\\n\\t\\tif(heap[p]>=x) break;\\n\\t\\theap[i]=heap[p];\\n\\t\\ti=p;\\n\\t}\\n\\theap[i]=x;\\n}\\nint pop() {\\n\\tint ret=heap[0];\\n\\tsize--;\\n\\tint x=heap[size];\\n\\n\\tint i=0;\\n\\twhile(i*2+1<size) {\\n\\t\\tint a=i*2+1,b=i*2+2;\\n\\t\\tint max=a;\\n\\t\\tif(b<size && heap[b]>heap[a]) max=b;\\n\\t\\tif(heap[max]<=x) break;\\n\\t\\theap[i]=heap[max];\\n\\t\\ti=max;\\n\\t}\\n\\theap[i]=x;\\n\\treturn ret;\\n}\\nvoid sort(int a[],int n){\\n\\tint i,j;\\n\\tfor(i=0;i<n-1;i++){\\n\\t\\tint min=i;\\n\\t\\tfor(j=i+1;j<n;j++){\\n\\t\\t\\tif(a[j]<a[min]){\\n\\t\\t\\t\\tmin=j;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif(min!=i){\\n\\t\\t\\tint tmp=a[min];\\n\\t\\t\\ta[min]=a[i];\\n\\t\\t\\ta[i]=tmp;\\n\\t\\t}\\n\\t}\\n}\\nint main(int argc, char *argv[]) {\\n\\tint n,m;\\n\\tscanf(\\\"%d%d\\\",&n,&m);\\n\\tint i;\\n\\tint seat[N];\\n\\tfor(i=0;i<m;i++){\\n\\t\\tscanf(\\\"%d\\\",&seat[i]);\\n\\t\\tpush(seat[i]);\\n\\t}\\n\\tsort(seat,m);\\n\\tint min=0;\\n\\tint people=n;\\n\\tfor(i=0;i<m;i++){\\n\\t\\tif(people==0)break;\\n\\t\\tif(seat[i]>=people){\\n\\t\\t\\tint big=seat[i];\\n\\t\\t\\tint small=seat[i]-people+1;\\n\\t\\t\\tmin+=((big+small)*people)/2;\\n\\t\\t\\tpeople=0;\\n\\t\\t}else{\\n\\t\\t\\tmin+=seat[i]*(seat[i]+1)/2;\\n\\t\\t\\tpeople=people-seat[i];\\n\\t\\t}\\n\\t}\\n\\tint max=0;\\n\\tfor(i=0;i<n;i++){\\n\\t\\tint get=pop();\\n\\t\\tmax+=get;\\n\\t\\tif(get-1>0)push(get-1);\\n\\t}\\n\\tprintf(\\\"%d %d\\\\n\\\",max,min);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2094,
+    "completion_tokens": 746,
+    "total_tokens": 2840,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2094
+  },
+  "raw_sha256": "ff321b6bf7bd4b96a878997c8fb0b56a6ff75c4b52b6814f9a4f7b01fb5c060d",
+  "ended_utc": "2026-10-18T14:10:01.020427+00:00",
+  "elapsed_seconds": 2.953
+}

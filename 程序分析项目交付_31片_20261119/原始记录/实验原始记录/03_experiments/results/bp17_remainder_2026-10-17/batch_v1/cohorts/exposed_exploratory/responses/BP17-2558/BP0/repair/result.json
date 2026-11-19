@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2558/BP0/repair/1",
+  "case_id": "BP17-2558",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "9ea58636fab8472a7daac6c539e183f8ab0f851aa394f7a7467b2e41d141b65d",
+  "started_utc": "2026-11-16T05:58:39.917742+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a46c4e96-8353-474e-bbb6-ffd7e874e578",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\nint n,k,i,used[100001]={0};\\nscanf(\\\"%d %d\\\",&n,&k);\\nint l=1,r=n;\\nfor(i=0;i<k;i++)\\n{\\nif(!(i&1))\\n{\\nused[l]=1;\\nprintf(\\\"%d \\\",l);\\nif(l<r) l++;\\n}\\nelse\\n{\\nused[r]=1;\\nprintf(\\\"%d \\\",r);\\nif(l<r) r--;\\n}\\n}\\nif(k&1)\\n{\\nfor(i=0;i<n-1;i++)\\n{\\nif(used[i+1]==0)\\n{\\nprintf(\\\"%d \\\",i+1);\\n}\\n}\\n}\\nelse\\n{\\nfor(i=n-1;i>=0;i--)\\n{\\nif(used[i+1]==0)\\n{\\nprintf(\\\"%d \\\",i+1);\\n}\\n}\\n}\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 923,
+    "completion_tokens": 249,
+    "total_tokens": 1172,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 155
+  },
+  "raw_sha256": "903200150f79689788b319c9f00fc884c162f690b77c23c507ae78512c62523b",
+  "ended_utc": "2026-11-16T05:58:41.420515+00:00",
+  "elapsed_seconds": 1.4751
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2724/BP1/repair/1",
+  "case_id": "BP17-2724",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1f126117a5143ceb954c29483df8a7cf4768b80e146435d9e161a6bfefa17def",
+  "started_utc": "2026-11-17T01:20:16.804113+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c245148c-4c89-4768-9952-e76799a8a8cc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<string.h>\\n#include<stdio.h>\\n#include<stdlib.h>\\n#include<time.h>\\n#include<math.h>\\n#include<ctype.h>\\n\\n#define MAX( a, b ) ( ( a > b) ? a : b ) \\n#define MIN( a, b ) ( ( a < b) ? a : b )\\n#define FOR(ii,aa,bb) for(ii=aa;ii<bb;ii++)\\n\\t\\nint main(int argc, char *argv[]) {\\nint x=0,n=0,s=0,i,j,k,h[105]={0},a[105]={0},c[105]={0},y=0,top=0;\\nscanf(\\\"%d %d\\\",&n,&k);\\n\\tFOR(i,0,n)\\n\\t\\tscanf(\\\"%d\\\",&c[i]);\\n\\n\\tFOR(i,0,n)\\n\\t\\t\\t\\ta[i] = i+1;\\n\\tFOR(i,0,n)\\n\\t\\t\\tFOR(j,1,n)\\n\\t\\t\\t\\tif(c[j-1] > c[j]){\\n\\t\\t\\t\\t\\ts = c[j];\\n\\t\\t\\t\\t\\tc[j] = c[j-1];\\n\\t\\t\\t\\t\\tc[j-1] = s;\\n\\t\\t\\t\\t\\ts = a[j];\\n\\t\\t\\t\\t\\ta[j] = a[j-1];\\n\\t\\t\\t\\t\\ta[j-1] = s;\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t}\\n\\t\\n\\t\\n\\t\\tFOR(i,0,n){\\n\\t\\t\\ttop+=c[i];\\n\\t\\t\\tif(top>k)\\n\\t\\t\\t\\t\\tbreak;}\\n\\t\\t\\t\\t\\n\\t\\n\\t\\tprintf(\\\"%d\\\\n\\\",i);\\n\\t\\tFOR(j,0,i)\\n\\t\\t\\t\\tprintf(\\\"%d \\\",a[j]);\\n\\t\\t\\t\\t\\t\\t\\t\\n\\t\\treturn 0;\\n\\t\\t\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1269,
+    "completion_tokens": 478,
+    "total_tokens": 1747,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1269
+  },
+  "raw_sha256": "20c187ae491fd25e89faa6c29619d455e8e3f51204034cf245fc255d8e6b8c94",
+  "ended_utc": "2026-11-17T01:20:19.633750+00:00",
+  "elapsed_seconds": 2.8261
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1487/BP3/repair/1",
+  "case_id": "BP17-1487",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "7aff36efe45ac7873679eabd3a60ded7f4c9f2b2118ef1f0ea6e47a8da5de8b4",
+  "started_utc": "2026-11-16T15:39:57.253589+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7fcd6991-2027-4225-b542-a46b0e3669f3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint a[1111][1111], g[1111][1111];\\nint fx[1111111], fy[1111111], r = 0, d;\\nchar s[1111];\\n\\nvoid push(int x, int y) {\\n\\tif (g[x][y] < 0) {\\n\\t\\tg[x][y] = d;\\n\\t\\tfx[++r] = x;\\n\\t\\tfy[r] = y;\\n\\t}\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, m, p, q;\\n\\tint i, j, k;\\n\\tscanf(\\\"%d%d\\\", &n, &m);\\n\\tmemset(a, 0, sizeof a);\\n\\tmemset(g, 0, sizeof g);\\n\\tfor (i = 1; i <= n; ++i) {\\n\\t\\tscanf(\\\"%s\\\", s + 1);\\n\\t\\tfor (j = 1; j <= m; ++j)\\n\\t\\t\\tif (s[j] == 'E') { fx[0] = i; fy[0] = j; }\\n\\t\\t\\telse if (s[j] != 'T') {\\n\\t\\t\\t\\tg[i][j] = -1;\\n\\t\\t\\t\\tk = s[j] ^ 48;\\n\\t\\t\\t\\tif (k <= 9) a[i][j] = k;\\n\\t\\t\\t\\telse { p = i; q = j; }\\n\\t\\t\\t}\\n\\t}\\n\\n\\tfor (i = 0; i <= r; ++i) {\\n\\t\\tj = fx[i];\\n\\t\\tk = fy[i];\\n\\t\\td = g[j][k] + 1;\\n\\t\\tpush(j - 1, k);\\n\\t\\tpush(j + 1, k);\\n\\t\\tpush(j, k - 1);\\n\\t\\tpush(j, k + 1);\\n\\t}\\n\\n\\tfor (k = 0, i = 1; i <= n; ++i)\\n\\t\\tfor (j = 1; j <= m; ++j)\\n\\t\\t\\tif (g[i][j] >= 0 && g[i][j] <= g[p][q]) k += a[i][j];\\n\\tprintf(\\\"%d\\\", k);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1998,
+    "completion_tokens": 559,
+    "total_tokens": 2557,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 718
+  },
+  "raw_sha256": "3f0100ddba8d586c70d7a21718445abb4f29ac652c2f2a7c9daecfe36258237d",
+  "ended_utc": "2026-11-16T15:39:59.768276+00:00",
+  "elapsed_seconds": 2.5129
+}

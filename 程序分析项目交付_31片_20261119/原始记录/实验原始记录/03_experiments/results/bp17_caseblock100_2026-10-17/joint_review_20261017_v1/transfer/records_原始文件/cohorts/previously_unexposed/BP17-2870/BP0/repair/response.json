@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-2870",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\nint ans=0;\\nint cnt=0;\\nint k=0,n,y;\\nint a[5000];\\nint cmpfunc(const void *a,const void *b)\\n{\\n\\treturn  (*(int *)a-*(int *)b);\\n}\\nint func(int i)\\n{\\n\\tif(i>=y)\\n\\n\\t\\treturn 0;\\n\\tint ans1=func(2*i)+a[2*i];\\n\\tint ans2=func(2*i+1)+a[2*i+1];\\n\\tif(ans1>ans2)\\n\\t{\\n\\t\\tcnt+=ans1-ans2;\\n\\t\\treturn ans1;\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tcnt+=ans2-ans1;\\n\\t\\treturn ans2;\\n\\t}\\n\\t\\n\\t\\n\\t\\n\\t\\n\\n\\n\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tscanf(\\\"%d\\\",&n);\\n\\t\\n\\ty=pow(2,n+1);\\n\\tint i;\\n\\tfor(i=2;i<y;i++)\\n\\t\\tscanf(\\\"%d\\\",&a[i]);\\n\\tfunc(1);\\n\\tprintf(\\\"%d\\\",cnt);\\n\\treturn 0;\\n}\\n\"}",
+  "elapsed_seconds": 2.047,
+  "ended_utc": "2026-10-17T07:05:39.064288+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2870/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "06555c66591073e3ab2ece89966723b7ecf7003eb0c0fc9f29a569e9c8ea0355",
+  "request_model": "deepseek-flash",
+  "request_sha256": "39b7e225012f6a01dd9e853f45539767636ccfacf592051ad2e07d56f3e195f2",
+  "response_id": "ac0f8216-e1af-4682-9f51-e4f964b6f519",
+  "started_utc": "2026-10-17T07:05:37.027640+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 309,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1079,
+    "prompt_tokens": 1079,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1388
+  }
+}

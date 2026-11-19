@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3196/BP0/repair/1",
+  "case_id": "BP17-3196",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "8b9563c91b2d1a70afd27e0e09458981ee5e5a841c26c205fb6cfabd7255667e",
+  "started_utc": "2026-10-17T08:45:56.437908+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4f306b88-39f1-48b4-a001-741e1aeb7c1d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n\\nint check(long long i){\\n    int j,root;\\n    root=sqrt(i)+1;\\n    if(i<4){\\n        return 1;\\n    }\\n    for(j=2;j<root;j++){\\n        if(i%j==0)return 0;\\n    }\\n    return 1;\\n}\\n\\nlong long p;\\n\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%lld\\\",&p);\\n    if(p==3){\\n        printf(\\\"1\\\\n3\\\");\\n        return 0;\\n    }\\n    if(p==5){\\n        printf(\\\"1\\\\n5\\\");\\n        return 0;\\n    }\\n    if(p==7){\\n        printf(\\\"1\\\\n7\\\");\\n        return 0;\\n    }\\n    long long int i;\\n    printf(\\\"3\\\\n3 \\\");\\n    p=p-3;\\n    for(i=2;i<=p/2;i++){\\n        if(check(i)==1 && check(p-i)==1){\\n            printf(\\\"%lld %lld\\\",i,p-i);\\n            return 0;\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 987,
+    "completion_tokens": 295,
+    "total_tokens": 1282,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 987
+  },
+  "raw_sha256": "a2bf09bb0c9dd1746fe67b476768e5c07cc1ebeba9aa27d6d4bc83ab8e2c0c91",
+  "ended_utc": "2026-10-17T08:45:58.612829+00:00",
+  "elapsed_seconds": 2.172
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2540/BP3/repair/1",
+  "case_id": "BP17-2540",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "03a9a8bca3e37546ec04acb7658ae6128788cad618a5b6add69df72612539b8e",
+  "started_utc": "2026-11-16T05:07:53.417603+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2df8b5c0-ac71-49ba-ac4e-641ff4e0e27e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <limits.h>\\n\\nint main(int argc, char *argv[]) {\\n    int i;\\n    int n, k, a[100];\\n    int cnt, min, max, minIdx[1000], maxIdx[1000];\\n\\n    scanf(\\\"%d %d\\\", &n, &k);\\n    for (i = 0; i < n; i++)\\n        scanf(\\\"%d\\\", a + i);\\n\\n    for (cnt = 0; ; cnt++) {\\n        min = INT_MAX;\\n        max = INT_MIN;\\n        for (i = 0; i < n; i++) {\\n            if (a[i] < min) {\\n                min = a[i];\\n                minIdx[cnt] = i;\\n            }\\n            if (a[i] > max) {\\n                max = a[i];\\n                maxIdx[cnt] = i;\\n            }\\n        }\\n        if (max - min <= 1)\\n            break;\\n\\n        if (cnt == k)\\n            break;\\n\\n        a[minIdx[cnt]]++;\\n        a[maxIdx[cnt]]--;\\n    }\\n\\n    printf(\\\"%d %d\\\\n\\\", max - min, cnt);\\n    for (i = 0; i < cnt; i++)\\n        printf(\\\"%d %d\\\\n\\\", maxIdx[i] + 1, minIdx[i] + 1);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 6195,
+    "completion_tokens": 347,
+    "total_tokens": 6542,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 6195
+  },
+  "raw_sha256": "3c977c998687cbba0d8b853da73f01ef6f8453579637fb5d9eede681b4389d97",
+  "ended_utc": "2026-11-16T05:07:55.695847+00:00",
+  "elapsed_seconds": 2.2759
+}

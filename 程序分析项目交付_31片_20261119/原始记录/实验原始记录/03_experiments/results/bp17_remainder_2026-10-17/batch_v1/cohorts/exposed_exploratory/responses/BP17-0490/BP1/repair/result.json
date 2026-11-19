@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0490/BP1/repair/1",
+  "case_id": "BP17-0490",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a3fa7c90a0838fb5dfcfe41c8ec6c594d9daf39efe50a1aea56678094e426053",
+  "started_utc": "2026-11-16T06:18:12.085422+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "827f9a61-5caa-461b-a0e4-ef6f7f920144",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n//#include<math.h>\\nint cmp(const void *a,const void *b)\\n{\\n    return *( long long int *)b-*(long long int *)a;\\n}\\nint main(int argc, char *argv[]){\\nlong long int k,a[21],b[21],sum=0,ans=0;int m,i,c,d,swap;\\nscanf(\\\"%lld %d\\\",&k,&m);for(i=0;i<m;i++){scanf(\\\"%lld %lld\\\",&b[i],&a[i]);}\\n//qsort(a,m,sizeof( long long int ),cmp);\\nfor (c = 0 ; c < ( m - 1 ); c++)\\n  {\\n    for (d = 0 ; d < m - c - 1; d++)\\n    {\\n      if (a[d] < a[d+1]) \\n      {\\n        swap       = a[d];\\n        a[d]   = a[d+1];\\n        a[d+1] = swap; \\n        swap       = b[d];\\n        b[d]   = b[d+1];\\n        b[d+1] = swap;\\n      }\\n    }\\n  }\\n\\nfor(i=0;i<m;i++){if(k>=b[i]){ans+=a[i]*b[i];k-=b[i];}\\nelse{ans+=a[i]*(k);k=0;}if(k==0){break;}\\n}\\nprintf(\\\"%lld\\\\n\\\",ans);\\nreturn 0;}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1143,
+    "completion_tokens": 361,
+    "total_tokens": 1504,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1143
+  },
+  "raw_sha256": "085c3b06e8f040b5ea8b5781d00d1da776be340caab5b87757195bd171a75346",
+  "ended_utc": "2026-11-16T06:18:14.524875+00:00",
+  "elapsed_seconds": 2.4309
+}

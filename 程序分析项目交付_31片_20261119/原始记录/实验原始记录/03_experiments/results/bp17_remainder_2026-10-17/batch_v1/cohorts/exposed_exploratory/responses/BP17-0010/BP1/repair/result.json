@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0010/BP1/repair/1",
+  "case_id": "BP17-0010",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "4c9eac77a305851ea2e4c5bd7fd838c32984e7e54076fe2f95c171b2daaddb39",
+  "started_utc": "2026-11-18T03:08:12.960159+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "52d3c1c8-f556-4c63-81c1-fe68c489b8a6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nlong int interval(long int t);\\nlong int n,p1,p2,p3,t1,t2;\\nint main(int argc, char *argv[])\\n{\\n    long int x,i,power=0;\\n    scanf(\\\"%ld %ld %ld %ld %ld %ld \\\", &n,&p1,&p2,&p3,&t1,&t2);\\n    long int l[n],r[n];\\n\\n    for (i=0; i<n; i++){\\n        scanf(\\\"%ld %ld\\\", &l[i],&r[i]);\\n    }\\n\\n    for (i=0; i<n; i++){\\n        power+= (r[i]-l[i])*p1;\\n    }\\n\\n    for (i=0; i<n-1; i++){\\n        x= interval(l[i+1]-r[i]);\\n        power+=x;\\n    }\\n    printf(\\\"%ld\\\\n\\\", power);\\n    return 0;\\n}\\n\\nlong int interval(long int t)\\n{\\n    long int p=0;\\n    if (t<=t1) return t*p1;\\n    else {\\n        p+=t1*p1;\\n        t=t-t1;\\n        if (t<=t2) {p+=t*p2; return p;}\\n        else {\\n            p+=t2*p2+(t-t2)*p3;\\n            return p;\\n        }\\n    }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1102,
+    "completion_tokens": 341,
+    "total_tokens": 1443,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 206
+  },
+  "raw_sha256": "9b68cb89034cfbc2b06392b777e88daef989f204a350844523b0bb00d5dc0d0f",
+  "ended_utc": "2026-11-18T03:08:15.364285+00:00",
+  "elapsed_seconds": 2.3534
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0107/BP2/repair/1",
+  "case_id": "BP17-0107",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "1502f30d7f918931100896662ed7d1139c0df79ce9d21d08f284b4b545c4958b",
+  "started_utc": "2026-11-16T17:13:28.305889+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "797210a8-17ff-4a14-9c52-c84c2226150f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n\\nint main(int argc, char *argv[]){\\n    int n,i,in,out,total=0,j,c;\\n    scanf(\\\"%d\\\",&n);\\n    char a[n][2];\\n    int b[n];\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%d\\\",&a[i][0]);\\n        scanf(\\\"%d\\\",&a[i][1]);\\n        out = a[i][0];\\n        in = a[i][1];\\n        total = total + in - out;\\n        b[i] = total;\\n    }\\n     for(i=0;i<n;i++){\\n        for(j=0;j<n-i-1;j++){\\n            if(b[j]>b[j+1]){\\n                c = b[j];\\n                b[j] = b[j+1];\\n                b[j+1] = c;\\n            }\\n        }\\n    }\\n    /*    c = b[0];\\n    for(i=0;i<n-1;i++){\\n        if(b[i]<b[i+1]){\\n            c = b[i+1];\\n        }\\n    }*/\\n    printf(\\\"%d\\\\n\\\",b[n-1]);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1430,
+    "completion_tokens": 301,
+    "total_tokens": 1731,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1430
+  },
+  "raw_sha256": "77b7882fc57bb22859ce4d38cceb944ac2839f4d35522b52b57df6953c127564",
+  "ended_utc": "2026-11-16T17:13:30.022728+00:00",
+  "elapsed_seconds": 1.7144
+}

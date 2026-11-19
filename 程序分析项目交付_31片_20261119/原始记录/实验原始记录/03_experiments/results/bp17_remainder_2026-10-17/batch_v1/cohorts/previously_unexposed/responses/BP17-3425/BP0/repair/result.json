@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3425/BP0/repair/1",
+  "case_id": "BP17-3425",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "6e5f1bafb9ff71f1817332680add80f8b292a0ff1f964d6743025e2d20ed3641",
+  "started_utc": "2026-11-16T18:35:43.395167+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d4baa942-e3b4-4cc7-9105-b0ec71b658da",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#include <math.h>\\n\\ntypedef long long int LL;\\n\\n#define din(n) scanf(\\\"%d\\\",&n)\\n#define dout(n) printf(\\\"%d\\\\n\\\",n)\\n#define llin(n) scanf(\\\"%lld\\\",&n)\\n#define llout(n) printf(\\\"%lld\\\\n\\\",n)\\n#define strin(n) scanf(\\\" %s\\\",n)\\n#define strout(n) printf(\\\"%s\\\\n\\\",n)\\n#define power(a, b) po(a, b)\\n\\nint mod=1000000007;\\n\\nlong long po(long long x, long long y)\\n{\\n\\tlong long pro=1;\\n\\twhile(y>0)\\n\\t{\\n\\t\\tif((y&1) != 0)\\n\\t\\t\\tpro=((pro%mod)*(x%mod))%mod;\\n\\t\\tx=(x*x)%mod;\\n\\t\\ty=y>>1;\\n\\t}\\n\\treturn pro%mod;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tchar arr[100005];\\n\\tint final[100005];\\n\\tint len=0;\\n\\tchar check[50];\\n\\n\\tstrin(arr);\\n\\tstrin(check);\\n\\n\\tint n = strlen(arr);\\n\\tint nc = strlen(check);\\n\\tint i, j;\\n\\n\\tfor(i=0;i<=n-nc;i++)\\n\\t{\\n\\t\\tchar temp[50];\\n\\t\\tint k=0;\\n\\t\\tfor(j=i;j<i+nc;j++)\\n\\t\\t{\\n\\t\\t\\ttemp[k] = arr[j];\\n\\t\\t\\tk++;\\n\\t\\t}\\n\\t\\ttemp[k++] = '\\\\0';\\n\\t\\tif(strcmp(check, temp) == 0)\\n\\t\\t\\tfinal[len++] = i;\\n\\t}\\n\\tint ans=0;\\n\\tif(len > 0)\\n\\t{\\n\\t\\tans = 1;\\n\\t\\tint last = final[0];\\n\\t\\tfor(i=1;i<len;i++)\\n\\t\\t{\\n\\t\\t\\tif(final[i] - last >= nc)\\n\\t\\t\\t{\\n\\t\\t\\t\\tans++;\\n\\t\\t\\t\\tlast = final[i];\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tdout(ans);\\n\\treturn(0);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1389,
+    "completion_tokens": 565,
+    "total_tokens": 1954,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 237
+  },
+  "raw_sha256": "e8ab0b8f9a27d7e098d0316408e03adf460d93d71eab2d31d5f2cc02cef9025d",
+  "ended_utc": "2026-11-16T18:35:46.078719+00:00",
+  "elapsed_seconds": 2.6808
+}

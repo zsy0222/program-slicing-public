@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3125/BP3/repair/1",
+  "case_id": "BP17-3125",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "2945ab45e94d088ac32156f792d0617435967d208428227b8ba399c38d65bc98",
+  "started_utc": "2026-11-16T05:34:52.923716+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8167bccc-1f14-48e7-94b8-9f3e45c83245",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\ntypedef struct {\\n    int p;\\n    int q;\\n} Exchange_t;\\nExchange_t S[1000];\\nExchange_t B[1000];\\nint SizeS, SizeB;\\n\\nint cmpdesc(const void *a, const void *b)\\n{\\n    return (*(Exchange_t *)b).p - (*(Exchange_t *)a).p;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int N, s, p, q, i;\\n    char D[2];\\n    scanf(\\\"%d %d\\\", &N, &s);\\n    while(N--) {\\n        scanf(\\\"%s %d %d\\\", D, &p, &q);\\n        if(D[0] == 'S') {\\n            for(i = 0; i < SizeS; ++i) {\\n                if(S[i].p == p) {\\n                    S[i].q += q;\\n                    break;\\n                }\\n            }\\n            if(i == SizeS) {\\n                S[SizeS].p = p;\\n                S[SizeS++].q = q;\\n            }\\n        } else {\\n            for(i = 0; i < SizeB; ++i) {\\n                if(B[i].p == p) {\\n                    B[i].q += q;\\n                    break;\\n                }\\n            }\\n            if(i == SizeB) {\\n                B[SizeB].p = p;\\n                B[SizeB++].q = q;\\n            }\\n        }\\n    }\\n    qsort(S, SizeS, sizeof(Exchange_t), cmpdesc);\\n    qsort(B, SizeB, sizeof(Exchange_t), cmpdesc);\\n    for(i = SizeS - s > 0 ? SizeS - s : 0; i < SizeS; ++i) {\\n        printf(\\\"S %d %d\\\\n\\\", S[i].p, S[i].q);\\n    }\\n    for(i = 0; i < s && i < SizeB; ++i) {\\n        printf(\\\"B %d %d\\\\n\\\", B[i].p, B[i].q);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2163,
+    "completion_tokens": 518,
+    "total_tokens": 2681,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2163
+  },
+  "raw_sha256": "0c56c1219fa1aa06e06360ce07525ecc1e65a9d492218698e1f2e918effabc3d",
+  "ended_utc": "2026-11-16T05:34:55.381713+00:00",
+  "elapsed_seconds": 2.4547
+}

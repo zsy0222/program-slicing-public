@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2638/BP1/repair/1",
+  "case_id": "BP17-2638",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "4a8261752159f52c5781a77bbe7eccd7ed5d00e95a7ced64e324668289a4595d",
+  "started_utc": "2026-10-18T13:52:25.319607+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4e0c86ac-bfd3-4078-9282-c9b772b45def",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#define MAX 200000\\nstruct arremesso {\\n\\tint distance;\\n\\tint time;\\n};\\n\\ntypedef struct arremesso Arremesso;\\nArremesso arremessos[2*MAX];\\n\\nint cmpfunc(const void *a, const void *b) {\\n\\tArremesso* arremesso1 = (Arremesso *) a;\\n\\tArremesso* arremesso2 = (Arremesso *) b;\\n\\treturn arremesso1->distance - arremesso2->distance;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint distancia, somaMaxima = 0, quantidade = 0, quantidadeMinima = 0, contador, N, M, soma = 0, a, b, posicaoFinal = -1;\\n\\tscanf(\\\"%d\\\", &N);\\n\\tfor (contador = 0; contador < N; contador++) {\\n\\t\\tscanf(\\\"%d\\\", &distancia);\\n\\t\\tarremessos[contador].distance = distancia;\\n\\t\\tarremessos[contador].time = -1;\\n\\t}\\n\\tscanf(\\\"%d\\\", &M);\\n\\tfor (contador = N; contador < N + M; contador++) {\\n\\t\\tscanf(\\\"%d\\\", &distancia);\\n\\t\\tarremessos[contador].distance = distancia;\\n\\t\\tarremessos[contador].time = 1;\\n\\t}\\n\\tqsort(arremessos, N+M, sizeof(Arremesso), cmpfunc);\\n\\tfor (contador = 0; contador < N + M; contador++) {\\n\\t\\tsoma += arremessos[contador].time;\\n\\t\\tif (arremessos[contador].time == -1) quantidade++;\\n\\t\\tif (contador == N + M - 1 || arremessos[contador].distance != arremessos[contador + 1].distance) {\\n\\t\\t\\tif (somaMaxima < soma) {\\n\\t\\t\\t\\tsomaMaxima = soma;\\n\\t\\t\\t\\tquantidadeMinima = quantidade;\\n\\t\\t\\t\\tposicaoFinal = contador;\\n\\t\\t\\t}\\n\\t\\t\\telse if (somaMaxima == soma && quantidade < quantidadeMinima) {\\n\\t\\t\\t\\tsomaMaxima = soma;\\n\\t\\t\\t\\tquantidadeMinima = quantidade;\\n\\t\\t\\t\\tposicaoFinal = contador;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d %d %d\\\\n\\\", somaMaxima, quantidadeMinima, posicaoFinal);\\n\\ta = 2*quantidadeMinima + 3*(N - quantidadeMinima);\\n\\tb = 2*(posicaoFinal + 1 - quantidadeMinima) + 3*(M - (posicaoFinal + 1 - quantidadeMinima));\\n\\tprintf(\\\"%d:%d\\\\n\\\", a, b);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1542,
+    "completion_tokens": 721,
+    "total_tokens": 2263,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1542
+  },
+  "raw_sha256": "97e1d2f902a8c99ab8a87ef452d8aa5c5f0eb2028698ab452a7614274751d15a",
+  "ended_utc": "2026-10-18T13:52:28.096616+00:00",
+  "elapsed_seconds": 2.766
+}

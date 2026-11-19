@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3043/BP2/repair/1",
+  "case_id": "BP17-3043",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f920d891972d2482a3fcff6d8d993bfdef997bdd9f6c8784dfbd27e1341e50e6",
+  "started_utc": "2026-10-18T12:40:09.441691+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "58d64cc0-28a1-437d-bed3-b3541d67f37c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\n    int stu,min1,max1,min2,max2,min3,max3;\\n\\n    scanf(\\\"%d\\\",&stu);\\n    scanf(\\\"%d\\\",&min1);\\n    scanf(\\\"%d\\\",&max1);\\n    scanf(\\\"%d\\\",&min2);\\n    scanf(\\\"%d\\\",&max2);\\n    scanf(\\\"%d\\\",&min3);\\n    scanf(\\\"%d\\\",&max3);\\n\\n    int totalmin = min1+min2+min3;\\n    int totalmax = max1+max2+max3;\\n\\n    int one,two,three;\\n\\n    if (totalmax <= stu) {\\n        one = max1;\\n        two = max2;\\n        three = max3;\\n    } else {\\n        three = min3;\\n        two = min2;\\n        if (max1<stu-min3-min2) {\\n            one = max1;\\n        } else {\\n            one = stu-min3-min2;\\n        }\\n        stu -= one+two+three;\\n        if (stu>0) {\\n            if (stu>max2-min2) {\\n                stu -= max2-min2;\\n                two = max2;\\n                if (stu>max3-min3) {\\n                    stu -= max3-min3;\\n                    three = max3;\\n                } else {\\n                    three += stu;\\n                }\\n            } else {\\n                two += stu;\\n            }\\n        }\\n    }\\n\\n    printf(\\\"%d %d %d\\\\n\\\",one,two,three);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1515,
+    "completion_tokens": 405,
+    "total_tokens": 1920,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1515
+  },
+  "raw_sha256": "5757f6420af2e253be4c74142a522100603ade095437f9c3c48090f3946060e8",
+  "ended_utc": "2026-10-18T12:40:11.639529+00:00",
+  "elapsed_seconds": 2.187
+}

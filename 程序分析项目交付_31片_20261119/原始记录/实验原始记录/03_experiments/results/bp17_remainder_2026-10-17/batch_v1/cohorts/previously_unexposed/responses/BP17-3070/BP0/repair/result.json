@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3070/BP0/repair/1",
+  "case_id": "BP17-3070",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "2fdd5a45e776ac1c57ec44ff08ea907ee09637d95332b93df45a9bd652ca18c2",
+  "started_utc": "2026-11-16T16:26:55.963932+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "53e89798-b774-4310-83e7-f5f28acd85dd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n    int i,a[3],b[3];\\n    for(i=0;i<3;i++){\\n        scanf(\\\"%d%d\\\",&a[i],&b[i]);\\n    }\\n    int w=a[0], h=a[1], x=b[0], y=b[1], z=b[2];\\n    int ok=0;\\n    if(a[1]+a[2]<=a[0] && b[1]<=b[0] && b[2]<=b[0]) ok=1;\\n    else if(a[1]+a[2]<=b[0] && b[1]<=a[0] && b[2]<=a[0]) ok=1;\\n    else if(b[1]+b[2]<=a[0] && a[1]<=b[0] && a[2]<=b[0]) ok=1;\\n    else if(b[1]+b[2]<=b[0] && a[1]<=a[0] && a[2]<=a[0]) ok=1;\\n    else if(a[1]+b[2]<=a[0] && a[2]<=b[0] && b[1]<=b[0]) ok=1;\\n    else if(b[1]+a[2]<=a[0] && b[2]<=b[0] && a[1]<=b[0]) ok=1;\\n    else if(a[1]+b[2]<=b[0] && a[2]<=a[0] && b[1]<=a[0]) ok=1;\\n    else if(b[1]+a[2]<=b[0] && b[2]<=b[0] && a[1]<=b[0]) ok=1;\\n    if(!ok){\\n        int t;\\n        t=a[0]; a[0]=b[0]; b[0]=t;\\n        t=a[1]; a[1]=b[1]; b[1]=t;\\n        t=a[2]; a[2]=b[2]; b[2]=t;\\n        if(a[1]+a[2]<=a[0] && b[1]<=b[0] && b[2]<=b[0]) ok=1;\\n        else if(a[1]+a[2]<=b[0] && b[1]<=a[0] && b[2]<=a[0]) ok=1;\\n        else if(b[1]+b[2]<=a[0] && a[1]<=b[0] && a[2]<=b[0]) ok=1;\\n        else if(b[1]+b[2]<=b[0] && a[1]<=a[0] && a[2]<=a[0]) ok=1;\\n        else if(a[1]+b[2]<=a[0] && a[2]<=b[0] && b[1]<=b[0]) ok=1;\\n        else if(b[1]+a[2]<=a[0] && b[2]<=b[0] && a[1]<=b[0]) ok=1;\\n        else if(a[1]+b[2]<=b[0] && a[2]<=a[0] && b[1]<=a[0]) ok=1;\\n        else if(b[1]+a[2]<=b[0] && b[2]<=b[0] && a[1]<=b[0]) ok=1;\\n    }\\n    if(ok) printf(\\\"YES\\\");\\n    else printf(\\\"NO\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1088,
+    "completion_tokens": 865,
+    "total_tokens": 1953,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1088
+  },
+  "raw_sha256": "f8e9159e0cc7b793ca3366a5337b1f6d552431f1f42a10c5cb72e9b22b467183",
+  "ended_utc": "2026-11-16T16:26:59.245419+00:00",
+  "elapsed_seconds": 3.2793
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2492/BP1/repair/1",
+  "case_id": "BP17-2492",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c405781704d47497ca5a721aa389d56ba35c13504f11d2f7c06a4dc6572760b3",
+  "started_utc": "2026-11-16T17:52:24.199283+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8a1ee62d-70dc-4f75-901d-ac2fd569dfad",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n   char m[3][11]={\\n       \\\"qwertyuiop\\\",\\n       \\\"asdfghjkl;\\\",\\n       \\\"zxcvbnm,./\\\"\\n   };\\n   \\n   char c,s[101];\\n   int i,j,l,t=0;\\n   \\n   scanf(\\\"%c\\\",&c);\\n   scanf(\\\"%s\\\",s);\\n   \\n   if(c=='R')\\n   for(l=0;l<strlen(s);l++)\\n       {\\n           t=0;\\n           for(i=0;i<3 && t!=1;i++)\\n           for(j=0;j<10;j++)\\n           if(s[l]==m[i][j])\\n           {\\n               printf(\\\"%c\\\",m[i][j-1]);\\n               t=1;\\n               break;\\n           }\\n       }\\n    \\n    else\\n    for(l=0;l<strlen(s);l++)\\n       {\\n           t=0;\\n           for(i=0;i<3&&t!=1;i++)\\n           for(j=0;j<10;j++)\\n           if(s[l]==m[i][j])\\n           {\\n               printf(\\\"%c\\\",m[i][j+1]);\\n               t=1;\\n               break;\\n           }\\n       }\\n    return 0;     \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1125,
+    "completion_tokens": 345,
+    "total_tokens": 1470,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1125
+  },
+  "raw_sha256": "3e199b5071c45c67dfd869c18ecd1777ff73899dd4ca2a1e81540fec66e56d5c",
+  "ended_utc": "2026-11-16T17:52:26.232267+00:00",
+  "elapsed_seconds": 2.0305
+}

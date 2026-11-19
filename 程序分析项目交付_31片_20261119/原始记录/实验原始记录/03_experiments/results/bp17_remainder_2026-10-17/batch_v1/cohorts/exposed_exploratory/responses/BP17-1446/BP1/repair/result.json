@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1446/BP1/repair/1",
+  "case_id": "BP17-1446",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "daa5327f6ce23ccda9350843950be1250ee82ba90e1613b5236346376c55e738",
+  "started_utc": "2026-11-16T18:13:22.644415+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "576ed901-2192-4f8f-be3b-fee62a9c21fb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nlong long no=1000000007;\\nint main(int argc, char *argv[])\\n{\\n    char s[200];\\n    scanf(\\\"%s\\\",s);\\n    int len =strlen(s);\\n    if(len==1)\\n    {\\n        if(s[0]=='1')\\n            printf(\\\"1\\\");\\n        else\\n          printf(\\\"0\\\");\\n        return 0;\\n    }\\n    int i;\\n    long long no1=0,no2=1,no3,power=1,flag=0;\\n    for(i=len-1;i>=0;i--)\\n    {\\n        no1=(no1+power*(s[i]-'0'))%no;\\n        power=(power*2)%no;\\n        if(s[i]=='0')\\n            flag=1;\\n    }\\n    for(i=1;i<len;i++)\\n        no2=(no2*2)%no;\\n    if(flag==0)\\n        printf(\\\"%lld\\\",(no1*(no1+1)/2)%no);\\n    else\\n        printf(\\\"%lld\\\",(no1*no2)%no);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1049,
+    "completion_tokens": 290,
+    "total_tokens": 1339,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1049
+  },
+  "raw_sha256": "6e0ba05f5cd8165e456f86b947b779a44d8b9be4f42961068fbaf4d4845455c8",
+  "ended_utc": "2026-11-16T18:13:24.938700+00:00",
+  "elapsed_seconds": 2.2338
+}

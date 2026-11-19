@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0220/BP2/repair/1",
+  "case_id": "BP17-0220",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "85bd5c867acd10205b33ae9d75b4ccad9a4a8022476246926ce6ac30478cd5dc",
+  "started_utc": "2026-11-16T04:03:09.990304+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0f0b308b-4e43-48a0-9b8d-a8f53892a145",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nconst int di[] = {-1, -1, 0, 1, 0, -1, 0};\\nconst int dj[] = {0, 1, 1, -1, -1, -1, 0};\\n\\nchar board[8][9];\\n\\nint dfs(int i, int j, int turn) {\\n    int k;\\n\\n    if (i == 0 && j == 7)\\n        return 1;\\n\\n    for (k = 0; k < 7; k++) {\\n        int ni = i + di[k], nj = j + dj[k];\\n\\n        if (ni >= 0 && ni < 8 && nj >= 0 && nj < 8 &&\\n            (ni - turn < 0 || board[ni - turn][nj] != 'S') &&\\n            (ni - turn - 1 < 0 || board[ni - turn - 1][nj] != 'S'))\\n            if (dfs(ni, nj, turn + 1))\\n                return 1;\\n    }\\n\\n    return 0;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int i;\\n\\n    for (i = 0; i < 8; i++)\\n        scanf(\\\"%s\\\", board[i]);\\n\\n    puts(dfs(7, 0, 0) ? \\\"WIN\\\" : \\\"LOSE\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1871,
+    "completion_tokens": 346,
+    "total_tokens": 2217,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1871
+  },
+  "raw_sha256": "1ad1394be848aa661146c43eab51d98a4247877e6606242ca3a28f878b000f40",
+  "ended_utc": "2026-11-16T04:03:11.877694+00:00",
+  "elapsed_seconds": 1.8852
+}

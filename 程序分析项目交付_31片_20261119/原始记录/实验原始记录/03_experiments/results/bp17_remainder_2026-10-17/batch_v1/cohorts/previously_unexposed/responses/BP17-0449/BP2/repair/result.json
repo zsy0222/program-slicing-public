@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0449/BP2/repair/1",
+  "case_id": "BP17-0449",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f0cac3da8c88b16211682dcc8883ac0b34f2f1590af7249de3eb019e53cf565f",
+  "started_utc": "2026-10-21T07:47:40.770734+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3b9b10e3-40b9-4e65-8eb6-dc07924f769c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<math.h>\\n\\nchar lo[2];\\nint num[100010];\\n\\nint main(int argc, char *argv[])\\n{\\n    int m,k;\\n    while(scanf(\\\"%d%d\\\",&k,&m)!= EOF)\\n    {\\n        memset(num,0,sizeof(num));\\n\\n        int i,j,n;\\n        for(j = 0; j < m; j ++)\\n        {\\n            scanf(\\\"%s%d\\\",lo,&n);\\n            if(lo[0] == '+')\\n            {\\n                if(!num[n])\\n                {\\n                    int temp = n;\\n                    for(i = 2; i * i <= temp; i ++)\\n                    {\\n                        while(!(temp % i))\\n                        {\\n                            if(num[i])\\n                            {\\n                                temp = 0;\\n                                break;\\n                            }\\n                            else\\n                                temp /= i;\\n                        }\\n                        if(!temp)\\n                            break;\\n                    }\\n                    if(temp > 1)\\n                        if(num[temp])\\n                        {\\n                            i = temp;\\n                            temp = 0;\\n                        }\\n\\n                    if(temp)\\n                    {\\n                        temp = n;\\n                        num[n] = n;\\n                        for(i = 2; i * i <= temp; i ++)\\n                        {\\n                            while(!(temp % i))\\n                            {\\n                                temp /= i;\\n                                num[i] = n;\\n                            }\\n                        }\\n                        if(temp > 1)\\n                            num[temp] = n;\\n                        printf(\\\"Success\\\\n\\\");\\n                    }\\n                    else\\n                        printf(\\\"Conflict with %d\\\\n\\\",num[i]);\\n                }\\n                else if(num[n] != n)\\n                    printf(\\\"Conflict with %d\\\\n\\\",num[n]);\\n                else if(num[n] == n)\\n                    printf(\\\"Already on\\\\n\\\");\\n            }\\n            else if(lo[0] == '-')\\n            {\\n                if(num[n] == n)\\n                {\\n                    num[n] = 0;\\n                    int temp = n;\\n                    for(i = 2; i * i <= temp; i ++)\\n                    {\\n                        while(!(temp % i))\\n                        {\\n                            temp /= i;\\n                            num[i] = 0;\\n                        }\\n                    }\\n                    if(temp > 1)\\n                        num[temp] = 0;\\n                    printf(\\\"Success\\\\n\\\");\\n                }\\n                else\\n                    printf(\\\"Already off\\\\n\\\");\\n            }\\n        }\\n    }\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2991,
+    "completion_tokens": 614,
+    "total_tokens": 3605,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "prompt_cache_hit_tokens": 1792,
+    "prompt_cache_miss_tokens": 1199
+  },
+  "raw_sha256": "f544bbcfdb01d6740dc9ede6d0f24e3d0d5bc892e385e160dcf15ddc3a88e686",
+  "ended_utc": "2026-10-21T07:47:43.357412+00:00",
+  "elapsed_seconds": 2.391
+}

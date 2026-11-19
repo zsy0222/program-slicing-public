@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2260/BP1/repair/1",
+  "case_id": "BP17-2260",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "cfe77ab03c26ea1acb10eccb0d64ff7c08cd0f91c5b11498759eafaeab749f59",
+  "started_utc": "2026-10-17T13:15:46.633136+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "86426a39-f453-436a-a2fe-f4ac599c6b91",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    char str[10005];\\n    int i,len,n,ara[26],max,sum1=0,sum2=0,res;\\n    scanf(\\\"%s %d\\\",str,&n);\\n    for(i=0;i<26;i++){\\n        scanf(\\\"%d\\\",&ara[i]);\\n    }\\n    len=strlen(str);\\n    max=ara[0];\\n    for(i=1;i<26;i++){\\n        if(ara[i]>max){\\n            max=ara[i];\\n        }\\n    }\\n    for(i=0;i<len;i++){\\n        sum1+=(i+1)*ara[str[i]-'a'];\\n    }\\n    for(i=len;i<len+n;i++){\\n        sum2+=(i+1)*max;\\n    }\\n    res=sum1+sum2;\\n    printf(\\\"%d\\\\n\\\",res);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1011,
+    "completion_tokens": 246,
+    "total_tokens": 1257,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 243
+  },
+  "raw_sha256": "932ff95912cbb435ada3b83dc3e4987917381e0682d164b7c434250228a1b1e2",
+  "ended_utc": "2026-10-17T13:15:48.075954+00:00",
+  "elapsed_seconds": 1.438
+}

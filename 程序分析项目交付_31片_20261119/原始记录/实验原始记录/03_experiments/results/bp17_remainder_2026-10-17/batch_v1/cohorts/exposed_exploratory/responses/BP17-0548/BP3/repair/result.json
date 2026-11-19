@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0548/BP3/repair/1",
+  "case_id": "BP17-0548",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "a574cf85c44e17736799ac095ef8d338c8d757a70b14514da0f10fe4a2d2b05d",
+  "started_utc": "2026-11-16T17:57:50.470994+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "36efc9c0-64e4-4a8b-87eb-a6f74be6d226",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nvoid Merge(unsigned long long int * , int , int , int );\\nvoid MergeSort(unsigned long long int *array, int left, int right)\\n{\\n        int mid = (left+right)/2;\\n        if(left<right)\\n        {\\n                MergeSort(array,left,mid);\\n                MergeSort(array,mid+1,right);\\n                Merge(array,left,mid,right);\\n        }\\n}\\nvoid Merge(unsigned long long int *array, int left, int mid, int right)\\n{\\n        int tempArray[right-left+1];\\n        int pos=0,lpos = left,rpos = mid + 1;\\n        while(lpos <= mid && rpos <= right)\\n        {\\n                if(array[lpos] < array[rpos])\\n                {\\n                        tempArray[pos++] = array[lpos++];\\n                }\\n                else\\n                {\\n                        tempArray[pos++] = array[rpos++];\\n                }\\n        }\\n        while(lpos <= mid)  tempArray[pos++] = array[lpos++];\\n        while(rpos <= right)tempArray[pos++] = array[rpos++];\\n        int iter;\\n        for(iter = 0;iter < pos; iter++)\\n        {\\n                array[iter+left] = tempArray[iter];\\n        }\\n        return;\\n}\\nint main(int argc, char *argv[])\\n{\\n        int n,i,a,b;\\n        scanf(\\\"%d%d%d\\\",&n,&a,&b);\\n        unsigned long long int h[2000];\\n        for(i = 0;i <n;i++)\\n        {\\n                scanf(\\\"%I64u\\\",&h[i]);   \\n        }\\n        MergeSort(h,0,n-1);\\n    printf(\\\"%I64u\\\\n\\\",h[a]-h[a-1]);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1868,
+    "completion_tokens": 441,
+    "total_tokens": 2309,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1868
+  },
+  "raw_sha256": "b4c020f27363ed033678f23395c6d9f2cecd50bf92f6d2d613c475e7d16fd141",
+  "ended_utc": "2026-11-16T17:57:53.576984+00:00",
+  "elapsed_seconds": 3.036
+}

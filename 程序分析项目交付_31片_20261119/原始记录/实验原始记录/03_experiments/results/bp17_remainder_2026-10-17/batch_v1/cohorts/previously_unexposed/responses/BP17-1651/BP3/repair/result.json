@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1651/BP3/repair/1",
+  "case_id": "BP17-1651",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "4cff209b02f6d60af4aef6bf1bf02c1df09fcd8b6cfd9ac1ff82ef862288cfef",
+  "started_utc": "2026-11-16T04:16:41.573542+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8729a70d-ad00-49c2-997a-9bc275b2b1a7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,m,i,t,Min,Max;\\n    double base,x;\\n    scanf(\\\"%d\\\",&n);\\n    n=n<<1;\\n    for(i=1,m=base=0;i<=n;i++){\\n       scanf(\\\"%lf\\\",&x);\\n       base+=x-floor(x);\\n       if(ceil(x)>floor(x)) m++;\\n    }\\n    if(m<=n/2){Min=0;Max=m;}\\n      else {Min=m-n/2;Max=n/2;}\\n    if(ceil(base)-base<=0.5) t=ceil(base);\\n      else t=floor(base);\\n    if(t<Min) printf(\\\"%.3lf\\\\n\\\",-base+Min);\\n      else\\n        if(t>Max) printf(\\\"%.3lf\\\\n\\\",base-Max);\\n          else  printf(\\\"%.3lf\\\\n\\\",fabs(base-t));\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1425,
+    "completion_tokens": 253,
+    "total_tokens": 1678,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 529
+  },
+  "raw_sha256": "8d8e7903b440d7dff5baf472373799f80dd2d7fd45fab000cb758d5dc426062a",
+  "ended_utc": "2026-11-16T04:16:43.546621+00:00",
+  "elapsed_seconds": 1.9709
+}

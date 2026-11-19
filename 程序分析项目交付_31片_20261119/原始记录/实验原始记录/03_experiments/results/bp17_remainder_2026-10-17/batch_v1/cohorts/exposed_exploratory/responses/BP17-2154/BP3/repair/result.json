@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2154/BP3/repair/1",
+  "case_id": "BP17-2154",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "ed75dac1e7193b6937238cd6677ba8c06a7ead8264264f5d49141d535106fc78",
+  "started_utc": "2026-11-16T05:28:16.218391+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d8813b3c-e9c8-45f8-bf54-488540bfab2a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdlib.h>\\n\\nint cur[100010],tar[100010],val[100010],op,stk[100010],temp[100010];\\nstruct node{\\n    int v,c;\\n    struct node *next;\\n};\\nvoid init(int n,struct node *p[n],struct node *v[n]){\\n    int i=1;\\n    while (i<n) {\\n        v[i]=malloc(sizeof(struct node));\\n        v[i]->v=i;\\n        v[i]->next=NULL;\\n        v[i]->c=1;\\n        p[i]=NULL;\\n        i++;\\n    }\\n}\\n\\nvoid create(int n,struct node *p[n],struct node *v[n],int x,int y){\\n    struct node *a=malloc(sizeof(struct node)),*b=malloc(sizeof(struct node));\\n    a->v=y;\\n    b->v=x;\\n    a->c=1;b->c=1;\\n    a->next=p[x];\\n    b->next=p[y];\\n    p[x]=a;\\n    p[y]=b;\\n}\\nint main(int argc, char *argv[]){\\n    int n,i=1;\\n    scanf(\\\"%d\\\",&n);\\n    struct node *p[n+1],*v[n+1];\\n    init(n+1, p, v);\\n    while (i<n) {\\n        int a,b;\\n        scanf(\\\"%d %d\\\",&a,&b);\\n        create(n+1, p, v, a, b);\\n        i++;\\n    }\\n    i=1;\\n    while (i<=n) {\\n        scanf(\\\"%d\\\",&cur[i]);\\n        i++;\\n    }\\n    \\n    i=1;\\n    while (i<=n) {\\n        scanf(\\\"%d\\\",&tar[i]);\\n        i++;\\n    }\\n    int rear=0,front=1;\\n    stk[rear]=1;\\n    v[stk[rear]]->c=0;\\n    while (rear<front) {\\n        int cc=0;\\n        if(((cur[stk[rear]]+val[stk[rear]])%2)!=tar[stk[rear]]){\\n            val[stk[rear]]++;\\n            temp[op]=stk[rear];\\n            cc=1;\\n            op++;\\n        }\\n        struct node *n=p[stk[rear]];\\n        while (n!=NULL) {\\n            if(v[n->v]->c==1){\\n                stk[front++]=n->v;\\n                v[n->v]->c=0;\\n                if(cc==1)\\n                    val[n->v]++;\\n            }\\n            n=n->next;\\n        }\\n        rear++;\\n    }\\n    printf(\\\"%d\\\\n\\\",op);\\n    i=0;\\n    while (i<op) {\\n        printf(\\\"%d\\\\n\\\",temp[i]);\\n        i++;\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2801,
+    "completion_tokens": 723,
+    "total_tokens": 3524,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2801
+  },
+  "raw_sha256": "d158ac4a9c08a8f404ff754b8fafbcd5c4475be466e03f273970bd28e08cbe74",
+  "ended_utc": "2026-11-16T05:28:19.547192+00:00",
+  "elapsed_seconds": 3.3255
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0799/BP3/repair/1",
+  "case_id": "BP17-0799",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "666a078b3041875c3d91f128eedc84bc8c81596653bef6ac7134eb91782798da",
+  "started_utc": "2026-10-17T14:06:19.481839+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d05dd1d5-e6fc-4c26-a52d-8a9b67cf808a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n \\nint *visited; \\n\\nint *length;\\n\\nint *reds;\\n\\nint totalreds;\\n\\ntypedef struct node\\n{\\n    int a;\\n    struct node* next;\\n} link;\\n \\nvoid insert(link* head, int i)\\n{\\n    link* temp;\\n    temp = (link*)malloc(sizeof(link));\\n    temp->a = i;\\n \\n    link* t;\\n    t = head->next;\\n    head->next = temp;\\n    temp->next = t;\\n} \\n\\nvoid printlist(link* head)\\n{\\n    while(head!=NULL)\\n    {\\n        printf(\\\"%d \\\",head->a);\\n        head = head->next;\\n    }\\n    printf(\\\"\\\\n\\\");\\n}\\n\\nvoid dfs(link** red,link** green,int index)\\n{\\n    visited[index] = 1;\\n    link* temp;\\n    temp = red[index];\\n    temp = temp->next;\\n    \\n    while(temp!=NULL)\\n    {\\n        if(visited[temp->a]==0)\\n        {\\n            length[temp->a] = length[index] + 1;\\n            dfs(red,green,temp->a);\\n        }\\n        temp = temp->next;\\n    }\\n    \\n    temp = green[index];\\n    temp = temp->next;\\n    \\n    while(temp!=NULL)\\n    {\\n        if(visited[temp->a] == 0)\\n        {\\n            length[temp->a] = length[index] + 1;\\n            reds[temp->a] = reds[index] + 1;\\n            totalreds++;\\n            dfs(red,green,temp->a);\\n        }\\n        temp = temp->next;\\n    }\\n    return;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    link** red;\\n    link** green;\\n    \\n    int n;\\n    scanf(\\\"%d\\\",&n);\\n    \\n    red = (link**)malloc(sizeof(link*)*n);\\n    green = (link**)malloc(sizeof(link*)*n);\\n    visited = (int*)malloc(sizeof(int)*n);\\n    length = (int*)malloc(sizeof(int)*n);\\n    reds = (int*)malloc(sizeof(int)*n);\\n    \\n    int x;\\n    for(x=0;x<n;x++)\\n    {\\n        red[x] = (link*)malloc(sizeof(link));\\n        red[x]->a = x;\\n        red[x]->next = NULL;\\n        \\n        green[x] = (link*)malloc(sizeof(link));\\n        green[x]->a = x;\\n        green[x]->next = NULL;\\n        \\n        visited[x] = 0;\\n        length[x] = 0;\\n        reds[x] = 0;\\n    }\\n    \\n    int s,t;\\n    \\n    for(x=1;x<=n-1;x++)\\n    {\\n        scanf(\\\"%d %d\\\",&s,&t);\\n        s--;t--;\\n        insert(red[s],t);\\n        insert(green[t],s);\\n    }\\n    \\n    totalreds = 0;\\n    \\n    dfs(red,green,0);\\n    \\n    int ans[200100];\\n    \\n    int min = 100000000;\\n    \\n    for(x=0;x<n;x++)\\n    {\\n        ans[x] = totalreds + length[x] - (2*reds[x]);\\n        if(ans[x]<min)min = ans[x];\\n    }\\n    \\n    printf(\\\"%d\\\\n\\\",min);\\n    \\n    for(x=0;x<n;x++)\\n    {\\n        if(min==ans[x])printf(\\\"%d \\\",x+1);\\n    }\\n    printf(\\\"\\\\n\\\");\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2864,
+    "completion_tokens": 952,
+    "total_tokens": 3816,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 944
+  },
+  "raw_sha256": "8ac7f3f06e49556261011bc52804d0a87aa09b9f3640a7f4deb0d422ec610cbd",
+  "ended_utc": "2026-10-17T14:06:23.047429+00:00",
+  "elapsed_seconds": 3.485
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1874/BP2/repair/1",
+  "case_id": "BP17-1874",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "efdf5ee2a36573261c96f79f84ffb1a97099e932d32c523c31f0d31a5dccba8c",
+  "started_utc": "2026-11-16T03:49:00.650200+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d546d487-4d9f-42bb-9e8d-d99b6d020e42",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint cmp(void *a, void *b){\\n    return(*(int*)a - *(int*)b);\\n}\\n\\nint main(int argc, char *argv[]){\\n    int n, i, time;\\n    int j = 1;\\n    int max = 0;\\n    scanf(\\\"%d\\\", &n);\\n    int t[n];\\n    for(i=0;i<n;i++) scanf(\\\"%d\\\", &t[i]);\\n    scanf(\\\"%d\\\", &time);\\n    qsort(t, n, sizeof(int), cmp);\\n    for(i=0;i<n-1;i++){\\n        while(i+j<n && t[i+j]-t[i] <= time){j++;}\\n        if(max<j) max = j;\\n        j = 1;\\n    }\\n    printf(\\\"%d\\\\n\\\", max);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1386,
+    "completion_tokens": 218,
+    "total_tokens": 1604,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1386
+  },
+  "raw_sha256": "a8298b28b87927b62dc9aef346d37339d8d302835586cd15257fb665dc2e705e",
+  "ended_utc": "2026-11-16T03:49:02.665662+00:00",
+  "elapsed_seconds": 2.0134
+}

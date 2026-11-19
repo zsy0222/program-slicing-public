@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3220/BP3/repair/1",
+  "case_id": "BP17-3220",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "f63505deb43b6d3116e8074f3ad3deabc1d75e3bbbf452ed896f8c94706d4f6d",
+  "started_utc": "2026-10-17T08:33:56.594414+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "90840b0a-3513-4be4-b88e-6d4a2a3b0351",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\nint n,i,j,sum=0,temp;\\nscanf(\\\"%d\\\",&n);\\nint arr[n];\\nfor(i=0;i<n;i++)\\n{\\n    scanf(\\\"%d\\\",&arr[i]);\\n    sum+=arr[i];\\n}\\nif(sum%2==0)\\n{\\n    if(n==1)\\n    {\\n        printf(\\\"0\\\");\\n        return 0;\\n    }\\n    for ( i = 0 ; i <=n-2; i++ )\\n\\t{\\n\\t\\tfor ( j = i + 1 ; j <=n-1 ; j++ )\\n\\t\\t{\\n\\t\\t\\tif ( arr[i] > arr[j] )\\n\\t\\t\\t{\\n\\t\\t\\t\\ttemp = arr[i] ;\\n\\t\\t\\t\\tarr[i] = arr[j] ;\\n\\t\\t\\t\\tarr[j] = temp ;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tfor(i=0;i<n;i++)\\n    {\\n        if(arr[i]%2!=0)\\n        {\\n            sum-=arr[i];\\n            break;\\n        }\\n    }\\n}\\nelse\\n{\\n    for(i=0;i<n;i++)\\n    {\\n        if(arr[i]%2!=0)\\n        {\\n            sum-=arr[i];\\n            break;\\n        }\\n    }\\n}\\nprintf(\\\"%d\\\",sum);\\nreturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1750,
+    "completion_tokens": 358,
+    "total_tokens": 2108,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 598
+  },
+  "raw_sha256": "41add680b67340c0ad7788996bcec76d72d9e0e1c3514c6ddbfd56aba1329976",
+  "ended_utc": "2026-10-17T08:33:58.553637+00:00",
+  "elapsed_seconds": 1.953
+}

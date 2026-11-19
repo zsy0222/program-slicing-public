@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2229/BP1/repair/1",
+  "case_id": "BP17-2229",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "8d3368dc666ecb37e040dd51ce0444060b265099bcb87750fa8cead3efb435d9",
+  "started_utc": "2026-11-16T04:14:47.070547+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "78d5a366-bf30-4a83-9906-a2bba49f4169",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#define Max(a,b) (a>b)?a:b\\n#define Min(a,b) (a<b)?a:b\\nint main(int argc, char *argv[])\\n{\\n    int a,b,n,i,j,k;\\n    char ch[1000];\\n    while(scanf(\\\"%d %d %d\\\",&n,&a,&b)==3)\\n    {\\n        getchar();\\n        gets(ch);\\n        if(a>b)\\n        {\\n            int s=a;\\n            a=b;\\n            b=s;\\n        }\\n        int len=strlen(ch);\\n        if(len>(b*n)||len<(a*n)) printf(\\\"No Solution\\\\n\\\");\\n        else\\n        {\\n            int sum=0,ar[1000],in=0;\\n            for(i=0; i<n; i++) ar[in++]=b;\\n            for(;;)\\n            {\\n                sum=0;\\n                for(i=0; i<in; i++) sum+=ar[i];\\n                if(sum==len) break;\\n                if(sum!=len)\\n                {\\n                    for(i=0; i<in; i++)\\n                    {\\n                        if(ar[i]>a)\\n                        {\\n                            ar[i]=ar[i]-1;\\n                            break;\\n                        }\\n                    }\\n                }\\n            }\\n            int pp=0;\\n            for(i=0,j=1; ch[i]; i++,j++)\\n            {\\n                printf(\\\"%c\\\",ch[i]);\\n                if(j==ar[pp])\\n                {\\n                    j=0;\\n                    pp++;\\n                    printf(\\\"\\\\n\\\");\\n                }\\n            }\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1222,
+    "completion_tokens": 410,
+    "total_tokens": 1632,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 198
+  },
+  "raw_sha256": "988b7400b7300c38040b526db874bd8f93724c68e85d57bb478534d8d96654d5",
+  "ended_utc": "2026-11-16T04:14:49.363732+00:00",
+  "elapsed_seconds": 2.2906
+}

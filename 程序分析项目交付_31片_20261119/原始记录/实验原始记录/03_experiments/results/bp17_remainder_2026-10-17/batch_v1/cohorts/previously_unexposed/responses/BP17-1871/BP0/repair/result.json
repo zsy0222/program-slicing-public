@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1871/BP0/repair/1",
+  "case_id": "BP17-1871",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "0a1380908e35ee48d58d52154b4f56260bb3d9f4e102d74e2d823a02ffd5c519",
+  "started_utc": "2026-11-16T06:05:27.626742+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b24fc804-6ae9-4bf1-9d09-a6570df3e29c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\ntypedef long long int ll;\\nll prime[10000001];\\nll numbre[10000001];\\nll ans[10000001];\\nint main(int argc, char *argv[])\\n{\\n    ll i,j;\\n    for(i=2;i<=10000000;i++)\\n    {\\n        prime[i]=1;\\n    }\\n    for(i=2;i<=10000000;i++)\\n    {\\n        if (prime[i]==1)for(j=i+i;j<=10000000;j+=i)\\n            prime[j]=i;\\n    }\\n    ll n,a,c,max=0;\\n    scanf(\\\"%lld\\\",&n);\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%lld\\\",&a);\\n        if(a>max) max=a;\\n        if(prime[a]==1) {\\n                numbre[a]++;\\n                a=1;\\n            }\\n        while(prime[a]>1)\\n        {\\n                numbre[prime[a]]++;\\n                c=prime[a];\\n                a=a/prime[a];\\n                while(c==prime[a]|| a==c)\\n                {\\n                    a=a/c;\\n                }\\n        }\\n         if(prime[a]==1) {\\n                numbre[a]++;\\n\\n            }\\n    }\\n    ll q;\\n    scanf(\\\"%lld\\\",&q);\\n    for(i=2;i<=max;i++)\\n    {\\n        ans[i]=ans[i-1]+numbre[i];\\n    }\\n    ll b;\\n    for(i=0;i<q;i++)\\n    {\\n        scanf(\\\"%lld%lld\\\",&a,&b);\\n        if (a>10000000) a=10000000;\\n        if (b>10000000) b=10000000;\\n        printf(\\\"%lld\\\\n\\\",ans[b]-ans[a-1]);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1206,
+    "completion_tokens": 468,
+    "total_tokens": 1674,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 182
+  },
+  "raw_sha256": "3944df584362adb74cbb090d30c6951d13223663872aa47bad8fa2572148833b",
+  "ended_utc": "2026-11-16T06:05:30.183718+00:00",
+  "elapsed_seconds": 2.5542
+}

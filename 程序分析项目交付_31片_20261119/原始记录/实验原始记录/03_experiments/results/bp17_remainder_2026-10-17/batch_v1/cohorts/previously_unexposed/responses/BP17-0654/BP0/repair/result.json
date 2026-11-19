@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0654/BP0/repair/1",
+  "case_id": "BP17-0654",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "11863ff047f4456376a77ae54d6daff731421ba9c275b7f7c185fc5790bd4122",
+  "started_utc": "2026-11-16T02:52:19.154826+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d322c12a-4200-43d7-a1ec-65553da6e014",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\n#define MAX 26\\n\\nint maiorElem(int **m){\\n\\t\\n\\tint i, maior = 0;\\n\\n  for(i = 0; i < MAX; i++)\\n  \\tif(maior < m[i][i])\\n   \\t\\tmaior = m[i][i];\\n\\treturn maior;\\n}\\n\\nint **criaMatrix(){\\n\\t\\n\\tint **matrix, i, j;\\n\\t\\n\\tmatrix = (int **) calloc (MAX, sizeof(int *));\\n  for(i = 0; i < MAX; i++)\\n  \\tmatrix[i] = (int*) calloc (MAX, sizeof(int));\\n  \\t\\n  for(i = 0; i < MAX; i++)\\n  \\tfor(j = 0; j < MAX; j++)\\n  \\t\\tmatrix[i][j] = 0;\\n\\n\\treturn matrix;\\n}\\n\\nint main(int argc, char *argv[]){       \\n       \\n\\tint **matrix, n, a, b, i, j, k;\\n\\tchar str[15];\\n\\t  \\n\\tmatrix = criaMatrix();  \\n\\tscanf(\\\"%d\\\", &n);\\n  \\n  while(n > 0){\\n  \\tscanf(\\\"%s\\\", str);\\n    a = str[1]-'a'; \\n    b = str[strlen(str)-1]-'a';\\n    \\n    for(i = 0; i < MAX; i++)\\n    \\tif(matrix[i][a] && matrix[i][b] < matrix[i][a] + (int)strlen(str))\\n      \\tmatrix[i][b] = matrix[i][a] + (int)strlen(str);              \\n    \\n    if((int)strlen(str) > matrix[a][b]) \\n    \\tmatrix[a][b] = (int)strlen(str);\\n    n--;  \\t\\n  }  \\n  \\n  for(k = 0; k < MAX; k++)\\n    for(i = 0; i < MAX; i++)\\n      for(j = 0; j < MAX; j++)\\n        if(matrix[i][k] && matrix[k][j] && matrix[i][j] < matrix[i][k] + matrix[k][j])\\n          matrix[i][j] = matrix[i][k] + matrix[k][j];\\n  \\n  printf(\\\"%d\\\\n\\\", maiorElem(matrix));\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1215,
+    "completion_tokens": 602,
+    "total_tokens": 1817,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1215
+  },
+  "raw_sha256": "932fe5da9add35650c81c6c4d038f96d5f32622652742a73a7b04256206be731",
+  "ended_utc": "2026-11-16T02:52:21.942590+00:00",
+  "elapsed_seconds": 2.7857
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1547/BP3/repair/1",
+  "case_id": "BP17-1547",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "d79ad3031498b700d33a31367cc52012fab1d15ea8f5bbe560ab12368394982a",
+  "started_utc": "2026-10-17T14:05:19.825009+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8b2de189-0e9b-4428-b9ed-ae491d6d5f9e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint find(int n,int m,int a[]){\\n\\tint i,j,temp;\\n\\tfor(i=0;i<m;i++){\\n\\t\\tfor(j=0;j<(m-i-1);j++){\\n\\t\\t\\tif(a[j]>a[j+1]){\\n\\t\\t\\t\\ttemp = a[j];\\n\\t\\t\\t\\ta[j] = a[j+1];\\n\\t\\t\\t\\ta[j+1] = temp;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\ttemp = a[n-1]-a[0];\\n\\tfor(i=1;i<=(m-n);i++){\\n\\t\\tif((a[i+n-1]-a[i])<temp)\\n\\t\\ttemp = a[i+n-1]-a[i];\\n\\t}\\n\\treturn temp;\\n}\\nint main(int argc, char *argv[]) {\\n\\tint n,m,a[50],i;\\n\\tscanf(\\\"%d %d\\\",&n,&m);\\n\\tfor(i=0;i<m;i++){\\n\\t\\tscanf(\\\"%d\\\",&a[i]);\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",find(n,m,a));\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1491,
+    "completion_tokens": 287,
+    "total_tokens": 1778,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1491
+  },
+  "raw_sha256": "b7b97b4c382514142f50a67fde0c01bdcd1968cc51f5b233b851ccdeefdf4eba",
+  "ended_utc": "2026-10-17T14:05:21.741009+00:00",
+  "elapsed_seconds": 1.922
+}

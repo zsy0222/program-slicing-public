@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-2221",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[]) {\\n    char leaves[101][21]; // leaves\\n    int i, j, k, l, new, nleaves,tleaves, ncasos;\\n    char tree[11], color[11], leaf[21];\\n\\n        scanf(\\\"%d\\\",&tleaves);\\n        scanf(\\\"%s%s\\\",tree,color);\\n        strcpy(leaf,tree);\\n        strcat(leaf,\\\" \\\");\\n        strcat(leaf,color);\\n\\n        strcpy(leaves[0],leaf); /*min is 1 */\\n        nleaves = 1;\\n\\n        for (i=1;i<tleaves;i++) {\\n            scanf(\\\"%s%s\\\",tree,color);\\n            strcpy(leaf,tree);\\n            strcat(leaf,\\\" \\\");\\n            strcat(leaf,color);\\n             //printf(\\\"[%s]\\\\n\\\",&leaf);\\n\\n            new =1;\\n            for (l=0; l<nleaves; l++)\\n              if (!strcmp(leaf,leaves[l])) {\\n                  new = 0;\\n                  break;\\n                  }\\n            if (new==1) {\\n            strcpy(leaves[nleaves],leaf);\\n            nleaves++;\\n            }\\n        }\\n        //printf(\\\"nleaves=\\\");\\n        printf(\\\"%d\\\\n\\\",nleaves);\\n        return 0;\\n}\"}",
+  "elapsed_seconds": 2.125,
+  "ended_utc": "2026-10-17T07:09:13.851266+00:00",
+  "finish_reason": "stop",
+  "group": "BP3",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2221/BP3/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "943e27e88a3a60d92060b933f6bb937d0b2d74f9acac6bdf74bb0f6c917f8c04",
+  "request_model": "deepseek-flash",
+  "request_sha256": "f71d59c74e88cf1b042bdaa70959c2f3685fee2312d5c8c7b7b51dc04056d4b9",
+  "response_id": "804eb840-dba8-436e-aa83-037ccedb1b20",
+  "started_utc": "2026-10-17T07:09:11.643544+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 362,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1455,
+    "prompt_tokens": 1455,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1817
+  }
+}

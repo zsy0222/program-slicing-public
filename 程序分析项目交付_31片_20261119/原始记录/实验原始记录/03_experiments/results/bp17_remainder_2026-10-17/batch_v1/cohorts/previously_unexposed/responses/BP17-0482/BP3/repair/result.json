@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0482/BP3/repair/1",
+  "case_id": "BP17-0482",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "3b97feb1a0282cf0953a6557f24b58276cd894fbadc993f34f939f97ab88c5a0",
+  "started_utc": "2026-11-16T15:41:06.777973+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a1e16118-d150-40ab-9322-bd5fe1adf534",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include \\\"stdio.h\\\"\\n\\n#define min(a,b) ((a)<(b)?(a):(b))\\n#define max(a,b) ((a)>(b)?(a):(b))\\n\\n#define N 4005\\n#define T 84600\\n\\nint best[N][N], n, k, t[N], d[N], i, j, ans;\\n\\nint main(int argc, char *argv[])\\n{\\n\\tscanf( \\\"%d%d\\\", &n, &k );\\n\\tfor( i = 1; i <= n; i++ ) scanf( \\\"%d%d\\\", &t[i], &d[i] );\\n\\tt[n+1] = T+1;\\n\\tfor( i = 1; i <= n+1; i++ )\\n\\t{\\n\\t\\tans = max( ans, t[i] - 1 - best[i-1][k] );\\n\\t\\tbest[i][0] = max( best[i-1][0], t[i] - 1 ) + d[i];\\n\\t\\tfor( j = 1; j <= k; j++ ) best[i][j] = min( best[i-1][j-1], max( best[i-1][j], t[i] - 1 ) + d[i] );\\n\\t}\\n\\tprintf( \\\"%d\\\\n\\\", ans );\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1402,
+    "completion_tokens": 319,
+    "total_tokens": 1721,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 506
+  },
+  "raw_sha256": "1af03d7360873601eefa87d9b9aa97a73ea1253908c54bfdaa2f05139f47dbeb",
+  "ended_utc": "2026-11-16T15:41:09.095416+00:00",
+  "elapsed_seconds": 2.2247
+}

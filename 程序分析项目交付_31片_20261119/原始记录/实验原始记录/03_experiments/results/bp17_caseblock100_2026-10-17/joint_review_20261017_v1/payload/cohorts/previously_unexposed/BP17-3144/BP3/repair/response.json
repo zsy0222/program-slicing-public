@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3144",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n\\tint n;\\n\\tint **a;\\n\\tint i,j,max=0,x=0,y=0,k,l;\\n\\tint *ans;\\n\\tscanf(\\\"%d\\\",&n);\\n\\n\\ta = (int **)malloc((2*n) * sizeof(int *));\\n        for (i=0; i<2*n; i++)\\n             a[i] =(int *)malloc((2*n) * sizeof(int));\\n\\n\\tans = (int *)calloc((2*n) , sizeof(int));\\n\\t\\n\\tfor(i=1;i<=(2*n-1);i++)\\n\\t{\\t\\n\\t\\tfor(j=0;j<i;j++)\\n\\t\\t{\\t\\t\\t\\n\\t\\t\\tscanf(\\\"%d\\\",&a[i][j]);\\n\\t\\t}\\n\\t}\\n\\tfor(k=0;k<=(2*n-1)/2;k++)\\n\\t{\\n\\t\\tmax = 0;\\n\\t\\tfor(i=1;i<=(2*n-1);i++)\\n\\t\\t{\\t\\n\\t\\t\\tfor(j=0;j<i;j++)\\n\\t\\t\\t{\\t\\t\\t\\n\\t\\t\\t\\tif(a[i][j] > max)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tmax = a[i][j];\\n\\t\\t\\t\\t\\tx = i;\\n\\t\\t\\t\\t\\ty = j;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tans[x] = y;\\n\\t\\tans[y] = x;\\n\\t\\tfor(l=0;l<2*n;l++)\\n\\t\\t{\\n\\t\\t\\ta[x][l] = a[y][l] = a[l][x] = a[l][y] = 0;\\n\\t\\t}\\n\\t\\t\\n\\t}\\n\\tfor(i=0;i<2*n;i++)\\n\\t\\tprintf(\\\"%d \\\",ans[i]+1);\\n\\tprintf(\\\"\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 2.079,
+  "ended_utc": "2026-10-17T07:15:56.001278+00:00",
+  "finish_reason": "stop",
+  "group": "BP3",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3144/BP3/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "7f0b144ac1f79c9f0d89d7c52164b331152084192660a82dc7ed7534e610e57b",
+  "request_model": "deepseek-flash",
+  "request_sha256": "30091bab3b9c6f937044a534a38d5ac632713d78b57ff5f4765f3ebb146802e9",
+  "response_id": "e1e080f8-280f-4114-b473-6e77be346006",
+  "started_utc": "2026-10-17T07:15:53.920768+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 482,
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 735,
+    "prompt_tokens": 1887,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "total_tokens": 2369
+  }
+}

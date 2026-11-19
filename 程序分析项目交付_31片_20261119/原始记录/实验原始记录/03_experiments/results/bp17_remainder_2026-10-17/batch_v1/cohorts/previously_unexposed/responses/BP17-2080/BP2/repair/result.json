@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2080/BP2/repair/1",
+  "case_id": "BP17-2080",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d539be113824c9f8bae7f7e4f142ed1cd7c12e4424e7d8e8d824f1a9d8c16a7f",
+  "started_utc": "2026-11-16T18:10:06.237671+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d93112d7-d288-4fa2-ab1d-7f21df777ac2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdlib.h>\\n#include <stdio.h>\\n\\nstruct record {\\n    int c;\\n    int p;\\n    int i;\\n};\\n\\nstruct table {\\n    int r;\\n    int i;\\n};\\n\\nstruct ans {\\n    int a;\\n    int b;\\n};\\n\\nstruct record D[1001];\\nstruct table  R[1001];\\nstruct ans    A[1001];\\n\\nint dcompare(const void *a, const void *b) {\\n    int diff = ((struct record*)a)->c - ((struct record*)b)->c;\\n    if (diff == 0) {\\n        return ((struct record*)a)->p - ((struct record*)b)->p;\\n    } else {\\n        return diff;\\n    }\\n}\\n\\nint rcompare(const void *a, const void *b) {\\n    return ((struct table*)a)->r - ((struct table*)b)->r;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int n, i, j, k;\\n    int cnt = 0, sum = 0;\\n    scanf(\\\"%d\\\", &n);\\n    for (i = 0; i < n; i++) {\\n        scanf(\\\"%d%d\\\", &D[i].c, &D[i].p);\\n        D[i].i = i;\\n    }\\n    scanf(\\\"%d\\\", &k);\\n    for (i = 0; i < k; i++) {\\n        scanf(\\\"%d\\\", &R[i].r);\\n        R[i].i = i;\\n    }\\n    qsort(D, n, sizeof(struct record), &dcompare);\\n    qsort(R, k, sizeof(struct table),  &rcompare);\\n    for (i = 0; i < k; i++) {\\n        int M = 0, m = -1;\\n        for (j = 0; j < n && D[j].c <= R[i].r; j++) {\\n            if (M < D[j].p) {\\n                M = D[j].p;\\n                m = j;\\n            }\\n        }\\n        if (m != -1) {\\n            A[cnt].a = D[m].i + 1;\\n            A[cnt].b = R[i].i + 1;\\n            sum += D[m].p;\\n            cnt++;\\n            D[m].p = 0;\\n        }\\n    }\\n    printf(\\\"%d %d\\\\n\\\", cnt, sum);\\n    for (i = 0; i < cnt; i++) {\\n        printf(\\\"%d %d\\\\n\\\", A[i].a, A[i].b);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2405,
+    "completion_tokens": 632,
+    "total_tokens": 3037,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 869
+  },
+  "raw_sha256": "22c89a89895d4a7577e2f000a15ca4b2b3561a183aff782e899fa35e71a92789",
+  "ended_utc": "2026-11-16T18:10:09.843172+00:00",
+  "elapsed_seconds": 3.511
+}

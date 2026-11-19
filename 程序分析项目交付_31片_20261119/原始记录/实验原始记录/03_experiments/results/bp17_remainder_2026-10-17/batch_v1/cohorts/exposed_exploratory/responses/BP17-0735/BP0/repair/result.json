@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0735/BP0/repair/1",
+  "case_id": "BP17-0735",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "26b4a8e05623ea452e90d62e7ab1373536c8b59d8ebb1b81df5c2fcbc108b1fc",
+  "started_utc": "2026-10-18T11:47:39.031524+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f0e74965-b7a0-465b-beca-17ac185ae5b1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<string.h>\\nint valid(char c){\\n    if((c>='A' && c<='Z')||(c>='a' && c<='z')|| (c>='0'&&c<='9') || c=='_') return 1;\\n    return 0;\\n}\\nvoid no(){\\n    printf(\\\"NO\\\\n\\\");\\n    exit(0);\\n}\\nint main(int argc, char *argv[])\\n{\\n    //freopen(\\\"in.txt\\\", \\\"r\\\", stdin);\\n    char id[110];\\n    fgets(id,110, stdin);\\n\\n    char *user, *host, *res;\\n\\n    if(id[0]=='@') no();\\n\\n    user = strtok(id, \\\"@\\\");\\n    host = strtok(NULL, \\\"/\\\");\\n    if(host==NULL) {\\n        host=strtok(NULL, \\\"\\\\n\\\");\\n        res=NULL;\\n    }\\n    else {\\n        res = strtok(NULL, \\\"\\\\n\\\");\\n    }\\n\\n    //printf(\\\"%s %s %s\\\\n\\\", user, host, res);\\n\\n    if(user==NULL || host==NULL) no();\\n    if(strlen(user)>16 || strlen(host)>32) no();\\n\\n    int i;\\n\\n    if(user){\\n        for(i=0; user[i]!='\\\\0'; i++){\\n            if(!valid(user[i])) no();\\n        }\\n    }\\n    int word=0;\\n    if(host){\\n        for(i=0; host[i]!='\\\\0'; i++){\\n            if(valid(host[i])) word++;\\n            else if(host[i]=='.'){\\n                if(word<1 || word>16) no();\\n                word=0;\\n            }\\n            else{\\n                if(host[i]!='\\\\n') no();\\n            }\\n        }\\n    }\\n    if(word==0) no();\\n\\n    if(res){\\n        for(i=0; res[i]!='\\\\0'; i++) {\\n            if(!valid(res[i])) no();\\n        }\\n    }\\n    //printf(\\\"%s %s %s\\\\n\\\", user, host, res);\\n    printf(\\\"YES\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1303,
+    "completion_tokens": 559,
+    "total_tokens": 1862,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1303
+  },
+  "raw_sha256": "e81cc7ac926b3c0231536dac25e532780e213dcb7278fbb27666f4f43e8a6c5f",
+  "ended_utc": "2026-10-18T11:47:41.438197+00:00",
+  "elapsed_seconds": 2.406
+}

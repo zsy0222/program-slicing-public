@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1543/BP2/repair/1",
+  "case_id": "BP17-1543",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "cd420a28173aa4ba96471f31fcd66ff68487ffdee77557985bf97ee23ec2055c",
+  "started_utc": "2026-11-16T16:24:50.096227+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e33d6b74-c931-4909-b6e1-7858f361b591",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define pp printf\\n#define ss scanf\\n#define min(a,b) ((a)<(b)) ? (a) : (b)\\n#define max(a,b) ((a)>(b)) ? (a) : (b)\\nint st,pz,a[1044],r[1044],i;\\nvoid merge(int bas,int son,int ort){\\n\\tint yer=bas,x=bas,y=ort+1,t,i;\\n\\twhile(x<=ort && y<=son){\\n\\t\\tif(a[x]< a[y])\\n\\t\\t\\tr[yer++]=a[x++];\\n\\t\\telse\\n\\t\\t\\tr[yer++]=a[y++];\\n\\t}\\n\\twhile(x <= ort) r[yer++]=a[x++];\\n\\twhile(y <= son) r[yer++]=a[y++];\\n\\tfor(i=bas;i<=son;i++) a[i]=r[i];}\\n\\tint sort(int bas,int son){\\n\\t\\tif(son<=bas) return 0;\\n\\t\\tint ort=(bas+son)/2;\\n\\t\\tsort(bas,ort);\\n\\t\\tsort(ort+1,son);\\n\\t\\tmerge(bas,son,ort);\\n\\t\\treturn 0;\\n\\t}\\n\\nint main(int argc, char *argv[]){\\n\\tint mn=9999;\\n\\tss(\\\"%d%d\\\",&st,&pz);\\n\\tfor(i=0;i<pz;i++)\\n\\t\\tss(\\\"%d\\\",a+i);\\n\\tsort(0,pz-1);\\n\\tfor(i=0;i<pz-st;i++)\\n\\t\\tmn=min(mn,a[i+st]-a[i]);\\n\\tpp(\\\"%d\\\\n\\\",mn);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1968,
+    "completion_tokens": 411,
+    "total_tokens": 2379,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1968
+  },
+  "raw_sha256": "be8b08104600d0c7ab0af5f965db04897ddd8a32e47cf7fe26105f0d3f8bf87b",
+  "ended_utc": "2026-11-16T16:24:52.451128+00:00",
+  "elapsed_seconds": 2.2985
+}

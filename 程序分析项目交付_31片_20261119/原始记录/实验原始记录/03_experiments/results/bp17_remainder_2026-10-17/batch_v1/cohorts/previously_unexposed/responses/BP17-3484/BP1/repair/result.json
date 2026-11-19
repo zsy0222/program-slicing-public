@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3484/BP1/repair/1",
+  "case_id": "BP17-3484",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "cbf0dc6621a9ecc57049bdd40bb6740e87f80e9fb4f99b6739395d350c8d7cab",
+  "started_utc": "2026-11-16T17:11:52.723072+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0cd22741-d793-4078-93f6-4e577e39adf7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint compute(int *a, int *b, const int l, const int r) {\\n    int i, a_or, b_or;\\n    a_or = a[l];\\n    b_or = b[l];\\n\\n    for(i = l + 1; i <= r; i++) {\\n        a_or |= a[i];\\n        b_or |= b[i];\\n    }\\n\\n    return (a_or + b_or);\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int *a, *b, n, i, l, r, max;\\n    max = 0;\\n\\n    scanf(\\\"%d\\\", &n);\\n\\n    a = (int *) calloc(n, sizeof(int));\\n    b = (int *) calloc(n, sizeof(int));\\n\\n    for(i = 0; i < n; i++) { scanf(\\\"%d\\\", &a[i]); }\\n    for(i = 0; i < n; i++) { scanf(\\\"%d\\\", &b[i]); }\\n\\n    for(l = 0; l < n; l++) {\\n        for(r = l; r < n; r++) {\\n            int v = compute(a, b, l, r);\\n            if(v > max) {\\n                max = v;\\n            }\\n        }\\n    }\\n\\n    printf(\\\"%d\\\\n\\\", max);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1190,
+    "completion_tokens": 341,
+    "total_tokens": 1531,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 166
+  },
+  "raw_sha256": "95bbd15d0e23488867becf528f586a7a709f55018e4f077f16583dde0da0349b",
+  "ended_utc": "2026-11-16T17:11:55.227044+00:00",
+  "elapsed_seconds": 2.5018
+}

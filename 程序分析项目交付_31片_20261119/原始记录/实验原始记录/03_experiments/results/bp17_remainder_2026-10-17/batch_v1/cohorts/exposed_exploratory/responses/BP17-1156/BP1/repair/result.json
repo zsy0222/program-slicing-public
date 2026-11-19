@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1156/BP1/repair/1",
+  "case_id": "BP17-1156",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "2937f50860a1e689e70a0b67ac3a00b32120baded22e19220165e9534856a187",
+  "started_utc": "2026-11-18T03:02:59.742993+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f3ff7b7d-22cf-496f-b6e5-fa982fe7d3f7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n ,i;\\n    int arr[100] ={0};\\n    scanf(\\\"%d\\\",&n);\\n    for(i=0; i<n; i++)\\n    {\\n        scanf(\\\"%d\\\",&arr[i]);\\n    }\\n    int  s, t;\\n    scanf(\\\"%d %d\\\", &s, &t);\\n    if(s>t)\\n    {\\n        int temp = s;\\n        s = t;\\n        t = temp;\\n    }\\n    int d1=0, d2=0;\\n    if(t == s)\\n    {\\n        printf(\\\"0\\\");\\n    }\\n    else\\n    {\\n        for(i=s-1; i<t-1; i++)\\n        {\\n            d1 += arr[i];\\n        }\\n        for(i=t-1; i!=s-1; i++)\\n        {\\n            if(i == n)\\n            {\\n                i = 0;\\n            }\\n            d2 += arr[i];\\n            if(i == s-1)\\n            {\\n                break;\\n            }\\n        }\\n        if(d1 > d2)\\n            printf(\\\"%d\\\",d2);\\n        else\\n            printf(\\\"%d\\\",d1);\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1122,
+    "completion_tokens": 336,
+    "total_tokens": 1458,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1122
+  },
+  "raw_sha256": "2b6b6b00bfe8d0f5e68803c8c773479d9c71a323c303498865183e2d9c88981c",
+  "ended_utc": "2026-11-18T03:03:01.708910+00:00",
+  "elapsed_seconds": 1.9627
+}

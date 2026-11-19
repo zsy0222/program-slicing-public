@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2677/BP2/repair/1",
+  "case_id": "BP17-2677",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d9f632890c5bb7ec71d68bb0776ded5638448f939db80265b341eaa7e2d89573",
+  "started_utc": "2026-11-16T17:48:38.641337+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c7ed7f2a-2b76-488d-a95a-eff5d3a54105",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\n\\nint main(int argc, const char * argv[]) \\n{\\n\\tint n,m;\\n\\tint i,j;\\n\\tchar (*l1)[11],(*l2)[11];\\n\\tchar (*r)[11];\\n\\tchar lec[11];\\n\\tscanf(\\\"%d\\\",&n);\\n\\tscanf(\\\"%d\\\",&m);\\n\\tl1 = malloc(sizeof(char)*11*m);\\n\\tl2 = malloc(sizeof(char)*11*m);\\n\\tr = malloc(sizeof(char)*11*m);\\n\\t// lec = malloc(sizeof(char)*11*n);\\n\\tfor(i = 0; i < m; i++){\\n\\t\\tscanf(\\\"%s %s\\\",l1[i],l2[i]);\\n\\t\\tif(strlen(l1[i]) <= strlen(l2[i]))\\n\\t\\t\\tstrcpy(r[i],l1[i]);\\n\\t\\telse\\n\\t\\t\\tstrcpy(r[i],l2[i]);\\n\\t}\\n\\tfor(i = 0; i < n; i++){\\n\\t\\tscanf(\\\"%s\\\",lec);\\n\\t\\t//find index\\n\\t\\tfor(j = 0; j < m; j++)\\n\\t\\t\\tif(!strcmp(lec,l1[j]) || !strcmp(lec,l2[j]))\\n\\t\\t\\t\\tbreak;\\n\\t\\tprintf((i!=n-1) ? \\\"%s \\\" : \\\"%s\\\\n\\\",r[j]);\\n\\t}\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2015,
+    "completion_tokens": 369,
+    "total_tokens": 2384,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 607
+  },
+  "raw_sha256": "6033c1e24782dfa49c4ea91d917c2640c3a45917584eafbf7d1862a825765a34",
+  "ended_utc": "2026-11-16T17:48:40.800234+00:00",
+  "elapsed_seconds": 2.1569
+}

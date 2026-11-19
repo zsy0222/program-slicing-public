@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0316/BP0/repair/1",
+  "case_id": "BP17-0316",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "372d52073b59e374233977e4fb103c9f1eb6d20f031d35d9c96ea9eca94707ee",
+  "started_utc": "2026-10-21T07:45:36.434955+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6ab7d044-cd5e-46a7-8ed1-cb7ea5e58de0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nvoid sort(int *pointer, int size, int comienzo, int fin);\\n\\nint main(int argc, char *argv[]){\\n    int n, done = 0, penalty = 0, total = 0, ban = 0, count=0;\\n    int i;\\n\\n    scanf(\\\"%d\\\", &n);\\n    int time[n];\\n\\n    for(i=0; i<n; i++){\\n        scanf(\\\"%d\\\", &time[i]);\\n    }\\n\\n    sort(time, n, 0, n);\\n\\n    total = 350;\\n    for(i=0; i<n; i++){\\n        if(time[i] <= total){\\n            total-=time[i];\\n            done++;\\n            if(ban==1){\\n                count += time[i];\\n                penalty+=count;\\n            }\\n        }else{\\n            if((time[i] > total) && (ban == 0) && (time[i]-360 < 360) && time[i]<710){\\n                penalty = penalty + (time[i] - total);\\n                count = penalty;\\n                total = (360 - penalty);\\n                done++;\\n                ban = 1;\\n            }\\n        }\\n    }\\n\\n    printf(\\\"%d %d\\\", done, penalty);\\n\\n    return 0;\\n}\\n\\nvoid sort(int *pointer, int size, int comienzo, int fin){\\n  int i, j, temp;\\n  for(i = comienzo; i < fin; i++){\\n     for(j = i + 1; j < fin; j++){\\n         if(*(pointer+j) < *(pointer+i)){\\n             temp = *(pointer+j);\\n             *(pointer+j) = *(pointer+i);\\n             *(pointer+i) = temp;\\n         }\\n     }\\n  }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1146,
+    "completion_tokens": 435,
+    "total_tokens": 1581,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1146
+  },
+  "raw_sha256": "273452821ff9c99689ebe098126d11974b2fb7d1df99bf6af6c996bd93402e36",
+  "ended_utc": "2026-10-21T07:45:38.658896+00:00",
+  "elapsed_seconds": 2.109
+}

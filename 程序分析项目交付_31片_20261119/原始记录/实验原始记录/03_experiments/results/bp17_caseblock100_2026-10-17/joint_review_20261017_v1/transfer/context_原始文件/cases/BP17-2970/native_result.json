@@ -1,0 +1,697 @@
+{
+  "schema": "Codeflaws-independent-native-baseline-20261008-v2",
+  "case_id": "546-D-bug-11891609-11891769",
+  "cluster_root": "546-D-bug-11891609-11891769",
+  "metadata": {
+    "case_id": "546-D-bug-11891609-11891769",
+    "directory": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769",
+    "buggy": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/546-D-11891609.c",
+    "reference": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/546-D-11891769.c",
+    "source_hashes": {
+      "buggy": "d5e6c1108426a267dcd3ec58da5b22f85ed7fb00bc597b093f3c5b4b68dad20a",
+      "reference": "175f1c8f3cc333b3326c8f4dc3675fe2e67bfaaec00ae85fe3b58b00a11d128b"
+    },
+    "suites": {
+      "repair": [
+        {
+          "id": "input-neg1",
+          "input": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/input-neg1",
+          "expected": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/output-neg1",
+          "input_sha256": "167baed4e20db90fa82bbeda3ab677b2823abb443f1f855385a14834a0d8d1de",
+          "expected_sha256": "eeef67c168eebc0054a121625e4fac82739f0bf05f1b16b88ca81eb45cdee483"
+        },
+        {
+          "id": "input-pos1",
+          "input": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/input-pos1",
+          "expected": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/output-pos1",
+          "input_sha256": "ecf175bf0f81b7e895b5b75eaf4e9cadb5f874643fdacaedbf6f32a25567b188",
+          "expected_sha256": "05b6a35fb70bc2b734e11eaefb4692bc082651030133fedc7fc0d759efb71e6d"
+        }
+      ],
+      "heldout": [
+        {
+          "id": "heldout-input-pos2",
+          "input": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-input-pos2",
+          "expected": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-output-pos2",
+          "input_sha256": "167baed4e20db90fa82bbeda3ab677b2823abb443f1f855385a14834a0d8d1de",
+          "expected_sha256": "eeef67c168eebc0054a121625e4fac82739f0bf05f1b16b88ca81eb45cdee483"
+        },
+        {
+          "id": "heldout-input-pos25",
+          "input": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-input-pos25",
+          "expected": "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-output-pos25",
+          "input_sha256": "39987109e3b7a132a673001f97dbff3f41b71fc3f3a25bc94cc2b8b7f13d0e10",
+          "expected_sha256": "e2773e1ae9222f2f7c3367d15f80fc1566cfc72858e89da4e0b450fa82c051f5"
+        }
+      ]
+    },
+    "missing_test_files": [],
+    "test_admission_reasons": [],
+    "status": "candidate_needs_execution",
+    "makefile_sha256": "e6dbde255c070c35aa51188a65e0a218f52ffa7ba507736740e9993ee29f1083",
+    "analyzer_admission": "not_run",
+    "formal_model_ready": false
+  },
+  "recipe": {
+    "cflags": [
+      "-fno-optimize-sibling-calls",
+      "-fno-strict-aliasing",
+      "-fno-asm",
+      "-std=c99"
+    ],
+    "ldflags": [
+      "-lm",
+      "-s",
+      "-O2"
+    ],
+    "suites": {
+      "repair": {
+        "script": "test-genprog.sh",
+        "sha256": "5d9a3bd39295e5a5518b8ee76476378b1ea74c2c7bc58e83830b9e45eae6fd88",
+        "normalizer": "blank_and_leading"
+      },
+      "heldout": {
+        "script": "test-valid.sh",
+        "sha256": "f890dc52744d73a76da19f3f660536892acaed80404db10ec383a47b8b5d823f",
+        "normalizer": "blank_and_leading"
+      }
+    }
+  },
+  "origin": "new_execution",
+  "tests": [
+    {
+      "suite": "repair",
+      "id": "input-neg1",
+      "sides": {
+        "buggy": {
+          "execute": {
+            "returncode": 0,
+            "timeout": false,
+            "output_limited": false,
+            "stdout_sha256": "310a919b67af9d9ef92a6a7c61007f4e09139b0e62677178f76eef5be8918155",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 18,
+            "stderr_bytes": 0,
+            "seconds": 0.8059
+          },
+          "comparison": {
+            "profile": "blank_and_leading",
+            "normalizers": [
+              {
+                "command": [
+                  "sed",
+                  "-e",
+                  "/^$/d",
+                  "-e",
+                  "s/^[ \\t]*//"
+                ],
+                "returncode": 0,
+                "timeout": false,
+                "seconds": 0.0558,
+                "stdout": "8\n1\n-3\n5\n1\n4\n0\n15\n",
+                "stderr": "",
+                "stdout_sha256": "310a919b67af9d9ef92a6a7c61007f4e09139b0e62677178f76eef5be8918155",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_hex": "380a310a2d330a350a310a340a300a31350a"
+              }
+            ],
+            "diff": {
+              "command": [
+                "diff",
+                "--brief",
+                "--ignore-trailing-space",
+                "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-neg1/buggy/normalized_stdout",
+                "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/output-neg1"
+              ],
+              "returncode": 1,
+              "timeout": false,
+              "seconds": 0.0326,
+              "stdout": "Files /home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-neg1/buggy/normalized_stdout and /home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/output-neg1 differ\n",
+              "stderr": "",
+              "stdout_sha256": "59da4980cf830cef84cee2aaafa77d0948e355ca99a2ead6802035f80312b2fd",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_hex": "46696c6573202f686f6d652f76626f78757365722f636662322f72756e732f63617365732f3534362d442d6275672d31313839313630392d31313839313736392f617474656d70745f3030312f7265706169725f696e7075742d6e6567312f62756767792f6e6f726d616c697a65645f7374646f757420616e64202f686f6d652f76626f78757365722f636f6465666c6177735f6578705f32303236303932372f636f6465666c6177732f3534362d442d6275672d31313839313630392d31313839313736392f6f75747075742d6e656731206469666665720a"
+            },
+            "valid": true,
+            "equal": false,
+            "normalized_sha256": "310a919b67af9d9ef92a6a7c61007f4e09139b0e62677178f76eef5be8918155"
+          },
+          "status": "output_mismatch",
+          "pass": false,
+          "artifact_directory": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-neg1/buggy"
+        },
+        "reference": {
+          "execute": {
+            "returncode": 0,
+            "timeout": false,
+            "output_limited": false,
+            "stdout_sha256": "eeef67c168eebc0054a121625e4fac82739f0bf05f1b16b88ca81eb45cdee483",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 18,
+            "stderr_bytes": 0,
+            "seconds": 0.5645
+          },
+          "comparison": {
+            "profile": "blank_and_leading",
+            "normalizers": [
+              {
+                "command": [
+                  "sed",
+                  "-e",
+                  "/^$/d",
+                  "-e",
+                  "s/^[ \\t]*//"
+                ],
+                "returncode": 0,
+                "timeout": false,
+                "seconds": 0.0161,
+                "stdout": "8\n1\n1\n23\n1\n4\n0\n15\n",
+                "stderr": "",
+                "stdout_sha256": "eeef67c168eebc0054a121625e4fac82739f0bf05f1b16b88ca81eb45cdee483",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_hex": "380a310a310a32330a310a340a300a31350a"
+              }
+            ],
+            "diff": {
+              "command": [
+                "diff",
+                "--brief",
+                "--ignore-trailing-space",
+                "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-neg1/reference/normalized_stdout",
+                "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/output-neg1"
+              ],
+              "returncode": 0,
+              "timeout": false,
+              "seconds": 0.0239,
+              "stdout": "",
+              "stderr": "",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_hex": ""
+            },
+            "valid": true,
+            "equal": true,
+            "normalized_sha256": "eeef67c168eebc0054a121625e4fac82739f0bf05f1b16b88ca81eb45cdee483"
+          },
+          "status": "pass",
+          "pass": true,
+          "artifact_directory": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-neg1/reference"
+        }
+      }
+    },
+    {
+      "suite": "repair",
+      "id": "input-pos1",
+      "sides": {
+        "buggy": {
+          "execute": {
+            "returncode": 0,
+            "timeout": false,
+            "output_limited": false,
+            "stdout_sha256": "b4c2d9b5e354b00d5f5840deec4dd744f79b8851f8ea1d97c3be47e932953ac5",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 4,
+            "stderr_bytes": 0,
+            "seconds": 0.4573
+          },
+          "comparison": {
+            "profile": "blank_and_leading",
+            "normalizers": [
+              {
+                "command": [
+                  "sed",
+                  "-e",
+                  "/^$/d",
+                  "-e",
+                  "s/^[ \\t]*//"
+                ],
+                "returncode": 0,
+                "timeout": false,
+                "seconds": 0.0256,
+                "stdout": "2\n5\n",
+                "stderr": "",
+                "stdout_sha256": "b4c2d9b5e354b00d5f5840deec4dd744f79b8851f8ea1d97c3be47e932953ac5",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_hex": "320a350a"
+              }
+            ],
+            "diff": {
+              "command": [
+                "diff",
+                "--brief",
+                "--ignore-trailing-space",
+                "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-pos1/buggy/normalized_stdout",
+                "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/output-pos1"
+              ],
+              "returncode": 0,
+              "timeout": false,
+              "seconds": 0.0244,
+              "stdout": "",
+              "stderr": "",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_hex": ""
+            },
+            "valid": true,
+            "equal": true,
+            "normalized_sha256": "b4c2d9b5e354b00d5f5840deec4dd744f79b8851f8ea1d97c3be47e932953ac5"
+          },
+          "status": "pass",
+          "pass": true,
+          "artifact_directory": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-pos1/buggy"
+        },
+        "reference": {
+          "execute": {
+            "returncode": 0,
+            "timeout": false,
+            "output_limited": false,
+            "stdout_sha256": "b4c2d9b5e354b00d5f5840deec4dd744f79b8851f8ea1d97c3be47e932953ac5",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 4,
+            "stderr_bytes": 0,
+            "seconds": 0.434
+          },
+          "comparison": {
+            "profile": "blank_and_leading",
+            "normalizers": [
+              {
+                "command": [
+                  "sed",
+                  "-e",
+                  "/^$/d",
+                  "-e",
+                  "s/^[ \\t]*//"
+                ],
+                "returncode": 0,
+                "timeout": false,
+                "seconds": 0.0142,
+                "stdout": "2\n5\n",
+                "stderr": "",
+                "stdout_sha256": "b4c2d9b5e354b00d5f5840deec4dd744f79b8851f8ea1d97c3be47e932953ac5",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_hex": "320a350a"
+              }
+            ],
+            "diff": {
+              "command": [
+                "diff",
+                "--brief",
+                "--ignore-trailing-space",
+                "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-pos1/reference/normalized_stdout",
+                "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/output-pos1"
+              ],
+              "returncode": 0,
+              "timeout": false,
+              "seconds": 0.0074,
+              "stdout": "",
+              "stderr": "",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_hex": ""
+            },
+            "valid": true,
+            "equal": true,
+            "normalized_sha256": "b4c2d9b5e354b00d5f5840deec4dd744f79b8851f8ea1d97c3be47e932953ac5"
+          },
+          "status": "pass",
+          "pass": true,
+          "artifact_directory": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/repair_input-pos1/reference"
+        }
+      }
+    },
+    {
+      "suite": "heldout",
+      "id": "heldout-input-pos2",
+      "sides": {
+        "buggy": {
+          "execute": {
+            "returncode": 0,
+            "timeout": false,
+            "output_limited": false,
+            "stdout_sha256": "310a919b67af9d9ef92a6a7c61007f4e09139b0e62677178f76eef5be8918155",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 18,
+            "stderr_bytes": 0,
+            "seconds": 0.3277
+          },
+          "comparison": {
+            "profile": "blank_and_leading",
+            "normalizers": [
+              {
+                "command": [
+                  "sed",
+                  "-e",
+                  "/^$/d",
+                  "-e",
+                  "s/^[ \\t]*//"
+                ],
+                "returncode": 0,
+                "timeout": false,
+                "seconds": 0.0074,
+                "stdout": "8\n1\n-3\n5\n1\n4\n0\n15\n",
+                "stderr": "",
+                "stdout_sha256": "310a919b67af9d9ef92a6a7c61007f4e09139b0e62677178f76eef5be8918155",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_hex": "380a310a2d330a350a310a340a300a31350a"
+              }
+            ],
+            "diff": {
+              "command": [
+                "diff",
+                "--brief",
+                "--ignore-trailing-space",
+                "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos2/buggy/normalized_stdout",
+                "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-output-pos2"
+              ],
+              "returncode": 1,
+              "timeout": false,
+              "seconds": 0.0053,
+              "stdout": "Files /home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos2/buggy/normalized_stdout and /home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-output-pos2 differ\n",
+              "stderr": "",
+              "stdout_sha256": "7d4fefb566aa117dfb2b7132f22d2973e0e97260415523c27903baed5e297463",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_hex": "46696c6573202f686f6d652f76626f78757365722f636662322f72756e732f63617365732f3534362d442d6275672d31313839313630392d31313839313736392f617474656d70745f3030312f68656c646f75745f68656c646f75742d696e7075742d706f73322f62756767792f6e6f726d616c697a65645f7374646f757420616e64202f686f6d652f76626f78757365722f636f6465666c6177735f6578705f32303236303932372f636f6465666c6177732f3534362d442d6275672d31313839313630392d31313839313736392f68656c646f75742d6f75747075742d706f7332206469666665720a"
+            },
+            "valid": true,
+            "equal": false,
+            "normalized_sha256": "310a919b67af9d9ef92a6a7c61007f4e09139b0e62677178f76eef5be8918155"
+          },
+          "status": "output_mismatch",
+          "pass": false,
+          "artifact_directory": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos2/buggy"
+        },
+        "reference": {
+          "execute": {
+            "returncode": 0,
+            "timeout": false,
+            "output_limited": false,
+            "stdout_sha256": "eeef67c168eebc0054a121625e4fac82739f0bf05f1b16b88ca81eb45cdee483",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 18,
+            "stderr_bytes": 0,
+            "seconds": 0.3938
+          },
+          "comparison": {
+            "profile": "blank_and_leading",
+            "normalizers": [
+              {
+                "command": [
+                  "sed",
+                  "-e",
+                  "/^$/d",
+                  "-e",
+                  "s/^[ \\t]*//"
+                ],
+                "returncode": 0,
+                "timeout": false,
+                "seconds": 0.01,
+                "stdout": "8\n1\n1\n23\n1\n4\n0\n15\n",
+                "stderr": "",
+                "stdout_sha256": "eeef67c168eebc0054a121625e4fac82739f0bf05f1b16b88ca81eb45cdee483",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_hex": "380a310a310a32330a310a340a300a31350a"
+              }
+            ],
+            "diff": {
+              "command": [
+                "diff",
+                "--brief",
+                "--ignore-trailing-space",
+                "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos2/reference/normalized_stdout",
+                "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-output-pos2"
+              ],
+              "returncode": 0,
+              "timeout": false,
+              "seconds": 0.0095,
+              "stdout": "",
+              "stderr": "",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_hex": ""
+            },
+            "valid": true,
+            "equal": true,
+            "normalized_sha256": "eeef67c168eebc0054a121625e4fac82739f0bf05f1b16b88ca81eb45cdee483"
+          },
+          "status": "pass",
+          "pass": true,
+          "artifact_directory": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos2/reference"
+        }
+      }
+    },
+    {
+      "suite": "heldout",
+      "id": "heldout-input-pos25",
+      "sides": {
+        "buggy": {
+          "execute": {
+            "returncode": 0,
+            "timeout": false,
+            "output_limited": false,
+            "stdout_sha256": "37eb4348dcf9fd688bdfebaffd5abd0a35abc74979969275ae655dd5404466d8",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 7,
+            "stderr_bytes": 0,
+            "seconds": 1.5201
+          },
+          "comparison": {
+            "profile": "blank_and_leading",
+            "normalizers": [
+              {
+                "command": [
+                  "sed",
+                  "-e",
+                  "/^$/d",
+                  "-e",
+                  "s/^[ \\t]*//"
+                ],
+                "returncode": 0,
+                "timeout": false,
+                "seconds": 0.1898,
+                "stdout": "0\n13\n0\n",
+                "stderr": "",
+                "stdout_sha256": "37eb4348dcf9fd688bdfebaffd5abd0a35abc74979969275ae655dd5404466d8",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_hex": "300a31330a300a"
+              }
+            ],
+            "diff": {
+              "command": [
+                "diff",
+                "--brief",
+                "--ignore-trailing-space",
+                "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos25/buggy/normalized_stdout",
+                "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-output-pos25"
+              ],
+              "returncode": 1,
+              "timeout": false,
+              "seconds": 0.0085,
+              "stdout": "Files /home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos25/buggy/normalized_stdout and /home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-output-pos25 differ\n",
+              "stderr": "",
+              "stdout_sha256": "35203209179e81b9e1261ddf97169a9d62e583a063fe297f4eb1ef017ea630dd",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_hex": "46696c6573202f686f6d652f76626f78757365722f636662322f72756e732f63617365732f3534362d442d6275672d31313839313630392d31313839313736392f617474656d70745f3030312f68656c646f75745f68656c646f75742d696e7075742d706f7332352f62756767792f6e6f726d616c697a65645f7374646f757420616e64202f686f6d652f76626f78757365722f636f6465666c6177735f6578705f32303236303932372f636f6465666c6177732f3534362d442d6275672d31313839313630392d31313839313736392f68656c646f75742d6f75747075742d706f733235206469666665720a"
+            },
+            "valid": true,
+            "equal": false,
+            "normalized_sha256": "37eb4348dcf9fd688bdfebaffd5abd0a35abc74979969275ae655dd5404466d8"
+          },
+          "status": "output_mismatch",
+          "pass": false,
+          "artifact_directory": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos25/buggy"
+        },
+        "reference": {
+          "execute": {
+            "returncode": 0,
+            "timeout": false,
+            "output_limited": false,
+            "stdout_sha256": "e2773e1ae9222f2f7c3367d15f80fc1566cfc72858e89da4e0b450fa82c051f5",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_bytes": 13,
+            "stderr_bytes": 0,
+            "seconds": 0.4506
+          },
+          "comparison": {
+            "profile": "blank_and_leading",
+            "normalizers": [
+              {
+                "command": [
+                  "sed",
+                  "-e",
+                  "/^$/d",
+                  "-e",
+                  "s/^[ \\t]*//"
+                ],
+                "returncode": 0,
+                "timeout": false,
+                "seconds": 0.0158,
+                "stdout": "0\n18703742\n0\n",
+                "stderr": "",
+                "stdout_sha256": "e2773e1ae9222f2f7c3367d15f80fc1566cfc72858e89da4e0b450fa82c051f5",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "stdout_hex": "300a31383730333734320a300a"
+              }
+            ],
+            "diff": {
+              "command": [
+                "diff",
+                "--brief",
+                "--ignore-trailing-space",
+                "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos25/reference/normalized_stdout",
+                "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/heldout-output-pos25"
+              ],
+              "returncode": 0,
+              "timeout": false,
+              "seconds": 0.0129,
+              "stdout": "",
+              "stderr": "",
+              "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stdout_hex": ""
+            },
+            "valid": true,
+            "equal": true,
+            "normalized_sha256": "e2773e1ae9222f2f7c3367d15f80fc1566cfc72858e89da4e0b450fa82c051f5"
+          },
+          "status": "pass",
+          "pass": true,
+          "artifact_directory": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/heldout_heldout-input-pos25/reference"
+        }
+      }
+    }
+  ],
+  "compilation": {
+    "buggy": {
+      "compile": {
+        "command": [
+          "gcc",
+          "-fno-optimize-sibling-calls",
+          "-fno-strict-aliasing",
+          "-fno-asm",
+          "-std=c99",
+          "-c",
+          "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/546-D-11891609.c",
+          "-o",
+          "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/buggy.o"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 0.1346,
+        "output_limit_exceeded": false,
+        "address_space_limit_mb": 1024,
+        "max_output_bytes": 16777216,
+        "stdout": "",
+        "stderr": "",
+        "stdout_file": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/buggy_compile.stdout.bin",
+        "stderr_file": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/buggy_compile.stderr.bin",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0
+      },
+      "link": {
+        "command": [
+          "gcc",
+          "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/buggy.o",
+          "-o",
+          "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/buggy",
+          "-lm",
+          "-s",
+          "-O2"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 0.1347,
+        "output_limit_exceeded": false,
+        "address_space_limit_mb": 1024,
+        "max_output_bytes": 16777216,
+        "stdout": "",
+        "stderr": "",
+        "stdout_file": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/buggy_link.stdout.bin",
+        "stderr_file": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/buggy_link.stderr.bin",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0
+      }
+    },
+    "reference": {
+      "compile": {
+        "command": [
+          "gcc",
+          "-fno-optimize-sibling-calls",
+          "-fno-strict-aliasing",
+          "-fno-asm",
+          "-std=c99",
+          "-c",
+          "/home/vboxuser/codeflaws_exp_20260927/codeflaws/546-D-bug-11891609-11891769/546-D-11891769.c",
+          "-o",
+          "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/reference.o"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 0.0933,
+        "output_limit_exceeded": false,
+        "address_space_limit_mb": 1024,
+        "max_output_bytes": 16777216,
+        "stdout": "",
+        "stderr": "",
+        "stdout_file": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/reference_compile.stdout.bin",
+        "stderr_file": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/reference_compile.stderr.bin",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0
+      },
+      "link": {
+        "command": [
+          "gcc",
+          "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/reference.o",
+          "-o",
+          "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/reference",
+          "-lm",
+          "-s",
+          "-O2"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 0.2452,
+        "output_limit_exceeded": false,
+        "address_space_limit_mb": 1024,
+        "max_output_bytes": 16777216,
+        "stdout": "",
+        "stderr": "",
+        "stdout_file": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/reference_link.stdout.bin",
+        "stderr_file": "/home/vboxuser/cfb2/runs/cases/546-D-bug-11891609-11891769/attempt_001/reference_link.stderr.bin",
+        "stdout_bytes": 0,
+        "stderr_bytes": 0
+      }
+    }
+  },
+  "model_calls": 0,
+  "formal_model_ready": false,
+  "analyzer_admission": "not_run",
+  "started_utc": "2026-10-10T11:21:25.742297+00:00",
+  "status": "pair_reproduced",
+  "compiled": {
+    "buggy": true,
+    "reference": true
+  },
+  "full_test_sets_complete": true,
+  "counts": {
+    "buggy": {
+      "repair": {
+        "output_mismatch": 1,
+        "pass": 1
+      },
+      "heldout": {
+        "output_mismatch": 2
+      }
+    },
+    "reference": {
+      "repair": {
+        "pass": 2
+      },
+      "heldout": {
+        "pass": 2
+      }
+    }
+  },
+  "native_observations": 8,
+  "new_native_observations": 8,
+  "finished_utc": "2026-10-10T11:21:31.833918+00:00"
+}

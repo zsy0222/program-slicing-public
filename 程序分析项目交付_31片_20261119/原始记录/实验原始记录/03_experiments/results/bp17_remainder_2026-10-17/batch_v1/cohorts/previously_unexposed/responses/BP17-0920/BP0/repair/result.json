@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0920/BP0/repair/1",
+  "case_id": "BP17-0920",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "96a8e85a4cac36e93ff8a5c94fb01aef59995f04534a749a53b16a0a61b66350",
+  "started_utc": "2026-11-16T18:16:14.993622+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2e405319-baa9-4870-b9c9-58efaa9515ff",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint max_i(int b[], int i, int j){\\n    if(b[i] > b[j]){\\n        return i;\\n    }else{\\n        return j;\\n    }\\n}\\n\\nint min_i(int b[], int i, int j){\\n    if(b[i] < b[j]){\\n        return i;\\n    }else{\\n        return j;\\n    }\\n}\\n\\nint main(int argc, char *argv[]){\\n    int i, j, k, l, m, n;\\n\\n    scanf(\\\"%d\\\", &n);\\n\\n    int a[n], b[n];\\n    for(i = 0; i < n; i++){\\n        scanf(\\\"%d\\\", &a[i]);\\n        scanf(\\\"%d\\\", &b[i]);\\n    }\\n\\n    k = 0; j = 0;\\n    for(i = 1; i < n; i++){\\n        if(a[i] <= a[j] && b[k] <= b[i]){\\n            k = i;\\n            j = i;\\n        }else if(a[i] < a[j]){\\n            j = i;\\n        }else if(b[k] < b[i]){\\n            k = i;\\n        }else if(a[i] == a[j]){\\n            j = max_i(b, i, j);\\n        }else if(b[i] == b[k]){\\n            k = min_i(a, i, j);\\n        }\\n    }\\n\\n    if(j == k){\\n        printf(\\\"%d\\\\n\\\", j + 1);\\n    }else{\\n        printf(\\\"-1\\\\n\\\");\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1127,
+    "completion_tokens": 398,
+    "total_tokens": 1525,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 231
+  },
+  "raw_sha256": "d44d6b5e9ffccf5a93d8e1a533570ad91565996fa884b6af9cb49d21126b6b0e",
+  "ended_utc": "2026-11-16T18:16:17.456929+00:00",
+  "elapsed_seconds": 2.4595
+}

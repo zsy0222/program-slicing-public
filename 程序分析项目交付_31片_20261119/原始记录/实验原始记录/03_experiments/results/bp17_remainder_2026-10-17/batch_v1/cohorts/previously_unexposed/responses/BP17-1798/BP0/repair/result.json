@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1798/BP0/repair/1",
+  "case_id": "BP17-1798",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "38cc52d5dc10e22b66c23e23abf2b6c13cdfee7dbdbf98e871d915c1aa535ddb",
+  "started_utc": "2026-10-21T06:50:24.385590+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "82b3f459-7ade-4090-abed-205ae6f628fe",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nlong long int n,m,i,j,a,b;\\nint ab(int a)\\n{\\n\\tif(a<0)\\n\\treturn -a;\\n\\treturn a;\\n}\\nint max(int a,int b)\\n{\\n\\tif(a<b)\\n\\treturn b;\\n\\treturn a;\\n}\\nint min(int a,int b)\\n{\\n\\tif(a>b)\\n\\treturn b;\\n\\treturn a;\\n}\\nint func(int u,int v)\\n{\\t\\t\\n\\t\\tif(i==u&&j==v)\\n\\t\\treturn 0;\\n\\t\\tif(i+a>n&&i-a<=0)\\n\\t\\treturn -1;\\n\\t\\tif(i+b>m&&i-b<=0)\\n\\t\\treturn -1;\\n\\t\\tint x=ab(u-i),y=ab(v-j);\\n\\t\\tif(x%a!=0||y%b!=0)\\n\\t\\treturn -1;\\n\\t\\tx=x/a;y=y/b;\\n\\t\\tif(x%2!=y%2)\\n\\t\\treturn -1;\\n\\t\\tint t=max(x,y);\\n\\t\\treturn t;\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tscanf(\\\"%lld%lld%lld%lld%lld%lld\\\",&n,&m,&i,&j,&a,&b);\\n\\tint ans=100000000;\\n\\tint r=func(1,m);\\n\\tif(r!=-1)\\n\\t{\\n\\t\\tans=min(ans,r);\\n\\t}\\n\\tr=func(n,1);\\n\\tif(r!=-1)\\n\\t{\\n\\t\\tans=min(ans,r);\\n\\t}\\n\\tr=func(1,1);\\n\\tif(r!=-1)\\n\\t{\\n\\t\\tans=min(ans,r);\\n\\t}\\n\\tr=func(n,m);\\n\\tif(r!=-1)\\n\\t{\\n\\t\\tans=min(ans,r);\\n\\t}\\n\\tif(ans<100000000)\\n\\tprintf(\\\"%d\\\",ans);\\n\\telse\\n\\tprintf(\\\"Poor Inna and pony!\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1299,
+    "completion_tokens": 500,
+    "total_tokens": 1799,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1299
+  },
+  "raw_sha256": "0b0b8be44a532c8cf006b89ad043057bf7bbf291f38db6b8b6bf618bb5375ff7",
+  "ended_utc": "2026-10-21T06:50:26.610385+00:00",
+  "elapsed_seconds": 2.157
+}

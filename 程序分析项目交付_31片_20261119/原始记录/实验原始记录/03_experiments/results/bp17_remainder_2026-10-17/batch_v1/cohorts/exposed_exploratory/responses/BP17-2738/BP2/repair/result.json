@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2738/BP2/repair/1",
+  "case_id": "BP17-2738",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "604bca370a789c1048d7443ff9d2e018ed83e8a86d1af387d020ee952fb09ebe",
+  "started_utc": "2026-11-16T04:29:00.193842+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "28cdbdc2-ac89-437e-8868-845249b60b55",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[]){\\n    int m,t,r,ghost,candles[700][2]={0},light,ans=0,i,j,k;\\n    scanf(\\\"%d %d %d\\\",&m,&t,&r);\\n    for(i=0;i<m;i++){\\n        scanf(\\\"%d\\\",&ghost);\\n        if(ans==-1){\\n            continue;\\n        }\\n        if(candles[ghost+350][1]<r){\\n            light=r-candles[ghost+350][1];\\n            j=ghost+350-1;\\n            while(light>0){\\n                if(j+t<ghost){\\n                    break;\\n                }\\n                if(candles[j][0]==1){\\n                    j--;\\n                    continue;\\n                }\\n                candles[j][0]=1;\\n                light--;\\n                ans++;\\n                for(k=ghost+350;k<=j+t;k++){\\n                    candles[k][1]++;\\n                }\\n                j--;\\n            }\\n            if(candles[ghost+350][1]<r){\\n                ans=-1;\\n            }\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1614,
+    "completion_tokens": 304,
+    "total_tokens": 1918,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 590
+  },
+  "raw_sha256": "18f7652f872868c504374374c28538a8f442fe94dbfdb71e894ef668c2d38737",
+  "ended_utc": "2026-11-16T04:29:03.262252+00:00",
+  "elapsed_seconds": 3.0262
+}

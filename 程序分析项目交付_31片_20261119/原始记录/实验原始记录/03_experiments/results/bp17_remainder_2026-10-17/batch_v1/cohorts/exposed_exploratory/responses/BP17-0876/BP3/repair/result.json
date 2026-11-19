@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0876/BP3/repair/1",
+  "case_id": "BP17-0876",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "281101f502fa7bc2fb4ddca6e08b9d4ae9504a1f0543f616a7b5d88e7879bf76",
+  "started_utc": "2026-11-16T16:03:22.210765+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1bd7005a-63c0-42ae-aba7-06ddbbe702e5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    long long int n, i, sum;\\n    scanf(\\\"%lld\\\", &n);\\n    long long int sq=sqrt(n);\\n    if(sq*sq==n)\\n    {\\n        printf(\\\"-1\\\\n\\\");\\n        return 0;\\n    }\\n    \\n    for(i=sq; i>=1; i--)\\n    {\\n        long long int temp=i;\\n        sum=0;\\n        while(temp)\\n        {\\n            sum+=temp%10;\\n            temp/=10;\\n        }\\n        if(i*i + i*sum == n)\\n        {\\n            printf(\\\"%lld\\\\n\\\", i);\\n            return 0;\\n        }\\n    }\\n    printf(\\\"-1\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1236,
+    "completion_tokens": 213,
+    "total_tokens": 1449,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1236
+  },
+  "raw_sha256": "9695d307b9a233b3e0c54121e8412be826176ee7e2714558320a77cf088c591c",
+  "ended_utc": "2026-11-16T16:03:23.736339+00:00",
+  "elapsed_seconds": 1.376
+}

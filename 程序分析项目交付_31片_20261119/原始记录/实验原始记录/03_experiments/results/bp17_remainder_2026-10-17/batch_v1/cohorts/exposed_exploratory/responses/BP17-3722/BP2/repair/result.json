@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3722/BP2/repair/1",
+  "case_id": "BP17-3722",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "80e311ecc78a9a698025909e5ae16b6919833fbad63f3b8f6c651724ad704a11",
+  "started_utc": "2026-11-16T05:05:47.603919+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6e88588b-f340-4d5f-a772-afd849c01db1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/* problem B */\\n\\n#include<stdio.h>\\n#include<stdlib.h>\\n\\n#define LIMIT 1000\\n\\nint main(int argc, char *argv[])\\n{\\nint n,m,i,mintime,j,k;\\nint L[LIMIT]={0};\\nint R[LIMIT]={0};\\nint C[LIMIT]={0};\\nint T[LIMIT]={0};\\nlong long int profit=0;\\n\\n\\nscanf(\\\"%d%d\\\",&n,&m);\\nfor(i=0;i<m;i++)\\n\\t{\\n\\tscanf(\\\"%d%d%d%d\\\",&L[i],&R[i],&T[i],&C[i]);\\n\\t}\\n\\nfor(i=1;i<=n;i++)\\n\\t{\\n\\tmintime=1000000;\\n\\tj=0;k=-1;\\n\\twhile(j<m)\\n\\t\\t{\\n\\t\\tif(L[j]<=i && R[j]>=i)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t if(T[j]<mintime)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tk=j;\\n\\t\\t\\t\\t\\tmintime=T[j];\\n\\t\\t\\t\\t\\t}\\t\\n\\t\\t\\t\\t}\\n\\t\\tj++;\\n\\n\\t\\t}\\n\\tif(k>=0)\\n\\t\\tprofit+=C[k];\\n\\t}\\n\\n\\nprintf(\\\"%lld\\\\n\\\",profit);\\nreturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1579,
+    "completion_tokens": 339,
+    "total_tokens": 1918,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 555
+  },
+  "raw_sha256": "9329d23c0b206f2a06a4313af902177b40fa1d43eef9f42d0c96de9a2f36c8a5",
+  "ended_utc": "2026-11-16T05:05:49.535340+00:00",
+  "elapsed_seconds": 1.9282
+}

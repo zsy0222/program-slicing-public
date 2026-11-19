@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3181/BP2/repair/1",
+  "case_id": "BP17-3181",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "4f6e380449fb4bb970116d12752d76df0c8213bbc79124295233d7ba25ba4ca9",
+  "started_utc": "2026-11-16T06:08:13.059648+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f76ad572-3b2e-477b-8109-7be4eed848a4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint cmpfunc(const void *a, const void *b)\\n{\\n    return(*(int*)a-*(int*)b);\\n}\\nint main(int argc, char *argv[]){\\nint n;\\n\\nscanf(\\\"%d\\\", &n);\\nint m=n*n;\\nint count1[51]={0},count2[51]={0};\\nint i,h,v,arr[m],j=0;\\nfor(i=0;i<m;i++)\\n{\\n    scanf(\\\"%d %d\\\", &h, &v);\\n    if(count1[h]!=0||count2[v]!=0)\\n        continue;\\n    else if(count1[h]==0&&count2[v]==0)\\n        {\\n        arr[j]=i+1;\\n        j++;\\n    }\\n    count1[h]++;\\n    count2[v]++;\\n}\\nqsort(arr,j,sizeof(int),cmpfunc);\\nfor(i=0;i<j;i++)\\n{\\n    if(arr[i]!=0)\\n    printf(\\\"%d \\\",arr[i] );\\n}\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1541,
+    "completion_tokens": 261,
+    "total_tokens": 1802,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 645
+  },
+  "raw_sha256": "7e5ee3ef17819f8c6c9f19f5fabb5871a078c087d025278d1d68280498a5e563",
+  "ended_utc": "2026-11-16T06:08:15.004794+00:00",
+  "elapsed_seconds": 1.9422
+}

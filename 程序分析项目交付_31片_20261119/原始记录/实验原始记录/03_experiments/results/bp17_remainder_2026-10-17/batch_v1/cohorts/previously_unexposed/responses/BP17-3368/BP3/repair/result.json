@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3368/BP3/repair/1",
+  "case_id": "BP17-3368",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0414ae33d8e7e6833f458151e00b2bf361af1f0fa9904feacfb62f6ecfe433a1",
+  "started_utc": "2026-11-16T04:28:46.181127+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1604b846-b7bb-4869-8dd9-62fb2e681189",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint m[5][5];\\nint cap(int n);\\nint iguales(int i);\\nint min(int x,int y);\\nint max(int x,int y);\\nint into(int v, int x, int y);\\nint ret(int n,int x,int y, int z);\\nint main(int argc, char *argv[]){\\n    scanf(\\\"%d %d %d %d %d %d\\\",&m[0][0],&m[1][0],&m[0][1],&m[1][1],&m[0][2],&m[1][2]);\\n    if(iguales(0) || iguales(1)){\\n        printf(\\\"1\\\");\\n    }else if(cap(0) || cap(1)){\\n        printf(\\\"2\\\");\\n    }else{\\n        printf(\\\"3\\\");\\n    }\\n    return 0;\\n}\\nint iguales(int i){\\n    return m[i][0]==m[i][1] && m[i][1]==m[i][2];\\n}\\nint cap(int n){\\n    return ret(n,0,1,2) || ret (n,1,2,0) || ret (n,2,0,1);\\n}\\nint ret(int n,int x,int y, int z){\\n    return m[n][x]==m[n][y] && !into(m[!n][z],m[!n][x],m[!n][y]);\\n}\\nint into(int v, int x, int y){\\n    return v>=min(x,y) && v<=max(x,y);\\n}\\nint min(int x,int y){\\n    if(x<y){\\n        return x;\\n    }else{\\n        return y;\\n    }\\n}\\nint max(int x,int y){\\n    if(x>y){\\n        return x;\\n    }else{\\n        return y;\\n    }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2249,
+    "completion_tokens": 455,
+    "total_tokens": 2704,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2249
+  },
+  "raw_sha256": "a873083eaa1aa7c7d49c15f5b88f9d8ce5b4c35fc2cefce2cfb863e6f207b7f1",
+  "ended_utc": "2026-11-16T04:28:48.237216+00:00",
+  "elapsed_seconds": 2.0533
+}

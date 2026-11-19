@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2686/BP1/repair/1",
+  "case_id": "BP17-2686",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "6a789ff3c5ff766758d55c2fdd8427850fed09e9b2aa9a985e1337079274d2fb",
+  "started_utc": "2026-11-16T03:55:58.061841+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b3da281b-eb84-41b2-9246-da4536800005",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<limits.h>\\n\\n#define N (int)(1e6)\\n\\nchar sequence[N+1];\\nint stack[N],top,minLeft[N],left,right,maxLength,maxCount,size,i;\\n\\nint main(int argc, char *argv[]) {\\n    while(gets(sequence)) {\\n        size=strlen(sequence);\\n        for(i=0; i<size; ++i) {\\n            minLeft[i]=INT_MAX;\\n        }\\n        top=0;\\n        for(i=0; i<size; ++i) {\\n            if(sequence[i]=='(') {\\n                stack[top++]=i;\\n            } else {\\n                if(top!=0) {\\n                    left=stack[top-1];\\n                    right=i;\\n                    top--;\\n                    minLeft[right]=left;\\n                    if(left>0&&minLeft[left-1]!=INT_MAX&&minLeft[left-1]<minLeft[right]) {\\n                        minLeft[right]=minLeft[left-1];\\n                    }\\n                }\\n            }\\n        }\\n        maxLength=0;\\n        maxCount=1;\\n        for(i=0; i<size; ++i) {\\n            if(minLeft[i]!=INT_MAX) {\\n                left=minLeft[i];\\n                right=i;\\n                if(right-left+1>maxLength) {\\n                    maxLength=right-left+1;\\n                    maxCount=1;\\n                } else if(right-left+1==maxLength) {\\n                    maxCount++;\\n                }\\n            }\\n        }\\n        printf(\\\"%d %d\\\\n\\\",maxLength,maxCount);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1141,
+    "completion_tokens": 393,
+    "total_tokens": 1534,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 245
+  },
+  "raw_sha256": "50568fcafc18ed1906948bd72f3e9fa0b860e068d804b117f0d65eb3fe208622",
+  "ended_utc": "2026-11-16T03:55:59.790126+00:00",
+  "elapsed_seconds": 1.6891
+}

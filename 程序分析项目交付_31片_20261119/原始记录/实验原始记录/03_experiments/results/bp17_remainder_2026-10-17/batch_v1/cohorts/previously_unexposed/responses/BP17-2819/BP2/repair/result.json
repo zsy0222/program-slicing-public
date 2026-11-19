@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2819/BP2/repair/1",
+  "case_id": "BP17-2819",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f32fe9a4afba3b5675afd8164af9724e82bad6d31f4122eff18f481ada43289a",
+  "started_utc": "2026-10-17T13:19:29.576517+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9675f7a3-7a98-44bb-aaf1-894435b0acdc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint cmp(const void *a,const void *b)\\n{\\n\\treturn -*(int *)a+*(int *)b;\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint n,a[19],f[19],i,j,temp1,temp2,ans[100];\\n\\tscanf(\\\"%d \\\",&n);\\n\\tchar s[20];\\n\\tscanf(\\\"%s\\\",s);\\n\\tfor(i=0;i<n;i++)\\n\\ta[i]=s[i]-'0';\\n\\tj=0;\\n\\tfor(i=0;i<n;i++)\\n\\t{\\n\\t\\tif(a[i]==2 || a[i]==3 || a[i]==5 || a[i]==7)\\n\\t\\tans[j++]=a[i];\\n\\t\\telse if(a[i]!=1 && a[i]!=0)\\n\\t\\t{\\n\\t\\t\\tif(a[i]==4)\\n\\t\\t\\t{\\n\\t\\t\\t\\tans[j++]=3;ans[j++]=2;ans[j++]=2;\\n\\t\\t\\t}\\n\\t\\t\\telse if(a[i]==6)\\n\\t\\t\\t{\\n\\t\\t\\t\\tans[j++]=5;ans[j++]=3;\\n\\t\\t\\t}\\n\\t\\t\\telse if(a[i]==8)\\n\\t\\t\\t{\\n\\t\\t\\t\\tans[j++]=7;ans[j++]=2;ans[j++]=2;ans[j++]=2;\\n\\t\\t\\t}\\n\\t\\t\\telse if(a[i]==9)\\n\\t\\t\\t{\\n\\t\\t\\t\\tans[j++]=7;ans[j++]=3;ans[j++]=3;\\tans[j++]=2;ans[j++]=2;ans[j++]=2;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tqsort(ans,j,sizeof(int),cmp);\\n\\tfor(i=0;i<j;i++)\\n\\t\\tprintf(\\\"%d\\\",ans[i]);\\n\\tprintf(\\\"\\\\n\\\");\\n\\treturn 0;\\t\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2004,
+    "completion_tokens": 470,
+    "total_tokens": 2474,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2004
+  },
+  "raw_sha256": "97d773d796258bc298f84b8a34533377f98b714dc314b15bbc52974769bb8174",
+  "ended_utc": "2026-10-17T13:19:31.967415+00:00",
+  "elapsed_seconds": 2.391
+}

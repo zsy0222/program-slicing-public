@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3703/BP3/repair/1",
+  "case_id": "BP17-3703",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "c9daa64198e5f2a7e8e91d90768eb0ae1d4c28cd8403bf81c8b3e8b77db56a96",
+  "started_utc": "2026-10-17T07:03:32.480016+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "869a0f27-daed-42a2-bce3-f4a663537c6c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#include <math.h>\\n\\n#define pi 3.1415926\\n#define rep(x,ini,end) for(x=(ini);x<(end);x++)\\n#define per(x,ini,end) for(x=(end-1);x>=(ini);x--)\\n#define max(x,y) ((x)>(y)?(x):(y))\\n#define min(x,y) ((x)<(y)?(x):(y))\\n\\nint a[5] = {0};\\n\\nvoid quickSort(int a[], int beginPos, int endPos)\\n{\\n    int i = beginPos, j = endPos;\\n    int flag = a[beginPos];\\n    if (beginPos>=endPos)\\n    {\\n        return;\\n    }\\n\\n    while (i<j)\\n    {\\n        while ((a[j]>flag) && (i<j))\\n        {\\n            --j;\\n        }\\n        if (i == j)\\n        {\\n            break;\\n        }\\n\\n        a[i] = a[j]; a[j] = flag;\\n        ++i;\\n\\n        while ((a[i]<flag) && (i<j))\\n        {\\n            ++i;\\n        }\\n        if (i == j)\\n        {\\n            break;\\n        }\\n\\n        a[j] = a[i]; a[i] = flag;\\n        --j;\\n    }\\n\\n    quickSort(a, beginPos, i-1);\\n    quickSort(a, i+1, endPos);\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int i;\\n    int sum = 0;\\n    rep(i,0,5)\\n    {\\n        scanf(\\\"%d\\\", &a[i]);\\n        sum = sum + a[i];\\n    }\\n\\n    quickSort(a,0,4);\\n    int maxSum = 0, temp = -1, flag = 0, count = 0;\\n    rep(i,0,5)\\n    {\\n        if (a[i] == temp)\\n        {\\n            if (flag < 3)\\n            {\\n                flag++; count = 1; continue;\\n            }\\n        }\\n        else\\n        {\\n            if (flag>1)\\n            {\\n                maxSum = max(maxSum, temp*flag);\\n                temp = a[i]; flag = 1; continue;\\n            }\\n            else\\n            {\\n                temp = a[i];\\n            }\\n        }\\n    }\\n    if (flag>1)\\n    {\\n        maxSum = max(maxSum, temp*flag);\\n    }\\n\\n    int results;\\n    if (count!=0)\\n    {\\n        if (maxSum!=0)\\n        {\\n            results = sum - maxSum;\\n        }\\n        else\\n        {\\n            results = sum - temp * 3;\\n        }\\n    }\\n    else\\n    {\\n        results = sum;\\n    }\\n\\n    printf(\\\"%d\\\\n\\\", results);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2547,
+    "completion_tokens": 719,
+    "total_tokens": 3266,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 883
+  },
+  "raw_sha256": "2f2ad6bd80aa7827d423df06f78649e4560f6f9a65a8c49eb9c40479036b76bc",
+  "ended_utc": "2026-10-17T07:03:34.983016+00:00",
+  "elapsed_seconds": 2.375
+}

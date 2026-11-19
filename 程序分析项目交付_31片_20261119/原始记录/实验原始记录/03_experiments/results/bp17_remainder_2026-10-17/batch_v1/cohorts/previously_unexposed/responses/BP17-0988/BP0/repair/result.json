@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0988/BP0/repair/1",
+  "case_id": "BP17-0988",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "605009be98bc3840a4897eda95b973072f9aa918e63bce9bf7f68060a61a7370",
+  "started_utc": "2026-11-16T05:10:33.996758+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "59a3eeec-0238-4f50-84b1-a48b51ef87a7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[]){\\n//freopen(\\\"input.txt\\\",\\\"r\\\",stdin);\\n//freopen(\\\"output.txt\\\",\\\"w\\\",stdout);\\nlong int n,m,i,j;\\nchar v[100];\\nscanf(\\\"%ld%ld\\\",&n,&m);\\n\\nj=n+m;\\nif(m>n || m==n){\\n    v[0]='G';\\n    m--;}\\nelse{\\n    v[0]='B';\\n    n--;\\n}\\n\\nfor(i=1;i<j;i++){\\n    if(((v[i-1]!='B') && (n!=0)) || (m==0)){\\n        v[i]='B';\\n        n--;\\n    }\\n    else if(((v[i-1]!='G') && (m!=0)) || (n==0)){\\n        v[i]='G';\\n        m--;\\n    }\\n}\\nfor(i=0;i<j;i++){\\nprintf(\\\"%c\\\",v[i]);\\n}\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1047,
+    "completion_tokens": 263,
+    "total_tokens": 1310,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 151
+  },
+  "raw_sha256": "a199c5c86e6b8e3127d7f482fb7af663a9328dc948d1b27dd18cceeb89f2c3d7",
+  "ended_utc": "2026-11-16T05:10:35.860642+00:00",
+  "elapsed_seconds": 1.862
+}

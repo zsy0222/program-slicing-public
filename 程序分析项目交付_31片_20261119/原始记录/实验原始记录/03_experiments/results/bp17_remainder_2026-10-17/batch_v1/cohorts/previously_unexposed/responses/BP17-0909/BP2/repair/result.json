@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0909/BP2/repair/1",
+  "case_id": "BP17-0909",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "be46f4116a79d12eeaf316488a109b71be3290f8abf862b3d5508eb9f9c1a6c6",
+  "started_utc": "2026-10-21T07:55:22.827604+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "51a473ef-3bc3-4c1a-8e49-7bc51ad74f66",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <math.h>\\n#include <stdlib.h>\\n#include <time.h>\\n#include <limits.h>\\n\\n#define PI 3.141592653589793\\n#define max(a,b) (a < b) ? (b) : (a)\\n#define min(a,b) (a > b) ? (b) : (a)\\n#define FOR(i,a,b) for(i = a ; i <= b ; i++)\\n#define ROF(i,a,b) for(i = a ; i >= b ; i--)\\n#define RAD(x) ((x)*PI)/180\\n#define y1 y_1\\n#define endl printf(\\\"\\\\n\\\")\\n#define MAX 105\\n\\nint n, i, j, yer, ans1, ans2, m[MAX][MAX], h[MAX][MAX], t[MAX], cvp[MAX], a[MAX], b[MAX], c[MAX];\\n\\nint dfs (int);\\n\\nint main(int argc, char *argv[]) {\\n\\tscanf(\\\"%d\\\",&n);\\n\\tFOR(i, 1, n){\\n\\t\\tscanf(\\\"%d %d %d\\\",&a[i] ,&b[i] ,&c[i]);\\n\\t\\tm[a[i]][b[i]] = c[i];\\n\\t\\th[a[i]][b[i]] = c[i];\\n\\t\\th[b[i]][a[i]] = c[i];\\n\\t}\\n\\tdfs(1);\\n\\tFOR(i, 1, n)\\n\\t\\tprintf(\\\"%d \\\",cvp[i]);\\n\\tprintf(\\\"%d\\\\n\\\",min(ans1, ans2));\\n\\treturn 0;\\n}\\n\\nint dfs (int x){\\n\\tint i;\\n\\tif(t[x])\\n\\t\\treturn 0;\\n\\tt[x] = 1;\\n\\tcvp[x] = ++yer;\\n\\tFOR(i, 1, n)\\n\\t\\tif(h[x][i])\\n\\t\\t\\tdfs(i);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2133,
+    "completion_tokens": 466,
+    "total_tokens": 2599,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2133
+  },
+  "raw_sha256": "4c5b6c4e6a2302099aa27a732c4c94975d7ad73b9802d845c99d53d2e76e4039",
+  "ended_utc": "2026-10-21T07:55:24.652838+00:00",
+  "elapsed_seconds": 1.796
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0803/BP2/repair/1",
+  "case_id": "BP17-0803",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "c2c4dc4557b3a88edb1d01ce86f33b4ec167c560e6eb2db1238a5718decafdb8",
+  "started_utc": "2026-10-21T07:05:05.500520+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "210ae840-1eea-4f4d-8b22-ac8593171fb5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nstruct node{int x,y;}a[700];\\nint num,n,m,i,j,k,ll,tt=0;\\nchar map[25][25];\\nvoid getl(int i){\\n    int up,down,left,right;\\n    for(j=a[i].x-1;j>=0;j--){\\n                if(map[j][a[i].y]=='0')continue;\\n                break;\\n            }\\n            left=j+1;\\n            if(left==a[i].x)goto a;\\n            for(j=a[i].y;j<n;j++){\\n                for(k=left;k<a[i].x;k++){\\n                    if(map[k][j]=='0')continue;\\n                    break;\\n                }\\n                if(k==a[i].x)continue;\\n                break;\\n            }\\n            up=j-1;\\n            for(j=a[i].y;j>=0;j--){\\n                for(k=left;k<a[i].x;k++){\\n                    if(map[k][j]=='0')continue;\\n                    break;\\n                }\\n                if(k==a[i].x)continue;\\n                break;\\n            }\\n            down=j+1;\\n            right=a[i].x-1;\\n                tt=(up-down+right-left+2)*2;            \\n            if(tt>ll)ll=tt;\\n a:  for(j=a[i].x+1;j<m;j++){\\n                if(map[j][a[i].y]=='0')continue;\\n                break;\\n            }\\n            right=j-1;\\n            if(right==a[i].x)goto b;\\n            for(j=a[i].y;j<n;j++){\\n                for(k=right;k>a[i].x;k--){\\n                    if(map[k][j]=='0')continue;\\n                    break;\\n                }\\n                if(k==a[i].x)continue;\\n                break;\\n            }\\n            up=j-1;\\n            for(j=a[i].y;j>=0;j--){\\n                for(k=right;k>a[i].x;k--){\\n                    if(map[k][j]=='0')continue;\\n                    break;\\n                }\\n                if(k==a[i].x)continue;\\n                break;\\n            }\\n            down=j+1;\\n            left=a[i].x+1;\\n                tt=(up-down+right-left+2)*2;            \\n            if(tt>ll)ll=tt;\\n b:      for(j=a[i].y-1;j>=0;j--){\\n                if(map[a[i].x][j]=='0')continue;\\n                break;\\n            }\\n            down=j+1;\\n            if(down==a[i].y)goto c;\\n            for(j=a[i].x;j>=0;j--){\\n                for(k=down;k<a[i].y;k++){\\n                    if(map[j][k]=='0')continue;\\n                    break;\\n                }\\n                if(k==a[i].y)continue;\\n                break;\\n            }\\n            left=j+1;\\n            for(j=a[i].x;j<m;j++){\\n                for(k=down;k<a[i].y;k++){\\n                    if(map[j][k]=='0')continue;\\n                    break;\\n                }\\n                if(k==a[i].y)continue;\\n                break;\\n            }\\n            right=j-1;\\n            up=a[i].y-1;\\n                tt=(up-down+right-left+2)*2;            \\n            if(tt>ll)ll=tt;\\n c:      for(j=a[i].y+1;j<n;j++){\\n                if(map[a[i].x][j]=='0')continue;\\n                break;\\n            }\\n            up=j-1;\\n            if(up==a[i].y)goto d;\\n            for(j=a[i].x;j>=0;j--){\\n                for(k=up;k>a[i].y;k--){\\n                    if(map[j][k]=='0')continue;\\n                    break;\\n                }\\n                if(k==a[i].y)continue;\\n                break;\\n            }\\n            left=j+1;\\n            for(j=a[i].x;j<m;j++){\\n                for(k=up;k>a[i].y;k--){\\n                    if(map[j][k]=='0')continue;\\n                    break;\\n                }\\n                if(k==a[i].y)continue;\\n                break;\\n            }\\n            right=j-1;\\n            down=a[i].y+1;\\n                tt=(up-down+right-left+2)*2;\\n                if(tt>ll)ll=tt;\\n d:;\\n}\\nint main(int argc, char *argv[]){\\n    while(scanf(\\\"%d %d\\\",&n,&m)!=EOF){\\n        getchar();\\n        num=0;\\n        for(i=0;i<n;i++){\\n            for(j=0;j<m;j++){\\n                map[j][i]=getchar();\\n                if(map[j][i]=='1'){\\n                    a[num].x=j;\\n                    a[num].y=i;\\n                    num++;\\n                }\\n            }\\n            getchar();\\n        }\\n        ll=4;\\n        for(i=0;i<num;i++)\\n            getl(i);\\n        printf(\\\"%d\\\\n\\\",ll);\\n    }\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 5717,
+    "completion_tokens": 1211,
+    "total_tokens": 6928,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 5717
+  },
+  "raw_sha256": "247fd8c12b9786090cec83cbbe70627c1d69011f70d3eb943f0326da236a6f2f",
+  "ended_utc": "2026-10-21T07:05:09.720189+00:00",
+  "elapsed_seconds": 4.219
+}

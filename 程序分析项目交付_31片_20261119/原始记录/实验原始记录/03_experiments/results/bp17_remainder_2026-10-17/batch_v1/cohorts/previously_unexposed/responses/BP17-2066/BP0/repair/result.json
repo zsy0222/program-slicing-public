@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2066/BP0/repair/1",
+  "case_id": "BP17-2066",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "d02fcd1e61bd2294a774090eeb25f48339428a99887f830038e9b6bcca95c488",
+  "started_utc": "2026-11-16T16:36:56.984011+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8ac6c343-df23-4207-b58b-1c2e2f88bd6d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nlong long dp[2050][2050],no=1000000007;\\nint main(int argc, char *argv[])\\n{\\n    int n,k,i;\\n    scanf(\\\"%d%d\\\",&n,&k);\\n    for(i=1;i<=n;i++)\\n            dp[k][i]=1;\\n    int j,l;\\n    for(i=k-1;i>=1;i--)\\n    {\\n        for(j=1;j<=n;j++)\\n        {\\n            for(l=1;j*l<=n;l++)\\n                dp[i][j]=(dp[i][j]+dp[i+1][j*l])%no;\\n        }\\n    }\\n    long long tot=0;\\n    for(i=1;i<=n;i++)\\n        tot=(tot+dp[1][i])%no;\\n    printf(\\\"%lld\\\",tot);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 874,
+    "completion_tokens": 216,
+    "total_tokens": 1090,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 234
+  },
+  "raw_sha256": "06f50f0fb04ceb06078cadc123ac6a8b2c3605f53dc72f35e2bdc851248f7205",
+  "ended_utc": "2026-11-16T16:36:58.909220+00:00",
+  "elapsed_seconds": 1.8218
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0594/BP2/repair/1",
+  "case_id": "BP17-0594",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "184c15944c544f04ed5b5e76bd70ee5297705f33c0baa51d31c9eadc4f2be7a6",
+  "started_utc": "2026-10-21T06:48:48.657472+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5f036cac-8fe6-40b5-bdf0-6c128f435d06",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#define MAX 10010\\nint prime[MAX];\\nint p[MAX];\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,n,c,x;\\n  prime[0]=-1;prime[1]=-1;p[0]=1;\\n  for(k=1,i=2;i<MAX;i++)\\n    if(!prime[i])\\n      for(prime[i]=k,p[k++]=i,j=i*2;j<MAX;j+=i)\\n        prime[j]=-1;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tc=n;\\n\\twhile(n>1){\\n\\t\\tfor(x=2;x<MAX;x++){\\n\\t\\t\\tif(prime[x]>=0&&n%x==0){\\n\\t\\t\\t\\tc+=n/x;\\n\\t\\t\\t\\tn/=x;\\n\\t\\t\\t\\tgoto next;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif(x==MAX)break;\\n\\t\\tnext:;\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",c+(n>1?1:0));\\n\\texit(0);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1500,
+    "completion_tokens": 268,
+    "total_tokens": 1768,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 476
+  },
+  "raw_sha256": "9e20697042b7e49eabe873eff0d9906f0dac68c9c82d8e87b80abd01189cbbf6",
+  "ended_utc": "2026-10-21T06:48:50.374922+00:00",
+  "elapsed_seconds": 1.609
+}

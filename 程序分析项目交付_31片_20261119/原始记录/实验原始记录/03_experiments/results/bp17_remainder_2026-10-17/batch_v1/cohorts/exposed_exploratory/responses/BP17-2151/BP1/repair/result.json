@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2151/BP1/repair/1",
+  "case_id": "BP17-2151",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "8ecd7d3d6cd7f2faff31e00116f057729542a38be85cff4ee6ffa62767db6939",
+  "started_utc": "2026-10-17T08:23:26.509025+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7e2d4125-2f16-447f-a575-983e955a6192",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{ int l, r, n, k, x , i,j, flagl, flagr,flag,y, max=0, t =6;\\nint a[1000];\\nwhile(t--)\\n{\\nmax=0;\\nscanf(\\\"%d %d %d\\\",&n,&k,&y);\\nfor(i=0; i<n; i++)\\nscanf(\\\"%d\\\",&a[i]);\\nfor(i=1;i<2*n+1;i+=2)\\n{\\n j= 0;k= 0;\\nl=(i-(i%2))*0.5;\\nr=((i%2)+i)*0.5;\\t \\nif(a[l]==a[r] && a[l]==y)\\n{x=y;\\n  while(l>=k||r+j<n)\\n{\\n flagl= 0; flagr=0;flag=0;\\nif (a[l-k]!=x) \\n{\\n flagl=1;\\n}\\nelse k++;\\nif(a[r+ j]!= x)\\nflagr=1;\\nelse j++;\\nif(flagl==1&& flagr==1)\\n{\\nif(a[l-k+2]!=x&&a[r+j-2]!=x)\\n{\\nflag=1;\\nbreak;\\n}\\nelse if(a[l-k]==a[r+j])\\n{\\nflagr= 0; flagl=0;\\nx=a[l-k];\\n}\\nelse break;\\n}\\n} \\nif (flag==0)\\n{if(j+ k> max)\\nmax= j+k; }\\nelse  if(j+ k-2> max)\\nmax= j+k-2;\\n}\\n}\\nprintf(\\\"%d\\\\n\\\", max);\\n}\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1230,
+    "completion_tokens": 414,
+    "total_tokens": 1644,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1230
+  },
+  "raw_sha256": "9814a9c79ea6b3ef8e20e4a321149016a97084e4bcab885efeb590b74e87f474",
+  "ended_utc": "2026-10-17T08:23:28.748381+00:00",
+  "elapsed_seconds": 2.156
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2629/BP3/repair/1",
+  "case_id": "BP17-2629",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "1133422304697198493d6cbc71b8c53be27a8bb7d6010b4af7d96e38535069b9",
+  "started_utc": "2026-11-18T09:57:21.228330+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2051a2c4-9260-4880-a923-d5346964f889",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n//#include<conio.h>\\n#include<stdlib.h>\\n\\nlong long int arr[100005][2];\\n\\nint comp(const void*i,const void*j){\\n\\tlong long int a=*(long long int*)i;\\n\\tlong long int b=*(long long int*)j;\\n\\tif(a<b) return -1;\\n\\tif(a>b) return 1;\\n\\treturn 0;\\n}\\n\\nlong long int func(long long int a,long long int b){\\n\\tif(a<b) {\\n\\t\\treturn a;\\n\\t}\\n\\telse{ \\n\\t\\treturn b;\\n\\t}\\n}\\n\\nint main(int argc, char *argv[]){\\n\\tlong long int n,r,avg,sum,i,j,temp,k,p,essay,q;\\n\\tsum=0;\\n\\tscanf(\\\"%lld%lld%lld\\\",&n,&r,&avg);\\n\\tfor(k=0;k<n;k++){\\n\\t\\tscanf(\\\"%lld%lld\\\",&arr[k][1],&arr[k][0]);\\n\\t\\tsum=sum+arr[k][1];\\n\\t}\\n\\n\\tqsort(arr,n,sizeof(arr[0]),comp);\\n\\n/*\\tfor(k=0;k<n;k++){\\n\\t\\tprintf(\\\"%d %d\\\\n\\\",arr[k][0],arr[k][1]);\\n\\t}*/\\n\\tp=n*avg;\\n\\tk=0;\\n\\tessay=0;\\n//\\tprintf(\\\"%d %d\\\\n\\\",sum,p);\\n\\twhile(sum<p){\\n\\t\\tif(arr[k][1]<r){\\n\\t\\t\\tq=func((p-sum),(r-arr[k][1]));\\n\\t\\t\\tessay=essay+q*arr[k][0];\\n\\t\\t\\tsum=sum+q;\\n\\t\\t}\\n\\t\\tk++;\\n\\t}\\n\\n\\tprintf(\\\"%lld\\\\n\\\",essay);\\n\\n//\\tgetch();\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1711,
+    "completion_tokens": 471,
+    "total_tokens": 2182,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1711
+  },
+  "raw_sha256": "328a9a6056e0359fe5b7459d485873ff0f426fc7b43722a1b0b23fc4cb61b7fa",
+  "ended_utc": "2026-11-18T09:57:24.584201+00:00",
+  "elapsed_seconds": 3.3482
+}

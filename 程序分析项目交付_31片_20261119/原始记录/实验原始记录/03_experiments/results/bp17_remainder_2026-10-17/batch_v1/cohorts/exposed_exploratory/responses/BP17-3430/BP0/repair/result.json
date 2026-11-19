@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3430/BP0/repair/1",
+  "case_id": "BP17-3430",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "5244534c4b13583517bce31a915bd68b3591a522b1275ec252242fc361cd8dd1",
+  "started_utc": "2026-11-16T04:30:29.471090+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5db55087-4d8f-4fb7-84d3-e1b42f7f11a5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nvoid copy(char a[], int i, int j, char b[]){\\n\\tint k;\\n\\tfor (k=i; k<=j; k++)\\n\\t\\tb[k-i]=a[k];\\n\\tb[k-i]='\\\\0';\\n}\\n\\nint ok (char a[]){\\n\\tint i=0, x=0, y=0;\\n\\twhile (a[i]!='\\\\0'){\\n\\t\\tif (a[i]=='U') y++;\\n\\t\\telse if (a[i]=='D') y--;\\n\\t\\telse if (a[i]=='R') x++;\\n\\t\\telse if (a[i]=='L') x--;\\n\\t\\ti++;\\n\\t}\\n\\treturn (x==0 && y==0)?1:0;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\t\\n\\tint n, i, j, count=0;\\n\\tchar a[200], b[200];\\n\\t\\n\\tscanf(\\\"%d\\\\n\\\", &n);\\n\\tscanf(\\\"%s\\\", a);\\n\\t\\n\\tfor (i=0; i<n; i++)\\n\\t\\tfor (j=i; j<n; j++){\\n\\t\\t\\tcopy(a,i,j,b);\\n\\t\\t\\tif (ok(b)==1){\\n\\t\\t\\t\\tcount++;\\n\\t\\t\\t}\\n\\t\\t}\\n\\tprintf(\\\"%d\\\\n\\\", count);\\n\\t\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1064,
+    "completion_tokens": 354,
+    "total_tokens": 1418,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1064
+  },
+  "raw_sha256": "dc5459b320667e2ed6e8603a49fbd1d567b0bf7cc662729ab54b9db771c44570",
+  "ended_utc": "2026-11-16T04:30:31.644498+00:00",
+  "elapsed_seconds": 2.0435
+}

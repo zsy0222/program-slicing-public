@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2006/BP2/repair/1",
+  "case_id": "BP17-2006",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "2d824a4e23a5767cf3a83b471b274cc656e3578609bd9fda5f304092396df8c0",
+  "started_utc": "2026-10-18T13:42:16.808571+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b053212a-81dd-4ff6-b23b-4a3fb4c82274",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"/* ***\\n* @codeforces problem 405D. Toy Sum\\n* @author:ckeling\\n* @date:2014.3.26\\n* @tag:greedy, implementation, math\\n******/\\n\\n#include <stdio.h>\\n#include <string.h>\\n#define MAXN 1000000\\n\\nint X[MAXN + 1];\\nint S[MAXN + 1];\\nint Y[MAXN + 1];\\n\\nint main(int argc, char *argv[]){\\n    memset(X, 0, sizeof(X));\\n    memset(S, 0, sizeof(S));\\n    memset(Y, 0, sizeof(Y));\\n\\n    int nx, ny;\\n    int i;\\n    scanf(\\\"%d\\\", &nx);\\n    for(i = 0; i < nx; ++i){\\n        scanf(\\\"%d\\\", X+i);\\n        S[X[i]] = 1;\\n    }\\n    ny = 0;\\n    for(i = 0; i < nx; ++i){\\n        if(S[X[i]] && !S[MAXN + 1 - X[i]]){\\n            Y[MAXN + 1 - X[i]] = 1;\\n            ny++;\\n       }\\n    }\\n    for(i = 1; i < MAXN && ny < nx; ++i){\\n        if(!S[i] && !S[MAXN + 1 - i]){\\n            Y[i] = 1;\\n            ny++;\\n            Y[MAXN + 1 - i] = 1;\\n            ny++;\\n        }\\n    }\\n    for(i = 0; i <= MAXN; ++i)\\n        if(Y[i])\\n            printf(\\\"%d \\\", i);\\n    printf(\\\"\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1780,
+    "completion_tokens": 416,
+    "total_tokens": 2196,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 628
+  },
+  "raw_sha256": "4d691707d1804d6065ad3a56fa3a63afb94a2ff9441fd56261f7661604f032fc",
+  "ended_utc": "2026-10-18T13:42:18.852441+00:00",
+  "elapsed_seconds": 2.047
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0718/BP0/repair/1",
+  "case_id": "BP17-0718",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "c5d0cc02e9e1d527209c3bd07d6aa3e1cf127551c5a88582f50bba6828c13566",
+  "started_utc": "2026-10-17T13:12:42.585796+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c65f6ca5-d270-44c8-9f02-ff804258e998",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\nint cmp(const void * a , const void *b)\\n{\\n\\treturn (*(int*)a - *(int*)b);\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint n;\\n\\tscanf(\\\"%d\\\", &n);\\n\\tint a[n];\\n\\t\\n\\tint k;\\n\\tfor ( k = 0 ; k < n ; k++)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\", &a[k]);\\n\\t}\\n\\t\\n\\tint b[n];\\n\\tfor (k=0;k<n;k++)\\n\\t{\\n\\t\\tb[k]=a[k];\\n\\t}\\n\\t\\n\\tqsort(a,n,sizeof(int),cmp);\\n\\t\\n\\tint ans = 0;\\n\\t\\n\\tif (n >= 2 && a[0]==a[1])\\n\\t\\tprintf(\\\"Still Rodzil\\\\n\\\");\\n\\telse\\n\\t{\\n\\t\\tint i;\\n\\t\\tfor ( i = 0 ; i < n ; i++)\\n\\t\\t{\\n\\t\\t\\tif(a[0]==b[i])\\n\\t\\t\\t{\\n\\t\\t\\t\\tans = i+1;\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tprintf(\\\"%d\\\\n\\\",ans);\\n\\t}\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1192,
+    "completion_tokens": 329,
+    "total_tokens": 1521,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 168
+  },
+  "raw_sha256": "097fa262eea795c971bedc29a113ba094b0618358dc81546307ffdfde9c1ab1c",
+  "ended_utc": "2026-10-17T13:12:44.371600+00:00",
+  "elapsed_seconds": 1.781
+}

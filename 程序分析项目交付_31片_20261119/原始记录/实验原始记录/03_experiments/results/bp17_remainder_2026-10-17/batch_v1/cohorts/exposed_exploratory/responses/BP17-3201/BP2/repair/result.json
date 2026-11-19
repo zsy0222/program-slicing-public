@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3201/BP2/repair/1",
+  "case_id": "BP17-3201",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "0e9094595bffc66e6e5a71969ddad1bd20d5644a9207833816acde9570896213",
+  "started_utc": "2026-10-18T12:15:27.993578+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6ea50322-96bd-457c-a192-4e6090c044ec",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, i, p = 0;\\n\\t\\tscanf(\\\"%d\\\", &n);\\n\\t\\tint v[n];\\n\\t\\tfor(i = 0; i < n; i++)\\n\\t\\t\\tscanf(\\\"%d\\\", &v[i]);\\n\\t\\tif (v[0] == 1)\\n\\t\\t\\tp++;\\n\\t\\tif (v[n-1] == 1 && v[n-1] != v[0])\\n\\t\\t\\tp++;\\n\\t\\tfor(i = 1; i < n-1; i++) {\\n\\t\\t\\tif (v[i] == 1)\\n\\t\\t\\t\\tp++;\\n\\t\\t\\telse if(v[i+1] == 1 && v[i-1] == 1)\\n\\t\\t\\t\\tp++;\\n\\t\\t}\\n\\tprintf(\\\"%d\\\\n\\\", p);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1414,
+    "completion_tokens": 235,
+    "total_tokens": 1649,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1414
+  },
+  "raw_sha256": "4deb9ead2b5597904cbffe3286a5b59df14c6babd85eec87c8e32918cedb647a",
+  "ended_utc": "2026-10-18T12:15:29.146401+00:00",
+  "elapsed_seconds": 1.156
+}

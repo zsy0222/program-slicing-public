@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3268/BP1/repair/1",
+  "case_id": "BP17-3268",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e7290c151cce55bf0c138d270d74c31493a2a708292ee632681381d733dc0f88",
+  "started_utc": "2026-10-17T13:12:03.031361+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "83b02538-dfed-4781-a0ff-a81214570aa0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nchar room[100][101];\\nchar table[26];\\n\\nint main(int argc, const char * argv[]) {\\n    int n, m, i, j, count;\\n    char C;\\n    \\n    scanf(\\\"%d%d\\\", &n, &m);\\n    getchar();\\n    C = getchar();\\n    getchar();\\n    for(i = 0; i < n; i++){\\n        gets(room[i]);\\n    }\\n    count = 0;\\n    for(i = 0; i < n; i++){\\n        for(j = 0; j < m; j++){\\n            if(room[i][j] != C) continue;\\n            if(i >= 1 && room[i-1][j] != '.' && room[i-1][j] != C && !table[room[i-1][j] - 'A']){\\n                table[room[i-1][j] - 'A'] = 1;\\n                count++;\\n            }\\n            if(i < n - 1 && room[i+1][j] != '.' && room[i+1][j] != C && !table[room[i+1][j] - 'A']){\\n                table[room[i+1][j] - 'A'] = 1;\\n                count++;\\n            }\\n            if(j >= 1 && room[i][j-1] != '.' && room[i][j-1] != C && !table[room[i][j-1] - 'A']){\\n                table[room[i][j-1] - 'A'] = 1;\\n                count++;\\n            }\\n            if(j < m - 1 && room[i][j+1] != '.' && room[i][j+1] != C && !table[room[i][j+1] - 'A']){\\n                table[room[i][j+1] - 'A'] = 1;\\n                count++;\\n            }\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\", count);\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1255,
+    "completion_tokens": 498,
+    "total_tokens": 1753,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 231
+  },
+  "raw_sha256": "6f269fe24a7963ba634c5523710d1aeeec30ef04f2fc1e1b3c43b08377d8701b",
+  "ended_utc": "2026-10-17T13:12:04.972565+00:00",
+  "elapsed_seconds": 1.938
+}

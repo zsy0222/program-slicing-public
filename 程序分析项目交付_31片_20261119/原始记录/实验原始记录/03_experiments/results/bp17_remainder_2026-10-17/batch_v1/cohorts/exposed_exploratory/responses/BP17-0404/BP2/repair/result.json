@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0404/BP2/repair/1",
+  "case_id": "BP17-0404",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f33fa383959519ad2bf29540408d5f4dd89c8aa3c7fbed01d4b1ac57649f0e6c",
+  "started_utc": "2026-11-18T09:26:28.971950+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "672679d0-db13-4d7d-926d-6037c19148ff",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, m; scanf(\\\"%d%d\\\", &n, &m);\\n\\n\\tint i, j, k[100], a[100][100];\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tscanf(\\\"%d\\\", &k[i]);\\n\\t\\tfor (j = 0; j < k[i]; j++)\\n\\t\\t\\tscanf(\\\"%d\\\", &a[i][j]);\\n\\t}\\n\\n\\tint l, c[100][101];\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tint s[101];\\n\\t\\ts[0] = 0;\\n\\t\\tfor (j = 0; j < k[i]; j++)\\n\\t\\t\\ts[j+1] = s[j] + a[i][j];\\n\\n\\t\\tfor (j = 0; j <= k[i]; j++) {\\n\\t\\t\\tc[i][j] = 0;\\n\\t\\t\\tfor (l = 0; l <= j; l++) {\\n\\t\\t\\t\\tint ss = s[l] + (s[k[i]] - s[k[i]-(j-l)]);\\n\\t\\t\\t\\tif (ss > c[i][j])\\n\\t\\t\\t\\t\\tc[i][j] = ss;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\n\\tint c1[100001], c2[100001];\\n\\tmemset(c1, 0, sizeof(c1));\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tfor (j = 0; j <= m; j++) {\\n\\t\\t\\tc2[j] = 0;\\n\\t\\t\\tfor (l = 0; l <= k[i]; l++)\\n\\t\\t\\t\\tif (j >= l) {\\n\\t\\t\\t\\t\\tint ccc = c1[j-l] + c[i][l];\\n\\t\\t\\t\\t\\tif (ccc > c2[j])\\n\\t\\t\\t\\t\\t\\tc2[j] = ccc;\\n\\t\\t\\t\\t}\\n\\t\\t}\\n\\t\\tmemcpy(c1, c2, sizeof(c1));\\n\\t}\\n\\n\\tprintf(\\\"%d\\\\n\\\", c1[m]);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2212,
+    "completion_tokens": 556,
+    "total_tokens": 2768,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 932
+  },
+  "raw_sha256": "6d0929732f1d56b268f5e2e60c949b9b0f71bc8551bbe3ec7e275bd45585424b",
+  "ended_utc": "2026-11-18T09:26:31.842036+00:00",
+  "elapsed_seconds": 2.8677
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1476/BP2/repair/1",
+  "case_id": "BP17-1476",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d1931c1174626cd4b8a17efedb927b848578bfad781f61161b89209642187cd5",
+  "started_utc": "2026-10-18T11:54:27.705664+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0cd2c666-f081-4a81-9334-e90fef9fa45c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint findOnes(int G[],int n){\\n\\tint counter=0,max_c=0,cur_st=0,fin_st=0,fin_en=0,cur_ones=0,max_ones=0,tot_ones=0;\\n\\tint i;\\n\\tfor(i=0;i<n;i++){\\n\\t\\tif(G[i]==0){\\n\\t\\t\\tcounter--;\\n\\t\\t} else {\\n\\t\\t\\tcounter++;\\n\\t\\t\\tcur_ones++;\\n\\t\\t\\ttot_ones++;\\n\\t\\t}\\n\\t\\tif(counter<max_c){\\n\\t\\t\\tmax_c=counter;\\n\\t\\t\\tmax_ones = cur_ones;\\n\\t\\t\\tfin_st = cur_st;\\n\\t\\t\\tfin_en = i;\\n\\t\\t} else if(counter > 0){\\n\\t\\t\\tcounter = 0;\\n\\t\\t\\tcur_ones = 0;\\n\\t\\t\\tcur_st = i+1;\\n\\t\\t}\\n\\t}\\n\\treturn (fin_en - fin_st + 1 - max_ones + tot_ones - max_ones);\\n}\\nint main(int argc, char *argv[]) {\\n\\tint i,n,G[100];\\n\\tscanf(\\\"%d\\\",&n);\\n\\tfor(i=0;i<n;i++){\\n\\t\\tscanf(\\\"%d\\\",&G[i]);\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",findOnes(G,n));\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1614,
+    "completion_tokens": 347,
+    "total_tokens": 1961,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1614
+  },
+  "raw_sha256": "5ca66fcca9085a0da8f06372ddc89d19ea0bdca63fe905c3ea80a2a77cc5eb84",
+  "ended_utc": "2026-10-18T11:54:29.407518+00:00",
+  "elapsed_seconds": 1.687
+}

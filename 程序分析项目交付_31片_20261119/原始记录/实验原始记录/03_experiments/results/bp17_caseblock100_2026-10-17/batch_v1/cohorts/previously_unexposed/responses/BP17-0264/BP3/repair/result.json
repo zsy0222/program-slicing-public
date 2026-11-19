@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0264/BP3/repair/1",
+  "case_id": "BP17-0264",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "99b9ed2859723f5182976e0f77734de97edcd8b68ad40a52168a651d52b92c42",
+  "started_utc": "2026-10-17T07:10:14.022315+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "632c57fb-4cc2-4aee-8624-3e0ccf5e0a90",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#include<string.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nchar in[110000];\\n\\nint is_ok_00(int one, int zero, int hatena, int len){\\n  if(len%2 && one)    one--, len--;\\n  if(len%2 && hatena) hatena--, len--;\\n  if(len%2 && zero)   zero--, len--;\\n\\n  if(one+2 <= zero+hatena) return 1;\\n  return 0;\\n}\\n\\nint is_ok_11(int one, int zero, int hatena, int len){\\n  if(len%2 && one)    one--, len--;\\n  if(len%2 && hatena) hatena--, len--;\\n  if(len%2 && zero)   zero--, len--;\\n\\n  if(zero+2 <= one+hatena) return 1;\\n  return 0;\\n}\\n\\nint is_ok_01(int one, int zero, int hatena, int len){\\n  if(len%2 && one)    one--, len--;\\n  if(len%2 && hatena) hatena--, len--;\\n  if(len%2 && zero)   zero--, len--;\\n\\n  if(zero+hatena < one) return 0;\\n  if(one+hatena < zero) return 0;\\n  return 1;\\n}\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n;\\n  int one, zero, hatena, len;\\n  int ok[2][2] = {};\\n\\n  one = zero = hatena = 0;\\n\\n  scanf(\\\"%s\\\",in);\\n  len = strlen(in);\\n\\n  rep(i,len){\\n    if(in[i]=='1') one++;\\n    if(in[i]=='0') zero++;\\n    if(in[i]=='?') hatena++;\\n  }\\n\\n  if(is_ok_00(one,zero,hatena,len)) ok[0][0] = 1;\\n  if(is_ok_11(one,zero,hatena,len)) ok[1][1] = 1;\\n  if(is_ok_01(one,zero,hatena,len)){\\n    if(in[len-1]=='0') ok[1][0] = 1;\\n    if(in[len-1]=='1') ok[0][1] = 1;\\n    if(in[len-1]=='?'){\\n      if(is_ok_01(one+1, zero, hatena-1, len)) ok[0][1] = 1;\\n      if(is_ok_01(one, zero+1, hatena-1, len)) ok[1][0] = 1;\\n    }\\n  }\\n\\n  if(ok[0][0]) puts(\\\"00\\\");\\n  if(ok[0][1]) puts(\\\"01\\\");\\n  if(ok[1][0]) puts(\\\"10\\\");\\n  if(ok[1][1]) puts(\\\"11\\\");\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3128,
+    "completion_tokens": 757,
+    "total_tokens": 3885,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 1720
+  },
+  "raw_sha256": "3c9c3f47f7b58d510960a38aa064143807b0090d40c48abe36a4fd8a4a1b4bb3",
+  "ended_utc": "2026-10-17T07:10:16.920598+00:00",
+  "elapsed_seconds": 2.891
+}

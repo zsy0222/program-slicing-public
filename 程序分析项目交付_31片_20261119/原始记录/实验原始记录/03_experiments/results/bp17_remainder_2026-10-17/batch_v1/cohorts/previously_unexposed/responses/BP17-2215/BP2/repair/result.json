@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2215/BP2/repair/1",
+  "case_id": "BP17-2215",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "271a446ef941852e75851e5a4f19e327c6678a4e3db41d327fa846d794b31dbc",
+  "started_utc": "2026-10-21T08:10:39.482434+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c9cd82de-38c7-4742-8db0-3b429169acfd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\nint comp (const void * a, const void * b)\\n{\\n  return ( *(int*)a - *(int*)b );\\n}\\nint main(int argc, char *argv[])\\n{\\n    long long n,x;\\n    long long s=0,y;\\n    scanf(\\\"%lld %lld\\\",&n,&x);\\n    long long i,j;\\n    long long ara[100005];\\n    for(i=0;i<n;i++)    {\\n        scanf(\\\"%lld\\\",&ara[i]);\\n    }\\n    qsort(ara,n,sizeof(long long),comp);\\n    i=0;\\n    while(x>1&&i<n)    {\\n        s+=ara[i]*x;\\n        i++;\\n        x--;\\n    }\\n    y=0;\\n    for(j=i;j<n;j++)    {\\n        y+=ara[j];\\n    }\\n    s+=y;\\n    printf(\\\"%lld\\\\n\\\",s);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1415,
+    "completion_tokens": 245,
+    "total_tokens": 1660,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 519
+  },
+  "raw_sha256": "ab51d16d1377fd99294b4140adf21e5b9d7f7a0165c64e63437d43efca2e95e0",
+  "ended_utc": "2026-10-21T08:10:41.168360+00:00",
+  "elapsed_seconds": 1.687
+}

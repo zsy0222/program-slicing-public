@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0012/BP2/repair/1",
+  "case_id": "BP17-0012",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "7ea95905683fd10c234d8ac9568e2a651973517a9aa15dd65e22f658e25e2385",
+  "started_utc": "2026-11-16T18:06:47.760437+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c3dde4dc-558e-4357-a965-3b2f73b40c5b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]){\\n   int n, p1, p2, p3, t1, t2;\\n   scanf(\\\"%d%d%d%d%d%d\\\", &n, &p1, &p2, &p3, &t1, &t2);\\n   \\n   int i, a, b, ans = 0, last;\\n   scanf(\\\"%d%d\\\", &a, &b);\\n   ans += (b-a) * p1;\\n   last = b;\\n   for(i = 1; i < n; ++i){\\n      scanf(\\\"%d%d\\\", &a, &b);\\n      \\n      if(a-last >= t1+t2){\\n         ans += t1 * p1;\\n         ans += t2 * p2;\\n         ans += (a-last-t1-t2) * p3;\\n      }else if(a-last >= t1){\\n         ans += t1 * p1;\\n         ans += (a-last-t1) * p2;\\n      }else{\\n         ans += (a-last) * p1;\\n      }\\n      \\n      ans += (b-a) * p1;\\n      last = b;\\n   }\\n   \\n   printf(\\\"%d\\\\n\\\", ans);\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1372,
+    "completion_tokens": 317,
+    "total_tokens": 1689,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 476
+  },
+  "raw_sha256": "fa1003807ff04b1ef14af151b091d5332a2acad38e891fbc19f8b7b040ed81cf",
+  "ended_utc": "2026-11-16T18:06:50.304702+00:00",
+  "elapsed_seconds": 2.5411
+}

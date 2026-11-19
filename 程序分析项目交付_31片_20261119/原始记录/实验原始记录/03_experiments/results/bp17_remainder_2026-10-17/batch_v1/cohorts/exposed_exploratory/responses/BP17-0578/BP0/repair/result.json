@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0578/BP0/repair/1",
+  "case_id": "BP17-0578",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "2894007ad2efd568f9718cf32ad4f07fa0883eb43a6eff525fd4f0dcb75bf30e",
+  "started_utc": "2026-10-21T07:32:08.178014+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b75ead8f-303e-4a7c-a4f0-a4da967c14b9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAXN 100000\\n\\nint main(int argc, char *argv[]) {\\n\\tint a, b, m, r, psr[MAXN+2];\\n\\tscanf(\\\"%d %d %d %d\\\", &a, &b, &m, &r);\\n\\t\\n\\tfor (int i = 0; i <= MAXN+1; i++) psr[i] = 0;\\n\\t\\n\\tint count = 0;\\n\\twhile (psr[r] == 0) {\\n\\t\\tpsr[r] = ++count;\\n\\t\\tr = (a * r + b) % m;\\n\\t}\\n\\t\\n\\tprintf(\\\"%d\\\\n\\\", count - psr[r] + 1);\\n\\t\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 190,
+    "total_tokens": 1012,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 182
+  },
+  "raw_sha256": "0147382c7ba5304e0d3d1ef8a2c547d1eba7b8db40af1e2ee87646ca47cddd7b",
+  "ended_utc": "2026-10-21T07:32:09.564478+00:00",
+  "elapsed_seconds": 1.36
+}

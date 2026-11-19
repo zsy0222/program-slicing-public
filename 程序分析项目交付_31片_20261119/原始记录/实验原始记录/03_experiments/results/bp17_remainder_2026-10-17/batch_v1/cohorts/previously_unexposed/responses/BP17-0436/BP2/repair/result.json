@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0436/BP2/repair/1",
+  "case_id": "BP17-0436",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f99988b253e438d9920537a4266b9022ad4734f61427b0ab40229ef2a4f4e829",
+  "started_utc": "2026-10-18T13:45:21.821739+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c29dbbf5-6966-496f-8c8a-ec2902275f8c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,i,j,p,a,b,c,max;\\n    scanf(\\\"%d\\\",&n);\\n    char name[n][21];\\n    int taxi[100]={0},piza[100]={0},girl[100]={0};\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d %s\\\",&p,name[i]);\\n        for(j=0;j<p;j++)\\n        {\\n            scanf(\\\"%d-%d-%d\\\",&a,&b,&c);\\n            if(a==b && a==c && a/10==a%10)taxi[i]++;\\n            else if(a/10>a%10 && a%10>b/10 && b/10>b%10 && b%10>c/10 && c/10>c%10)piza[i]++;\\n            else girl[i]++;\\n        }\\n    }\\n\\n    max=-1;\\n    for(i=0;i<n;i++){if(taxi[i]>max)max=taxi[i];}\\n    printf(\\\"If you want to call a taxi, you should call:\\\");\\n    for(i=0;i<n;i++){if(taxi[i]==max){printf(\\\" %s\\\",name[i]);break;}}\\n    for(++i;i<n;i++){if(taxi[i]==max){printf(\\\", %s\\\",name[i]);}}\\n    printf(\\\".\\\\n\\\");\\n\\n    max=-1;\\n    for(i=0;i<n;i++){if(piza[i]>max)max=piza[i];}\\n    printf(\\\"If you want to order a pizza, you should call:\\\");\\n    for(i=0;i<n;i++){if(piza[i]==max){printf(\\\" %s\\\",name[i]);break;}}\\n    for(++i;i<n;i++){if(piza[i]==max){printf(\\\", %s\\\",name[i]);}}\\n    printf(\\\".\\\\n\\\");\\n\\n    max=-1;\\n    for(i=0;i<n;i++){if(girl[i]>max)max=girl[i];}\\n    printf(\\\"If you want to go to a cafe with a wonderful girl, you should call:\\\");\\n    for(i=0;i<n;i++){if(girl[i]==max){printf(\\\" %s\\\",name[i]);break;}}\\n    for(++i;i<n;i++){if(girl[i]==max){printf(\\\", %s\\\",name[i]);}}\\n    printf(\\\".\\\\n\\\");\\n\\n    return 0;\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3460,
+    "completion_tokens": 598,
+    "total_tokens": 4058,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3460
+  },
+  "raw_sha256": "04f3b32a029a3226f1653692ae6a3606730bbf8d6907625dd9c4da74b07f8b4c",
+  "ended_utc": "2026-10-18T13:45:24.441981+00:00",
+  "elapsed_seconds": 2.609
+}

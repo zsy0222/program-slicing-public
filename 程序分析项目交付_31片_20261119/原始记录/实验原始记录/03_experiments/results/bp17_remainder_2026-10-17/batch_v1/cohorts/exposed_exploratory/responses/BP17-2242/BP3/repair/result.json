@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2242/BP3/repair/1",
+  "case_id": "BP17-2242",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "61c4a40c75ba0d95aca294d63781953dbd5de694cc43569b142c5b68ac125da9",
+  "started_utc": "2026-11-15T13:02:58.212597+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "223d675e-4db6-46a9-bbaa-b89b5c667eac",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\n    char s[500];\\n    scanf(\\\"%s\\\",s);\\n    int t,i,j;\\n    scanf(\\\"%d\\\",&t);\\n    int len=strlen(s);\\n    int x;\\n    x=len+t;\\n    if(x%2!=0)\\n        x=x-1;\\n    for(i=x/2;i>0;i--)\\n    {  int count=0;\\n        for(j=0;j<len+t;j++)\\n        {  if(j+i>=len&&j+i<len+t)\\n             count++;\\n           else if(j<len&&j+i<len&&s[j]==s[j+i])\\n            {\\n                count++;\\n            }\\n            else\\n                count=0;\\n            if(count==i)\\n                break;\\n        }\\n        if(count==i)\\n            break;\\n    }\\n    printf(\\\"%d\\\\n\\\",2*i);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1390,
+    "completion_tokens": 246,
+    "total_tokens": 1636,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1390
+  },
+  "raw_sha256": "f9c598f1e6ee398c7a120d4701047e5cd3709ec1e5655243d7a52e4205efb7fc",
+  "ended_utc": "2026-11-15T13:03:00.131519+00:00",
+  "elapsed_seconds": 1.9158
+}

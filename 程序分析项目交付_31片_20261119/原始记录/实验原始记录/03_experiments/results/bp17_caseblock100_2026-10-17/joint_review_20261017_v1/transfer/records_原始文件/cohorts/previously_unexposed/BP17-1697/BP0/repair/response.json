@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-1697",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\n#define MIN(a, b) (a < b ? a : b)\\n#define ABS(a) ((a) < 0 ? -(a) : (a))\\n\\nint n, k, dp[2222];\\nlong long a[2222];\\n\\nint func(long long thre) {\\n    int i, j;\\n    dp[0] = 0;\\n    for (i = 1; i < n; i++)\\n        for (dp[i] = i, j = 0; j < i; j++)\\n            if (abs(a[j] - a[i]) <= (i - j) * thre)\\n                dp[i] = MIN(dp[i], dp[j] + j - i - 1);\\n    for (i = 0; i < n; i++)\\n        if (dp[i] + n - 1 - i <= k)\\n            return 1;\\n    return 0;\\n}\\n\\nint main(int argc, char** argv) {\\n    int i;\\n    long long low, up, mid, ac;\\n\\n    scanf(\\\"%d%d\\\", &n, &k);\\n    for (i = 0; i < n; i++)\\n        scanf(\\\"%lld\\\", &a[i]);\\n\\n    low = 0;\\n    up = 0x7fffffffLL;\\n    ac = up;\\n    while (low <= up) {\\n        mid = (low + up) >> 1;\\n        if (func(mid)) {\\n            ac = mid;\\n            up = mid - 1LL;\\n        }\\n        else\\n            low = mid + 1LL;\\n    }\\n\\n    printf(\\\"%lld\\\\n\\\", ac);\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 1.844,
+  "ended_utc": "2026-10-17T07:14:53.293351+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1697/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "10b965ac5d1790720f0ddfd3fb96e9153774853d3adbd39391985ae8f8ae5884",
+  "request_model": "deepseek-flash",
+  "request_sha256": "5cfac4d62b85faa84d8fafe2e17e50c0e57110368f90f3ac5779d475a51662e0",
+  "response_id": "fd7fd8f1-2ac2-40dd-b72c-0edb24b5c786",
+  "started_utc": "2026-10-17T07:14:51.449122+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 422,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1160,
+    "prompt_tokens": 1160,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1582
+  }
+}

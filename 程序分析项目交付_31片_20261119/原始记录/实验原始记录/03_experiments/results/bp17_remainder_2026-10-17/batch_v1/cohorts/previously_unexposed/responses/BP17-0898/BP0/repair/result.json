@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0898/BP0/repair/1",
+  "case_id": "BP17-0898",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "2a0a179f8b8262f170244e9478f6195b160afa1cbe3c014db0eeedaa52b2d377",
+  "started_utc": "2026-10-18T12:35:08.558489+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f0c72e55-76ea-4a3f-8132-7c46dc746b08",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdbool.h>\\n\\n#define maxN 1000001\\n\\nbool isP[maxN];\\nint ps[maxN];\\n\\nbool isPrime( int n ) {\\n\\tint i;\\n\\n\\tfor( i = 2; (long long) i * i <= n; i++ )\\n\\t\\tif( n % i == 0 ) return false;\\n\\t\\n\\treturn true;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint i, j, c;\\n\\n\\tisP[2] = isP[3] = isP[5] = 1;\\n\\n\\tfor( i = 7; i < maxN; i += 2 )\\n\\t\\tif( isPrime(i) ) isP[i] = 1;\\n\\t\\n\\tps[0] = 0;\\n\\tfor( i = 1; i < maxN; i++ )\\n\\t\\tps[i] = ps[i-1] + isP[i];\\n\\t\\n\\tint a, b, k;\\n\\tscanf(\\\"%i %i %i\\\", &a, &b, &k);\\n\\t\\n\\tint lo = 0, hi = b - a + 1, ans = -1, mid;\\n\\twhile( lo <= hi ) {\\n\\t\\tmid = (lo + hi) / 2;\\n\\n\\t\\tbool ok = 1;\\n\\n\\t\\tfor( i = a; i <= b-mid+1; i++ )\\n\\t\\t\\tif( ps[i+mid-1] - ps[i-1] < k ) ok = 0;\\n\\n\\t\\tif( ok ) {\\n\\t\\t\\tans = mid;\\n\\t\\t\\thi = mid - 1;\\n\\t\\t} else lo = mid + 1;\\n\\n\\t}\\n\\n\\tprintf(\\\"%i\\\\n\\\", ans);\\n\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1233,
+    "completion_tokens": 446,
+    "total_tokens": 1679,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 209
+  },
+  "raw_sha256": "b824a040901da6076d0ca4e411ce9020f345655a35e8a0a3c7a9692a8c6dafd6",
+  "ended_utc": "2026-10-18T12:35:10.898920+00:00",
+  "elapsed_seconds": 2.172
+}

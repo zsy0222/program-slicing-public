@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1783/BP1/repair/1",
+  "case_id": "BP17-1783",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "9ef7f58f96f9301309bba5d7db297633a27c7859726e328e8f5f2b3846689c2e",
+  "started_utc": "2026-10-17T13:54:48.516885+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "73b228b3-5599-497b-9202-1c2e7dd0eaa0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n\\tint k,x,z,i,j,n,m,arr[105][105],s=0,x1=0,x2=0,top=0;\\n\\tscanf(\\\"%d %d\\\",&k,&n);\\n\\tfor(i=0 ; i<k/n ; i++)\\n\\t\\tfor(j=0 ; j<n ; j++)\\n\\t\\t\\tscanf(\\\"%d\\\",&arr[i][j]);\\n\\tfor(j=0 ; j<n ; j++)\\n\\t{\\t\\n\\t\\tfor(i=0 ; i<k/n ; i++)\\n\\t\\t{\\n\\t\\t\\tif(arr[i][j]==1)\\n\\t\\t\\t\\tx1++;\\n\\t\\t\\telse if(arr[i][j]==2)\\n\\t\\t\\t\\tx2++;\\n\\t\\t}\\n\\t\\tif(x1>x2)\\n\\t\\t{\\n\\t\\t\\tfor(i=0 ; i<k/n ; i++)\\n\\t\\t\\t\\tif(arr[i][j]==2)\\n\\t\\t\\t\\t\\ts++;\\n\\t\\t}\\n\\t\\telse if(x2>x1)\\n\\t\\t{\\n\\t\\t\\tfor(i=0 ; i<k/n ; i++)\\n\\t\\t\\t\\tif(arr[i][j]==1)\\n\\t\\t\\t\\t\\ts++;\\n\\t\\t}\\t\\n\\t\\telse if(x1==x2)\\n\\t\\t\\ts++;\\n\\t\\ttop+=s;\\n\\t\\tx1=0;\\n\\t\\tx2=0;\\n\\t\\ts=0;\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",top);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1189,
+    "completion_tokens": 389,
+    "total_tokens": 1578,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 165
+  },
+  "raw_sha256": "4806d83b8e83c61bc22bf29950179f32b8d4d35c19f12facb921dd00cd51b439",
+  "ended_utc": "2026-10-17T13:54:50.577625+00:00",
+  "elapsed_seconds": 2.063
+}

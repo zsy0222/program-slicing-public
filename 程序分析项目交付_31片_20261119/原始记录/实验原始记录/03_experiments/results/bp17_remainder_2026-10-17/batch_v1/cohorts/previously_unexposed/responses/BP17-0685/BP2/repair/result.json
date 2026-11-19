@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0685/BP2/repair/1",
+  "case_id": "BP17-0685",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "41584c1b684b6d8989bdc50a061bb3432873d2c251f676d3d765774b0880fec7",
+  "started_utc": "2026-11-16T06:09:02.753735+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a3fdea97-ebe3-40a1-a9f1-344743d15269",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n\\nint p[3][2];\\nint r[3];\\n\\nint main(int argc, char *argv[]){\\n    int i,j;\\n    int a[2],b[2],k[2],c[2];\\n    double xr,yr,xc,yc;\\n    double af,bf,cf;\\n    double deta,maxd,mind;\\n    double rs,x,y;\\n\\n    for(i=0;i<3;i++){\\n        scanf(\\\"%d%d%d\\\",&p[i][0],&p[i][1],&r[i]);\\n    }\\n\\n    a[0]=2*(p[0][0] - p[1][0]);\\n    a[1]=2*(p[1][0] - p[2][0]);\\n    b[0]=2*(p[0][1] - p[1][1]);\\n    b[1]=2*(p[1][1] - p[2][1]);\\n    k[0]=r[1]*r[1] - r[0]*r[0];\\n    k[1]=r[2]*r[2] - r[1]*r[1];\\n    c[0]=p[1][0]*p[1][0] - p[0][0]*p[0][0] + p[1][1]*p[1][1] - p[0][1]*p[0][1];\\n    c[1]=p[2][0]*p[2][0] - p[1][0]*p[1][0] + p[2][1]*p[2][1] - p[1][1]*p[1][1];\\n    c[0]=-c[0];\\n    c[1]=-c[1];\\n\\n    if(a[1]*b[0]-a[0]*b[1]==0){\\n        return 0;\\n    }\\n\\n    xr=(double)(k[1]*b[0]-k[0]*b[1])/(a[1]*b[0]-a[0]*b[1]);\\n    xc=(double)(c[1]*b[0]-c[0]*b[1])/(a[1]*b[0]-a[0]*b[1]);\\n    yr=(double)(k[1]*a[0]-k[0]*a[1])/(a[0]*b[1]-a[1]*b[0]);\\n    yc=(double)(c[1]*a[0]-c[0]*a[1])/(a[0]*b[1]-a[1]*b[0]);\\n\\n    af=xr*xr+yr*yr;\\n    bf=2*xc*xr-2*p[1][0]*xr+2*yc*yr-2*p[1][1]*yr-r[1]*r[1];\\n    cf=xc*xc-2*p[1][0]*xc+p[1][0]*p[1][0]+yc*yc-2*p[1][1]*yc+p[1][1]*p[1][1];\\n    deta=bf*bf-4*af*cf;\\n\\n    if(af==0){\\n        if(0==bf && 0!=cf){\\n            return 0;\\n        }\\n        if(bf*cf>0){\\n            return 0;\\n        }\\n        x=xc;\\n        y=yc;\\n    }\\n    else if(deta<0)\\n        return 0;\\n    else{\\n        deta=sqrt(deta);\\n        maxd=deta-bf;\\n        mind=-bf-deta;\\n\\n        if(mind<0)\\n            mind=maxd;\\n        if(maxd<0)\\n            return 0;\\n        else{\\n            rs=mind/2/af;\\n            x=xr*rs+xc;\\n            y=yr*rs+yc;\\n        }\\n    }\\n    printf(\\\"%0.5lf %0.5lf\\\\n\\\",x,y);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2429,
+    "completion_tokens": 963,
+    "total_tokens": 3392,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "prompt_cache_hit_tokens": 1792,
+    "prompt_cache_miss_tokens": 637
+  },
+  "raw_sha256": "3364b5722aaa382d043625b1d5ffb8fdd3eae2515356e0fea01a88a327afdc2b",
+  "ended_utc": "2026-11-16T06:09:08.309229+00:00",
+  "elapsed_seconds": 5.5512
+}

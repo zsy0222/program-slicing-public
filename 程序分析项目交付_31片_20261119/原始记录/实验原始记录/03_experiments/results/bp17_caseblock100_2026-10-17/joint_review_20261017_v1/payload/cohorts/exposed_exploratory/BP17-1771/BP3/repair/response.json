@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-1771",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nstruct case1\\n{\\n long full;\\n long child[2];\\n}tree[2000005]={{0,{0}}};\\n\\nlong totm=1;\\nlong flag=0;\\n\\nstruct case2\\n{\\n long l;\\n long num;\\n}word[1006]={{0,0}};\\n\\nlong ans[1006][1006]={0};\\nlong l[1006]={0};\\n\\nvoid mark(long level,long x)\\n{\\n if(x==0)\\n  return;\\n if(level==0)\\n  tree[x].full=1;\\n if(tree[x].full==1)\\n  return;\\n mark(level-1,tree[x].child[0]);\\n mark(level-1,tree[x].child[1]);\\n}\\n\\nvoid check(long *p)\\n{\\n if(*p==0)\\n  {\\n   totm++;\\n   *p=totm;\\n  }\\n}\\n\\nvoid insert(long l,long level,long x,long num)\\n{\\n if(level<=l)\\n  {\\n   check(&tree[x].child[0]);\\n   if(tree[tree[x].child[0]].full==0)\\n    {\\n     ans[num][level]=0;\\n     insert(l,level+1,tree[x].child[0],num);\\n    }\\n   else\\n    {\\n     check(&tree[x].child[1]);\\n     if(tree[tree[x].child[1]].full==0)\\n      {\\n       ans[num][level]=1;\\n       insert(l,level+1,tree[x].child[1],num);\\n      }\\n     else\\n      flag=1;  \\n    }\\n   tree[x].full=tree[tree[x].child[0]].full&tree[tree[x].child[1]].full;\\n  }\\n else\\n  tree[x].full=1;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n long n,i,j;\\n struct case2 temp;\\n \\n scanf(\\\"%ld\\\",&n);\\n for(i=1;i<=n;i++)\\n   {\\n    scanf(\\\"%ld\\\",&word[i].l);\\n    word[i].num=i;\\n    l[i]=word[i].l;\\n   }\\n for(i=1;i<n;i++)\\n   for(j=i+1;j<=n;j++)\\n     if(word[j].l>word[i].l)\\n      {\\n       temp=word[i];\\n       word[i]=word[j];\\n       word[j]=temp;\\n      }\\n \\n for(i=1;i<=n;i++)\\n   {\\n    insert(word[i].l,1,1,word[i].num);\\n    if(flag)\\n     {\\n      printf(\\\"NO\\\");\\n      return 0;\\n     }\\n    if(i<n&&word[i+1].l<word[i].l)\\n     mark(word[i+1].l,1);\\n   }\\n printf(\\\"YES\\\\n\\\");\\n for(i=1;i<=n;i++)\\n   {\\n    for(j=1;j<=l[i];j++)\\n      printf(\\\"%ld\\\",ans[i][j]);\\n    printf(\\\"\\\\n\\\");\\n   }\\n \\n return 0;\\n}\"}",
+  "elapsed_seconds": 3.14,
+  "ended_utc": "2026-10-17T07:12:34.852059+00:00",
+  "finish_reason": "stop",
+  "group": "BP3",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1771/BP3/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "bb74c370e011616396ec35782f7abc56e699fbab74a4391fdc87cd2b67a4d415",
+  "request_model": "deepseek-flash",
+  "request_sha256": "7f3b98f0bd7518ec62fef3563da3fca8574187df0d00e8af5edbdff64d2c3718",
+  "response_id": "d635b12b-cedf-4849-9c10-0c0e5204c581",
+  "started_utc": "2026-10-17T07:12:31.710109+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 771,
+    "prompt_cache_hit_tokens": 1792,
+    "prompt_cache_miss_tokens": 1290,
+    "prompt_tokens": 3082,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "total_tokens": 3853
+  }
+}

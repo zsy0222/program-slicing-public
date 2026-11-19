@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1436/BP1/repair/1",
+  "case_id": "BP17-1436",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "f03856bf837f1f028e72b6a93938007bc51a80a6aa2ad9a20a4f75655b4f211e",
+  "started_utc": "2026-10-18T12:32:06.233862+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f287b385-66d5-46d3-aa2c-190a29437c6c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\nchar s[1000001];\\nlong long int a[10]={0},q=0,ans,num=10,i;\\nchar c;\\ns[0]=getchar();\\n\\nwhile((c=getchar())!='\\\\n')\\n{\\nif(c>='A' && c<='J')a[c-'A']=1;\\nelse if(c=='?')q++;\\n}\\n\\nif(s[0]>='1' && s[0]<='9'){ans=1;}\\nelse if(s[0]>='A' && s[0]<='Z'){ans=9;num=9;a[s[0]-'A']=0;}\\nelse ans=9;\\n\\nif(q>0)ans=ans*q*10;\\n\\nfor(i=0;i<10;i++)\\n{if(a[i]==1)ans*=num--;}\\n\\nprintf(\\\"%lld\\\\n\\\",ans);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 928,
+    "completion_tokens": 240,
+    "total_tokens": 1168,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 160
+  },
+  "raw_sha256": "bcfeb4e3073cafd208bc2c879eaa5dc18ff77921f85aafc348239d99607b6486",
+  "ended_utc": "2026-10-18T12:32:07.821307+00:00",
+  "elapsed_seconds": 1.594
+}

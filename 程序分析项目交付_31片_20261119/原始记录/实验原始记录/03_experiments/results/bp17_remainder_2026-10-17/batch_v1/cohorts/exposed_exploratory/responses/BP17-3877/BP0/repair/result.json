@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3877/BP0/repair/1",
+  "case_id": "BP17-3877",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "32c68ff772d738465e126e064229e41b20fd424ffe1aa4121ba51b27da3e3714",
+  "started_utc": "2026-11-16T18:13:40.477189+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "78a536f3-0689-4504-b944-f5861861c7bb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdlib.h>\\n#define MAXL 100001\\n\\nint count[MAXL];\\nchar num[MAXL+2];\\nint least[MAXL+1];\\nint L;\\n\\nint main(int argc, char *argv[])\\n{\\n\\twhile ( scanf(\\\" %s\\\", num) == 1)\\n\\t{\\n\\t\\tL = strlen( num);\\n\\t\\tleast[L] = 0;\\n\\t\\tint i;\\n\\t\\tfor ( i = L; i; i--)\\n\\t\\t{\\n\\t\\t\\tint cur = num[i-1] - '0';\\n\\t\\t\\tleast[i-1] = cur < 4 ? 0 : ( cur == 4 && least[i] != -1) ? least[i] ? 1 : 0 : cur < 7 ? 1 : ( cur == 7 && least[i] != -1) ? least[i] + 1 : -1;\\n\\t\\t}\\n\\n\\t\\tif ( ( L & 1) || least[0] == -1 || least[0] > ( L >> 1))\\n\\t\\t{\\n\\t\\t\\tL += L & 1 ? 1 : 2;\\n\\t\\t\\tfor ( i = 0; i < ( L >> 1); i++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tnum[i] = '4';\\n\\t\\t\\t}\\n\\t\\t\\tfor ( i = ( L >> 1); i < L; i++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tnum[i] = '7';\\n\\t\\t\\t}\\n\\t\\t\\tnum[L] = '\\\\0';\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tint need4 = L >> 1;\\n\\t\\t\\tint need7 = L >> 1;\\n\\t\\t\\tchar bigger = 0;\\n\\t\\t\\tfor ( i = 0; i < L; i++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tchar tmp;\\n\\t\\t\\t\\tif ( need4 && ( bigger || num[i] < '4' || ( num[i] == '4' && least[i+1] != -1 && least[i+1] <= need7)))\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t--need4;\\n\\t\\t\\t\\t\\ttmp = '4';\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t--need7;\\n\\t\\t\\t\\t\\ttmp = '7';\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tbigger |= tmp > num[i] ;\\n\\t\\t\\t\\tnum[i] = tmp;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tprintf(\\\"%s\\\\n\\\", num);\\n\\t}\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1738,
+    "completion_tokens": 652,
+    "total_tokens": 2390,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 202
+  },
+  "raw_sha256": "da688c009bc2881134c58fed640dc8fa712455f52297b5afb728e2c976b63c8f",
+  "ended_utc": "2026-11-16T18:13:43.576950+00:00",
+  "elapsed_seconds": 2.9374
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2202/BP3/repair/1",
+  "case_id": "BP17-2202",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "e0a76a1ae7074ea7383732885b3b22e6a385c19cf5b4d1a115adac89ffa1b592",
+  "started_utc": "2026-11-16T19:11:53.826366+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8093d31f-1122-4204-be10-84e1f4977913",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\nint main(int argc, char *argv[])\\n{\\n    long long int sum,lim,i,a[10001],cnt,j,ans[10001];\\n    scanf(\\\"%lld %lld\\\",&sum,&lim);\\n    {\\n        for(i=1;i<=lim;i++)\\n        {\\n            {\\n                j=i;\\n                cnt=0;\\n                while(j%2!=1)\\n                {\\n                    cnt++;\\n                    j=j/2;\\n                }\\n                a[i]=pow(2,cnt);\\n            }\\n        }\\n        //for(i=1;i<=lim;i++)\\n        //printf(\\\"%d \\\",a[i]);\\n        j=0;\\n        for(i=lim;i>0;i--)\\n        {\\n            if(sum>=a[i])\\n            {\\n                sum=sum-a[i];\\n                ans[j]=i;\\n                j++;\\n            }\\n            if(sum==0)\\n            break;\\n        }\\n        if(sum==0)\\n        {\\n            printf(\\\"%lld \\\\n\\\",j);\\n            for(i=0;i<j;i++)\\n            printf(\\\"%lld \\\",ans[i]);\\n        }\\n        else\\n        printf(\\\"-1\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 4593,
+    "completion_tokens": 311,
+    "total_tokens": 4904,
+    "prompt_tokens_details": {
+      "cached_tokens": 3968
+    },
+    "prompt_cache_hit_tokens": 3968,
+    "prompt_cache_miss_tokens": 625
+  },
+  "raw_sha256": "128f51a74e7f2c39b0045f2c55815011640ac4bda2a05f588b66219d6291de3e",
+  "ended_utc": "2026-11-16T19:11:56.020988+00:00",
+  "elapsed_seconds": 2.1919
+}

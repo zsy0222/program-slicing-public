@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3087/BP1/repair/1",
+  "case_id": "BP17-3087",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a9714cf3fc773b57a94b95a7eea68ae61dcb760c1ef662fa9fa13297c90a70de",
+  "started_utc": "2026-11-16T15:41:33.115704+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8c411918-1186-4d8c-a66c-d872cd16d717",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAXN    10000001\\n\\nchar NotPrime[MAXN];\\n\\nvoid SieveOfEratosthenes()\\n{\\n    int i, j;\\n    NotPrime[0] = 1;\\n    NotPrime[1] = 1;\\n    for(i = 2; i < MAXN; ++i) {\\n        if(!NotPrime[i]) {\\n            for(j = i + i; j < MAXN; j += i) {\\n                NotPrime[j] = 1;\\n            }\\n        }\\n    }\\n}\\n\\nint IsPalindromic(int N)\\n{\\n    if(N < 10) {\\n        return 1;\\n    }\\n    int i, j, Len = 0;\\n    char NumDigit[10];\\n    while(N) {\\n        NumDigit[Len++] = N % 10;\\n        N /= 10;\\n    }\\n    for(i = 0, j = Len - 1; i < j; ++i, --j) {\\n        if(NumDigit[i] != NumDigit[j]) {\\n            return 0;\\n        }\\n    }\\n    return 1;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    SieveOfEratosthenes();\\n    int Ans = -1, p, q, i;\\n    unsigned int pi = 0, rub = 0;\\n    scanf(\\\"%d %d\\\", &p, &q);\\n    for(i = 1; i < MAXN; ++i) {\\n        if(!NotPrime[i]) {\\n            ++pi;\\n        }\\n        if(IsPalindromic(i)) {\\n            ++rub;\\n        }\\n        if(q * pi <= p * rub) {\\n            Ans = i;\\n            break;\\n        }\\n    }\\n    if(Ans == -1) {\\n        puts(\\\"Palindromic tree is better than splay tree\\\");\\n        return 0;\\n    }\\n    printf(\\\"%d\\\\n\\\", Ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1296,
+    "completion_tokens": 484,
+    "total_tokens": 1780,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1296
+  },
+  "raw_sha256": "61f02a2d4ad63a68bf27cc71c977cea24f1c83708160b2a38866ce88303e9bed",
+  "ended_utc": "2026-11-16T15:41:35.512981+00:00",
+  "elapsed_seconds": 2.2856
+}

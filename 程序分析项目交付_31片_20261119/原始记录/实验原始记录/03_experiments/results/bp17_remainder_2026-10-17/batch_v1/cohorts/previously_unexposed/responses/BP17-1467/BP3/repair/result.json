@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1467/BP3/repair/1",
+  "case_id": "BP17-1467",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "7d4ea37c8fe8630b35af3ccf37e51508ff88e66b2bceecfad7e8564f6bc2c806",
+  "started_utc": "2026-11-16T06:11:14.300381+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3190c6a6-a9b6-44c2-af09-f59a253e0aed",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint min(int a, int b){\\n    return a<b?a:b;\\n}\\nint max(int a, int b){\\n    return a>b?a:b;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, n, xf = 1, yf = 1, sum =0;\\n    unsigned long long area = 0;\\n    scanf(\\\"%d\\\", &n);\\n    int x0=31400, y0=31400, x1=0, y1=0;\\n    int a, b, c, d;\\n    while(n--){\\n        scanf(\\\"%d%d%d%d\\\", &a, &b, &c, &d);\\n        if((a-x0)*(b-y0)<0)xf = 0;\\n        else if(a<=x0 && b<=y0) xf = 1;\\n        if((c-x1)*(d-y1)<0)yf = 0;\\n        else if(c>=x1 && d>=y1) yf = 1;\\n        x0 = min(a, x0);\\n        y0 = min(b, y0);\\n        x1 = max(c, x1);\\n        y1 = max(d, y1);\\n        sum += (d-b)*(c-a);\\n    }\\n    if(xf && yf && sum == (x1-x0)*(y1-y0) && x1-x0 == y1-y0){\\n        printf(\\\"YES\\\\n\\\");\\n    }else{\\n        printf(\\\"NO\\\\n\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1819,
+    "completion_tokens": 384,
+    "total_tokens": 2203,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1819
+  },
+  "raw_sha256": "2fe7f73cf38bccf67c7ec8a39b436322a53dcc7b6e96c29ed5f3705b5460bb7b",
+  "ended_utc": "2026-11-16T06:11:16.466328+00:00",
+  "elapsed_seconds": 2.1128
+}

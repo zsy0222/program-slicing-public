@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0229/BP0/repair/1",
+  "case_id": "BP17-0229",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "5dcf245be25f3fb9a0bfcd9b8db2fedbb2791a1f27979ae0ac6242c2443149d2",
+  "started_utc": "2026-10-18T12:06:50.598094+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "485beea0-1436-413f-bc9e-4ee906d9159e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\n    char in[200],out[200];\\n    int i,j,len,count=0;\\n\\n    gets(in);\\n\\n    len=strlen(in);\\n\\n    for(i=1;in[i]!='\\\\0';i++)\\n    {\\n        if(in[i]>='A'&&in[i]<='Z')\\n        {\\n            count++;\\n        }\\n    }\\n\\n    if(in[0]>='A'&&in[0]<='Z')\\n    {\\n        if(count==len-1)\\n        {\\n            out[0]=in[0]+32;\\n            for(j=1;in[j]!='\\\\0';j++)\\n            {\\n                out[j]=in[j]+32;\\n            }\\n            out[j]='\\\\0';\\n            puts(out);\\n        }\\n        else\\n        {\\n            puts(in);\\n        }\\n    }\\n    else if(in[0]>='a'&&in[0]<='z')\\n    {\\n        if(count==len-1)\\n        {\\n            out[0]=in[0]-32;\\n            for(j=1;in[j]!='\\\\0';j++)\\n            {\\n                out[j]=in[j]+32;\\n            }\\n            out[j]='\\\\0';\\n            puts(out);\\n        }\\n        else\\n        {\\n            puts(in);\\n        }\\n    }\\n    else\\n    {\\n        puts(in);\\n    }\\n\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1118,
+    "completion_tokens": 385,
+    "total_tokens": 1503,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 222
+  },
+  "raw_sha256": "852de2d8bd9567e5d0daca3f6861e5de62f361f48bbae1d2e1f33d02fa0abd50",
+  "ended_utc": "2026-10-18T12:06:52.441739+00:00",
+  "elapsed_seconds": 1.828
+}

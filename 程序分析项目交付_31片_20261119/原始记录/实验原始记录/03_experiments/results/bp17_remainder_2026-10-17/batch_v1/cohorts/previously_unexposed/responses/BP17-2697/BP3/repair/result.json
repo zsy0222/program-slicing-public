@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2697/BP3/repair/1",
+  "case_id": "BP17-2697",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0792bbd7b3f827be1020a90df28f34eeab12041813037589f7a3569a3940dfae",
+  "started_utc": "2026-11-18T09:37:58.354099+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7cced061-c195-4c89-b2fe-7ec7647e912c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\n#define BUFSIZE 100000\\n\\ntypedef struct NODE\\n{\\n\\tint v;\\n\\tstruct NODE* next;\\n}\\nNode;\\n\\nvoid add_edge(Node **g, int v1, int v2);\\nint dfs(Node **g, int v, int target, int *visited);\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n, dest, i, offset;\\n\\tchar buf[BUFSIZE];\\n\\tfgets(buf, BUFSIZE, stdin);\\n\\tsscanf(buf, \\\"%d %d\\\", &n, &dest);\\n\\tint *visited = (int *)calloc(n + 1, sizeof(int));\\n\\tNode **g = (Node **)malloc((n + 1) * sizeof(Node *));\\n\\tfor (i = 0; i < n + 1; i++)\\n\\t{\\n\\t\\tg[i] = (Node *)malloc(sizeof(Node));\\n\\t\\tg[i]->v = i;\\n\\t\\tg[i]->next = NULL;\\n\\t}\\n\\ti = 0;\\n\\twhile (fscanf(stdin, \\\"%d\\\", &offset) > 0)\\n\\t{\\n\\t\\tadd_edge(g, i, i + offset);\\n\\t\\ti++;\\n\\t\\tscanf(\\\" \\\");\\n\\t}\\n\\tif (dfs(g, 1, dest, visited))\\n\\t{\\n\\t\\tprintf(\\\"YES\\\\n\\\");\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tprintf(\\\"NO\\\\n\\\");\\n\\t}\\n\\treturn 0;\\n}\\n\\nvoid add_edge(Node **g, int v1, int v2)\\n{\\n\\tNode* v = g[v1];\\n\\tNode *v22 = (Node *)malloc(sizeof(Node));\\n\\tv22->v = v2;\\n\\tv22->next = v->next;\\n\\tv->next = v22;\\n}\\n\\nint dfs(Node **g, int v, int target, int *visited)\\n{\\n\\tvisited[v] = 1;\\n\\tNode *aux = g[v]->next;\\n\\twhile (aux != NULL)\\n\\t{\\n\\t\\tint v1 = aux->v;\\n\\t\\tif (v1 == target)\\n\\t\\t{\\n\\t\\t\\treturn 1;\\n\\t\\t}\\n\\t\\tif (visited[v1])\\n\\t\\t{\\n\\t\\t\\taux = aux->next;\\n\\t\\t\\tcontinue;\\n\\t\\t}\\n\\t\\tif (dfs(g, v1, target, visited))\\n\\t\\t{\\n\\t\\t\\treturn 1;\\n\\t\\t}\\n\\t\\taux = aux->next;\\n\\t}\\n\\treturn 0;\\n}\\n\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2158,
+    "completion_tokens": 644,
+    "total_tokens": 2802,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 622
+  },
+  "raw_sha256": "81b92fad20d1ec7887b11d1fa66b14b4b09833899e36a1f740958e59a1f53a41",
+  "ended_utc": "2026-11-18T09:38:01.266964+00:00",
+  "elapsed_seconds": 2.8619
+}

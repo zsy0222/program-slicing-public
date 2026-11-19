@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0426/BP0/repair/1",
+  "case_id": "BP17-0426",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "864ad44c2d265f82163842fc59eeb394c331a3062c6aaddafd70088f8c991bf5",
+  "started_utc": "2026-11-16T16:25:28.443546+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6c23eadb-8a0b-4f50-baf0-d615de8434ab",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define BASE 1000000007\\n\\nint pow(int a, int b) {\\n\\tif (b == 0) return 1;\\n\\tif (b == 1) return a;\\n\\n\\tlong long ans = pow(a, b/2);\\n\\tans = (ans * ans) % BASE;\\n\\tans = (ans * pow(a, b%2)) % BASE;\\n\\treturn (int) ans;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, m, k;\\n\\tscanf(\\\"%d %d %d\\\", &n, &m, &k);\\n\\tif (k > n || k == 1) printf(\\\"%d\\\\n\\\", pow(m, n));\\n\\telse if (k == n) printf(\\\"%d\\\\n\\\", pow(m, (n + 1)/2));\\n\\telse if (k % 2) printf(\\\"%d\\\\n\\\", m*m);\\n\\telse printf(\\\"%d\\\\n\\\", m);\\n\\t\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 932,
+    "completion_tokens": 251,
+    "total_tokens": 1183,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 164
+  },
+  "raw_sha256": "9559040057400f0f3eed7461a330d39c47ef5f476c9b3872997ed3f1def3e1fa",
+  "ended_utc": "2026-11-16T16:25:30.443219+00:00",
+  "elapsed_seconds": 1.9973
+}

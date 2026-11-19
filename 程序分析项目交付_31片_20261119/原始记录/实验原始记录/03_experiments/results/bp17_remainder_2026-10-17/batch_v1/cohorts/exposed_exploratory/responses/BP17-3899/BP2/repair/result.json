@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3899/BP2/repair/1",
+  "case_id": "BP17-3899",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "470f8cedc39fd89db3bfed0e2a9fda0844518088c7541320bc3d79003a0299a0",
+  "started_utc": "2026-10-18T14:12:50.715942+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cd97f760-4620-4bc7-a002-598df33b4799",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n    int n;\\n    scanf(\\\"%d\\\",&n);\\n    int i,j,sum=0,max=-1,min=10002,flag=0;\\n    int arr[10001][2]={0};\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d\\\",&j);\\n        arr[j][0]++;\\n        arr[j][1]=i;\\n        sum+=j;\\n        if(j>max)\\n        max=j;\\n        if(j<min)\\n        min=j;\\n    }\\n    if((sum%n)!=0)\\n    {\\n    printf(\\\"Unrecoverable configuration.\\\\n\\\");\\n    }\\n    else\\n    {\\n        int d=sum/n;\\n        if(arr[d][0]==n)\\n        printf(\\\"Exemplary pages.\\\\n\\\");\\n        else\\n        {\\n            for(i=min+1;i<d;i++)\\n            {\\n                \\n                if(arr[i][0]!=0)\\n                {\\n                printf(\\\"Unrecoverable configuration.\\\\n\\\");\\n                flag=1;\\n                break;\\n            }\\n            }\\n                for(i=max-1;i>d;i--)\\n            {\\n                if(arr[i][0]!=0)\\n                {\\n                printf(\\\"Unrecoverable configuration.\\\\n\\\");\\n                flag=1;\\n                break;\\n                }\\n            }\\n            if(flag==0&&((arr[max][0]!=1)||(arr[min][0]!=1)))\\n            {\\n            printf(\\\"Unrecoverable configuration.\\\\n\\\");\\n            }\\n            else if(flag==0)\\n            printf(\\\"%d ml. from cup #%d to cup #%d.\\\\n\\\",d-min,arr[min][1]+1,arr[max][1]+1);\\n        }\\n    }\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2032,
+    "completion_tokens": 466,
+    "total_tokens": 2498,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 752
+  },
+  "raw_sha256": "e444e88aa81e95e0244682cb166e3b119b43e4cb63e89c82547d0b122fffcc09",
+  "ended_utc": "2026-10-18T14:12:53.001313+00:00",
+  "elapsed_seconds": 2.156
+}

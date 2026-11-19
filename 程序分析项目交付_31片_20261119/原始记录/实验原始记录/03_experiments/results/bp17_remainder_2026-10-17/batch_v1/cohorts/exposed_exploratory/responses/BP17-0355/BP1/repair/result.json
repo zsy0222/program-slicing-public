@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0355/BP1/repair/1",
+  "case_id": "BP17-0355",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1963d32ecb84f5a98803d81aa6ae95cb4afadec285ffd3d02b1b4b4e5ce69c02",
+  "started_utc": "2026-10-21T06:47:49.001820+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a5aec64f-7f60-423d-abc3-53f706073dbe",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint  n, a[100], c, b = 0, max = 0, min = 999, v, max1, min1,e,f=0;\\n\\tscanf(\\\"%d\\\", &n);\\n\\tfor (c = 0; c < n; c++){\\n\\t\\tscanf(\\\"%d\\\", &a[c]);\\n\\t\\tif (a[c]>=max){\\n\\t\\t\\tmax = a[c];\\n\\t\\t\\tmax1 = c;\\n\\t\\t}\\n\\t\\tif (a[c] <= min){\\n\\t\\t\\tmin = a[c];\\n\\t\\t\\tmin1 = c;\\n\\t\\t}\\n\\t}\\n\\tif (max1 > min1)f = 1;\\n\\twhile (1){\\n\\t\\tif (max1 != 0){\\n\\t\\t\\te = a[max1];\\n\\t\\t\\ta[max1] = a[max1 - 1];\\n\\t\\t\\ta[max1 - 1] = e;\\n\\t\\t\\tmax1--;\\n\\t\\t\\tb++;\\n\\t\\t}\\n\\t\\t\\n\\t\\tif (max1 == 0 )break;\\n\\t}\\n\\tif (f == 1)min1 = min1 + 1;\\n\\twhile (1){\\n\\t\\tif (min1 != n - 1){\\n\\t\\t\\te = a[min1];\\n\\t\\t\\ta[min1] = a[min1 + 1];\\n\\t\\t\\ta[min1 + 1] = e;\\n\\t\\t\\tmin1++;\\n\\t\\t\\tb++;\\n\\t\\t}\\n\\t\\tif (min1 == n - 1)break;\\n\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\", b);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1225,
+    "completion_tokens": 426,
+    "total_tokens": 1651,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 201
+  },
+  "raw_sha256": "b797d405e25d87f05743c4d2b1f517933891f2253530f4cd1d20d3333f7b69f0",
+  "ended_utc": "2026-10-21T06:47:50.886065+00:00",
+  "elapsed_seconds": 1.891
+}

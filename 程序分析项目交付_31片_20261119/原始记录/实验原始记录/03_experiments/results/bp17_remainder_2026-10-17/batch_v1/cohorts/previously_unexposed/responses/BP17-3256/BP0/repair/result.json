@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3256/BP0/repair/1",
+  "case_id": "BP17-3256",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "732d0e7946fa4469476203b37e334b127b228543fc4f9ca690345842c4626a73",
+  "started_utc": "2026-10-21T08:30:06.922004+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "45bf84d2-fd16-43a8-9b47-66f695d3c036",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint field[1000][1000];\\nint answers[996051];\\nint answer_index = 47; //'.' + 1\\nint n;\\nint m;\\nint k;\\nint x;\\nint y;\\nint quotient;\\nint ch;\\nint i;\\nint j;\\nvoid getnum(int* num) {\\n    *num = 0;\\n    for (ch = getc(stdin); ch >= '0' && ch <= '9'; ch = getc(stdin)) {\\n        *num = *num*10 + ch - '0';\\n    }\\n}\\nvoid printnum(int num) {\\n    quotient = num / 10;\\n    ch = num - quotient*10;\\n    if (quotient > 0) {\\n        printnum(quotient);\\n    }\\n    putc(ch+'0', stdout);\\n}\\nvoid bfs(int x, int y) {\\n    if (x < 0 || x >= n || y < 0 || y >= m) return;\\n    if (field[x][y] == 46) { //46 == '.'\\n        field[x][y] = answer_index;\\n        bfs(x-1,y);\\n        bfs(x+1,y);\\n        bfs(x,y-1);\\n        bfs(x,y+1);\\n    }\\n    else if (field[x][y] == 42) { //42 == '*'\\n        ++answers[answer_index];\\n    }\\n}\\nint main(int argc, char *argv[]) {\\n    getnum(&n);\\n    getnum(&m);\\n    getnum(&k);\\n    for (i = 0; i < n; ++i) {\\n        for (j = 0; j < m; ++j) {\\n            field[i][j] = getc(stdin);\\n        }\\n        getc(stdin);\\n    }\\n    for (i = 0; i < k; ++i) {\\n        getnum(&x);\\n        --x;\\n        getnum(&y);\\n        --y;\\n        if (field[x][y] < 47) {\\n            bfs(x, y);\\n            ++answer_index;\\n        }\\n        printnum(answers[field[x][y]]);\\n        putc('\\\\n', stdout);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1337,
+    "completion_tokens": 554,
+    "total_tokens": 1891,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 185
+  },
+  "raw_sha256": "48b01dfa47e5a36d20e63ebb78e784e453b9970ed70abb1461f09f93d753301a",
+  "ended_utc": "2026-10-21T08:30:09.311187+00:00",
+  "elapsed_seconds": 2.328
+}

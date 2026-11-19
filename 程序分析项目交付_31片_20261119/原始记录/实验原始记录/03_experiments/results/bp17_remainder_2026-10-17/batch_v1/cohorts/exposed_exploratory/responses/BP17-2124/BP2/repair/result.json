@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2124/BP2/repair/1",
+  "case_id": "BP17-2124",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "4f5dd9b91a7b90f4e46726e3c1b86740afcc069bb3fdadd99fe925298dd27f5a",
+  "started_utc": "2026-10-18T12:26:20.436040+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a431a8df-7344-44e2-9647-bb9e314a97a8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define MAX_N (1000000)\\n\\nint xs[MAX_N+1];\\n\\nint main(int argc, char *argv[]) {\\n  int i,n,x,p;\\n\\n  for ( i=1; i <= MAX_N; ++i )\\n    xs[i] = xs[i-1] ^ i;\\n  scanf(\\\"%d\\\", &n);\\n  for ( i=p=0; i < n; ++i )\\n    scanf(\\\"%d\\\", &x), p ^= x;\\n  for ( i=1; i <= n; ++i )\\n    p ^= (((n/i)%2) * xs[i]) ^ xs[n%i];\\n  printf(\\\"%d\\\\n\\\", p);\\n  return EXIT_SUCCESS;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1195,
+    "completion_tokens": 190,
+    "total_tokens": 1385,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1195
+  },
+  "raw_sha256": "ec8525c64e1df68e8d8b25562dff118bda90a6520d00dfd48ce0f0501d74d6d6",
+  "ended_utc": "2026-10-18T12:26:21.704297+00:00",
+  "elapsed_seconds": 1.266
+}

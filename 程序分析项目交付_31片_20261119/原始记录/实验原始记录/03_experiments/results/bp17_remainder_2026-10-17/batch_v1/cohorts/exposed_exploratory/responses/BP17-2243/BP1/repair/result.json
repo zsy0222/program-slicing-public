@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2243/BP1/repair/1",
+  "case_id": "BP17-2243",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c1343f7dda47e02560b29b92271784ee4606254491178534e72f6849a445782b",
+  "started_utc": "2026-11-16T17:53:30.805729+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "76ef7073-853c-4fde-a9fe-a169197a217e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/*\\n * util.c\\n *\\n *  Created on: 30 ���� 2014 �.\\n *      Author: ulgish\\n */\\n#include <stdio.h>\\n#include <string.h>\\n#include <stdlib.h>\\n#include <math.h>\\n\\n#define MAX(A,B) (((A) > (B))?(A):(B))\\n#define MIN(A,B) (((A) < (B))?(A):(B))\\n\\n#define LN printf(\\\"\\\\n\\\")\\n#define TAB printf(\\\"\\\\t\\\")\\n#define SPACE printf(\\\" \\\")\\n\\ntypedef unsigned long long uint64;\\ntypedef long long int64;\\ntypedef char byte;\\n\\n\\nvoid int64_print(int64 n){\\n\\tint64 carry = 10;\\n\\tif (n == 0){\\n\\t\\tprintf(\\\"0\\\");\\n\\t\\treturn;\\n\\t}\\n\\tif (n < 0){\\n\\t\\tprintf(\\\"-\\\");\\n\\t\\tn *= -1;\\n\\t}\\n\\tchar buf[20];\\n\\tbuf[0] = '\\\\0';\\n\\tint i = 0, j;\\n\\twhile (n > 0){\\n\\t\\tbuf[i] = n % carry;\\n\\t\\tn = n / carry;\\n\\t\\ti += 1;\\n\\t}\\n\\ti--;\\n\\tfor (j = i; j>= 0; j--){\\n\\t\\tprintf(\\\"%c\\\", 48 + buf[j]);\\n\\t}\\n}\\nvoid uint64_print(uint64 n){\\n\\tuint64 carry = 10;\\n\\tif (n == 0){\\n\\t\\tprintf(\\\"0\\\");\\n\\t\\treturn;\\n\\t}\\n\\tchar buf[20];\\n\\tbuf[0] = '\\\\0';\\n\\tint i = 0, j;\\n\\twhile (n != 0){\\n\\t\\tbuf[i] = n % carry;\\n\\t\\tn = n / carry;\\n\\t\\ti += 1;\\n\\t}\\n\\ti--;\\n\\tfor (j = i; j>= 0; j--){\\n\\t\\tprintf(\\\"%c\\\", 48 + buf[j]);\\n\\t}\\n}\\n\\n\\nuint64 uint64_read(){\\n\\tchar* s = (char*) calloc(20, sizeof(char));\\n\\ts[0] = '\\\\0';\\n\\tscanf(\\\"%s\\\", s);\\n\\t//printf(\\\"=======%s\\\\n\\\", s);\\n\\tuint64 ret = 0;\\n\\tuint64 carry = 1;\\n\\tint len = strlen(s), i;\\n\\tfor (i = 0; i < len; i++){\\n\\t\\tret += carry * (s[len-1-i] - 48);\\n\\t\\tcarry*=10;\\n\\t};\\n\\tfree(s);\\n\\treturn ret;\\n}\\n\\n\\nint64 int64_read(){\\n\\tchar* s = (char*) calloc(21, sizeof(char));\\n\\ts[0] = '\\\\0';\\n\\tscanf(\\\"%s\\\", s);\\n\\t//printf(\\\"=======%s\\\\n\\\", s);\\n\\tint64 ret = 0;\\n\\tint64 carry = 1;\\n\\tint len = strlen(s), i;\\n\\tfor (i = 0; i < len; i++){\\n\\t\\tret += carry * (s[len-1-i] - 48);\\n\\t\\tcarry*=10;\\n\\t};\\n\\tfree(s);\\n\\treturn ret;\\n}\\n\\n//#define DEBUG\\n\\nint main(int argc, char *argv[]){\\n\\tchar s[201];\\n\\ts[0] = '\\\\0';\\n\\tscanf(\\\"%s\\\", s);\\n\\tint k, answer = 0;\\n\\tint j,i,len;\\n\\tscanf(\\\"%d\\\", &k);\\n#ifdef DEBUG\\n\\tprintf(\\\"k:%d\\\\n\\\", k);\\n#endif\\n\\tint n = strlen(s);\\n\\tif (k >= n){\\n\\t\\tprintf(\\\"%d\\\\n\\\", (k+n));\\n\\t\\treturn 0;\\n\\t}else{\\n\\t\\tfor (i = 0; i < n; i++){\\n\\t\\t\\tfor (len = 2; ((len/2) <= (n-i)) && (len <= (k+n)) && ((i + len-1) < (k + n)); len+=2){\\n#ifdef DEBUG\\n\\t\\t\\t\\tprintf(\\\"i:%d len:%d\\\\n\\\", i, len);\\n#endif\\n\\t\\t\\t\\tj = i;\\n\\t\\t\\t\\tchar good = 1;\\n\\t\\t\\t\\twhile (j < (i + (len/2))){\\n\\t\\t\\t\\t\\tif ((j   + (len / 2)) >= n){\\n\\t\\t\\t\\t\\t\\tgoto next;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\tif (s[j] != s[j  + (len / 2)]){\\n\\t\\t\\t\\t\\t\\tgood = 0;\\n\\t\\t\\t\\t\\t\\tgoto next;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\tj++;\\n\\t\\t\\t\\t\\tif (j >= n){\\n\\t\\t\\t\\t\\t\\tgoto next;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tnext:\\n\\t\\t\\t\\tif (good){\\n#ifdef DEBUG\\n\\t\\t\\t\\tprintf(\\\"good i:%d len:%d\\\\n\\\", i, len);\\n#endif\\n\\n\\t\\t\\t\\t\\tanswer = MAX(answer, len);\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\", answer);\\n\\t\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2489,
+    "completion_tokens": 1310,
+    "total_tokens": 3799,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2489
+  },
+  "raw_sha256": "ce70cba0ed3a81fb2b5246dc3414319ee733a428bbe47cefddb2b8ee2c0d5303",
+  "ended_utc": "2026-11-16T17:53:35.923338+00:00",
+  "elapsed_seconds": 5.115
+}

@@ -1,0 +1,13 @@
+# BP17完整前检回执保全：本机自复制修订 v4
+
+沿用v3回执保全设计、原v5实验恢复许可和用户“断开现有的，直接重新连接。然后继续实验”的直接指令。用户控制台已激活enp0s3为UP/10.0.2.15，SSH独立核对仍为授权boot49374671-12da-4fe6-835a-43d40b890541。旧PID3400退出、锁空闲，原marker/baseline保留；不能将旧baseline通过推演为未保存的完整前检回执。
+
+v3本机PID8040在复制冻结入口到同一路径时PermissionError退出，仅留下空preparation_resume_20261021_v3，尚无intent或客机调用。源/冻结文件及失败日志全部保留。另存v4入口；已有冻结副本必须SHA完全一致才直接复用，篡改则拒绝，缺失才创建，不覆盖旧文件。源/冻结各28项离线控制通过，包含真实模拟的同路径非改写、篡改拒绝、断连前持久保存完整回执和15秒资源触线精确停止。
+
+唯一只读准备入口为continuation_20261021_v5/tools/bp17_finish_preparation_durable_20261021_v4.py，启动记录durable_preparation_v4_launch.json，日志preparation_resume_20261021_v4与durable_preparation_v4.stdout.log/stderr.log。客机新日志manual_restart_20261021_v5/durable_precheck_20261021_v4。它直接调用未改的原g.precheck；只将原生保全函数输出另存本次新baseline_precheck.json，原函数与旧原记录不改，finally还原模块绑定。原6400输入/回答/评分、79475主机旧文件、7旧归档与全部成员、第8片87851载荷、3158私有输入/原生receipt、3903原生全保全门槛不省略，不重跑C或旧评分、不调用模型。
+
+完整客机result/completion先独占持久保存，再打印给SSH；原旧marker/baseline前后SHA不变。主机每15秒检查原2GiB/15GiB线；停止只能指向本次marker绑定的PID/start ticks/UID/boot/guard且持有候选锁的只读进程，不能影响其他任务。连接异常时先只读取回完整新回执或核对现有进程，不能重复启动未知任务。
+
+全部准备成功、原v5 manifest/preparation与新boot绑定身份通过、准备进程成功退出、无任何v5 launch.intent/launch/one_shot/attempt ledger/stop/completion且无活动控制器、原6400槽检查点与资源仍达线，才使用用户已批准但尚未消费的一次原v5启动。只调用既有冻结launch_bp17_boot_archive_continue_20261021_v5.py；该控制器先完成第8片新目录归档并流式核验，通过后才发送18864个原未发请求。已有启动或部分启动则核对复用，不重启；任何失败/指纹变化停止并保留，不追加重试或改pin。原测试、评分、预算、四组输入和开发/暴露扩展/既有40确认边界不变。
+
+原bp17静默跟踪已恢复，用于等待既有前检及按上述未消费许可首次接续；原冻结请求外发授权保持有效，不新增数据/端点或预算。全量32片独立本机共同验收及同案例对比仍为最终完成条件，前检完成或PID退出不等于实验完成。

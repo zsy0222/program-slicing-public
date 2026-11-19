@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1305/BP0/repair/1",
+  "case_id": "BP17-1305",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "af73836d11cd4a1f0bb0d23f6be2f529c10de5d5fcf60d176ad4ef9fb6b6d79d",
+  "started_utc": "2026-11-16T16:05:37.035087+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "04dd96ea-dab3-4e9b-8965-ca00faea5741",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n#include <stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n    long long t,x1,y1,x2,y2,i,counx=0,couny=0,X=0,Y=0,last=0;\\n    char mx,my;\\n    scanf(\\\"%lld %lld %lld %lld %lld\\\",&t,&x1,&y1,&x2,&y2);\\n    char arr[t];\\n    scanf(\\\"%s\\\",arr);\\n    if(x1>x2)\\n    {\\n        mx='W';\\n        counx=abs(x1-x2);\\n    }\\n    if(x2>x1)\\n    {\\n        mx='E';\\n        counx=abs(x2-x1);\\n    }\\n    if(y1>y2)\\n    {\\n        my='S';\\n        couny=abs(y1-y2);\\n    }\\n    if(y2>y1)\\n    {\\n        my='N';\\n        couny=abs(y2-y1);\\n    }\\n    for(i=0;i<t;i++)\\n    {\\n        if(arr[i]==mx && X+1<=counx)\\n        {\\n            X++;\\n            last=i;\\n        }\\n        if(arr[i]==my && Y+1<=couny)\\n        {\\n            Y++;\\n            last=i;\\n        }\\n    }\\n    if(X<counx || Y<couny)\\n    {\\n        printf(\\\"-1\\\");\\n    }\\n    else\\n    {\\n        printf(\\\"%lld\\\",(last+1));\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1113,
+    "completion_tokens": 398,
+    "total_tokens": 1511,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1113
+  },
+  "raw_sha256": "bca9652d24bab3d2f1cdeadb7b2b1d893d6da64eea65bd00fed320f62ffd9c8d",
+  "ended_utc": "2026-11-16T16:05:39.005203+00:00",
+  "elapsed_seconds": 1.9606
+}

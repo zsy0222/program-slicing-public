@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1366/BP1/repair/1",
+  "case_id": "BP17-1366",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "87f444a4c4cda3c667cf3bf3a07e1a0996e70a2df94a48a05189d71789af22f5",
+  "started_utc": "2026-10-17T07:16:20.658788+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cb570371-0bc8-4053-8727-638445ed6043",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\n#include<string.h>\\nint is_leap(int n) {\\n    if (n % 4 == 0) {\\n        if (n % 400 == 0) {\\n            return 1;\\n        } else if (n % 100 == 0) {\\n            return 0;\\n        } else {\\n            return 1;\\n        }\\n    } else {\\n        return 0;\\n    }\\n}\\nint main(int argc, char *argv[])\\n{\\n    int i,max,min;\\n    long long int ans;\\n    char a[100],b[100];\\n    int d[2],m[2],y[2];\\n    scanf(\\\"%s%s\\\",a,b);\\n    y[0] = y[1] = 0;\\n    for (i = 0; i < 4; i++) {\\n        y[0] += (a[i] - 48) * pow(10,3 - i);\\n        y[1] += (b[i] - 48) * pow(10,3 - i);\\n    }\\n    m[0] = (a[5] - 48) * 10 + a[6] - 48;\\n    m[1] = (b[5] - 48) * 10 + b[6] - 48;\\n    d[0] = (a[8] - 48) * 10 + a[9] - 48;\\n    d[1] = (b[8] - 48) * 10 + b[9] - 48;\\n    if (y[0] == y[1]) {\\n        if (m[0] == m[1]) {\\n            if (d[0] > d[1]) {\\n                max = 0;\\n            } else {\\n                max = 1;\\n            }\\n        } else if (m[0] > m[1]) {\\n            max = 0;\\n        } else {\\n            max = 1;\\n        }\\n    } else if (y[0] > y[1]) {\\n        max = 0;\\n    } else {\\n        max = 1;\\n    }\\n    if (max == 0) {\\n        min = 1;\\n    } else {\\n        min = 0;\\n    }\\n    ans = 0;\\n    if (m[min] == 2) {\\n        if (is_leap(y[min]) == 1) {\\n            ans += 29 - d[min];\\n        } else {\\n            ans += 28 - d[min];\\n        }\\n    } else if (m[min] == 4 || m[min] == 6 || m[min] == 9 || m[min] == 11) {\\n        ans += 30 - d[min];\\n    } else {\\n        ans += 31 - d[min];\\n    }\\n    m[min]++;\\n    for (i = m[min]; i <= 12; i++) {\\n        if (i == 2) {\\n            if(is_leap(y[min]) == 1) {\\n                ans += 29;\\n            } else {\\n                ans += 28;\\n            }\\n        } else if (i == 4 || i == 6 || i == 9 || i == 11) {\\n            ans += 30;\\n        } else {\\n            ans += 31;\\n        }\\n    }\\n    y[min]++;\\n    for (i = y[min]; i < y[max]; i++) {\\n        if (is_leap(i) == 1) {\\n            ans += 366;\\n        } else {\\n            ans += 365;\\n        }\\n    }\\n    for (i = 1; i < m[max]; i++) {\\n        if (i == 2) {\\n            if (is_leap(y[max]) == 1) {\\n                ans += 29;\\n            } else {\\n                ans += 28;\\n            }\\n        } else if (i == 4 || i == 6 || i == 9 || i == 11) {\\n            ans += 30;\\n        } else {\\n            ans += 31;\\n        }\\n    }\\n    ans += d[max];\\n    if (y[max] == y[min]) {\\n        if (is_leap(y[max]) == 1) {\\n            ans -= 366;\\n        } else {\\n            ans -= 365;\\n        }\\n    }\\n    printf(\\\"%lld\\\\n\\\",ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2141,
+    "completion_tokens": 1059,
+    "total_tokens": 3200,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 221
+  },
+  "raw_sha256": "a62093ac197c57f982fea6b07c0166fd4748ff5e362820a932d80985dc321618",
+  "ended_utc": "2026-10-17T07:16:24.083678+00:00",
+  "elapsed_seconds": 3.422
+}

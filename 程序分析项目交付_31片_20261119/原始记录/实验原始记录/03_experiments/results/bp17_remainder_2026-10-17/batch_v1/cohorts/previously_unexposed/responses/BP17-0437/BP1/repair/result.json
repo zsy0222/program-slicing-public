@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0437/BP1/repair/1",
+  "case_id": "BP17-0437",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a2d86917bb7df9c110e33f0384708faab1aaa53b7bf600010cd8cf10b79ad5cb",
+  "started_utc": "2026-10-18T12:17:56.778066+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6ae89595-0239-424f-96cf-8d4c684aee0a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\nint n,i,j,maxtaxi=0,maxpizza=0,maxgirl=0,l1=0,l2=0,l3=0;\\nscanf(\\\"%d\\\",&n);\\nint s[n],taxi[100]={0},girl[100]={0},pizza[100]={0};\\nchar c[n][100];\\nfor(i=0;i<n;i++)\\n{scanf(\\\"%d %s\\\",&s[i],c[i]);\\nchar p[s[i]][10];\\nfor(j=0;j<s[i];j++)\\n{scanf(\\\"%s\\\",p[j]);\\nif(p[j][0]==p[j][1]&&p[j][1]==p[j][3]&&p[j][3]==p[j][4]&&p[j][4]==p[j][6]&&p[j][6]==p[j][7])\\ntaxi[i]++;\\nelse if(p[j][1]<p[j][0]&&p[j][3]<p[j][1]&&p[j][4]<p[j][3]&&p[j][6]<p[j][4]&&p[j][7]<p[j][6])\\npizza[i]++;\\nelse\\ngirl[i]++;\\n}\\nif(taxi[i]>=maxtaxi)\\nmaxtaxi=taxi[i];\\nif(pizza[i]>=maxpizza)\\nmaxpizza=pizza[i];\\nif(girl[i]>=maxgirl)\\nmaxgirl=girl[i];}\\nfor(i=0;i<n;i++)\\n{if(taxi[i]==maxtaxi)\\nl1++;\\nif(pizza[i]==maxpizza)\\nl2++;\\nif(girl[i]==maxgirl)\\nl3++;}\\nint z=0;\\nprintf(\\\"If you want to call a taxi, you should call: \\\");\\nfor(i=0;i<n;i++)\\n{if(taxi[i]==maxtaxi)\\n{printf(\\\"%s\\\",c[i]);\\nz++;\\nif(z<=l1-1)\\nprintf(\\\", \\\");\\nelse\\n{printf(\\\".\\\");\\nbreak;}}\\n}\\nprintf(\\\"\\\\n\\\");\\nz=0;\\nprintf(\\\"If you want to order a pizza, you should call: \\\");\\nfor(i=0;i<n;i++)\\n{if(pizza[i]==maxpizza)\\n{printf(\\\"%s\\\",c[i]);\\nz++;\\nif(z<=l2-1)\\nprintf(\\\", \\\");\\nelse\\n{printf(\\\".\\\");\\nbreak;}}\\n}\\nprintf(\\\"\\\\n\\\");\\nz=0;\\nprintf(\\\"If you want to go to a cafe with a wonderful girl, you should call: \\\");\\nfor(i=0;i<n;i++)\\n{if(girl[i]==maxgirl)\\n{printf(\\\"%s\\\",c[i]);\\nz++;\\nif(z<=l3-1)\\nprintf(\\\", \\\");\\nelse\\n{printf(\\\".\\\");\\nbreak;}}}\\nreturn(0);}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2175,
+    "completion_tokens": 708,
+    "total_tokens": 2883,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 255
+  },
+  "raw_sha256": "408874ffc63dd42f7a1cda7c91a0234271b7d7cf232f11f95d9a291c2d06e3f6",
+  "ended_utc": "2026-10-18T12:17:59.404443+00:00",
+  "elapsed_seconds": 2.562
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0114/BP1/repair/1",
+  "case_id": "BP17-0114",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "9c640de165b464d0bd5151dde5db21d370fa8f3dab35dd73d1a45da391c33979",
+  "started_utc": "2026-11-16T18:53:20.506561+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9eeca80c-0e54-40cf-b8b9-8189164168a2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint min(int a, int b) { return a < b ? a : b; }\\n\\nint main(int argc, char *argv[]) {\\n    int a, b, mod;\\n    scanf(\\\"%d %d %d\\\", &a, &b, &mod);\\n    if(b >= mod - 1)\\n        puts(\\\"2\\\");\\n    else {\\n        int ans = mod + 2, i;\\n        int rem = ((int)1e9) % mod;\\n        for(i = 1; i < mod; i++) {\\n            int cur = (((long long)rem) * i) % mod;\\n            if(0 < cur && cur <= mod - 1 - b)\\n                ans = min(ans, i);\\n        }\\n        if(ans == mod + 2)\\n            puts(\\\"2\\\");\\n        else\\n            printf(\\\"1 %09d\\\\n\\\", ans);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 922,
+    "completion_tokens": 233,
+    "total_tokens": 1155,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 154
+  },
+  "raw_sha256": "61e6ce545b2435cbea1f2d8667916ec35227c3c14bbbfd4cc6797fbde609f856",
+  "ended_utc": "2026-11-16T18:53:22.453586+00:00",
+  "elapsed_seconds": 1.9386
+}

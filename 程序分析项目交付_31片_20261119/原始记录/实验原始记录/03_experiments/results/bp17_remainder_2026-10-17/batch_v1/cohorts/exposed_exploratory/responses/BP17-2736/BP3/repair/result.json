@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2736/BP3/repair/1",
+  "case_id": "BP17-2736",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "c40b7896c0406dd9d0d1d04418973060d29f4a0f670a1cbedfcc2c65a3295a3a",
+  "started_utc": "2026-11-18T09:54:30.152462+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "79320e0b-083c-4070-808e-55d6bcf29d38",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include\\\"stdio.h\\\"\\n\\nint main(int argc, char *argv[])\\n{\\n    int f,temp,x[1200]={0},w[1200]={0},i,m,t,r,ans=0,j,z;\\n    scanf(\\\"%d%d%d\\\",&m,&t,&r);\\n    for(i = 0;i < m ; ++i){\\n        scanf(\\\"%d\\\",&temp);\\n        if(x[temp+600]>=r)continue;\\n        int shit = x[temp+600];\\n        for(j = 0;j<r-shit;++j){\\n            int s = t - 1;\\n            for(z = temp - 1 + 600; s > -1;--s,--z){\\n                if(w[z] == 0){\\n                    w[z] = 1;\\n                    ++ans;\\n                    for(f = z ; f-z<t ;++f)\\n                        ++x[f];\\n                    break;\\n                }\\n            }\\n        }\\n        if(r-x[temp+600]>0){\\n            printf(\\\"-1\\\");\\n            return 0;\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1524,
+    "completion_tokens": 287,
+    "total_tokens": 1811,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 500
+  },
+  "raw_sha256": "57bd6fcd63b88d2a7c3a459af85522222c45fd56a31b2802ce2ddeee79728a86",
+  "ended_utc": "2026-11-18T09:54:32.548081+00:00",
+  "elapsed_seconds": 2.3933
+}

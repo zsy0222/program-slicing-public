@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1735/BP3/repair/1",
+  "case_id": "BP17-1735",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "235fd58295d0adbeaf956bd96ec53215f318dcff01b4a5aa8a5e9f0600526e48",
+  "started_utc": "2026-11-16T17:55:21.692427+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "19a449fd-7759-43f1-9cad-bfcba124bd4c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#define N 100000\\n#include<stdio.h>\\nint main(int argc, char *argv[]) {\\n\\tint n;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tint a[N];\\n\\tint i;\\n\\tfor(i=0;i<n;i++){\\n\\t\\tscanf(\\\"%d\\\",&a[i]);\\n\\t}\\n\\tint max=1;\\n\\ti=0;\\n\\tint count=2;\\n\\t//(n-3)+(n-2)=n-1\\n\\twhile(i<n-2){\\n\\t\\tif(a[i]+a[i+1]==a[i+2]){\\n\\t\\t\\tcount++;\\n\\t\\t}else{\\n\\t\\t\\tif(count>max)max=count;\\n\\t\\t\\tcount=2;\\n\\t\\t}\\n\\t\\ti++;\\n\\t}\\n\\tif(count>max)max=count;\\n\\tif(n<2)max=n;\\n\\tprintf(\\\"%d\\\\n\\\",max);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1285,
+    "completion_tokens": 233,
+    "total_tokens": 1518,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1285
+  },
+  "raw_sha256": "8c00dd8468fbd2357b1fb0dcb520da658eaa6f43fdaae64f53cdc236aec8b249",
+  "ended_utc": "2026-11-16T17:55:23.961482+00:00",
+  "elapsed_seconds": 2.2669
+}

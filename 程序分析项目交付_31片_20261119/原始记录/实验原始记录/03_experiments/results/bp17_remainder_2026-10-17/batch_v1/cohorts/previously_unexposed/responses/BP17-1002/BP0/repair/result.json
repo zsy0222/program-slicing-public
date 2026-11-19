@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1002/BP0/repair/1",
+  "case_id": "BP17-1002",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "2088d4c61500608b83a51f66c8c98cfcfedc240e7aedd4b7c18a64798af53875",
+  "started_utc": "2026-11-16T17:22:30.672551+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b4ccdfb3-5a23-486c-8f9e-f223c4fe2d19",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,d,s,i,j,t,c=0;\\n    scanf(\\\"%d %d %d\\\",&n,&d,&s);\\n    int a[n];\\n    for(i=0;i<n;i++)\\n    scanf(\\\"%d\\\",&a[i]);\\n    s=s-1;\\n    d=d-s;\\n    for(i=0;i<n;i++)\\n    {\\n        for(j=i;j<n;j++)\\n        {\\n            if(a[i]<a[j])\\n            {\\n                t=a[j];\\n                a[j]=a[i];\\n                a[i]=t;\\n            }\\n        }\\n    }\\n    for(i=0;i<n;i++)\\n    {\\n        if(d<=0)\\n        break;\\n        if(a[i]==1)\\n        continue;\\n        if(d-a[i]<=0)\\n        {\\n            d=d-a[i];\\n        }\\n        else\\n        d=d-a[i]+1;\\n        c++;\\n    }\\n    if(d<=0)\\n    printf(\\\"%d\\\",c);\\n    else\\n    printf(\\\"-1\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 971,
+    "completion_tokens": 287,
+    "total_tokens": 1258,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 203
+  },
+  "raw_sha256": "e60b3e2aef35ab738177269d6c49fcf56faeebf98f715b148e82305f5d3e8976",
+  "ended_utc": "2026-11-16T17:22:33.002711+00:00",
+  "elapsed_seconds": 2.2712
+}

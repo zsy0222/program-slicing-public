@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0897/BP2/repair/1",
+  "case_id": "BP17-0897",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "c7cd72ce7ee34f381e0cd21ba02461973a64ca9db1cbf893075889b7ee1e535f",
+  "started_utc": "2026-11-16T19:03:11.080657+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "82b1a46b-7b33-438d-add5-c5e16774efaa",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\ntypedef struct\\n{\\n    int i,j;\\n} Node;\\nNode Min;\\nNode Ans[2600][2];\\n\\nint main(int argc, char *argv[])\\n{\\n    int N,i,j,ii,jj,Sum,Cnt,min,temp;\\n    int C[50],A[50][50];\\n    scanf(\\\"%d\\\",&N);\\n    for(Sum=i=0; i<N; ++i)\\n    {\\n        scanf(\\\"%d\\\",&C[i]);\\n        Sum+=C[i];\\n    }\\n    for(i=0; i<N; ++i)\\n    {\\n        for(j=0; j<C[i]; ++j)\\n        {\\n            scanf(\\\"%d\\\",&A[i][j]);\\n        }\\n    }\\n    for(Cnt=i=0; i<N; ++i)\\n    {\\n        for(j=0; j<C[i]; ++j)\\n        {\\n            Min.i=Min.j=-1;\\n            min=3000;\\n            for(ii=i+1; ii<N; ++ii)\\n            {\\n                for(jj=j+1; jj<C[ii]; ++jj)\\n                {\\n                    if(A[ii][jj]<min)\\n                    {\\n                        min=A[ii][jj];\\n                        Min.i=ii;\\n                        Min.j=jj;\\n                    }\\n                }\\n            }\\n            for(jj=j+1; jj<C[i]; ++jj)\\n            {\\n                if(A[i][jj]<min)\\n                {\\n                    min=A[i][jj];\\n                    Min.i=i;\\n                    Min.j=jj;\\n                }\\n            }\\n            for(ii=i+1; ii<N&&j<C[ii]; ++ii)\\n            {\\n                if(A[ii][j]<min)\\n                {\\n                    min=A[ii][j];\\n                    Min.i=ii;\\n                    Min.j=j;\\n                }\\n            }\\n            if(min<A[i][j])\\n            {\\n                temp=A[Min.i][Min.j];\\n                A[Min.i][Min.j]=A[i][j];\\n                A[i][j]=temp;\\n                Ans[Cnt][0].i=i;\\n                Ans[Cnt][0].j=j;\\n                Ans[Cnt][1].i=Min.i;\\n                Ans[Cnt][1].j=Min.j;\\n                ++Cnt;\\n            }\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",Cnt);\\n    for(i=0; i<Cnt; ++i)\\n    {\\n        printf(\\\"%d %d %d %d\\\\n\\\",Ans[i][0].i+1,Ans[i][0].j+1,Ans[i][1].i+1,Ans[i][1].j+1);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2563,
+    "completion_tokens": 668,
+    "total_tokens": 3231,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2563
+  },
+  "raw_sha256": "066fe2876e465ac2bae0baa7374192489ba76b0f331f24bac5363b392d602ca2",
+  "ended_utc": "2026-11-16T19:03:14.589237+00:00",
+  "elapsed_seconds": 3.5052
+}

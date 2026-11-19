@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3677/BP1/repair/1",
+  "case_id": "BP17-3677",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "d05af71bb346932091c1d84601437523f8033882a92665814beefa6a7ee963c5",
+  "started_utc": "2026-10-18T14:00:58.244572+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "253e1481-8697-461c-b347-1a8f33269e71",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[]){\\n    int t,n,i,j,k,ans=0;\\n    float arr[12][12]={0};\\n    scanf(\\\"%d %d\\\",&n,&t);\\n        for(i=0;i<t;i++){\\n        arr[1][1]+=1;\\n            for(j=1;j<=n;j++)\\n                for(k=1;k<=j;k++)\\n                    if(arr[j][k]>1.0){\\n                        arr[j+1][k]+=(arr[j][k]-1)/2;\\n                        arr[j+1][k+1]+=(arr[j][k]-1)/2;\\n                        arr[j][k]=1;\\n                    }\\n    }\\n    for(j=1;j<=n;j++){\\n        for(k=1;k<=j;k++){\\n            if(arr[j][k]==1)\\n                ans++;\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",ans);\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 929,
+    "completion_tokens": 241,
+    "total_tokens": 1170,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 929
+  },
+  "raw_sha256": "3acc4d3eda39c208432c04c17416e54b9e71dcde27af9292492c317791071e84",
+  "ended_utc": "2026-10-18T14:01:00.115304+00:00",
+  "elapsed_seconds": 1.875
+}

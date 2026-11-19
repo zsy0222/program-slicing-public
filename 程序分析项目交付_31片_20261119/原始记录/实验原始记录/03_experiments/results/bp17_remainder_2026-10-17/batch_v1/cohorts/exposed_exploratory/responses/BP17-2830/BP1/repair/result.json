@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2830/BP1/repair/1",
+  "case_id": "BP17-2830",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "4f95cfd8eac2bf32f2c410428f00ac858e6152fb8ad5f0bb35ad7e62c0e91172",
+  "started_utc": "2026-10-21T07:59:33.975096+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "186eadc8-b4b4-4cfc-aaa9-add90dac3ce6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define MAXN 2003\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, t, i, j, cur = 0;\\n    double p, f[2][MAXN];\\n    scanf(\\\"%d%lf%d\\\", &n, &p, &t);\\n    // f[t][n] -> the possibility that (exactly) n people\\n    // are standing on the escalator after t seconds\\n    for (i = 1; i <= n; ++i) f[cur][i] = 0;\\n    f[cur][0] = 1;\\n#define next (!cur)\\n    for (i = 0; i < t; ++i) {\\n        for (j = 0; j <= i; ++j)\\n            if (j >= n) f[next][j] += f[cur][j];\\n            else {\\n                f[next][j + 1] += f[cur][j] * p;\\n                f[next][j] += f[cur][j] * (1.0 - p);\\n            }\\n        cur = !cur;\\n        for (j = 0; j <= n; ++j) f[next][j] = 0;\\n    }\\n#undef next\\n    double ans = 0;\\n    for (i = 0; i <= n; ++i) ans += f[cur][i] * i;\\n    printf(\\\"%.10g\\\\n\\\", ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1063,
+    "completion_tokens": 349,
+    "total_tokens": 1412,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1063
+  },
+  "raw_sha256": "4ab41e8585e828053b57871b4ea9b38708b19e6f0801e2980a02588226bd4e35",
+  "ended_utc": "2026-10-21T07:59:36.009028+00:00",
+  "elapsed_seconds": 2.031
+}

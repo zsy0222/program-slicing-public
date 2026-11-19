@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2684/BP3/repair/1",
+  "case_id": "BP17-2684",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "c4b28209ee4538ff56cee193ab062b75d5e3f9695c0abd645d4cf41a51a910d7",
+  "started_utc": "2026-11-17T04:25:21.638558+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a0bed078-29fd-43f1-9207-e7e7f612cceb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#define N 1001\\n\\nvoid rep(int l, char c) {\\n    int i;\\n    for (i = 0; i < l; i ++) printf(\\\"%c\\\", c);\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n  char lines[N][N];\\n  int l, ml=0, i, ll=0, res=0, j, sl, right=0;\\n\\n  while (gets(lines[ll])) {\\n    l = strlen(lines[ll]);\\n    l > ml ? ml = l : 0;\\n    ll ++;\\n  }\\n  \\n  rep(ml + 2, '*');\\n  \\n  printf(\\\"\\\\n\\\");\\n  \\n  for (i = 0; i < ll; i ++) {\\n      printf(\\\"*\\\");\\n      \\n      l = strlen(lines[i]);\\n      \\n      sl = (ml - l) / 2;\\n      \\n      if (!((ml - l) % 2)) {\\n          if (right) sl += 1;\\n          right = 1 - right;\\n      }\\n      \\n      rep(sl, ' ');\\n      \\n      printf(\\\"%s\\\", lines[i]);\\n      \\n      rep(ml - l - sl, ' ');\\n      \\n      printf(\\\"*\\\\n\\\");\\n  }\\n  \\n  rep(ml + 2, '*');\\n  printf(\\\"\\\\n\\\");\\n  \\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1865,
+    "completion_tokens": 378,
+    "total_tokens": 2243,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1865
+  },
+  "raw_sha256": "8d7e12ecac3492d67eb3ee28f9483035bc24541f6b46baac1fa7f96546821c7c",
+  "ended_utc": "2026-11-17T04:25:23.712849+00:00",
+  "elapsed_seconds": 1.998
+}

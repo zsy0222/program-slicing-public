@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1264/BP3/repair/1",
+  "case_id": "BP17-1264",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "50ae2e9a5c84b0365bac2175a9a7d0cc9556ee1b1cf83d256eb2d24c729cd9a0",
+  "started_utc": "2026-10-17T08:52:34.688436+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "999c9a61-1d38-463e-96a6-2a1da665998c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n    // your code goes here\\n    int n,i,ctr=0,j,t=0;\\n    \\n    scanf(\\\"%d\\\",&n);\\n    \\n    double a[n][2];\\n    \\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%lf\\\",&a[i][0]);\\n        a[i][1]=0;\\n    }\\n        \\n    for(i=0;i<n-1;i++)\\n    {\\n        if(a[i][1]==0)\\n        {\\n            \\n            for(j=i+1,ctr=0;j<n;j++)\\n            {\\n                if(a[i][0]==a[j][0])\\n                {\\n                    ctr++;\\n                    a[j][1]=1;\\n                }\\n            }\\n            \\n            if(ctr>1)\\n            {\\n                printf(\\\"%d\\\",-1);\\n                break;\\n            }\\n            if(ctr==1)\\n                t++;\\n        }   \\n        \\n    }   \\n    if(i==n-1)\\n        printf(\\\"%d\\\",t);\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1487,
+    "completion_tokens": 296,
+    "total_tokens": 1783,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 463
+  },
+  "raw_sha256": "408a7629215c7c4d134b96bcb86323275970a4532563f614eac37c90efc9a092",
+  "ended_utc": "2026-10-17T08:52:36.587221+00:00",
+  "elapsed_seconds": 1.891
+}

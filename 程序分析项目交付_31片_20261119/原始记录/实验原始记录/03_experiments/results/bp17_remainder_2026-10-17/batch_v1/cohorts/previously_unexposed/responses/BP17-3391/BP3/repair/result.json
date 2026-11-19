@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3391/BP3/repair/1",
+  "case_id": "BP17-3391",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "aa7aecfa7337ec6b08f7e82dd2ad8a8e3e50895319ef0064c85c2f5e4167e65d",
+  "started_utc": "2026-11-18T09:58:15.653002+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c45de67b-5d2b-4d78-84af-77d37d9cfacc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n\\nint main(int argc, char *argv[]) {\\n\\t\\n\\tdouble x, y, z;\\n\\t\\n\\tdouble max;\\n\\tint ind = 0;\\n\\t\\n\\tscanf(\\\"%lf %lf %lf\\\", &x, &y, &z);\\n\\t\\n\\tif (x - 1.0 < -1e-6 && y - 1.0 < -1e-6 && z - 1.0 < -1e-6) {\\n\\t\\t\\n\\t\\tmax = 1000000;\\n\\t\\t\\n\\t\\tif (z * log(y) + log(log(1 / x)) - max < -1e-6) {\\n\\t\\t\\tmax = z * log(y) + log(log(1 / x));\\n\\t\\t\\tind = 1;\\n\\t\\t}\\n\\t\\tif (y * log(z) + log(log(1 / x)) - max < -1e-6) {\\n\\t\\t\\tmax = y * log(z) + log(log(1 / x));\\n\\t\\t\\tind = 2;\\n\\t\\t}\\n\\t\\tif (log(y) + log(z) + log(log(1 / x)) - max < -1e-6) {\\n\\t\\t\\tmax = log(y) + log(z) + log(log(1 / x));\\n\\t\\t\\tind = 3;\\n\\t\\t}\\n\\t\\t\\n\\t\\t\\n\\tif (z * log(x) + log(log(1 / y)) - max < -1e-6) {\\n\\t\\t\\tmax = z * log(x) + log(log(1 / y));\\n\\t\\t\\tind = 5;\\n\\t\\t}\\n\\t\\tif (x * log(z) + log(log(1 / y)) - max < -1e-6) {\\n\\t\\t\\tmax = x * log(z) + log(log(1 / y));\\n\\t\\t\\tind = 6;\\n\\t\\t}\\n\\t\\tif (log(x) + log(z) + log(log(1 / y)) - max < -1e-6) {\\n\\t\\t\\tmax = log(x) + log(z) + log(log(1 / y));\\n\\t\\t\\tind = 7;\\n\\t\\t}\\n\\t\\t\\n\\t\\t\\n\\tif (y * log(x) + log(log(1 / z)) - max < -1e-6) {\\n\\t\\t\\tmax = y * log(x) + log(log(1 / z));\\n\\t\\t\\tind = 9;\\n\\t\\t}\\n\\t\\tif (x * log(y) + log(log(1 / z)) - max < -1e-6) {\\n\\t\\t\\tmax = x * log(y) + log(log(1 / z));\\n\\t\\t\\tind = 10;\\n\\t\\t}\\n\\t\\tif (log(x) + log(y) + log(log(1 / z)) - max < -1e-6) {\\n\\t\\t\\tmax = log(x) + log(y) + log(log(1 / z));\\n\\t\\t\\tind = 11;\\n\\t\\t}\\n\\t\\t\\n\\t\\t\\n\\t} else {\\n\\t\\t\\n\\t\\tmax = -1000;\\n\\t\\t\\n\\t\\tif (x - 1.0 > 0.01) {\\n\\t\\t\\tif (z * log(y) + log(log(x)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = z * log(y) + log(log(x));\\n\\t\\t\\t\\tind = 1;\\n\\t\\t\\t}\\n\\t\\t\\tif (y * log(z) + log(log(x)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = y * log(z) + log(log(x));\\n\\t\\t\\t\\tind = 2;\\n\\t\\t\\t}\\n\\t\\t\\tif (log(y) + log(z) + log(log(x)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = log(y) + log(z) + log(log(x));\\n\\t\\t\\t\\tind = 3;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\t\\n\\t\\tif (y - 1.0 > 0.01) {\\n\\t\\t\\tif (z * log(x) + log(log(y)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = z * log(x) + log(log(y));\\n\\t\\t\\t\\tind = 5;\\n\\t\\t\\t}\\n\\t\\t\\tif (x * log(z) + log(log(y)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = x * log(z) + log(log(y));\\n\\t\\t\\t\\tind = 6;\\n\\t\\t\\t}\\n\\t\\t\\tif (log(x) + log(z) + log(log(y)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = log(x) + log(z) + log(log(y));\\n\\t\\t\\t\\tind = 7;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\t\\n\\t\\tif (z - 1.0 > 0.01) {\\n\\t\\t\\tif (y * log(x) + log(log(z)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = y * log(x) + log(log(z));\\n\\t\\t\\t\\tind = 9;\\n\\t\\t\\t}\\n\\t\\t\\tif (x * log(y) + log(log(z)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = x * log(y) + log(log(z));\\n\\t\\t\\t\\tind = 10;\\n\\t\\t\\t}\\n\\t\\t\\tif (log(x) + log(y) + log(log(z)) - max > 1e-6) {\\n\\t\\t\\t\\tmax = log(x) + log(y) + log(log(z));\\n\\t\\t\\t\\tind = 11;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\t\\n\\tswitch (ind) {\\n\\t\\tcase 1:\\n\\t\\t\\tprintf(\\\"x^y^z\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 2:\\n\\t\\t\\tprintf(\\\"x^z^y\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 3:\\n\\t\\t\\tprintf(\\\"(x^y)^z\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 4:\\n\\t\\t\\tprintf(\\\"(x^z)^y\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 5:\\n\\t\\t\\tprintf(\\\"y^x^z\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 6:\\n\\t\\t\\tprintf(\\\"y^z^x\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 7:\\n\\t\\t\\tprintf(\\\"(y^x)^z\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 8:\\n\\t\\t\\tprintf(\\\"(y^z)^x\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 9:\\n\\t\\t\\tprintf(\\\"z^x^y\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 10:\\n\\t\\t\\tprintf(\\\"z^y^x\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 11:\\n\\t\\t\\tprintf(\\\"(z^x)^y\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tcase 12:\\n\\t\\t\\tprintf(\\\"(z^y)^x\\\\n\\\");\\n\\t\\t\\tbreak;\\n\\t\\tdefault:\\n\\t\\t\\tprintf(\\\"ERROR\\\\n\\\");\\n\\t}\\n\\t\\n\\treturn 0;\\n\\t\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 4797,
+    "completion_tokens": 1761,
+    "total_tokens": 6558,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 4797
+  },
+  "raw_sha256": "b2047a86a16d8a5c672cb21fa34fa4abc7ce5357faf53a2b06b4e4f5dbe24da0",
+  "ended_utc": "2026-11-18T09:58:23.487755+00:00",
+  "elapsed_seconds": 7.8315
+}

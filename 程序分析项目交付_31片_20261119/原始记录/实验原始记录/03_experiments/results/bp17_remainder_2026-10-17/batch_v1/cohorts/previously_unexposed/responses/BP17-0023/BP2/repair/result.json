@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0023/BP2/repair/1",
+  "case_id": "BP17-0023",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "0d5f7ae90e708afc33712bfd1bab29df09cfd3bbc3d93764a2d6e1e152d0e7cd",
+  "started_utc": "2026-11-16T18:01:21.432955+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b78d0530-9aa6-4ecf-9058-b023e4ec4e6b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/*\\n * Cthulhu.c\\n *\\n *  Created on: Jun 21, 2012\\n *      Author: mahmoudradwan\\n */\\n#include <stdio.h>\\nint p[100005];\\nint find(int i) {\\n    if (p[i] == i)\\n        return i;\\n    return p[i] = find(p[i]);\\n}\\nint main(int argc, char *argv[]) {\\n    int a, b, i, f, t;\\n    scanf(\\\"%d %d\\\", &a, &b);\\n    if (b < a - 1) {\\n        puts(\\\"NO\\\");\\n    } else {\\n        for (i = 1; i <= a; i++)\\n            p[i] = i;\\n        for (i = 1; i <= b; i++) {\\n            scanf(\\\"%d %d\\\", &f, &t);\\n            p[find(f)] = find(t);\\n        }\\n        int c = 0;\\n        for (i = 1; i <= a; i++)\\n            c += find(i) == i;\\n        if (c != 1)\\n            puts(\\\"NO\\\");\\n        else\\n            puts(\\\"FHTAGN!\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1656,
+    "completion_tokens": 308,
+    "total_tokens": 1964,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 632
+  },
+  "raw_sha256": "4b53c2399c00f5ca05934acdc3b6834b9357c54a22270335eec98577a9529f86",
+  "ended_utc": "2026-11-16T18:01:23.531672+00:00",
+  "elapsed_seconds": 2.0892
+}

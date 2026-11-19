@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2777/BP1/repair/1",
+  "case_id": "BP17-2777",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e233f9a09db5d17c6b91a3be8af69d76a59803f56eccd309fddb0ec6bb5c0733",
+  "started_utc": "2026-11-16T16:15:31.021915+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cce6734a-92bd-4502-8935-48d9448fb070",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/*\\n *    Homework -  NCTU DCS CP\\n *    =======================\\n *    Student ID :    0316218\\n *    GCC Option :   -std=c99\\n *    -Wall -Wextra -pedantic\\n */\\n\\n#include<stdio.h>\\n#include<stdlib.h>\\n\\nint p[50] = {0};\\nlong long int m;\\n\\nvoid permutation(int, int, int);\\n\\nint main(int argc, char *argv[])\\n{\\n    int n;\\n\\n    scanf(\\\"%d %lld\\\", &n, &m);\\n\\n    permutation(n, 0, n - 1);\\n\\n    exit(EXIT_FAILURE);\\n}\\n\\nvoid permutation(int n, int l, int r)\\n{\\n    int k = n + l - r;\\n\\n    if (l == r)\\n    {\\n        if (--m == 0)\\n        {\\n            int i;\\n\\n            p[l] = k;\\n            for (i = 0; i < n; i++)\\n                printf(\\\"%d%c\\\", p[i], (i != n - 1) ? ' ' : 0);\\n\\n            exit(EXIT_SUCCESS);\\n        }\\n        else if (m < 0)\\n        {\\n            return;\\n        }\\n    }\\n    else\\n    {\\n        if (r - l > 1 && m > (1LL << (r - l - 1)))\\n            p[l] = k, p[l + 1] = k + 1, m -= (1LL << (r - l - 1));\\n        else\\n            p[l] = k, permutation(n, l + 1, r);\\n\\n        if (r - l > 1 && m > (1LL << (r - l - 1)))\\n            p[r] = k, p[r - 1] = k + 1, m -= (1LL << (r - l - 1));\\n        else\\n            p[r] = k, permutation(n, l, r - 1);\\n    }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1293,
+    "completion_tokens": 488,
+    "total_tokens": 1781,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 141
+  },
+  "raw_sha256": "a56bdfff5422c6f110b0fd6e916a1da3f1e13eb826aa925d859e84780b1b70f4",
+  "ended_utc": "2026-11-16T16:15:34.110651+00:00",
+  "elapsed_seconds": 2.9838
+}

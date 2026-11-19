@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3704/BP0/repair/1",
+  "case_id": "BP17-3704",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "8c228fe86d9f32c717437e813312c1617c8ee3ca5d8b4a44425f86f916c66460",
+  "started_utc": "2026-11-16T19:20:37.135405+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5f3150f8-4d3a-4963-9428-bd6863559129",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define TAM 5\\n\\nint main(int argc, char *argv[]) {\\n\\n\\tint vec[TAM],i,k,j;\\n\\tint vecAux[2];\\n\\tint aux = 3;\\n\\tint suma = 0;\\n\\n\\tfor(i=0;i<TAM;i++){\\n\\t\\tscanf(\\\"%d\\\", &vec[i]);\\n\\t}\\n\\n\\tk = 0;\\n\\tj = 0;\\n\\n\\tvecAux[0] = 0;\\n\\tvecAux[1] = 0;\\n\\n\\tdo{\\n\\t\\tfor( i = k; i < TAM-1; i++ ) {\\n\\t\\t\\tif( vec[i+1] == vec[k] ){\\n\\t\\t\\t\\tvecAux[j] = vec[k];\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif( vecAux[0] > 0 ){\\n\\t\\t\\tj = 1;\\n\\t\\t}\\n\\t\\t++k;\\n\\t} while( k < TAM-1); \\n\\t\\n\\tint cantA = 0;\\n\\tint cantB = 0;\\n\\n\\tfor(i = 0; i < TAM; i++ ){\\n\\t\\tif( vec[i] == vecAux[0] ) {\\n\\t\\t\\tcantA++;\\n\\t\\t}\\n\\t\\tif( vec[i] == vecAux[1] ) {\\n\\t\\t\\tcantB++;\\n\\t\\t}\\n\\t}\\n\\tint mayor;\\n\\t\\n\\tif( (vecAux[0] * cantA) > (vecAux[1]*cantB) ) {\\n\\t\\tmayor = vecAux[0]; \\t\\n\\t}\\n\\telse {\\n\\t\\tmayor = vecAux[1];\\n\\t}\\n\\ti = 0;\\n\\t\\n\\tdo{\\n\\t\\tif( vec[i] == mayor ){\\n\\t\\t\\tvec[i] = 0;\\n\\t\\t\\t--aux;\\n\\t\\t}\\n\\t\\t++i;\\n\\t} while(aux > 0 && i < TAM);\\n\\n\\tfor(i=0;i<TAM;i++){\\n\\t\\tsuma+= vec[i];\\n\\t}\\t\\n\\n\\tprintf(\\\"%d\\\\n\\\", suma);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1351,
+    "completion_tokens": 540,
+    "total_tokens": 1891,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 199
+  },
+  "raw_sha256": "8fd1f2cf3222c5aa12702d353be464c5c689f154489520280a23382d10cc1077",
+  "ended_utc": "2026-11-16T19:20:39.939137+00:00",
+  "elapsed_seconds": 2.7996
+}

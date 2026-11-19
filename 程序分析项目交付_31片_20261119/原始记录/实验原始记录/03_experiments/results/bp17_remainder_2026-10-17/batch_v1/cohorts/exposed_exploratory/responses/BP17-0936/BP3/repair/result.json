@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0936/BP3/repair/1",
+  "case_id": "BP17-0936",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0ff30ff3b12ccb5db3da4854a3ac4dedec6416ad37abc6ffaaf4fe05816bcd24",
+  "started_utc": "2026-10-21T07:50:56.224323+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3b7a0fa9-bb00-4d48-865f-50aeb0df1ef4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint ww[105];\\nint main(int argc, char *argv[])\\n{\\n    int n,nn=0,i,x;\\n    scanf(\\\"%d\\\",&n);\\n    for(i=1;i<=n;i++)\\n    {\\n        scanf(\\\"%d\\\",&ww[i]);\\n    }\\n    if(n%2==0)\\n    {\\n        printf(\\\"-1\\\\n\\\");\\n    }\\n    else\\n    {\\n        for(i=n;i>0;)\\n        {\\n            while(ww[i]<=0)\\n            {\\n                i--;\\n            }\\n            if(i<=0)\\n                break;\\n            if(i%2==1)\\n            {\\n                x=(i-1)/2;\\n                ww[i]--;\\n                ww[2*x]--;\\n            }\\n            else\\n            {\\n                x=i/2;\\n                ww[i]--;\\n            }\\n            ww[x]--;\\n            nn++;\\n        }\\n        printf(\\\"%d\\\\n\\\",nn);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1412,
+    "completion_tokens": 265,
+    "total_tokens": 1677,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 644
+  },
+  "raw_sha256": "17a5be395ba0ff0f1c39ef7d5e4588f8756c87b83df834fbbcce61e4e05209d9",
+  "ended_utc": "2026-10-21T07:50:57.940642+00:00",
+  "elapsed_seconds": 1.625
+}

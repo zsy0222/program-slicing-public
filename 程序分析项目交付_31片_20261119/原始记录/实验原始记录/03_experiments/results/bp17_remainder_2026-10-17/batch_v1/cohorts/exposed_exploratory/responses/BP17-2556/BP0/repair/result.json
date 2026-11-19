@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2556/BP0/repair/1",
+  "case_id": "BP17-2556",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "351032135c100daa07a41bd06a7048a80fe3399674756f0d114e209d0049cc96",
+  "started_utc": "2026-10-17T13:52:01.911446+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a6eea2cd-d22f-4aa6-8483-7d5203264275",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MOD 1000000007\\n\\nint dp[5001][5001];\\n\\nint main(int argc, char *argv[]) {\\n    int i, j;\\n    int n, a, b, k;\\n    int ans;\\n\\n    scanf(\\\"%d %d %d %d\\\", &n, &a, &b, &k);\\n\\n    dp[0][a] = 1;\\n    for (i = 1; i <= k; i++) {\\n        int sum[5001];\\n\\n        sum[0] = 0;\\n        for (j = 1; j <= n; j++)\\n            sum[j] = (sum[j - 1] + dp[i - 1][j]) % MOD;\\n\\n        for (j = 1; j <= n; j++)\\n            if (j < b)\\n                dp[i][j] = (sum[(j + b - 1) / 2] - dp[i - 1][j] + MOD) % MOD;\\n            else if (j > b)\\n                dp[i][j] = ((sum[n] - sum[(j + b) / 2] + MOD) % MOD - dp[i - 1][j] + MOD) % MOD;\\n    }\\n\\n    ans = 0;\\n    for (j = 1; j <= n; j++)\\n        ans = (ans + dp[k][j]) % MOD;\\n\\n    printf(\\\"%d\\\\n\\\", ans);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1063,
+    "completion_tokens": 361,
+    "total_tokens": 1424,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 167
+  },
+  "raw_sha256": "cf87e5f3ea96227fb659371fd12940c9b4c1ea0f98454fdd0f0da81dd22edb8c",
+  "ended_utc": "2026-10-17T13:52:04.089769+00:00",
+  "elapsed_seconds": 2.172
+}

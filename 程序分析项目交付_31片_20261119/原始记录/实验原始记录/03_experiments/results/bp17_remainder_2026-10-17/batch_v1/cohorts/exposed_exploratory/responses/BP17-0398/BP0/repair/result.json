@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0398/BP0/repair/1",
+  "case_id": "BP17-0398",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "3aef2f5db93d8d5805ffb322113f584368b4f7789442ccd504f6898a2f986008",
+  "started_utc": "2026-11-16T17:29:23.037662+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "98305043-94f0-4380-8129-bcd68658aa26",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    float vp,vd,t,f,c,t1,t2;\\n    int cnt=0;\\n    scanf(\\\"%f %f %f %f %f\\\",&vp,&vd,&t,&f,&c);\\n    float dp=c;\\n    if(vp>=vd)\\n        printf(\\\"0\\\");\\n    else\\n    {\\n        while(dp>0)\\n        {\\n            if(dp==c)\\n                dp-=vp*t;\\n            t1=(c-dp)/(vd-vp);\\n            dp-=t1*vp;\\n            if(dp>0)\\n                cnt++;\\n            t2=(c-dp)/vd+f;\\n            dp-=t2*vp;\\n        }\\n    }\\n    printf(\\\"%d\\\",cnt);\\n    return(0);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 831,
+    "completion_tokens": 205,
+    "total_tokens": 1036,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 191
+  },
+  "raw_sha256": "4dda37f85261f241165ecae0d10c3f35c39e5078cb5a6e94720497ec9734fecb",
+  "ended_utc": "2026-11-16T17:29:25.180412+00:00",
+  "elapsed_seconds": 2.1342
+}

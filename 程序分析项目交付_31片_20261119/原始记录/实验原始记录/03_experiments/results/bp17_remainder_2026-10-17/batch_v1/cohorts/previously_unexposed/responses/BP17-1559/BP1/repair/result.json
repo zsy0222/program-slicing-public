@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1559/BP1/repair/1",
+  "case_id": "BP17-1559",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e099b3160211a68dd6863775b3b85212899d1b5434089df5fefec4e7b205b1f1",
+  "started_utc": "2026-10-17T08:40:36.015407+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b68d9c72-1cc5-417a-9729-67b58061c083",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define MOD 1000000009\\n\\nint sqr(long long int x, int n)\\n{\\n\\tif(n==0)\\n\\t\\treturn 1;\\n\\telse if(n==1)\\n\\t\\treturn x;\\n\\telse if(n%2==0)\\n\\t\\treturn sqr( (x*x)%MOD, n/2 ) % MOD;\\n\\telse\\n\\t\\treturn (x * sqr( (x*x)%MOD, (n-1)/2 )) % MOD;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n, m, k;\\n\\tscanf(\\\"%d %d %d\\\", &n, &m, &k);\\n\\tint x, y, z;\\n\\tz = n%k;\\n\\ty = n/k;\\n\\tif(y*(k-1)+z >= m)\\n\\t{\\n\\t\\tprintf(\\\"%d\\\\n\\\", m);\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tx = m - y*(k-1) - z;\\n\\t\\ty -= x;\\n\\t\\tlong long int ans;\\n\\t\\tans = sqr(2, x+1);\\n\\t\\tans -= 2;\\n\\t\\tif(ans < 0) ans += MOD;\\n\\t\\tans *= k;\\n\\t\\tans %= MOD;\\n\\t\\tans += (long long int)y*(k-1);\\n\\t\\tans %= MOD;\\n\\t\\tans += z;\\n\\t\\tans %= MOD;\\n\\t\\tprintf(\\\"%lld\\\\n\\\", ans);\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1168,
+    "completion_tokens": 374,
+    "total_tokens": 1542,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 144
+  },
+  "raw_sha256": "86f626518a97d3989a8c5cba07d747ce9b0153cdccbebbc7eebd655ceae1c4c4",
+  "ended_utc": "2026-10-17T08:40:37.670177+00:00",
+  "elapsed_seconds": 1.594
+}

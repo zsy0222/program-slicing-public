@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-0715",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define min(a, b) (a < b ? a : b)\\n\\nlong long power( int a, int b ) {\\n\\tif( b == 0 ) return 1;\\n\\n\\tlong long res = power(a, b/2);\\n\\tres *= res;\\n\\n\\tif( b % 2 ) res *= a;\\n\\treturn res;\\n}\\n\\nlong long length( long long N ) {\\n\\tint l = 0;\\n\\t\\n\\tif( N == 0 ) return 1;\\n\\n\\twhile( N ) {\\n\\t\\tN /= 10;\\n\\t\\tl++;\\n\\t}\\n\\n\\treturn l;\\n}\\n\\nlong long first( long long N ) {\\n\\treturn N / power(10, length(N)-1);\\n}\\n\\nlong long middle( long long N ) {\\n\\treturn (N - first(N) * power(10, length(N)-1)) / 10 + 1;\\n}\\n\\nlong long nways( int N ) {\\n\\tlong long res = 0;\\n\\n\\tres = min(9, N);\\n\\tres += min(N,99) / 11;\\n\\n\\tif( length(N) > 2 ) {\\n\\t\\tint i;\\n\\n\\t\\tfor( i = 3; i < length(N); i++ )\\n\\t\\t\\tres += 9 * power(10, i-2);\\n\\n\\t\\tfor( i = 1; i < first(N); i++ )\\n\\t\\t\\tres += power(10, length(N)-2);\\n\\n\\t\\tres += middle(N);\\n\\t\\t\\n\\t\\tint last = N % 10;\\n\\t\\tif( first(N) > last ) res--;\\n\\t}\\n\\n\\treturn res;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tlong long L, R;\\n\\tscanf(\\\"%lld %lld\\\", &L, &R);\\n\\n\\tprintf(\\\"%lld\\\\n\\\",nways(R) - nways(L-1));\\n\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 2.344,
+  "ended_utc": "2026-10-17T07:03:58.367290+00:00",
+  "finish_reason": "stop",
+  "group": "BP1",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0715/BP1/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "64686b10b3dff0d1c78217366f818a09a35832e49398e6ac4bc3d6888b4711ec",
+  "request_model": "deepseek-flash",
+  "request_sha256": "0cfa29f89b02c8abfbbe9f23b65a51dfba3bd6c4e848440b7c04f9219d18c60c",
+  "response_id": "ebbca2f7-6e06-4547-956a-facd2aeae837",
+  "started_utc": "2026-10-17T07:03:56.014920+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 485,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1363,
+    "prompt_tokens": 1363,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1848
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3798/BP3/repair/1",
+  "case_id": "BP17-3798",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "f17824eb37ae853d7108bfc9dcdf01996d9f415dd5f5b18697374502dd706ceb",
+  "started_utc": "2026-11-16T05:55:16.022129+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6b782e97-4af3-4a28-9503-480754b434bc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define M 312\\n\\nint dir[4][2] = {{0,1},{1,0},{-1,0},{0,-1}};\\nint a[M][M];\\n\\nint main(int argc, char *argv[])\\n{\\n//  freopen( \\\"input.dat\\\", \\\"r\\\", stdin );\\n  \\n  int i, o, p, j, k, l;\\n\\n  for (i=0;i<M;++i)\\n    for (j=0;j<M;++j) \\n      a[i][j] = 0;\\n\\n  char c;\\n  int sx = 150, sy = 150;\\n  a[sx][sy] = 1;\\n  int num = 1;\\n  while( scanf( \\\"%c\\\", &c ) != EOF )\\n  {\\n    int x, y;\\n    if (c=='U') c = 0;\\n    if (c=='D') c = 3;\\n    if (c=='L') c = 2;\\n    if (c=='R') c = 1;\\n    if (c<=3)\\n    {\\n      sx += dir[c][0];\\n      sy += dir[c][1];\\n      ++num;\\n      a[sx][sy] = num;\\n      for (i = 0;i<4;++i) \\n      {\\n        x = sx + dir[i][0];\\n        y = sy + dir[i][1];\\n        if ((a[x][y] < num-1) && (a[x][y]!=0)) \\n        {\\n          printf( \\\"BUG\\\\n\\\" );\\n          return(0);\\n        }\\n      }\\n    } else break;\\n  }\\n  printf( \\\"OK\\\\n\\\" );\\n  return 0;\\n}\\n    \"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1776,
+    "completion_tokens": 426,
+    "total_tokens": 2202,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1776
+  },
+  "raw_sha256": "80fd497598fbd39cad0d520a0c4204e02808bdb4e9e47cb139f47e357ae0f1bc",
+  "ended_utc": "2026-11-16T05:55:18.072341+00:00",
+  "elapsed_seconds": 2.0223
+}

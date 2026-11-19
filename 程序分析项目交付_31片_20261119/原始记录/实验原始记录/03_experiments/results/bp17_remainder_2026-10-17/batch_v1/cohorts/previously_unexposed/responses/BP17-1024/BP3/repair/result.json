@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1024/BP3/repair/1",
+  "case_id": "BP17-1024",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "9813b227ee215b711329bd272c379b32d19a39530e885f0c1a4f697db1819813",
+  "started_utc": "2026-10-21T08:00:25.779033+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "173ee3c3-4f3f-43b4-9dbe-41559b45ba33",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\nint main(int argc, char *argv[])\\n{\\nint MAX_PRIME = 3000;\\nint* num = calloc(MAX_PRIME+1,sizeof(int));\\nint N;\\nscanf(\\\"%d\\\",&N);\\nint cnt = 0;\\nint i,j;\\nfor(i=2;i*i<=MAX_PRIME;i++)\\t\\n    if(!num[i])\\t\\t    \\n\\t\\t\\tfor(j=i*2;j<=MAX_PRIME;j+=i)\\n\\t\\t    \\tnum[j]++;\\t\\n    \\nfor(i=1;i<=N;i++)\\n\\tcnt += (num[i]==1)?1:0;\\n\\nprintf(\\\"%d\\\\n\\\", cnt);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1199,
+    "completion_tokens": 186,
+    "total_tokens": 1385,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 303
+  },
+  "raw_sha256": "76e40976c787fd29ad697abc19d1fd8bc8a7429ffd217e99a334da3dd0a0e5d3",
+  "ended_utc": "2026-10-21T08:00:27.649211+00:00",
+  "elapsed_seconds": 1.875
+}

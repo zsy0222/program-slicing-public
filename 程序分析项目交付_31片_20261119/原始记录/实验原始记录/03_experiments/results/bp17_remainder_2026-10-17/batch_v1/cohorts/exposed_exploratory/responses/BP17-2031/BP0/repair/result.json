@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2031/BP0/repair/1",
+  "case_id": "BP17-2031",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "4320d8c91201ba493fe28379c57c5da5b0010d0fd286e1a55beab4f02de0b97b",
+  "started_utc": "2026-11-16T05:36:04.772248+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f642cf4d-91ea-49e9-b671-2180cddef34d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#define ifdot(a)  (str[a]=='d' && str[a+1]=='o' && str[a+2]=='t')\\n#define ifat(a) \\t(str[a]=='a' && str[a+1]=='t')\\n#define endl puts(\\\"\\\");\\nchar str[200];\\nint main(int argc, char *argv[])\\n{\\n\\tscanf(\\\"%s\\\",str);\\n\\tint i,len=strlen(str),b=0;\\n\\tprintf(\\\"%c\\\",str[0]);\\n\\tfor(i=1; i<len; i++)\\n\\t{\\n\\t\\tif(ifdot(i) && i != len-3)\\n\\t\\t{\\n\\t\\t\\tprintf(\\\".\\\");\\n\\t\\t\\ti+=2;\\n\\t\\t\\tcontinue;\\n\\t\\t}\\n\\t\\tif (!b && ifat(i) && i != len-2)\\n\\t\\t{\\n\\t\\t\\tprintf(\\\"@\\\");\\n\\t\\t\\ti++;\\n\\t\\t\\tb=1;\\n\\t\\t\\tcontinue;\\n\\t\\t}\\n\\t\\tprintf(\\\"%c\\\",str[i]);\\n\\t}\\n\\tendl;\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1014,
+    "completion_tokens": 282,
+    "total_tokens": 1296,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 246
+  },
+  "raw_sha256": "7b914c4e52b5c23f15e858be418fb0ff3b16ae738c7ec3a5508c498f995ef6b0",
+  "ended_utc": "2026-11-16T05:36:06.796062+00:00",
+  "elapsed_seconds": 2.0217
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0836/BP2/repair/1",
+  "case_id": "BP17-0836",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "46aa84c91174081c27972455f5325a7d71433f9a69f3489e5dc5e87630af556b",
+  "started_utc": "2026-11-15T13:04:38.833085+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3d4060e7-4e08-4486-badb-902b1b250825",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\nint main(int argc, char *argv[]){\\n  int fib[45]={0},stock[45]={0};\\n  int s,k,i,n,sum=0,num=0;\\n  scanf(\\\"%d %d\\\",&s,&k);\\n  for(i=0;i==0||fib[i-1]<=s;i++){\\n    if(i<=1) fib[i]=1;\\n    else if(i<=k) fib[i]=sum;\\n    else{\\n      sum-=fib[i-k-1];\\n      fib[i]=sum;\\n    }\\n    sum+=fib[i];\\n  }\\n  n=i-2;\\n  if(fib[i-2]==s) n--;\\n  for(i=n;i>=0;i--){\\n    if(fib[i]<=s){\\n      stock[num++]=fib[i];\\n      s-=fib[i];\\n      if(s==0) break;\\n    }\\n  }\\n  printf(\\\"%d\\\\n\\\",num);\\n  for(i=num-1;i>=0;i--){\\n    printf(\\\"%d\\\",stock[i]);\\n    putchar((i>0)?' ':'\\\\n');\\n  }\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1712,
+    "completion_tokens": 295,
+    "total_tokens": 2007,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1712
+  },
+  "raw_sha256": "94246ffba02a5bea1e7be31a9503b78ce9912df6aeff8a8d0fd1540a016fb9e2",
+  "ended_utc": "2026-11-15T13:04:40.971399+00:00",
+  "elapsed_seconds": 2.1346
+}

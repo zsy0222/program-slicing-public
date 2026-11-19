@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2711/BP1/repair/1",
+  "case_id": "BP17-2711",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1984010e4e20ff660be0d869371cf8538c68655dad58bab4bd3deaf84593ae95",
+  "started_utc": "2026-11-16T16:52:36.425528+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "97082739-92b3-49c2-8f04-49fab31e0840",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n    long int n,i=0,q,j,t[1001];\\n    scanf(\\\"%ld\\\",&n);\\n    q=n;\\n    char str[42],old[n][22],neww[n][22];\\n    while(n--)\\n    {\\n          scanf(\\\" %[^\\\\r\\\\n]\\\",str);\\n          sscanf(str,\\\"%s %s\\\",old[i],neww[i]);\\n            i++;\\n    }\\n    int cou=q;\\n    for(i=0;i<q;i++)\\n    {\\n        t[i]=i;\\n        for(j=0;j<q;j++)\\n        {\\n            if(strcmp(neww[i],old[j])==0)\\n            {\\n                strcpy(old[j],old[i]);\\n                strcpy(neww[i],neww[j]);\\n                t[j]=j;\\n                t[i]=99999;\\n                cou--;\\n            }\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",cou);\\n    for(i=q-1;i>=0;i--)\\n    {\\n        if(t[i]!=99999)\\n        {\\n            printf(\\\"%s %s\\\\n\\\",old[t[i]],neww[t[i]]);\\n\\n        }\\n    }\\n\\n        return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1180,
+    "completion_tokens": 331,
+    "total_tokens": 1511,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1180
+  },
+  "raw_sha256": "2f987dc0c2955f8a76360787f31a39b521e0cbe89e7ac9d30127e0c249806734",
+  "ended_utc": "2026-11-16T16:52:38.565256+00:00",
+  "elapsed_seconds": 2.0944
+}

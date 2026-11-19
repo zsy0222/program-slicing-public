@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2108/BP1/repair/1",
+  "case_id": "BP17-2108",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "d37c3013af0f9de2d8a0ca999537a49ab2375070c9aace58cf1442d828c042ef",
+  "started_utc": "2026-11-16T06:03:44.378003+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3961edcd-e312-4ef6-ae0a-e427206d8670",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n     int n, v, i;\\n     int a[20], b[20];\\n     double l = 0, r = 100, u = 50, res = 0;\\n\\n     scanf(\\\"%d %d\\\", &n, &v);\\n\\n     for (i = 0; i < n; i++) scanf(\\\"%d\\\", &a[i]);\\n     for (i = 0; i < n; i++) scanf(\\\"%d\\\", &b[i]);\\n\\n     while (r - l > 0.000001) {\\n\\t  double sum = 0;\\n\\n\\t  for (i = 0; i < n; i++) {\\n\\t       if (a[i] * u > b[i]) break;\\n\\n\\t       sum += a[i] * u;\\n\\t  }\\n\\n\\t  if (i < n || sum > v) {\\n\\t       r = u;\\n\\t       u = (l + r) / 2;\\n\\t  } else {\\n\\t       l = u;\\n\\t       u = (l + r) / 2;\\n\\t  }\\n     }\\n\\n     for (i = 0; i < n; i++) {\\n\\t  double t = a[i] * u;\\n\\t  if (t > b[i]) t = b[i];\\n\\t  res += t;\\n     }\\n\\n     printf(\\\"%lf\\\\n\\\", res);\\n\\n     return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1145,
+    "completion_tokens": 358,
+    "total_tokens": 1503,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 249
+  },
+  "raw_sha256": "41d94934c6df6675142c6a13683239cadc84bd8a4d71c379572a9ee5acaf5d3b",
+  "ended_utc": "2026-11-16T06:03:46.726836+00:00",
+  "elapsed_seconds": 2.3451
+}

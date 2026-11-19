@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3678/BP0/repair/1",
+  "case_id": "BP17-3678",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "bf96e7ed1576f5b917e584d5b4975e8b66fa0115a306c4189c8ee2468e1a22ad",
+  "started_utc": "2026-10-18T12:10:50.893969+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f20f58b4-ea16-469f-958f-a41d0ec83b44",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint A[10][10];\\n\\nint main(int argc, char *argv[])\\n{\\n    int N, T;\\n    scanf(\\\"%d %d\\\", &N, &T);\\n    while(T--) {\\n        A[0][0] += 512;\\n        for(int i = 0; i < N - 1; ++i) {\\n            for(int j = 0; j <= i; ++j) {\\n                if(A[i][j] > 512) {\\n                    int val = A[i][j] - 512;\\n                    A[i + 1][j] += val / 2;\\n                    A[i + 1][j + 1] += val / 2;\\n                    A[i][j] = 512;\\n                }\\n            }\\n        }\\n    }\\n    int ans = 0;\\n    for(int i = 0; i < N; ++i) {\\n        for(int j = 0; j <= i; ++j) {\\n            if(A[i][j] == 512) {\\n                ++ans;\\n            }\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\", ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 949,
+    "completion_tokens": 286,
+    "total_tokens": 1235,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 949
+  },
+  "raw_sha256": "b753780edb3114cf5779b09d27fda70ead2040fbec58a0cbf23539509fc37e54",
+  "ended_utc": "2026-10-18T12:10:52.557013+00:00",
+  "elapsed_seconds": 1.672
+}

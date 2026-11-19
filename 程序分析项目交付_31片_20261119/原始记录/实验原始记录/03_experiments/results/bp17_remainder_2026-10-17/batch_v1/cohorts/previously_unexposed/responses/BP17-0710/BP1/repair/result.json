@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0710/BP1/repair/1",
+  "case_id": "BP17-0710",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "b54d34458953258339969394dfe84602db82a934f6c6b0ed44ca9c0e069c3c57",
+  "started_utc": "2026-11-16T18:45:59.801799+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3950e4dd-344b-4b47-bb0e-bd19f1bc2e94",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint b[1010][1010];\\nint square(int x, int y)\\n{\\n    int count = 1;\\n    int right = b[x+1][y+1] + b[x+1][y] + b[x+1][y-1];\\n    int right2 =  b[x+2][y+1] + b[x+2][y] + b[x+2][y-1];\\n    int left = b[x-1][y+1] + b[x-1][y] + b[x-1][y-1];\\n    int left2 = b[x-2][y-1] + b[x-2][y] + b[x-2][y+1];\\n    int top = b[x-1][y-1] + b[x][y-1] + b[x+1][y-1];\\n    int top2 = b[x-1][y-2] + b[x][y-2] + b[x+1][y-2];\\n    int bot = b[x-1][y+1] + b[x][y+1] + b[x+1][y+1];\\n    int bot2 = b[x-1][y+2] + b[x][y+2] + b[x+1][y+2];\\n\\n\\n    //0 0 0 0 0\\n    //0 1 1 1 0\\n    //0 1 1 1 0\\n    //0 1 1 1 0\\n    //0 0 0 0 0\\n    int mid = left + right + b[x][y-1] + b[x][y+1] + count;\\n    if (mid == 9) return 1;\\n\\n\\n\\n    //0 0 0 0 0\\n    //1 1 1 0 0\\n    //1 1 1 0 0\\n    //1 1 1 0 0\\n    //0 0 0 0 0\\n    count = mid;\\n    count -= right;\\n    count += left2;\\n    if (count == 9) return 1;\\n    count -= b[x][y+1] + b[x-1][y+1] + b[x-2][y+1];\\n    count += b[x][y-2] + b[x-1][y-2] + b[x-2][y-2];\\n    if (count == 9) return 1;\\n    count = mid - right + left2;\\n    count -= b[x][y-1] + b[x-1][y-1] + b[x-2][y-1];\\n    count += b[x][y+2] + b[x-1][y+2] + b[x-2][y+2];\\n    if (count == 9) return 1;\\n\\n    count = mid;\\n    count -=left;\\n    count += right2;\\n    if (count == 9) return 1;\\n    count -= b[x][y+1] + b[x+1][y+1] + b[x+2][y+1];\\n    count += b[x][y-2] + b[x+1][y-2] + b[x+2][y-2];\\n    if (count == 9) return 1;\\n    count = mid - left + right2;\\n    count -= b[x][y-1] + b[x+1][y-1] + b[x+2][y-1];\\n    count += b[x][y+2] + b[x+1][y+2] + b[x+2][y+2];\\n    if (count == 9) return 1;\\n\\n    count = mid;\\n    count -= top;\\n    count += bot2;\\n    if (count == 9) return 1;\\n\\n    count = mid;\\n    count -= bot;\\n    count += top2;\\n    //printf(\\\"lol %d\\\\n\\\", count);\\n    if (count == 9) return 1;\\n\\n\\n    return 0;\\n\\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, m;\\n\\n    scanf(\\\"%d %d\\\", &n, &m);\\n\\n    int i;\\n    int x,y;\\n    for (i = 0; i < m; i++)\\n    {\\n        scanf(\\\"%d %d\\\", &x, &y);\\n        x += 1;\\n        y += 1;\\n        b[x][y] = 1;\\n        if (square(x,y))\\n        {\\n            printf(\\\"%d\\\\n\\\", i+1);\\n            return 0;\\n            }\\n\\n    }\\n\\n    printf(\\\"%d\\\\n\\\", -1);\\n\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2142,
+    "completion_tokens": 1143,
+    "total_tokens": 3285,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2142
+  },
+  "raw_sha256": "bbe577dcc69000287a3b0a67f320d76fc1dae685ae5eb4d77ad497afbda7c352",
+  "ended_utc": "2026-11-16T18:46:03.862402+00:00",
+  "elapsed_seconds": 4.0576
+}

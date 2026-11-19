@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2536/BP1/repair/1",
+  "case_id": "BP17-2536",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e6058d5053b4cbdc07ccc1e952d604876bc0cfc17a1649aa49d226e55e1f3697",
+  "started_utc": "2026-11-16T18:58:30.898288+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "90d257d9-7484-4763-9a49-45f574eccf29",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\nint main(int argc, char *argv[])\\n{\\n    double r,g,b,k,t=0,x;\\n    scanf(\\\"%lf%lf%lf\\\",&r,&g,&b);\\n    if(r<g)    {\\n        k=r;\\n        r=g;\\n        g=k;\\n    }\\n    if(g<b)    {\\n        k=g;\\n        g=b;\\n        b=k;\\n    }\\n    if(r<g)    {\\n        k=r;\\n        r=g;\\n        g=k;\\n    }\\n\\n    if((r-b)/(g-b)<=2)    {\\n        r-=b;\\n        g-=b;\\n        t+=b;\\n        t+=r-g;\\n        r=2*g-r;\\n        t+=2*floor(r/3);\\n    }\\n    else    {\\n\\n         x=ceil((r+b-2*g)/3);\\n         if(x>b)    {\\n            t+=b+g;\\n         }\\n         else    {\\n            t+=x;\\n            r-=2*x;\\n            b-=x;\\n            r-=b;\\n            g-=b;\\n            t+=b;\\n            t+=r-g;\\n            r=2*g-r;\\n            t+=r-ceil(r/3);\\n         }\\n    }\\n    printf(\\\"%.0lf\\\\n\\\",t);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1149,
+    "completion_tokens": 340,
+    "total_tokens": 1489,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 253
+  },
+  "raw_sha256": "69eb508decfb87a5dd21d37547e392a490ced72849497f937249d67656591053",
+  "ended_utc": "2026-11-16T18:58:33.458131+00:00",
+  "elapsed_seconds": 2.557
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0310/BP0/repair/1",
+  "case_id": "BP17-0310",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "1afaade051ddc7929eee399754616aaa1a954d69784d9292046e6ea7a57aacb4",
+  "started_utc": "2026-10-21T07:52:29.533003+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "18fcb059-2658-4c0a-903b-bdde9f9355b2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint x[201][201],a[200],b[200],n,distance,end,max,blown;\\n\\nvoid go(int down,int up,int len) {\\n\\tint i;\\n\\tif (len>distance) {\\n\\t\\tdistance=len;\\n\\t\\tend=down;\\n\\t}\\n\\tfor (i=1;i<=n;i++)\\n\\t\\tif (x[down][i]&&i!=up&&i!=blown)\\n\\t\\t\\tgo(i,down,len+1);\\n}\\n\\nint travel(int start,int fuse) {\\n\\tblown=fuse;\\n\\tend=start;\\n\\tdistance=0;\\n\\tgo(start,fuse,0);\\n\\tdistance=0;\\n\\tgo(end,fuse,0);\\n\\treturn distance;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint i;\\n\\tscanf(\\\"%d\\\\n\\\",&n);\\n\\tfor (i=0;i<n-1;i++) {\\n\\t\\tscanf(\\\"%d %d\\\\n\\\",&a[i],&b[i]);\\n\\t\\tx[a[i]][b[i]]=x[b[i]][a[i]]=1;\\n\\t}\\n\\tfor (i=0;i<n-1;i++) {\\n\\t\\tint nibble=travel(a[i],b[i]);\\n\\t\\tint snake=travel(b[i],a[i]);\\n\\t\\tif (snake&&nibble&&snake+nibble>max) max=snake+nibble;\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",max);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1091,
+    "completion_tokens": 380,
+    "total_tokens": 1471,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 195
+  },
+  "raw_sha256": "d7dbbe3cddc7a2dad43428460c8408e80ea9eda841d27084b4cb64ce21fbe191",
+  "ended_utc": "2026-10-21T07:52:31.286296+00:00",
+  "elapsed_seconds": 1.703
+}

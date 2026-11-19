@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1905/BP1/repair/1",
+  "case_id": "BP17-1905",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e5144f2be322b66a27f2a28eeaee26ebb0f16b2e9911e6c6fe37fc0224e510c8",
+  "started_utc": "2026-10-18T11:43:05.294815+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "061d4fca-58ad-46f2-805e-2c1feecf9063",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n    int a,b,c,count=0,flag=0,i=0,ans=0;\\n    char *ptr;\\n    char s[304];\\n    char *z;\\n    char p[303]=\\\"|\\\";\\n    ptr=s;\\n    scanf(\\\"%s\\\",s);\\n    while(*ptr!='+')\\n    {\\n        count++;\\n        ptr=ptr+1;\\n    }\\n    a=count;\\n    ptr=ptr+1;\\n    while(*ptr!='=')\\n    {\\n        flag++;\\n        z=ptr;\\n        ptr=ptr+1;\\n    }\\n    b=flag;\\n    ptr=ptr+1;\\n    while(*ptr!='\\\\0')\\n    {\\n       ans++;\\n       ptr++;\\n    }\\n    c=ans;\\n    ptr=s;\\n    if(c-(a+b)==0)\\n        printf(\\\"%s\\\",s);\\n        else if(c-(a+b)==2)\\n        {\\n           strcat(p,s);\\n           p[strlen(p)-1]='\\\\0';\\n           printf(\\\"%s\\\",p);\\n        }\\n        else if(c-(a+b)==-2)\\n        {\\n            if(a!=1)\\n            {\\n           strcat(s,p);\\n           ptr=ptr+1;\\n           while(*ptr!='\\\\0')\\n           {\\n               printf(\\\"%c\\\",*ptr);\\n               ptr++;\\n           }\\n        }\\n        else\\n        {\\n            ptr=s;\\n            strcat(s,p);\\n            while(ptr<z)\\n            {\\n                printf(\\\"%c\\\",*ptr);\\n                ptr++;\\n            }\\n             ptr=ptr+1;\\n             while(*ptr!='\\\\0')\\n             {\\n                 printf(\\\"%c\\\",*ptr);\\n                 ptr++;\\n             }\\n\\n\\n        }\\n        }\\n        else\\n        {\\n            printf(\\\"impossible\\\\n\\\");\\n        }\\n        return 0;\\n}\\n\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1393,
+    "completion_tokens": 504,
+    "total_tokens": 1897,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1393
+  },
+  "raw_sha256": "7b35053ed00037141b430e9da3e2958f016cd6167c1d03b721ba2b0fadd203ed",
+  "ended_utc": "2026-10-18T11:43:07.908500+00:00",
+  "elapsed_seconds": 2.547
+}

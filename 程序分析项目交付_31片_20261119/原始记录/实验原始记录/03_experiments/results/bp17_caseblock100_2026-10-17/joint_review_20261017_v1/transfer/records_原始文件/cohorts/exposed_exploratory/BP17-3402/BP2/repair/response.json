@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3402",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n\\tchar vertice[500];\\n\\tint edge[500][500];\\n\\tint m,n,i,j,x,y;\\n\\tint judge=1;\\n\\t\\n\\t\\n\\tscanf(\\\"%d%d\\\",&n,&m);\\n\\tfor(i=0;i<n;i++)\\n\\t vertice[i]='b';\\n\\tfor(i=0;i<n;i++)\\n\\t for(j=0;j<n;j++)\\n\\t  edge[i][j]=0;\\n\\tfor(i=0;i<n;i++)\\n\\t edge[i][i]=1;\\n\\tfor(i=0;i<m;i++)\\n\\t {\\n\\t \\tscanf(\\\"%d%d\\\",&x,&y);\\n\\t \\tedge[x-1][y-1]=1;\\n\\t \\tedge[y-1][x-1]=1;\\n\\t }\\n\\t for(i=0;i<n;i++)\\n\\t  for(j=i;j<n;j++)\\n\\t   {\\n\\t   \\tif(edge[i][j]==0&&vertice[i]=='b')\\n\\t   \\t{\\n\\t   \\t\\tvertice[i]='a';\\n\\t   \\t\\tvertice[j]='c';\\n\\t   \\t}\\n\\t   \\telse if(edge[i][j]==0&&vertice[i]=='a')\\n\\t   \\t{\\n\\t   \\t\\tvertice[j]='c';\\n\\t   \\t}\\n\\t   \\telse if(edge[i][j]==0&&vertice[i]=='c')\\n\\t   \\t{\\n\\t   \\t\\tvertice[j]='a';\\n\\t   \\t}\\n\\t   }\\n\\tfor(i=0;i<n;i++)\\n\\t{\\n\\t\\tif(vertice[i]=='a')\\n\\t\\t{ \\n\\t\\t\\tfor(j=i;j<n;j++)\\n\\t\\t\\t\\t  {\\n\\t\\t\\t\\t  \\tif(vertice[j]=='a'&&edge[i][j]==0)\\n\\t\\t\\t\\t  \\t {\\n\\t\\t\\t\\t  \\t \\tprintf(\\\"No\\\\n\\\");\\n\\t\\t\\t\\t  \\t \\treturn 0;\\n\\t\\t\\t\\t  \\t }\\n\\t\\t\\t\\t  }\\n\\t\\t\\tfor(j=i;j<n;j++)\\n\\t\\t\\t{ \\n\\t\\t\\t\\t\\tif(vertice[j]=='c'&&edge[i][j]==1)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tprintf(\\\"No\\\\n\\\");\\n\\t\\t\\t\\t\\t\\treturn 0;\\n\\t\\t\\t\\t\\t} \\n\\t\\t\\t}\\n\\t\\t}\\n    }\\n\\tif(judge==0)printf(\\\"No\\\\n\\\");\\n\\t\\n\\telse \\n\\t{\\n\\t  \\tprintf(\\\"Yes\\\\n\\\");\\n  \\t\\tfor(i=0;i<n;i++)\\n\\t\\t{\\n\\t\\tprintf(\\\"%c\\\",vertice[i]);\\n\\t\\t}\\t\\n\\t}\\n\\t \\n}\"}",
+  "elapsed_seconds": 2.234,
+  "ended_utc": "2026-10-17T07:05:56.451767+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3402/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "bff383d6d3928b31967fc5ed2da8b65a088a1da7d34f62486ecd506e9e38b974",
+  "request_model": "deepseek-flash",
+  "request_sha256": "f67e32ccd9651fa7952b63175bd3a1c3df2277cee94bdd0561db02a8bc193655",
+  "response_id": "32692239-97af-4b7e-b964-87ebf21bcf66",
+  "started_utc": "2026-10-17T07:05:54.179207+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 713,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2859,
+    "prompt_tokens": 2859,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 3572
+  }
+}

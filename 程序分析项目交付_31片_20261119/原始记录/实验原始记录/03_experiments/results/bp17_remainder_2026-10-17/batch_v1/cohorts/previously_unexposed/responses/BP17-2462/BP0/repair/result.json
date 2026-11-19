@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2462/BP0/repair/1",
+  "case_id": "BP17-2462",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "8284c7f5c868596473c93ae3b11fc88781bb5db45450372d810e35b73f051e39",
+  "started_utc": "2026-10-17T10:13:51.273160+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b9804083-1017-4d4d-8cb0-1a61ad53c9cc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint i, j, k, l, x, y, z, n, p = 0, q;\\nint ara[3000], ara_2[3000], ara_3[3000][2];\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%d\\\", &n);\\n    for(i = 1; i <= n; i++){\\n        scanf(\\\"%d\\\", &ara[i]);\\n        ara_2[i] = ara[i];\\n    }\\n\\n    ara[0]= -100;\\n    ara_2[0] = -100;\\n    ara_3[0][0] = -100;\\n    ara_3[0][1] = -100;\\n\\n    for(i = 1; i <= n ;i++){\\n        for(j = i + 1; j <= n; j++){\\n            if(ara[j] <= ara[i]){\\n                x = ara[i];\\n                ara[i] = ara[j];\\n                ara[j] = x;\\n            }\\n        }\\n    }\\n\\n    for(i = 1; i < n; i++){\\n        if(ara[i] == ara[i + 1]){\\n            p++;\\n        }\\n    }\\n\\n    if(p < 2) printf(\\\"NO\\\");\\n\\n    else{\\n        printf(\\\"YES\\\\n\\\");\\n        for(i = 1, k = 1; i <= n ; i++, k++){\\n            for(j = 1; j <= n; j++){\\n                if(ara[i] == ara_2[j]){\\n                    ara_2[j]= -1;\\n                    ara_3[k][0] = j;\\n                    if(ara[i] == ara[i - 1]) ara_3[k][1] = ara_3[k - 1][0];\\n                    else ara_3[k][1] = -200;\\n                    printf(\\\"%d \\\", ara_3[k][0]);\\n                    break;\\n                }\\n            }\\n        }\\n        printf(\\\"\\\\n\\\");\\n\\n        for(i = 1, x = 0; i <= n; i++){\\n            if(ara_3[i][1] > 0 && x == 0){\\n                x = 1;\\n                ara_3[i - 1][0] = ara_3[i][0];\\n                ara_3[i][0] = ara_3[i][1];\\n                y = i;\\n            }\\n        }\\n\\n        for(i = 1; i <= n ; i++){\\n            printf(\\\"%d \\\", ara_3[i][0]);\\n        }\\n        printf(\\\"\\\\n\\\");\\n        for(i = 1, x = 0; i <= n; i++){\\n            if(ara_3[i][1] > 0 && x == 0 && i != y){\\n                x = 1;\\n                ara_3[i - 1][0] = ara_3[i][0];\\n                ara_3[i][0] = ara_3[i][1];\\n            }\\n        }\\n        for(i = 1; i <= n ; i++){\\n            printf(\\\"%d \\\", ara_3[i][0]);\\n        }\\n\\n        printf(\\\"\\\\n\\\");\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1652,
+    "completion_tokens": 784,
+    "total_tokens": 2436,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1652
+  },
+  "raw_sha256": "7905ffaee88dc34c079abf2ee080c168ef2067d1ccca0a1c51a519680a635e99",
+  "ended_utc": "2026-10-17T10:13:54.032850+00:00",
+  "elapsed_seconds": 2.75
+}

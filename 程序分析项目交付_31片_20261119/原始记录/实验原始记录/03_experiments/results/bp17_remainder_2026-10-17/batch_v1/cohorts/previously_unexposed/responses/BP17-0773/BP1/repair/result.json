@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0773/BP1/repair/1",
+  "case_id": "BP17-0773",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "52ae794dd1e68de6fb2c9fac36fac6ace9caa91f4b689ca830213837d0fcd731",
+  "started_utc": "2026-11-16T06:12:22.311861+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "687607b7-e8f2-4f1c-9ab3-3e27acf8e449",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define next_enemy(a, b) (enemies[a][0] != b) ? (enemies[a][0]) : (enemies[a][1])\\n\\nint walk(int i, int enemies[100][2], int visited[100], int flop) {\\n    int tot;\\n    if (visited[i]) {\\n        if (visited[i] == flop)\\n            return 0;\\n        else\\n            return -1;\\n    };\\n    visited[i] = flop;\\n    flop = 3 - flop;\\n    if (enemies[i][0] == -1)\\n        return 1;\\n    tot = walk(enemies[i][0], enemies, visited, flop);\\n    if (enemies[i][1] != -1)\\n        tot += walk(enemies[i][1], enemies, visited, flop);\\n    if (tot <= 0) return tot; /*cycle*/\\n    return tot + 1;\\n};\\n\\nint main(int argc, char *argv[]) {\\n    int n, m;\\n    int i, j;\\n    int enemies[100][2];\\n    int away = 0, even = 0;\\n    int visited[100];\\n    scanf(\\\"%d\\\", &n);\\n    for (i = 0; i < n; i ++) {\\n        enemies[i][0] = enemies[i][1] = -1;\\n        visited[i] = 0;\\n    };\\n    scanf(\\\"%d\\\", &m);\\n    for (i = 0; i < m; i ++) {\\n        int en1, en2;\\n        scanf(\\\"%d%d\\\", &en1, &en2);\\n\\t\\ten1--;\\n\\t\\ten2--;\\n        if (enemies[en1][0] == -1)\\n            enemies[en1][0] = en2;\\n        else\\n            enemies[en1][1] = en2;\\n        if (enemies[en2][0] == -1)\\n            enemies[en2][0] = en1;\\n        else\\n            enemies[en2][1] = en1;\\n    };\\n    for (i = 0; i < n; i ++) {\\n\\t\\tif (visited[i]) continue;\\n\\t\\tint res = walk(i, enemies, visited, 1);\\n\\t\\tif (res <= 0) away -= res/2;\\n\\t\\telse even += res;\\n\\t};\\n\\taway += even % 2;\\n\\tprintf(\\\"%d\\\\n\\\", away);\\n\\treturn 0;\\n};\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1429,
+    "completion_tokens": 610,
+    "total_tokens": 2039,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1429
+  },
+  "raw_sha256": "c605c40c6af0d2b3bee10f11e4560a8753051a513bc7620a4f104d13a459af62",
+  "ended_utc": "2026-11-16T06:12:25.185316+00:00",
+  "elapsed_seconds": 2.8628
+}

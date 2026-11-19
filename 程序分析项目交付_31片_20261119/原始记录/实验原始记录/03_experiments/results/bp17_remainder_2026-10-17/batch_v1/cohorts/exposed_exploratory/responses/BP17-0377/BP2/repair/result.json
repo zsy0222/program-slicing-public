@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0377/BP2/repair/1",
+  "case_id": "BP17-0377",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "a0a94a4fae830b7697954648214f6274ad125b22129da4e8ad5efbd847d07499",
+  "started_utc": "2026-11-16T18:15:12.207351+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "10eec3e6-6243-4e16-953e-e6ebcb81600e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\nint compare (const void * a, const void * b)\\n{\\n  return ( *(int*)a - *(int*)b );\\n}\\n\\nint mask(int x){\\n    int k = 0, t = 1;\\n\\twhile (x > 0) {\\n\\t    if (x % 10 == 7 || x % 10 == 4) {\\n\\t\\t    k += x%10*t;\\n\\t\\t\\tt *= 10;\\n\\t\\t}\\n\\t\\tx = x/10;\\n\\t}\\n\\treturn(k);\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int a, b, i;\\n\\tscanf(\\\"%d%d\\\",&a,&b);\\n\\ti = a;\\n\\twhile (mask(i) != b) i++;\\n\\tprintf(\\\"%d\\\\n\\\",i);\\n\\treturn(0);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1440,
+    "completion_tokens": 228,
+    "total_tokens": 1668,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1440
+  },
+  "raw_sha256": "3a2182a464c25690e7d572570d8b04ef650070d46fcc871d0b05140c1f940293",
+  "ended_utc": "2026-11-16T18:15:14.338997+00:00",
+  "elapsed_seconds": 2.1172
+}

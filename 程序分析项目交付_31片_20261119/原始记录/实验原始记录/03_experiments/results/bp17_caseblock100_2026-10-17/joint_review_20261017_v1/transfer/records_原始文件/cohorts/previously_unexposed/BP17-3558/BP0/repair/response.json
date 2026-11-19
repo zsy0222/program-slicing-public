@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3558",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<limits.h>\\nint storage[25][22];\\nstruct solve{\\n    int status;\\n    int value;\\n}arr[250000];\\nint main(int argc, char *argv[]){\\nint a,b,c,d,e,f,g;\\nint first=0;\\nscanf(\\\"%d%d%d\\\",&a,&b,&c);\\nint i;int added=0;\\nfor(i=0;i<a;i++){\\nscanf(\\\"%d\\\",&arr[i+1].value);\\n}\\nfor(i=0;i<c;i++){\\nint x,y;\\nscanf(\\\"%d%d\\\",&x,&y);\\nif(x==2){\\nif(arr[y].status==1){\\n        printf(\\\"YES\\\\n\\\");\\n}\\nelse{ printf(\\\"NO\\\\n\\\");\\n        }\\n}\\nif(x==1 && added!=b){\\narr[y].status=1;\\nstorage[first][0]=arr[y].value;\\nstorage[first++][1]=y;\\nadded++;\\n}\\nelse if(x==1 && added==b){\\nint min=INT_MAX; int pos=0;\\nfor(f=0;f<b;f++){\\nif(storage[f][0]<min){\\n    min=storage[f][0];\\n    pos=f;\\n}\\n}\\nif(arr[y].value>storage[pos][0]){\\narr[storage[pos][1]].status=0;\\nstorage[pos][0]=arr[y].value;\\nstorage[pos][1]=y;\\narr[y].status=1;\\n}\\n}\\n}\\nreturn 0;\\n}\"}",
+  "elapsed_seconds": 1.89,
+  "ended_utc": "2026-10-17T07:12:24.265920+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3558/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "64be964a1784ba52192821ba45150bf76ab018d5448fae3b9d16e27a4eca2e4b",
+  "request_model": "deepseek-flash",
+  "request_sha256": "7a6b0249d9e8d9fc5948c189e0af0977b90aa9b63e1971fc7d228fdea2e50019",
+  "response_id": "9895fd18-4c92-4d32-a004-30ad6c156f81",
+  "started_utc": "2026-10-17T07:12:22.382557+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 373,
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 243,
+    "prompt_tokens": 1139,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "total_tokens": 1512
+  }
+}

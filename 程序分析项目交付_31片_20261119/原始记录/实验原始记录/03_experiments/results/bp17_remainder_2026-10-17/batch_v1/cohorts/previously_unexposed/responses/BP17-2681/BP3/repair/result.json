@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2681/BP3/repair/1",
+  "case_id": "BP17-2681",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "1187ea7d253967368498f1d5de08a262d5eeb6af5359082b23b637a9ea7dc831",
+  "started_utc": "2026-11-18T10:07:27.505212+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "24dc72c1-8f4b-4d08-a75c-0a5bd8b3e307",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\ntypedef struct user{\\n    char *name;\\n    struct user *prev, *next;\\n} user;\\n\\ntypedef struct USERS{\\n    user *first, *last;\\n} USERS;\\n\\nint main(int argc, char *argv[])\\n{\\n    char line[100+1];\\n    unsigned long int traffic = 0UL;\\n    int usernum = 0;\\n    USERS *userlist = (USERS *)malloc(sizeof(USERS));\\n    userlist->first = (user *)malloc(sizeof(user));\\n    userlist->last = (user *)malloc(sizeof(user));\\n    userlist->first->prev = NULL;\\n    userlist->last->next = NULL;\\n    userlist->first->next = userlist->last;\\n    userlist->last->prev = userlist->first;\\n    while(fgets(line, sizeof(line), stdin)){\\n        size_t len = strlen(line);\\n        while(len > 0 && (line[len-1] == '\\\\n' || line[len-1] == '\\\\r'))\\n            line[--len] = '\\\\0';\\n        if(line[0] == '+'){\\n            user *newuser = (user *)malloc(sizeof(user));\\n            newuser->name = (char *)malloc((1+strlen(line+1))*sizeof(char));\\n            strcpy(newuser->name, line+1);\\n            newuser->next = userlist->first->next;\\n            newuser->prev = userlist->first;\\n            userlist->first->next->prev = newuser;\\n            userlist->first->next = newuser;\\n            usernum++;\\n        }\\n        else if(line[0] == '-'){\\n            user *moving = userlist->first->next;\\n            while(moving != userlist->last && strcmp(moving->name, line+1) != 0)\\n                moving = moving->next;\\n            if(moving != userlist->last){\\n                moving->prev->next = moving->next;\\n                moving->next->prev = moving->prev;\\n                free(moving->name);\\n                free(moving);\\n                usernum--;\\n            }\\n        }\\n        else{\\n            int i;\\n            for(i = 0; line[i] != ':' && line[i] != '\\\\0'; i++)\\n                ;\\n            if(line[i] == ':')\\n                traffic += (unsigned long int)usernum*strlen(line+i+1);\\n        }\\n    }\\n    printf(\\\"%lu\\\", traffic);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1762,
+    "completion_tokens": 629,
+    "total_tokens": 2391,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 482
+  },
+  "raw_sha256": "f6f76d598ce4b8390d7dc654d7f75e975c47a5384b15a3dcae56f0808d0cbf73",
+  "ended_utc": "2026-11-18T10:07:31.236272+00:00",
+  "elapsed_seconds": 3.7292
+}

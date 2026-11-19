@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2340/BP1/repair/1",
+  "case_id": "BP17-2340",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "b03c3d7155267b0a5b90d05b78ccb198ec930fc746a84d5f8820c9a0b9c8cb93",
+  "started_utc": "2026-10-17T07:13:02.334906+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "ef3cc252-23eb-428e-83a2-3e65dd12eb64",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint n,m,q,ans;\\nint e[600010][2],p[300010];\\nint f[300010];\\nint root[300010],len[300010];\\nint max(int a,int b)\\n{\\n\\treturn a>b?a:b;\\n}\\nvoid adde(int sn,int fn,int id)\\n{\\n\\te[id][0] = fn; e[id][1] = p[sn]; p[sn] = id;\\n}\\nint findroot(int nod)\\n{\\n\\tif(root[nod] != nod) root[nod] = findroot(root[nod]);\\n\\treturn root[nod];\\n}\\nvoid dp(int sn,int fa)\\n{\\n\\tint i,fn,mx1 = 0,mx2 = 0;\\n\\tfor(i=p[sn];i;i=e[i][1])\\n\\t{\\n\\t\\tfn = e[i][0];\\n\\t\\tif(fn == fa) continue;\\n\\t\\tdp(fn,sn);\\n\\t\\tif(f[fn]+1>mx1) { mx2 = mx1; mx1 = f[fn]+1;}\\n\\t\\telse if(f[fn]+1>mx2) mx2 = f[fn]+1;\\n\\t}\\n\\tf[sn] = mx1;\\n\\tans = max(ans,mx1+mx2);\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint i,sn,fn,op;\\n\\tscanf(\\\"%d%d%d\\\",&n,&m,&q);\\n\\tfor(i=1;i<=n;i++) root[i] = i;\\n\\tfor(i=1;i<=n;i++) f[i] = -1;\\n\\tfor(i=1;i<=m;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d%d\\\",&sn,&fn);\\n\\t\\tadde(sn,fn,i<<1); adde(fn,sn,i<<1|1);\\n\\t\\troot[findroot(sn)] = findroot(fn);\\n\\t}\\n\\tfor(i=1;i<=n;i++)\\n\\t{\\n\\t\\tif(f[i]>=0) continue;\\n\\t\\tans = 0; dp(i,0);\\n\\t\\tlen[findroot(i)] = ans;\\n\\t}\\n\\twhile(q--)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\",&op);\\n\\t\\tif(op == 1)\\n\\t\\t{\\n\\t\\t\\tscanf(\\\"%d\\\",&sn);\\n\\t\\t\\tprintf(\\\"%d\\\\n\\\",len[findroot(sn)]);\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tscanf(\\\"%d%d\\\",&sn,&fn);\\n\\t\\t\\tsn = findroot(sn); fn = findroot(fn);\\n\\t\\t\\tif(sn != fn)\\n\\t\\t\\t{\\n\\t\\t\\t\\troot[sn] = fn;\\n\\t\\t\\t\\tlen[fn] = max(max(len[sn],len[fn]),((len[sn]+1)>>1)+((len[fn]+1)>>1)+1);\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1667,
+    "completion_tokens": 743,
+    "total_tokens": 2410,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1667
+  },
+  "raw_sha256": "a4b5c9c5b6ace993e56d4858a2e80ecf6b4e8340e4843aca62b33afa479a3422",
+  "ended_utc": "2026-10-17T07:13:05.390603+00:00",
+  "elapsed_seconds": 2.969
+}

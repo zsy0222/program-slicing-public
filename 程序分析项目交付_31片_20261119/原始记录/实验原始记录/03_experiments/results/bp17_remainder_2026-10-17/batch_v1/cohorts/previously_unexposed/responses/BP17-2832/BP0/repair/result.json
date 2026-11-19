@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2832/BP0/repair/1",
+  "case_id": "BP17-2832",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "79be36b779fde6e76a0d3c1b24945f61d448fa6d22492b07680b1595741a00ce",
+  "started_utc": "2026-10-18T14:05:59.452124+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d250dac7-6281-48a6-a583-2e69337bdcdc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define INF 2000000000\\n\\ntypedef struct {\\n    int first, last;\\n    int prev, next;\\n} Rec;\\n\\nRec rec[50000];\\nint size;\\n\\nint a[100000];\\n\\nint main(int argc, char *argv[]) {\\n    int i, j;\\n    int n, k;\\n\\n    scanf(\\\"%d %d \\\", &n, &k);\\n\\n    for (i = 0; i < n; i++) {\\n        int ch = getchar();\\n        if (ch == '?') {\\n            getchar();\\n            a[i] = INF;\\n        } else {\\n            ungetc(ch, stdin);\\n            scanf(\\\"%d \\\", a + i);\\n        }\\n    }\\n\\n    for (i = 0; i < k; i++) {\\n        int mode;\\n\\n        size = mode = 0;\\n        for (j = i; j < n; j += k)\\n            if (a[j] == INF) {\\n                if (!mode) {\\n                    mode = 1;\\n                    rec[size].first = j;\\n                    rec[size].prev = j - k >= 0 ? a[j - k] : -INF;\\n                }\\n            } else\\n                if (mode) {\\n                    mode = 0;\\n\\n                    rec[size].last = j - k;\\n                    rec[size].next = a[j];\\n\\n                    if (rec[size].prev >= rec[size].next) {\\n                        puts(\\\"Incorrect sequence\\\");\\n                        return 0;\\n                    }\\n\\n                    size++;\\n                } else\\n                    if (j - k >= 0)\\n                        if (a[j - k] >= a[j]) {\\n                            puts(\\\"Incorrect sequence\\\");\\n                            return 0;\\n                        }\\n\\n        if (mode) {\\n            rec[size].last = j - k;\\n            rec[size].next = INF;\\n\\n            if (rec[size].prev >= rec[size].next) {\\n                puts(\\\"Incorrect sequence\\\");\\n                return 0;\\n            }\\n\\n            size++;\\n        }\\n\\n        while (size) {\\n            Rec r = rec[--size];\\n            int num = (r.last - r.first) / k + 1;\\n\\n            if (r.next - r.prev - 1 < num) {\\n                puts(\\\"Incorrect sequence\\\");\\n                return 0;\\n            }\\n\\n            if (r.next <= 0) {\\n                int tmp = 1;\\n                for (j = r.last; j >= r.first; j -= k)\\n                    a[j] = r.next - tmp++;\\n            } else if (r.prev < 0 && r.next > 0) {\\n                int tmp;\\n                int left = -(num / 2), right = left + num - 1;\\n\\n                if (!(r.prev < left))\\n                    left = r.prev + 1;\\n                else if (!(right < r.next)) {\\n                    right = r.next - 1;\\n                    left = right - num + 1;\\n                }\\n\\n                tmp = 0;\\n                for (j = r.first; j <= r.last; j += k)\\n                    a[j] = left + tmp++;\\n            } else {\\n                int tmp = 1;\\n                for (j = r.first; j <= r.last; j += k)\\n                    a[j] = r.prev + tmp++;\\n            }\\n        }\\n    }\\n\\n    for (i = 0; i < n; i++)\\n        printf(\\\"%d \\\", a[i]);\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1770,
+    "completion_tokens": 861,
+    "total_tokens": 2631,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 234
+  },
+  "raw_sha256": "5db1809a58127ab8309e411305ee0661f57d1a8e9aec54eab54dcd1a4d25ed04",
+  "ended_utc": "2026-10-18T14:06:02.432200+00:00",
+  "elapsed_seconds": 2.984
+}

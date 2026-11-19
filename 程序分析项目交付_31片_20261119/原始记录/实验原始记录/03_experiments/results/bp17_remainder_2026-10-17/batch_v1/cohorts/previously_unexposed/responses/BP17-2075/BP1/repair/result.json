@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2075/BP1/repair/1",
+  "case_id": "BP17-2075",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "2b6865c17deff171698c78cd995907f7401a9d9f688707d7ee7b8db5236d9792",
+  "started_utc": "2026-10-17T13:49:45.608815+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "39672bb0-0eb2-4d28-b909-a5eee247c765",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<limits.h>\\n#include<string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tlong long int p,s,q,r,n,x[10001],min=INT_MIN,max=INT_MAX,i;\\n\\tchar s1[10001][100],s2[10001][100],a[100]=\\\">=\\\",b[100]=\\\">\\\",c[100]=\\\"<=\\\",d[100]=\\\"<\\\";\\n\\n\\tscanf(\\\"%lld\\\",&n);\\n\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%s %lld %s\\\",s1[i],&x[i],s2[i]);\\n\\n\\tfor(i=0;i<n;i++)\\n\\t{\\n\\t\\tp=strcmp(a,s1[i]);\\n\\t\\tq=strcmp(b,s1[i]);\\n\\t\\tr=strcmp(c,s1[i]);\\n\\t\\ts=strcmp(d,s1[i]);\\n\\n\\t\\tif(p==0)\\n\\t\\t{\\n\\t\\t\\tif(s2[i][0]=='N')\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(max>=x[i])\\n\\t\\t\\t\\t\\tmax=x[i]-1;\\n\\n\\t\\t\\t}\\n\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(min<=x[i])\\n\\t\\t\\t\\t\\tmin=x[i];\\n\\t\\t\\t}\\n\\t\\t}\\n\\n\\n\\t\\tif(q==0)\\n\\t\\t{\\n\\t\\t\\tif(s2[i][0]=='N')\\n\\t\\t\\t{\\n\\n\\t\\t\\t\\tif(max>=x[i])\\n\\t\\t\\t\\t\\tmax=x[i];\\n\\n\\t\\t\\t}\\n\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(min<=x[i])\\n\\t\\t\\t\\t\\tmin=x[i]+1;\\n\\t\\t\\t}\\n\\t\\t}\\n\\n\\n\\t\\tif(r==0)\\n\\t\\t{\\n\\n\\t\\t\\tif(s2[i][0]=='N')\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(min<=x[i])\\n\\t\\t\\t\\t\\tmin=x[i]+1;\\n\\t\\t\\t}\\n\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(max>=x[i])\\n\\t\\t\\t\\t\\tmax=x[i];\\n\\n\\t\\t\\t}\\n\\t\\t}\\n\\n\\t\\tif(s==0)\\n\\t\\t{\\n\\t\\t\\tif(s2[i][0]=='N')\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(min<=x[i])\\n\\t\\t\\t\\t\\tmin=x[i];\\n\\t\\t\\t}\\n\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(max>=x[i])\\n\\t\\t\\t\\t\\tmax=x[i]-1;\\n\\n\\t\\t\\t}\\n\\t\\t}\\n\\n\\t}\\n\\n\\n\\n\\tif(min>max)\\n\\t\\tprintf(\\\"Impossible\\\");\\n\\telse\\n\\t\\tprintf(\\\"%lld\\\",min);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1683,
+    "completion_tokens": 693,
+    "total_tokens": 2376,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 147
+  },
+  "raw_sha256": "679ca1ca96511d151755121bbe5b651dc4ae48942b9d22d2e09374f331f4fa51",
+  "ended_utc": "2026-10-17T13:49:48.154621+00:00",
+  "elapsed_seconds": 2.547
+}

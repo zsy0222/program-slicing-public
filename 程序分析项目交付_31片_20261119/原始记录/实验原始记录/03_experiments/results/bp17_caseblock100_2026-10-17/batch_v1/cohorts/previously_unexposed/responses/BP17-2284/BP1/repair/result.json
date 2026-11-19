@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2284/BP1/repair/1",
+  "case_id": "BP17-2284",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "f2d2e873308d1ac1641778f9cca763f2c1435b72aed5ed652a71c178fbb2c96e",
+  "started_utc": "2026-10-17T07:07:43.944130+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3f291499-e580-4579-b09e-021facf17c96",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    long long int n,m,k,max,min,rem,ans,var;\\n    scanf(\\\"%lld%lld%lld\\\", &n, &m, &k);\\n    if(n>=m)\\n    {\\n        max = n;\\n        min = m;\\n    }\\n    else\\n    {\\n        max = m;\\n        min = n;\\n    }\\n    if(k<max)\\n    {\\n        if((min%(k+1)==0) && (k < min))\\n        {\\n            ans = (min/(k+1))*max;\\n        }\\n        else if(max%(k+1)==0)\\n            ans = (max/(k+1))*min;\\n        else\\n        {\\n            ans = (min/(k+1))*max;\\n            var = (max/(k+1))*min;\\n            if(var>ans)\\n                ans = var;\\n        }\\n    }\\n    else\\n    {\\n        rem = k - (max-1);\\n        if(rem < min)\\n        {\\n            if(min%(rem+1)==0)\\n                ans = min/(rem + 1);\\n            else\\n                ans = min%(rem + 1);\\n        }\\n        else\\n            ans = -1;\\n    }\\n    printf(\\\"%lld\\\\n\\\", ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1139,
+    "completion_tokens": 333,
+    "total_tokens": 1472,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1139
+  },
+  "raw_sha256": "c39c1e38f10766c3ce33a612b38d79bec29685949fc71ac6cbece76b6d1f9fa2",
+  "ended_utc": "2026-10-17T07:07:45.741090+00:00",
+  "elapsed_seconds": 1.797
+}

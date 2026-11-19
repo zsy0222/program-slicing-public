@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0455/BP2/repair/1",
+  "case_id": "BP17-0455",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "dffc2aad3da67502e511b273da2997242ea6c436404ca5e019491aadce4da0f2",
+  "started_utc": "2026-11-16T18:19:28.941162+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "44feb6bb-6475-4009-887c-26c16d256bfd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#define MAX 100000\\nint arr[MAX+5];\\nint init(int *prime)\\n{\\n\\tint i,k,j;\\n\\tfor(k=0,i=2;i<MAX+5;i++)\\n\\t{\\n\\t\\tif(arr[i]==0)\\n\\t\\t{\\n\\t\\t\\tprime[k++]=i;\\n\\t\\t\\tfor(j=i*2;j<MAX+5;j=j+i)\\n\\t\\t\\t\\tarr[j]=1;\\n\\t\\t}\\n\\t}\\t\\n\\treturn k;\\n}\\n\\n//will prime factorize the number\\n// -1 : for conflict , 0: for 1 , >0 for others\\nint factorize(int val,int *prime,int limit,int *temp,int *conflict)\\n{\\n\\tint i,num=val,count,pcount;\\n\\tfor(pcount=i=0;prime[i]*prime[i]<=num;i++)\\n\\t{\\n\\t\\tif(num==1)\\n\\t\\t\\tbreak;\\n\\t\\tcount=0;\\n\\t\\twhile(num%prime[i]==0)\\n\\t\\t{\\n\\t\\t\\tif(arr[prime[i]]!=0)\\n\\t\\t\\t{\\n\\t\\t\\t\\t*conflict=arr[prime[i]];\\n\\t\\t\\t\\treturn -1;\\n\\t\\t\\t}\\n\\t\\t\\tnum=num/prime[i];\\n\\t\\t\\tcount=1;\\n\\t\\t}\\n\\t\\tif(count==1)\\n\\t\\t\\ttemp[pcount++]=prime[i];\\n\\t}\\n\\tif(num>1)\\n\\t{\\n\\t\\tif(arr[num]!=0)\\n\\t\\t{\\n\\t\\t\\t\\t*conflict=arr[num];\\n\\t\\t\\t\\treturn -1;\\n\\t\\t}\\n\\t\\ttemp[pcount++]=num;\\n\\t}\\t\\n\\treturn pcount;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint num[MAX][5],temp[6],*count,conflict;\\n\\tint prime[10000],limit,n,m,val,pcount,i,j;\\n\\tchar sign;\\n\\tlimit=init(prime);\\n\\tcount=calloc(MAX+5,sizeof(int));\\n\\tscanf(\\\"%d %d\\\",&n,&m);\\n\\tgetchar();\\n\\tfor(i=0;i<m;i++)\\n\\t{\\n\\t\\tscanf(\\\"%c %d\\\",&sign,&val);\\n\\t\\tgetchar();\\n\\t\\tif(sign=='+')\\n\\t\\t{\\n\\t\\t\\tif(count[val]==1)\\n\\t\\t\\t\\tprintf(\\\"Already on\\\\n\\\");\\t\\n\\t\\t\\telse\\n\\t\\t\\t{  \\n\\t\\t\\t\\tpcount=factorize(val,prime,limit,temp,&conflict);\\n\\t\\t\\t\\tif(pcount==-1)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tprintf(\\\"Conflict with %d\\\\n\\\",conflict);\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tprintf(\\\"Success\\\\n\\\");\\t\\t\\n\\t\\t\\t\\t\\tcount[val]=1;\\n\\t\\t\\t\\t\\tfor(j=0;j<pcount;j++)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tnum[val][j]=temp[j];\\n\\t\\t\\t\\t\\t\\tarr[temp[j]]=val;\\t\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tif(count[val]==0)\\n\\t\\t\\t\\tprintf(\\\"Already off\\\\n\\\");\\t\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tprintf(\\\"Success\\\\n\\\");\\n\\t\\t\\t\\tcount[val]=0;\\t\\t\\t\\t\\t\\t\\t\\n\\t\\t\\t\\tfor(j=0;num[val][j]>0;j++)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tarr[num[val][j]]=0;\\t\\n\\t\\t\\t\\t\\tnum[val][j]=0;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\t\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3234,
+    "completion_tokens": 957,
+    "total_tokens": 4191,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 1314
+  },
+  "raw_sha256": "26146950e9e9c3efd1b28f0d63d441ccc3d9f3592863c1ad5987e9d76272a342",
+  "ended_utc": "2026-11-16T18:19:33.092736+00:00",
+  "elapsed_seconds": 4.0751
+}

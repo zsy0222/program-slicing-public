@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3009/BP3/repair/1",
+  "case_id": "BP17-3009",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "5a010cb44fe874b26cf089b0aab1b230b2f65aed353fb6e59f3f5d4937a1bba1",
+  "started_utc": "2026-10-21T07:12:39.186018+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "39af81e7-a4c3-434d-8fd6-eef21a95a158",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nchar s[101] ;\\n\\nint n,i,j,k, a[101] ,p,q,r ;\\n\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%s\\\" , &s) ;\\n\\n    n = strlen(s) ;\\n\\n    for( i = 0 ; i < n ; i++)\\n    {\\n        a[i] = s[i] - '0' ;\\n    }\\n    for( i = n-1 ; i > -1; i--)\\n    {\\n        if( a[i] %2 != 1)\\n        {\\n            for( j = i -1 ; j > -1 ; j--)\\n            {\\n\\n                for( k = j -1 ; k > -1 ; k--)\\n                {\\n                    p =a[i]  + 10*a[ j]  + 100*a[k] ;\\n\\n                    if( p % 8 == 0)\\n                    {\\n                        printf(\\\"YES\\\\n\\\" ) ;\\n                        for( r = 0 ; r < k ; r++)\\n                        {\\n                            printf(\\\"%d\\\", a[r] ) ;\\n                        }\\n                        printf(\\\"%d%d%d\\\",a[k] , a[j] , a[i]  ) ;\\n                        return 0 ;\\n                    }\\n                }\\n                q = a[j] * 10 + a[i] ;\\n\\n                if( q% 8 == 0)\\n                {\\n                    printf(\\\"YES\\\\n\\\") ;\\n                    for( r = 0 ; r < j ; r++)\\n                    {\\n                        printf(\\\"%d\\\", a[r] ) ;\\n                    }\\n                    printf(\\\"%d%d\\\", a[j] , a[i] ) ;\\n                    return 0 ;\\n                }\\n            }\\n            if( a[i] % 8 == 0)\\n            {\\n                printf(\\\"YES\\\\n\\\") ;\\n                for( r = 0 ; r < i ; r++)\\n                {\\n                    printf(\\\"%d\\\", a[r] ) ;\\n                }\\n                printf(\\\"%d\\\", a[i] ) ;\\n                return 0 ;\\n            }\\n\\n        }\\n    }\\n    printf(\\\"NO\\\" ) ;\\n    return 0 ;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1769,
+    "completion_tokens": 545,
+    "total_tokens": 2314,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 617
+  },
+  "raw_sha256": "7f81bea5444e5fc3c3600168ba402cf732ff4f8ddc86407191492b3653dbae3f",
+  "ended_utc": "2026-10-21T07:12:41.919660+00:00",
+  "elapsed_seconds": 2.734
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0774/BP1/repair/1",
+  "case_id": "BP17-0774",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c488771a9caecaddba3d05e8e785e71b31de36e0b903ef59209fad8394ac0e06",
+  "started_utc": "2026-11-16T06:14:26.935096+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "59573636-d0f9-4f72-9934-ed44474db6f3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint n,m,e[111][2],c[111],seen[111];\\nint a,b,i,j,k;\\nint ans;\\n\\nvoid dfs(int from,int now,int goal,int count){\\n    if(now==goal){\\n        ans+=count;\\n        seen[now]++;\\n        return;\\n    }\\n    if(seen[now]++) return;\\n    if(c[now]!=2) return;\\n    int next = e[now][0]^e[now][1]^from;\\n    dfs(now,next,goal,count^1);\\n}\\n\\nint main(int argc, char *argv[]){\\n    scanf(\\\"%d%d\\\",&n,&m);\\n    while(m--){\\n        scanf(\\\"%d%d\\\",&a,&b);\\n        e[a][c[a]++]=b; e[b][c[b]++]=a;\\n    }\\n\\n    for(i=1;i<=n;i++){\\n        if(c[i]==2) dfs(i,e[i][0],i,1);\\n    }\\n\\n    printf(\\\"%d\\\\n\\\",ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 989,
+    "completion_tokens": 272,
+    "total_tokens": 1261,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 221
+  },
+  "raw_sha256": "59fa78d2b23d9ed32c1e4ed633e65af5f32a7e256213ac60473d36cf98236e34",
+  "ended_utc": "2026-11-16T06:14:29.026660+00:00",
+  "elapsed_seconds": 2.0887
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0100/BP2/repair/1",
+  "case_id": "BP17-0100",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d9ce32f06957822fd8946e49eceb99ffe8c79d080caa62e5575523fddcb2143c",
+  "started_utc": "2026-10-17T08:32:27.531183+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "70d0d346-b928-4754-8cf3-06381ac4d475",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#include <math.h>\\n#define MASCULINE 1\\n#define FEMININE 2\\n\\nint check(char* input, char* s1, char *s2)\\n{\\n    if (!strstr(input, s1) && !strstr(input, s2)) return 0;\\n\\n    if (strstr(input, s1) != NULL)\\n    {\\n\\n        if (strcmp(input + strlen(input) - strlen(s1), s1) == 0) return MASCULINE;\\n    }\\n\\n    if (strstr(input, s2) != NULL)\\n    {\\n        if (strcmp(input + strlen(input) - strlen(s2), s2) == 0) return FEMININE;\\n    }\\n\\n    return 0;\\n}\\n\\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int count, state, gender = 0;\\n    char input[100001];\\n    char ma[] = \\\"lios\\\", fa[] = \\\"liala\\\", mn[] = \\\"etr\\\", fn[] = \\\"etra\\\", mv[] = \\\"initis\\\", fv[] = \\\"inites\\\";\\n\\n    gets(input);\\n\\n    if (strchr(input, ' ') == NULL && (check(input, ma, fa) || check(input, mn, fn) || check(input, mv, fv)))\\n    {\\n        puts(\\\"YES\\\");\\n        return 0;\\n    }\\n\\n    state = 1;\\n\\n    char* pch = strtok (input, \\\" \\\");\\n    while (pch != NULL)\\n    {\\n        switch (state) {\\n            case 1:\\n                if (check(pch, ma, fa)) {\\n                    if (gender == 0) {\\n                        gender = check(pch, ma, fa);\\n                    } else if (check(pch, ma, fa) != gender){\\n                        state = 3;\\n                    }\\n                } else if (check(pch, mn, fn)){\\n                    if (gender != 0) {\\n                        if (gender == check(pch, mn, fn)){\\n                            state = 2;\\n                        } else state = 3;\\n                    } else {\\n                        state = 2;\\n                        gender = check(pch, mn, fn);\\n                    }\\n                } else state = 3;\\n                break;\\n            case 2:\\n                if (check(pch, mv, fv)) {\\n\\n                    if (gender == check(pch, mv, fv)){\\n                        state = 2;\\n                    } else state = 3;\\n                } else state = 3;\\n                break;\\n            case 3:\\n                puts(\\\"NO\\\");\\n                return 0;\\n                break;\\n        }\\n        pch = strtok (NULL, \\\" \\\");\\n    }\\n\\n    if (state == 2) {\\n        puts(\\\"YES\\\");\\n    } else puts(\\\"NO\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2729,
+    "completion_tokens": 708,
+    "total_tokens": 3437,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 1193
+  },
+  "raw_sha256": "aba007f73bb33e25d73565311a6478ded1fc0ba37828a930aeafefc9b5213784",
+  "ended_utc": "2026-10-17T08:32:30.109460+00:00",
+  "elapsed_seconds": 2.562
+}

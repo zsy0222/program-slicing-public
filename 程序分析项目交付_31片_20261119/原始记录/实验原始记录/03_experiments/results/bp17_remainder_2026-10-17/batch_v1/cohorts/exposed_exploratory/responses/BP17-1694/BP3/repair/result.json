@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1694/BP3/repair/1",
+  "case_id": "BP17-1694",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "3550b8382d2397f3bda2ab788f7dc9dfeb6f186ed0239e2ca584b281f32b9a82",
+  "started_utc": "2026-10-18T12:07:54.108613+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3788aa8c-513f-46aa-b319-d20c269ecc82",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<ctype.h>\\n#include<math.h>\\n#define max(a,b) a>b?a:b\\n#define min(a,b) a<b?a:b\\nint main(int argc, char *argv[]){\\n    int n,k,i,j;\\n    scanf(\\\"%d%d\\\",&n,&k);\\n    j=1;i=2*n;\\n    int a[100001]={0};\\n    while (k && j<i) {\\n        while(i-j>k && j<i)\\n            j++;\\n        if(i==j)\\n            break;\\n        printf(\\\"%d %d \\\",i,j);\\n        a[i]=a[j]=1;\\n        k-=i-j;\\n        i--;\\n        j++;\\n    }\\n    j=1;\\n    while (j<2*n) {\\n        if(!a[j])\\n            printf(\\\"%d \\\",j);\\n        j++;\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1323,
+    "completion_tokens": 234,
+    "total_tokens": 1557,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 427
+  },
+  "raw_sha256": "01236ed309509fd43f96bf1b86ec8ce4feef1d9ea4667bdd6c9f36dcd7d3dad3",
+  "ended_utc": "2026-10-18T12:07:55.786073+00:00",
+  "elapsed_seconds": 1.672
+}

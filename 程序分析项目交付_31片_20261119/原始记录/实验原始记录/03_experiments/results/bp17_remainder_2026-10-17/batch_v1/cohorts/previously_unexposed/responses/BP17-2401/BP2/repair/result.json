@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2401/BP2/repair/1",
+  "case_id": "BP17-2401",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "1af44551b931f001f4645dbec23296e967304379273b8f4b24acd30dc0103b94",
+  "started_utc": "2026-11-15T12:58:46.034212+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "60ccf72c-e7db-4cb4-a7f7-72210c6e8996",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <inttypes.h>\\n\\nint map[2005][2005] = {0};\\nint64_t diax[4010] = {0}, diay[4010] = {0};\\n\\nint main(int argc, char *argv[]){\\n    int n, i, j, p, q, x1, y1, x2, y2;\\n    scanf(\\\"%d\\\", &n);\\n    int64_t max = 0, max1 = 0;\\n    for(i=0; i<n; i++){\\n        for(j=0; j<n; j++){\\n            scanf(\\\"%d\\\", &map[i][j]);        \\n        }\\n    }\\n    \\n    for(i=0; i<n; i++){\\n        for(j=0; j<n; j++){\\n            diax[i+j] += map[i][j];\\n            diay[i-j+n-1] += map[i][j];\\n        }\\n    }\\n\\n/*  for(i=0; i<2*n-1; i++){\\n        printf(\\\"%d \\\", diax[i]);\\n    }\\n    printf(\\\"\\\\n\\\");\\n\\n    for(i=0; i<2*n-1; i++){\\n        printf(\\\"%d \\\", diay[i]);\\n    }\\n    printf(\\\"\\\\n\\\");\\n*/    \\n    x1 = 0, y1 = 0, x2 = 0, y2 = 0;\\n    for(i=0; i<n; i++){\\n        for(j=0; j<n; j++){\\n            if((i+j)&1){\\n                if(max < diax[i+j]+diay[i-j+n-1]-map[i][j]){\\n                    max = diax[i+j]+diay[i-j+n-1]-map[i][j];\\n                    x1 = i, y1 = j;\\n                }\\n            }else{\\n                if(max1 < diax[i+j]+diay[i-j+n-1]-map[i][j]){\\n                    max1 = diax[i+j]+diay[i-j+n-1]-map[i][j];\\n                    x2 = i, y2 = j;\\n                }           \\n            }\\n        }\\n    }\\n    printf(\\\"%lld\\\\n\\\",max+max1);\\n    printf(\\\"%d %d %d %d\\\\n\\\",x1+1,y1+1,x2+1,y2+1);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2090,
+    "completion_tokens": 587,
+    "total_tokens": 2677,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2090
+  },
+  "raw_sha256": "51052c31889e17e3d8f8a9cf6e635aac72b944824568c242a38b6bb28cf64ca9",
+  "ended_utc": "2026-11-15T12:58:49.133699+00:00",
+  "elapsed_seconds": 3.0975
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1232/BP0/repair/1",
+  "case_id": "BP17-1232",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "923ef073f1a76288f4af98667d0361bf0a95ff49731f83f913a6ca5fcb5b186f",
+  "started_utc": "2026-11-16T04:30:10.868513+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b1c64d05-de12-43d5-a40d-e09b59e9df17",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int d,m,n,i,j,mark,count,min=0,k=0;\\n    scanf(\\\"%d %d %d\\\",&m,&n,&d);\\n    int a[m*n];\\n    for(i=0;i<m*n;i++)\\n    scanf(\\\"%d\\\",&a[i]);\\n    for(i=0;i<m*n;i++)\\n    {\\n        if(a[0]!=a[i])\\n        break;\\n        else\\n        k++;\\n    }\\n    if(k==m*n)\\n    {\\n        printf(\\\"-1\\\");\\n        return 0;\\n    }\\n    for(i=0;i<m*n;i++)\\n    {\\n        count=0;\\n        mark=a[i];\\n        for(j=0;j<m*n;j++)\\n        {\\n\\n            if(a[j]==mark)\\n            continue;\\n            else if(a[j]>mark)\\n            {\\n                if ((a[j]-mark)%d==0)\\n                count=count+((a[j]-mark)/d);\\n                else\\n                {\\n                    count=-1;\\n                    break;\\n                }\\n            }\\n            else\\n            {\\n                if((mark-a[j])%d==0)\\n                count=count+((mark-a[j])/d);\\n                else\\n                {\\n                    count=-1;\\n                    break;\\n                }\\n            }\\n        }\\n        if(count<0)\\n        continue;\\n        if(min==0||count<min)\\n        min=count;\\n    }\\n    if(min==0)\\n    printf(\\\"-1\\\");\\n    else\\n    printf(\\\"%d\\\",min);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1149,
+    "completion_tokens": 408,
+    "total_tokens": 1557,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1149
+  },
+  "raw_sha256": "e8d6963ecd881ac30afe80db6917f38a5561226eb718b37e83e39160b1906c1c",
+  "ended_utc": "2026-11-16T04:30:13.403159+00:00",
+  "elapsed_seconds": 2.5329
+}

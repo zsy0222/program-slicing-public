@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3324/BP3/repair/1",
+  "case_id": "BP17-3324",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "654411d70b620078df3303ccbb696197abfb7781031029ed9beb0d6d8b678e72",
+  "started_utc": "2026-11-16T04:09:07.919931+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "497a8746-2753-40a1-9c62-e3c96b35e8b3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n\\tchar in[256];\\n\\tconst char s[2]=\\\" \\\";\\n\\tfgets(in,sizeof(in),stdin);\\n\\t//printf(\\\"%s\\\",in);\\n\\tchar * token,* token1,* token2;\\n\\ttoken=strtok(in,s);\\n\\ttoken1=strtok(NULL,s);\\n\\ttoken2=strtok(NULL,s);\\n\\t//printf(\\\"%s %s %s\\\",token,token1,token2);\\n\\tif(strcmp(token2,\\\"week\\\")==0)\\n\\t{\\n\\t\\tint day=atoi(token);\\n\\t\\tif(day==5 || day==6)\\n\\t\\t\\tprintf(\\\"53\\\");\\n\\t\\telse\\n\\t\\t\\tprintf(\\\"52\\\");\\n\\t}\\n\\telse if(strcmp(token2,\\\"month\\\")==0)\\n\\t{\\n\\t\\tint day1=atoi(token);\\n\\t\\tif(day1==30)\\n\\t\\t\\tprintf(\\\"11\\\");\\n\\t\\telse if(day1==31)\\n\\t\\t\\tprintf(\\\"7\\\");\\n\\t\\telse\\n\\t\\t\\tprintf(\\\"12\\\");\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1363,
+    "completion_tokens": 312,
+    "total_tokens": 1675,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1363
+  },
+  "raw_sha256": "e8f7553ee77f0ab0ae70baa0fb39c6bf9ebe36439fd2f67b958aaa10c8b5ee13",
+  "ended_utc": "2026-11-16T04:09:10.163152+00:00",
+  "elapsed_seconds": 2.2014
+}

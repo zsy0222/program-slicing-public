@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1990/BP2/repair/1",
+  "case_id": "BP17-1990",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "c48e68bf3fd25f1be055e134ceb83e19ca6f6dfe6bfb97be19fda226b44ff3c0",
+  "started_utc": "2026-11-16T16:48:37.134343+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7b0b994c-a087-4aca-a64e-69dfd9a1810d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nvoid merge(int a[][3],int lo,int mi,int hi,int k)\\n{\\n\\tint i,j,c,b;\\n\\tc=mi-lo+1;\\n\\tb=hi-mi;\\n\\tint left[c][3],right[b][3];\\n\\tfor(i=0;i<c;i++)\\n\\t{\\n\\t\\tleft[i][k]=a[lo+i][k];\\n\\t\\tleft[i][1-k]=a[lo+i][1-k];\\n\\t}\\n\\tfor(i=0;i<b;i++)\\n\\t{\\n\\t\\tright[i][k]=a[mi+i+1][k];\\n\\t\\tright[i][1-k]=a[mi+i+1][1-k];\\n\\t}\\n\\tfor(i=0,j=0;i<c && j<b;)\\n\\t{\\n\\t\\tif(left[i][k]<=right[j][k])\\n\\t\\t{\\n\\t\\t\\ta[lo+i+j][k]=left[i][k];\\n\\t\\t\\ta[lo+i+j][1-k]=left[i][1-k];\\n\\t\\t\\ti++;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\ta[lo+i+j][k]=right[j][k];\\n\\t\\t\\ta[lo+i+j][1-k]=right[j][1-k];\\n\\t\\t\\tj++;\\n\\t\\t}\\n\\t}\\n\\twhile(i!=c)\\n\\t{\\n\\t\\ta[lo+i+j][1-k]=left[i][1-k];\\n\\t\\ta[lo+i+j][k]=left[i][k];\\n\\t\\ti++;\\n\\t}\\n\\twhile(j!=b)\\n\\t{\\n\\t\\ta[lo+i+j][1-k]=right[j][1-k];\\n\\t\\ta[lo+i+j][k]=right[j][k];\\n\\t\\tj++;\\n\\t}\\n\\treturn;\\n}\\nvoid mergesort(int a[][3],int lo,int hi,int k)\\n{\\n\\tif(lo>=hi)\\n\\t\\treturn;\\n\\tint mi=(lo+hi)/2;\\n\\tmergesort(a,lo,mi,k);\\n\\tmergesort(a,mi+1,hi,k);\\n\\tmerge(a,lo,mi,hi,k);\\n\\treturn;\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint n,k,arr[100005][3],i,q[100005][3],st=0,en=1,p=2,a[100005][2],c=0,sta=0;\\n\\tscanf(\\\"%d %d\\\",&n,&k);\\n\\tfor(i=1;i<=n;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\",&arr[i][0]);\\n\\t\\tarr[i][1]=i;\\n\\t}\\n\\tmergesort(arr,1,n,0);\\n\\tif(arr[1][0]!=0)\\n\\t{\\n\\t\\tsta=1;\\n\\t\\tp--;\\n\\t}\\n\\tq[st][0]=0;\\n\\tq[st][1]=arr[1][1];\\n\\tq[st][2]=0;\\n\\twhile(st<=en && p<=n && sta==0)\\n\\t{\\n\\t\\tif(q[st][0]+1==arr[p][0] && q[st][2]<k)\\n\\t\\t{\\n\\t\\t\\ta[c][0]=q[st][1];\\n\\t\\t\\ta[c][1]=arr[p][1];\\n\\t\\t\\tq[en][0]=arr[p][0];\\n\\t\\t\\tq[en][1]=arr[p][1];\\n\\t\\t\\tq[en][2]=1;\\n\\t\\t\\tq[st][2]++;\\n\\t\\t\\ten++;\\n\\t\\t\\tc++;\\n\\t\\t\\tp++;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t\\tst++;\\n\\t}\\n\\tif(p==n+1)\\n\\t{\\n\\t\\tprintf(\\\"%d\\\\n\\\",c);\\n\\t\\tfor(i=0;i<c;i++)\\n\\t\\t\\tprintf(\\\"%d %d\\\\n\\\",a[i][0],a[i][1]);\\n\\t}\\n\\telse\\n\\t\\tprintf(\\\"-1\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3235,
+    "completion_tokens": 988,
+    "total_tokens": 4223,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3235
+  },
+  "raw_sha256": "7d5706304ed6b299a064104286993a680d68e9569d99ccd62903c79b14c51588",
+  "ended_utc": "2026-11-16T16:48:40.590945+00:00",
+  "elapsed_seconds": 3.4092
+}

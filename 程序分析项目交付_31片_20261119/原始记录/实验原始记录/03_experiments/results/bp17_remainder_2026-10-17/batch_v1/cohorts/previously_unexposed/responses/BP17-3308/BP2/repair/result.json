@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3308/BP2/repair/1",
+  "case_id": "BP17-3308",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "52ea058b55d549b2dc06bd1079cda6a71da67311260bc20161551c6c367dd51f",
+  "started_utc": "2026-10-17T13:37:16.287142+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4a347f49-dc8f-433c-951a-fc7658c28240",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define M 11\\nint main(int argc, char *argv[]) {\\n\\tint n,m;\\n\\tscanf(\\\"%d%d\\\",&n,&m);\\n\\tint genre[M];\\n\\tint i;\\n\\tfor(i=0;i<M;i++){\\n\\t\\tgenre[i]=0;\\n\\t}\\n\\tfor(i=0;i<n;i++){\\n\\t\\tint a;\\n\\t\\tscanf(\\\"%d\\\",&a);\\n\\t\\tgenre[a]++;\\n\\t}\\n\\t/*\\n\\tfor(i=1;i<=m;i++){\\n\\t\\tprintf(\\\" %d:%d\\\",i,genre[i]);\\n\\t}\\n\\tprintf(\\\"\\\\n\\\");\\n\\t*/\\n\\tlong long options=0;\\n\\tfor(i=1;i<m;i++){\\n\\t\\t//如果第一本书从第i类里找，有genre[i]种可能\\n\\t\\t//那么第二本书从非i类里找，有n-genre[i]种可能\\n\\t\\tif(genre[i]>0){\\n\\t\\t\\toptions+=genre[i]*(n-genre[i]);\\n\\t\\t\\tn=n-genre[i];\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%lld\\\\n\\\",options);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1528,
+    "completion_tokens": 299,
+    "total_tokens": 1827,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 504
+  },
+  "raw_sha256": "6356c79d355fed67fe6afbc6529061589fba40e32b2e1100e4d20ebd8c5a8c1f",
+  "ended_utc": "2026-10-17T13:37:18.144354+00:00",
+  "elapsed_seconds": 1.734
+}

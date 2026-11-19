@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0152/BP2/repair/1",
+  "case_id": "BP17-0152",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "38a43513bb660dbafbff4d1b69c5492d28a420965243459fe7765c1a991c8fe0",
+  "started_utc": "2026-11-16T16:32:29.879757+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "23f2837b-14be-4536-92e4-90c6e185186e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\nvoid insertionsort(char *a,int n)\\n{\\n    int j=0,key=0,i=0;\\n    for(j=1;j<n;j++)\\n    {\\n        key=a[j];\\n        i=j-1;\\n        while(i>=0 && a[i]>key)\\n        {\\n            a[i+1]=a[i];\\n            i--;\\n        }\\n        a[i+1]=key;\\n    }\\n}\\nint main(int argc, char *argv[])\\n{\\n    char a[11];\\n    char b[11];\\n    int i=0,j=0,flag=0;\\n    scanf(\\\"%s\\\",a);\\n    while(a[i]!='\\\\0')\\n        i++;\\n    int len1=i;\\n    //printf(\\\"\\\\nLEN1 IS %d\\\",len1);\\n    scanf(\\\"%s\\\",b);\\n    i=0;\\n    while(b[i]!='\\\\0')\\n        i++;\\n    int len2=i;\\n    //printf(\\\"\\\\nLEN2 IS %d\\\",len2);\\n    if(len1!=len2)\\n        flag=0;\\n    else\\n    {\\n    insertionsort(a,len1);\\n    insertionsort(b,len2);\\n    for(i=0;i<len1;i++)\\n    {\\n        if(a[i]!=b[i])\\n        {\\n            //printf(\\\"\\\\nI:%d\\\",i);\\n            flag=0;\\n            break;\\n        }\\n        else\\n            flag=1;\\n    }\\n    }\\n    if(flag==0)\\n        printf(\\\"WRONG_ANSWER\\\");\\n    else\\n        printf(\\\"OK\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2197,
+    "completion_tokens": 427,
+    "total_tokens": 2624,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 1045
+  },
+  "raw_sha256": "e8958767309009443f6a61346064162167541d5e040c69383145e29f586e6de0",
+  "ended_utc": "2026-11-16T16:32:32.514716+00:00",
+  "elapsed_seconds": 2.6327
+}

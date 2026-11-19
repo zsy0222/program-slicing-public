@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3218/BP2/repair/1",
+  "case_id": "BP17-3218",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "ba657a4456d34df079631ae5fc8ac0cb81b73fc4e4e965f7c221b44f1849a722",
+  "started_utc": "2026-11-16T06:07:47.278318+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8387bb07-36a2-42b4-b350-6ce471303710",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    char s[100];\\n    gets(s);\\n    int i,upp=0,low=0;\\n    int x=strlen(s);\\n    for(i=0;i<x;i++)\\n    {\\n        if(s[i]>='a'&&s[i]<='z')\\n        {\\n            low++;\\n        }\\n        else if(s[i]>='A'&&s[i]<='Z')\\n        {\\n            upp++;\\n        }\\n    }\\n    if(low>=upp)\\n    {\\n        for(i=0;i<x;i++)\\n        {\\n            if(s[i]>='A'&&s[i]<='Z')\\n            {\\n               s[i]=('a'+s[i]-'A');\\n            }\\n\\n        }\\n\\n    puts(s);\\n    }\\n    else if(upp>low)\\n    {\\n        for(i=0;i<x;i++)\\n        {\\n            if(s[i]>='a'&&s[i]<='z')\\n            {\\n              s[i]=('A'+s[i]-'a');\\n        }\\n        }\\n\\n    puts(s);\\n    }\\n\\n\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1743,
+    "completion_tokens": 305,
+    "total_tokens": 2048,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 719
+  },
+  "raw_sha256": "0d322f30245f615289771944b286911c36e5d735b7eba080654859b816a98105",
+  "ended_utc": "2026-11-16T06:07:49.498964+00:00",
+  "elapsed_seconds": 2.1048
+}

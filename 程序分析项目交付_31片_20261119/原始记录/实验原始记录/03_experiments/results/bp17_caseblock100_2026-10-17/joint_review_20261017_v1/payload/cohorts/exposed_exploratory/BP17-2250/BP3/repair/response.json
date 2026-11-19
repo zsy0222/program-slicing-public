@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-2250",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint N, M, G[100][100];\\nint P[100];\\n\\nint find(int at)\\n{\\n\\tint i;\\n\\t\\n\\tfor(i=1; i<=N; i++)\\n\\t{\\n\\t\\tif(G[at][i] == 1 && P[i] == 0)\\n\\t\\t{\\n\\t\\t\\tP[i] = P[at];\\n\\t\\t\\tfind(i);\\n\\t\\t}\\n\\t}\\n\\t\\n\\treturn 0;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint i, a, b;\\n\\tlong long ans = 1;\\n\\n\\t//FILE *input;\\n\\t//input = fopen(\\\"chemistry.in\\\", \\\"r\\\");\\n\\t//fscanf(input, \\\"%d %d\\\\n\\\", &N, &M);\\n\\tscanf(\\\"%d %d\\\\n\\\", &N, &M);\\n\\t\\n\\tfor(i=0; i<M; i++)\\n\\t{\\n\\t\\t//fscanf(input, \\\"%d %d\\\\n\\\", &a, &b);\\n\\t\\tscanf(\\\"%d %d\\\\n\\\", &a, &b);\\n\\t\\tG[a][b] = 1;\\n\\t\\tG[b][a] = 1;\\n\\t}\\n\\t\\n\\tfor(i=1; i<=N; i++)\\n\\t{\\n\\t\\tif(P[i] == 0)\\n\\t\\t{\\n\\t\\t\\tP[i] = 1;\\n\\t\\t\\tfind(i);\\n\\t\\t}\\n\\t\\telse\\n\\t\\t\\tans *= 2;\\n\\t}\\n\\t\\n\\tprintf(\\\"%lld\\\\n\\\", ans);\\n\\t\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 1.594,
+  "ended_utc": "2026-10-17T07:00:57.440110+00:00",
+  "finish_reason": "stop",
+  "group": "BP3",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2250/BP3/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "7fe31c2b4c3e314b9ff4c97a525f3c1b48b683418a04e68272e2bb8d50b2ed06",
+  "request_model": "deepseek-flash",
+  "request_sha256": "5077e9cdad84a0f271bc0a6637702433855accd940925de0515fdd3bdeaca977",
+  "response_id": "79805948-9f05-4186-81c7-2fb2b7947f75",
+  "started_utc": "2026-10-17T07:00:55.847834+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 412,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1662,
+    "prompt_tokens": 1662,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2074
+  }
+}

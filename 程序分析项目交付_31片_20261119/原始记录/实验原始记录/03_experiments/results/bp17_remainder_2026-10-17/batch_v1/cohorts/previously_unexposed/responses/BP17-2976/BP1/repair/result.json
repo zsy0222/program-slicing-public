@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2976/BP1/repair/1",
+  "case_id": "BP17-2976",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "b01b44259528011e1984261d6cd132f87fd3db169c249f91dfa2a98287936b85",
+  "started_utc": "2026-11-16T06:09:58.497765+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "133e226c-e912-4387-a704-e0998c5e4e9b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint rowmax(int arr[][505], int row, int m)\\n{\\n        int count = 0, mx = 0, i, j;\\n        int flag = 0;\\n\\n        for(i = 1; i<= m; i++){\\n                if(flag == 0 && arr[row][i] == 1){\\n                        count = 1;\\n                        flag = 1;\\n                } else if(flag == 1 && arr[row][i] == 1){\\n                        count++;\\n                } else if(arr[row][i] == 0){\\n                        flag = 0;\\n                        count = 0;\\n                }\\n                if(count > mx){\\n                        mx = count;\\n                }\\n        }\\n\\n        return mx;\\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n        int n, arr[505][505], i, j, m, q, qi, qj, max[505], mx, k;\\n\\n        scanf(\\\"%d%d%d\\\", &n, &m, &q);\\n\\n        for(i = 1; i <= n; i++){\\n                for(j = 1; j<= m; j++){\\n                        scanf(\\\"%d\\\", &arr[i][j]);\\n                }\\n        }\\n\\n        mx = -1;\\n         for(k = 1; k <= n; k++){\\n                max[k] = rowmax(arr, k, m);\\n                if(mx < max[k]){\\n                        mx = max[k];\\n                }\\n         }\\n\\n        for(k = 0; k < q; k++){\\n                scanf(\\\"%d%d\\\", &qi, &qj);\\n\\n                if(arr[qi][qj] == 1){\\n                        arr[qi][qj] = 0;\\n                } else {\\n                        arr[qi][qj] = 1;\\n                }\\n\\n                max[qi] = rowmax(arr, qi, m);\\n                mx = 0;\\n\\n                for(i = 1; i  <= n; i++){\\n                        if(mx < max[i]){\\n                                mx = max[i];\\n                        }\\n                }\\n\\n               printf(\\\"%d\\\\n\\\", mx);\\n\\n        }\\n\\n\\n\\n        return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1560,
+    "completion_tokens": 539,
+    "total_tokens": 2099,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 152
+  },
+  "raw_sha256": "1f6a2e0d3fc36b13a16dfe13e81d903a1c29ca3034eb79bfba2ca866ed58e24a",
+  "ended_utc": "2026-11-16T06:10:00.966720+00:00",
+  "elapsed_seconds": 2.4603
+}

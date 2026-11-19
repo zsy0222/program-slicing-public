@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0154/BP0/repair/1",
+  "case_id": "BP17-0154",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "0b3ced6b61b0570ed8f575e73c9c3df295db5bce34c7ca83bf019cb033bdddee",
+  "started_utc": "2026-10-17T13:56:55.301384+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1d365de7-526e-4290-926a-4dc5e047a0ef",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,i,j,l=0,a[100],count0=0,b[100],temp,length;\\n    char str[100];\\n    scanf(\\\"%d\\\",&n);\\n    scanf(\\\"%s\\\",str);\\n    length=strlen(str);\\n    if(n!=0)\\n    {\\n        while(n)\\n    {\\n        if(n%10==0)\\n        {\\n            a[l++]=0;\\n            n=n/10;\\n            count0++;\\n        }\\n        else\\n        {\\n            a[l++]=n%10;\\n            n=n/10;\\n        }\\n    }\\n    for(i=0;i<l;i++)\\n    {\\n        for(j=0;j<l;j++)\\n        {\\n            if(a[i]<a[j])\\n            {\\n                temp=a[i];\\n                a[i]=a[j];\\n                a[j]=temp;\\n            }\\n        }\\n    }\\n\\n    temp=0;\\n    if(count0==0)\\n    {\\n      for(i=0;str[i]!='\\\\0';i++)\\n      {\\n          if(str[i]==a[i]+48)\\n          {\\n              temp=0;\\n          }\\n          else\\n          {\\n              temp=1;printf(\\\"WRONG_ANSWER\\\");break;\\n          }\\n      }\\n      if(temp==0)\\n        printf(\\\"OK\\\");\\n    }\\n    else if(count0==(l-1))\\n    {\\n        temp=0;\\n        for(i=0;i<l;i++)\\n        {\\n            if(str[i]=='0')\\n            {\\n                temp=0;\\n            }\\n            else\\n\\n            {\\n                temp=1;printf(\\\"WRONG_ANSWER\\\");break;\\n            }\\n        }\\n        if(temp==0)\\n            printf(\\\"OK\\\");\\n    }\\n    else if(count0<(l-1))\\n    {\\n        temp=0;\\n        b[0]=a[count0];\\n        for(i=1;i<=count0;i++)\\n        {\\n            b[i]=0;\\n        }\\n        for(i=count0+1;i<l;i++)\\n        {\\n            b[i]=a[i];\\n        }\\n        for(i=0;i<l;i++)\\n        {\\n            if(str[i]==b[i]+48)\\n            {\\n                temp=0;\\n            }\\n            else\\n            {\\n                temp=1; printf(\\\"WRONG_ANSWER\\\");\\n                break;\\n            }\\n        }\\n        if(temp==0)\\n            printf(\\\"OK\\\");\\n    }\\n    }\\n    else if(n==0 && length==1)\\n    {\\n        if(str[0]=='0')\\n            printf(\\\"OK\\\");\\n\\n        else\\n            printf(\\\"WRONG_ANSWER\\\");\\n    }\\n    else\\n    {\\n        printf(\\\"WRONG_ANSWER\\\");\\n    }\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1540,
+    "completion_tokens": 724,
+    "total_tokens": 2264,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1540
+  },
+  "raw_sha256": "53b979495f1f9bd57be38828a3516af77fb5265b9432d8d238bf595f0dbe2d1b",
+  "ended_utc": "2026-10-17T13:56:58.314246+00:00",
+  "elapsed_seconds": 3.0
+}

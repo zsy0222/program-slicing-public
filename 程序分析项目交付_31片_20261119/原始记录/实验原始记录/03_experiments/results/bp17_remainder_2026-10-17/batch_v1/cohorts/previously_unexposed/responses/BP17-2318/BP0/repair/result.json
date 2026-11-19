@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2318/BP0/repair/1",
+  "case_id": "BP17-2318",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "02c5466ad3612124fb02cf358cb23d4cdcd71fb2c670a091809b672c2e20628f",
+  "started_utc": "2026-11-16T19:19:35.780101+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b77166df-e0c5-46c3-a362-2834c08e3ace",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n\\tint n,i,j,k,arr[200000],f, start=0, end=0;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tfor(i=0;i<n;i++) scanf(\\\"%d\\\",&arr[i]);\\n\\tf = 0;\\n\\tfor(i=1;i<n;i++)\\n\\t{\\n\\t\\tif(arr[i-1] > arr[i])\\n\\t\\t{\\n\\t\\t\\tif(f == 0) start = i-1;\\n\\t\\t\\tif(f == 2) { printf(\\\"no\\\\n\\\"); return(0); }\\n\\t\\t\\tf = 1;\\n\\t\\t\\tend = i;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tif(f==1) \\n\\t\\t\\t{\\n\\t\\t\\t\\tf = 2;\\n\\t\\t\\t}\\n\\t\\t\\tif(f==2 && arr[start] > arr[i]) { printf(\\\"no\\\\n\\\"); return(0); } \\n\\t\\t}\\n\\t}\\n\\tif(f==1 && start>0 && arr[start-1] > arr[end]) { printf(\\\"no\\\\n\\\"); return(0); }\\n\\t//\\t\\tprintf(\\\"start = %d end = %d\\\\n\\\",start, end);\\n\\tprintf(\\\"yes\\\\n\\\");\\n\\tprintf(\\\"%d %d\\\\n\\\",start+1, end+1);\\n\\treturn(0);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1044,
+    "completion_tokens": 359,
+    "total_tokens": 1403,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1044
+  },
+  "raw_sha256": "e2e01179a618958fe9fb20e8318082b2c29fda90208b01dcf254e1b7432e39af",
+  "ended_utc": "2026-11-16T19:19:38.203884+00:00",
+  "elapsed_seconds": 2.4198
+}

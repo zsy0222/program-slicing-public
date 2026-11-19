@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0990/BP1/repair/1",
+  "case_id": "BP17-0990",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e537727c9db67d4a79ad57d420ba2d0bdb03a884101dfd08be115fc3c23f3335",
+  "started_utc": "2026-11-16T17:02:47.862048+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "42425a89-5a23-40a8-a2f4-406d7fd9db55",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint days[25]={ 0,31,29,31,30,31,30,31,31,30,31,30,31,\\n                 31,28,31,30,31,30,31,31,30,31,30,31};\\nint map[25][32]={0};\\nvoid minus(int* m,int* d){\\n    *d = *d -1;\\n    if(*d<=0){\\n        *m = *m - 1;\\n        *d = days[*m];\\n    }\\n}\\nint main(int argc,char** argv){\\n    int n;\\n    int m=0,d=0,p=0,t=0;\\n    int i,j,k;\\n    int max=-1;\\n  //freopen(\\\"input.txt\\\", \\\"r\\\", stdin);\\n  //freopen(\\\"output.txt\\\", \\\"w\\\", stdout);\\n    scanf(\\\"%d\\\",&n);\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%d %d %d %d\\\",&m,&d,&p,&t);\\n        m+=12;\\n        minus(&m,&d);\\n        for(k=0;k<t;k++){\\n            map[m][d]+=p;\\n            minus(&m,&d);\\n            //printf(\\\"%d %d\\\\n\\\",m,d);\\n        }\\n    }\\n    /*for(i=0;i<25;i++){\\n        printf(\\\"%d \\\",i);\\n        for(j=0;j<32;j++){\\n            printf(\\\"%d \\\",map[i][j]);\\n        }\\n        printf(\\\"\\\\n\\\");\\n    }*/\\n    for(i=0;i<25;i++){\\n        for(j=0;j<32;j++){\\n            if(max<map[i][j])\\n                max=map[i][j];\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",max);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1374,
+    "completion_tokens": 465,
+    "total_tokens": 1839,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 222
+  },
+  "raw_sha256": "c1803cc207ed6c260fec423b12d4db2c17c0467b72d67ac2f08669c8f1545ca1",
+  "ended_utc": "2026-11-16T17:02:50.429119+00:00",
+  "elapsed_seconds": 2.4193
+}

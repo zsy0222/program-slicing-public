@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0331/BP1/repair/1",
+  "case_id": "BP17-0331",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "0aa77736e19fbc21afb0046c02505d56e9fd7f8d1e4b0a543bafac52ee314ee3",
+  "started_utc": "2026-11-16T19:06:56.964396+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e64fdc52-6472-4143-8252-62337fa79c06",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint solve(int, int);\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n, m;\\n\\tscanf(\\\"%d %d\\\", &n, &m);\\n\\tprintf(\\\"%d\\\\n\\\", solve(n, m));\\n\\treturn 0;\\n}\\nint solve(int n, int m)\\n{\\n\\tif (n > m)\\n\\t\\treturn solve(m, n);\\n\\tif (n == 1)\\n\\t\\treturn n*m;\\n\\telse\\n\\t\\tif (n == 2)\\n\\t\\t\\treturn 2*(2*(m / 4) + (m % 4 < 2 ? m % 4 : 2));\\n\\t\\telse\\n\\t\\t\\tif (n*m % 2)\\n\\t\\t\\t\\treturn n*m / 2 + 1;\\n\\t\\t\\telse\\n\\t\\t\\t\\treturn n*m / 2;\\n}\\n\\n\\t\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 915,
+    "completion_tokens": 225,
+    "total_tokens": 1140,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 147
+  },
+  "raw_sha256": "cc1cb1898d699854016dbd8758af9820836718cf512b7b1fcac7060c341100a3",
+  "ended_utc": "2026-11-16T19:06:58.804869+00:00",
+  "elapsed_seconds": 1.7909
+}

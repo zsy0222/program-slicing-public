@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2929/BP2/repair/1",
+  "case_id": "BP17-2929",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "9acf5546f2619b43259746447526d345915fd73b46b72dbead0485009543b4e7",
+  "started_utc": "2026-11-16T06:18:05.712080+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9a74775f-c385-4371-95e7-03a882c3e1ea",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,i,j=4,min,arr[65]={0,1,10,11,100,101,110,111,0};\\n    scanf(\\\"%d\\\",&n);\\n    int dp[n+1],minarr[n+1];\\n    dp[0]=0;\\n    dp[1]=1;\\n    minarr[0]=minarr[1]=0;\\n    for(i=8;i<65;i=i+2)\\n    {\\n        arr[i]=arr[j]*10;\\n        arr[i+1]=arr[i]+1;\\n        j++;\\n    }\\n    \\n    for(j=2;j<=n;j++)\\n    {\\n        min=1000000;\\n        for(i=0;j>=arr[i];i++);\\n        i--;\\n        while(i>0)\\n        {\\n            if(min>1+dp[j-arr[i]])\\n            {\\n                min=1+dp[j-arr[i]];\\n                minarr[j]=i;\\n            }\\n            i--;\\n        }\\n        \\n        dp[j]=min;\\n    }\\n    printf(\\\"%d\\\\n\\\",dp[n]);\\n    j=n;\\n    while(minarr[j]!=0)\\n    {\\n        printf(\\\"%d \\\",arr[minarr[j]]);\\n        j=j-arr[minarr[j]];\\n    }\\n    printf(\\\"\\\\n\\\");\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1641,
+    "completion_tokens": 358,
+    "total_tokens": 1999,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 617
+  },
+  "raw_sha256": "3c640e6f458a44dcad2d9f75cf925a60cde14102e01f0b88d1a88b70aefeee36",
+  "ended_utc": "2026-11-16T06:18:07.979360+00:00",
+  "elapsed_seconds": 2.2651
+}

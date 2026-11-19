@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2214/BP3/repair/1",
+  "case_id": "BP17-2214",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "1c63be41d760a4d3f1ac4a6c49cee47882dac32dd2e04b4904be7f396bcdebd2",
+  "started_utc": "2026-11-16T18:16:44.202023+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d73a0724-db67-40a5-87c1-983a1ad9e03e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint n;\\nint d;\\nint t[10000];\\n\\nint main(int argc, char *argv[])\\n{\\n  int i, j, k;\\n\\n  memset(t, 0, sizeof(t));\\n\\n  scanf(\\\"%d %d\\\", &n, &d);\\n  for (i=0, j=0; i<n; i++) {\\n    scanf(\\\"%d\\\", &t[i]);\\n    j += t[i];\\n  }\\n\\n  k = d - j;\\n  if (/*(k % 5) != 0 ||*/(j + (n-1)*10) > d) {\\n    printf(\\\"-1\\\\n\\\");\\n    return 0;\\n  }\\n  k = d - j - (n-1)*10;\\n  k /= 5;\\n  k += (n-1)*2;\\n\\n  printf(\\\"%d\\\\n\\\", k);\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1207,
+    "completion_tokens": 247,
+    "total_tokens": 1454,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 311
+  },
+  "raw_sha256": "2d0b45b3e0388778fa42e607316a35a6775d52273003a63e740afe2c2a54258e",
+  "ended_utc": "2026-11-16T18:16:46.508521+00:00",
+  "elapsed_seconds": 2.1973
+}

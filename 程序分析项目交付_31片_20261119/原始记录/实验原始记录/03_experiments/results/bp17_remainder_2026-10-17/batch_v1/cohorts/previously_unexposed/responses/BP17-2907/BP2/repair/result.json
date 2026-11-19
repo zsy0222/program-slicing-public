@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2907/BP2/repair/1",
+  "case_id": "BP17-2907",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "9969af4312df84f910393823227e45f58a20bee7225444eed3720a6da0c4b44f",
+  "started_utc": "2026-11-18T09:39:58.281029+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "06bfb496-5077-4c94-a62c-30f4679140e4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\n    char line[4];\\n    char number[100][20] = {\\\"zero\\\",\\\"one\\\",\\\"two\\\",\\\"three\\\",\\\"four\\\",\\\"five\\\",\\\"six\\\",\\\"seven\\\",\\\"eight\\\",\\\"nine\\\",\\\"ten\\\",\\\"eleven\\\",\\\"twelve\\\",\\\"thirteen\\\",\\\"fourteen\\\",\\\"fifteen\\\",\\\"sixteen\\\",\\\"seventeen\\\",\\\"eighteen\\\",\\\"nineteen\\\",\\\"twenty\\\",\\\"thirty\\\",\\\"forty\\\",\\\"fifty\\\",\\\"sixty\\\",\\\"seventy\\\",\\\"eighty\\\",\\\"ninety\\\"};\\n\\n    int i,l;\\n    int n;\\n\\n    scanf(\\\"%s\\\",line);\\n    l = strlen(line);\\n    if(l==1){\\n        for(i=0;i<10;i++){\\n            if(line[0]-'0'==i){\\n                printf(\\\"%s\\\\n\\\",number[i]);\\n                break;\\n            }\\n        }\\n    }\\n    else{\\n        n = 10 * (line[0] - '0') + (line[1]- '0');\\n        if(n >= 10 && n <= 19){\\n            for(i=10;i<20;i++){\\n                if(n==i){\\n                    printf(\\\"%s\\\\n\\\",number[i]);\\n                    break;\\n                }\\n            }\\n        }\\n        else{\\n            for(i=2;i<=9;i++){\\n                if(line[0]-'0' == i){\\n                    if(line[1]-'0'== 0){\\n                    printf(\\\"%s\\\\n\\\",number[18+i]);\\n                    break;\\n                    }\\n                    printf(\\\"%s-\\\",number[18+i]);\\n                    for(i=0;i<=9;i++){\\n                        if(line[1]-'0' == i){\\n                            printf(\\\"%s\\\\n\\\",number[i]);\\n                            break;\\n                        }\\n                    }\\n                    break;\\n                }\\n\\n            }\\n        }\\n    }\\n\\n        return 0;\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1969,
+    "completion_tokens": 480,
+    "total_tokens": 2449,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1969
+  },
+  "raw_sha256": "fdf283c8b669625159b1694dd5c786a40a11c1f343dedc685be161220cc5ca9a",
+  "ended_utc": "2026-11-18T09:40:01.796517+00:00",
+  "elapsed_seconds": 3.5128
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3011/BP1/repair/1",
+  "case_id": "BP17-3011",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "bf4169d487eb56c371a01c314fb60c80780b34cdfa3c0d1f228edd14fc04d257",
+  "started_utc": "2026-11-16T02:53:04.381693+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cb92800a-d2d4-4ba1-a3ac-40ebe7ea741a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[]) {\\n\\tint a,b,c,q,w,e,i,j,k,l,temp=0;\\n\\tchar arr[101];\\n\\tscanf(\\\"%s\\\",arr);\\n\\n\\tl=strlen(arr);\\n\\n\\tif(l>2){\\n\\t\\tfor(i=l-1;i>=0;i--)\\n\\t\\t{\\n\\t\\t    for(j=i-1;j>=0;j--)\\n\\t\\t    {\\n\\t\\t        for (k=j-1;k>=0;k--)\\n\\t\\t        {\\n\\t\\t            w=(arr[i]-48) + ((arr[j]-48)*10) +((arr[k]-48)*100);\\n\\t\\t           if(w%8==0){temp=1; break;}\\n\\t\\t            else temp=0;\\n\\t\\t        }\\n\\t\\t        if(temp==1)break;\\n\\t\\t    }\\n\\t\\t    if(temp==1)break;\\n\\t\\t}\\n\\n\\t\\tif(temp==1){ printf(\\\"YES\\\\n\\\");\\n\\t\\t\\tif(w!=0)\\tfor(i=0;i<k;i++)printf(\\\"%c\\\",arr[i]);\\n\\t\\t\\tprintf(\\\"%d\\\",w);}\\n\\n\\t\\tif (temp==0)\\n\\t\\t{\\n\\t\\t   for(i=l-1;i>=0;i--)\\n\\t\\t\\t{\\n\\t\\t\\t    for(j=i-1;j>=0;j--)\\n\\t\\t\\t    {\\n\\t\\t\\t            w=(arr[i]-48) + ((arr[j]-48)*10) ;\\n\\t\\t\\t           if(w%8==0){temp=1; break;}\\n\\t\\t\\t            else temp=0;\\n\\t\\t\\t        }\\t        if(temp==1)break;\\n\\t\\t\\t    }\\n\\n\\t\\t\\t    if(temp==1){ printf(\\\"YES\\\\n\\\");\\n\\t\\t\\t            \\tprintf(\\\"%d\\\",w);} \\n\\t\\t}\\n\\n\\t\\tif (temp==0)\\n\\t\\t{\\n\\t\\t   for(i=l-1;i>=0;i--)\\n\\t\\t\\t{\\n\\t\\t\\t            w=(arr[i]-48)   ;\\n\\t\\t\\t           if(w%8==0){temp=1; break;}\\n\\t\\t\\t            else temp=0;\\n\\t\\t\\t if(temp==1)break;\\n\\t\\t    }\\n\\n\\t\\t    if(temp==1){\\n\\t\\t        printf(\\\"YES\\\\n\\\");\\n\\t\\t            \\tprintf(\\\"%d\\\",w);} \\n\\t\\t}\\n\\n\\t   if(temp==0)printf(\\\"NO\\\"); \\n\\t}\\n\\n\\tif(l==2)\\n\\t{\\n\\t\\tw=(arr[0]-48)*10+arr[1]-48;\\n\\t    if(w%8==0)printf(\\\"YES\\\\n%d\\\",w);\\n\\t    else {\\n\\t        if(arr[0]=='0')printf(\\\"YES\\\\n0\\\");\\n\\t        else if(arr[0]=='8')printf(\\\"YES\\\\n8\\\");\\n\\t         else   if(arr[1]=='8')printf(\\\"YES\\\\n8\\\");\\n\\t          else  if(arr[1]=='0')printf(\\\"YES\\\\n0\\\");   else printf(\\\"NO\\\");\\n\\t    }\\n\\t}\\n\\n\\tif(l==1){\\n\\t if(arr[0]=='0')printf(\\\"YES\\\\n0\\\");\\n\\t         else if(arr[0]=='8')printf(\\\"YES\\\\n8\\\");\\n\\t\\telse printf(\\\"NO\\\");}\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1895,
+    "completion_tokens": 841,
+    "total_tokens": 2736,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 231
+  },
+  "raw_sha256": "e690954447ce14007608cf0711bf4e61c870b8d74e20058f9301e364f793fc57",
+  "ended_utc": "2026-11-16T02:53:08.441855+00:00",
+  "elapsed_seconds": 4.0589
+}

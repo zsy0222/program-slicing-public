@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0906/BP3/repair/1",
+  "case_id": "BP17-0906",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "81562382c50b9eed4dc41c091d71b51df9a4b2565746d4a302bd4036df2221c8",
+  "started_utc": "2026-10-21T08:30:44.085506+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "93029d72-9377-410a-883e-1fdd3aeec846",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nenum DIRECTION {LEFT, RIGHT};\\n\\nvoid copy_interval(char* s, char* t, int l, int r)\\n{\\n\\tchar* p = s + l - 1;\\n\\tchar* q = s + r - 1;\\n\\twhile (p <= q) {\\n\\t\\t*t++ = *p++;\\n\\t}\\n\\t*t = 0;\\n}\\n\\nvoid output_result(int* hash)\\n{\\n\\tint i;\\n\\tfor (i = 0; i < 10; i++) printf(\\\"%d%c\\\", hash[i], i < 9 ? ' ' : '\\\\n');\\n}\\n\\nvoid erase_zero(char* cp)\\n{\\n\\twhile (*cp) {\\n\\t\\tcp[0] = cp[1];\\n\\t\\tcp++;\\n\\t}\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n, q, l, r, dp, len;\\n\\tint hash[10];\\n\\tchar s[128], t[128];\\n\\tchar* cp, *xp;\\n\\twhile (scanf(\\\"%d%d\\\", &n, &q) != EOF) {\\n\\t\\tscanf(\\\"%s\\\", s);\\n\\t\\twhile (q--) {\\n\\t\\t\\tmemset(hash, 0, sizeof(hash));\\n\\t\\t\\tscanf(\\\"%d%d\\\", &l, &r);\\n\\t\\t\\tcopy_interval(s, t, l, r);\\n\\t\\t\\tcp = t;\\n\\t\\t\\tdp = RIGHT;\\n\\t\\t\\tlen = r - l;\\n\\t\\t\\twhile (len >= 0 && cp >= t && cp <= t + len) {\\n\\t\\t\\t\\tif (*cp >= '0' && *cp <= '9') {\\n\\t\\t\\t\\t\\thash[*cp - '0']++;\\n\\t\\t\\t\\t\\txp = cp;\\n\\t\\t\\t\\t\\tif (dp == RIGHT) cp++;\\n\\t\\t\\t\\t\\telse cp--;\\n\\t\\t\\t\\t\\tif (cp < t || cp > t + len) break;\\n\\t\\t\\t\\t\\tif (*xp == '0') {\\n\\t\\t\\t\\t\\t\\terase_zero(xp);\\n\\t\\t\\t\\t\\t\\tlen--;\\n\\t\\t\\t\\t\\t} else {\\n\\t\\t\\t\\t\\t\\t(*xp)--;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t} else {\\n\\t\\t\\t\\t\\tif (*cp == '<') dp = LEFT;\\n\\t\\t\\t\\t\\telse dp = RIGHT;\\n\\t\\t\\t\\t\\txp = cp;\\n\\t\\t\\t\\t\\tif (dp == LEFT) cp--;\\n\\t\\t\\t\\t\\telse cp++;\\n\\t\\t\\t\\t\\tif (cp < t || cp > t + len) break;\\n\\t\\t\\t\\t\\tif (*cp == '<' || *cp == '>') {\\n\\t\\t\\t\\t\\t\\terase_zero(xp);\\n\\t\\t\\t\\t\\t\\tlen--;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\toutput_result(hash);\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2755,
+    "completion_tokens": 737,
+    "total_tokens": 3492,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 1091
+  },
+  "raw_sha256": "78d61aba38b890d7c353988257e25bfb1a35ac81bb8810490999f647fc41339b",
+  "ended_utc": "2026-10-21T08:30:47.058491+00:00",
+  "elapsed_seconds": 2.922
+}

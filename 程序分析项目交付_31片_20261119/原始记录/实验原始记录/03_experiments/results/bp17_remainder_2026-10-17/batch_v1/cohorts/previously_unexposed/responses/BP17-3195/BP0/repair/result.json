@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3195/BP0/repair/1",
+  "case_id": "BP17-3195",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "97d2521b4d4a3958d8c72093df44d8cbd6dbebf447954d5342b738007e88f2dd",
+  "started_utc": "2026-11-16T18:57:41.575532+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "39d1a6c6-0cd0-4f1b-9cb7-c7a7209ffbfd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\nint prime(int v)\\n{\\n    int i;\\n    if (v<2) return 0;\\n    if (v<4) return 1;\\n    for (i=2;i<=sqrt((float)v);i++)\\n        if (v%i==0) return 0;\\n    return 1;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int j,n,i,a[10],sl;\\n    scanf(\\\"%d\\\",&n);\\n    if (prime(n)>0) printf(\\\"1\\\\n%d\\\",n);\\n    else\\n    {\\n        for (i=n-2;i>1;i--)\\n            if (prime(i)>0)\\n        {\\n            for (j=n-i;j>1;j--)\\n                if (prime (j)>0)\\n            {\\n                if (i+j==n)\\n                {\\n                    printf(\\\"2\\\\n%d %d\\\",i,j);\\n                    return 0;\\n                }\\n                if (prime(n-i-j)>0)\\n                {\\n                    printf(\\\"3\\\\n%d %d %d\\\",i,j,n-i-j);\\n                    return 0;\\n                }\\n            }\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 986,
+    "completion_tokens": 311,
+    "total_tokens": 1297,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 218
+  },
+  "raw_sha256": "7e8d0514893baaa8b0bc9facd6ae379daf4b7dbda578b6764412103654c2e20a",
+  "ended_utc": "2026-11-16T18:57:44.040721+00:00",
+  "elapsed_seconds": 2.3903
+}

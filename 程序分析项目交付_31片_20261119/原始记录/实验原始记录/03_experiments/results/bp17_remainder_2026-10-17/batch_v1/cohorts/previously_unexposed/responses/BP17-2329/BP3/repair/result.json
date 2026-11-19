@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2329/BP3/repair/1",
+  "case_id": "BP17-2329",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "5412e088445da7ab483cc320ff1d3f436e898f30592a3ac84bb1163f281d7752",
+  "started_utc": "2026-10-21T07:42:20.863446+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8debbcc9-3cc5-4bd3-af00-0fe6b2abc136",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nstruct names {\\n    char *n;\\n    int l;\\n    int cross;\\n};    \\n\\n\\nint cross (char *s1, char *s2, int l)\\n{\\n    int i,k=0;\\n    for(i=0;i<l;i++)\\n        if (s1[i]==s2[i])\\n\\t    k++;\\n    return k;\\n}    \\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,i;\\n    char s[8];\\n    struct names str[8];\\n         str[0].n=\\\"jolteon\\\";\\n          str[0].l=7;\\n         str[1].n=\\\"flareon\\\";\\n\\t  str[1].l=7;\\n\\t str[2].n=\\\"espeon\\\";\\n\\t  str[2].l=6;\\n\\t str[3].n=\\\"umbreon\\\";\\n\\t  str[3].l=7;\\n\\t str[4].n=\\\"glaceon\\\";\\n\\t  str[4].l=7;\\n\\t str[5].n=\\\"sylveon\\\";\\n\\t  str[5].l=7;\\n\\t str[6].n=\\\"vaporeon\\\";\\n\\t  str[6].l=8;\\n\\t str[7].n=\\\"leafeon\\\";\\n          str[7].l=7;\\n    for(i=0;i<8;i++)\\n        str[i].cross=0;\\n    scanf(\\\"%d\\\",&n);\\n    scanf(\\\"%s\\\",s);\\n    int kol,kol_max=-1;\\n    char *need_name=NULL;\\n    for(i=0;i<8;i++)\\n        if (n==str[i].l) {\\n\\t    kol=cross(s,str[i].n,n);\\n\\t    if (kol>kol_max) {\\n\\t        kol_max=kol;\\n\\t\\tneed_name=str[i].n;\\n\\t    }\\n\\t}\\n    printf(\\\"%s\\\\n\\\",need_name);\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1821,
+    "completion_tokens": 504,
+    "total_tokens": 2325,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 669
+  },
+  "raw_sha256": "9944c27d9a92f00660b14277290662066ad30669261c168b5f4187636277f57d",
+  "ended_utc": "2026-10-21T07:42:23.175419+00:00",
+  "elapsed_seconds": 2.172
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3702/BP1/repair/1",
+  "case_id": "BP17-3702",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1d47d2cfa6c52858a9cbc7f4ab87a33e3204a21f5e4b85a8038e20643ad6d965",
+  "started_utc": "2026-11-16T17:41:25.218740+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8cfc836e-11fd-42d7-a48d-54920d54fbcf",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n\\n    int a[5], i, j, temp, x, y, sum=0;\\n\\n    for( i=0; i<5; i++) scanf(\\\"%d\\\", &a[i]);\\n\\n    for( i=0; i<5; i++) sum = sum + a[i];\\n    for( i=0; i<5; i++)\\n        for( j=0; j<5-(i+1); j++)\\n            if(a[j]<a[j+1]) {\\n                temp = a[j];\\n                a[j] = a[j+1];\\n                a[j+1] = temp;\\n            }\\n\\n    if(a[0]==a[1] && a[0]==a[2] && a[0]==a[3] && a[0]==a[4]) sum = sum - (3*a[0]);\\n    else if(a[0]==a[1] && a[0]==a[2] && a[0]==a[3]) sum = sum -(3*a[0]);\\n    else if(a[1]==a[2] && a[1]==a[3] && a[0]==a[4]) sum = sum -(3*a[1]);\\n    else if(a[0]==a[1] && a[0]==a[2]) sum = sum -(3*a[0]);\\n    else if(a[2]==a[1] && a[3]==a[2]) sum = sum -(3*a[1]);\\n    else if(a[2]==a[3] && a[3]==a[4]) {\\n        if(a[0]==a[2]) {\\n            x=2*a[0];\\n            y=3*a[4];\\n            if(x>=y) sum = sum - x;\\n            else sum = sum - y;\\n        }\\n        else sum = sum - 3*a[4];\\n    }\\n    else if(a[0]==a[1]) sum = sum - 2*a[0];\\n    else if(a[1]==a[2]) sum = sum - 2*a[1];\\n    else if(a[2]==a[3]) sum = sum - 2*a[2];\\n    else if(a[3]==a[4]) sum = sum - 2*a[3];\\n\\n    printf(\\\"%d\\\\n\\\", sum);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1319,
+    "completion_tokens": 573,
+    "total_tokens": 1892,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 167
+  },
+  "raw_sha256": "57077f65c2736df804ae096dfc7519591f0dfb96e3da5d661c313f48ae7090f2",
+  "ended_utc": "2026-11-16T17:41:27.901131+00:00",
+  "elapsed_seconds": 2.6797
+}

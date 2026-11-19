@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0016/BP0/repair/1",
+  "case_id": "BP17-0016",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "0973d1f836d1bb70b135f9e7cb361415a85e2b3754b89281a36abcbbd0954e98",
+  "started_utc": "2026-11-16T06:11:41.931395+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "829b22a2-5ec1-4377-b2a5-3e6c2a05d72a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint q[10000],u[10000],v[10000],n,m;\\nint find(int a,int b);\\nint main(int argc, char *argv[])\\n{\\n    int i,a,b,c,j,d,s=0,l=10000000;\\n    scanf(\\\"%d %d\\\",&n,&m);\\n    for(i=0;i<n;i++)\\n    scanf(\\\"%d\\\",&q[i]);\\n    for(i=0;i<m;i++)\\n    scanf(\\\"%d %d\\\",&u[i],&v[i]);\\n    if(m<3)\\n    printf(\\\"-1\\\");\\n    else \\n    {\\n         for(i=0;i<m-1;i++)\\n         {\\n                           a=u[i];\\n                           b=v[i];\\n                           for(j=i+1;j<m;j++)\\n                           {\\n                                 if(u[j]==a)\\n                                 {\\n                                               c=v[j];\\n                                               d=find(b,c);\\n                                               if(d==1)\\n                                               s=q[a-1]+q[b-1]+q[c-1];\\n                                               if(l>s&&(s!=0))\\n                                                l=s;\\n                                                }\\n                                  else if(a==v[j]) \\n                                  {\\n                                       c=u[j];\\n                                               d=find(b,c);\\n                                               if(d==1)\\n                                               s=q[a-1]+q[b-1]+q[c-1];\\n                                               if(l>s&&(s!=0))\\n                                                l=s;\\n                                                }\\n                           }\\n                           a=v[i];\\n                           b=u[i];\\n                           for(j=i+1;j<m;j++)\\n                           {\\n                                 if(u[j]==a)\\n                                 {\\n                                               c=v[j];\\n                                               d=find(b,c);\\n                                               if(d==1)\\n                                               s=q[a-1]+q[b-1]+q[c-1];\\n                                               if(l>s&&(s!=0))\\n                                                l=s;\\n                                                }\\n                                  else if(a==v[j]) \\n                                  {\\n                                       c=u[j];\\n                                               d=find(b,c);\\n                                               if(d==1)\\n                                               s=q[a-1]+q[b-1]+q[c-1];\\n                                               if(l>s&&(s!=0))\\n                                                l=s;\\n                                                }\\n                                                }\\n                           }\\n                           if(l==10000000)\\n                           l=-1;\\n                           printf(\\\"%d\\\",l);\\n                           }\\n                           return(0);\\n}\\nint find(int a,int b)\\n{\\n    int i;\\n    for(i=0;i<m;i++)\\n    {\\n                    if(((a==u[i])&&(b==v[i]))||((b==u[i])&&(a==v[i])))\\n                       return(1);\\n                       }\\n                       return(0);\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1467,
+    "completion_tokens": 659,
+    "total_tokens": 2126,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1467
+  },
+  "raw_sha256": "487d19a60499543b892ea2f21e92798175992e8fcef8d53540b0a95becdfb9f3",
+  "ended_utc": "2026-11-16T06:11:45.739202+00:00",
+  "elapsed_seconds": 3.8044
+}

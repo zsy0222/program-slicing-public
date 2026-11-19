@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0091/BP3/repair/1",
+  "case_id": "BP17-0091",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "1f456ef2df5dc925d24a0a2069751c4a4076298d2523d56f38ab8bcb76edab4b",
+  "started_utc": "2026-11-16T06:03:12.105711+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "090d7bd8-c6c9-467a-9a31-49509681cab4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\n    int i=0;\\n    char str1[101],str2[101];\\n    scanf(\\\"%s %s\\\",str1,str2);\\n    while((str1[i]-str2[i]==0 || abs(str1[i]-str2[i])==32)  && str1[i]!='\\\\0')\\n    ++i;\\n    if((str1[i]-str2[i]==0 || abs(str1[i]-str2[i])==32))\\n        printf(\\\"0\\\");\\n    else\\n        {\\n          if((str1[i]<91 && str2[i]<91) && str1[i]<str2[i])\\n          printf(\\\"-1\\\");\\n          else if((str1[i]>96 && str2[i]>96) && str1[i]<str2[i])\\n          printf(\\\"-1\\\");\\n          else if((str1[i]<91 && str2[i]>96) && str2[i]-str1[i]>32)\\n            printf(\\\"-1\\\");\\n          else if((str1[i]>96 && str2[i]<91) && str1[i]-str2[i]<32)\\n            printf(\\\"-1\\\");\\n          else\\n            printf(\\\"1\\\");\\n        }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1635,
+    "completion_tokens": 322,
+    "total_tokens": 1957,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1635
+  },
+  "raw_sha256": "1389f7b68a1c964ac352e3a4dc33a02024f667368f227f7ac6a7650236e25c75",
+  "ended_utc": "2026-11-16T06:03:14.500455+00:00",
+  "elapsed_seconds": 2.3052
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1993/BP1/repair/1",
+  "case_id": "BP17-1993",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "615e1d906cf164fafa0318f7647b4786222a7fb38ca73ffaaa18f92108451ef0",
+  "started_utc": "2026-11-15T13:06:40.486827+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "682ef4df-7d22-4acf-a7fe-cfa05eae0c84",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define N 100000\\n#define M 1000000\\n\\nint d[N], id[N], n, m, k, maxd;\\nint from[M], to[M];\\nint count[N], start[N];\\n\\nint check_bad(void) {\\n  int i, ret;\\n  for (i = 0; i < n; ++i)\\n    ++count[d[i]];\\n  ret = count[0] != 1 || count[1] > k;\\n  for (i = 2; i <= maxd; ++i) {\\n    ret |= count[i] > (long long)k*count[i - 1];\\n  }\\n  return ret;\\n}\\n\\nvoid sort(int l, int r) {\\n  int i = l, j = r, p = d[l], tmp;\\n  while (i <= j) {\\n    while (d[i] < p) ++i;\\n    while (p < d[j]) --j;\\n    if (i <= j) {\\n      tmp = d[i]; d[i] = d[j]; d[j] = tmp;\\n      tmp = id[i]; id[i] = id[j]; id[j] = tmp;\\n      ++i; --j;\\n    }\\n  }\\n  if (i < r) sort(i, r);\\n  if (l < j) sort(l, j);\\n}\\n\\nint main(int argc, char *argv[]) {\\n  int bad, i, j;\\n\\n  scanf(\\\"%d %d\\\", &n, &k);\\n  for (i = 0; i < n; ++i) {\\n    scanf(\\\"%d\\\", &d[i]);\\n    id[i] = i + 1;\\n  }\\n  sort(0, n - 1);\\n  maxd = d[n - 1];\\n\\n  bad = check_bad();\\n  if (bad) { m = -1; goto out; }\\n\\n  for (i = 0; i <= maxd; ++i)\\n    start[i] = n;\\n  for (i = n - 1; i >= 0; --i)\\n    start[d[i]] = i;\\n  m = 0;\\n  for (i = 0; i < maxd; ++i) {\\n    for (j = start[i + 1]; j < n && d[j] == d[start[i]] + 1; ++j) {\\n      int off = (j - start[i + 1]) / (i == 0 ? k : k - 1);\\n      from[m] = id[start[i] + off];\\n      to[m] = id[j];\\n      ++m;\\n    }\\n  }\\n\\n  out:\\n  printf(\\\"%d\\\\n\\\", m);\\n  for (i = 0; i < m; ++i)\\n    printf(\\\"%d %d\\\\n\\\", from[i], to[i]);\\n  exit(EXIT_SUCCESS);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1494,
+    "completion_tokens": 697,
+    "total_tokens": 2191,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1494
+  },
+  "raw_sha256": "799a8416eef216ed5b1ebb1f4192ad241414b466ae62d989c2090a9e1c03c67b",
+  "ended_utc": "2026-11-15T13:06:43.836424+00:00",
+  "elapsed_seconds": 3.2994
+}

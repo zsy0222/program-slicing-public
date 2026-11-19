@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3713/BP1/repair/1",
+  "case_id": "BP17-3713",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "3b400e0eb06282dd48c898a8518d97eb68973418fd853d0e626bd4a364aef661",
+  "started_utc": "2026-11-15T12:59:40.607161+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "86b48a4b-2411-409a-a9b7-175999a746c1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n\\tint a[103],n,i,k;\\n\\tscanf(\\\"%d%d\\\",&n,&k);\\n\\tfor(i=1;i<=n;i++)\\n\\t scanf(\\\"%d\\\",&a[i]);\\n\\tint count=a[k];\\n\\tfor(i=1;;i++){\\n\\t\\tif(k-i<=0||k+i>n) break;\\n\\t\\tif(a[k-i]==a[k+i]) count+=a[k+i]<<1;\\n\\t}\\n\\tif(k-i<=0){\\n\\t\\tfor(int j=k+i;j<=n;j++)\\n\\t\\t\\tcount+=a[j];\\n\\t}\\n\\telse{\\n\\t\\tfor(int j=1;j<k-i;j++)\\n\\t\\t\\tcount+=a[j];\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",count);\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 949,
+    "completion_tokens": 219,
+    "total_tokens": 1168,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 181
+  },
+  "raw_sha256": "accff3627ff3a507f9c4533ee28ca9eee7a35f7bad969a82d72d509bbd9fc0cf",
+  "ended_utc": "2026-11-15T12:59:42.132985+00:00",
+  "elapsed_seconds": 1.4753
+}

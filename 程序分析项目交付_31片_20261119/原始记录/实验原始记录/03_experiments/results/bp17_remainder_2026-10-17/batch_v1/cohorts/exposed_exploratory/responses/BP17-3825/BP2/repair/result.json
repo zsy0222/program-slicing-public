@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3825/BP2/repair/1",
+  "case_id": "BP17-3825",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "621e454fe30bb7160e31b49fb53766d125707f55409f87ee2cdb17163dde0d9b",
+  "started_utc": "2026-11-16T16:11:31.173468+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "55a6e20e-0970-40d2-821d-0ab5981a0326",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\n#define ll long long\\n#define N 31807\\n\\nint getPrime(int n,int p[]){int i,j,n2=n/2;rep(i,n2)p[i]=1;for(i=3;i*i<n;i+=2)if(p[i>>1])for(j=(i*i)>>1;j<n2;j+=i)p[j]=0;j=1;p[0]=2;REP(i,1,n2)if(p[i])p[j++]=i*2+1;return j;}\\nint ps, p[N];\\n\\nll res, pp;\\nint a,b,n;\\n\\nvoid solve(ll now, int st, int num){\\n  int i,j,k;\\n  ll send, add;\\n\\n  add = b / now - (a-1) / now;\\n  if(num%2) add *= -1;\\n  res += add;\\n  \\n  REP(i,st,pp){\\n    send = now * p[i];\\n    if(send > b) break;\\n    solve(send, i+1, num+1);\\n  }\\n}\\n\\nint is_prime(int n){\\n  int i;\\n  rep(i,ps){\\n    if(p[i]*p[i] > n) break;\\n    if(n%p[i]==0) return 0;\\n  }\\n  return 1;\\n}\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m;\\n\\n  ps = getPrime(N,p);\\n\\n  while(scanf(\\\"%d%d%d\\\",&a,&b,&n)==3){\\n    rep(i,ps) if(n==p[i]) break;\\n    if(i==ps){\\n      if(a<=n && n<=b && is_prime(n)) puts(\\\"1\\\"); else puts(\\\"0\\\");\\n      continue;\\n    }\\n\\n    pp = i;\\n    res = 0;\\n    solve(n,0,0);\\n\\n    printf(\\\"%lld\\\\n\\\",res);\\n  }\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2616,
+    "completion_tokens": 512,
+    "total_tokens": 3128,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 1336
+  },
+  "raw_sha256": "3368069ebea575ff8d118103aed0ffa8688ebae0fe5aa884c75556b760549d11",
+  "ended_utc": "2026-11-16T16:11:33.665219+00:00",
+  "elapsed_seconds": 2.489
+}

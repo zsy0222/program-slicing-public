@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1356/BP1/repair/1",
+  "case_id": "BP17-1356",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "2009d12659103fdadf26372c301f4a16956c6b27ac23457d81da7d9cd31db1c6",
+  "started_utc": "2026-11-16T16:13:59.159136+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2c246dbc-8bb3-4407-abac-169785ad73a4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\n//2n-1 no. n can change sign to get max sum.\\nint n;\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%d\\\",&n);\\n    int i,j=0,temp,mp;\\n    int x[2*n-1];\\n    for(i=0; i<2*n-1; i++)\\n    {\\n        scanf(\\\"%d\\\",&x[i]);\\n    }\\n    int min=1000;\\n    for(i=0; i<2*n-1; i++)\\n    {\\n        if(x[i]<0)\\n        {\\n            j++;\\n        }\\n        if(abs(x[i])<=min)\\n        {\\n            min=abs(x[i]);\\n            mp=i;\\n        }\\n    }\\n    temp=0;\\n    for(i=0; i<2*n-1; i++)\\n    {\\n        temp=temp+abs(x[i]);\\n    }\\n    if(j%2!=0)\\n    {\\n        temp=temp-2*abs(x[mp]);\\n    }\\n    printf(\\\"%d\\\\n\\\",temp);\\n    return 0;\\n\\n}\\n\\nint abs(int v)\\n{\\n    return v * ( (v<0) * (-1) + (v>0));\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1188,
+    "completion_tokens": 317,
+    "total_tokens": 1505,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1188
+  },
+  "raw_sha256": "da8b309780a783aa0c46d910e53aad381c216a2500ee1d0b1bbb2f58c4a151e9",
+  "ended_utc": "2026-11-16T16:14:00.839694+00:00",
+  "elapsed_seconds": 1.6786
+}

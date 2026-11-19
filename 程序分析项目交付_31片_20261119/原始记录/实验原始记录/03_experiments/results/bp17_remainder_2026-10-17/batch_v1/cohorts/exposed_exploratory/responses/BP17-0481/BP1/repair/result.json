@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0481/BP1/repair/1",
+  "case_id": "BP17-0481",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a458bc7e4ffc14db769f8f28b42a0a4c6ce2c8100ca1fa13b88e36e51e0f7c28",
+  "started_utc": "2026-11-18T03:13:21.162551+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "405b459c-33f6-4cae-aaef-577699eccb58",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdlib.h>\\n#include<string.h>\\n#include<stdio.h>\\n#include<ctype.h>\\n#include<time.h>\\n#include<math.h>\\n\\n#define FOR(i,a,b)\\tfor(i = a; i <= b; i++)\\n#define ROF(i,a,b)\\tfor(i = a; i >= b; i--)\\n#define SWAP(a,b,t)\\t{t = a; a = b; b = t;}\\n#define LLI\\tlong long int\\n#define endl\\tputs(\\\"\\\")\\n#define MAX\\t1000000005\\n#define Max\\t100001\\n\\nint arr[Max], H[Max];\\nint i, j, k, s = 1, n, m, sum;\\nint max;\\n\\nint main(int argc, char *argv[])\\n{\\n\\tscanf(\\\"%d\\\", &n);\\n\\tFOR(i,0,n-1)\\tscanf(\\\"%d\\\", arr+i), max += arr[i];\\n\\tfor(i = 1; i < n; i++){\\n\\t\\tif(n % i || n / i <= 2) continue;\\n\\t\\tfor(j = 0; j < n; j++)\\n\\t\\t\\tH[j % i] += arr[j];\\n\\t\\tfor(j = 0; j < i; j++)\\tif(H[j] > max)\\tmax = H[j];\\n\\t\\tfor(j = 0; j < i; j++)\\tH[j] = 0;\\n\\t}\\n\\tprintf(\\\"%d\\\", max), endl;\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1086,
+    "completion_tokens": 361,
+    "total_tokens": 1447,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 190
+  },
+  "raw_sha256": "c0cb529e43c67a7a35213eaa8a20c5d34c6fcf047c9fdd7ee5e394d8ae19f041",
+  "ended_utc": "2026-11-18T03:13:24.530100+00:00",
+  "elapsed_seconds": 3.2852
+}

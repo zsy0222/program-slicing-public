@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2385/BP1/repair/1",
+  "case_id": "BP17-2385",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "826cf7b47447bc757fb65ddff09cd5daf01c42d2609497343977709cba701181",
+  "started_utc": "2026-11-16T04:03:31.358417+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "bab1e29c-da73-46cc-973f-5c6218898456",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\n#define MAX 1000000000\\nint sum_dig(unsigned long long  n)\\n{   int cnt=0;\\n    while(n>0)\\n    {\\n        cnt+=n%10;\\n        n/=10;\\n    }\\n    \\n    //printf(\\\"%d \\\",cnt);\\n    return cnt;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n int a,b,c,t,j,cnt=0;\\nscanf(\\\"%d %d %d\\\",&a,&b,&c);\\nint i;\\nunsigned long long  s,c1,d,sum=0;unsigned long long arr[10005];\\nfor(i=1;i<72;i++)\\n{   s=1;\\n    for(j=1;j<=a;j++)\\n    s*=i;   \\n    //if(i==10)printf(\\\" %lld \\\",s);\\n    sum=b*s+c;\\n    if(sum>MAX)\\n    continue;\\n    c1=sum_dig(sum);\\n    if(i==c1)\\n    {\\n    arr[cnt++]=sum;\\n    }\\n}\\nif(cnt>0){\\nprintf(\\\"%d\\\\n\\\",cnt);\\nfor(i=0;i<cnt;i++)\\nprintf(\\\"%llu \\\",arr[i]);\\nprintf(\\\"\\\\n\\\");}\\nelse printf(\\\"0\\\\n\\\");\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1121,
+    "completion_tokens": 340,
+    "total_tokens": 1461,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 225
+  },
+  "raw_sha256": "ede72db0ca0eee6666538850298af6a13cd92175103225a8d0e87a9c976a5b11",
+  "ended_utc": "2026-11-16T04:03:33.437813+00:00",
+  "elapsed_seconds": 2.0779
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2541/BP3/repair/1",
+  "case_id": "BP17-2541",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0b0d6697abeba07b2b42160663af9fabdd687dd28d2497fea66a05e10d6e72d1",
+  "started_utc": "2026-10-18T11:52:27.222305+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b77ecba1-b47f-4fb5-8189-7543229de115",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n\\nstruct A{\\n    int w;\\n    int v;\\n}a[101];\\n\\nint n,k,i,j,m,x;\\n\\nint compfunc(const void * a, const void *b){\\n    const struct A x = *(const struct A*)a;\\n    const struct A y = *(const struct A*)b;\\n\\n    return y.v - x.v;\\n}\\n\\nint main(int argc, char *argv[]){\\n    scanf(\\\"%d\\\", &n);\\n    scanf(\\\"%d\\\", &k);\\n\\n    struct A xk[k][2];\\n\\n    for(i=0; i<n; i++){\\n        a[i].w = i+1;\\n        scanf(\\\"%d\\\", &a[i].v);\\n    }\\n\\n    m=0;\\n    qsort(a,n, sizeof(a[0]), compfunc);\\n    x = a[0].v - a[n-1].v;\\n\\n    for(i=0;i<k; i++){\\n        if(abs((a[0].v-1) - (a[n-1].v+1)) < x){\\n            x = a[0].v - a[n-1].v;\\n            xk[m][0] = a[0];\\n            xk[m][1] = a[n-1];\\n            a[0].v -= 1;\\n            a[n-1].v += 1;\\n            m+=1;\\n            qsort(a,n, sizeof(a[0]), compfunc);\\n            x = a[0].v - a[n-1].v;\\n        }\\n    }\\n\\n    printf(\\\"%d %d\\\\n\\\", x, m);\\n    for(i=0; i<m; i++){\\n        printf(\\\"%d %d\\\\n\\\", xk[i][0].w, xk[i][1].w);\\n    }\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1682,
+    "completion_tokens": 455,
+    "total_tokens": 2137,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 658
+  },
+  "raw_sha256": "ed1aea793947275bce77953a7db5429e4988a6bee0c0ec13e6064e17952aa2f6",
+  "ended_utc": "2026-10-18T11:52:29.037200+00:00",
+  "elapsed_seconds": 1.813
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0307/BP3/repair/1",
+  "case_id": "BP17-0307",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "a07cd0bc8122a3479105ab38775c51fd3a677260488a2de2d9a95b1d3192c17e",
+  "started_utc": "2026-11-16T19:05:56.714096+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4d3cda2e-ee6a-4f1d-b872-c8697486b094",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n\\nvoid swap (int *a, int *b) {\\n    int tmp = *a;\\n    *a = *b;\\n    *b = tmp;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int n, x;\\n    int a, b;\\n    int min = 100000, max = 0;\\n    int i;\\n\\n    scanf (\\\"%d %d\\\", &n, &x);\\n\\n    for (i = 0; i < n; i++) {\\n        scanf(\\\"%d %d\\\", &a, &b);\\n\\n        if (a > b) swap(&a, &b);\\n        \\n\\n        if (a > max) max = a;\\n        if (b < min) min = b;\\n    }\\n    \\n    if (min < max) printf(\\\"-1\\\\n\\\");\\n    else  {\\n        int d  = 0;\\n\\n        if (max <= x && x<= min) printf(\\\"%d\\\\n\\\", d);\\n        else {\\n            d = abs(x - max);\\n            if (d > abs(x - min)) d = abs(x - min);\\n\\n            printf(\\\"%d\\\\n\\\", d);\\n        }\\n    }\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1543,
+    "completion_tokens": 319,
+    "total_tokens": 1862,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 647
+  },
+  "raw_sha256": "b1d385833449ef11109b3abf6d184e1073ca1952b0f22ae51d20e420f268ea22",
+  "ended_utc": "2026-11-16T19:05:59.060739+00:00",
+  "elapsed_seconds": 2.3436
+}

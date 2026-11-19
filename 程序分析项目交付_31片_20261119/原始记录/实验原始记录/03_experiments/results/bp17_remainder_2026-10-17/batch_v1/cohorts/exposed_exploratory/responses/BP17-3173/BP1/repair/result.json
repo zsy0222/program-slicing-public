@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3173/BP1/repair/1",
+  "case_id": "BP17-3173",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "88c95cf192e7e4be529f03429080abd0271475b6b0d102d588a5345bd910936d",
+  "started_utc": "2026-11-16T18:32:29.562236+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3de04917-68e4-4073-9148-aee2102c7869",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint min(int num, int num2)\\n{\\n    if(num > num2)\\n        return num2;\\n    else\\n        return num;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,k,i;\\n    scanf(\\\"%d\\\",&n);\\n    scanf(\\\"%d\\\",&k);\\n    int temp;\\n    int rating = 0;\\n    int rating_skills[10];\\n    for(i = 0;i < 10;i++)\\n        rating_skills[i] = 0;\\n\\n    int rating_skills2[n];\\n    for(i = 0;i < n;i++)\\n    {\\n        scanf(\\\"%d\\\",&temp);\\n        rating += temp/10;\\n        rating_skills[temp % 10]++;\\n        rating_skills2[i] = 10 - temp/10;\\n        if(temp % 10 != 0)\\n            rating_skills2[i]--;\\n    }\\n    for(i = 9;i > 0;i--)\\n    {\\n        rating += min(rating_skills[i], k / (10-i) );\\n        k -= rating_skills[i] * (10-i);\\n        if(k < (10-i))\\n            break;\\n    }\\n    if(k > 9)\\n    {\\n        k /= 10;\\n        for(i = 0;i < n;i++)\\n        {\\n            rating += min(rating_skills2[i],k);\\n            k -= rating_skills2[i];\\n            if(k < 1)\\n                break;\\n        }\\n    }\\n    printf(\\\"%d\\\",rating);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1455,
+    "completion_tokens": 400,
+    "total_tokens": 1855,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 175
+  },
+  "raw_sha256": "2c5f989145f75227779aaeef28f9313d07f5c23587012bd309d9b399a0350772",
+  "ended_utc": "2026-11-16T18:32:32.209617+00:00",
+  "elapsed_seconds": 2.6449
+}

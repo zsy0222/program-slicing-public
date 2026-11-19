@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2474/BP1/repair/1",
+  "case_id": "BP17-2474",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "91e91470fca76f3518b2a99c88dfdbaea5cdd458d450114d4f19a2ad5b425214",
+  "started_utc": "2026-11-16T16:01:57.692329+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a29b5af8-7a72-4043-ac16-3c4ccc4cb532",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[]){\\n\\nint n,k,swap,temp,i,total = 0,l;\\n\\nscanf(\\\"%d%d\\\", &n,&k);\\n\\nint arr[n];\\n\\nfor(i=0;i<n;i++)\\n    scanf(\\\"%d\\\", &arr[i]);\\n\\nwhile(1){\\n    swap = 0;\\n\\nfor(i=0;i<n-1;i++){\\n\\n    if(arr[i]> arr[i+1]){\\n\\n        temp = arr[i];\\n        arr[i] = arr[i+1];\\n        arr[i+1] = temp;\\n        swap =1;\\n\\n    }\\n}\\n\\nif(swap == 0)\\n    break;\\n}\\n\\nl = n%k;\\n\\nif(l>0)\\n    total += 2 * (arr[l-1] -1 );\\n\\n\\nfor(i=1;i<n/k+1;i++)\\n    total += 2* ( arr[k*i +l -1]  - 1);\\n\\n\\nprintf(\\\"%d\\\", total);\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1049,
+    "completion_tokens": 267,
+    "total_tokens": 1316,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1049
+  },
+  "raw_sha256": "dcd11009de4422f76e679d42ff08b713f7a72777cfabe807d02099a7d4d37a9f",
+  "ended_utc": "2026-11-16T16:01:59.778151+00:00",
+  "elapsed_seconds": 2.0839
+}

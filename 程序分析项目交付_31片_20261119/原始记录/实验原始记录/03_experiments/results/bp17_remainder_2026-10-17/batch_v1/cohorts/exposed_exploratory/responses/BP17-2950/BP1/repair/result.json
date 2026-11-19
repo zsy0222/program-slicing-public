@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2950/BP1/repair/1",
+  "case_id": "BP17-2950",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a3bd82b99a915a15170eb0c3db75837683d5469a146aa5154319d3bd81efd0ae",
+  "started_utc": "2026-10-18T12:38:25.390795+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cb875805-dfde-4055-b138-c78e33aa1e21",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n, a[101][101], c[101] = {0}, i, j, count = 0;\\n    scanf(\\\" %d\\\", &n);\\n    for(i = 1; i <= n; i++) {\\n        for(j = 1; j <= n; j++) {\\n            scanf(\\\" %d\\\", &a[i][j]);\\n            if(!(a[i][j])) {\\n                c[i]++;\\n                c[j]++;\\n            }\\n            else if((a[i][j]) == 1) {\\n                c[i] = -100000;\\n                c[j]++;\\n            }\\n            else if((a[i][j]) == 2) {\\n                c[j] = -100000;\\n                c[i]++;\\n            }\\n            else if((a[i][j]) == 3) {\\n                c[i] = -100000;\\n                c[j] = -100000;\\n            }\\n        }\\n    }\\n    for(i = 1; i <= n; i++) {\\n        if(c[i] > 0) count++;\\n    }\\n    printf(\\\"%d\\\\n\\\", count);\\n    for(i = 1; i <= n; i++) {\\n        if(c[i] > 0) printf(\\\"%d \\\", i);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1068,
+    "completion_tokens": 338,
+    "total_tokens": 1406,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 172
+  },
+  "raw_sha256": "345f95e3644bbd6d09090b6b1a25b4cf6226cac894f9be63b59f9f5be36de8e3",
+  "ended_utc": "2026-10-18T12:38:27.508718+00:00",
+  "elapsed_seconds": 2.109
+}

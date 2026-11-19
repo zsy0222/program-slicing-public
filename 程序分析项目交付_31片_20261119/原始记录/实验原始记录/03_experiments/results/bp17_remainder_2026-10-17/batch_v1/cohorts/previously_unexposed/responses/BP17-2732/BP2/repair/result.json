@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2732/BP2/repair/1",
+  "case_id": "BP17-2732",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "7d2b6600db68c228bc1435448b49b1f8a6e1fbd2bcbb252d9963fed7767ebb2e",
+  "started_utc": "2026-11-16T05:00:23.294292+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c09e5eed-5baf-4ff2-b516-a9678cbb5303",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <inttypes.h>\\n#include <inttypes.h>\\n#include <inttypes.h>\\n#include<stdio.h>\\n#include<math.h>\\nint64_t a[100];\\nint64_t f(int64_t h, int64_t n){\\n    if(h == 0) return 0;\\n    if(h == 1 && n == 1) return 1;\\n    if(h == 1 && n == 2) return 2;\\n    if( n - pow(2, h - 1) < 1e-8 ) return f(h - 1, pow(2, h - 1) - n + 1) + 1;\\n    else return a[h] + 1 + f(h - 1, n - (pow(2, h - 1)) );\\n}\\nint main(int argc, char *argv[]){\\n    int64_t h, n;\\n    int i;\\n    a[1] = 1;\\n    for(i = 2; i <= 55; i ++){\\n        a[i] = a[i - 1] + pow(2, i - 1);\\n    }\\n    while(scanf(\\\"%lld%lld\\\", &h, &n) != EOF){\\n        printf(\\\"%lld\\\\n\\\", f(h, n));\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1581,
+    "completion_tokens": 310,
+    "total_tokens": 1891,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1581
+  },
+  "raw_sha256": "596134dc66c0d7ccc157b0f5dc1ddf6a2f5d73824ff2f9374a4c76ed99dc6e61",
+  "ended_utc": "2026-11-16T05:00:25.247504+00:00",
+  "elapsed_seconds": 1.9502
+}

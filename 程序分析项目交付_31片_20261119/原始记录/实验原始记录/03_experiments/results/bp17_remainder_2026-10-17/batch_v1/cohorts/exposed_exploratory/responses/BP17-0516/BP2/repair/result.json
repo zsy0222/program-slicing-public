@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0516/BP2/repair/1",
+  "case_id": "BP17-0516",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "22e77c3e8db92bd7983d4115fc3ed78cd6ad0a6d39f592422bd969d3e42c7d3b",
+  "started_utc": "2026-11-16T05:08:25.407932+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fb0ecf3b-c327-44f6-9b7a-620eaabea521",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,m,i,k,j,g;\\n    scanf(\\\"%d%d\\\",&n,&k);\\n    int a[n][2];\\n    for(i=0;i<n;i++)\\n        for(j=0;j<2;j++)\\n            scanf(\\\"%d\\\",&a[i][j]);\\n    for(i=0;i<n;i++)\\n    {\\n        for(j=i+1;j<n;j++)\\n        {\\n            if(a[i][0]<a[j][0])\\n            {\\n                m=a[i][0];\\n                a[i][0]=a[j][0];\\n                a[j][0]=m;\\n                \\n                g=a[i][1];\\n                a[i][1]=a[j][1];\\n                a[j][1]=g;\\n            }\\n            else if(a[i][0]==a[j][0] && a[i][1]<a[j][1])\\n            {\\n                g=a[i][1];\\n                a[i][1]=a[j][1];\\n                a[j][1]=g;\\n            }\\n        }\\n    }\\n    int count=0;\\n    for(i=0;i<n;i++)\\n    {\\n        if(a[k-1][0]==a[i][0] && a[k-1][1]==a[i][1])\\n        count++;\\n    }\\n    printf(\\\"%d\\\\n\\\",count);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1913,
+    "completion_tokens": 354,
+    "total_tokens": 2267,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 761
+  },
+  "raw_sha256": "a90fb2fddb822589eb4deb77759017fcdead8677856b20446626ff3e25fc3797",
+  "ended_utc": "2026-11-16T05:08:28.126685+00:00",
+  "elapsed_seconds": 2.6555
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2052/BP3/repair/1",
+  "case_id": "BP17-2052",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "5255910907509a39c562bc1f4e19a7f496a824d0bfe197e87c6a31066f30621a",
+  "started_utc": "2026-11-16T19:21:24.614254+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7225aca5-cbcd-47bd-9916-dcdcafc2e5dd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,m,min,max,a[200],flag,i,flagmin=0,flagmax=0,flagminch=0,flagmaxch=0;\\n    scanf(\\\"%d %d %d %d\\\",&n,&m,&min,&max);\\n    flag=2;\\n    for(i=0;i<m;i++)\\n    {\\n        scanf(\\\"%d\\\",&a[i]);\\n        if(a[i]==min&&flagminch==0)\\n        {\\n            flag--;\\n            flagminch=1;\\n        }\\n        else if(a[i]==max&&flagmaxch==0)\\n        {\\n            flag--;\\n            flagmaxch=1;\\n        }\\n        else if(a[i]<min&&flagmin==0)\\n        {\\n            flag++;\\n            flagmin=1;\\n        }\\n        else if(a[i]>max&&flagmax==0)\\n        {\\n            flag++;\\n            flagmax=1;\\n        }\\n    }\\n    if(flag<0)\\n    flag=0;\\n    if(flag>2)\\n    flag=2;\\n    if(flag==0||(n-m)>=flag)\\n    printf(\\\"Correct\\\");\\n    else\\n    printf(\\\"Incorrect\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1691,
+    "completion_tokens": 321,
+    "total_tokens": 2012,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1691
+  },
+  "raw_sha256": "1a89ea77f981616847868b5c9bcd5ff0528df5fed6671c6284319f2d6d296fd7",
+  "ended_utc": "2026-11-16T19:21:27.082737+00:00",
+  "elapsed_seconds": 2.4585
+}

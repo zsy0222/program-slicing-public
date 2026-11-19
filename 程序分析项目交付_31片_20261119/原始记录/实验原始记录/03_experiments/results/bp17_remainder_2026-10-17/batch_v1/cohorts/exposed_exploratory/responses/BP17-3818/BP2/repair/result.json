@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3818/BP2/repair/1",
+  "case_id": "BP17-3818",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "8c30a162eaa7785819282aeb6dc74f172c534c1292c45d981e8bf2939d97370f",
+  "started_utc": "2026-11-16T16:47:38.394814+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "84935c4b-9cdb-4ad8-ae25-ee9ade0eeb50",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, m; scanf(\\\"%d%d\\\", &n, &m);\\n\\n\\tint i, a[1000], p[1000];\\n\\tfor (i = 0; i < m; i++) {\\n\\t\\tscanf(\\\"%d\\\", &a[i]);\\n\\t\\tp[i] = i;\\n\\t}\\n\\n\\tint j;\\n\\tfor (i = 0; i < m; i++)\\n\\t\\tfor (j = i+1; j < m; j++)\\n\\t\\t\\tif (a[p[j]] > a[p[i]]) {\\n\\t\\t\\t\\tint t = p[i]; p[i] = p[j]; p[j] = t;\\n\\t\\t\\t}\\n\\n\\tint s[1000];\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tint mi = -1;\\n\\t\\tfor (j = 0; j < m; j++)\\n\\t\\t\\tif (a[p[j]] > 0 && (mi == -1 || a[p[j]] > a[mi]) && (i == 0 || p[j] != s[i-1]))\\n\\t\\t\\t\\tmi = p[j];\\n\\n\\t\\tif (mi == -1)\\n\\t\\t\\tbreak;\\n\\t\\ta[mi]--;\\n\\t\\ts[i] = mi;\\n\\t}\\n\\n\\tif (i != n) {\\n\\t\\tputs(\\\"-1\\\");\\n\\t\\treturn 0;\\n\\t}\\n\\n\\tfor (i = 0; i < n; i++)\\n\\t\\tprintf(\\\"%d \\\", s[i]+1);\\n\\tputchar('\\\\n');\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1991,
+    "completion_tokens": 414,
+    "total_tokens": 2405,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 967
+  },
+  "raw_sha256": "1737e268bb2f12baf134fe6be677d2555749447420ba3b317650b4868387c8cf",
+  "ended_utc": "2026-11-16T16:47:40.652231+00:00",
+  "elapsed_seconds": 2.2545
+}

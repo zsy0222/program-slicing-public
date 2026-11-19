@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2248/BP1/repair/1",
+  "case_id": "BP17-2248",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a34068f99d7601aa3e1a593f3477b336540796b5ff3e0f4b1a09a6fae6b6c6b0",
+  "started_utc": "2026-11-16T05:31:39.630824+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c142f6e9-a3cb-4a48-860d-bdb1b6702924",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint nodes[500];\\n\\nstruct edge\\n{\\n    int a;\\n    int b;\\n    double value;\\n};\\n\\nstruct edge edges[124750];\\n\\nint cmp(const void* a,const void* b)\\n{\\n    struct edge *c,*d;\\n    c=(struct edge*)a;\\n    d=(struct edge*)b;\\n    return d->value-c->value;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,m;\\n    int i;\\n    double max;\\n    memset(nodes,0,sizeof(nodes));\\n    memset(edges,0,sizeof(edges));\\n    scanf(\\\"%d %d\\\",&n,&m);\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&nodes[i]);\\n    if(m==0)\\n    {\\n        printf(\\\"0.000000000000000\\\\n\\\");\\n        return 0;\\n    }\\n    max=0;\\n    for(i=0;i<m;i++)\\n    {\\n        scanf(\\\"%d %d %lf\\\",&edges[i].a,&edges[i].b,&edges[i].value);\\n        edges[i].value=(nodes[edges[i].a-1]+nodes[edges[i].b-1])/edges[i].value;\\n        if(edges[i].value>max)\\n            max=edges[i].value;\\n    }\\n    printf(\\\"%.*lf\\\\n\\\",15,max);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1134,
+    "completion_tokens": 371,
+    "total_tokens": 1505,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 238
+  },
+  "raw_sha256": "9ffdef30b6df000b7c11127cca9da9e5caf1a2b70d44207d1323f964519b0c34",
+  "ended_utc": "2026-11-16T05:31:41.724091+00:00",
+  "elapsed_seconds": 2.0909
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0225/BP2/repair/1",
+  "case_id": "BP17-0225",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "365a8cb03b7339eb1ac66895ecb0a1f8e93d0f592eee365b3ac526d42c75813e",
+  "started_utc": "2026-10-17T14:09:22.087529+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9d4ddfc5-b81c-4774-ba8c-1d04effaa389",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"// written based on editorial\\n#include <stdio.h>\\n#include <string.h>\\n\\nenum {\\n    N = 1010\\n};\\nconst int MOD = 1e9 + 7;\\n\\nint c[N][N];\\n\\nint binom(int n, int m) {\\n    if(m == n || m == 0)\\n        return 1;\\n    if(n == 0)\\n        return 0;\\n    if(c[n][m] != -1)\\n        return c[n][m];\\n    return c[n][m] = (binom(n - 1, m - 1) + binom(n - 1, m)) % MOD;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int n, m, k;\\n    memset(c, -1, sizeof(c));\\n    scanf(\\\"%d %d %d\\\", &n, &m, &k);\\n    long long val = (long long)binom(n - 1, 2 * k) * binom(m - 1, 2 * k) % MOD;\\n    printf(\\\"%d\\\\n\\\", (int)(val % MOD));\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1362,
+    "completion_tokens": 274,
+    "total_tokens": 1636,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1362
+  },
+  "raw_sha256": "a0633c0dea09b6380785d17989d0af4127d4fa62cdb282e0a57767fac86eb198",
+  "ended_utc": "2026-10-17T14:09:23.541452+00:00",
+  "elapsed_seconds": 1.391
+}

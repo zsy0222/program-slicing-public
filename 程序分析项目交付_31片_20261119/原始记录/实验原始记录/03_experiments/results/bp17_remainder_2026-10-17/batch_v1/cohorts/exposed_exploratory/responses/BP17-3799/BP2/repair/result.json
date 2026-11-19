@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3799/BP2/repair/1",
+  "case_id": "BP17-3799",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f7e1dcb1df96699e03624bfdb5e5ef4788a380d088d240eb0434102e80896554",
+  "started_utc": "2026-11-16T17:43:14.784310+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "49089783-7e6c-42d1-8068-0f4640ebab7c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[]) {\\n    char map[403][403];\\n    int x = 202;\\n    int y = 202;\\n    char c;\\n\\n    memset(map, 0, sizeof(map));\\n\\n    map[x][y] = 1;\\n\\n    while (scanf(\\\"%c\\\", &c) && c != '\\\\n') {\\n        switch (c) {\\n            case 'L':\\n                --x;\\n                break;\\n            case 'R':\\n                ++x;\\n                break;\\n            case 'U':\\n                --y;\\n                break;\\n            case 'D':\\n                ++y;\\n                break;\\n        }\\n\\n\\n        if (map[x][y] ||\\n                (c != 'L' && map[x + 1][y]) ||\\n                (c != 'R' && map[x - 1][y]) ||\\n                (c != 'U' && map[x][y + 1]) ||\\n                (c != 'D' && map[x][y - 1])) \\n            goto error;\\n\\n        map[x][y] = 1;\\n    }\\n\\n    puts(\\\"OK\\\");\\n\\n    return 0;\\n\\nerror:\\n\\n    puts(\\\"BUG\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1743,
+    "completion_tokens": 334,
+    "total_tokens": 2077,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 719
+  },
+  "raw_sha256": "957b8e36048f8d4f6db1345706e6044c977c18e8e9f33b811551f57abd2a90c5",
+  "ended_utc": "2026-11-16T17:43:16.950711+00:00",
+  "elapsed_seconds": 2.1642
+}

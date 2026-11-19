@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0438/BP1/repair/1",
+  "case_id": "BP17-0438",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "66eb2c444d489b6fe6e1921c4139b435e35499a1be6e7c63b4dfc14b86ecb588",
+  "started_utc": "2026-11-16T18:26:41.365461+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4ed68644-18df-436b-aecd-aa7683b1e113",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,x=0,girl,taxi,pizza,c=0,y,i,num,max;\\n    scanf(\\\"%d\\\",&n);\\n    char ch;\\n    char s[10];\\n    char name[n][25];\\n    int b[300]={0};\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d\\\",&num);\\n        scanf(\\\"%s\\\",&name[i][0]);\\n        girl=0;taxi=0;pizza=0;\\n        while(num--)\\n        {\\n            scanf(\\\"%c\\\",&ch);\\n            scanf(\\\"%s\\\",&s);\\n            if(s[0]==s[1]&&s[1]==s[3]&&s[3]==s[4]&&s[4]==s[6]&&s[6]==s[7])\\n            taxi++;\\n            else if(s[0]>s[1]&&s[1]>s[3]&&s[3]>s[4]&&s[4]>s[6]&&s[6]>s[7])\\n            pizza++;\\n            else girl++;\\n        }\\n        b[x++]=taxi;\\n        b[x++]=pizza;\\n        b[x++]=girl;\\n    }\\nprintf(\\\"If you want to call a taxi, you should call: \\\");\\n\\nmax=b[0];\\nfor(i=0;i<x;i=i+3)\\nif(b[i]>max)\\nmax=b[i];\\nfor(i=0;i<x;i=i+3)\\n{\\n    if(b[i]==max)\\n    {\\n        y=i/3;\\n        if(c==0)\\n        {printf(\\\"%s\\\",&name[y][0]);\\n        c++;}\\n        else\\n        printf(\\\", %s\\\",&name[y][0]);\\n    }\\n}\\nprintf(\\\".\\\\n\\\");\\nprintf(\\\"If you want to order a pizza, you should call: \\\");\\nc=0;\\nmax=b[1];\\nfor(i=1;i<x;i=i+3)\\nif(b[i]>max)\\nmax=b[i];\\nfor(i=1;i<x;i=i+3)\\n{\\n    if(b[i]==max)\\n    {\\n        y=i/3;\\n        if(c==0)\\n        {printf(\\\"%s\\\",&name[y][0]);\\n        c++;}\\n        else\\n        printf(\\\", %s\\\",&name[y][0]);\\n    }\\n}\\nprintf(\\\".\\\\n\\\");\\nc=0;\\nprintf(\\\"If you want to go to a cafe with a wonderful girl, you should call: \\\");\\nmax=b[2];\\nfor(i=2;i<x;i=i+3)\\nif(b[i]>max)\\nmax=b[i];\\nfor(i=2;i<x;i=i+3)\\n{\\n    if(b[i]==max)\\n    {\\n        y=i/3;\\n        if(c==0)\\n        {printf(\\\"%s\\\",&name[y][0]);\\n        c++;}\\n        else\\n        printf(\\\", %s\\\",&name[y][0]);\\n    }\\n\\n}\\nprintf(\\\".\\\\n\\\");\\nreturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2175,
+    "completion_tokens": 766,
+    "total_tokens": 2941,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2175
+  },
+  "raw_sha256": "452de2ea9376c4f32a650ea93cc31dec7900426f8f3312f204604dabbab1ee40",
+  "ended_utc": "2026-11-16T18:26:44.749443+00:00",
+  "elapsed_seconds": 3.3818
+}

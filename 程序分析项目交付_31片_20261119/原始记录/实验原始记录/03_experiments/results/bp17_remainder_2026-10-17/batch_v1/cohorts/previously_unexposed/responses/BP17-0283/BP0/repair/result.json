@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0283/BP0/repair/1",
+  "case_id": "BP17-0283",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "4ab00936c796efa8b7d4a20393eef534c949084d0942a3316de17763ac87f05d",
+  "started_utc": "2026-11-16T17:52:18.019252+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c4b7e5ce-2bd0-45b0-927a-60a9bddbb6d4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdlib.h>\\n#define MAXM 100005\\n\\nint main(int argc, char *argv[])\\n{\\n\\tstatic char data[MAXM];\\n\\tscanf(\\\"%s\\\",data);\\n\\tint N;\\n\\tN = strlen(data);\\n\\tint a[10];\\n\\tmemset(a,0,sizeof(a));\\n\\tint i;\\n\\tfor (i = 0; i < N; i++)\\n\\t{\\n\\t\\ta[(int)(data[i] - '0')]++;\\n\\t}\\n\\tint A[10];\\n\\tint B[10];\\n\\tint z, k, j;\\n\\tint res = a[0];\\n\\tint resz = a[0];\\n\\tint resvar = -1;\\n\\tint temp;\\n\\tfor (z = 0; z <= a[0]; z++)\\n\\t{\\n\\t\\tmemcpy(A,a,sizeof(a));\\n\\t\\tmemcpy(B,a,sizeof(a));\\n\\t\\tA[0] -= z;\\n\\t\\tB[0] -= z;\\n\\t\\tfor (k = 1; k <= 5; k++)\\n\\t\\t{\\n\\t\\t\\tif ((A[k]) && (B[10-k]))\\n\\t\\t\\t{\\n\\t\\t\\t\\tA[k]--;\\n\\t\\t\\t\\tB[10-k]--;\\n\\t\\t\\t\\ttemp = z + 1;\\n\\t\\t\\t\\tfor (i = 0; i <= 9; i++)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif (A[i] < B[9-i]) temp += A[i];\\n\\t\\t\\t\\t\\telse temp += B[9-i];\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tif (temp > res)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tres = temp;\\n\\t\\t\\t\\t\\tresz = z;\\n\\t\\t\\t\\t\\tresvar = k;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tstatic char resa[MAXM];\\n\\tstatic char resb[MAXM];\\n\\tresa[N] = 0;\\n\\tresb[N] = 0;\\n\\tint pos = N - 1;\\n\\tmemcpy(A,a,sizeof(a));\\n\\tmemcpy(B,a,sizeof(a));\\n\\tfor (i = 0; i < resz; i++)\\n\\t{\\n\\t\\tresa[pos] = '0';\\n\\t\\tresb[pos] = '0';\\n\\t\\tpos--;\\n\\t\\tA[0]--;\\n\\t\\tB[0]--;\\n\\t}\\n\\tif (resvar != -1)\\n\\t{\\n\\t\\tresa[pos] = (char)(resvar) + '0';\\n\\t\\tresb[pos] = (char)(10-resvar) + '0';\\n\\t\\tpos--;\\n\\t\\tA[resvar]--;\\n\\t\\tB[10-resvar]--;\\n\\t\\tfor (i = 0; i <= 9; i++)\\n\\t\\t{\\n\\t\\t\\twhile ((A[i]) && (B[9-i]))\\n\\t\\t\\t{\\n\\t\\t\\t\\tresa[pos] = (char)(i) + '0';\\n\\t\\t\\t\\tresb[pos] = (char)(9-i) + '0';\\n\\t\\t\\t\\tpos--;\\n\\t\\t\\t\\tA[i]--;\\n\\t\\t\\t\\tB[9-i]--;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\ti = 0; j = 0;\\n\\twhile (pos >= 0)\\n\\t{\\n\\t\\twhile (A[i] == 0) i++;\\n\\t\\twhile (B[j] == 0) j++;\\n\\t\\tresa[pos] = (char)(i) + '0';\\n\\t\\tresb[pos] = (char)(j) + '0';\\n\\t\\tpos--;\\n\\t\\tA[i]--;\\n\\t\\tB[j]--;\\n\\t}\\n\\tprintf(\\\"%s\\\\n%s\\\\n\\\",resa,resb);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1879,
+    "completion_tokens": 962,
+    "total_tokens": 2841,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 215
+  },
+  "raw_sha256": "d4648b0030a4e6403838d2dfc313fe60fcbcc6a15d65c266c2fa89a7d8920959",
+  "ended_utc": "2026-11-16T17:52:22.125455+00:00",
+  "elapsed_seconds": 3.9551
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1525/BP0/repair/1",
+  "case_id": "BP17-1525",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "d07765f0a78361b8f271bec7d61d193e7db049deb06c41b3833bd31400ae5c72",
+  "started_utc": "2026-11-18T03:08:18.411120+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b3517460-3b6b-4fef-b8cc-77339170bae0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#include<string.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nint dp[200][3][3];\\nint fg[3000];\\n\\nint debug = 0;\\nint mp[200][2];\\n\\nint get_grundy(int n){\\n  int i, j, k;\\n  int all, up, down;\\n  \\n  k = 0;\\n  rep(i,n){\\n    if(mp[i][0] && mp[i][1]) continue;\\n\\n    all = up = down = 0;\\n    if(!mp[i][0] && !mp[i][1]) all++;\\n    else if(!mp[i][0]) up = 1;\\n    else if(!mp[i][1]) up = 2;\\n\\n    while(i<n){\\n      i++;\\n      if(i>=n) break;\\n      if(mp[i][0] || mp[i][1]){\\n        if(mp[i][0] && mp[i][1]) break;\\n        if(!mp[i][0]) down = 1;\\n        if(!mp[i][1]) down = 2;\\n        break;\\n      } else {\\n        all++;\\n      }\\n    }\\n\\n    if(debug) printf(\\\"%d %d %d\\\\n\\\",all,up,down);\\n    k ^= dp[all][up][down];\\n  }\\n  return k;\\n}\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n;\\n\\n  int all, up, down;\\n  int a, b;\\n\\n  rep(all,103) rep(up,3) rep(down,3){\\n    rep(i,3000) fg[i] = 0;\\n\\n    n = all + 2;\\n    rep(i,n) rep(j,2) mp[i][j] = 0;\\n    if(up!=1) mp[0][0] = 1;\\n    if(up!=2) mp[0][1] = 1;\\n    if(down!=1) mp[n-1][0] = 1;\\n    if(down!=2) mp[n-1][1] = 1;\\n\\n    rep(i,n) rep(j,n) if(mp[i][j]==0){\\n      mp[i][j]++;\\n      if(i-1 >= 0) mp[i-1][1-j]++;\\n      mp[i][1-j]++;\\n      if(i+1 <  n) mp[i+1][1-j]++;\\n\\n      fg[get_grundy(n)]++;\\n\\n      mp[i][j]--;\\n      if(i-1 >= 0) mp[i-1][1-j]--;\\n      mp[i][1-j]--;\\n      if(i+1 <  n) mp[i+1][1-j]--;\\n    }\\n\\n    rep(i,3000) if(!fg[i]) break;\\n    dp[all][up][down] = i;\\n  }\\n\\n  scanf(\\\"%d%d\\\",&n,&m);\\n  rep(i,n) rep(j,2) mp[i][j] = 0;\\n  while(m--){\\n    scanf(\\\"%d%d\\\",&i,&j); i--; j--;\\n    mp[i][j] = 1;\\n    if(i-1 >= 0) mp[i-1][1-j] = 1;\\n    mp[i][1-j] = 1;\\n    if(i+1 < n ) mp[i+1][1-j] = 1;\\n  }\\n\\n  debug = 0;\\n/*  rep(i,n){ rep(j,2) printf(\\\"%d\\\",mp[i][j]); puts(\\\"\\\"); }*/\\n  k = get_grundy(n);\\n\\n  if(k==0) puts(\\\"LOSE\\\");\\n  else     puts(\\\"WIN\\\");\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3699,
+    "completion_tokens": 945,
+    "total_tokens": 4644,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3699
+  },
+  "raw_sha256": "4b1fd369561e89cc3661a1b9482a86cc4216bb4d99386a1c788a924ea54cef5f",
+  "ended_utc": "2026-11-18T03:08:22.441514+00:00",
+  "elapsed_seconds": 3.9115
+}

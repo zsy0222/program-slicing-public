@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-1046",
+  "content": "{\"source\":\"#include<stdio.h>\\ndouble F[51][51][51];\\nint size[51];\\ndouble tot=0;\\nint N,P;\\nvoid init();\\nvoid dpit();\\nint main(int argc, char *argv[])\\n{\\n    init();\\n    dpit();\\n    return 0;\\n}\\nvoid init()\\n{\\n    int i;\\n    scanf(\\\"%d\\\",&N);\\n    for(i=1;i<=N;i++)\\n    {\\n        scanf(\\\"%d\\\",&size[i]);\\n        tot+=size[i];\\n    }\\n    scanf(\\\"%d\\\",&P);\\n}\\nvoid dpit()\\n{\\n    int i,j,k,v;\\n    double ave=0,tp=0,t;\\n    if(tot<=P){\\n    printf(\\\"%.10lf\\\\n\\\",(double)N);\\n    return;\\n    }\\n    else {\\n    for(i=0;i<=N;i++)\\n    F[i][0][0]=1;\\n    for(k=1;k<=N;k++)\\n    {\\n        for(i=k-1;i<=N;i++)\\n        if(i==k)\\n        {\\n            for(j=1;j<=N;j++)\\n            for(v=1;v<=P;v++)\\n            F[i][j][v]=F[i-1][j][v];\\n        }else if(i>0)\\n        for(j=1;j<=N;j++)\\n        for(v=1;v<=P;v++)\\n        if(v<size[i])F[i][j][v]=F[i-1][j][v];\\n        else F[i][j][v]=F[i-1][j][v]+F[i-1][j-1][v-size[i]];\\n\\n        for(j=1,tp=0;j<=N;j++)\\n        for(v=P-size[k]+1;v<=P;v++,ave+=tp,tp=0)\\n        if(F[N][j][v])\\n        {\\n            tp=F[N][j][v]*j;\\n            t=N;\\n            for(i=j;i>=1;i--,t--)\\n            tp=tp*i/t;\\n            for(i=N-j-1;i>=1;i--,t--)\\n            tp=tp*i/t;\\n        }\\n    }\\n    printf(\\\"%.10lf\\\\n\\\",ave);\\n    }\\n}\"}",
+  "elapsed_seconds": 2.187,
+  "ended_utc": "2026-10-17T07:16:00.299242+00:00",
+  "finish_reason": "stop",
+  "group": "BP3",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1046/BP3/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "a457538c7bdf896cc129a7822e31917a52590ac517c0512bfa9df01c6b2a52f2",
+  "request_model": "deepseek-flash",
+  "request_sha256": "6b4312bcf8fe2dc5e41325d3b484988fcd843edef577e0230dcd828d4cad2756",
+  "response_id": "94d2e189-e86b-4749-9b8b-29fe4fd4ee43",
+  "started_utc": "2026-10-17T07:15:58.109675+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 561,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2465,
+    "prompt_tokens": 2465,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 3026
+  }
+}

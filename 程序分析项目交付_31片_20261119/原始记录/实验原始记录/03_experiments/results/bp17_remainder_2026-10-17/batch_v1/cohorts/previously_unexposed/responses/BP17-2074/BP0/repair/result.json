@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2074/BP0/repair/1",
+  "case_id": "BP17-2074",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ec074baee01020a44000211d7fa0603ec42f9c8a86b24e36446901cf882a77fb",
+  "started_utc": "2026-11-16T18:45:17.152652+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e209a10a-3866-47d2-8408-8a121c63427a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n, i, x;\\n    int min=-2000000000, max=2000000000;\\n    char op[3], is[3];\\n    scanf(\\\"%d\\\", &n);\\n    for(i=0; i<n; i++)\\n    {\\n        scanf(\\\"%s\\\", op);\\n        scanf(\\\"%d\\\", &x);\\n        scanf(\\\"%s\\\", is);\\n        if(op[0]=='>')\\n        {\\n            if(op[1]=='\\\\0')\\n            {\\n                if(is[0]=='Y')\\n                {\\n                    if(x+1>min)\\n                        min=x+1;\\n                }\\n                else if(is[0]=='N')\\n                {\\n                    if(x<max)\\n                        max=x;\\n                }\\n            }\\n            else if(op[1]=='=')\\n            {\\n                if(is[0]=='Y')\\n                {\\n                    if(x>min)\\n                        min=x;\\n                }\\n                else if(is[0]=='N')\\n                {\\n                    if(x-1<max)\\n                        max=x-1;\\n                }\\n            }\\n        }\\n        else if(op[0]=='<')\\n        {\\n            if(op[1]=='\\\\0')\\n            {\\n                if(is[0]=='N')\\n                {\\n                    if(x>min)\\n                        min=x;\\n                }\\n                else if(is[0]=='Y')\\n                {\\n                    if(x-1<max)\\n                        max=x-1;\\n                }\\n            }\\n            else if(op[1]=='=')\\n            {\\n                if(is[0]=='N')\\n                {\\n                    if(x+1>min)\\n                        min=x+1;\\n                }\\n                else if(is[0]=='Y')\\n                {\\n                    if(x<max)\\n                        max=x;\\n                }\\n            }\\n        }\\n    }\\n    if(min<=max)\\n        printf(\\\"%d\\\\n\\\",min);\\n    else\\n        printf(\\\"Impossible\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1513,
+    "completion_tokens": 506,
+    "total_tokens": 2019,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1513
+  },
+  "raw_sha256": "ce74cc8610eca241235b68625a9a4484fe74102acc4a18790765a87ecd482641",
+  "ended_utc": "2026-11-16T18:45:19.982081+00:00",
+  "elapsed_seconds": 2.8269
+}

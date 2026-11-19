@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3035/BP3/repair/1",
+  "case_id": "BP17-3035",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "464d0614cbd3a3457b55d2aadcb2de0571dcb8e862023cb5ba003c6d7fdcaef5",
+  "started_utc": "2026-11-16T18:15:51.607094+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4e904872-e119-432b-8d1a-72f47d8888e1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint arr[100005] = {0};\\n\\nint main(int argc, char *argv[])\\n{\\n        int n, k, m , count[100005] = {0}, i, j, idx = 0, flag = 0, seconds = 0, exc = 0;\\n\\n        scanf(\\\"%d%d\\\", &n, &k );\\n        for(i = 0; i < k; i++){\\n                scanf(\\\"%d\\\", &m);\\n                seconds = seconds + 2 * (m -1);\\n\\n                for(j = 0; j < m; j++){\\n                        scanf(\\\"%d\\\", &arr[idx]);\\n                        idx++;\\n                        if(flag == 0 && j == 0 && arr[idx-1] == 1){\\n                                flag = 1;\\n                        } else if(flag == 1){\\n                                if(arr[idx-1] == (arr[idx-2] + 1) ){\\n                                        exc++;\\n                                } else {\\n                                        seconds = seconds - ( 2 * (m - 1) );\\n                                        seconds += 2 * (( m - exc ) -1  );\\n                                        flag = 0;\\n                                }\\n                        }\\n                }\\n                flag = 0;\\n                exc = 0;\\n        }\\n\\n        seconds += k-1;\\n\\n        printf(\\\"%d\\\\n\\\", seconds);\\n\\n        return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1491,
+    "completion_tokens": 340,
+    "total_tokens": 1831,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1491
+  },
+  "raw_sha256": "3c54ab9d0c7f50e6f285937f494b966b39cd1b12f8cc49fc9d56c6e72e9162ec",
+  "ended_utc": "2026-11-16T18:15:54.002029+00:00",
+  "elapsed_seconds": 2.3925
+}

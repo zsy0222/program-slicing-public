@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0456/BP0/repair/1",
+  "case_id": "BP17-0456",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "7ee17fae2a1f326a225d9605e2101a5a80d47498bd1c5907fdb8212a6b34d3fb",
+  "started_utc": "2026-10-21T06:39:52.027997+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a847a22a-2c46-47ff-974d-b4582ac5c040",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#include<string.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\n#define ll long long\\n\\nvoid unionInit(int d[],int s){int i;rep(i,s)d[i]=i;}\\nint unionGet(int d[],int n){int t=n,k;while(d[t]!=t)t=d[t];while(d[n]!=n)k=d[n],d[n]=t,n=k;return n;}\\nint unionConnect(int d[],int a,int b){a=unionGet(d,a);b=unionGet(d,b);if(a==b)return 0;d[a]=b;return 1;}\\n\\nll pw(ll a,ll b, ll md){\\n  ll r;\\n  if(!b) return 1;\\n  r = pw(a,b/2,md);\\n  r = (r*r)%md;\\n  if(b%2) r = (r*a)%md;\\n  return r;\\n}\\n\\nint ind[110000], num[110000], g;\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n;\\n  int MOD;\\n  ll res;\\n\\n  scanf(\\\"%d%d%d\\\",&n,&m,&MOD);\\n  unionInit(ind,n);\\n  while(m--){\\n    scanf(\\\"%d%d\\\",&i,&j);\\n    unionConnect(ind,i-1,j-1);\\n  }\\n\\n  rep(i,n) num[i] = 0;\\n  rep(i,n) num[unionGet(ind,i)]++;\\n  g = 0;\\n  res = 1;\\n\\n  rep(i,n) if(num[i]){\\n    res *= num[i];\\n    res %= MOD;\\n    g++;\\n  }\\n  if(g==1){\\n    res = 1;\\n  } else {\\n    res *= pw(n, g-2, MOD);\\n    res %= MOD;\\n  }\\n  printf(\\\"%d\\\\n\\\",(int)res);\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1223,
+    "completion_tokens": 498,
+    "total_tokens": 1721,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1223
+  },
+  "raw_sha256": "f39e0124a8051f2357b9559e3a98f569dc768962bd928a259304e62c5cc45725",
+  "ended_utc": "2026-10-21T06:39:54.211637+00:00",
+  "elapsed_seconds": 2.188
+}

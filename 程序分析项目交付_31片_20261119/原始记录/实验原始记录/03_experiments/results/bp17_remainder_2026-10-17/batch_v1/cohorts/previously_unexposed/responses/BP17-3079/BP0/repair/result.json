@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3079/BP0/repair/1",
+  "case_id": "BP17-3079",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "0354df6370c9aa1e361b774e24d99f38640270f6380175984f076a3b724e7bd3",
+  "started_utc": "2026-11-16T05:06:35.347378+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "738273f3-7df3-4da8-873e-2f6a9eeaa852",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    long long int n,last=0,first=1000000000,max,min,i,num1,num2;\\n    scanf(\\\"%lld\\\",&n);\\n    int ara[100000];\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&ara[i]);\\n\\n    min=ara[1]-ara[0];\\n\\n    max=ara[n-1]-ara[0];\\n    printf(\\\"%lld %lld\\\\n\\\",min,max);\\n\\n    for(i=1;i<n-1;i++)\\n    {\\n        num1=ara[i]-ara[i-1];\\n\\n        num2=ara[i+1]-ara[i];\\n\\n        if(num1<num2) min=num1;\\n        else min=num2;\\n\\n        num1=ara[i]-ara[0];\\n        num2=ara[n-1]-ara[i];\\n\\n\\n        if(num1>num2) max=num1;\\n        else max=num2;\\n        printf(\\\"%lld %lld\\\\n\\\",min,max);\\n    }\\n\\n    min=ara[i]-ara[n-2];\\n    max=ara[i]-ara[0];\\n    printf(\\\"%lld %lld\\\\n\\\",min,max);\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1048,
+    "completion_tokens": 333,
+    "total_tokens": 1381,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 152
+  },
+  "raw_sha256": "31332b2e6a8a0fb8ae90e304edf7ab3c32715b32697a586f322af248f9ef3829",
+  "ended_utc": "2026-11-16T05:06:37.620354+00:00",
+  "elapsed_seconds": 2.2634
+}

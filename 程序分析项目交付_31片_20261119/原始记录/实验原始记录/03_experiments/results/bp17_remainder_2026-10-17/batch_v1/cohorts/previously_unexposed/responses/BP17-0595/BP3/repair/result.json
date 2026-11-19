@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0595/BP3/repair/1",
+  "case_id": "BP17-0595",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "7053df4d41dc26f75e087f4ab9e560f38010a0713108772398ae838012cd29d9",
+  "started_utc": "2026-10-21T08:08:56.382274+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2ad0d5e9-82b2-416d-b279-83591b69ac55",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\nint A[35010],D[4000];\\nint main(int argc, char *argv[])\\n{\\n    long long i,j,n,sum,sign;\\n    scanf(\\\"%lld\\\",&n);\\n    sum=0;sign=0;\\n    memset(A,0,sizeof(A));\\n    for(i=2;i<=35000;i++)\\n    {\\n        if(A[i]==0)\\n        {\\n            D[sign]=i;sign++;\\n            for(j=2*i;j<=35000;j+=i)\\n            {\\n                A[j]=1;\\n            }\\n        }\\n    }\\n    sum+=n;\\n    for(i=0;n>1;)\\n    {\\n        if(n%D[i]==0) {sum+=n/D[i];n/=D[i];}\\n        else\\n        {\\n            i++;\\n        }\\n    }\\n    printf(\\\"%lld\\\",sum);\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1272,
+    "completion_tokens": 236,
+    "total_tokens": 1508,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1272
+  },
+  "raw_sha256": "b463b6d703b4f80023abfb1209a4fe698b55820c6251630372cb74980bd74d57",
+  "ended_utc": "2026-10-21T08:08:57.891480+00:00",
+  "elapsed_seconds": 1.5
+}

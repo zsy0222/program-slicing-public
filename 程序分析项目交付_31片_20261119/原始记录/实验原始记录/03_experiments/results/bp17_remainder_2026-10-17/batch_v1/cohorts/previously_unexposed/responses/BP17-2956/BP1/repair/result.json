@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2956/BP1/repair/1",
+  "case_id": "BP17-2956",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "85f3887c2e12a8f5dd70b6f1133fe815b79369e7760828f1d7d0235a30976b9b",
+  "started_utc": "2026-11-16T15:43:11.527296+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "907cb92f-8dfa-45cf-b40d-32d014c614d7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <math.h>\\n#include <stdlib.h>\\n#include <time.h>\\n#include <limits.h>\\n\\n#define PI 3.141592653589793\\n#define max(a,b) (a < b) ? (b) : (a)\\n#define min(a,b) (a > b) ? (b) : (a)\\n#define FOR(i,a,b) for(i = a ; i <= b ; i++)\\n#define ROF(i,a,b) for(i = a ; i >= b ; i--)\\n#define RAD(x) ((x)*PI)/180\\n#define y1 y_1\\n#define ll long long\\n#define endl printf(\\\"\\\\n\\\")\\n#define MAX 100005\\nint _[MAX];void yap (int bas, int son, int a[]){int yer=0,i,x=bas,y=(son+bas)/2+1,ort=(son+bas)/2;while(x<=ort&&y<=son)_[yer++]=(a[x]<a[y])?a[x++]:a[y++];while(x<=ort)_[yer++]=a[x++];while(y<=son)_[yer++]=a[y++];for(i=0;i<yer;i++)a[bas+i]=_[i];}void sort(int bas,int son,int a[]){int ort=(bas+son)/2;if(son==bas)return;sort(bas,ort,a);sort(ort+1,son,a);yap(bas,son,a);}\\n\\nint n, i, ans, top, t[MAX];\\n\\nint main(int argc, char *argv[]) {\\n\\tscanf(\\\"%d\\\",&n);\\n\\tFOR(i, 1, n)\\n\\t\\tscanf(\\\"%d\\\",&t[i]);\\n\\tsort(1, n, t);\\n\\tFOR(i, 1, n){\\n\\t\\tif(top <= t[i])\\n\\t\\t\\tans++;\\n\\t\\ttop += t[i];\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",ans);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1219,
+    "completion_tokens": 475,
+    "total_tokens": 1694,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 195
+  },
+  "raw_sha256": "470ee392204744f15a1424cadb0dfe5b7e2ba3943ab035ee446e80a2831a7134",
+  "ended_utc": "2026-11-16T15:43:14.325061+00:00",
+  "elapsed_seconds": 2.7943
+}

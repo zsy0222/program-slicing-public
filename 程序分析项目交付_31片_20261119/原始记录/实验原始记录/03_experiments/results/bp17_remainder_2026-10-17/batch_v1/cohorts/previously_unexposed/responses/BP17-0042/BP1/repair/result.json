@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0042/BP1/repair/1",
+  "case_id": "BP17-0042",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "33cf31c300a739dddbf8da78ff1a8068a13735ca0d10be091278c7720a8ce841",
+  "started_utc": "2026-11-16T03:51:30.972820+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "60dc8fdf-a0d7-49c4-a7a0-7be1a714ca2e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n\\nint main(int argc, char *argv[])\\n{\\nint n,speed,ram,hdd,ans=0,cost;\\nint laptop[100][4];\\nscanf(\\\"%d\\\",&n);\\nif(n==1){\\n    printf(\\\"1\\\");\\n    return 0;\\n}\\nint outdated[100]={0};\\n\\nfor(int i=0;i<n;i++)\\n\\nscanf(\\\"%d%d%d%d\\\",&laptop[i][0],&laptop[i][1],&laptop[i][2],&laptop[i][3]);\\n\\nint m=0;\\nfor(int i=0;i<n;i++)\\n{\\n    m=0;\\n    for(int j=1;j+i<n;j++){\\n            m=0;\\n            for(int k=0;k<3;k++){\\n                if(laptop[i][k]<laptop[i+j][k])\\n                   m++;\\n            }\\n\\n                   if(m==3)\\n                      outdated[i]=1;\\n    }\\n\\n\\n}\\n\\n\\n\\n\\n\\n\\nfor(int i=n-1;i>=0;i--)\\n{\\n    m=0;\\n    for(int j=1;i-j>=0;j++){\\n            m=0;\\n            for(int k=0;k<3;k++){\\n                if(laptop[i][k]<laptop[i-j][k])\\n                   m++;\\n            }\\n\\n                   if(m==3)\\n                      outdated[i]=1;\\n    }\\n\\n\\n}\\n\\n\\n\\n\\n\\n\\n\\nint cheapest=1000;\\n\\n\\nfor(int i=0;i<n;i++)\\n    if(outdated[i]!=1 && laptop[i][3]<cheapest){\\n        cheapest=laptop[i][3];\\n        ans=i+1;\\n    }\\n\\nprintf(\\\"%d\\\",ans);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1451,
+    "completion_tokens": 437,
+    "total_tokens": 1888,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 171
+  },
+  "raw_sha256": "a401eef48759c7918ac7e76d9e3283e98676387da4fc1a4a15dbb3e106d257d1",
+  "ended_utc": "2026-11-16T03:51:33.546369+00:00",
+  "elapsed_seconds": 2.5716
+}

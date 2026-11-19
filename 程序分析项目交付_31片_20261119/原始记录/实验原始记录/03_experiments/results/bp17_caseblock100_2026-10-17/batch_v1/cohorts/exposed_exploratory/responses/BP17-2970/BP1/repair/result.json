@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2970/BP1/repair/1",
+  "case_id": "BP17-2970",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "23c369caa6bbd9f3d12390cf00009794a4d6d1ad44e2bf3e74822d7a59f53fe0",
+  "started_utc": "2026-10-17T07:02:43.430686+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3ed7b2bb-5971-4781-a55b-d1e38467dbf5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n long long arr[5000001][2];\\n int main(int argc, char *argv[])\\n {\\n     arr[0][1]=arr[1][1]=0;\\n     int i,j;\\n     for(i=2;i<5000001;i++)\\n        arr[i][0]=i;\\n     for(i=2;i<500001;i++)\\n     {\\n         if(arr[i][1]==0)\\n         {\\n             for(j=i;j<5000001;j+=i)\\n             {\\n                 while(arr[j][0]%i==0)\\n                    arr[j][1]++,arr[j][0]/=i;\\n             }\\n         }\\n         arr[i][1]+=arr[i-1][1];\\n     }\\n     for(i=500001;i<5000001;i++)\\n     {\\n         if(arr[i][1]==0)\\n         {\\n             for(j=i;j<5000001;j+=i)\\n             {\\n                 while(arr[j][0]%i==0)\\n                    arr[j][1]++,arr[j][0]/=i;\\n             }\\n         }\\n         arr[i][1]+=arr[i-1][1];\\n     }\\n int task;\\n scanf(\\\"%d\\\",&task);\\n while(task--)\\n {\\n     int a,b;\\n     scanf(\\\"%d%d\\\",&a,&b);\\n     printf(\\\"%lld\\\\n\\\",arr[a][1]-arr[b][1]);\\n }\\n\\n return 0;\\n }\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1033,
+    "completion_tokens": 352,
+    "total_tokens": 1385,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 137
+  },
+  "raw_sha256": "5a23fc4ebc153dcf59f7a56592f658e737809452e4d92cd763905ee429f1a253",
+  "ended_utc": "2026-10-17T07:02:45.327956+00:00",
+  "elapsed_seconds": 1.812
+}

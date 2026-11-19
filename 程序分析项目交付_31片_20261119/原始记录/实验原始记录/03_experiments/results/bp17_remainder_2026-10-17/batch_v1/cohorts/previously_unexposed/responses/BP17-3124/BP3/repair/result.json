@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3124/BP3/repair/1",
+  "case_id": "BP17-3124",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "e1e475e77e1772487463e298f6ba11bfd9dbf1be40d2aeb6936c28a86067b5a2",
+  "started_utc": "2026-11-16T06:04:18.080159+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b98b15c1-e6bc-49c4-89af-d0241dccf6ce",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define MAX 100000\\nint B1[MAX+1]={0};\\nint S1[MAX+1]={0};\\nint main(int argc, char *argv[])\\n{\\n    int p,q,n,s;\\n    char ch;\\n    int i;\\n    scanf(\\\"%d %d\\\",&n,&s);\\n    //B[MAX+1]={0};\\n    //S[MAX+1]={0};\\n     for(i=0;i<n;i++){\\n        scanf(\\\" %c\\\",&ch);\\n        scanf(\\\"%d %d\\\",&p,&q);\\n        if(ch=='B'){\\n            B1[p]=B1[p]+q;\\n        }\\n        else{\\n            S1[p]=S1[p]+q;\\n        }\\n     }\\n     int count=0,save=0;\\n     for(i=1;i<=MAX;i++){\\n        if(S1[i]){\\n            count++;\\n            if(count==s){\\n                save=i;\\n                break;\\n            }\\n        }\\n     }\\n     for(i=save;i>=0;i--){\\n        if(S1[i]){\\n            printf(\\\"S %d %d\\\\n\\\",i,S1[i]);\\n        }\\n     }\\n     count=0;\\n    for(i=MAX;i>=0;i--){\\n        if(B1[i]){\\n            count++;\\n            printf(\\\"B %d %d\\\\n\\\",i,B1[i]);\\n        }\\n        if(count==s){\\n            break;\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1847,
+    "completion_tokens": 377,
+    "total_tokens": 2224,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1847
+  },
+  "raw_sha256": "bc8a609ce5152772962c9d568fa6525d63c10c6d728b6ef8b4f2c75076097397",
+  "ended_utc": "2026-11-16T06:04:20.477062+00:00",
+  "elapsed_seconds": 2.3939
+}

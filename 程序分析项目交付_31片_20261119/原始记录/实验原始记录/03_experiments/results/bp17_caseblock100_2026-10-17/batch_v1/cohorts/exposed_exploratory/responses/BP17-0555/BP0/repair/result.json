@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0555/BP0/repair/1",
+  "case_id": "BP17-0555",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "51a60cb6e882d2dabae450d6ab1b34c4bfe05ff5aac1b051934e81d67e74c6b7",
+  "started_utc": "2026-10-17T07:06:22.086129+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "96b58422-6a99-47c1-9dc5-b802cf89098e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n\\nint isPrime(int num){\\n\\n    int i ;\\n    if (num==1){\\n        return 0;\\n    }\\n    for (i=sqrt(num);i>1;i--)\\n        if (num%i==0)\\n            return 0;\\n    return 1;\\n\\n}\\n\\nint printPrimes(int A[],int n){\\n\\n    int i=0 , j=2 , z=0;\\n    while (j<n){\\n\\n        if(isPrime(j)==1){\\n            A[z]=j;\\n            z++;\\n            i++;\\n        }\\n        j++;\\n\\n    }\\n    return z ;\\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int i,j=0,n,k,h,g;\\n    int A[1000];\\n    int z;\\n    scanf(\\\"%d %d\\\",&n,&k);\\n    z=printPrimes(A,n);\\n    for(i=z;i>=0;i--){\\n            for(h=i-2;h>=0;h--){\\n                if(A[i-1]==A[h]+A[h-1]+1){\\n                    j++;\\n                }\\n\\n            }\\n    }\\n    if (j>=k){\\n        printf(\\\"YES\\\");\\n    }\\n    else\\n        printf(\\\"NO\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1046,
+    "completion_tokens": 344,
+    "total_tokens": 1390,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 150
+  },
+  "raw_sha256": "777e9223c0f881b5d3248f6c51fb1b19f3f668f33c8f5ff2e999c8813b3291cb",
+  "ended_utc": "2026-10-17T07:06:23.691583+00:00",
+  "elapsed_seconds": 1.609
+}

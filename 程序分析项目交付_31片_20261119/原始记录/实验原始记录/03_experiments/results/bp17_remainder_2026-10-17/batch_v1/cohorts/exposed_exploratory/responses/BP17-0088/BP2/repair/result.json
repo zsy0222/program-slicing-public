@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0088/BP2/repair/1",
+  "case_id": "BP17-0088",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "3f9d85077e92a08b55dcca7c6aef4a8309ea388038e2890dcceb2592016976e5",
+  "started_utc": "2026-10-18T13:51:56.764210+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "16c3a91f-83ff-4606-9e00-490117e48ef5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define MAX 100000\\nint main(int argc, char *argv[])\\n{\\n    long long int a,b,n,indx=0,i,min;\\n    int a1[MAX],b1[MAX];\\n    scanf(\\\" %lld\\\",&n);\\n\\n    for(b=0;b*7<=n;b++){\\n        a= (n- 7*b)/4;\\n        if(4*a+7*b==n){\\n            a1[indx]=a;\\n            b1[indx]=b;\\n            indx++;\\n        }\\n    }\\n    if(indx==0){\\n        printf(\\\"-1\\\");\\n        return 0;\\n    }\\n    min=a1[0]+b1[0];\\n    a=a1[0],b=b1[0];\\n    for(i=1;i<indx;i++){\\n        if(b1[i]+a1[i]<min){\\n            min=a1[i]+b1[i];\\n            a=a1[i];\\n            b=b1[i];\\n        }\\n        if(b1[i]+a1[i]==min){\\n            if(b1[i]<b){\\n               b=b1[i];\\n               a=a1[i];\\n            }\\n        }\\n    }\\n    long long int num=0;\\n    for(i=0;i<a;i++){\\n        printf(\\\"4\\\");\\n    }\\n    for(i=0;i<b;i++){\\n        printf(\\\"7\\\");\\n    }\\n    printf(\\\"\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1833,
+    "completion_tokens": 374,
+    "total_tokens": 2207,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 681
+  },
+  "raw_sha256": "654235886405a00ace0cda1ad7bacdff8a1c34330e6a017e7d9d9f35b7b1db4f",
+  "ended_utc": "2026-10-18T13:51:58.819198+00:00",
+  "elapsed_seconds": 1.938
+}

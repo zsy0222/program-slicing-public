@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2989/BP3/repair/1",
+  "case_id": "BP17-2989",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "3063be08e64db3790e1b4844d25e6bc3acd497e9edd4ca270a4b563b47f7c202",
+  "started_utc": "2026-11-16T02:56:52.339235+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9fb118bc-b335-4439-9c98-872ed4d069ed",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n;\\n    scanf(\\\"%d\\\", &n);\\n    int nv = n - 1;\\n    int c = 0;\\n    int k = 1;\\n    int p = 0;\\n    char sp[1001];\\n    char v[1001]; \\n    int i;\\n    for(i = 0; i < 1001; i++)\\n    {\\n        sp[i] = 0;\\n        v[i] = 0;\\n    }\\n    while((nv > 0) && (c == 0))\\n    {\\n        if(k==0)\\n        {\\n            if(sp[p] == 1)\\n                c = 1;\\n            sp[p] = 1;\\n            k = 1;\\n        }\\n        if(v[p] == 0) nv--;\\n        v[p] = 1;\\n        p = (p + k) % n;\\n        k = (k + 1) % n;\\n    }\\n    if(nv == 0)printf(\\\"YES\\\");\\n    else printf(\\\"NO\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1414,
+    "completion_tokens": 289,
+    "total_tokens": 1703,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 518
+  },
+  "raw_sha256": "624987c0aac81831def70e66ffd4e8f6b7a6c6702057514361a82abba6da3d2a",
+  "ended_utc": "2026-11-16T02:56:54.122139+00:00",
+  "elapsed_seconds": 1.7807
+}

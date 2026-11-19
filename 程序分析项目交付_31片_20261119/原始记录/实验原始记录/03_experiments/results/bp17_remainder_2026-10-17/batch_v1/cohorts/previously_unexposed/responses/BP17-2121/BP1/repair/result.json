@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2121/BP1/repair/1",
+  "case_id": "BP17-2121",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e08722fbcee2149252500e8b56793701e57dfa6cac00cf8d579fde38eff578ca",
+  "started_utc": "2026-11-17T03:46:37.677695+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "145bb770-9eac-4e0c-83aa-337d27db6443",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\nint main(int argc, char *argv[])\\n{\\n    double n,s,a[1001][3],b[1001],dist,temp;\\n    int i,j,l=0,k=0,c[10001],temp1;\\n    scanf(\\\"%lf%lf\\\",&n,&s);\\n    for(i=0;i<n;i++)\\n    {\\n        for(j=0;j<2;j++)\\n        scanf(\\\"%lf\\\",&a[i][j]);\\n        scanf(\\\"%d\\\",&c[i]);\\n        dist=sqrt(a[i][0]*a[i][0]+a[i][1]*a[i][1]);\\n        b[k++]=dist;\\n    }\\n    for(i=0;i<n;i++)\\n    {\\n        for(j=0;j<n-i-1;j++)\\n        {\\n            if(b[j]>b[j+1])\\n            {\\n                temp=b[j];temp1=c[j];\\n                b[j]=b[j+1];c[j]=c[j+1];\\n                b[j+1]=temp;c[j+1]=temp1;\\n            }\\n        }\\n    }\\n\\n    for(i=0;i<n;i++)\\n    {\\n        if(s<1000000)\\n        {\\n            s=s+c[i];\\n            if(s>=1000000)\\n            {printf(\\\"%.7lf\\\",b[i]);\\n            break;}\\n        }\\n    }\\n    if(s<1000000)\\n    printf(\\\"-1\\\");\\n    return 0;\\n    \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1144,
+    "completion_tokens": 373,
+    "total_tokens": 1517,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1144
+  },
+  "raw_sha256": "b007f545995ea8bf2a1030ddd18c7ee20074a36d1504259f43a31ca49ff2330f",
+  "ended_utc": "2026-11-17T03:46:40.852118+00:00",
+  "elapsed_seconds": 3.1663
+}

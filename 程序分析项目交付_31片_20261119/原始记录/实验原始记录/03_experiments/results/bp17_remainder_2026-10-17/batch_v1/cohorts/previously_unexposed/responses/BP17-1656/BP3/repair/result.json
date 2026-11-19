@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1656/BP3/repair/1",
+  "case_id": "BP17-1656",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "32e73013d12d0bad4c1fbc9e99604b48ca3ab937df655a9f081d1d6fc69bf9d7",
+  "started_utc": "2026-10-21T07:57:24.575523+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f32235d4-1262-426e-ab21-c8acb858f9ce",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,yo=0;\\n    scanf(\\\"%d\\\",&n);\\n    int i,count1=0,d1=0,d2=0;\\n    int * a = (int *)malloc(2*n*sizeof(int));\\n    int * b = (int *)malloc(2*n*sizeof(int));\\n    int *hash = (int *)malloc(90*sizeof(int));\\n    int *hash2= (int *)malloc(90*sizeof(int));\\n    for(i=0;i<2*n;++i)\\n    {\\n        scanf(\\\"%d\\\",&a[i]);\\n    }\\n\\n    for(i=0;i<90;++i)\\n    {\\n        hash[i] = 0;\\n        hash2[i] = 0;\\n    }\\n\\n    for(i=0;i<2*n;++i)\\n    {\\n        hash[a[i]-10]++;\\n    }\\n\\n    for(i=0;i<90;++i)\\n    {\\n        if(hash[i] > 1)\\n        {\\n            if(hash[i]%2 == 1)\\n            {\\n                if(yo==0)\\n                {\\n                    hash2[i] = hash[i]/2;\\n                    count1 += hash[i]/2;\\n                    yo=1;\\n                    d1++;\\n                    if(hash[i] - hash[i]/2 != 0)\\n                        d2++;\\n                }\\n                else\\n                {\\n                    hash2[i] = hash[i]/2 + 1;\\n                    count1 += hash[i]/2 + 1;\\n                    yo=0;\\n                    d1++;\\n                    if(hash[i] - hash[i]/2 -1 != 0)\\n                        d2++;\\n                }\\n            }\\n            else\\n            {\\n                hash2[i] = hash[i]/2;\\n                count1 += hash[i]/2;\\n                d1++;\\n                if(hash[i] - hash[i]/2 != 0)\\n                        d2++;\\n            }\\n\\n        }\\n    }\\n\\n    for(i=0;i<90;++i)\\n    {\\n        if(hash[i] == 1)\\n        {\\n            if(count1 < n)\\n            {\\n                hash2[i] = 1;\\n                count1++;\\n                d1++;\\n            }\\n            else\\n            {\\n                d2++;\\n            }\\n        }\\n    }\\n\\n\\n    for(i=0;i<2*n;++i)\\n    {\\n        if(hash2[a[i]-10]!=0)\\n        {\\n            b[i] = 1;\\n            hash2[a[i]-10]--;\\n        }\\n        else\\n        {\\n            b[i] = 2;\\n        }\\n    }\\n\\n    printf(\\\"%d\\\\n\\\",d1*d2);\\n\\n    for(i=0;i<2*n;++i)\\n    {\\n        printf(\\\"%d \\\",b[i]);\\n    }\\n\\n    return 0;\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2478,
+    "completion_tokens": 719,
+    "total_tokens": 3197,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2478
+  },
+  "raw_sha256": "fd013792079803d0b5e9cb69e61ffa0b2eb3cd383b704cafb66ee004b78902f9",
+  "ended_utc": "2026-10-21T07:57:27.509792+00:00",
+  "elapsed_seconds": 2.875
+}

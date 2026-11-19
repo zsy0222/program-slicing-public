@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2857/BP1/repair/1",
+  "case_id": "BP17-2857",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e79e5c0128687fc30be59c58c83efb0b718267f8b322491405fff59e32402364",
+  "started_utc": "2026-11-18T10:07:38.192597+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5d3fb1f3-97dd-4325-80a9-cf224a392bde",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nstruct element\\n{\\n    int width;\\n    int height;\\n};\\n\\nint main(int argc, char *argv[])\\n{\\n    struct element *arr;\\n    int count;\\n    int i;\\n    int w = 0, ind_h_max_main = 0, ind_h_max_secondary = 0;\\n    int w_cur;\\n\\n    scanf(\\\"%d\\\", &count);\\n    arr = malloc(sizeof(struct element) * count);\\n    for (i = 0; i < count; i++)\\n    {\\n        scanf(\\\"%d %d\\\", &arr[i].width, &arr[i].height);\\n        w += arr[i].width;\\n    }\\n\\n    if (arr[0].height > arr[1].height)\\n    {\\n        ind_h_max_main = 0;\\n        ind_h_max_secondary = 1;\\n    }\\n    else\\n    {\\n        ind_h_max_main = 1;\\n        ind_h_max_secondary = 0;\\n    }\\n\\n    for (i = 2; i < count; i++)\\n    {\\n        if (arr[ind_h_max_secondary].height < arr[i].height)\\n        {\\n            if (arr[ind_h_max_main].height < arr[i].height)\\n            {\\n                ind_h_max_secondary = ind_h_max_main;\\n                ind_h_max_main = i;\\n            }\\n            else\\n                ind_h_max_secondary = i;\\n        }\\n    }\\n\\n    for (i = 0; i < count; i++)\\n    {\\n        w_cur = w - arr[i].width;\\n        if (i == ind_h_max_main)\\n            printf(\\\"%d \\\",w_cur * arr[ind_h_max_secondary].height);\\n        else\\n            printf(\\\"%d \\\",w_cur * arr[ind_h_max_main].height);\\n    }\\n    free(arr);\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1335,
+    "completion_tokens": 463,
+    "total_tokens": 1798,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1335
+  },
+  "raw_sha256": "c409b3f8d77aa392b83247e36d35d019ee0f4f97ed6a108911730a13d9435c8d",
+  "ended_utc": "2026-11-18T10:07:41.233702+00:00",
+  "elapsed_seconds": 3.0387
+}

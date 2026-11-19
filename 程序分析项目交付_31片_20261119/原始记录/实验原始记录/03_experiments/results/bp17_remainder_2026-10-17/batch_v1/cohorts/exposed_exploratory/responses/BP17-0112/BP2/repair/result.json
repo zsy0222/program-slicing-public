@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0112/BP2/repair/1",
+  "case_id": "BP17-0112",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "5e295776f9b58c5e7e79a74012384830d313a6232b6eb36dae67ecd43fb5b450",
+  "started_utc": "2026-10-17T13:40:20.571271+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5aafca8b-fd64-42f9-9dc6-4a235b6a424e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n char a[10][10];\\n int i,j,n,m,c=0;\\n scanf(\\\"%d%d\\\",&n,&m);\\n for(i=0;i<n;i++)\\n {\\n  for(j=0;j<=m;j++)\\n   {\\n     scanf(\\\"%c\\\",&a[i][j]);\\n   }\\n }\\n for(i=0;i<n;i++)\\n {\\n   for(j=0;j<=m;j++)\\n   {\\n    if(a[i][j]=='W')\\n    {\\n     if(i>0 && a[i-1][j]=='P')\\n     {\\n      a[i][j]='k';\\n      a[i-1][j]='k';\\n      c++;\\n     }\\n     else if(i<n-1 && a[i+1][j]=='P')\\n     {\\n      a[i][j]='k';\\n      a[i+1][j]='k';\\n      c++;\\n     }\\n     else if(j>0 && a[i][j-1]=='P')\\n     {\\n      a[i][j]='k';\\n      a[i][j-1]='k';\\n      c++;\\n     }\\n     else if(j<m && a[i][j+1]=='P')\\n     {\\n      a[i][j]='k';\\n      a[i][j+1]='k';\\n      c++;\\n     }\\n    }\\n   }}\\n printf(\\\"%d\\\\n\\\",c);\\n return(0);\\n }\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1762,
+    "completion_tokens": 378,
+    "total_tokens": 2140,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 738
+  },
+  "raw_sha256": "dec2bd30117482f06a40ffc06729c6afbcc6b0b75c22afc34988af91952b864d",
+  "ended_utc": "2026-10-17T13:40:22.690817+00:00",
+  "elapsed_seconds": 2.047
+}

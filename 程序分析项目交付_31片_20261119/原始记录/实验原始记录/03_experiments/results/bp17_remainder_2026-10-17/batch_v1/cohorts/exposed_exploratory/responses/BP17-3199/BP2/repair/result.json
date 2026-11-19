@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3199/BP2/repair/1",
+  "case_id": "BP17-3199",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "cf8f787df62d603dbb67bbb2c4fd3a484a6640d3a1e97b4ce9aeaef80887c30a",
+  "started_utc": "2026-10-21T06:50:48.460201+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "485fa9f0-06a5-40e1-9e2b-2ee633f65c39",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint At_Univer(int *table, int len)\\n{\\n    int i,k=0;\\n    if (*table==1)\\n        k=1;\\n    for(i=1;i<len-1;i++)\\n        if (table[i]==1)\\n\\t    k++;\\n\\telse\\n\\t    if ((table[i-1]==1)&&(table[i+1]==1))\\n\\t        k++;\\n    if (table[len-1]==1)\\n        k++;\\n    return k;\\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int n;\\n    scanf(\\\"%d\\\",&n);\\n    int *table=malloc(n*sizeof(n));\\n    int i,p;\\n    for(i=0;i<n;i++) {\\n        scanf(\\\"%d\\\",&p);\\n\\ttable[i]=p;\\n    }\\n    int k=At_Univer(table,n);\\n    printf(\\\"%d\\\\n\\\",k);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1523,
+    "completion_tokens": 252,
+    "total_tokens": 1775,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 627
+  },
+  "raw_sha256": "3015f3dec0628309baf288070419bf7a0d7cb3571863b2252250679eea71be7b",
+  "ended_utc": "2026-10-21T06:50:49.979140+00:00",
+  "elapsed_seconds": 1.454
+}

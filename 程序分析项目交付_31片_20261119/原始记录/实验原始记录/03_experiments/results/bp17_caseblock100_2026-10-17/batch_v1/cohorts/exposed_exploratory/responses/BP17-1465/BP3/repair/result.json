@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1465/BP3/repair/1",
+  "case_id": "BP17-1465",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "becaf054da508fcaf06b014b837a4d0a506934233a224d05b2fc0dd927ca75e6",
+  "started_utc": "2026-10-17T07:06:49.666683+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5c53012e-9eb0-4efc-98d6-5c000f7dc3cd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#include <ctype.h>\\n#define For(i,n) for(i=0;i<n;i++)\\n#define MAX(x,y) x>y?x:y\\n#define MAXN 111\\n\\nint mov[MAXN][2];\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, j, flag = 1;\\n    int k, a, b;\\n    int x, y, sx = 0, sy = 0;\\n    char s[111];\\n    scanf(\\\"%d%d%s\\\",&x,&y,s);\\n    mov[0][0] = mov[0][1] = 0;\\n    for(i = 0; s[i]; i++)\\n    {\\n        mov[i+1][0] = (s[i]=='U'||s[i]=='D')?0:s[i]=='R'?1:-1;\\n        mov[i+1][1] = (s[i]=='R'||s[i]=='L')?0:s[i]=='U'?1:-1;\\n        sx += mov[i+1][0];\\n        sy += mov[i+1][1];\\n    }\\n    For(i,strlen(s)+1){\\n        x -= mov[i][0];\\n        y -= mov[i][1];\\n        if(sx==0&&sy==0) k = 1;\\n        else if(sx!=0)  k = x/sx;\\n        else k = y/sy;\\n        if(sx*k==x&&sy*k==y&&k>0)\\n        {\\n            printf(\\\"Yes\\\\n\\\");\\n            flag = 0; break;\\n        }\\n    }\\n    if(flag) printf(\\\"No\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1868,
+    "completion_tokens": 422,
+    "total_tokens": 2290,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1868
+  },
+  "raw_sha256": "90f9de3a75f18fde9dd387e59f2d61f7cbacce33c842c7ad507b85f1b50b53af",
+  "ended_utc": "2026-10-17T07:06:51.430426+00:00",
+  "elapsed_seconds": 1.765
+}

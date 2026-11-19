@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3440/BP3/repair/1",
+  "case_id": "BP17-3440",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "2477455a7ef64e17e4e27a7323a9dd922af7dd835448edb1f151ddc7aefa6d2e",
+  "started_utc": "2026-11-16T03:45:30.166006+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d0db5fb6-47bc-4c7d-ac82-c19335ba52aa",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <inttypes.h>\\n#include <math.h>\\nint64_t numOfMatches(int64_t n)\\n{\\n\\tif(n == 2)\\n\\t\\treturn 1;\\n\\tint64_t i, k;\\n\\tfor(i = 0; pow(2, i) <= n; i++);\\n\\tk = pow(2, i - 1);\\n\\treturn k/2 + numOfMatches(n - k/2);\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint64_t n, b, p, tt, tb, tm;\\n\\tscanf(\\\"%\\\"PRId64\\\" %\\\"PRId64\\\" %\\\"PRId64\\\"\\\", &n, &b, &p);\\n\\ttt = n * p;\\n\\ttm = numOfMatches(n);\\n\\ttb = tm * (2 * b + 1);\\n\\tprintf(\\\"%\\\"PRId64\\\" %\\\"PRId64\\\"\\\\n\\\", tb, tt);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1205,
+    "completion_tokens": 248,
+    "total_tokens": 1453,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 309
+  },
+  "raw_sha256": "4cf9f135af847eb7b55620c827a518eb3bd479a8d39b7f809964b90a0d7efa11",
+  "ended_utc": "2026-11-16T03:45:31.781131+00:00",
+  "elapsed_seconds": 1.5545
+}

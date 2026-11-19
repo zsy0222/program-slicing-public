@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0908/BP0/repair/1",
+  "case_id": "BP17-0908",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "a3a721f94749a3d00752cf42dd6b1833c2920bb8a24f3d8fa80d5ae537e87b42",
+  "started_utc": "2026-10-18T12:29:43.768012+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a2956598-61c2-417a-a4c3-754a6f9f3770",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint x[101][101];\\n\\nint main(int argc, char *argv[]) {\\n\\tint i,n,a,b,c;\\n\\tscanf(\\\"%d\\\\n\\\",&n);\\n\\tint s=0;\\n\\tfor (i=0;i<2*n;i+=2) {\\n\\t\\tscanf(\\\"%d %d %d\\\\n\\\",&a,&b,&c);\\n\\t\\tx[a][b]=c;\\n\\t\\tx[b][a]=-c;\\n\\t\\ts+=c;\\n\\t}\\n\\tint z=a;\\n\\tint d=0;\\n\\tdo {\\n\\t\\tif (x[a][b]>0) d+=x[a][b];\\n\\t\\tfor (i=1;i<=n;i++)\\n\\t\\t\\tif (x[a][i]&&i!=b) {\\n\\t\\t\\t\\tb=a;\\n\\t\\t\\t\\ta=i;\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t}\\n\\t} while (a!=z);\\n\\tif (d>s-d) d=s-d;\\n\\tprintf(\\\"%d\\\\n\\\",d);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 997,
+    "completion_tokens": 273,
+    "total_tokens": 1270,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 229
+  },
+  "raw_sha256": "e57312a590e5bb8f5de63f49e8c0ad11fe6c2f92fabaa56f88c8ec28a6a4cce2",
+  "ended_utc": "2026-10-18T12:29:45.607094+00:00",
+  "elapsed_seconds": 1.844
+}

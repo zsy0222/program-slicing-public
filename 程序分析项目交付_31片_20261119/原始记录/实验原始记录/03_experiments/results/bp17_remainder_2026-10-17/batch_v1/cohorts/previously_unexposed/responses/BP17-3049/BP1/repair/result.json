@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3049/BP1/repair/1",
+  "case_id": "BP17-3049",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "b0cf4126a485fd00e750e12695441fa898e33d0c0f04464c5f606ec49bf33e5e",
+  "started_utc": "2026-11-16T17:43:30.493962+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "33dd6c06-fd62-48dc-80df-a670c2037511",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, i, j, r, ans = 0, s = 0;\\n    scanf(\\\"%d\\\", &n);\\n    int arr[n + 1][2];\\n    for (i = 0; i < n; i++)\\n            scanf(\\\"%d %d\\\", &arr[i][0], &arr[i][1]);\\n    arr[n][0] = 0; arr[n][1] = 0;\\n    for (i = 0; i < n + 1; i++)\\n        for (j = 0; j < n + 1 - i - 1; j++)\\n            if (arr[j][0] > arr[j + 1][0])\\n            {\\n                arr[j][0] += arr[j + 1][0];\\n                arr[j + 1][0] = arr[j][0] - arr[j + 1][0];\\n                arr[j][0] = arr[j][0] - arr[j + 1][0];\\n                arr[j][1] += arr[j + 1][1];\\n                arr[j + 1][1] = arr[j][1] - arr[j + 1][1];\\n                arr[j][1] = arr[j][1] - arr[j + 1][1];\\n            }\\n    int arr1[n + 1][2];\\n    for (i = 0; i < n + 1; i++)\\n    {\\n        arr1[i][0] = arr[i][0];\\n        arr1[i][1] = arr[i][1];\\n    }\\n    int g = 0;\\n    for (i = 0; i < n + 1; i++)\\n        if (arr[i][0] == 0)\\n        {\\n            g = i;\\n            break;\\n        }\\n    i = g;\\n    r = 1;\\n    while (i >= 0 && i <= n)\\n        if (arr[i][1] == 0)\\n            i += r;\\n        else\\n        {\\n            s += arr[i][1];\\n            arr[i][1] = 0;\\n            r = -r;\\n        }\\n    ans = s;\\n    i = g;\\n    s = 0;\\n    r = -1;\\n    while (i >= 0 && i <= n)\\n        if (arr1[i][1] == 0)\\n            i += r;\\n        else\\n        {\\n            s += arr1[i][1];\\n            arr1[i][1] = 0;\\n            r = -r;\\n        }\\n    if (s > ans)\\n        ans = s;\\n    printf(\\\"%d\\\", ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1501,
+    "completion_tokens": 662,
+    "total_tokens": 2163,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 221
+  },
+  "raw_sha256": "0e3fe8af421c12b839808e33262134825b62d13df07a9dc2d9dfa406ce408660",
+  "ended_utc": "2026-11-16T17:43:33.723647+00:00",
+  "elapsed_seconds": 3.1237
+}

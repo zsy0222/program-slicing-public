@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3030/BP3/repair/1",
+  "case_id": "BP17-3030",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "74f8da5ea803661d84505a02dd566bf76ed6a1dc4ec1caa1498bfdb68aeab9e0",
+  "started_utc": "2026-11-15T13:04:18.471494+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "81fbac12-2903-4d16-936f-8c993fa52cb4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MOD 1000000007\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, j, N, Num, Sum = 0, Ans = 1;\\n    int C[1001][1001];\\n    for(i = 0; i < 1001; ++i) {\\n        C[i][0] = 1;\\n        C[i][i] = 1;\\n        for(j = 1; j < i; ++j) {\\n            C[i][j] = (C[i - 1][j - 1] + C[i - 1][j]) % MOD;\\n        }\\n    }\\n    scanf(\\\"%d\\\", &N);\\n    for(i = 0; i < N; ++i) {\\n        scanf(\\\"%d\\\", &Num);\\n        Sum += Num;\\n        if(i != 0) {\\n            Ans = (Ans * C[Sum - 1][Num - 1]) % MOD;\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\", Ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1415,
+    "completion_tokens": 261,
+    "total_tokens": 1676,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1415
+  },
+  "raw_sha256": "eaff04857d50c0fa733644595576c8b9e4864d122f768073aed5ceaedfd82808",
+  "ended_utc": "2026-11-15T13:04:20.472194+00:00",
+  "elapsed_seconds": 1.9969
+}

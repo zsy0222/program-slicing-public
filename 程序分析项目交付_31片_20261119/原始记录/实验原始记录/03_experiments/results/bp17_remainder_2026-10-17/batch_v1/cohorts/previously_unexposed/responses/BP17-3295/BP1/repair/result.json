@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3295/BP1/repair/1",
+  "case_id": "BP17-3295",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "26d5a35209dbd0051b9cbb812328b740c7e8e6165a18c251c1698580e69820c9",
+  "started_utc": "2026-11-16T18:14:38.141952+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "17e748b8-94ca-421d-9b19-c0ac84a9b4f6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint a[100005];\\nint b[100005];\\nint main(int argc, char *argv[]){\\n    int n,k,max;\\n    while(scanf(\\\"%d\\\",&n)!=EOF){\\n        max = 0;\\n        memset(b,0,sizeof(b));  \\n        for(int i = 0;i<n;i++){\\n            scanf(\\\"%d\\\",&a[i]);\\n            b[a[i]] = i;    \\n        }\\n        k = 1;\\n        for(int i=1;i<n;i++){\\n            if(b[i+1]>b[i]){\\n                k++;\\n            }\\n            else{\\n                k = 1;\\n            }\\n            if(k>max)\\n                max = k;\\n        }\\n        printf(\\\"%d\\\\n\\\",n-max);\\n    }\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 903,
+    "completion_tokens": 212,
+    "total_tokens": 1115,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 903
+  },
+  "raw_sha256": "6947a0c898aad731c6f84556af919e6851cbb4d77e21f7ce19235f99df2e57de",
+  "ended_utc": "2026-11-16T18:14:40.157186+00:00",
+  "elapsed_seconds": 1.9527
+}

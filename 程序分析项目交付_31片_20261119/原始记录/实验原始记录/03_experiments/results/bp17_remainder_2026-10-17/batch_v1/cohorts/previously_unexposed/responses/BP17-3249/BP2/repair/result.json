@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3249/BP2/repair/1",
+  "case_id": "BP17-3249",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "5eaced095b86fd440ef6fc127b7268db6c109aa68d5644b7b8349be7b783a736",
+  "started_utc": "2026-11-17T01:23:04.998574+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e5244cda-0f55-4cbe-b7d6-60288be31dfb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdint.h>\\n#include <math.h>\\nint pow_2(int p){\\n    int retval=1;\\n    while(p>0){\\n        retval*=2;\\n        p--;\\n    }\\n    return retval;\\n}\\nint main(int argc, char *argv[]){\\n    int t,i,tmp,n;\\n    double lg;\\n    int64_t ans[100];\\n    scanf(\\\"%d\\\",&t);\\n    for(i=0;i<t;i++){\\n        scanf(\\\"%d\\\",&n);\\n        if((n%2)==0){\\n            ans[i]=(n/2);\\n            ans[i]*=(n+1);\\n        }\\n        else{\\n            ans[i]=(n+1)/2;\\n            ans[i]*=n;\\n        }\\n        lg=log2((double)n);\\n        tmp=(int)lg;\\n        tmp=pow_2(tmp+1);\\n        tmp--;\\n        ans[i]=ans[i]-(2*tmp);\\n    }\\n    for(i=0;i<t;i++){\\n        printf(\\\"%lld\\\\n\\\",ans[i]);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1522,
+    "completion_tokens": 287,
+    "total_tokens": 1809,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 498
+  },
+  "raw_sha256": "605633945c1a607ac176690b6a6289a721805e808f2c50b0da0a2f745dec4a67",
+  "ended_utc": "2026-11-17T01:23:07.506657+00:00",
+  "elapsed_seconds": 2.4943
+}

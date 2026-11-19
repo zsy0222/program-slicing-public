@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1469/BP1/repair/1",
+  "case_id": "BP17-1469",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "bd0dc98ba995cd7a52405b61a66e6b74e3365cd58981f3bcad6a82ca2b7b5638",
+  "started_utc": "2026-10-21T07:37:33.782715+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "aafe18e9-1bb6-417d-ba2c-de70d15ef0d7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint arr[6][4];\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,s_x1,s_x2,s_y1,s_y2,i,j;\\n    long int sum;\\n    while(~scanf(\\\"%d\\\",&n))\\n    {\\n        sum=0;\\n        s_x1=99999,s_x2=0,s_y1=99999,s_y2=0;\\n        for(i=0;i<n;i++)\\n        {\\n            for(j=0;j<4;j++)\\n                scanf(\\\"%d\\\",&arr[i][j]);\\n            sum+=(arr[i][2]-arr[i][0])*(arr[i][3]-arr[i][1]);\\n            if(arr[i][0]<s_x1)s_x1=arr[i][0];\\n            if(arr[i][1]<s_y1)s_y1=arr[i][1];\\n            if(arr[i][2]>s_x2)s_x2=arr[i][2];\\n            if(arr[i][3]>s_y2)s_y2=arr[i][3];\\n        }\\n        if(sum!=(s_x2-s_x1)*(s_y2-s_y1)||(((s_y2-s_y1)!=(s_x2-s_x1))))puts(\\\"NO\\\");\\n        else puts(\\\"YES\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1074,
+    "completion_tokens": 323,
+    "total_tokens": 1397,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 178
+  },
+  "raw_sha256": "9f282ce69910196819e209cb97843f6c83d0d7644c8b8d683cfa174ccff777ed",
+  "ended_utc": "2026-10-21T07:37:35.640797+00:00",
+  "elapsed_seconds": 1.844
+}

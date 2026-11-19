@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1296/BP3/repair/1",
+  "case_id": "BP17-1296",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0d7a85cb83f7ca5d47f6b46dfe20a7f97b3980fc83e36e1c67c57526f2613b59",
+  "started_utc": "2026-11-16T04:29:23.811154+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "deeb1f76-986d-4776-9d4d-313001cd3edc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\ntypedef struct {\\n    int x, p;\\n} Pair;\\n\\nPair S[100000], A[100000], B[100000];\\n\\nint compare_val(Pair *a, Pair *b) {\\n    return a->x - b->x;\\n}\\n\\nint compare_pos(Pair *a, Pair *b) {\\n    return a->p - b->p;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int n, i;\\n    scanf(\\\"%d\\\", &n);\\n    for(i = 0; i < n; i++) {\\n        scanf(\\\"%d\\\", &S[i].x);\\n        S[i].p = i;\\n    }\\n    qsort(S, n, sizeof(Pair), compare_val);\\n    for(i = 0; i < n/3; i++) {\\n        A[i].p = B[i].p = S[i].p;\\n        A[i].x = i;\\n        B[i].x = S[i].x - A[i].x;\\n    }\\n    for(i = n/3; i < 2*n/3; i++) {\\n        A[i].p = B[i].p = S[i].p;\\n        B[i].x = i;\\n        A[i].x = S[i].x - B[i].x;\\n    }\\n    for(i = 2*n/3; i < n; i++) {\\n        A[i].p = B[i].p = S[i].p;\\n        B[i].x = n - i - 1;\\n        A[i].x = S[i].x - B[i].x;\\n    }\\n    qsort(A, n, sizeof(Pair), compare_pos);\\n    qsort(B, n, sizeof(Pair), compare_pos);\\n    printf(\\\"YES\\\\n\\\");\\n    for(i = 0; i < n; i++) {\\n        printf(\\\"%d \\\", A[i].x);\\n    }\\n    printf(\\\"\\\\n\\\");\\n    for(i = 0; i < n; i++) {\\n        printf(\\\"%d \\\", B[i].x);\\n    }\\n    printf(\\\"\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1940,
+    "completion_tokens": 530,
+    "total_tokens": 2470,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 788
+  },
+  "raw_sha256": "eb2f97eb4ef7d84547ece1882d8a3f0d65d3073f3d15736cfa58a0475aec950f",
+  "ended_utc": "2026-11-16T04:29:26.736522+00:00",
+  "elapsed_seconds": 2.8685
+}

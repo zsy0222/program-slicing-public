@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1328/BP3/repair/1",
+  "case_id": "BP17-1328",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "7867eb345256a210449f2edd3534fbd25c9890308188b33aa8784ca75ec8bcf3",
+  "started_utc": "2026-11-18T09:32:09.091675+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2c1542cd-a486-4e15-9a88-3b0d95bcbf70",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint dd,mm,yy,arr[]={0,31,29,31,30,31,30,31,31,30,31,30,31};\\nint yer(int d,int m,int y){\\n    if(m>12)\\n    return 0;\\n    if(d>arr[m])\\n    return 0;\\n    if(d==29&&m==2&&y%4!=0)return 0;\\n    if(d+m*30+y*365<=dd+mm*30+yy*365){\\n        printf(\\\"YES\\\\n\\\");\\n        return 1;}\\n    return 0;\\n}\\nint main(int argc, char *argv[]){\\n    int d,m,y;\\n    scanf(\\\"%d.%d.%d\\\",&dd,&mm,&yy);\\n\\t scanf(\\\"%d.%d.%d\\\",&d,&m,&y);\\n    if(yer(d,m,y))\\n    return 0;\\n    if(yer(d,y,m))\\n    return 0;\\n    if(yer(y,d,m))\\n    return 0;\\n    if(yer(y,m,d))\\n    return 0;\\n    if(yer(m,y,d))\\n    return 0;\\n    if(yer(m,d,y))\\n    return 0;\\n    printf(\\\"NO\\\\n\\\");\\n}\\n\\n\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1662,
+    "completion_tokens": 316,
+    "total_tokens": 1978,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1662
+  },
+  "raw_sha256": "787b2be738b81f6ef8f24fb70b4ae6cc0b59e2c1cc8af3a74a2dad1d3f47bf95",
+  "ended_utc": "2026-11-18T09:32:11.262908+00:00",
+  "elapsed_seconds": 2.119
+}

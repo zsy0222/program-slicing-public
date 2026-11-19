@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1979/BP1/repair/1",
+  "case_id": "BP17-1979",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "565004ba4992e2d9c0c93c1f9bbeee6ac50521312948972b17b829e6042ac3f9",
+  "started_utc": "2026-10-18T12:16:15.975109+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "550c5793-bb5c-4883-9044-4479749f7524",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\ntypedef struct sEdge{\\n    int v;\\n    int l;\\n}edge;\\n\\n//acha um tamanho de grafo que comporte 2n+p arestas\\nint min_size_f(int p) {\\n    int size;\\n    for(size=1; ;size++){\\n       if (((size*(size-1))/2)>=(2*size+p))\\n          break;\\n    }\\n    return size;\\n}\\n\\n//gera um grafo, de tamanho minimo, que funciona\\nint gen_graph(edge* graph,int* first_free_pos, int size,int edges_wanted){\\n   int x; int y; \\n   for(x=1; x<=size && *first_free_pos < edges_wanted; x++){\\n       for(y=x;y<=size ; y++){\\n          if(x!=y && *first_free_pos < edges_wanted) {\\n              graph[*first_free_pos].v=x;\\n              graph[*first_free_pos].l=y;\\n              *first_free_pos = *first_free_pos+1;\\n          }\\n       }  \\n   }\\n}\\n\\nvoid print_graph(edge* graph,int first_free_pos){\\n    int x;\\n    for (x=0;x<first_free_pos;x++)\\n\\tprintf(\\\"%d %d\\\\n\\\",graph[x].v,graph[x].l);\\n}\\n/*\\nint main(int argc, char *argv[]){\\n   int p = 2;\\n   int size;\\n   edge graph[625];\\n   int first_free_pos = 0;\\n   size = min_size(p);\\n   gen_graph(graph,&first_free_pos,size,2*size+p);\\n   print_graph(graph,first_free_pos);\\n}\\n*/\\n\\nint main(int argc, char *argv[]) {\\n   int nro_exemplos; \\n   int n; int p;\\n   int min_size;\\n   int edges;\\n   int size;\\n   edge graph[625]; int first_free_pos;\\n   scanf(\\\"%d\\\",&nro_exemplos);\\n   while(nro_exemplos--) {\\n       scanf(\\\"%d\\\",&n);\\n       scanf(\\\"%d\\\",&p);\\n       first_free_pos = 0;\\n       min_size = min_size_f(p);\\n       edges = min_size*2+p;\\n       gen_graph(graph,&first_free_pos,min_size,edges);\\n       for(size = min_size+1;size<=n;size++){\\n          //o novo tamanho tambem eh o numero do novo vertice\\n          graph[first_free_pos].v = size;\\n          graph[first_free_pos++].l = 1;\\n          graph[first_free_pos].v = size;\\n          graph[first_free_pos++].l = 2;\\n       }\\n       print_graph(graph,first_free_pos);\\n   }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2122,
+    "completion_tokens": 659,
+    "total_tokens": 2781,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 202
+  },
+  "raw_sha256": "8c18ce297977805abbe883f615cbf69c99053c1e724e5ed8640574d2ae2e1ee5",
+  "ended_utc": "2026-10-18T12:16:18.224124+00:00",
+  "elapsed_seconds": 2.235
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1492/BP1/repair/1",
+  "case_id": "BP17-1492",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "3f25bdaa2fca60676e1b7ab1c2d1d4dcff5047bfbd64dec380fdb3fdbdb2e3db",
+  "started_utc": "2026-10-17T08:42:48.868394+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "09d43be5-6929-401f-b7f3-e4f43423a7ce",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<math.h>\\n#include<time.h>\\n#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\n#define oo 2100000000\\n#define pi 3.14159265359\\n#define zero(a) (abb(a)<=1e-7)\\n#define lowbit(a) ((a)&(-(a)))\\n#define min(a,b) ((a)<(b)?(a):(b))\\n#define max(a,b) ((a)>(b)?(a):(b))\\n#define abb(a) ((a)>0?(a):(-(a)))\\n#define cj(x1,y1,x2,y2) ((x1)*(y2)-(x2)*(y2))\\n#define dj(x1,y1,x2,y2) ((x1)*(y1)+(y1)*(y2))\\n#define dis(x1,y1,x2,y2) sqrt(((x2)-(x1))*((x2)-(x1))+((y2)-(y1))*((y2)-(y1)))\\n\\nlong a[100002]={0},f[100002]={0};\\n\\nint main(int argc, char *argv[])\\n{\\n   long i,n,s=0,sum=0,ans=0;\\n   scanf(\\\"%ld\\\",&n);\\n   for (i=1;i<=n;i++)\\n   {\\n      scanf(\\\"%ld\\\",&a[i]);\\n      sum+=a[i];\\n   }\\n   for (i=n;i>=1;i--)\\n      f[i]=f[i+1]-a[i];\\n   for (i=n-1;i>=1;i--)\\n      f[i]=max(f[i],f[i+1]);\\n   for (i=1;i<=n+1;i++)\\n   {\\n      ans=max(ans,s+f[i]);\\n      s-=a[i];\\n   }\\n   printf(\\\"%ld\\\\n\\\",sum+2*ans);\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1180,
+    "completion_tokens": 445,
+    "total_tokens": 1625,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 156
+  },
+  "raw_sha256": "fd1034dd3b17743be5569bd8ee13fa5f2f3f4f439ad2736728a88bcbf8e051d6",
+  "ended_utc": "2026-10-17T08:42:50.809390+00:00",
+  "elapsed_seconds": 1.937
+}

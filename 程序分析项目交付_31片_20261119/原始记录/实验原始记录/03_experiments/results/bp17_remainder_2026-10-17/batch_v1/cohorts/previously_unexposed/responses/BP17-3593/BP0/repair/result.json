@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3593/BP0/repair/1",
+  "case_id": "BP17-3593",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "c387e4e7ce8ecacf747d645646ebe785c4e353a3888112296f9ffa8eee1b6c5b",
+  "started_utc": "2026-11-16T05:26:57.197999+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4e6106e4-d588-4090-9e07-eaf449d8a017",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n#include <stdlib.h>\\nint is_prime(int number){\\n    if(number==0||number==1||number<0)return 0;\\n    else if(number==2||number==3||number==5)return 1;\\n    else{\\n        int root,i;\\n        root=sqrt(number);\\n        for(i=2;i<=root;i++){\\n            if((number%i)==0)return 0;\\n        }\\n        return 1;\\n    }\\n    return 0;\\n}\\nvoid brute_force(int* data,int _sz){\\n    int i,j,tmp;\\n    for(i=0;i<_sz;i++){\\n        for(j=i+1;j<_sz;j++){\\n            tmp=data[i]+data[j];\\n            if(is_prime(tmp)==1){\\n                printf(\\\"%d\\\\n%d %d\\\\n\\\",2,data[i],data[j]);\\n                return;\\n            }\\n        }\\n    }\\n    for(i=0;i<_sz;i++){\\n        if(is_prime(data[i])==1){\\n            printf(\\\"%d\\\\n%d\\\\n\\\",1,data[i]);\\n            return;\\n        }\\n    }\\n    printf(\\\"%d\\\",0);\\n    return;\\n}\\nint main(int argc, char *argv[]){\\n    int n,i,ones=0,tmp;\\n    scanf(\\\"%d\\\",&n);\\n    int* data=(int*)malloc(sizeof(int)*n);\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%d\\\",data+i);\\n        if(data[i]==1)ones++;\\n    }\\n    if(ones>1){\\n        for(i=0;i<n;i++){\\n            tmp=data[i]+1;\\n            if(is_prime(tmp)==1&&tmp!=2){\\n                printf(\\\"%d\\\\n\\\",ones+1);\\n                for(i=0;i<ones;i++)printf(\\\"%d \\\",1);\\n                printf(\\\"%d\\\\n\\\",tmp-1);\\n                return 0;\\n            }\\n        }\\n        printf(\\\"%d\\\\n\\\",ones);\\n        for(i=0;i<ones;i++){\\n            printf(\\\"%d \\\",1);\\n        }\\n        return 0;\\n    }\\n    else{\\n        brute_force(data,n);\\n        return 0;\\n    }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1544,
+    "completion_tokens": 555,
+    "total_tokens": 2099,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1544
+  },
+  "raw_sha256": "ba77df932e4b04db0eedd88a4789a654e656512a6f5c14dd8709833e53478063",
+  "ended_utc": "2026-11-16T05:27:00.518734+00:00",
+  "elapsed_seconds": 3.3176
+}

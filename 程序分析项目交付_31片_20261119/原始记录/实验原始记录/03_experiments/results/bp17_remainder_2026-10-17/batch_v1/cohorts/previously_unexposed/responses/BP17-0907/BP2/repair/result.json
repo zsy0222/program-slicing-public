@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0907/BP2/repair/1",
+  "case_id": "BP17-0907",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "c7e5546813d30845374ed2f5174dd9aabdfe195fe1e17cf75eab1f6578c887f7",
+  "started_utc": "2026-10-17T14:05:08.144644+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5f9a3481-486d-4fd1-80d1-4d577a8df85e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"\\n    #include <stdio.h>\\n    int graph[101][101] ={0};\\n    int N;\\n    \\n    \\n    int  DFS(int node){\\n        \\n        int i, j, ans =0, next = -1;    \\n        \\n        int start = node, prev =0;\\n        \\n        while(1){\\n            //printf(\\\"(%d %d)\\\", node, ans);\\n            next = -1;\\n        for(i=1; i<=N; i++){\\n            if(graph[node][i]){\\n                next = i;\\n            }\\n        }\\n        // no incoming node\\n        if(next == -1){\\n            for(j=1; j<=N; j++){\\n                // found outgoing node\\n                if(graph[j][node] && (prev==0 ||(j!=prev))){\\n                    graph[node][j] = graph[j][node];\\n                    graph[j][node] = 0;\\n                    next = j;\\n                    ans+= graph[node][j]; \\n                }\\n            }\\n        }\\n        \\n        prev = node;\\n        node = next;\\n            if(node == start){\\n                break;\\n            }\\n        }\\n        \\n        return ans;\\n    }\\n    \\n    int main(int argc, char *argv[]){\\n        int M, i, T, tc;\\n        \\n        T = 1;\\n        for (tc = 0; tc<T; tc++){\\n            scanf(\\\"%d\\\", &N);\\n            int sum =0;\\n            \\n            for(i=0; i<N; i++){\\n                int v1, v2, w;\\n                scanf(\\\"%d%d%d\\\", &v1, &v2, &w);\\n                \\n                graph[v1][v2] = w;\\n                sum+=w;\\n            }\\n            \\n            int res = DFS(1);\\n            \\n            int ans = res<(sum-res)?res:(sum-res);\\n            printf(\\\"%d\\\\n\\\", ans);\\n        }\\n\\n        return 0;\\n    }\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2132,
+    "completion_tokens": 494,
+    "total_tokens": 2626,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2132
+  },
+  "raw_sha256": "4f130ddb6df0ed3a2f467cd5524a9de2ee7c6a0724744c6c1e14bfe63f026bab",
+  "ended_utc": "2026-10-17T14:05:10.712064+00:00",
+  "elapsed_seconds": 2.516
+}

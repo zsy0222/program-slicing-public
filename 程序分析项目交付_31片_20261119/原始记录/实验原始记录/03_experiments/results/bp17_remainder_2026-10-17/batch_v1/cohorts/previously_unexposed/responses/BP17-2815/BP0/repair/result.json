@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2815/BP0/repair/1",
+  "case_id": "BP17-2815",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "cae676617451937595ee6674fc2c49daa07d647c85ecafd40627ad8375845a34",
+  "started_utc": "2026-11-16T06:22:12.281094+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "31da883d-f26c-4f25-8dc1-68d1a42ec2dc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n\\nint GY(int a, int b)\\n{\\n\\tif(b == 0)\\n\\t\\treturn a;\\n\\tif(a % b == 0)\\n\\t\\treturn b;\\n\\telse\\n\\t\\treturn GY(b, a % b);\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint a, b, c[200], d[200], m, n, x, y, i, j, k, t;\\n\\twhile(scanf(\\\"%d%d\\\", &m, &n) != EOF)\\n\\t{\\n\\t\\tmemset(c, 0, sizeof(c));\\n\\t\\tmemset(d, 0, sizeof(d));\\n\\t\\tscanf(\\\"%d\\\", &a);\\n\\t\\tfor(i = 0; i < a; i++)\\n\\t\\t{\\n\\t\\t\\tscanf(\\\"%d\\\", &k);\\n\\t\\t\\tc[k] = 1;\\n\\t\\t}\\n\\t\\tscanf(\\\"%d\\\", &b);\\n\\t\\tfor(i = 0; i < b; i++)\\n\\t\\t{\\n\\t\\t\\tscanf(\\\"%d\\\", &k);\\n\\t\\t\\td[k] = 1;\\n\\t\\t}\\n\\t\\tif(m > n)\\n\\t\\t{\\n\\t\\t\\tk = GY(m, n);\\n\\t\\t\\tt = m - n;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tk = GY(n, m);\\n\\t\\t\\tt = n - m;\\n\\t\\t}\\n\\t\\tif(k > t)\\n\\t\\t\\tk = GY(k, t);\\n\\t\\telse\\n\\t\\t\\tk = GY(t, k);\\n\\t\\ty = 1;\\n\\t\\tfor(i = 0; i < k; i++)\\n\\t\\t{\\n\\t\\t\\tx = 0;\\n\\t\\t\\tfor(j = 0; j + i < m || j + i < n; j += k)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(j + i < m)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif(c[j + i] == 1)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tx = 1;\\n\\t\\t\\t\\t\\t\\tbreak;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tif(j + i < n)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif(d[j + i] == 1)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tx = 1;\\n\\t\\t\\t\\t\\t\\tbreak;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\tif(x == 0)\\n\\t\\t\\t{\\n\\t\\t\\t\\ty = 0;\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif(y == 1)\\n\\t\\t\\tprintf(\\\"Yes\\\\n\\\");\\n\\t\\telse\\n\\t\\t\\tprintf(\\\"No\\\\n\\\");\\n\\t} \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1627,
+    "completion_tokens": 718,
+    "total_tokens": 2345,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 219
+  },
+  "raw_sha256": "06b3416a74cfa061ce2468f0a7693eb83535e7a6821860b4a9241f2ed3496688",
+  "ended_utc": "2026-11-16T06:22:15.689871+00:00",
+  "elapsed_seconds": 3.3351
+}

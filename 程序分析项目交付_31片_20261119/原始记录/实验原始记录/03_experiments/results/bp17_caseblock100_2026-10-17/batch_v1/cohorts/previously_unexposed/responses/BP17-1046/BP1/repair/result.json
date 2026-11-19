@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1046/BP1/repair/1",
+  "case_id": "BP17-1046",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "debe09a243ea8453367c209b1b44dd083de77693d4f9e52cec46a1b1cf009b31",
+  "started_utc": "2026-10-17T07:15:58.109675+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9d7fcc69-3116-47c1-9acd-af1697948e24",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\ndouble F[51][51][51];\\nint size[51];\\ndouble tot=0;\\nint N,P;\\nvoid init();\\nvoid dpit();\\nint main(int argc, char *argv[])\\n{\\n    init();\\n    dpit();\\n    return 0;\\n}\\nvoid init()\\n{\\n    int i;\\n    scanf(\\\"%d\\\",&N);\\n    for(i=1;i<=N;i++)\\n    {\\n        scanf(\\\"%d\\\",&size[i]);\\n        tot+=size[i];\\n    }\\n    scanf(\\\"%d\\\",&P);\\n}\\nvoid dpit()\\n{\\n    int i,j,k,v;\\n    double ave=0,tp=0,t;\\n    if(tot<=P){\\n    printf(\\\"%.10lf\\\\n\\\",(double)N);\\n    return;\\n    }\\n    else {\\n    for(i=0;i<=N;i++)\\n    F[i][0][0]=1;\\n    for(k=1;k<=N;k++)\\n    {\\n        for(i=k-1;i<=N;i++)\\n        if(i==k)\\n        {\\n            for(j=1;j<=N;j++)\\n            for(v=1;v<=P;v++)\\n            F[i][j][v]=F[i-1][j][v];\\n        }else if(i>0)\\n        for(j=1;j<=N;j++)\\n        for(v=1;v<=P;v++)\\n        if(v<size[i])F[i][j][v]=F[i-1][j][v];\\n        else F[i][j][v]=F[i-1][j][v]+F[i-1][j-1][v-size[i]];\\n\\n        for(j=1,tp=0;j<=N;j++)\\n        for(v=P-size[k]+1;v<=P;v++,ave+=tp,tp=0)\\n        if(F[N][j][v])\\n        {\\n            tp=F[N][j][v]*j;\\n            t=N;\\n            for(i=j;i>=1;i--,t--)\\n            tp=tp*i/t;\\n            for(i=N-j-1;i>=1;i--,t--)\\n            tp=tp*i/t;\\n        }\\n    }\\n    printf(\\\"%.10lf\\\\n\\\",ave);\\n    }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1421,
+    "completion_tokens": 561,
+    "total_tokens": 1982,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1421
+  },
+  "raw_sha256": "43ceac51fa1748f4b7781865ce678202428081f83f2bc376f8d8ef7534c7082d",
+  "ended_utc": "2026-10-17T07:16:00.241982+00:00",
+  "elapsed_seconds": 2.125
+}

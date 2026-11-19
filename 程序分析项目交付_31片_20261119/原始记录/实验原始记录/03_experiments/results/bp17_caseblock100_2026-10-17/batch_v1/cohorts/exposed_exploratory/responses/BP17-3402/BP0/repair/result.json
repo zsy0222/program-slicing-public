@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3402/BP0/repair/1",
+  "case_id": "BP17-3402",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "4d005b0f84322467ab246e43ccdecf80de50b3f45ff95fdc8c496e07c68b85e3",
+  "started_utc": "2026-10-17T07:05:54.178606+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f0fbc858-da9d-4887-a872-e1a40a14197e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n\\tchar vertice[500];\\n\\tint edge[500][500];\\n\\tint m,n,i,j,x,y;\\n\\tint judge=1;\\n\\t\\n\\t\\n\\tscanf(\\\"%d%d\\\",&n,&m);\\n\\tfor(i=0;i<n;i++)\\n\\t vertice[i]='b';\\n\\tfor(i=0;i<n;i++)\\n\\t for(j=0;j<n;j++)\\n\\t  edge[i][j]=0;\\n\\tfor(i=0;i<n;i++)\\n\\t edge[i][i]=1;\\n\\tfor(i=0;i<m;i++)\\n\\t {\\n\\t \\tscanf(\\\"%d%d\\\",&x,&y);\\n\\t \\tedge[x-1][y-1]=1;\\n\\t \\tedge[y-1][x-1]=1;\\n\\t }\\n\\t for(i=0;i<n;i++)\\n\\t  for(j=i;j<n;j++)\\n\\t   {\\n\\t   \\tif(edge[i][j]==0&&vertice[i]=='b')\\n\\t   \\t{\\n\\t   \\t\\tvertice[i]='a';\\n\\t   \\t\\tvertice[j]='c';\\n\\t   \\t}\\n\\t   \\telse if(edge[i][j]==0&&vertice[i]=='a')\\n\\t   \\t{\\n\\t   \\t\\tvertice[j]='c';\\n\\t   \\t}\\n\\t   \\telse if(edge[i][j]==0&&vertice[i]=='c')\\n\\t   \\t{\\n\\t   \\t\\tvertice[j]='a';\\n\\t   \\t}\\n\\t   }\\n\\tfor(i=0;i<n;i++)\\n\\t{\\n\\t\\tif(vertice[i]=='a')\\n\\t\\t{ \\n\\t\\t\\tfor(j=i;j<n;j++)\\n\\t\\t\\t\\t  {\\n\\t\\t\\t\\t  \\tif(vertice[j]=='a'&&edge[i][j]==0)\\n\\t\\t\\t\\t  \\t {\\n\\t\\t\\t\\t  \\t \\tprintf(\\\"No\\\\n\\\");\\n\\t\\t\\t\\t  \\t \\treturn 0;\\n\\t\\t\\t\\t  \\t }\\n\\t\\t\\t\\t  }\\n\\t\\t\\tfor(j=i;j<n;j++)\\n\\t\\t\\t{ \\n\\t\\t\\t\\t\\tif(vertice[j]=='c'&&edge[i][j]==1)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tprintf(\\\"No\\\\n\\\");\\n\\t\\t\\t\\t\\t\\treturn 0;\\n\\t\\t\\t\\t\\t} \\n\\t\\t\\t}\\n\\t\\t}\\n    }\\n\\tif(judge==0)printf(\\\"No\\\\n\\\");\\n\\t\\n\\telse \\n\\t{\\n\\t  \\tprintf(\\\"Yes\\\\n\\\");\\n  \\t\\tfor(i=0;i<n;i++)\\n\\t\\t{\\n\\t\\tprintf(\\\"%c\\\",vertice[i]);\\n\\t\\t}\\t\\n\\t}\\n\\t \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1567,
+    "completion_tokens": 713,
+    "total_tokens": 2280,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1567
+  },
+  "raw_sha256": "c0c39ffe79574e0cd023fea7e243ea8bdbf3b0761e651b0d03986d9b45cc660a",
+  "ended_utc": "2026-10-17T07:05:56.963703+00:00",
+  "elapsed_seconds": 2.75
+}

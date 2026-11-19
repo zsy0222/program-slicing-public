@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3781/BP2/repair/1",
+  "case_id": "BP17-3781",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "474254ef8b6c5a9bc9ce6100ff2b041b7d34e12f138161f69429dac5babd03c1",
+  "started_utc": "2026-11-16T18:16:35.298902+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f6f3c18d-dd78-4bff-8024-c41ee53993a0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tchar buf[64];\\n\\tint N;\\n\\tint i;\\n\\tint x, y;\\n\\tlong long sum_x=0, sum_y=0, sum_x2=0, sum_y2=0;\\n\\tint n;\\n\\n\\tfgets(buf, sizeof(buf), stdin);\\n\\tsscanf(buf, \\\"%d\\\\n\\\", &N);\\n\\n\\tfor (i = 0; i < N; i++) {\\n\\t\\tfgets(buf, sizeof(buf), stdin);\\n\\t\\tn = sscanf(buf, \\\"%d %d\\\\n\\\", &x, &y);\\n\\n\\t\\tsum_x += x;\\n\\t\\tsum_x2 += x*x;\\n\\t\\tsum_y += y;\\n\\t\\tsum_y2 += y*y;\\n\\t}\\n\\n\\tprintf(\\\"%lld\\\\n\\\", N * sum_x2 - sum_x * sum_x + N * sum_y2 - sum_y * sum_y);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1203,
+    "completion_tokens": 252,
+    "total_tokens": 1455,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 307
+  },
+  "raw_sha256": "341e08e460248eaefc6a1dfc102b2bd9db0b4917a73a0224275c2b23d64910f7",
+  "ended_utc": "2026-11-16T18:16:37.239112+00:00",
+  "elapsed_seconds": 1.8783
+}

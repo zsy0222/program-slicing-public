@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0853/BP0/repair/1",
+  "case_id": "BP17-0853",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "cb7a323dad832b64c4c3441d91e98beffc7521eab30c79bf51ddf5ed8dbee21f",
+  "started_utc": "2026-11-16T17:31:02.660206+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "515030e7-ad53-411e-a403-33cc034db583",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nstruct dragonknowledge\\n{\\n\\n    int dragonstrength;\\n    int dragonbonus;\\n};\\n\\ntypedef struct dragonknowledge strct;\\n\\nvoid sort(int n,strct D[])\\n{\\n    int i,j;\\n    for(j=n; j>1; j--)\\n    {\\n        for(i=0; i<n-1; i++)\\n        {\\n            if(D[i].dragonstrength>D[i+1].dragonstrength)\\n            {\\n                strct temp;\\n\\n                temp=D[i+1];\\n                D[i+1]=D[i];\\n                D[i]=temp;\\n\\n            }\\n        }\\n    }\\n}\\nint main(int argc, char *argv[])\\n{\\n    int a,n,i;\\n    scanf(\\\"%d %d\\\",&a,&n);\\n    strct D[n];\\n    for(i=0; i<n; i++)\\n    {\\n        scanf(\\\"%d %d\\\",&D[i].dragonstrength,&D[i].dragonbonus);\\n    }\\n    sort(n,D);\\n    for(i=0; i<n; i++)\\n    {\\n        if(a-D[i].dragonstrength<=0)\\n        {\\n            printf(\\\"NO\\\\n\\\");\\n            break;\\n        }\\n        else a=a+D[i].dragonbonus;\\n    }\\n    if(i==n)printf(\\\"YES\\\\n\\\");\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1066,
+    "completion_tokens": 355,
+    "total_tokens": 1421,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 170
+  },
+  "raw_sha256": "badb4666dd076309660763c0ff3f5658778e4bf9ace5e06c01b5b63dd8e685e9",
+  "ended_utc": "2026-11-16T17:31:05.043974+00:00",
+  "elapsed_seconds": 2.3139
+}

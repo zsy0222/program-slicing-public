@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2563/BP1/repair/1",
+  "case_id": "BP17-2563",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "8dc0af64b77cbe7d6c39166865979485024b47e48d0dfcf354e042ee80d7b27f",
+  "started_utc": "2026-11-16T05:14:22.831168+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1f3919e0-8486-49b3-9279-680f4ee81539",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#include<limits.h>\\n\\nlong long int c1,c2,x,y;\\n\\nlong long int check(long long int a)\\n{\\n\\treturn (((a-a/x >= c1) && (a-a/y >= c2)) && (a-a/(x*y) >= c1+c2));\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tscanf(\\\"%lld %lld %lld %lld\\\",&c1,&c2,&x,&y);\\n\\tlong long int high=1000000000000000000LL,low=0,mid;\\n\\twhile(high>low)\\n\\t{\\n\\t\\tmid = high+low;\\n\\t\\tmid /= 2;\\n\\t\\tif(check(mid))\\n\\t\\t\\thigh = mid;\\n\\t\\telse\\n\\t\\t\\tlow = mid+1;\\n\\t}\\n\\tprintf(\\\"%lld\\\\n\\\",high);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 969,
+    "completion_tokens": 239,
+    "total_tokens": 1208,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 201
+  },
+  "raw_sha256": "0d68db9cabf90e2b690c1ec65902fa3902624dbb325ba0cdee6fc50abb834574",
+  "ended_utc": "2026-11-16T05:14:24.842042+00:00",
+  "elapsed_seconds": 2.0085
+}

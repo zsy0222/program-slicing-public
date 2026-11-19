@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-1465",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#include <ctype.h>\\n#define For(i,n) for(i=0;i<n;i++)\\n#define MAX(x,y) x>y?x:y\\n#define MAXN 111\\n\\nint mov[MAXN][2];\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, j, flag = 1;\\n    int k, a, b;\\n    int x, y, sx = 0, sy = 0;\\n    char s[111];\\n    scanf(\\\"%d%d%s\\\",&x,&y,s);\\n    mov[0][0] = mov[0][1] = 0;\\n    for(i = 0; s[i]; i++)\\n    {\\n        mov[i+1][0] = (s[i]=='U'||s[i]=='D')?0:s[i]=='R'?1:-1;\\n        mov[i+1][1] = (s[i]=='R'||s[i]=='L')?0:s[i]=='U'?1:-1;\\n        sx += mov[i+1][0];\\n        sy += mov[i+1][1];\\n    }\\n    For(i,strlen(s)+1){\\n        x -= mov[i][0];\\n        y -= mov[i][1];\\n        if(sx==0&&sy==0) k = 1;\\n        else if(sx!=0)  k = x/sx;\\n        else k = y/sy;\\n        if(sx*k==x&&sy*k==y&&k>0)\\n        {\\n            printf(\\\"Yes\\\\n\\\");\\n            flag = 0; break;\\n        }\\n    }\\n    if(flag) printf(\\\"No\\\\n\\\");\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 1.969,
+  "ended_utc": "2026-10-17T07:06:59.991526+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1465/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "708b1ada59dded1caa24e9344f0e1aff2b981eb975e026ada4e8b1774622552e",
+  "request_model": "deepseek-flash",
+  "request_sha256": "0f6ae7bb9b9b7647bb8324b3499a876206f1f4d6ddb74fb6c24a90acc724994e",
+  "response_id": "64a6de15-b4a0-453b-9e21-544979f2ea8f",
+  "started_utc": "2026-10-17T07:06:58.021053+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 422,
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 222,
+    "prompt_tokens": 1118,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "total_tokens": 1540
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0581/BP3/repair/1",
+  "case_id": "BP17-0581",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "f6220935779c6b21a7eb775b95e58f3056e2f22a6fcef5de7b49ecb5e89e10fe",
+  "started_utc": "2026-11-16T05:30:32.146067+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5506f540-a310-43e4-aa9d-60c99e163e7a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\n        int l,i,j,f,l1,A[500000],sum=0;\\n        char a[500000];\\n        scanf(\\\"%s\\\",a);\\n        l1=strlen(a);\\n        sum=0;l=0;\\n        for(i=0;i<l1;i++)\\n        {\\n                if(a[i]=='.')\\n                {\\n                        A[l++]=sum;\\n                        sum=0;\\n                }\\n                else\\n                        sum++;\\n        }\\n        A[l++]=sum;f=0;\\n        if(A[0]>8 || A[0]<1)\\n        {\\n                f=1;\\n        }\\n        if(A[l-1]>3 || A[l-1]<1)\\n        {\\n                f=1;\\n        }\\n        for(i=1;i<l-1;i++)\\n                if(A[i]>11 || A[i]<2)\\n                        f=1;\\n        if(l<=1)\\n                f=1;\\n        sum=0;\\n        if(f==1)\\n                printf(\\\"NO\\\\n\\\");\\n        else\\n        {\\n                printf(\\\"YES\\\\n\\\");\\n                for(i=0;i<l;i++)\\n                {\\n                        if(i==0)\\n                        {\\n                                for(j=0;j<A[0];j++)\\n                                        printf(\\\"%c\\\",a[j]);\\n                                sum+=A[0];\\n                        }\\n                        else if(i==(l-1))\\n                        {\\n                                sum++;\\n                                printf(\\\".\\\");\\n                                for(j=sum;j<sum+A[i];j++)\\n                                        printf(\\\"%c\\\",a[j]);\\n                                printf(\\\"\\\\n\\\");\\n                        }\\n                        else\\n                        {\\n                                sum++;\\n                                printf(\\\".\\\");\\n                                if(A[i]>3)\\n                                {\\n                                        for(j=sum;j<sum+3;j++)\\n                                                printf(\\\"%c\\\",a[j]);\\n                                        printf(\\\"\\\\n\\\");\\n                                        for(;j<sum+A[i];j++)\\n                                                printf(\\\"%c\\\",a[j]);\\n                                }\\n                                else\\n                                {\\n                                        for(j=sum;j<sum+A[i];j++)\\n                                                printf(\\\"%c\\\",a[j]);\\n                                        printf(\\\"\\\\n\\\");\\n                                }\\n                                sum+=A[i];\\n                        }\\n                }\\n        }\\n        return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2788,
+    "completion_tokens": 586,
+    "total_tokens": 3374,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 1124
+  },
+  "raw_sha256": "a4fa4d029758e3cbae4b472eaf226181d46b644e96d504d513a9a981bf16aa72",
+  "ended_utc": "2026-11-16T05:30:34.855154+00:00",
+  "elapsed_seconds": 2.7059
+}

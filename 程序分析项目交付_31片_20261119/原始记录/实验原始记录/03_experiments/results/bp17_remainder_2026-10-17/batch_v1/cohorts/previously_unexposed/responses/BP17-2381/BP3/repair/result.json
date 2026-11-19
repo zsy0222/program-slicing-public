@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2381/BP3/repair/1",
+  "case_id": "BP17-2381",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "3374279a87d475d716c56e0fe131f83417594631a3944107019ed20eba95df57",
+  "started_utc": "2026-11-16T04:05:21.551363+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2ce67ccb-d3bf-4991-a45c-f3474a064370",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nlong ll[10000]={0},rr[10000]={0},hash[200000]={0};\\nint main(int argc, char *argv[])\\n{\\n    long L,b,f,n,i,j,tot=0,st,flag,o,sum,w,op,ask;\\n    scanf(\\\"%ld %ld %ld\\\\n\\\",&L,&b,&f);\\n    scanf(\\\"%ld\\\\n\\\",&n);\\n    for(i=1;i<=n;i++)\\n    {\\n        scanf(\\\"%ld %ld\\\\n\\\",&ask,&op);\\n        if(ask==1)\\n        {\\n            tot++;\\n            st=1; flag=0;\\n            while(1)\\n            {\\n                o=st;\\n                for(st++;st<=L;st++)\\n                    if(hash[st]!=hash[st-1])\\n                        break;\\n                if(hash[o]==0)\\n                {\\n                    sum=(st<=L?f:0);\\n                    w=(o>1?b:0);\\n                    if(sum+w+op<=st-o)\\n                    {\\n                        printf(\\\"%ld\\\\n\\\",o+w-1);\\n                        for(j=0;j<op;j++)\\n                            hash[j+o+w]=1;\\n                        ll[tot]=o+w; rr[tot]=o+w+op-1;\\n                        flag=1;\\n                        break;\\n                    }\\n                }\\n                if(st==L+1)\\n                    break;\\n            }\\n            if(!flag)\\n                printf(\\\"-1\\\\n\\\");\\n        }\\n        else\\n            for(j=ll[op];j<=rr[op];j++)\\n                hash[j]=0;\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1875,
+    "completion_tokens": 417,
+    "total_tokens": 2292,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 851
+  },
+  "raw_sha256": "f68cadcfcb40cce1bd9ea321f7b73485a83833f43c8517f23ad1de6b430fd00e",
+  "ended_utc": "2026-11-16T04:05:23.857245+00:00",
+  "elapsed_seconds": 2.3042
+}

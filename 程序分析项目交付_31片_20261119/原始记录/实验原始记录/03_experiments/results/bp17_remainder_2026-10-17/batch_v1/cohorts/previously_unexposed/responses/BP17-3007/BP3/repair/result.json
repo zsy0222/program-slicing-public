@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3007/BP3/repair/1",
+  "case_id": "BP17-3007",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "475a4da2e2013903eb6f7332079834ee1af903e382b62f9f97e93f2ba6bf9ae6",
+  "started_utc": "2026-11-18T09:52:55.646743+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2c99eaab-398b-47ff-bcd9-efbf9b53dddd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint comp(const void*a,const void *b);\\nvoid dfs(int min,int max,int sum,int k);\\nint n,l,r,x;\\nint ans=0;\\nint pro[100000];\\nint main(int argc, char *argv[]){\\n    scanf(\\\"%d%d%d%d\\\",&n,&l,&r,&x);\\n    int i,j;\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&pro[i]);\\n    qsort((void*)pro,i,sizeof(int),comp);\\n    for(i=0;i<n;i++){\\n        for(j=i+1;j<n;j++){\\n            dfs(pro[i],pro[j],pro[i]+pro[j],j+1);\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",ans);\\n    return 0;\\n}\\nint comp(const void*a,const void *b){\\n    return *(int*)a>*(int*)b?1:-1;\\n}\\nvoid dfs(int min,int max,int sum,int k){\\n    if(sum>r)\\n        return;\\n    int i;\\n    if(sum>=l&&sum<=r&&max-min>=x)\\n        ans++;\\n    for(i=k;i<n;i++)\\n        dfs(min,pro[i],sum+pro[i],i+1);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1703,
+    "completion_tokens": 311,
+    "total_tokens": 2014,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 679
+  },
+  "raw_sha256": "4c2ba355ba3903bead3966b29464e481c46f662e61559c51b82ea5491f1cfe33",
+  "ended_utc": "2026-11-18T09:52:57.958268+00:00",
+  "elapsed_seconds": 2.3082
+}

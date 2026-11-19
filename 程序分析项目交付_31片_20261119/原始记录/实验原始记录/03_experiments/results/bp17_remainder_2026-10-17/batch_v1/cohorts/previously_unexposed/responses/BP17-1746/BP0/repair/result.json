@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1746/BP0/repair/1",
+  "case_id": "BP17-1746",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "15ec55acc8ad770e8703be4430aab62439d9edf75414ad0caa245c823b64e0e4",
+  "started_utc": "2026-10-21T06:38:08.664264+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4b048bc5-44dc-4b66-878f-a68c98ef0de7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint partition(int* ara,int s,int e)\\n{\\n    int pivot=ara[e],t;\\n    int partition_index=s;\\n    int i;\\n    for(i=s;i<e;i++){\\n        if(ara[i]<=pivot){\\n            t=ara[i];\\n            ara[i]=ara[partition_index];\\n            ara[partition_index]=t;\\n            partition_index++;\\n        }\\n    }\\n    t=ara[partition_index];\\n    ara[partition_index]=ara[e];\\n    ara[e]=t;\\n    return partition_index;\\n}\\nvoid quick_sort(int* ara,int s,int e)\\n{\\n    int partition_index;\\n    if(s<e){\\n        partition_index=partition(ara,s,e);\\n        quick_sort(ara,s,partition_index-1);\\n        quick_sort(ara,partition_index+1,e);\\n\\n    }\\n}\\nint main(int argc, char *argv[])\\n{\\n    int i,n,m,d,cost,profit,sum,ara[101];\\n    scanf(\\\"%d%d\\\",&n,&d);\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%d\\\",&cost);\\n        ara[i]=cost;\\n    }\\n    scanf(\\\"%d\\\",&m);\\n    if(m>n){\\n        sum=0;\\n        for(i=0;i<n;i++){\\n           sum+=ara[i];\\n        }\\n        profit=sum-(d*(m-n));\\n        printf(\\\"%d\\\",profit);\\n    }\\n    else{\\n        quick_sort(ara,0,n-1);\\n        sum=0;\\n        for(i=0;i<m;i++){\\n            sum+=ara[i];\\n        }\\n        printf(\\\"%d\\\",sum);\\n    }\\n    return 0;\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1316,
+    "completion_tokens": 431,
+    "total_tokens": 1747,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1316
+  },
+  "raw_sha256": "25b929f7606b1cc552021c6de87d50049955565a7da9f04be0e59735a6c7486e",
+  "ended_utc": "2026-10-21T06:38:10.472412+00:00",
+  "elapsed_seconds": 1.797
+}

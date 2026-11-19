@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0073/BP2/repair/1",
+  "case_id": "BP17-0073",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "227916471e93d502863a64b8423b6bbe5dff296817585022ad5b2422ad3fe99a",
+  "started_utc": "2026-10-18T13:58:04.043754+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dfe3dcef-3f47-47ae-991f-8011d6b14b79",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, d;\\n\\tint i, *b;\\n\\tint cnt = 0;\\n\\t\\n\\tscanf(\\\"%d%d\\\", &n, &d);\\n\\tb = malloc(sizeof(int) * n);\\n\\tfor (i = 0; i < n; i++)\\n\\t\\tscanf(\\\"%d\\\", &b[i]);\\n\\tfor (i = 1; i < n; i++)\\n\\t\\tif (b[i - 1] >= b[i]) {\\n\\t\\t\\tcnt += (b[i - 1] - b[i]) / d + 1;\\n#if 0\\n\\t\\t\\tb[i] += d * ((b[i - 1] - b[i]) / d + 1);\\n#else\\n\\t\\t\\tb[i] += d * ((b[i - 1] - b[i]) / d + 1);\\n#endif\\n\\t\\t}\\n\\tprintf(\\\"%d\\\\n\\\", cnt);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1263,
+    "completion_tokens": 257,
+    "total_tokens": 1520,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 367
+  },
+  "raw_sha256": "84cb30dea4a6ff25c2014acfc595c38bc40d6262c01498a9f2dde13e2b2aa97b",
+  "ended_utc": "2026-10-18T13:58:05.953596+00:00",
+  "elapsed_seconds": 1.688
+}

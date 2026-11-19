@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-0555",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint isPrime(int num){\\n\\n    int i ;\\n    if (num==1){\\n        return 0;\\n    }\\n    for (i=sqrt(num);i>1;i--)\\n        if (num%i==0)\\n            return 0;\\n    return 1;\\n\\n}\\n\\nint printPrimes(int A[],int n){\\n\\n    int i=0 , j=2 , z=0;\\n    while (j<n){\\n\\n        if(isPrime(j)==1){\\n            A[z]=j;\\n            z++;\\n            i++;\\n        }\\n        j++;\\n\\n    }\\n    return z ;\\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int i,j=0,n,k,h,g;\\n    int A[1000];\\n    int z;\\n    scanf(\\\"%d %d\\\",&n,&k);\\n    z=printPrimes(A,n);\\n    for(i=z;i>=0;i--){\\n            for(h=i-2;h>=0;h--){\\n                if(A[i-1]==A[h]+A[h-1]+1){\\n                    j++;\\n                }\\n\\n            }\\n    }\\n    if (j>=k){\\n        printf(\\\"YES\\\");\\n    }\\n    else\\n        printf(\\\"NO\\\");\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 1.609,
+  "ended_utc": "2026-10-17T07:06:18.997582+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0555/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "929092397c710af6d29b5cccecefb39b35946f09e24394c79cdea7903ea938e8",
+  "request_model": "deepseek-flash",
+  "request_sha256": "1d592d958ee67f5133669f05a7b761e99afa002b9954a39feaecbbf3ede4ef12",
+  "response_id": "1a45d097-dce8-427c-814b-6a3a101d8aec",
+  "started_utc": "2026-10-17T07:06:17.349135+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 338,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1907,
+    "prompt_tokens": 1907,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2245
+  }
+}

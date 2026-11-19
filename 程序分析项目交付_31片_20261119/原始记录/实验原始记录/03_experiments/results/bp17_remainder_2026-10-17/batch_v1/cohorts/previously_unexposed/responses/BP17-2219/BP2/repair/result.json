@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2219/BP2/repair/1",
+  "case_id": "BP17-2219",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "021b11eace4d8aa6a0b71d8980a007b1828d8317f303fa05b2e7ce0f449d3c02",
+  "started_utc": "2026-11-16T17:49:35.227544+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b3ff07a2-3be3-4b35-b43d-cc74d7dd344a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nlong long getMin(long long a,long long b)\\n{\\n    if(a>b)\\n        return b;\\n    return a;\\n}\\nlong long f(long long index ,int m,int b[],int n,int a[])\\n{\\n    int i;\\n    long long ans=0;\\n    for(i=0;i<m;i++)\\n    {\\n        if(index<b[i])\\n        {\\n            ans+=abs(index-b[i]);\\n        }\\n\\n    }\\n    for(i=0;i<n;i++)\\n    {\\n        if(a[i]<index)\\n        {\\n            ans+=abs(index-a[i]);\\n        }\\n\\n    }\\n\\n    return ans;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,m;\\n    scanf(\\\"%d%d\\\",&n,&m);\\n    int a[n];\\n    int b[m];\\n\\n    int i;\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d\\\",&a[i]);\\n    }\\n\\n    for(i=0;i<m;i++)\\n    {\\n        scanf(\\\"%d\\\",&b[i]);\\n    }\\n\\n\\n    long long left = 1;\\n    long long right = 1000000000;\\n\\n    while(right-left>3)\\n    {\\n        long long m1 = left+(right-left)/3;\\n        long long m2 = left+2*(right-left)/3;\\n\\n\\n        if(f(m1,m,b,n,a)<f(m2,m,b,n,a))\\n        {\\n            right = m2;\\n        }else\\n        {\\n            left = m1;\\n        }\\n    }\\n\\n    long long ans = getMin(f(left,m,b,n,a),getMin(f(right,m,b,n,a),f(left+1,m,b,n,a)));\\n    if(left+2<=right)\\n    {\\n        long long t = f(left+2,m,b,n,a);\\n        if(t<ans) ans=t;\\n    }\\n    if(left+3<=right)\\n    {\\n        long long t = f(left+3,m,b,n,a);\\n        if(t<ans) ans=t;\\n    }\\n\\n\\n   printf(\\\"%lld\\\\n\\\",ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2150,
+    "completion_tokens": 544,
+    "total_tokens": 2694,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2150
+  },
+  "raw_sha256": "a02f84d0a5c79b758bde35c0aa92ff80dd285e9161efa8bb128d9dfb4e67981e",
+  "ended_utc": "2026-11-16T17:49:38.283263+00:00",
+  "elapsed_seconds": 3.0537
+}

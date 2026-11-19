@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2020/BP1/repair/1",
+  "case_id": "BP17-2020",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "66ee682384837e330c5c0f81c8523b37cbc6f6b902d05a0c991eb87586784363",
+  "started_utc": "2026-11-16T04:06:07.570518+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "884f972d-501d-4c1e-9eaa-b935e6a8cfc3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include<string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n   char s1[1002];\\n   char s2[1002];\\n   gets(s1);\\n   gets(s2);\\n   int t1[26];\\n   int t2[26];\\n\\n   int i,x;\\n   for(i=0;i<26;i++)\\n   {\\n       t1[i]=0;\\n       t2[i]=0;\\n   }\\n   for(i=0;i<strlen(s1);i++)\\n   {\\n       t1[s1[i]-97]++;\\n\\n   }\\n   for(i=0;i<strlen(s2);i++)\\n   {\\n       t2[s2[i]-97]++;\\n\\n   }\\n\\n x=0;\\n    for(i=0;i<26;i++)\\n    {\\n        if((t1[i]==0)&&(t2[i]>0))\\n        {\\n            printf(\\\"%d\\\",-1);\\n            return 0;\\n        }\\n        if(t1[i]>=t2[i])\\n            x=x+t2[i];\\n\\n        if(t1[i]<t2[i])\\n            x=x+t1[i];\\n\\n\\n    }\\n\\n\\n   printf(\\\"%d\\\",x);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1084,
+    "completion_tokens": 329,
+    "total_tokens": 1413,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1084
+  },
+  "raw_sha256": "6122a1b18e7766d6c3ee9c5f6d44428b2b80324cf6b093c26b2193051c09083e",
+  "ended_utc": "2026-11-16T04:06:09.803597+00:00",
+  "elapsed_seconds": 2.2313
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1395/BP2/repair/1",
+  "case_id": "BP17-1395",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "7392b4a7c8b7d22ec67e761e0263a047d9ff1446b40daad790096b06ddd412da",
+  "started_utc": "2026-11-16T17:25:29.975222+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "25e84b70-4326-429b-b765-256447aaa237",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/*\\n * A. Worms Evolution\\n * http://codeforces.com/problemset/problem/31/A\\n * */\\n#include <stdio.h>\\n\\nint div[101];\\n\\nint main(int argc, char *argv[]) {\\n    int n, i, j, sum;\\n\\n    scanf(\\\"%d\\\", &n);\\n    \\n    for (i=0; i<n; i++)\\n        scanf(\\\"%d\\\", &div[i]);\\n\\n    for (i=0; i<n; i++){\\n        for(j=0; j<n; j++) {\\n            if (i == j) continue;\\n            for (sum=0; sum<n; sum++) {\\n                if (sum != i && sum != j && div[sum] == div[i] + div[j]) {\\n                    printf(\\\"%d %d %d\\\\n\\\", div[sum], div[i], div[j]);\\n                    return 0;\\n                }\\n            }\\n        }\\n    }\\n\\n    printf(\\\"-1\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1448,
+    "completion_tokens": 247,
+    "total_tokens": 1695,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 552
+  },
+  "raw_sha256": "1ece9d022c02f4887d369e3b0d58e5102a7356ca4fc9b0786b084e8a388316bc",
+  "ended_utc": "2026-11-16T17:25:32.186890+00:00",
+  "elapsed_seconds": 2.2096
+}

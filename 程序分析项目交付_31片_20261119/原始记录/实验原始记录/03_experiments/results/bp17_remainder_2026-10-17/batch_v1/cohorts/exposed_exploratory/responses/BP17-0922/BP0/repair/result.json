@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0922/BP0/repair/1",
+  "case_id": "BP17-0922",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "0c4a04a0639f6db79c792d16dc63f4a2c3962fbc7fd986daec5d5e60d32a298b",
+  "started_utc": "2026-11-16T02:57:09.270685+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "db55486d-58c1-460b-8b54-ee69cd78e7e3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,k,i,j,m,g,c1,temp;\\n\\n    int children[200]={0};\\n\\n    scanf(\\\"%d %d\\\",&n,&k);\\n\\n    temp = k;\\n\\n    for(i=0;i<k;i++){\\n            scanf(\\\"%d\\\",&children[i]);\\n    }\\n    for(i=0;i<k;i++){\\n\\n        printf(\\\"%d \\\",children[i]);\\n\\n        j = 1;\\n\\n        for(m=1;m<=(n*k);m++){\\n\\n            if(j>(n-1)){\\n                break;\\n            }\\n\\n            c1 = 1;\\n\\n            for(g=0;g<temp;g++){\\n\\n                if(m == children[i] || m== children[g]){\\n                    c1 = 0;\\n                    break;\\n\\n                 }\\n            }\\n            if(c1==1){\\n                if(temp < 200){\\n                    children[temp] = m;\\n                    temp = temp +1;\\n                }\\n                printf(\\\"%d \\\",m);\\n                j = j +1;\\n            }\\n        }\\n        printf(\\\"\\\\n\\\");\\n    }\\n\\n\\n\\n\\n\\n\\n\\n    return 0;\\n}\\n\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2703,
+    "completion_tokens": 319,
+    "total_tokens": 3022,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2703
+  },
+  "raw_sha256": "fe8c1fa2b7bdbc742b977e12c94d6d8d0ae5986f8fe50fcc98a857f71178a12a",
+  "ended_utc": "2026-11-16T02:57:11.169549+00:00",
+  "elapsed_seconds": 1.8969
+}

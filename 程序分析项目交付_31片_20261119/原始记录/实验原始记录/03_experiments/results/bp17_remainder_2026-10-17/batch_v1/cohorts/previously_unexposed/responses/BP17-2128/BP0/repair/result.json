@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2128/BP0/repair/1",
+  "case_id": "BP17-2128",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "d3587e5dca8ced955ed60f80df3e25d4d226af5227a2544cb8c39c8c021968e4",
+  "started_utc": "2026-11-16T19:00:30.011746+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "37443219-a1b6-4d9c-9757-69abc0ab18bd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define maxlen 105\\nint N;\\nint check(int s,int e,int col,int mx[][maxlen])\\n{\\n    int upi,downi,j,ok=0;\\n    if(e&1) return N;\\n    upi=(s+e)/2,downi=upi+1;\\n    while(upi>=1)\\n    {\\n        for(j=1;j<=col;j++)\\n         if(mx[upi][j]!=mx[downi][j]) {ok=1;break;}\\n        if(ok) break;\\n        upi--,downi++;\\n    }\\n    //printf(\\\"j=%d upi=%d\\\\n\\\",j,upi);\\n    if(!ok)\\n     if(e%2==1) return N/2;\\n     else return check(s,(s+e)/2,col,mx)/2;\\n    //printf(\\\"s=%d e=%d\\\",s,e);\\n    return N;\\n}\\nint main(int argc, char *argv[])\\n{\\n   int n,m,mx[maxlen][maxlen],i,j,res;\\n   while(~scanf(\\\"%d%d\\\",&n,&m))\\n   {\\n       N=n;\\n       for(i=1;i<=n;i++)\\n        for(j=1;j<=m;j++) scanf(\\\"%d\\\",&mx[i][j]);\\n       if(n&1) printf(\\\"%d\\\\n\\\",n);\\n       else\\n       {\\n           res=check(1,n,m,mx);\\n           printf(\\\"%d\\\\n\\\",res);\\n       }\\n   }\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1099,
+    "completion_tokens": 382,
+    "total_tokens": 1481,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1099
+  },
+  "raw_sha256": "6cf9f551f05ba824b8063971e066be157eb1e0d1c162623beb8ad84fd54fa09f",
+  "ended_utc": "2026-11-16T19:00:32.101906+00:00",
+  "elapsed_seconds": 2.0873
+}

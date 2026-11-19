@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2737/BP3/repair/1",
+  "case_id": "BP17-2737",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "2efea6609160e52e9fd5d618f07de8a6dda665cec7d87ba91fc24674edc015dc",
+  "started_utc": "2026-10-18T11:50:18.487682+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "360fe89a-2b70-44ec-a54c-36b6dfd80c4b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\nint can[602];\\nint main(int argc, char *argv[])\\n{\\n    int m,t,r,i,k;\\n    int ans = 0;\\n    scanf(\\\"%d%d%d\\\",&m,&t,&r);\\n    int A[m];\\n    for(i = 0;i < m;i++){\\n        scanf(\\\"%d\\\",&A[i]);\\n    }\\n    if(r > t){\\n        printf(\\\"-1\\\\n\\\");\\n        return 0;\\n    }\\n\\n    for(i = 0;i < m;i++){\\n        int j = A[i] - 1;\\n        while(can[A[i]] < r){\\n            for(k = j + 1; k <= j + t;k++){\\n                if(k >= 1){\\n                    can[k]++;\\n                }\\n            }\\n            ans++;\\n            j--;\\n        }\\n\\n    }\\n    printf(\\\"%d\\\\n\\\",ans);\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1348,
+    "completion_tokens": 241,
+    "total_tokens": 1589,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1348
+  },
+  "raw_sha256": "7708540c67202f92a552968250259be1c8655ac02a648e21d49889ea388286f0",
+  "ended_utc": "2026-10-18T11:50:19.997933+00:00",
+  "elapsed_seconds": 1.5
+}

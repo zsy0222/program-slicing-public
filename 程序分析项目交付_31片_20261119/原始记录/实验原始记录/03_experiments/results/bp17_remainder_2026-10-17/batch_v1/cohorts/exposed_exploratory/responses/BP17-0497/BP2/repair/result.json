@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0497/BP2/repair/1",
+  "case_id": "BP17-0497",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "dda7798edb2766226a16edac926cc774ac738f9fe2bd9a85f0124094e66d3a3a",
+  "started_utc": "2026-11-16T05:36:42.144131+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "bd79229f-f508-4c18-bbab-3b8c9c330c21",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\n\\nchar t[200];\\n\\nint compare(const void *a, const void *b){\\n    return strcmp((char*)a, (char*)b);\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, i, flag = 0;\\n\\n    scanf(\\\"%d\\\", &n);\\n    scanf(\\\"%s\\\", t);\\n\\n    qsort(t, n, sizeof(char), compare);\\n    qsort(&t[n], n, sizeof(char), compare);\\n\\n    for(i=0; i<n; i++){\\n        if(t[i] > t[i+n]){\\n            if(flag != 1 && flag != 0) flag = 3;\\n            else flag = 1;\\n        }\\n        else if(t[i] < t[i+n]){\\n            if(flag != 2 && flag != 0) flag = 3;\\n            else flag = 2;\\n        }\\n        else flag = 3;\\n    }\\n\\n    if(flag == 3) printf(\\\"NO\\\\n\\\");\\n    else printf(\\\"YES\\\\n\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1626,
+    "completion_tokens": 289,
+    "total_tokens": 1915,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1626
+  },
+  "raw_sha256": "061c8b69bb936052cf1b82afb20addb80c86149dff82b9cfed5a7c517b9773c8",
+  "ended_utc": "2026-11-16T05:36:44.061584+00:00",
+  "elapsed_seconds": 1.9149
+}

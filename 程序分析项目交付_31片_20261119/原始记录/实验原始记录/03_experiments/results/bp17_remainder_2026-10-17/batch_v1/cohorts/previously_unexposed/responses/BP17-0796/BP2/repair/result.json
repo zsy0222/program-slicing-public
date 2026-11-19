@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0796/BP2/repair/1",
+  "case_id": "BP17-0796",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "0daa885bde9c584d39e5032fae5f9d76be38a43f6d6a1f9f65181112068667cc",
+  "started_utc": "2026-10-21T07:28:52.766751+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "943a7d2b-3bd0-452c-8053-a3f8d3fa63ee",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<string.h>\\ntypedef long long llong;\\nllong p,d;\\n\\nint main(int argc, char *argv[])\\n{   \\n    llong i,a=0,p1,pow10;\\n    scanf(\\\"%lld %lld\\\",&p,&d);\\n    \\n    p1=p;\\n    \\n    pow10 = 1;\\n    for(i=0; i <= 18;i++)\\n    {\\n        a= p1 % pow10;\\n        if (a == pow10 - 1)\\n            p = p1;\\n        else if (a < d)\\n            p = (p1 / pow10 - 1) * pow10 + a;\\n        else\\n            break;\\n        pow10 *= 10;\\n    }\\n    printf(\\\"%lld\\\\n\\\", p);\\n     return 0;    \\n    \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1237,
+    "completion_tokens": 218,
+    "total_tokens": 1455,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 469
+  },
+  "raw_sha256": "1bed0362de0d73e484df8daa864e0be1216fafde91be14723f1113177a629907",
+  "ended_utc": "2026-10-21T07:28:54.690027+00:00",
+  "elapsed_seconds": 1.844
+}

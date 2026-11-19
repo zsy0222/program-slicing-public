@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1329/BP1/repair/1",
+  "case_id": "BP17-1329",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "936368edbbb547068ded1ca874a1589cb58d0ec750d99a0efc8729f5708db8a2",
+  "started_utc": "2026-11-16T19:13:19.729525+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "243e79ab-c832-4e23-b9be-5434f1ef4c68",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,i,p=0,q=0;\\n    scanf(\\\"%d\\\",&n);\\n    int a[n],c=0,x=0,a1[n],a2[n],a3[n];\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%d\\\",&a[i]);\\n        if(a[i]>0) c++;\\n        if(a[i]<0){\\n            x=i;\\n        }\\n    }\\n    if(c>0){\\n        a1[0]=a[x];\\n        for(i=0;i<n;i++){\\n            if(i==x) continue;\\n            else{\\n                if(a[i]==0||a[i]<0){\\n                    a3[p]=a[i];\\n                    p++;\\n                }\\n                else if(a[i]>0){\\n                    a2[q]=a[i];\\n                    q++;\\n                }\\n            }\\n        }\\n        printf(\\\"1 \\\");\\n        printf(\\\"%d\\\\n\\\",a1[0]);\\n        printf(\\\"%d \\\",q);\\n        for(i=0;i<q;i++) printf(\\\"%d \\\",a2[i]);\\n        printf(\\\"\\\\n%d \\\",p);\\n        for(i=0;i<p;i++) printf(\\\"%d \\\",a3[i]);\\n    }\\n    else{\\n        a2[0]=a[x];\\n        int flag=0;\\n        for(i=0;i<n;i++){\\n            if(flag==0&&a[i]<0){\\n                a1[p]=a[i];\\n                flag=1;\\n                p++;\\n            }\\n            else if(flag==1&&a[i]<0){\\n                flag=2;\\n                a2[1]=a[i];\\n\\n            }\\n            else if(flag==2&&a[i]<0){\\n                a3[q]=a[i];\\n                q++;\\n            }\\n            if(a[i]==0){\\n                a3[q]=a[i];\\n                q++;\\n            }\\n        }\\n        printf(\\\"1 \\\");\\n        printf(\\\"%d\\\\n\\\",a1[0]);\\n        printf(\\\"2 \\\");\\n        printf(\\\"%d %d\\\",a2[0],a2[1]);\\n        printf(\\\"\\\\n%d \\\",q);\\n        for(i=0;i<q;i++) printf(\\\"%d \\\",a3[i]);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1464,
+    "completion_tokens": 589,
+    "total_tokens": 2053,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1464
+  },
+  "raw_sha256": "4e1f07b6c7baacea820b33683a8b7f0c026d93e7e910d49cd0b31c4dc27a71ae",
+  "ended_utc": "2026-11-16T19:13:22.675936+00:00",
+  "elapsed_seconds": 2.9427
+}

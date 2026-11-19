@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1545/BP2/repair/1",
+  "case_id": "BP17-1545",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "56d9fdebfefe3cc1f7f6bc1ac51a301b345cbf645f9893f82e596bbc0225a435",
+  "started_utc": "2026-11-16T02:57:00.578513+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0a08e5b3-671a-41fc-8784-46f9e0ccfc59",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <limits.h>\\n\\n#define NMAX 51\\n\\nint cmp(const void *a, const void *b) {\\n    return ((*(int *)a) - (*(int *)b));\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int n, m;\\n    int values[NMAX];\\n    int i;\\n\\n    scanf(\\\"%d %d\\\", &n, &m);\\n\\n    for(i = 0;i < m;i++) {\\n        scanf(\\\"%d\\\", &values[i]);\\n    }\\n\\n    qsort(values, m, sizeof(int), cmp);\\n\\n    int min_diff = INT_MAX;\\n    for(i = 0;i <= m - n;i++)\\n        if(values[i + (n - 1)] - values[i] < min_diff)\\n            min_diff = values[i + (n - 1)] - values[i];\\n    printf(\\\"%d\\\", min_diff);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1352,
+    "completion_tokens": 239,
+    "total_tokens": 1591,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1352
+  },
+  "raw_sha256": "03683cc177cac97a227ac695c0a3b054a5c7bb52b5195bc4c01fedddb63f8311",
+  "ended_utc": "2026-11-16T02:57:02.018632+00:00",
+  "elapsed_seconds": 1.4374
+}

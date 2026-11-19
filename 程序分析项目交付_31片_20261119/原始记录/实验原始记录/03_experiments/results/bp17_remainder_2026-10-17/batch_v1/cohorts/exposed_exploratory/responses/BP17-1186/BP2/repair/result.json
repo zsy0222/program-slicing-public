@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1186/BP2/repair/1",
+  "case_id": "BP17-1186",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d4b2a3767a8c453bb6fc676d07ce55ebb6359602df21548f2b69304b0697ba31",
+  "started_utc": "2026-10-17T08:50:11.419464+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c141d94e-640b-40f7-8fdb-f909ed27dd46",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint power(int a, int b)\\n{\\n    if(b==1)\\n        return a;\\n    if(b%2==0)\\n    {\\n        b/=2;\\n        return power(a, b)*power(a,b);\\n    }\\n    else\\n        return a*power(a, b-1);\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int p, i, j, count=0, pow[2001];\\n    scanf(\\\"%d\\\", &p);\\n    //printf(\\\"%d\\\\n\\\", power(3,2));\\n    \\n    for(i=2; i<p; i++)\\n    {\\n        int flag=0;\\n        pow[0]=1;\\n        for(j=1; j<p-1; j++)       \\n        {\\n           pow[j]=((i%p)*(pow[j-1]%p))%p;\\n           //printf(\\\"pow(%d, %d)=%d\\\\n\\\", i, j, pow[j]);\\n           if((pow[j]-1) % p ==0)\\n           {\\n               //printf(\\\"breaking\\\\n\\\");\\n               flag=1;\\n               break;\\n           }\\n        }\\n        \\n        if(flag==0)\\n        {\\n            pow[p-1]=((pow[p-2] %p)*(i%p))%p;\\n            //printf(\\\"here at i=%d j=%d pow[j]=%d \\\\n\\\", i, j, pow[j]);\\n            if((pow[p-1]-1) % p==0)\\n            {\\n                //printf(\\\"%d\\\\n\\\", i);\\n                count++;\\n            }\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\", count);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1733,
+    "completion_tokens": 425,
+    "total_tokens": 2158,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1733
+  },
+  "raw_sha256": "b59dd73d6d49dda42749084345962899df6ab8195250b4b3da90e40552d9f702",
+  "ended_utc": "2026-10-17T08:50:13.594969+00:00",
+  "elapsed_seconds": 2.172
+}

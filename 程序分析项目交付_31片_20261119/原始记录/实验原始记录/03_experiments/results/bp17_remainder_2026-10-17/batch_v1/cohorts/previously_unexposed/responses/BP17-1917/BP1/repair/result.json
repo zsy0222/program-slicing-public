@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1917/BP1/repair/1",
+  "case_id": "BP17-1917",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a0fd6b6bf353ba4cbbfc55b16ecf83cac0ec177681cf8b1c1fa6a6825c1dc90e",
+  "started_utc": "2026-11-16T17:21:58.580638+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "76c545bc-5f52-42dc-b918-c56496e7ca10",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,p,k,i,m;\\n    scanf(\\\"%d %d %d\\\",&n,&p,&k);\\n    if((p!=1 && p!=n) && (p-k>1 && p+k<n)){\\n        printf(\\\"<< \\\");\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p+i);\\n        }\\n        printf(\\\">>\\\");\\n    }\\n    else if(p==1 && p+k<n){\\n        printf(\\\"(1) \\\");\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p+i);\\n        }\\n        printf(\\\">>\\\");\\n    }\\n    else if(p==1 && p+k==n){\\n        printf(\\\"(1) \\\");\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p+i);\\n        }\\n    }\\n    else if(p==1 && p+k>n){\\n        printf(\\\"(1) \\\");\\n        for(i=1;i<=n-p;i++){\\n            printf(\\\"%d \\\",p+i);\\n        }\\n    }\\n    else if(p==n && p-k>1){\\n        printf(\\\"<< \\\");\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d)\\\",p);\\n    }\\n    else if(p==n && p-k==1){\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d)\\\",p);\\n    }\\n    else if(p==n && p-k<1){\\n        for(i=1;i<p;i++){\\n            printf(\\\"%d \\\",i);\\n        }\\n        printf(\\\"(%d)\\\",p);\\n    }\\n    else if((p!=1 && p!=n) && (p-k==1 && p+k==n)){\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p+i);\\n        }\\n    }\\n    else if((p!=1 && p!=n) && (p-k==1 && p+k<n)){\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p+i);\\n        }\\n        printf(\\\">>\\\");\\n    }\\n    else if((p!=1 && p!=n) && (p-k>1 && p+k==n)){\\n        printf(\\\"<< \\\");\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;i<=k;i++){\\n            m=p+i;\\n            if(m>n){\\n                m=n;\\n            }\\n            printf(\\\"%d \\\",m);\\n        }\\n    }\\n    else if((p!=1 && p!=n) && (p-k<1 && p+k<n)){\\n        for(i=1;i<p;i++){\\n            printf(\\\"%d \\\",i);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;i<=k;i++){\\n            m=p+i;\\n            printf(\\\"%d \\\",m);\\n        }\\n        printf(\\\">>\\\");\\n    }\\n    else if((p!=1 && p!=n) && (p-k>1 && p+k>n)){\\n        printf(\\\"<< \\\");\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;m!=n;i++){\\n            m=p+i;\\n            if(m>n){\\n                m=n;\\n            }\\n            printf(\\\"%d \\\",m);\\n        }\\n    }\\n    else if((p!=1 && p!=n) && (p-k==1 && p+k>n)){\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;m!=n;i++){\\n            m=p+i;\\n            if(m>n){\\n                m=n;\\n            }\\n            printf(\\\"%d \\\",m);\\n        }\\n    }\\n    else if((p!=1 && p!=n) && (p-k>1 && p+k<n)){\\n        printf(\\\"<< \\\");\\n        for(i=1;i<=k;i++){\\n            printf(\\\"%d \\\",p-k+i-1);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;i<=k;i++){\\n            m=p+i;\\n            printf(\\\"%d \\\",m);\\n        }\\n        printf(\\\">>\\\");\\n    }\\n    else if((p!=1 && p!=n) && (p-k<1 && p+k>n)){\\n        for(i=1;i<p;i++){\\n            printf(\\\"%d \\\",i);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;m!=n;i++){\\n            m=p+i;\\n            if(m>n){\\n                m=n;\\n            }\\n            printf(\\\"%d \\\",m);\\n        }\\n    }\\n    else if((p!=1 && p!=n) && (p-k<1 && p+k==n)){\\n        for(i=1;i<p;i++){\\n            printf(\\\"%d \\\",i);\\n        }\\n        printf(\\\"(%d) \\\",p);\\n        for(i=1;i<=k;i++){\\n            m=p+i;\\n            if(m>n){\\n                m=n;\\n            }\\n            printf(\\\"%d \\\",m);\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2732,
+    "completion_tokens": 1554,
+    "total_tokens": 4286,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432
+    },
+    "prompt_cache_hit_tokens": 2432,
+    "prompt_cache_miss_tokens": 300
+  },
+  "raw_sha256": "4cb1851dde1de77e8cefe4f82f3f1cd739912b04177a4ec7bfdbe037ccb55790",
+  "ended_utc": "2026-11-16T17:22:04.225930+00:00",
+  "elapsed_seconds": 5.6425
+}

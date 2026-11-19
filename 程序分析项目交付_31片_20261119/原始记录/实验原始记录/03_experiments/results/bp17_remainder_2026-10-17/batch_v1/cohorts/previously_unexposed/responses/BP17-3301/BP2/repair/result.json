@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3301/BP2/repair/1",
+  "case_id": "BP17-3301",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "0b2f6a1d62e09133f9c6d1de34e1089a6ad7f3903a98d37e6d3c85f2f70da99b",
+  "started_utc": "2026-11-17T04:31:50.502954+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "bd9647ac-5843-423d-b266-6917c9dbd2d6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define asdsd(f1, f2) for(int i=0;i<f1;i++){f2[i]=0;}\\n\\nint main(int argc, char *argv[]) {\\n    int N, S;\\n    scanf(\\\"%d %d\\\", &N, &S);\\n    int *array[N];\\n    int array_1[S + 1];\\n    asdsd(S+1, array_1);\\n    for (int i = 0; i < N; i++) {\\n        array[i] = (int * )malloc(2 * sizeof(int));\\n        scanf(\\\"%d %d\\\", &array[i][0], &array[i][1]);\\n        array_1[array[i][0]] = (array_1[array[i][0]] < array[i][1]) ? array[i][1] : array_1[array[i][0]];\\n    }\\n    int sum = 0;\\n    for (int i = S; i > 0; i--) {\\n        sum += 1 + ((array_1[i] - sum) > 0 ? array_1[i] -sum : 0);\\n        // printf(\\\"%d | %d | %d\\\\n\\\", i, array_1[i], sum);\\n    }\\n    printf(\\\"%d\\\\n\\\", sum);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1360,
+    "completion_tokens": 327,
+    "total_tokens": 1687,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1360
+  },
+  "raw_sha256": "3ac3eaf29d54395ad82e4668dbd668c2255c17f0ab007209b9aadca9491c0034",
+  "ended_utc": "2026-11-17T04:31:52.793375+00:00",
+  "elapsed_seconds": 2.2882
+}

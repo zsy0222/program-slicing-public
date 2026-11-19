@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2441/BP2/repair/1",
+  "case_id": "BP17-2441",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "8d8aa0379db820d258de450d7a062fbb7905ce740920daa0e65962d4e14047f0",
+  "started_utc": "2026-10-21T08:17:21.631521+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9307e927-9d11-44d0-9e96-c0ad688b33f3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n  int main(int argc, char *argv[]) {\\n  int p, q, l, r, a1[1003] = {0}, b1[1003] = {0}, res[1003] = {0};\\n  int i, j, c[50], d[50], l1, e1, sum = 0;\\n  scanf(\\\"%d%d%d%d\\\", &p, &q, &l, &r);\\n  for(i = 0 ; i < p ; i++) {\\n      scanf(\\\"%d%d\\\", &c[i], &d[i]);\\n          for(j = c[i] ; j <= d[i] ; j++)\\n               a1[j] = 1;    \\n  }\\n  l1 = c[0];\\n  e1 = d[p-1];\\n  for(i = 0 ; i < q ; i++) {\\n      scanf(\\\"%d%d\\\", &c[i], &d[i]);\\n          for(j = c[i] ; j <= d[i] ; j++)\\n               b1[j] = 1;\\n  }\\n  for(i = c[0] ; i <= d[q-1] ; i++) {\\n      for(j = l1 ; j <= e1 ; j++) {\\n          if(j-i > r )\\n               break;\\n          if(a1[j] && b1[i] && j-i>0) { \\n               res[j-i] = 1;\\n          }\\n      }  \\n  }  \\n\\n  for(i = l ; i <= r ; i++) \\n      sum = sum + res[i];\\n  printf(\\\"%d\\\\n\\\",sum);\\n  return 0;\\n  }\\n \"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1853,
+    "completion_tokens": 401,
+    "total_tokens": 2254,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1853
+  },
+  "raw_sha256": "43ba5d04e3574480aed806a30a204c1a485c233ce3a684a0502855a489e6dd9c",
+  "ended_utc": "2026-10-21T08:17:23.753289+00:00",
+  "elapsed_seconds": 2.109
+}

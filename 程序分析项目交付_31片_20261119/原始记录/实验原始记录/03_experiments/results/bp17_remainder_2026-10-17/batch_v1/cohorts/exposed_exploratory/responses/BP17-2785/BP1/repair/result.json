@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2785/BP1/repair/1",
+  "case_id": "BP17-2785",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "0e74a90f88041f7d70dc1298082b79b29b4bce8fa330b7fb1ab9ff90238be24a",
+  "started_utc": "2026-10-21T07:58:52.713147+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9d2dd522-f963-4869-9cfa-f9ae47b4fb97",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nlong long int convert(int arr[],int a){\\nlong long int x=0;\\nint i;\\nfor(i=0;i<a;i++){\\n x=x*10+(arr[i]);\\n}\\nreturn x;\\n}\\nint main(int argc, char *argv[]){\\n    int arr[20];\\n    long long int input;\\n    int a,b,c,d;\\n    scanf(\\\"%lld\\\",&input);\\n    long long int temp=input;\\n    int k=0;\\n    while(temp){\\n    arr[k++]=temp%10;\\n    temp/=10;\\n    }\\n    for(a=0;a<k/2;a++){\\n        c=arr[a];\\n        arr[a]=arr[k-1-a];\\n        arr[k-1-a]=c;\\n    }\\n    for(a=k-1;a>=0;a--){\\n    int old=arr[a];\\n    arr[a]=9-arr[a];\\n    if(convert(arr,k)>input){\\n            arr[a]=old;\\n    }}\\n    for(a=0;a<k;a++){\\n            printf(\\\"%d\\\",arr[a]);\\n    }\\n    printf(\\\"\\\\n\\\");\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1001,
+    "completion_tokens": 283,
+    "total_tokens": 1284,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1001
+  },
+  "raw_sha256": "3bcfba579239807f14fcdce5b7b6015c9c5ff5593801dcefcebbf373b3252a89",
+  "ended_utc": "2026-10-21T07:58:54.239363+00:00",
+  "elapsed_seconds": 1.454
+}

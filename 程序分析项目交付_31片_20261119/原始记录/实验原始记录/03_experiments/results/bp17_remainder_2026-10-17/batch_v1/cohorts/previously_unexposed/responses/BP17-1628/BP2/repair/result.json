@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1628/BP2/repair/1",
+  "case_id": "BP17-1628",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f03ff15af8971852cc0b18e24cd48d01d4ab49aa64d81b68b7eed62493974c6a",
+  "started_utc": "2026-11-16T16:47:16.236328+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "37119aa9-d3e6-4c8c-b997-a830c758fd63",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint a[105];\\nint gcd(int a,int b)\\n{\\n    if(b==0) return a;\\n    else return gcd(b,a%b);\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,i;\\n    scanf(\\\"%d\\\",&n);\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&a[i]);\\n    int g=a[0],mx=a[0];\\n    for(i=1;i<n;i++)\\n    {\\n        g=gcd(g,a[i]);\\n        if(a[i]>mx) mx=a[i];\\n    }\\n    int turns=mx/g;\\n    if((turns-n)&1) puts(\\\"Alice\\\");\\n    else puts(\\\"Bob\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1393,
+    "completion_tokens": 198,
+    "total_tokens": 1591,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 753
+  },
+  "raw_sha256": "2ea42dce0c20b552049471e97823734ffc4aa7adcbac1d46947fd72a29e768d8",
+  "ended_utc": "2026-11-16T16:47:17.744807+00:00",
+  "elapsed_seconds": 1.5062
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2934/BP3/repair/1",
+  "case_id": "BP17-2934",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "823bce9e056d57ade5038fcef454ba0eeed35b9b0cd15613330466a0d15fe102",
+  "started_utc": "2026-11-17T04:28:20.363533+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5cb8628e-690b-4de3-ae30-ac4c8c6f1568",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, k, h, i, cnt = 0, res = 0, ok = 1;\\n\\n    scanf(\\\"%d%d\\\", &n, &k);\\n    if (k == 1) printf(\\\"%d\\\\n\\\", n);\\n    else {\\n        scanf(\\\"%d\\\", &h);\\n        for (i = 1; i <= n; ++i) {\\n            ++cnt;\\n            if (i == h && ok) { // holiday\\n                if (scanf(\\\"%d\\\", &h) == EOF) ok = 0; // no more holidays\\n                ++res;\\n                cnt = 0;\\n                continue;\\n            }\\n            if (cnt == k) {\\n                res++;\\n                cnt = 0;\\n            }\\n        }\\n    }\\n\\n    printf(\\\"%d\\\\n\\\", res);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1270,
+    "completion_tokens": 229,
+    "total_tokens": 1499,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 502
+  },
+  "raw_sha256": "b4cc93041ea2cfeb71bdf0a726cd070f8daad8f1e1f8fea8daafb533841293ae",
+  "ended_utc": "2026-11-17T04:28:22.357762+00:00",
+  "elapsed_seconds": 1.9919
+}

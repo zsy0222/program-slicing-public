@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1883/BP2/repair/1",
+  "case_id": "BP17-1883",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f8e31d279f691b3a5bb4e8f85f812e4f9c4a44f6e013575c152e8bd7535feb9d",
+  "started_utc": "2026-11-16T05:35:12.611700+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "44708247-4822-40c5-85f1-332fb3789de7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nvoid A(int ZA[], int ZB[], int a, int b)\\n{\\n\\tint c, d, e, f;\\n\\n\\tif (a < b) {\\n\\t\\tc = (b - a + 1) / 2 + a;\\n\\t\\tA(ZA, ZB, a, c - 1);\\n\\t\\tA(ZA, ZB, c, b);\\n\\t\\td = c - 1;\\n\\t\\te = a;\\n\\t\\tf = 0;\\n\\t\\twhile (e <= d && c <= b) {\\n\\t\\t\\tif (ZA[e] < ZA[c]) {\\n\\t\\t\\t\\tZB[f] = ZA[e];\\n\\t\\t\\t\\te += 1;\\n\\t\\t\\t} else {\\n\\t\\t\\t\\tZB[f] = ZA[c];\\n\\t\\t\\t\\tc += 1;\\n\\t\\t\\t}\\n\\t\\t\\tf += 1;\\n\\t\\t}\\n\\t\\twhile (e <= d) {\\n\\t\\t\\tZB[f] = ZA[e];\\n\\t\\t\\te += 1;\\n\\t\\t\\tf += 1;\\n\\t\\t}\\n\\t\\twhile (c <= b) {\\n\\t\\t\\tZB[f] = ZA[c];\\n\\t\\t\\tc += 1;\\n\\t\\t\\tf += 1;\\n\\t\\t}\\n\\t\\twhile (f > 0) {\\n\\t\\t\\tZA[a + f - 1] = ZB[f - 1];\\n\\t\\t\\tf -= 1;\\n\\t\\t}\\n\\t}\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint a, b, c, d;\\n\\tint ZA[100], ZB[100], ZC[100][2];\\n\\n\\tscanf(\\\"%d\\\", &a);\\n\\tfor (b = 0; b < a; ++b)\\n\\t\\tscanf(\\\"%d\\\", ZA + b);\\n\\tA(ZA, ZB, 0, a - 1);\\n\\td = -1;\\n\\tfor (b = 0; b < a; ++b) {\\n\\t\\tfor (c = 0; c <= d; ++c) {\\n\\t\\t\\tif (ZC[c][0] < ZA[b]) {\\n\\t\\t\\t\\tZC[c][0] = ZA[b];\\n\\t\\t\\t\\tZC[c][1] += 1;\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t} else if (ZC[c][0] == ZA[b] && ZC[c][1] <= ZA[b]) {\\n\\t\\t\\t\\tZC[c][1] += 1;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif (c > d) {\\n\\t\\t\\td += 1;\\n\\t\\t\\tZC[d][0] = ZA[b];\\n\\t\\t\\tZC[d][1] = 1;\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\", d + 1);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2536,
+    "completion_tokens": 708,
+    "total_tokens": 3244,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2536
+  },
+  "raw_sha256": "8989d81cf5d02f52d4f1f80843963d7d1bb773d5eb68a8f433a726458aaa4b8f",
+  "ended_utc": "2026-11-16T05:35:15.469952+00:00",
+  "elapsed_seconds": 2.8554
+}

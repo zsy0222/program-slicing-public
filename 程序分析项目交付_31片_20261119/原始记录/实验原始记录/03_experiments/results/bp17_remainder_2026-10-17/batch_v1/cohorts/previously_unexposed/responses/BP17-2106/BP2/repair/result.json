@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2106/BP2/repair/1",
+  "case_id": "BP17-2106",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "35416a036a8c383a30535a88e151419f8c4808154086d2ef1c58d99fd8d07c60",
+  "started_utc": "2026-11-16T17:48:57.025181+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "23147c48-8f4a-4907-9f59-fd3d24de4960",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    float x;\\n    unsigned int n, V, i;\\n    unsigned int A = 0;\\n    unsigned int *a;\\n\\n    scanf(\\\"%u %u\\\\n\\\", &n, &V);\\n    a = (unsigned int *)malloc(n*sizeof(unsigned int));\\n    for (i = 0; i < n; i++) {\\n        scanf(\\\"%u\\\", a+i);\\n        A += *(a+i);\\n    }\\n    \\n    x = (float)V / (float)A;\\n    for (i = 0; i < n; i++) {\\n        unsigned int b;\\n        float x1;\\n        scanf(\\\"%u\\\", &b);\\n        x1 = (float)b / (float)a[i];\\n        if (x1 < x)\\n            x = x1;\\n    }\\n\\n    printf(\\\"%f\\\", A*x);\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1303,
+    "completion_tokens": 244,
+    "total_tokens": 1547,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 535
+  },
+  "raw_sha256": "36a6c285a0c882afc9d55b8418e8c3f1e9b91bdb2f3b156df5ed13573a564f68",
+  "ended_utc": "2026-11-16T17:48:58.991839+00:00",
+  "elapsed_seconds": 1.9642
+}

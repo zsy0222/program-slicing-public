@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2149/BP3/repair/1",
+  "case_id": "BP17-2149",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "96e49873200aae4849038ed6ce0993cc623ebb0dcdbaa9ee9ceb1d03aa2c252d",
+  "started_utc": "2026-10-18T12:14:53.251134+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8800b3d4-f7d8-4dfe-bdb8-bf9b5b41ce78",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAXN 101\\n\\nint main(int argc, char *argv[]) {\\n    int n, m;\\n    scanf(\\\"%d %d\\\\n\\\", &n, &m);\\n    int pts[MAXN];\\n    int ans[MAXN];\\n    int i, temp;\\n    for (i = 0; i < MAXN; i++) {\\n        pts[i] = 0;\\n    }\\n    for (i = 1; i <= n; i++) {\\n        scanf(\\\"%d\\\", &temp);\\n        pts[temp] = i;\\n    }\\n    int mod = 0;\\n    for (i = 1; i < MAXN; i++) {\\n        if(pts[i] != 0) {\\n            ans[pts[i]] = mod%2;\\n            mod++;\\n        }\\n    }\\n    for (i = 1; i < n; i++) {\\n        printf(\\\"%d \\\", ans[i]);\\n    }\\n    printf(\\\"%d \\\\n\\\", ans[n]);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1405,
+    "completion_tokens": 256,
+    "total_tokens": 1661,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 381
+  },
+  "raw_sha256": "7fc7933f3662095484c368e8c161faf4fd670e33fca39043d55b560ffb3458f4",
+  "ended_utc": "2026-10-18T12:14:54.662251+00:00",
+  "elapsed_seconds": 1.422
+}

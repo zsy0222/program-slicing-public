@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2379/BP2/repair/1",
+  "case_id": "BP17-2379",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "5d799f397c671412adae6ad0d1219ed01db5ae9ec0646622b3c829d864e52d21",
+  "started_utc": "2026-11-16T04:00:26.984227+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3821bf59-5c91-467d-a5ef-57269e89005c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n;\\n  int now[200001], L, ind, len, s, ok;\\n  int p[1000];\\n  int mae, ushiro;\\n\\n  while(scanf(\\\"%d%d%d%d\\\",&L,&mae,&ushiro,&n)==4){\\n    L += mae + ushiro;\\n    rep(i,L) now[i]=0; ind = 0;\\n    rep(i,n) p[i]=-1;\\n    while(n--){\\n      scanf(\\\"%d%d\\\",&m,&len); ind++;\\n      if(m==1){\\n        s = len + mae + ushiro;\\n        ok = 0;\\n        rep(i,L-s+1){\\n          rep(j,s) if(now[i+j]) break;\\n          if(j==s){ ok=1; break; }\\n        }\\n        if(!ok){puts(\\\"-1\\\"); continue;}\\n        printf(\\\"%d\\\\n\\\",i+1);\\n        rep(k,len) now[i+k+mae]=ind; p[ind]=i+mae;\\n\\n/*        rep(k,L) printf(\\\"%d\\\",now[k]); puts(\\\"\\\");*/\\n      } else {\\n        if(p[len]<0) continue;\\n        k=p[len]; p[len]=-1;\\n        while(now[k]==len) now[k]=0, k++;\\n      }\\n    }\\n  }\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2021,
+    "completion_tokens": 398,
+    "total_tokens": 2419,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 869
+  },
+  "raw_sha256": "15477c71edac3e63bb3bb9a4247d3d0d3d4c77c201c93f5d409ab62668d9cde0",
+  "ended_utc": "2026-11-16T04:00:29.140246+00:00",
+  "elapsed_seconds": 2.1542
+}

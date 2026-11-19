@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1812/BP0/repair/1",
+  "case_id": "BP17-1812",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ec7f01f5d063f8afbf64061ee4094a6177d4ccaa8c48af8a54594145b3ac6924",
+  "started_utc": "2026-11-16T04:55:00.802704+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6fddcb72-4fad-49bb-a5c3-5824b30ae8ac",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int a, b, N;\\n    int i, dist_a, dist_b;\\n    int win_a, win_b, draw;\\n\\n\\n    scanf(\\\"%d%d\\\", &a, &b);\\n    N = a + b;\\n\\n    for(i=1, draw=0, win_a=0, win_b=0; i<=N; i++){\\n        if(a-i>=0)\\n            dist_a=a-i;\\n        else\\n            dist_a=i-a;\\n        if(b-i>=0)\\n            dist_b=b-i;\\n        else\\n            dist_b=i-b;\\n\\n\\n        if(dist_a<dist_b)\\n            win_a++;\\n        else if(dist_b<dist_a)\\n            win_b++;\\n        else\\n            draw++;\\n    }\\n\\n\\n    printf(\\\"%d %d %d\\\\n\\\", win_a, draw, win_b);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 907,
+    "completion_tokens": 236,
+    "total_tokens": 1143,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 907
+  },
+  "raw_sha256": "2ce67d5c007fb2f7b735cb15444b9c7f839fc52608ee0b128b2c456f2a36eb69",
+  "ended_utc": "2026-11-16T04:55:02.726569+00:00",
+  "elapsed_seconds": 1.9212
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2780/BP2/repair/1",
+  "case_id": "BP17-2780",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d5f8be5793d98a0d7dfd6287936c23f6980247ff1542313327898045bc7f6975",
+  "started_utc": "2026-10-21T07:59:12.906121+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "83bf4c79-113f-4469-96e1-01424f96e14b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAX_COMP\\t5\\n#define MAX_BID\\t\\t10000\\n\\nint min(int x, int y)\\n{\\n\\treturn (x <= y) ? x : y;\\n}\\n\\nint max(int x, int y)\\n{\\n\\treturn (x >= y) ? x : y;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n;\\n\\tint l[MAX_COMP];\\n\\tint r[MAX_COMP];\\n\\tint i, j, k, z;\\n\\tdouble p, q, u;\\n\\n\\tscanf(\\\"%d\\\", &n);\\n\\tfor(i = n; i --;)\\n\\t\\tscanf(\\\"%d %d\\\", &l[i], &r[i]);\\n\\n\\tp = 0.0;\\n\\tfor(i = 1; i <= MAX_BID; i ++)\\n\\t{\\n\\t\\tfor(k = 0; k < n; k ++)\\n\\t\\t{\\n\\t\\t\\tif(!(l[k] <= i && i <= r[k]))\\n\\t\\t\\t\\tcontinue;\\n\\n\\t\\t\\tq = 1 / (double)(r[k] - l[k] + 1);\\n\\n\\t\\t\\tfor(j = 0; j < n; j ++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(i >= r[j])\\n\\t\\t\\t\\t\\tcontinue;\\n\\n\\t\\t\\t\\tif(k == j)\\n\\t\\t\\t\\t\\tcontinue;\\n\\n\\t\\t\\t\\tu = q;\\n\\t\\t\\t\\tu *= (r[j] - max(l[j], i + 1) + 1) / (double)(r[j] - l[j] + 1);\\n\\n\\t\\t\\t\\tfor(z = 0; z < n; z ++)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif(z == j || z == k)\\n\\t\\t\\t\\t\\t\\tcontinue;\\n\\n\\t\\t\\t\\t\\tif(l[z] > i)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tu = 0.0;\\n\\t\\t\\t\\t\\t\\tbreak;\\n\\t\\t\\t\\t\\t}\\n\\n\\t\\t\\t\\t\\tif(z > k)\\n\\t\\t\\t\\t\\t\\tu *= (min(r[z], i) - l[z] + 1) / (double)(r[z] - l[z] + 1);\\n\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t\\tu *= (min(r[z], i - 1) - l[z] + 1) / (double)(r[z] - l[z] + 1);\\n\\t\\t\\t\\t}\\n\\n\\t\\t\\t\\tp += i * u;\\n\\t\\t\\t}\\n\\n\\t\\t\\tfor(j = k + 1; j < n; j ++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(!(l[j] <= i && i <= r[j]))\\n\\t\\t\\t\\t\\tcontinue;\\n\\n\\t\\t\\t\\tif(k == j)\\n\\t\\t\\t\\t\\tcontinue;\\n\\n\\t\\t\\t\\tu = q;\\n\\t\\t\\t\\tu *= 1 / (double)(r[j] - l[j] + 1);\\n\\n\\t\\t\\t\\tfor(z = 0; z < n; z ++)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif(z == j || z == k)\\n\\t\\t\\t\\t\\t\\tcontinue;\\n\\n\\t\\t\\t\\t\\tif(l[z] > i)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tu = 0.0;\\n\\t\\t\\t\\t\\t\\tbreak;\\n\\t\\t\\t\\t\\t}\\n\\n\\t\\t\\t\\t\\tif(z > k && z > j)\\n\\t\\t\\t\\t\\t\\tu *= (min(r[z], i) - l[z] + 1) / (double)(r[z] - l[z] + 1);\\n\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t\\tu *= (min(r[z], i - 1) - l[z] + 1) / (double)(r[z] - l[z] + 1);\\n\\t\\t\\t\\t}\\n\\n\\t\\t\\t\\tp += i * u;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\n\\tprintf(\\\"%lf\\\\n\\\", p);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3427,
+    "completion_tokens": 1004,
+    "total_tokens": 4431,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 1507
+  },
+  "raw_sha256": "e6f854528f2623ca94eb730b7b565e51cfef8c87976410d7240cf419816a2c15",
+  "ended_utc": "2026-10-21T07:59:16.466498+00:00",
+  "elapsed_seconds": 3.563
+}

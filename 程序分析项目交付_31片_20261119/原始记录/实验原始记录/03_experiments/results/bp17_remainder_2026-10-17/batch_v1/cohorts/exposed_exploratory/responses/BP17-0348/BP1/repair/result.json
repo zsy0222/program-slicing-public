@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0348/BP1/repair/1",
+  "case_id": "BP17-0348",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "4bc7194da7f36d5c1be711f0b59c8e61dd9467a73e603db1bf12eeedffa3f8de",
+  "started_utc": "2026-11-16T03:44:51.761720+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "aea8a2b0-5484-44c8-b0d0-b11319ec9397",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\n    int r1,r2,c1,c2,d1,d2,flag = 1;\\n    int x1=0,x2,x3,x4;\\n\\n    scanf(\\\"%d %d\\\",&r1,&r2);\\n    scanf(\\\"%d %d\\\",&c1,&c2);\\n    scanf(\\\"%d %d\\\",&d1,&d2);\\n\\n    for(x1=1;flag&&x1<=20;x1++)\\n    {\\n        for(x2=1;flag&&x2<=20;x2++)\\n        {\\n            for(x3=1;flag&&x3<=20; x3++)\\n            {\\n                for(x4=1;flag&&x4<=20;x4++)\\n                {\\n                    if( (c1 == x1+x3) && (x1+x2 == r1) && (x3+x4 == r2) && (x2+x4==c2) && (d1 == x1+x4) && (d2==x2+x3)\\n                        &&(x1 != x3) && (x1!=x4) && (x2 != x3) && ( x2 != x4) && x1<=9 && x2<=9 && x3<=9 && x4<=9)\\n                    {\\n                        flag = 0;\\n                    }\\n                }\\n            }\\n        }\\n    }\\n\\n    if(flag == 0)\\n    {\\n        printf(\\\"%d %d\\\\n\\\",x1-1,x2-1);\\n        printf(\\\"%d %d\\\",x3-1,x4-1);\\n    }\\n    else\\n    {\\n            printf(\\\"-1\\\");\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1185,
+    "completion_tokens": 433,
+    "total_tokens": 1618,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1185
+  },
+  "raw_sha256": "472a0e7a71264cb474abbedeef39f48dc211f98105f1eea51d98ebaa14ef22e6",
+  "ended_utc": "2026-11-16T03:44:53.678950+00:00",
+  "elapsed_seconds": 1.9146
+}

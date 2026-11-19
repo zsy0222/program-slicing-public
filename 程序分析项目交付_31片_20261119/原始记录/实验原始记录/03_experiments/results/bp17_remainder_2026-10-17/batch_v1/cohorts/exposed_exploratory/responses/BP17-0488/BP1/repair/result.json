@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0488/BP1/repair/1",
+  "case_id": "BP17-0488",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "305fb6b4eae7f744b5245c0ce88519cc4295c64992035cc8e37dd3d276b2b12f",
+  "started_utc": "2026-11-16T17:03:34.905448+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f5c66b94-907c-4d93-9014-20f64a49c242",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    long int n,k,sum=0;\\n    int m,j,i;\\n    scanf(\\\"%ld%ld\\\",&n,&m);\\n    long int a[m][2];\\n    for(i=0;i<m;i++)\\n    {\\n        for(j=0;j<2;j++)\\n        scanf(\\\"%ld\\\",&a[i][j]);\\n    }\\n    for(i=0;i<m;i++)\\n    {\\n        for(j=i+1;j<m;j++)\\n        {\\n            if(a[i][1]<a[j][1])\\n            {\\n                k=a[i][1];\\n                a[i][1]=a[j][1];\\n                a[j][1]=k;\\n            \\n                k=a[i][0];\\n                a[i][0]=a[j][0];\\n                a[j][0]=k;\\n            }\\n            \\n        }\\n    }\\n    for(i=0;i<m;i++)\\n    {\\n        if(a[i][0]<=n)\\n        {\\n            n=n-a[i][0];\\n            sum = sum + a[i][0]*a[i][1];\\n        }\\n        else\\n        {\\n            sum = sum + n*a[i][1];\\n            break;\\n        }\\n    }\\n    printf(\\\"%ld\\\",sum);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1087,
+    "completion_tokens": 337,
+    "total_tokens": 1424,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 191
+  },
+  "raw_sha256": "1203de4ebb6f7138bc38687383acbf307de5c857eb599fa73b1e1082ae80011a",
+  "ended_utc": "2026-11-16T17:03:37.304248+00:00",
+  "elapsed_seconds": 2.3957
+}

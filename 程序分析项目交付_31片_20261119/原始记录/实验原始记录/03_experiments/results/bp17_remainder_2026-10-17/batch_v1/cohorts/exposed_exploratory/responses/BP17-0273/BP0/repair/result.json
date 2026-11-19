@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0273/BP0/repair/1",
+  "case_id": "BP17-0273",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ec753b7c9b2a3572c09f241509ed7c6207efbdb2a4f2c69619468cc059244a97",
+  "started_utc": "2026-10-21T08:05:00.820195+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "402c9ced-0be3-4c79-9fe7-631465fd8fc4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint ok = 0, sol[8];\\n\\ntypedef struct po {\\n   int x, y;\\n} point;\\n\\npoint tab[8];\\n\\nint prp(b,a,c)\\n{\\n   int xa = tab[a].x, ya = tab[a].y;\\n   int xb = tab[b].x, yb = tab[b].y;\\n   int xc = tab[c].x, yc = tab[c].y;\\n   double a1, a2;\\n   if (xa != xb && xa != xc)\\n   {\\n      a1 = ((double) ya-yb)/((double) xa-xb);\\n      a2 = ((double) ya-yc)/((double) xa-xc);\\n      if (a1*a2 + 1.0 < 0.0000001 && a1*a2 + 1.0 > -0.0000001)\\n         return 1;\\n      else\\n         return 0;\\n   }\\n   if (xa == xb && ya == yc)\\n      return 1;\\n   if (xa == xc && ya == yb)\\n      return 1;\\n   return 0;\\n}\\n\\nint rect(int a[4])\\n{\\n   if (prp(a[0], a[1], a[2]) && prp(a[1], a[2], a[3]) && prp(a[2], a[3], a[0]) && prp(a[3], a[0], a[1]) ||\\n       prp(a[0], a[1], a[3]) && prp(a[1], a[3], a[2]) && prp(a[3], a[2], a[0]) && prp(a[2], a[0], a[1]))\\n      return 1;\\n   else\\n      return 0;\\n}\\n\\nint len(a,b,c)\\n{\\n   int xa = tab[a].x, ya = tab[a].y;\\n   int xb = tab[b].x, yb = tab[b].y;\\n   int xc = tab[c].x, yc = tab[c].y;\\n   double lab = (xa-xb)*(xa-xb)+(ya-yb)*(ya-yb);\\n   double lac = (xa-xc)*(xa-xc)+(ya-yc)*(ya-yc);\\n   double lbc = (xb-xc)*(xb-xc)+(yb-yc)*(yb-yc);\\n   if (lab - lac < 0.0000001 && lac - lab < 0.0000001)\\n      return 1;\\n   if (lbc - lac < 0.0000001 && lac - lbc < 0.0000001)\\n      return 1;\\n   if (lbc - lab < 0.0000001 && lab - lbc < 0.0000001)\\n      return 1;\\n   return 0;\\n}\\n\\nint sq(int a[4])\\n{\\n   if (len(a[0], a[1], a[2]) && len(a[1], a[2], a[3]))\\n      return 1;\\n   else\\n      return 0;\\n}\\n\\nvoid test(int a[4])\\n{\\n   if (ok)\\n      return;\\n   int i, j, k=0;\\n   if (rect(a))\\n      if (sq(a))\\n      {\\n         int b[4];\\n         for (i=0; i<8; i++)\\n         {\\n            int to = 1;\\n            for (j=0; j<4; j++)\\n               if (i == a[j])\\n                  to = 0;\\n            if (to)\\n               b[k++] = i;\\n         }\\n         if (rect(b))\\n         {\\n            ok = 1;\\n            for (i=0; i<4; i++)\\n            {\\n               sol[i] = a[i];\\n               sol[i+4] = b[i];\\n            }\\n         }\\n      }\\n   return;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n   int i, j, k, l;\\n   for (i=0; i<8; i++)\\n      scanf(\\\"%d %d\\\", &tab[i].x, &tab[i].y);\\n   for (i=0; i<5; i++)\\n      for (j=i+1; j<6; j++)\\n         for (k=j+1; k<7; k++)\\n            for (l=k+1; l<8; l++)\\n            {\\n               int s[4] = {i,j,k,l};\\n               test(s);\\n            }\\n   if (ok)\\n   {\\n      printf(\\\"YES\\\\n\\\");\\n      for (i=0; i<8; i++)\\n         printf(\\\"%d%c\\\", sol[i]+1, i%4 != 3 ? ' ' : '\\\\n');\\n   }\\n   else\\n      printf(\\\"NO\\\\n\\\");\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2086,
+    "completion_tokens": 1198,
+    "total_tokens": 3284,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2086
+  },
+  "raw_sha256": "6081531e4d026028bbd819abfeda4ad9dd2f2b74c7b959c6543a21773d647bf3",
+  "ended_utc": "2026-10-21T08:05:05.402366+00:00",
+  "elapsed_seconds": 4.578
+}

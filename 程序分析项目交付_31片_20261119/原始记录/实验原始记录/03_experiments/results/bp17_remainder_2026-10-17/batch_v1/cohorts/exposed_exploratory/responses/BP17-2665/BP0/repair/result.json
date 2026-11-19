@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2665/BP0/repair/1",
+  "case_id": "BP17-2665",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "b6187a9cd094b2636f96027f3fdba8c96e45ca045495ab8c7c9bd26c77c3acce",
+  "started_utc": "2026-11-18T10:07:52.210701+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "467f6e62-93de-45ef-81f4-077e0c5d9961",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ */\\n/* رَّبِّ زِدْنِى عِلْمًا */\\n\\n#include <stdio.h>\\n#include <string.h>\\n#include <math.h>\\n#include <stdlib.h>\\n\\n#define OUTPUT freopen(\\\"myfile.txt\\\",\\\"w\\\",stdout);\\n#define INPUT freopen(\\\"input.txt\\\",\\\"r\\\",stdin);\\n#define MAX 100005\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,array[MAX],max,dist,i,j,min=MAX;\\n\\n    scanf(\\\"%d\\\",&n);\\n\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&array[i]);\\n\\n    for(i=1;i<(n-1);i++)\\n    {\\n        max=0;\\n        for(j=1;j<n;j++)\\n        {\\n            if(j==i)\\n                continue;\\n            if(j==i+1)\\n                dist=array[j]-array[j-2];\\n            else\\n                dist=array[j]-array[j-1];\\n\\n            if(dist>max)\\n                max=dist;\\n        }\\n\\n        if(min>max)\\n            min=max;\\n    }\\n\\n    printf(\\\"%d\\\\n\\\",min);\\n\\n\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1052,
+    "completion_tokens": 323,
+    "total_tokens": 1375,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 156
+  },
+  "raw_sha256": "83058e1d3b54dfd2614f924d9f56aab7599a30fab7abbae9481d8afccd827673",
+  "ended_utc": "2026-11-18T10:07:54.423684+00:00",
+  "elapsed_seconds": 2.1168
+}

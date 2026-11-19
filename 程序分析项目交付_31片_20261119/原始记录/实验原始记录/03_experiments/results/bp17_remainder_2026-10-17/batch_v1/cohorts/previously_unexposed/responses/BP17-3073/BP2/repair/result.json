@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3073/BP2/repair/1",
+  "case_id": "BP17-3073",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "95bdc5b9f59cc1ef92eece8b24840283dc89d1b57d5a3de18cdc3ef70abe12c8",
+  "started_utc": "2026-11-16T17:37:55.491965+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fe5e67ca-ed73-4f93-9f93-d2b303d4892d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[]){\\n    int a1,a2,a3;\\n    int b1,b2,b3;\\n    int i;\\n    scanf(\\\"%d %d\\\",&a1,&b1);\\n    scanf(\\\"%d %d\\\",&a2,&b2);\\n    scanf(\\\"%d %d\\\",&a3,&b3);\\n\\n    if(a1>b1){\\n        i=b1;\\n        b1=a1;\\n        a1=i;\\n    }\\n    if(a2>b2){\\n        i=a2;\\n        a2=b2;\\n        b2=i;\\n    }\\n    if(a3>b3){\\n       i=a3;\\n       a3=b3;\\n       b3=i;\\n       }\\n    if(b2>b3){\\n        i=a2;\\n        a2=a3;\\n        a3=i;\\n        i=b2;\\n        b2=b3;\\n        b3=i;\\n    }\\n    if(a2*b2+a3*b3>a1*b1)\\n        printf(\\\"NO\\\");\\n    else{\\n        if(b2>b1||b3>b1)\\n            printf(\\\"NO\\\");\\n        else if(a2>a1||a3>a1)\\n            printf(\\\"NO\\\");\\n        else if(b2+b3<=b1||a2+a3<=a1)\\n            printf(\\\"YES\\\");\\n        else if(b3+a2<=b1)\\n            printf(\\\"YES\\\");\\n        else if(a2+a3<=b1)\\n            printf(\\\"YES\\\");\\n        else\\n            printf(\\\"NO\\\");\\n\\n    }\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1865,
+    "completion_tokens": 414,
+    "total_tokens": 2279,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1865
+  },
+  "raw_sha256": "1f686aaf12f26f78f4465e284ad496786a397a820304d6a9f7af686935058068",
+  "ended_utc": "2026-11-16T17:37:57.926205+00:00",
+  "elapsed_seconds": 2.4313
+}

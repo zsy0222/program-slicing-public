@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2863/BP0/repair/1",
+  "case_id": "BP17-2863",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "39452c07c69d38e169b7e449f5de0b155ea480d753c9da093ffbd34f41535878",
+  "started_utc": "2026-11-16T18:33:25.248119+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "715d7a2d-62c4-4a18-9db5-a5d7a320a181",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,i,j;\\n    scanf(\\\"%d\\\",&n);\\n    long long int w[n],h[n],totW=0,max[]={-1,-1},max_index[2],temp,tempW;\\n    for(i=0;i<n;i++){\\n    scanf(\\\"%lld %lld\\\",&w[i],&h[i]);\\n    totW+=w[i];\\n    if(h[i]>max[0]){max[1]=max[0];max_index[1]=max_index[0];max[0]=h[i];max_index[0]=i;}\\n    else if(h[i]>max[1]){max[1]=h[i];max_index[1]=i;}\\n    }\\n\\n    for(i=0;i<n;i++){\\n        temp=1;\\n        temp*=(totW-w[i]);\\n        if(i!=max_index[0])temp*=max[0];\\n        else temp*=max[1];\\n        printf(\\\"%lld\\\\n\\\",temp);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 916,
+    "completion_tokens": 270,
+    "total_tokens": 1186,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 148
+  },
+  "raw_sha256": "b6df6f2e0ade2fba0164659b0d17e2e42114d10a617bc1fb535406298f156247",
+  "ended_utc": "2026-11-16T18:33:27.266954+00:00",
+  "elapsed_seconds": 2.015
+}

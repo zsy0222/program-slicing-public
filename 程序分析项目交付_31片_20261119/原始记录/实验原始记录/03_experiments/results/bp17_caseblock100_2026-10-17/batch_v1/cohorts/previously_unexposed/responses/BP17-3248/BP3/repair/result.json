@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3248/BP3/repair/1",
+  "case_id": "BP17-3248",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "48ff9244fc20751042e5988cb10e4543d2c8c3cf759148e8fc0db1ec9b662327",
+  "started_utc": "2026-10-17T07:13:25.094054+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a01e0681-5017-4876-bfdd-96f81e45ae5f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <limits.h>\\n#include <math.h>\\n\\ntypedef long long ll;\\n\\n#ifdef __linux__\\n#define LLD\\t\\\"%lld\\\"\\n#else\\n#define LLD\\t\\\"%lld\\\"\\n#endif\\n\\ntypedef struct pt_s {\\n        int     x;\\n        int     y;\\n\\tchar\\tfl;\\n} pt_t;\\npt_t    pts[100010];\\nint\\tspc[100010];\\npt_t\\tout[100010];\\n\\nint comp (const void *a, const void *b)\\n{\\n        pt_t     *x = (pt_t *)a;\\n        pt_t     *y = (pt_t *)b;\\n    \\n\\tint\\tdx = x->y - x->x;\\n\\tint\\tdy = y->y - y->x;\\n\\n\\tif (dx == dy) {\\n\\t\\tif (x->x < y->x) {\\n\\t\\t\\treturn -1;\\n\\t\\t}\\n\\t\\tif (x->x > y->x) {\\n\\t\\t\\treturn 1;\\n\\t\\t}\\n\\t\\tif (x->y < y->y) {\\n\\t\\t\\treturn -1;\\n\\t\\t}\\n\\t\\tif (x->y > y->y) {\\n\\t\\t\\treturn 1;\\n\\t\\t}\\n\\t\\treturn 0;\\n\\t}\\n\\tif (dx < dy) {\\n\\t\\treturn -1;\\n\\t}\\n\\treturn 1;\\n}\\n\\nint bs (int end, ll tgt)\\n{\\n        int mid;\\n\\tint st = 0;\\n\\n        while (st <= end) {\\n                int tmp;\\n\\n                mid = (st+end)/2;\\n                tmp = pts[mid].y-pts[mid].x;\\n\\n                if (tmp < tgt) {\\n                        st = mid+1;\\n                } else if (tmp > tgt) {\\n                        end = mid - 1;\\n                } else {\\n                        if (pts[mid].fl) {\\n                                st = mid+1;\\n                        } else {\\n                                end = mid-1;\\n                        }\\n                }\\n        }\\n        return st;\\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint i, j;\\n\\tint\\tsi = 0;\\n\\tint n;\\n\\tint\\tmx, my;\\n\\n\\tscanf (\\\"%d\\\", &n);\\n\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tscanf (\\\"%d%d\\\", &pts[i].x, &pts[i].y);\\n\\t}\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tscanf (\\\"%d\\\", &spc[i]);\\n\\t}\\n\\tqsort (pts, n, sizeof (*pts), comp);\\n\\n\\tmx = my = -2000000;\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tint\\tti = bs (n-1, spc[i]);\\n\\t\\tint\\ty = pts[ti].y;\\n\\t\\tint\\tx = pts[ti].x;\\n\\t\\tint\\td  = y-x;\\n\\n\\t\\tif ((spc[i] == d) && \\n\\t\\t\\t(x >= mx || y >= my)) {\\n\\n\\t\\t\\tout[i] = pts[ti];\\n\\t\\t\\tpts[ti].fl = 1;\\n\\t\\t\\tmx = x;\\n\\t\\t\\tmy = y;\\n\\t\\t} else {\\n\\t\\t\\tputs(\\\"NO\\\");\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t}\\n\\t\\n\\tputs(\\\"YES\\\");\\n\\tfor (i = 0; i < n; i++) {\\n\\t\\tprintf (\\\"%d %d\\\\n\\\", out[i].x, out[i].y);\\n\\t}\\n\\t\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2999,
+    "completion_tokens": 929,
+    "total_tokens": 3928,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2999
+  },
+  "raw_sha256": "bbef672d176d466c2bd1b749fd5e0c143e892e06d0f78aba3c9a12378ac39f11",
+  "ended_utc": "2026-10-17T07:13:28.529908+00:00",
+  "elapsed_seconds": 3.422
+}

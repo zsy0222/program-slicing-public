@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2138/BP1/repair/1",
+  "case_id": "BP17-2138",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1a320e7e0f15626f663cde891abd4a526f932781ac56c2fb59f3a9f66d703884",
+  "started_utc": "2026-11-16T19:04:38.132948+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d900688a-1715-4da2-8393-602c5fd25da9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#define maxn 100005\\ntypedef struct node\\n{\\n    struct node *next;\\n    int which,signj,signo,num,deep;\\n}Node,*NODE;\\nNODE nd[maxn];\\nint que[maxn];\\nint ini[maxn],goal[maxn],used[maxn],print[maxn];\\nint solve()\\n{\\n    int s,e,now,t,realval;\\n    NODE p;\\n    s=1,e=2,t=0;\\n    que[1]=1;\\n    nd[1]->num=ini[1],nd[1]->deep=1,nd[1]->signj=nd[1]->signo=0,used[1]=1;\\n    while(s<e)\\n    {\\n        if((nd[que[s]]->deep%2==1)&&(nd[que[s]]->signj==1)) realval=1-nd[que[s]]->num;\\n        else if((nd[que[s]]->deep%2==0)&&(nd[que[s]]->signo==1)) realval=1-nd[que[s]]->num;\\n        else realval=nd[que[s]]->num;\\n        if(realval!=goal[nd[que[s]]->which])\\n        {\\n         if(nd[que[s]]->deep%2) nd[que[s]]->signj=1-nd[que[s]]->signj;\\n         else nd[que[s]]->signo=1-nd[que[s]]->signo;\\n         print[++t]=nd[que[s]]->which;\\n        }\\n        p=nd[que[s]]->next;\\n        while(p)\\n        {\\n            now=p->which;\\n            if(!used[now])\\n            {\\n             que[e]=now,nd[que[e]]->num=ini[now],nd[que[e]]->signj=nd[que[s]]->signj,nd[que[e]]->signo=nd[que[s]]->signo,nd[que[e]]->deep=nd[que[s]]->deep+1;\\n             used[now]=1;\\n             e++;\\n            }\\n            p=p->next;\\n        }\\n        s++;\\n    }\\n    return t;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,i,j,u,v,m;\\n    NODE p;\\n    while(~scanf(\\\"%d\\\",&n))\\n    {\\n        memset(used,0,sizeof(used));\\n        for(i=1;i<=n;i++)\\n        {\\n         nd[i]=(Node*)malloc(sizeof(Node));\\n         nd[i]->which=i;\\n         nd[i]->next=NULL;\\n        }\\n        for(i=1;i<n;i++)\\n        {\\n         scanf(\\\"%d%d\\\",&u,&v);\\n         p=(Node*)malloc(sizeof(Node));\\n         p->next=nd[u]->next;\\n         p->which=v;\\n         nd[u]->next=p;\\n         p=(Node*)malloc(sizeof(Node));\\n         p->next=nd[v]->next;\\n         p->which=u;\\n         nd[v]->next=p;\\n        }\\n        for(i=1;i<=n;i++)\\n         scanf(\\\"%d\\\",&ini[i]);\\n        for(i=1;i<=n;i++)\\n         scanf(\\\"%d\\\",&goal[i]);\\n        m=solve();\\n        printf(\\\"%d\\\\n\\\",m);\\n        for(i=1;i<=m;i++)\\n         printf(\\\"%d\\\\n\\\",print[i]);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1946,
+    "completion_tokens": 851,
+    "total_tokens": 2797,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1946
+  },
+  "raw_sha256": "2aa1948d403a37f8a28c8931e4018909fe9a9ed17d8d998b3bb9249c12deb799",
+  "ended_utc": "2026-11-16T19:04:42.555208+00:00",
+  "elapsed_seconds": 4.4127
+}

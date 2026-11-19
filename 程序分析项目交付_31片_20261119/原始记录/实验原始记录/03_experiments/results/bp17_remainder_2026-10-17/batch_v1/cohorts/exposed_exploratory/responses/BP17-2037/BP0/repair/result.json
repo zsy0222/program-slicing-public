@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2037/BP0/repair/1",
+  "case_id": "BP17-2037",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "6c6d445ef88e7515c40148116446f4bac5b7c0f1619e9937db680bb6182082c9",
+  "started_utc": "2026-11-16T05:50:26.298748+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a129c1e1-0fc3-4d83-8fa9-e78889790481",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[]){\\n\\n\\tchar mail[110], aux[110];\\n\\tint i, j, sz;\\n\\t\\n\\tfgets( mail, 100, stdin );\\n\\tsz = strlen(mail);\\n\\tmail[sz-1] = mail[sz];\\n\\ti = 1, j = 1;\\n\\taux[0] = mail[0];\\n\\t\\n\\twhile( mail[i] && !(mail[i] == 'a' && mail[i+1] == 't') ) aux[j++] = mail[i++];\\n\\taux[j++] = '@';\\n\\tif( mail[i] ) i += 2;\\n\\n\\twhile( mail[i] ) aux[j++] = mail[i++];\\n\\taux[j] = mail[i];\\n\\tsz = j;\\n\\t\\n\\ti = 1, j = 1;\\n\\t\\n\\tmail[0] = aux[0];\\n\\t\\n\\twhile( (i+2) < (sz-1) ){\\n\\t\\tif( aux[i] == 'd' && aux[i+1] == 'o' && aux[i+2] == 't' ){\\n\\t\\t\\tmail[j++] = '.';\\n\\t\\t\\ti += 3;\\n\\t\\t} else mail[j++] = aux[i++];\\n\\t}\\n\\t\\n\\twhile( aux[i] ) mail[j++] = aux[i++];\\n\\tmail[j] = aux[i];\\n\\t\\n\\tputs( mail );\\n\\t\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1303,
+    "completion_tokens": 381,
+    "total_tokens": 1684,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 151
+  },
+  "raw_sha256": "e5f230e2e0801e485192db26ab678ee33792505e91f22b960191a6f6cd621b87",
+  "ended_utc": "2026-11-16T05:50:28.538347+00:00",
+  "elapsed_seconds": 2.2376
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1998/BP0/repair/1",
+  "case_id": "BP17-1998",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "978f06281ea71351d269382361a4d4e0cc09720401a3453a91fd1267ce87b56d",
+  "started_utc": "2026-11-17T04:31:30.921245+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a6f1fd9b-f303-4087-bcfa-4a03304ff452",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#define maxlen 3005\\nint main(int argc, char *argv[])\\n{\\n   int n;\\n   char s[maxlen];\\n   int i,j,k,prei,res;\\n   while(~scanf(\\\"%d\\\",&n))\\n   {\\n       getchar();\\n       gets(s);\\n       i=res=prei=0;\\n       while(i<n)\\n       {\\n           while(i<n&&s[i]=='.') i++;\\n           if(i>=n) break;\\n           if(s[i]=='R')\\n           {\\n            res+=i-prei;\\n            i++;\\n            prei=i;\\n            while(i<n&&s[i]=='.') i++;\\n            if(i>=n) {prei=i;break;}\\n            else if(((i-prei)%2)==0&&i!=prei) res++;\\n           }\\n           prei=++i;\\n       }\\n       res+=i-prei;\\n       printf(\\\"%d\\\\n\\\",res);\\n   }\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1047,
+    "completion_tokens": 256,
+    "total_tokens": 1303,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 151
+  },
+  "raw_sha256": "c8f861541e8aec2d81388bb188a2b83abe1bd4eab9314f69a245c2a45249fc43",
+  "ended_utc": "2026-11-17T04:31:33.147651+00:00",
+  "elapsed_seconds": 2.1116
+}

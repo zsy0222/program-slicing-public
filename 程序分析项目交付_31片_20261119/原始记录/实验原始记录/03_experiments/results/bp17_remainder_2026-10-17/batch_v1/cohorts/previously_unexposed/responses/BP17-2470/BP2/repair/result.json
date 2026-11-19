@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2470/BP2/repair/1",
+  "case_id": "BP17-2470",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "43d59f44c217c2fdbc0a08cc413b35d7061237e25e917f709d20ad1445036dca",
+  "started_utc": "2026-11-16T16:26:19.606494+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "763f311c-390f-444e-a438-6288c9c1b6fd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define BUFFER_SIZE 2000000\\nint lenP,lenT,sz,pat[BUFFER_SIZE],z[BUFFER_SIZE],in1[BUFFER_SIZE],in2[BUFFER_SIZE];\\n\\nvoid z_algo(){\\n    int lf=0,rt=0,i,k,ip;/*lf,rt記錄現在檢查過最右邊的區間*/\\n    z[0]=sz;\\n    for(i=1;i<sz;i++){\\n        if(i>rt){ /*i不在[lf,rt] 需要從頭比對*/\\n            for(k=0;i+k<sz&&pat[k]==pat[i+k];k++);\\n            z[i]=k;\\n            lf=i;\\n            rt=i+k-1;\\n        }\\n        else{ /*i在[lf,rt] 可將i映射至ip*/\\n            ip=i-lf;\\n            if(i+z[ip]>rt){\\n                for(k=rt-i+1;i+k<sz&&pat[k]==pat[i+k];k++);\\n                z[i]=k;\\n                lf=i;\\n                rt=i+k-1;\\n            }\\n            else z[i]=z[ip];\\n        }\\n    }\\n}\\n\\nint main(int argc, char *argv[]){\\n    int i,n,w,x,y,find,cnt=0;\\n        scanf(\\\"%d %d\\\",&x,&y);\\n        for(i=0;i<x;i++)scanf(\\\"%d\\\",in1+i);\\n        for(i=0;i<y;i++)scanf(\\\"%d\\\",in2+i);\\n        for(i=1;i<x;i++)in1[i-1] = in1[i]-in1[i-1];\\n        for(i=1;i<y;i++)in2[i-1] = in2[i]-in2[i-1];\\n        lenP = x-1;\\n        lenT = y-1;\\n        for(i=lenT+1,sz=lenP+lenT+1;i<sz;i++)\\n            pat[i] = in1[i-(lenT+1)];\\n        for(i=0;i<lenT;i++)\\n            pat[i] = in2[i];\\n        pat[i++]=2147483647;\\n        if(lenT>lenP)printf(\\\"0\\\\n\\\");\\n        else if(lenT==1)printf(\\\"%d\\\\n\\\",x);\\n        else{\\n            z_algo();\\n            for(find=0;i<sz;i++)\\n                if(z[i]==lenT)\\n                    cnt++;\\n            printf(\\\"%d\\\\n\\\",cnt);\\n        }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2535,
+    "completion_tokens": 620,
+    "total_tokens": 3155,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2535
+  },
+  "raw_sha256": "9a5e81e6e1148c04d11a2ee394b77c8a3f5acf305b29db7aa04115cbf4faba77",
+  "ended_utc": "2026-11-16T16:26:22.535123+00:00",
+  "elapsed_seconds": 2.9258
+}

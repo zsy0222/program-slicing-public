@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-2340",
+  "content": "{\"source\":\"#include <stdio.h>\\nint n,m,q,ans;\\nint e[600010][2],p[300010];\\nint f[300010];\\nint root[300010],len[300010];\\nint max(int a,int b)\\n{\\n\\treturn a>b?a:b;\\n}\\nvoid adde(int sn,int fn,int id)\\n{\\n\\te[id][0] = fn; e[id][1] = p[sn]; p[sn] = id;\\n}\\nint findroot(int nod)\\n{\\n\\tif(root[nod] != nod) root[nod] = findroot(root[nod]);\\n\\treturn root[nod];\\n}\\nvoid dp(int sn,int fa)\\n{\\n\\tint i,fn,mx1 = 0,mx2 = 0;\\n\\tfor(i=p[sn];i;i=e[i][1])\\n\\t{\\n\\t\\tfn = e[i][0];\\n\\t\\tif(fn == fa) continue;\\n\\t\\tdp(fn,sn);\\n\\t\\tif(f[fn]+1>mx1) { mx2 = mx1; mx1 = f[fn]+1;}\\n\\t\\telse if(f[fn]+1>mx2) mx2 = f[fn]+1;\\n\\t}\\n\\tf[sn] = mx1;\\n\\tans = max(ans,mx1+mx2);\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint i,sn,fn,op;\\n\\tscanf(\\\"%d%d%d\\\",&n,&m,&q);\\n\\tfor(i=1;i<=n;i++) root[i] = i;\\n\\tfor(i=1;i<=n;i++) f[i] = -1;\\n\\tfor(i=1;i<=m;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d%d\\\",&sn,&fn);\\n\\t\\tadde(sn,fn,i<<1); adde(fn,sn,i<<1|1);\\n\\t\\troot[findroot(sn)] = findroot(fn);\\n\\t}\\n\\tfor(i=1;i<=n;i++)\\n\\t{\\n\\t\\tif(f[i]>=0) continue;\\n\\t\\tans = 0; dp(i,0);\\n\\t\\tlen[findroot(i)] = ans;\\n\\t}\\n\\twhile(q--)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\",&op);\\n\\t\\tif(op == 1)\\n\\t\\t{\\n\\t\\t\\tscanf(\\\"%d\\\",&sn);\\n\\t\\t\\tprintf(\\\"%d\\\\n\\\",len[findroot(sn)]);\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tscanf(\\\"%d%d\\\",&sn,&fn);\\n\\t\\t\\tsn = findroot(sn); fn = findroot(fn);\\n\\t\\t\\tif(sn == fn) continue;\\n\\t\\t\\troot[sn] = fn;\\n\\t\\t\\tlen[fn] = max(max(len[sn],len[fn]),((len[sn]+1)>>1)+((len[fn]+1)>>1)+1);\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 2.765,
+  "ended_utc": "2026-10-17T07:13:11.766381+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2340/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "0ace6fe3c90729f3d4f160511f1af506996fd6c38e7d710e586e522f0bcf49ef",
+  "request_model": "deepseek-flash",
+  "request_sha256": "0e26b9df33d1ff64b98f429d2b77311aa8c31d711b2b0fb7a9907cbb59e24ea5",
+  "response_id": "f8901e29-dd56-4cec-b130-b9c1d0a3bf0b",
+  "started_utc": "2026-10-17T07:13:09.008743+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 733,
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 177,
+    "prompt_tokens": 1585,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "total_tokens": 2318
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0815/BP3/repair/1",
+  "case_id": "BP17-0815",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "d1648b4ffb1872a0c5d7f1d8692f9536c8d9d297256a89942532cc479d630fd1",
+  "started_utc": "2026-10-21T06:48:30.954592+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e3e69d1c-7c36-426d-9470-ba6e5ced5b1e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n int x,n,i,j,t,z;\\n int a[10],b[10];\\n    while(scanf(\\\"%d\\\",&x)!=EOF)\\n    { \\n        for(i=0;i<10;i++)           \\n         a[i]=b[i]=-1;\\n         t=x;\\n        do  \\n        {                  \\n            z=t%10;\\n            a[z]=1;         \\n        } \\n        while(t=t/10);\\n        for(i=1,n=0;i*i<=x;i++)         \\n        {\\n            if(x%i==0)\\n            {\\n                t=i;\\n                do\\n                {\\n                     if(a[t%10]==1)\\n                     { \\n                     n++;\\n                     t=0;\\n                     }                           \\n                }\\n                while(t=t/10);\\n                if(i!=x/i)\\n                {\\n                t=x/i;\\n                do\\n                {\\n                    if(a[t%10]==1)\\n                     { \\n                     n++;\\n                     t=0;\\n                     }\\n                }\\n                while(t/=10);\\n                }\\n            }\\n            else continue;\\n        }    \\n        printf(\\\"%d\\\\n\\\",n);\\n    }\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1527,
+    "completion_tokens": 315,
+    "total_tokens": 1842,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 503
+  },
+  "raw_sha256": "178b6bc9bbe1613b9899dee2d415ab58eb0c6c22bd6563230f7d6a9a8a7bc1a3",
+  "ended_utc": "2026-10-21T06:48:32.703021+00:00",
+  "elapsed_seconds": 1.75
+}

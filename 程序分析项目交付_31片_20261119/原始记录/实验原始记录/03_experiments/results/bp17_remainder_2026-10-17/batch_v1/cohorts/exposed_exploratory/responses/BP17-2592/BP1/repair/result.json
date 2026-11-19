@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2592/BP1/repair/1",
+  "case_id": "BP17-2592",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "bd54babfededc4705f7fdbf0a1142d5bf72cd7348d729e6f7365836d18241081",
+  "started_utc": "2026-11-16T05:58:44.171664+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2885308c-7807-4dd4-b3e2-f69eaef41f0c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[]) {\\n\\tint m, s, i, soma;\\n\\tint *min, *max;\\n\\t\\n\\tscanf (\\\"%d %d\\\", &m, &s);\\n\\t\\n\\tif (s > m * 9 || (s == 0 && m > 1)) {\\n\\t\\tprintf (\\\"-1 -1\\\\n\\\");\\n\\t\\treturn 0; \\n\\t}\\n\\t\\n\\tmin = malloc (m * sizeof (int));\\n\\tmax = malloc (m * sizeof (int));\\n\\t\\n\\tfor (i = 0; i < m; i++) {\\n\\t\\tmin[i] = 0;\\n\\t\\tmax[i] = 0;\\n\\t}\\n\\t\\n\\ti = m - 1;\\n\\tmin[0] = 1;\\n\\tsoma = 1;\\n\\t\\n\\twhile (s - soma > 9) { \\n\\t\\tmin[i--] = 9;\\n\\t\\tsoma += 9;\\n\\t}\\n\\tmin[i] += s - soma;\\n\\t\\n\\ti = 0;\\n\\tsoma = 0;\\n\\t\\n\\twhile (s - soma > 9) {\\n\\t\\tmax[i++] = 9;\\n\\t\\tsoma += 9;\\n\\t}\\n\\tmax[i] += s - soma;\\n\\t\\n\\tfor (i = 0; i < m; i++) printf (\\\"%d\\\", min[i]);\\n\\tprintf (\\\" \\\");\\n\\tfor (i = 0; i < m; i++) printf (\\\"%d\\\", max[i]);\\n\\tprintf (\\\"\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1194,
+    "completion_tokens": 407,
+    "total_tokens": 1601,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1194
+  },
+  "raw_sha256": "2ae46726206855824f485930bcdda17bf142c899d213901b1aafc0fe325ec619",
+  "ended_utc": "2026-11-16T05:58:46.428312+00:00",
+  "elapsed_seconds": 2.2277
+}

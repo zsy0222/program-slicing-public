@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3712/BP2/repair/1",
+  "case_id": "BP17-3712",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "c95b65b5ab117e007a995f3d0a9616aecf3c5c1878accad4e43073e87dded9c4",
+  "started_utc": "2026-11-16T16:12:05.559310+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "06d0d498-6656-41a8-ba98-5a879f045931",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint t[100];\\nint main(int argc, char *argv[]) {\\n    int n ,a;\\n    scanf(\\\"%d %d\\\", &n, &a);\\n    int i; //loop\\n    for(i=0; i<n; i++) scanf(\\\"%d\\\", &t[i]);\\n    a--;\\n    int c = 0, l=a, r=a;\\n    while(1)\\n    {\\n        if(l<0 && r>=n) break;\\n        if(l>=0 && r<n)\\n        {\\n        \\tif(t[l] && t[r]) c += l==r?1:2;\\n        }\\n        else if(l>=0) c += t[l];\\n        else if(r<n) c += t[r];\\n        l--; r++;\\n    }\\n    printf(\\\"%d\\\\n\\\", c);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1476,
+    "completion_tokens": 217,
+    "total_tokens": 1693,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1476
+  },
+  "raw_sha256": "3d36c1279804f6643c7724a285b1b02b9a99c606ff2f0973979c17efa78b1af1",
+  "ended_utc": "2026-11-16T16:12:07.488274+00:00",
+  "elapsed_seconds": 1.8199
+}

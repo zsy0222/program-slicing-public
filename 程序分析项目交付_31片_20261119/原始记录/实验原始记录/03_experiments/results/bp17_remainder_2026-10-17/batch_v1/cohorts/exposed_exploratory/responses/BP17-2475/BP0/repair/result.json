@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2475/BP0/repair/1",
+  "case_id": "BP17-2475",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "9b5f12e3efcaaad7836f4e3a9f193aff12842bad73b2906364f216069308f17e",
+  "started_utc": "2026-10-17T08:59:52.134684+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cc4c17d9-e42f-4fbe-ab2e-d77ea237a40e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, k, f[2015], tmp, i, j, time=0;\\n    scanf(\\\"%d %d\\\", &n, &k);\\n    for(i=0; i<n; i++)scanf(\\\"%d\\\", &f[i]);\\n\\n    for(j=0;j<n;j++)\\n    {\\n        for(i=0;i<n-1;i++)\\n        {\\n            if(f[i]>f[i+1])\\n            {\\n                tmp=f[i];\\n                f[i]=f[i+1];\\n                f[i+1]=tmp;\\n            }\\n        }\\n    }\\n\\n    for(i=n-1; i>=0; i-=k)\\n        time+=((f[i]-1)*2);\\n\\n    printf(\\\"%d\\\\n\\\", time);\\n\\n //   main(int argc, char *argv[]);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 914,
+    "completion_tokens": 232,
+    "total_tokens": 1146,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 914
+  },
+  "raw_sha256": "861581c7afba1dcf1118231f11f2497d0cb36938c886fffc5d52243f063de166",
+  "ended_utc": "2026-10-17T08:59:53.426912+00:00",
+  "elapsed_seconds": 1.296
+}

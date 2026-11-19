@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2450/BP3/repair/1",
+  "case_id": "BP17-2450",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "62c2d4745dc95bb5c9f278230c3056cb0d7f4e175fa2d2a557510d181531467a",
+  "started_utc": "2026-11-18T10:05:42.072098+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "67cfeb8a-d9fd-4ba5-b813-3d16b2ed5190",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <stdbool.h>\\n\\nshort n, m;\\nshort selectarr[5];\\nshort taken;\\nchar password[40];\\nshort k;\\nint rest;\\n\\nstruct\\n{\\n    char attempt[40];\\n    short response;\\n} pass[10];\\n\\n\\nbool binarySearch( short v )\\n{\\n    short low, mid, high;\\n\\n    low = 0;\\n    high = k - 1;\\n\\n    while( low <= high )\\n    {\\n        mid = low + ( high - low ) / 2;\\n\\n        if( selectarr[mid] == v )\\n        {\\n            return 1;\\n        }\\n        else if( selectarr[mid] < v )\\n        {\\n            low = mid + 1;\\n        }\\n        else\\n        {\\n            high = mid - 1;\\n        }\\n    }\\n\\n    return 0;\\n}\\n\\nvoid check()\\n{\\n    short i, j;\\n    short res;\\n    bool exist;\\n\\n    exist = true;\\n\\n    for( i = 1; i < m; i++ )\\n    {\\n        res = 0;\\n        for( j = 0; j < n; j++ )\\n        {\\n            if( password[j] == pass[i].attempt[j] )\\n            {\\n                res++;\\n            }\\n        }\\n\\n        if( res != pass[i].response )\\n        {\\n            exist = false;\\n            break;\\n        }\\n    }\\n\\n    if( exist )\\n    {\\n        rest++;\\n    }\\n}\\n\\nvoid generate()\\n{\\n    short i;\\n\\n    for( i = 0; i < n; i++ )\\n    {\\n        if( binarySearch( i ) )\\n        {\\n            password[i] = pass[0].attempt[i];\\n        }\\n        else\\n        {\\n            password[i] = 97 - (int) ( pass[0].attempt[i] );\\n        }\\n    }\\n\\n    check();\\n}\\n\\nvoid combination( short idx )\\n{\\n    short i;\\n\\n    if( taken == k )\\n    {\\n        generate();\\n        return;\\n    }\\n\\n    for( i = idx; i < n; i++ )\\n    {\\n        selectarr[taken++] = i;\\n        combination( i + 1 );\\n        taken--;\\n    }\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    short i, j;\\n\\n    scanf( \\\"%hi %hi\\\", &n, &m );\\n\\n    for( i = 0; i < m; i++ )\\n    {\\n        getchar();\\n\\n        for( j = 0; j < n; j++ )\\n        {\\n            scanf( \\\"%c\\\", &pass[i].attempt[j] );\\n        }\\n\\n        scanf( \\\"%hi\\\", &pass[i].response );\\n    }\\n\\n    k  = pass[0].response;\\n    taken = 0;\\n    rest = 0;\\n\\n    combination( 0 );\\n\\n    printf( \\\"%d\\\\n\\\", rest );\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2827,
+    "completion_tokens": 777,
+    "total_tokens": 3604,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2827
+  },
+  "raw_sha256": "6240deb9f067a4a87ca78ea695c7fbd0f555aa68cc5384595ec603d7844778c0",
+  "ended_utc": "2026-11-18T10:05:46.562132+00:00",
+  "elapsed_seconds": 4.4815
+}

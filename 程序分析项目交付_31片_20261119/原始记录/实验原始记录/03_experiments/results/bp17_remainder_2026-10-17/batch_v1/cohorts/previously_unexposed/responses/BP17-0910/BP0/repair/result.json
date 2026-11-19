@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0910/BP0/repair/1",
+  "case_id": "BP17-0910",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "74149266aa12c57d05668055280fe5f4563c2b9cf5b9d05377ea805b31f59c1f",
+  "started_utc": "2026-10-21T07:14:16.258007+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "61737673-3fe5-42c6-ae26-e5750766a588",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint city1[105],city2[105],cost[105],n;\\nvoid solve();\\nint main(int argc, char *argv[])\\n{\\nscanf(\\\"%d\\\",&n);\\nsolve();\\nreturn 0;\\n}\\nvoid solve()\\n{\\nint i,clockwise=0,anticlockwise=0,q,t,j=0;\\nfor(i=0;i<n;i++)\\nscanf(\\\"%d%d%d\\\",&city1[i],&city2[i],&cost[i]);\\nanticlockwise+=cost[0];\\nt=city1[0];\\nq=city2[0];\\nj=0;\\nwhile(1)\\n{\\nfor(i=0;i<n;i++)\\n{\\nif(q==city2[i]&&t==city1[i])\\ncontinue;\\nif(q==city1[i])\\n{\\nanticlockwise+=cost[i];\\nq=city2[i];\\nt=city1[i];\\nbreak;\\n}\\nelse if(q==city2[i])\\n{\\nclockwise+=cost[i];\\nq=city1[i];\\nt=city2[i];\\ncity2[i]=q;\\ncity1[i]=t;\\nbreak;\\n}\\n}\\nj++;\\nif(j==n-1)\\nbreak;\\n}\\nif(anticlockwise<=clockwise)\\nprintf(\\\"%d\\\\n\\\",anticlockwise);\\nelse\\nprintf(\\\"%d\\\\n\\\",clockwise);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1055,
+    "completion_tokens": 342,
+    "total_tokens": 1397,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1055
+  },
+  "raw_sha256": "13abf6e0ba6cac78ff3ec6aeb894a9fc2274f3ec33b3b4d2454b217500160996",
+  "ended_utc": "2026-10-21T07:14:17.925784+00:00",
+  "elapsed_seconds": 1.656
+}

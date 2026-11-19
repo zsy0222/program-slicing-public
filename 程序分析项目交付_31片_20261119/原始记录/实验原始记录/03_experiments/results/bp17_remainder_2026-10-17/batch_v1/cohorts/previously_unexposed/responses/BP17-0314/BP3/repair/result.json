@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0314/BP3/repair/1",
+  "case_id": "BP17-0314",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0c45f5027ebc902cbe9dad5b6a57b7cc8868caf228d74da5154145ef59e8f26c",
+  "started_utc": "2026-10-21T08:20:01.289482+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8bd43b40-66b8-4881-8690-8177c62b938f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nvoid ordenar(int v[], int n);\\nvoid swap(int *a, int *b);\\n\\nint main(int argc, char *argv[])\\n{\\n\\n    int n, i, nyear=350, maxtime=360, penalty=0;\\n    \\n    scanf(\\\"%d\\\", &n);\\n    \\n    int problems[n];\\n    \\n    for(i=0; i<n; i++)\\n        scanf(\\\"%d\\\", &problems[i]);\\n    \\n    ordenar(problems, n);\\n    \\n    i=0;\\n    while(i<n && nyear-problems[i]>0)\\n    {\\n        nyear-=problems[i];\\n        i++;\\n    }\\n    \\n    maxtime += nyear;\\n        \\n    while(i<n && maxtime-problems[i]>0)\\n    {\\n        maxtime-=problems[i];\\n        penalty += 360-maxtime;\\n        i++;\\n    }\\n    \\n    printf(\\\"%d %d\\\\n\\\", i, penalty);\\n/*  printf(\\\"\\\\n\\\");\\n    system(\\\"pause\\\");*/\\n    \\n    return 0;\\n}\\n\\nvoid ordenar(int v[], int n)\\n{\\n    int i, j;\\n    \\n    for(i=0; i<n-1; i++)\\n    {\\n        for(j=0; j<n-i-1; j++)\\n        {\\n            if(v[j]>v[j+1])\\n            {\\n                swap(&v[j], &v[j+1]);\\n            }\\n            \\n        }\\n    }\\n}\\n\\nvoid swap(int *a, int *b)\\n{\\n    int aux;\\n    aux = *a;\\n    *a=*b;\\n    *b=aux;\\n    \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1869,
+    "completion_tokens": 452,
+    "total_tokens": 2321,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 717
+  },
+  "raw_sha256": "f5de15c5af6c3af0331d9389441552dc50fc33355f260e296946433d9210faa4",
+  "ended_utc": "2026-10-21T08:20:03.332013+00:00",
+  "elapsed_seconds": 2.031
+}

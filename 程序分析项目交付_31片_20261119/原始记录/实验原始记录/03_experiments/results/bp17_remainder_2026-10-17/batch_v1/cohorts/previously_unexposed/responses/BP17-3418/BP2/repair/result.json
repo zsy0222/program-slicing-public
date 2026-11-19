@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3418/BP2/repair/1",
+  "case_id": "BP17-3418",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "4354e37017ab27523d0ecbac14a7eee2ab602ad4a834ea912726f6f4a2919911",
+  "started_utc": "2026-10-18T12:34:03.666154+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7f99eba4-d290-42e6-8da0-b8bb27d4722c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nchar s[100010],p[35];\\n\\nvoid constructNext(int* next, int l)\\n{\\n    int i;\\n    next[0]=0;\\n    for (i=1;i<l;i++)\\n    {\\n        int k=next[i-1];\\n        while (k>0 && p[i]!=p[k])\\n            k=next[k-1];\\n        if (p[i]==p[k])\\n            k++;\\n        next[i]=k;\\n    }\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int i,j,ans,sl,pl;\\n    scanf(\\\"%s %s\\\",s,p);\\n    i=0; j=0; ans=0;\\n    sl=strlen(s);\\n    pl=strlen(p);\\n    int next[pl];\\n    memset(next,0,sizeof(next));\\n    constructNext(next,pl);\\n    while (i<sl)\\n    {\\n        if (j==pl)\\n        {\\n            ans++;\\n            j=next[j-1];\\n            continue;\\n        }\\n        if (s[i]==p[j])\\n        {\\n            i++;\\n            j++;\\n        }\\n        else\\n        {\\n            if (!j)\\n                i++;\\n            else\\n                j=next[j-1];\\n        }\\n    }\\n    if (j==pl)\\n        ans++;\\n    printf(\\\"%d\\\\n\\\",ans);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1684,
+    "completion_tokens": 371,
+    "total_tokens": 2055,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1684
+  },
+  "raw_sha256": "8ba84c4316f08352d30700ee007677910c350f6403baa9129e2a9854c0cf3318",
+  "ended_utc": "2026-10-18T12:34:05.481862+00:00",
+  "elapsed_seconds": 1.75
+}

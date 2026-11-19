@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0920/BP2/repair/1",
+  "case_id": "BP17-0920",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f19254df519a47db0c70a1264b600e9170d6109ad63ab447bc13d6b2fc68279b",
+  "started_utc": "2026-11-16T18:16:08.896590+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a362931e-048c-4207-bf22-ba00a31c5ee1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint max_i(int b[], int i, int j){\\n    if(b[i] > b[j]){\\n        return i;\\n    }else{\\n        return j;\\n    }\\n}\\n\\nint min_i(int b[], int i, int j){\\n    if(b[i] < b[j]){\\n        return i;\\n    }else{\\n        return j;\\n    }\\n}\\n\\nint main(int argc, char *argv[]){\\n    int i, j, k, l, m, n;\\n\\n    scanf(\\\"%d\\\", &n);\\n\\n    int a[n], b[n];\\n    for(i = 0; i < n; i++){\\n        scanf(\\\"%d\\\", &a[i]);\\n        scanf(\\\"%d\\\", &b[i]);\\n    }\\n\\n    k = 0; j = 0;\\n    for(i = 1; i < n; i++){\\n        if(a[i] <= a[j] && b[k] <= b[i]){\\n            k = i;\\n            j = i;\\n        }else if(a[i] < a[j]){\\n            j = i;\\n        }else if(b[k] < b[i]){\\n            k = i;\\n        }else if(a[i] == a[j]){\\n            j = max_i(b, i, j);\\n        }else if(b[i] == b[k]){\\n            k = min_i(a, i, j);\\n        }\\n    }\\n\\n    if(j == k){\\n        printf(\\\"%d\\\\n\\\", j + 1);\\n    }else{\\n        printf(\\\"-1\\\\n\\\");\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2020,
+    "completion_tokens": 398,
+    "total_tokens": 2418,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2020
+  },
+  "raw_sha256": "cac615ac7b48e71e2fab625597b90696943d04accf7801d00ac504178e71da67",
+  "ended_utc": "2026-11-16T18:16:11.249298+00:00",
+  "elapsed_seconds": 2.3493
+}

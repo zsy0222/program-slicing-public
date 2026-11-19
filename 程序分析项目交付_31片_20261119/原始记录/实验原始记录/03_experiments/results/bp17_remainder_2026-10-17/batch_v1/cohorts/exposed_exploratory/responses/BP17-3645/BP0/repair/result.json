@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3645/BP0/repair/1",
+  "case_id": "BP17-3645",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "e71f4f7d39d8db4a3390263eb8b8b4f62a85ee85f8939e93271dd6b8b85faa88",
+  "started_utc": "2026-11-16T17:30:43.689910+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c3efa321-af33-4fa0-8c4c-ab793e5c5b6f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int a[90], i, check, n, flag=-100;\\n    scanf(\\\"%d\\\", &n);\\n    for(i=0; i<n; i++)\\n        scanf(\\\"%d\\\", &a[i]);\\n    for(i=0; i<n; i++)\\n    {\\n        if(i==0)\\n        {\\n            check = a[i];\\n            if(n==1)\\n                flag = a[i];\\n            if(check>15)\\n            {\\n                flag = 0;\\n                break;\\n            }\\n        }\\n        else\\n        {\\n            check = a[i]-a[i-1];\\n            if(check>15)\\n            {\\n                flag = a[i-1];\\n                break;\\n            }\\n        }\\n    }\\n    if(flag<0||flag>=75)\\n        printf(\\\"90\\\\n\\\");\\n    else\\n        printf(\\\"%d\\\\n\\\", flag+15);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 935,
+    "completion_tokens": 252,
+    "total_tokens": 1187,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 935
+  },
+  "raw_sha256": "41c89155933e5994eb2b9ba706938953eaae9db22b2740aeb8610e018e987ea9",
+  "ended_utc": "2026-11-16T17:30:45.737515+00:00",
+  "elapsed_seconds": 2.0454
+}

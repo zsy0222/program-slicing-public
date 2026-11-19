@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0496/BP1/repair/1",
+  "case_id": "BP17-0496",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "04314fe2371462512772e36a7763521672fd7d8576c3294997a654c49a836b5f",
+  "started_utc": "2026-10-18T12:24:02.837431+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1eb69853-d17c-4a5e-b980-4c8b3ec501be",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"int n;\\ndouble ans[1<<18][18],a[18][18];\\nint main(int argc, char *argv[])\\n{\\n    int i,j,w,mask;\\n    double tmp;\\n    scanf(\\\"%d\\\",&n);\\n    w=(1<<n);\\n    for(i=0; i<n; i++)\\n        for(j=0; j<n; j++)\\n            scanf(\\\"%lf\\\",&a[i][j]);\\n    for(mask=1; mask<w; mask++)\\n    {\\n        if(__builtin_popcount(mask)==1)\\n        {\\n            ans[mask][__builtin_ctz(mask)]=1;\\n            continue;\\n        }\\n        for(i=0; i<n; i++)if(mask&(1<<i))\\n        {\\n            tmp=0;\\n            for(j=0; j<n; j++)\\n                if(j!=i && mask&(1<<j))\\n                    tmp+=a[j][i];\\n            for(j=0; j<n; j++)\\n                if(j!=i && mask&(1<<j))\\n                    ans[mask][j]+=tmp*ans[mask-(1<<i)][j];\\n        }\\n    }\\n    tmp=1;\\n    for(i=2; i<=n; i++)\\n        tmp*=i*(i-1)/2;\\n    for(i=0; i<n; i++)\\n        printf(\\\"%.6lf \\\",ans[w-1][i]/tmp);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1116,
+    "completion_tokens": 365,
+    "total_tokens": 1481,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 220
+  },
+  "raw_sha256": "a7a0b7f67ed1f15f5c84abb2b90ebeca2a9db44a1eb83926761883c1ea3e7ef5",
+  "ended_utc": "2026-10-18T12:24:04.934088+00:00",
+  "elapsed_seconds": 2.093
+}

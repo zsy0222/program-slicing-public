@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2248/BP0/repair/1",
+  "case_id": "BP17-2248",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "88255a3884712754836d1d8544b5ead1d44b405f9e74fc29b02d5e0c4847fe65",
+  "started_utc": "2026-11-16T05:31:36.508340+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9c56cd2b-2083-4559-905d-9aac28d59982",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint nodes[500];\\n\\nstruct edge\\n{\\n    int a;\\n    int b;\\n    double value;\\n};\\n\\nstruct edge edges[124750];\\n\\nint cmp(const void* a,const void* b)\\n{\\n    struct edge *c,*d;\\n    c=(struct edge*)a;\\n    d=(struct edge*)b;\\n    return d->value-c->value;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,m;\\n    int i;\\n    double max;\\n    memset(nodes,0,sizeof(nodes));\\n    memset(edges,0,sizeof(edges));\\n    scanf(\\\"%d %d\\\",&n,&m);\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&nodes[i]);\\n    if(m==0)\\n    {\\n        printf(\\\"0.000000000000000\\\\n\\\");\\n        return 0;\\n    }\\n    max=0;\\n    for(i=0;i<m;i++)\\n    {\\n        scanf(\\\"%d %d %lf\\\",&edges[i].a,&edges[i].b,&edges[i].value);\\n        edges[i].value=(nodes[edges[i].a-1]+nodes[edges[i].b-1])/edges[i].value;\\n        if(edges[i].value>max)\\n            max=edges[i].value;\\n    }\\n    printf(\\\"%.*lf\\\\n\\\",15,max);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1086,
+    "completion_tokens": 371,
+    "total_tokens": 1457,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1086
+  },
+  "raw_sha256": "34bfc637fd0a91675a885e4984defbe9550d65bcab8ba7b1ba589f113edc6953",
+  "ended_utc": "2026-11-16T05:31:38.617036+00:00",
+  "elapsed_seconds": 2.1064
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0330/BP3/repair/1",
+  "case_id": "BP17-0330",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "65b65950272b671b479c4746c159884edb14d92bd8c2229cc89173efa7acbbc1",
+  "started_utc": "2026-11-16T05:41:31.254903+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3f226a29-e2a5-4d20-ad43-beeaf4966bf0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\nint compare (const void * a, const void * b)\\n{\\n  return ( *(int*)a - *(int*)b );\\n}\\n\\nint main(int argc, char *argv[]) {\\n    int n, i, j, t, k, h[3000], max = 1;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tint a[3000];\\n\\tfor (i = 0;i < 3000;i++) h[i] = 0;\\n\\tchar s[3000][10], c;\\n\\tchar name[3000][10];\\n\\tfor (i = 0;i < n;i++) scanf(\\\"%s%d\\\",s[i],&(a[i]));\\n\\tfor (i = 0;i < n-1;i++) {\\n\\t    for (j = i+1;j < n;j++) {\\n\\t\\t    if (a[i] > a[j]) {\\n\\t\\t\\t    t = a[i];\\n\\t\\t\\t\\ta[i] = a[j];\\n\\t\\t\\t\\ta[j] = t;\\n\\t\\t\\t    for (k = 0;k < 10;k++) {  \\n\\t\\t\\t        c = s[i][k];\\n\\t\\t\\t\\t    s[i][k] = s[j][k];\\n\\t\\t\\t\\t    s[j][k] = c;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tt = 0;\\n\\tfor (i = 0;i < n;i++) {\\n\\t    t += a[i] > i ? 1:0;\\n\\t}\\n    if (t == 0) {\\n\\t    for (i = 0;i < n;i++) {\\n            for (j = i;j > i - a[i];j--) {\\n\\t\\t\\t    h[j] = h[j-1];\\n\\t\\t\\t}\\n\\t\\t\\th[i - a[i]] = i;\\n\\t\\t}\\t\\t\\n\\t\\tfor (i = 0;i < n;i++) h[i] = h[i]*3000+i;\\n\\t\\tqsort(h,n,sizeof(int),compare);\\n\\t\\tfor (i = 0;i < n;i++) h[i] = h[i]%3000;\\n\\t\\tfor (i = 0;i < n;i++) printf(\\\"%s %d\\\\n\\\",s[i],h[i]+1);\\n    } else printf(\\\"-1\\\\n\\\");\\n\\treturn(0);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2300,
+    "completion_tokens": 588,
+    "total_tokens": 2888,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2300
+  },
+  "raw_sha256": "48e494906e5750a5755eee8e06eba52f5088c1fbb0f2e6df05bb2775c4b254b6",
+  "ended_utc": "2026-11-16T05:41:33.880793+00:00",
+  "elapsed_seconds": 2.6227
+}

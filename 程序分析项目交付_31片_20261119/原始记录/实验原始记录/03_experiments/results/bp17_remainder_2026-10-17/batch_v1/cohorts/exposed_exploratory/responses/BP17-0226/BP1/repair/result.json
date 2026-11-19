@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0226/BP1/repair/1",
+  "case_id": "BP17-0226",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "7e979ca9d3f985884c38ef339bdc0fb24a26df65bd215a796cd02310ab93a79c",
+  "started_utc": "2026-10-17T13:45:23.660206+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "018d98ba-860f-4109-b64b-c6c58b00bfb9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint pgcd(int x,int y)\\n    {\\n        if (x==y) return x;\\n        if (x==0) return y;\\n        if (y==0) return x;\\n        if (x<y) return pgcd(x,y%x);\\n        return pgcd(x%y,y);\\n    }\\n\\nint main(int argc, char *argv[])\\n    {\\n        int a,i,s,x,y;\\n        scanf(\\\"%d\\\",&a);\\n        s = 2;\\n        for (i=2;i<a-1;i++)\\n            {\\n                x = 1;\\n                while (x<a) x = x * i;\\n                x = x / i;\\n                y = a;\\n                while (y!=0)\\n                    {\\n                        s = s + (y/x);\\n                        y = y % x;\\n                        x = x / i;\\n                    }\\n            }\\n        y = pgcd(s,a-2);\\n        printf(\\\"%d/%d\\\\n\\\",s/y,(a-2)/y);\\n\\treturn 0;\\n    }\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1001,
+    "completion_tokens": 272,
+    "total_tokens": 1273,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1001
+  },
+  "raw_sha256": "09fdb969179a8f096aac48e4b72bec3a434cfa6e60ba3b0c817665a27a6225c7",
+  "ended_utc": "2026-10-17T13:45:25.515003+00:00",
+  "elapsed_seconds": 1.843
+}

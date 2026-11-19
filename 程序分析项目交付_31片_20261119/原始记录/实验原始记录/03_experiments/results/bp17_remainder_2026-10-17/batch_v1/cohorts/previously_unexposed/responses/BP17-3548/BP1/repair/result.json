@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3548/BP1/repair/1",
+  "case_id": "BP17-3548",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "696c036b06d2652bc68a10fb0485b0b501399cd9046d479b91706ab3a7360cdc",
+  "started_utc": "2026-11-18T03:13:02.904206+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "be7266ee-e92c-4e49-9647-481c34196ae6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\n#define MAX_Q 36\\nchar tStr[MAX_Q][5], a[MAX_Q], b[MAX_Q];\\nint n,q,cnt;\\n\\nint find(char h, int len, int *cnt)\\n{\\n    int i;\\n    for(i=0;i<q;i++){\\n        if(b[i] == h){\\n            if(len == n-1){\\n                *cnt = *cnt+1;\\n            }else{\\n                h = a[i];\\n                *cnt = find(h, len+1, cnt);\\n            }\\n        }\\n    }\\n    return *cnt;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int i;\\n    scanf(\\\"%d %d\\\\n\\\", &n, &q);\\n    for(i=0;i<q;i++){\\n        gets(tStr[i]);\\n        a[i]=tStr[i][0];\\n        b[i]=tStr[i][3];\\n    }\\n    printf(\\\"%d\\\\n\\\", find('a', 1, &cnt));\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 976,
+    "completion_tokens": 261,
+    "total_tokens": 1237,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 208
+  },
+  "raw_sha256": "ceb00ae6fde3ef4a875ee6e889e2ec85724f4bbf5a22397040a1d4dff13a6566",
+  "ended_utc": "2026-11-18T03:13:04.462185+00:00",
+  "elapsed_seconds": 1.5137
+}

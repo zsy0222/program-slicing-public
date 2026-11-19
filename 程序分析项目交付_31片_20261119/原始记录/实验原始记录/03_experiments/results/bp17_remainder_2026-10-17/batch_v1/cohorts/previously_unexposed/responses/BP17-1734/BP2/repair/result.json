@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1734/BP2/repair/1",
+  "case_id": "BP17-1734",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "db871f27103c3a5960a69905f3fe31686ab5c17256ae3a0e6fcf5aec9c480e79",
+  "started_utc": "2026-11-16T17:12:36.803774+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dea5246e-085f-48e2-bc70-294c44abd388",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\nint i,j,k,n,max;\\nscanf(\\\"%d\\\",&n);\\nint a[n],good[n];\\nfor(i=0;i<n;i++)\\nscanf(\\\"%d\\\",&a[i]);\\nif(n>2)\\n good[0]=2;\\nelse\\n good[0]=n;\\n k=0;\\n for(i=2;i<n;i++)\\n {\\n if(a[i]==a[i-1]+a[i-2])\\n good[k]++;\\n else\\n {\\n     good[k+1]=1;\\n     k++;\\n \\n }\\n \\n }\\n for(i=0;i<=k;i++)\\n {\\n if(i==0)\\n max=good[0];\\n if(good[i]>max)\\n max=good[i];\\n }\\n printf(\\\"%d\\\\n\\\",max);\\n return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1533,
+    "completion_tokens": 219,
+    "total_tokens": 1752,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 637
+  },
+  "raw_sha256": "1b4a03aba635032b90e9c28dbc24b8f3b0a009cf0ead9c5e9b283cbbe8614cec",
+  "ended_utc": "2026-11-16T17:12:38.682618+00:00",
+  "elapsed_seconds": 1.7579
+}

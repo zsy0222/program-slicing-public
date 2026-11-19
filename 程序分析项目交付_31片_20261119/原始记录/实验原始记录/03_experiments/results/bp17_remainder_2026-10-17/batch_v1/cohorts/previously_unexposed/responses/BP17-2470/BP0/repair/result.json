@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2470/BP0/repair/1",
+  "case_id": "BP17-2470",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "d0991be5af4116a6dab746d2966953f63e7254c250a1dcd8af08452eca9dfdda",
+  "started_utc": "2026-11-16T16:26:25.157347+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4200cd43-a26e-4c05-846e-a9efda14844d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define BUFFER_SIZE 2000000\\nint lenP,lenT,sz,pat[BUFFER_SIZE],z[BUFFER_SIZE],in1[BUFFER_SIZE],in2[BUFFER_SIZE];\\n\\nvoid z_algo(){\\n    int lf=0,rt=0,i,k,ip;\\n    z[0]=sz;\\n    for(i=1;i<sz;i++){\\n        if(i>rt){\\n            for(k=0;i+k<sz&&pat[k]==pat[i+k];k++);\\n            z[i]=k;\\n            lf=i;\\n            rt=i+k-1;\\n        }\\n        else{\\n            ip=i-lf;\\n            if(i+z[ip]>rt){\\n                for(k=rt-i+1;i+k<sz&&pat[k]==pat[i+k];k++);\\n                z[i]=k;\\n                lf=i;\\n                rt=i+k-1;\\n            }\\n            else z[i]=z[ip];\\n        }\\n    }\\n}\\n\\nint main(int argc, char *argv[]){\\n    int i,n,w,x,y,find,cnt=0;\\n        scanf(\\\"%d %d\\\",&x,&y);\\n        for(i=0;i<x;i++)scanf(\\\"%d\\\",in1+i);\\n        for(i=0;i<y;i++)scanf(\\\"%d\\\",in2+i);\\n        for(i=1;i<x;i++)in1[i-1] = in1[i]-in1[i-1];\\n        for(i=1;i<y;i++)in2[i-1] = in2[i]-in2[i-1];\\n        lenP = x-1;\\n        lenT = y-1;\\n        for(i=lenT+1,sz=lenP+lenT+1;i<sz;i++)\\n            pat[i] = in1[i-(lenT+1)];\\n        for(i=0;i<lenT;i++)\\n            pat[i] = in2[i];\\n        pat[i++]=2147483647;\\n        if(lenT>lenP)printf(\\\"0\\\\n\\\");\\n        else if(lenT==1)printf(\\\"%d\\\\n\\\",x);\\n        else{\\n            z_algo();\\n            for(find=0;i<sz;i++)\\n                if(z[i]==lenT)\\n                    cnt++;\\n            printf(\\\"%d\\\\n\\\",cnt);\\n        }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1329,
+    "completion_tokens": 571,
+    "total_tokens": 1900,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 177
+  },
+  "raw_sha256": "c726374d15e45ad9860856146ddeca74c9f0ecb9faa2b6a45f295c2e87fb84b3",
+  "ended_utc": "2026-11-16T16:26:27.954988+00:00",
+  "elapsed_seconds": 2.7946
+}

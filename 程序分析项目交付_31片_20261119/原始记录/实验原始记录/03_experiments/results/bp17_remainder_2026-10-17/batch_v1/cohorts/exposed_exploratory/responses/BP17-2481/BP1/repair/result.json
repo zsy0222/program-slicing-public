@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2481/BP1/repair/1",
+  "case_id": "BP17-2481",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "26dbdc76d49e057743103f768f9cfd69242974cc30042890604555221c39ce9d",
+  "started_utc": "2026-11-18T10:02:44.670935+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3de8ce4f-ab3a-4d56-94a7-011499aad244",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"//Codeforces 472 //C. Design Tutorial: Make It Nondeterministic //Codeforces Round #270 (Div. 2)\\n#if 1\\n//���� : n���� ������� ���� �̸��� �־�����. n���� ������� ������ �־��� ��,\\n//�� ������� ������� �� �Ǵ� �̸��� ���������� ���� �� �ִ��� Ȯ���϶�.\\n#include <stdio.h>\\n#include <stdlib.h>\\n#include <time.h>\\n#include <string.h>\\ntypedef struct _name\\n{\\n\\tchar f[51];\\n\\tchar s[51];\\n}Name;\\n\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n;\\n\\tName *name;\\n\\tint i;\\n\\tint check=0;\\n\\tint *num;\\n\\tchar temp[50];\\n\\tFILE *fin = freopen(\\\"input.txt\\\", \\\"r\\\", stdin);\\n\\tscanf(\\\"%d \\\", &n);\\n\\tname = (Name*)calloc(n+1, sizeof(Name));\\n\\tnum = (int*)calloc(n, sizeof(int));\\n\\tfor(i=1; i<=n; i++)\\n\\t{\\n\\t\\tscanf(\\\"%s\\\", name[i].f);\\n\\t\\tscanf(\\\"%s\\\", name[i].s);\\n\\t}\\n\\n\\tfor(i=0; i<n; i++)\\n\\t\\tscanf(\\\"%d \\\", &num[i]);\\n\\n\\n\\tif(strcmp(name[num[0]].f, name[num[0]].s) < 0) //n�� n-1 ���� �Ѵ�ũ�ٸ� �����ż�����\\n\\t\\tstrcpy(temp, name[num[0]].f);\\n\\telse\\n\\t\\tstrcpy(temp, name[num[0]].s);\\n\\n\\tfor(i=1; i<n; i++)\\n\\t{\\n\\t\\tif((strcmp(name[num[i]].f, temp) > 0) && \\n\\t\\t\\t(strcmp(name[num[i]].s, temp) > 0)) //n�� n-1 ���� �Ѵ�ũ�ٸ� �����ż�����\\n\\t\\t{\\n\\t\\t\\tif(strcmp(name[num[i]].f, name[num[i]].s) < 0)\\n\\t\\t\\t\\tstrcpy(temp, name[num[i]].f);\\n\\t\\t\\telse\\n\\t\\t\\t\\tstrcpy(temp, name[num[i]].s);\\n\\t\\t}\\n\\t\\telse if(strcmp(name[num[i]].f, temp) > 0) //�ϳ��� ũ�ٸ�\\n\\t\\t{\\n\\t\\t\\tstrcpy(temp, name[num[i]].f);\\n\\t\\t}\\n\\t\\telse if(strcmp(name[num[i]].s, temp) > 0) //�ϳ��� ũ�ٸ�\\n\\t\\t{\\n\\t\\t\\tstrcpy(temp, name[num[i]].s);\\n\\t\\t}\\n\\t\\telse //�Ѵ� ��ũ�ٸ� Ż��\\n\\t\\t{\\n\\t\\t\\tcheck = 1;\\n\\t\\t\\tbreak;\\n\\t\\t}\\n\\t}\\n\\tif(!check)\\n\\t\\tprintf(\\\"YES\\\");\\n\\telse\\n\\t\\tprintf(\\\"NO\\\");\\n\\n\\tfree(num);\\n\\tfree(name);\\n\\treturn 0;\\n}\\n\\n#endif\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1707,
+    "completion_tokens": 778,
+    "total_tokens": 2485,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1707
+  },
+  "raw_sha256": "28f5c165fbb3697be4f79f16eb6278e5872c11fb64ec97a32315adf6290cc7e4",
+  "ended_utc": "2026-11-18T10:02:48.475380+00:00",
+  "elapsed_seconds": 3.8001
+}

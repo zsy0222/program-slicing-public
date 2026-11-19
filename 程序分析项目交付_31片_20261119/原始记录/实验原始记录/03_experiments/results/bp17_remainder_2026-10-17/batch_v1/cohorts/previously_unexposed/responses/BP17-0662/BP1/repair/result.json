@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0662/BP1/repair/1",
+  "case_id": "BP17-0662",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "148391a47a1caaea0f913494d392bcba72de7fa8d09fd945fa9889e842df814f",
+  "started_utc": "2026-11-16T05:04:35.920891+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a27b6cb0-d177-4579-bc24-3c68e1142ada",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAXN 1600\\nconst int sx[4] = {0,-1,0,1};\\nconst int sy[4] = {-1,0,1,0};\\n\\nint ma[MAXN][MAXN];\\nint b[MAXN][MAXN];\\nstruct{\\n    int x,y;\\n}from[MAXN][MAXN];\\nchar s[MAXN];\\nint n,m;\\n\\nint dfs(int x, int y)\\n{\\n    int px = (x % n + n) % n;\\n    int py = (y % m + m) % m;\\n    if (!ma[px][py]) return 0;\\n    if (b[px][py]) return (from[px][py].x!=x || from[px][py].y!=y);\\n    b[px][py] = 1;\\n    from[px][py].x = x;\\n    from[px][py].y = y;\\n    int i;\\n    for (i=0;i<4;i++)\\n        if (dfs(x+sx[i],y+sy[i])) return 1;\\n    return 0;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int i,j,x,y;\\n    char c;\\n    \\n    scanf(\\\"%d %d\\\",&n,&m);\\n    for (i=1;i<=n;i++)\\n    {\\n        scanf(\\\"%s\\\",s+1);\\n        for (j=1;j<=m;j++)\\n        {\\n            c = s[j];\\n            if (c=='.') ma[i][j] = 1;\\n            else if (c=='S') ma[i][j]=1, x = i, y = j;\\n        }\\n    }\\n        \\n    printf(dfs(x,y)?\\\"Yes\\\\n\\\":\\\"No\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1233,
+    "completion_tokens": 451,
+    "total_tokens": 1684,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 209
+  },
+  "raw_sha256": "e797cf437bd20f34c074b752d93e69542cbd41b0502083c58359197ec6398121",
+  "ended_utc": "2026-11-16T05:04:38.380763+00:00",
+  "elapsed_seconds": 2.3525
+}

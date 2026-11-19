@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3316/BP2/repair/1",
+  "case_id": "BP17-3316",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d5f46a8851487066fc3cd6c36a16a069f0935fdaf90683d3f8de07bef1e05082",
+  "started_utc": "2026-11-18T03:14:24.360181+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9bef2166-9258-4836-bbd7-92b87263d1ef",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nstruct vertice\\n{\\n         long in;\\n         long fin;\\n         long longi;\\n         long siguiente;\\n}n[200001];\\n\\nlong long max,distancia[100001],suma;\\n\\nlong pos[100001],cantidad,linea[110000],ocu[100001],SI=1,NO=1,t,i;\\nint main(int argc, char *argv[])\\n{\\n   scanf(\\\"%ld\\\",&cantidad);\\n   for(i=1;i<cantidad;i++)\\n   {\\n      scanf(\\\"%ld %ld %ld\\\",&n[i].in,&n[i].fin,&n[i].longi);\\n      n[i].siguiente=pos[n[i].in];\\n      pos[n[i].in]=i;\\n      n[i+cantidad]=n[i];\\n      n[i+cantidad].fin=n[i].in;\\n      n[i+cantidad].in=n[i].fin;\\n      n[i+cantidad].siguiente=pos[n[i].fin];\\n      pos[n[i].fin]=i+cantidad;\\n      suma+=n[i].longi;\\n   }\\n   linea[1]=1;\\n   distancia[1]=0;\\n   ocu[1]=1;\\n   while(SI>=NO)\\n   {\\n      t=pos[linea[NO]];\\n      while(t!=0)\\n      {\\n         if(ocu[n[t].fin]==0)\\n         {\\n            distancia[n[t].fin]=distancia[linea[NO]]+n[t].longi;\\n            linea[++SI]=n[t].fin;\\n            ocu[n[t].fin]=1;\\n         }\\n         t=n[t].siguiente;\\n      }\\n      NO++;\\n   }\\n   for(i=1;i<=cantidad;i++)\\n   {\\n      if(distancia[i]>max)\\n      {\\n      max=distancia[i];\\n    }\\n   }\\n   printf(\\\"%lld\\\\n\\\",(suma)-(max));\\n\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1774,
+    "completion_tokens": 485,
+    "total_tokens": 2259,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 622
+  },
+  "raw_sha256": "32989c947d884caece6a1cf303a045ceaaa82ce85a09ce94cc3361458e009b79",
+  "ended_utc": "2026-11-18T03:14:26.981222+00:00",
+  "elapsed_seconds": 2.6065
+}

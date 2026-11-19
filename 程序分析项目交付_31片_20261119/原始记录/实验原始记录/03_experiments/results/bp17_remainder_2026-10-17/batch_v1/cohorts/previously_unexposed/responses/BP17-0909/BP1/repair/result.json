@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0909/BP1/repair/1",
+  "case_id": "BP17-0909",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "9bedba8404fe9a30f1c2ac754baba3d174c03dea057f0fae858654713056859b",
+  "started_utc": "2026-10-21T07:55:22.827604+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "843dc4bc-81b1-4dd5-b241-820c5e19a838",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <math.h>\\n#include <stdlib.h>\\n#include <time.h>\\n#include <limits.h>\\n\\n#define PI 3.141592653589793\\n#define max(a,b) (a < b) ? (b) : (a)\\n#define min(a,b) (a > b) ? (b) : (a)\\n#define FOR(i,a,b) for(i = a ; i <= b ; i++)\\n#define ROF(i,a,b) for(i = a ; i >= b ; i--)\\n#define RAD(x) ((x)*PI)/180\\n#define y1 y_1\\n#define endl printf(\\\"\\\\n\\\")\\n#define MAX 105\\n\\nint n, i, j, yer, ans1, ans2, m[MAX][MAX], h[MAX][MAX], t[MAX], cvp[MAX], a[MAX], b[MAX], c[MAX];\\n\\nint dfs (int);\\n\\nint main(int argc, char *argv[]) {\\n\\tscanf(\\\"%d\\\",&n);\\n\\tFOR(i, 1, n){\\n\\t\\tscanf(\\\"%d %d %d\\\",&a[i] ,&b[i] ,&c[i]);\\n\\t\\tm[a[i]][b[i]] = c[i];\\n\\t\\th[a[i]][b[i]] = c[i];\\n\\t\\th[b[i]][a[i]] = c[i];\\n\\t}\\n\\tdfs(1);\\n\\tFOR(i, 1, n)\\n\\t\\tprintf(\\\"%d \\\",cvp[i]);\\n\\tendl;\\n\\tFOR(i, 1, n){\\n\\t\\tif(cvp[a[i]] == cvp[b[i]] - 1 || (cvp[a[i]] == n && cvp[b[i]] == 1))\\n\\t\\t\\tans1 += c[i];\\n\\t\\telse if(cvp[a[i]] - 1 == cvp[b[i]] || (cvp[a[i]] == 1 && cvp[b[i]] == n))\\n\\t\\t\\tans2 += c[i];\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",min(ans1, ans2));\\n\\treturn 0;\\n}\\n\\nint dfs (int x){\\n\\tint i;\\n\\tif(t[x])\\n\\t\\treturn 0;\\n\\tt[x] = 1;\\n\\tcvp[x] = ++yer;\\n\\tFOR(i, 1, n)\\n\\t\\tif(h[x][i])\\n\\t\\t\\tdfs(i);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1392,
+    "completion_tokens": 580,
+    "total_tokens": 1972,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 240
+  },
+  "raw_sha256": "ed05747cf7d7c59065b023d94fcd119e74aa53bf1cdf31525666f243b91407f6",
+  "ended_utc": "2026-10-21T07:55:25.900742+00:00",
+  "elapsed_seconds": 3.078
+}

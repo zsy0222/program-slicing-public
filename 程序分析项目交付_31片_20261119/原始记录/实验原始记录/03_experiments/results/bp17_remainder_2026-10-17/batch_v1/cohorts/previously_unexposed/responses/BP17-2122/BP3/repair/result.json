@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2122/BP3/repair/1",
+  "case_id": "BP17-2122",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "42a3a8c3447b1a35af2196f1552e551553346e23f2ecb1fdea791a432ada58e3",
+  "started_utc": "2026-10-18T14:08:57.119928+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "44086a76-4ddb-410c-9259-a55a806ec9b3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"// http://codeforces.com/problemset/problem/424/B\\n\\n#include <stdio.h>\\n#include <stdlib.h>\\n#include <stdbool.h>\\n#include <math.h>\\n\\nint compare( const void * a, const void * b )\\n{\\n    return ( *(int*)a - *(int*)b );\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int s, sum;\\n    short n, i, idx;\\n    short x, y;\\n    int elemSize;  // for sorting\\n    bool flag;\\n    double radius;\\n\\n    scanf( \\\"%hi %d\\\", &n, &s );\\n\\n    int towns[n][2];\\n\\n    for( i = 0; i < n; i++ )\\n    {\\n        scanf( \\\"%hi %hi %d\\\", &x, &y, &towns[i][1] );\\n        towns[i][0] = ( x * x ) + ( y * y );\\n    }\\n\\n    elemSize = sizeof( towns[0] );\\n    qsort( towns, n, elemSize, compare );\\n\\n    idx = 0;\\n    i = 0;\\n    flag = 0;\\n    while( i < n && flag == 0 )\\n    {\\n        sum = s;\\n\\n        while( i < n && towns[i][0] == towns[idx][0] )\\n        {\\n            sum += towns[i][1];\\n\\n            if( sum >= 1000000 )\\n            {\\n                flag = 1;\\n                break;\\n            }\\n\\n            i++;\\n        }\\n\\n        if( flag == 0 )\\n        {\\n            idx = i;\\n        }\\n    }\\n\\n    if( flag == 1 )\\n    {\\n        radius = sqrt( towns[idx][0] * 1.0 );\\n        printf( \\\"%.7lf\\\\n\\\", radius );\\n    }\\n    else\\n    {\\n        printf( \\\"-1\\\\n\\\" );\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1926,
+    "completion_tokens": 486,
+    "total_tokens": 2412,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1926
+  },
+  "raw_sha256": "e97f7278f5df998cb5c17eeb18fb1f5c2c28e93e93f3af8cd03028c756d44cce",
+  "ended_utc": "2026-10-18T14:08:59.264572+00:00",
+  "elapsed_seconds": 2.14
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3435/BP2/repair/1",
+  "case_id": "BP17-3435",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "d7a316e579becc079185e23937fed477f58351b035bddee0a686e4baeaed6dce",
+  "started_utc": "2026-11-16T05:02:17.004022+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6e8430a3-f222-4a0f-ac67-0e811d6301d4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nvoid quick_sort(int *a, int *b, int n) {\\n\\n\\tint i, j, p, t;\\n\\tif (n < 2)\\n\\t\\treturn;\\n\\tp = a[n / 2];\\n\\tfor (i = 0, j = n - 1;; i++, j--)\\n\\t{\\n\\t\\twhile (a[i] < p)\\n\\t\\t\\ti++;\\n\\t\\twhile (p < a[j])\\n\\t\\t\\tj--;\\n\\t\\tif (i >= j)\\n\\t\\t\\tbreak;\\n\\t\\tt = a[i];\\n\\t\\ta[i] = a[j];\\n\\t\\ta[j] = t;\\n\\t\\tt = b[i];\\n\\t\\tb[i] = b[j];\\n\\t\\tb[j] = t;\\n\\t}\\n\\tquick_sort(a, b, i);\\n\\tquick_sort(a + i, b + i, n - i);\\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n\\tlong long d, n, m, p[200000], x[200000], i, j, poz, kap, tekcena = 0, moze = 1, potrosnja = 0, min, minpoz;\\n\\tscanf(\\\"%lld%lld%lld\\\", &d, &n, &m);\\n\\tfor (i = 0; i<m; i++)\\n\\t\\tscanf(\\\"%lld%lld\\\", &x[i], &p[i]);\\n\\tpoz = 0;\\n\\tkap = n;\\n\\ti = 0;\\n\\tquick_sort(x, p, m);\\n\\ti = 0;\\n\\tif (n >= d)\\n\\t\\tprintf(\\\"%lld\\\", potrosnja);\\n\\telse\\n\\t{\\n\\t\\twhile (poz<d)\\n\\t\\t{\\n\\t\\t\\tif (i < m && x[i] <= poz + n)\\n\\t\\t\\t{\\n\\t\\t\\t\\tmin = p[i];\\n\\t\\t\\t\\tminpoz = i;\\n\\t\\t\\t\\twhile (i<m && p[i]>tekcena && x[i] <= poz + n)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif (p[i]<min)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tmin = p[i];\\n\\t\\t\\t\\t\\t\\tminpoz = i;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\ti++;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tif (i == m)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif (poz + n >= d)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tpotrosnja += (d - poz - kap)*tekcena;\\n\\t\\t\\t\\t\\t\\tkap = 0;\\n\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tpotrosnja += (n - kap)*tekcena;\\n\\t\\t\\t\\t\\t\\tkap = n + poz - x[minpoz];\\n\\t\\t\\t\\t\\t\\tpoz = x[minpoz];\\n\\t\\t\\t\\t\\t\\ttekcena = p[minpoz];\\n\\t\\t\\t\\t\\t\\ti = minpoz + 1;\\n\\t\\t\\t\\t\\t\\tif (i == m)\\n\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\tif (poz + n >= d)\\n\\t\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\t\\tpotrosnja += (d - poz - kap)*tekcena;\\n\\t\\t\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t\\t\\t\\tmoze = 0;\\n\\t\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse if (x[i]>poz + n)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tpotrosnja += (n - kap)*tekcena;\\n\\t\\t\\t\\t\\tkap = n + poz - x[minpoz];\\n\\t\\t\\t\\t\\tpoz = x[minpoz];\\n\\t\\t\\t\\t\\ttekcena = p[minpoz];\\n\\t\\t\\t\\t\\ti = minpoz + 1;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse if (p[i] <= tekcena)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tpotrosnja += (x[i] - poz - kap)*tekcena;\\n\\t\\t\\t\\t\\tkap = 0;\\n\\t\\t\\t\\t\\tpoz = x[i];\\n\\t\\t\\t\\t\\ttekcena = p[i];\\n\\t\\t\\t\\t\\ti++;\\n\\t\\t\\t\\t\\tif (i == m)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tif (poz + n >= d)\\n\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\tpotrosnja += (d - poz)*tekcena;\\n\\t\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t\\t\\tmoze = 0;\\n\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tif (i < m && x[i] <= poz + n)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tcontinue;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tif (i < m && x[i] > poz + n)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif (tekcena == 0)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tmoze = 0;\\n\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tif (poz + n >= d)\\n\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\tpotrosnja += (d - poz - kap)*tekcena;\\n\\t\\t\\t\\t\\t\\t\\tkap = 0;\\n\\t\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\tpotrosnja += (n - kap)*tekcena;\\n\\t\\t\\t\\t\\t\\t\\tkap = n;\\n\\t\\t\\t\\t\\t\\t\\tpoz = poz + n;\\n\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tif (tekcena == 0)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tmoze = 0;\\n\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tif (poz + n >= d)\\n\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\tpotrosnja += (d - poz - kap)*tekcena;\\n\\t\\t\\t\\t\\t\\t\\tkap = 0;\\n\\t\\t\\t\\t\\t\\t\\tpoz = d;\\n\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\t\\tpotrosnja += (n - kap)*tekcena;\\n\\t\\t\\t\\t\\t\\t\\tkap = n;\\n\\t\\t\\t\\t\\t\\t\\tpoz = poz + n;\\n\\t\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif (!moze)\\n\\t\\t\\tprintf(\\\"-1\\\");\\n\\t\\telse\\n\\t\\t\\tprintf(\\\"%lld\\\", potrosnja);\\n\\t}\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3813,
+    "completion_tokens": 1902,
+    "total_tokens": 5715,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432
+    },
+    "prompt_cache_hit_tokens": 2432,
+    "prompt_cache_miss_tokens": 1381
+  },
+  "raw_sha256": "8e2b72ad30790a89814949e03a25ed821e437de018c69d87f3f31fccd5c93d26",
+  "ended_utc": "2026-11-16T05:02:23.488029+00:00",
+  "elapsed_seconds": 6.4302
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0259/BP2/repair/1",
+  "case_id": "BP17-0259",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "9a13c31a5a540bb5c28c33ba84fc287fa556fb1ec77cb67cac9564db3d4ffb0b",
+  "started_utc": "2026-10-21T08:13:48.310197+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f5cf7d3d-f0d1-48d6-9658-98be71162b4f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#include<string.h>\\n#include<stdint.h>\\n#define fp(i,a,b,c)  for(i=a;i<b;i+=c)\\n#define fn(i,a,b,c)  for(i=a;i>b;i-=c)\\n#define fs(i,a)      for(i=0;i<a;i++)\\n#define sci(a)       scanf(\\\"%d\\\",&a)\\n#define sci2(a,b)       scanf(\\\"%d%d\\\",&a,&b)\\n#define pf(a)         printf(\\\"%d \\\",a)\\n#define pf2(a,b)         printf(\\\"%d %d\\\",a,b)\\n\\n int ReverseBits(int input, int length)\\n    {\\n        int output = 0;\\n\\n        while (length-- > 0)\\n        {\\n            output = (output << 1) | (input & 0x01);\\n            input >>= 1;\\n        }\\n\\n        return output;\\n    }\\n\\nint main(int argc, char *argv[])\\n{\\n  int i,j,k,l,n,m;\\n\\n   char str[101];\\n  int po=0;\\n       scanf(\\\"%s\\\",str);\\n       m=strlen(str);\\n       //pf(l);\\n       int pr=0;\\n       fs(i,m)\\n       {\\n           //po=0;\\n           n=(int)str[i];\\n          // l=1;\\n           int result;\\n           if(i==0){\\n         result=ReverseBits(n,8);\\n          result=pr-result;\\n          if(result<=0)\\n          result=256+result;\\n         // else\\n          //result%=256;\\n          //pr=result;\\n          //result=ReverseBits(n,8);\\n          pr=result;\\n           }\\n           else\\n           {\\n\\n           pr=ReverseBits(str[i-1],8);\\n           n=ReverseBits(n,8);\\n          result=pr-n;\\n         // if(result<0)\\n          result=256+result;\\n        //  else\\n          result%=256;\\n           // pr=result;\\n         //result=ReverseBits(pr,8);\\n          pr=result;\\n\\n           }\\n           printf(\\\"%d\\\\n\\\",pr);\\n       }\\n\\n\\n\\n return 0;\\n }\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1930,
+    "completion_tokens": 535,
+    "total_tokens": 2465,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1930
+  },
+  "raw_sha256": "236eae646bf38364b3479a12f65c5f96a1b98754c0c4e96c951f86d66c753991",
+  "ended_utc": "2026-10-21T08:13:50.789349+00:00",
+  "elapsed_seconds": 2.421
+}

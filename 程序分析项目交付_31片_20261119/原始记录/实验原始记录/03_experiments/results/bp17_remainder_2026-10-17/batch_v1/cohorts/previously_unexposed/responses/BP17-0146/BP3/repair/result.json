@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0146/BP3/repair/1",
+  "case_id": "BP17-0146",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "cd97cc5a1153794486f8e93d2ce2c479ca2f27136e2d93c488fc4b1ff7df9f67",
+  "started_utc": "2026-11-16T05:13:06.636662+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "82a5a162-a67c-4346-81fb-a014f9d0aee0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\n\\nint cmp(const void *a,const void *b) {\\n\\tlong long a1=*(long long *)a,b1=*(long long *)b;\\n\\tif (a1<b1) return -1; else if (a1>b1) return 1; else return 0;\\n}\\n\\nlong long a[64][4];\\nint n,m,p;\\nlong long dp[64][64][128];\\nint pre[64][64][64];\\nlong long r[54][2];\\n\\nint main(int argc, char *argv[]) {\\n\\tint i,j,k,l;\\n\\tscanf(\\\"%d %d %d\\\",&n,&m,&p);\\n\\tfor(i=0;i<m;i++) scanf(\\\"%lld %lld %lld\\\",&a[i][1],&a[i][2],&a[i][0]),a[i][3]=i;\\n\\tqsort(a,m,sizeof(a[0]),cmp);\\n\\tmemset(dp,0xff,sizeof(dp));\\n\\tmemset(pre,0xff,sizeof(pre));\\n\\tfor(i=0;i<m;i++) for(j=0;j<=a[i][2]-a[i][1];j++) dp[0][i][j]=a[i][1]+j;\\n\\tfor(i=1;i<n;i++) for(j=i;j<m;j++) for(k=0;k<=a[j][2]-a[j][1];k++) {\\n\\t\\tfor(l=0;l<j;l++) if (a[j][0]>a[l][0]) {\\n\\t\\t\\tif (a[j][1]+k>p && a[j][1]+k-p>=a[l][1] && a[j][1]+k-p<=a[l][2]) {\\n\\t\\t\\t\\tlong long t=dp[i-1][l][a[j][1]+k-p-a[l][1]];\\n\\t\\t\\t\\tif (t>=0) {\\n\\t\\t\\t\\t\\tt+=a[j][1]+k;\\n\\t\\t\\t\\t\\tif (t>dp[i][j][k]) dp[i][j][k]=t,pre[i][j][k]=l<<8|(a[j][1]+k-p-a[l][1]);\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\tif ((a[j][1]+k)%p==0 && (a[j][1]+k)/p>=a[l][1] && (a[j][1]+k)/p<=a[l][2]) {\\n\\t\\t\\t\\tlong long t=dp[i-1][l][(a[j][1]+k)/p-a[l][1]];\\n\\t\\t\\t\\tif (t>=0) {\\n\\t\\t\\t\\t\\tt+=a[j][1]+k;\\n\\t\\t\\t\\t\\tif (t>dp[i][j][k]) dp[i][j][k]=t,pre[i][j][k]=l<<8|((a[j][1]+k)/p-a[l][1]);\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tk=l=0;\\n\\tfor(i=0;i<m;i++) for(j=0;j<=a[i][2]-a[i][1];j++) if (dp[n-1][i][j]>dp[n-1][k][l]) k=i,l=j;\\n\\tif (dp[n-1][k][l]<0) {\\n\\t\\tputs(\\\"NO\\\");\\n\\t\\treturn 0;\\n\\t}\\n\\tputs(\\\"YES\\\");\\n\\tfor(i=n-1;i>=0;i--) {\\n\\t\\tr[i][0]=a[k][3]+1;\\n\\t\\tr[i][1]=a[k][1]+l;\\n\\t\\tj=pre[i][k][l];\\n\\t\\tk=j>>8;\\n\\t\\tl=j&255;\\n\\t}\\n\\tfor(i=0;i<n;i++) printf(\\\"%lld %lld\\\\n\\\",r[i][0],r[i][1]);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3202,
+    "completion_tokens": 922,
+    "total_tokens": 4124,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3202
+  },
+  "raw_sha256": "7a3310197a4c9e1de4d629aa16518ec6324d00378f89778125dbbe754eb40199",
+  "ended_utc": "2026-11-16T05:13:10.022283+00:00",
+  "elapsed_seconds": 3.2996
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0919/BP0/repair/1",
+  "case_id": "BP17-0919",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "f637c368d122694c6d351d487102b246d5b9a8dae1472dc6923b3bc035c9c935",
+  "started_utc": "2026-11-16T04:02:53.138525+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e11fa0d8-184f-45f0-a2aa-19806a3ef9d5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    //freopen(\\\"in.txt\\\", \\\"r\\\", stdin);\\n\\n    long long n;\\n    scanf(\\\"%lld\\\", &n);\\n\\n    long long unsigned l, r;\\n    scanf(\\\"%I64u%I64u\\\", &l, &r);\\n    long long unsigned ml = l, mr = r;\\n    long long ans = 1, i = 1;\\n    n--;\\n\\n    while(n--) {\\n        i++;\\n        scanf(\\\"%I64u%I64u\\\", &l, &r);\\n\\n        if(l<=ml && r>=mr ) {\\n            ml = l;\\n            mr = r;\\n            // current ta ans;\\n            ans = i;\\n        }\\n        else {\\n            if(ml>l) ml = l;\\n            if(r>mr) mr = r;\\n        }\\n\\n        //printf(\\\"%lld %lld || %I64u %I64u || %I64u %I64u\\\\n\\\", i, ans, ml, mr, l, r);\\n    }\\n\\n    printf(\\\"%lld\\\\n\\\", ans);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1000,
+    "completion_tokens": 290,
+    "total_tokens": 1290,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 232
+  },
+  "raw_sha256": "015b402b294005a24d22f60e341f9b7ffc52b207ee249b074e7fac0bf11a5ff2",
+  "ended_utc": "2026-11-16T04:02:54.993378+00:00",
+  "elapsed_seconds": 1.8531
+}

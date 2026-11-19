@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1403/BP2/repair/1",
+  "case_id": "BP17-1403",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "192771e59b3ccdfe726396a7d7678e3e1bc859311243646e6b86e5a4ea03dcb8",
+  "started_utc": "2026-10-21T07:50:12.296735+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1bece414-9684-4f41-a5fc-96a965eabf25",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, j = 0, flag = 1, first = 1;\\n    char adr[201], tmp[501] = \\\"\\\";\\n    gets(adr);\\n\\n    if(adr[0] == '@' || adr[strlen(adr)-1] == '@')\\n        flag = 0;\\n\\n    if(flag == 1)\\n    {\\n        for(i=0; i<strlen(adr); i++)\\n        {\\n            if(adr[i+1] == '@' && i+1 < strlen(adr) && first == 0)\\n            {\\n                if(tmp[j-1] == '@')\\n                {\\n                    flag = 0;\\n                    break;\\n                }\\n\\n                tmp[j++] = ',';\\n                tmp[j++] = adr[i];\\n                tmp[j++] = '@';\\n\\n                if(i+2 < strlen(adr))\\n                {\\n                    if(adr[i+2] == '@')\\n                    {\\n                        flag = 0;\\n                        break;\\n                    }\\n                }\\n                i++;\\n            }\\n            else\\n            {\\n                tmp[j++] = adr[i];\\n                if(first == 1 && adr[i] == '@')\\n                    first = 0;\\n                if(adr[i] == '@' && adr[i+1] == '@')\\n                {\\n                    flag = 0;\\n                    break;\\n                }\\n            }\\n        }\\n    }\\n\\n    if(flag == 0)\\n        printf(\\\"No solution\\\\n\\\");\\n    else\\n        printf(\\\"%s\\\\n\\\",tmp);\\n\\n//    system(\\\"pause\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1951,
+    "completion_tokens": 442,
+    "total_tokens": 2393,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 799
+  },
+  "raw_sha256": "836572f47757044bb4a09c99b241f54d53895b998dc65eb4274603c82466d94b",
+  "ended_utc": "2026-10-21T07:50:14.434289+00:00",
+  "elapsed_seconds": 2.063
+}

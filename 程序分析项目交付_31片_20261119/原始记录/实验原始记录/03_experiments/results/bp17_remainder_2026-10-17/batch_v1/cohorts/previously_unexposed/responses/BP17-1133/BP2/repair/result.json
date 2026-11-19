@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1133/BP2/repair/1",
+  "case_id": "BP17-1133",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "1df7bf409f6b113c24ff1bdf6765ad821550a67272fe40f9f4a4e0e2106afbe4",
+  "started_utc": "2026-10-21T07:33:43.572985+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4c3a6afa-bff1-4042-8c75-47be028fb9ba",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int a[4][4],b[5][5],i,j,k,l,m,n;\\n    for(i=1;i<4;i++)\\n    {\\n        for(j=1;j<4;j++)\\n        {\\n            scanf(\\\"%d\\\",&a[i][j]);\\n        }\\n    }\\n    for(i=0;i<=4;i++)\\n    {\\n        for(j=0;j<=4;j++)\\n        {\\n            b[i][j]=1;\\n        }\\n    }\\n    for(i=1;i<4;i++)\\n    {\\n        for(j=1;j<4;j++)\\n        {\\n            if(a[i][j]%2!=0)\\n            {\\n                if(b[i][j]==1)\\n                {\\n                    b[i][j]=0;\\n                }\\n                else if(b[i][j]==0)\\n                {\\n                    b[i][j]=1;\\n                }\\n                if(b[i][j+1]==1)\\n                {\\n                    b[i][j+1]=0;\\n                }\\n               else  if(b[i][j+1]==0)\\n                {\\n                    b[i][j+1]=1;\\n                }\\n                if(b[i+1][j]==1)\\n                {\\n                    b[i+1][j]=0;\\n                }\\n               else  if(b[i+1][j]==0)\\n                {\\n                    b[i+1][j]=1;\\n                }\\n                if(b[i-1][j]==1)\\n                {\\n                    b[i-1][j]=0;\\n                }\\n              else  if(b[i-1][j]==0)\\n                {\\n                    b[i-1][j]=1;\\n                }\\n                if(b[i][j-1]==1)\\n                {\\n                    b[i][j-1]=0;\\n                }\\n               else if(b[i][j-1]==0)\\n                {\\n                    b[i][j-1]=1;\\n                }\\n            }\\n            else continue;\\n        }\\n    }\\n    for(i=1;i<4;i++)\\n    {\\n        for(j=1;j<4;j++)\\n        {\\n            if(j==3)\\n            printf(\\\"%d\\\",b[i][j]);\\n            else\\n            printf(\\\"%d \\\",b[i][j]);\\n        }\\n        printf(\\\"\\\\n\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2577,
+    "completion_tokens": 580,
+    "total_tokens": 3157,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2577
+  },
+  "raw_sha256": "84004e88f8d34eae1b4c02f0af2c90822a7850e6dfe0b38c4bb6ebff0ee0dfc3",
+  "ended_utc": "2026-10-21T07:33:46.207584+00:00",
+  "elapsed_seconds": 2.515
+}

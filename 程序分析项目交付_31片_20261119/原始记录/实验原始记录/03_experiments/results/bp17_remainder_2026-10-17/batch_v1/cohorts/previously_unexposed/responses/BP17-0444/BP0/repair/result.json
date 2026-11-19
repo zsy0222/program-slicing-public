@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0444/BP0/repair/1",
+  "case_id": "BP17-0444",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "a996ac712361c871254100f347a7ece87e1c0d792941237e5d7d5da95b72681f",
+  "started_utc": "2026-11-16T03:48:17.917385+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "55b034e1-0c52-4757-bbea-276cb9f48d53",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nlong long int abso(long long int a)\\n{\\nif(a<0)\\n  return -1*a;\\nreturn a;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\nlong long int n,m,xc,yc,dx[10000],dy[10000],ans=0,temp1,temp2,count,x1,x2,min;\\nint i,j,k;\\nscanf(\\\"%lld %lld\\\",&n,&m);\\nscanf(\\\"%lld %lld\\\",&xc,&yc);\\nscanf(\\\"%d\\\",&k);\\nfor(i=0;i<k;i++)\\n  scanf(\\\"%lld %lld\\\",&dx[i],&dy[i]);\\nfor(i=0;i<k;i++)\\n{\\n temp1=xc;\\n temp2=yc;\\n count=0;\\n x1=0;\\n x2=0;\\nif(dx[i]>0)\\n  x1=(n-temp1)/abso(dx[i]);\\nelse if(dx[i]<0)\\n  {\\n   if(temp1%abso(dx[i])==0)\\n     x1=(temp1-1)/abso(dx[i]);\\n   else\\n    x1=temp1/abso(dx[i]);\\n  }\\nif(dy[i]>0)\\n  x2=(m-temp2)/abso(dy[i]);\\nelse if(dy[i]<0)\\n  {\\n   if(temp2%abso(dy[i])==0)\\n     x2=(temp2-1)/abso(dy[i]);\\n   else\\n    x2=temp2/abso(dy[i]);\\n  }\\nif((dx[i]!=0)&&(dy[i]!=0))\\n {\\n  if(x1>x2)\\n   min=x2;\\n  else\\n   min=x1;\\n }\\n else if(dx[i]==0)\\n   min=x2;\\n else if(dy[i]==0)\\n   min=x1;\\nxc=temp1+min*dx[i];\\nyc=temp2+min*dy[i];\\nans+=min;\\n}\\nprintf(\\\"%lld\\\\n\\\",ans);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1414,
+    "completion_tokens": 511,
+    "total_tokens": 1925,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1414
+  },
+  "raw_sha256": "638e3db3d66c2a5481a8c226352e0a76a0e4781f5d132b1bc453cdda17dc68ba",
+  "ended_utc": "2026-11-16T03:48:20.335075+00:00",
+  "elapsed_seconds": 2.4152
+}

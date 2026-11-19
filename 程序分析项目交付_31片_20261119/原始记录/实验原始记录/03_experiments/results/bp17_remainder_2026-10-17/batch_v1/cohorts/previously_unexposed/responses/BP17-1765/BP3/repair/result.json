@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1765/BP3/repair/1",
+  "case_id": "BP17-1765",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "92dee64db48824ab2ca56944bc034528ef74b58e91f9ca27896a2b993c47569e",
+  "started_utc": "2026-10-21T06:52:29.636351+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4ef0521e-c34c-4dff-a724-a44acbcaf632",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define MAXN 100000\\nstruct node\\n{\\n    int v,t,next;\\n}e[2*MAXN];\\nint tot,T;\\nint g[MAXN+1],v[MAXN],sum[MAXN],ans[MAXN];\\nvoid add(int u,int v,int t)\\n{\\n    tot++;\\n    e[tot].v = v; e[tot].t = t;\\n    e[tot].next = g[u];\\n    g[u] = tot;\\n}\\nvoid dfs(int x)\\n{\\n    int k = g[x];\\n    v[x] = 1;\\n    while (k != 0)\\n    {\\n        if (v[e[k].v] == 0)\\n        {\\n            dfs(e[k].v);\\n            sum[x] += sum[e[k].v];\\n            if (!sum[e[k].v] && e[k].t)\\n            {\\n                sum[x]++;\\n                ans[++T] = e[k].v;\\n            }\\n        }\\n        k = e[k].next;\\n    }\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,i;\\n    scanf(\\\"%d\\\",&n);\\n    for (i=1;i<n;i++)\\n    {\\n        int x,y,t;\\n        scanf(\\\"%d %d %d\\\",&x,&y,&t);\\n        add(x,y,t-1);\\n        add(y,x,t-1);\\n    }\\n    dfs(1);\\n    printf(\\\"%d\\\\n\\\",T);\\n    for (i=1;i<=T-1;i++)\\n        printf(\\\"%d \\\",ans[i]);\\n    if (T > 0)\\n        printf(\\\"%d\\\",ans[T]);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1679,
+    "completion_tokens": 426,
+    "total_tokens": 2105,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1679
+  },
+  "raw_sha256": "10481da353d3769e5dd4eec90dec90b739aad77afffd47ec478be2da49c67e16",
+  "ended_utc": "2026-10-21T06:52:31.534433+00:00",
+  "elapsed_seconds": 1.89
+}

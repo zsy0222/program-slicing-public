@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3008",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\nint main(int argc, const char * argv[]) {\\n    char num[101];\\n    scanf(\\\"%s\\\", num);\\n  \\tint i, j, z; \\n  \\tint length = (int)strlen(num);\\n  \\tint val;\\n    for (i = 0; i < length; i++)\\n    {\\n    \\tif (num[i] == '8' || num[i] == '0')\\n    \\t{\\n    \\t\\tprintf(\\\"YES\\\\n%c\\\\n\\\", num[i]);\\n    \\t\\treturn 0;\\n    \\t}\\n    }\\n    if (length > 1)\\n    {\\n    \\tfor (i = 0; i < length-1; i++)\\n    \\t{\\n            for (j = i + 1; j < length; ++j)\\n            {\\n                val = 10 * (num[i] - '0') + num[j] - '0';\\n                if (val % 8 == 0)\\n                {\\n                    printf(\\\"YES\\\\n%d\\\\n\\\", val);\\n                    return 0;\\n                }\\n            }\\n    \\t}\\n    \\tif (length > 2)\\n    \\t{\\n    \\t\\tfor (i = 0; i < length - 2; ++i)\\n    \\t\\t{\\n    \\t\\t\\tfor (j = i + 1; j < length - 1; ++j)\\n    \\t\\t\\t{\\n    \\t\\t\\t\\tfor (z = j + 1; z < length; ++z)\\n    \\t\\t\\t\\t{\\n    \\t\\t\\t\\t\\tval = 100 * (num[i] - '0') + 10 * (num[j] - '0') + num[z] - '0';\\n    \\t\\t\\t\\t\\tif (val % 8 == 0)\\n    \\t\\t\\t\\t\\t{\\n    \\t\\t\\t\\t\\t\\tprintf(\\\"YES\\\\n%d\\\\n\\\", val);\\n    \\t\\t\\t\\t\\t\\treturn 0;\\n    \\t\\t\\t\\t\\t}\\n    \\t\\t\\t\\t}\\n    \\t\\t\\t}\\n    \\t\\t}\\n    \\t}\\n    }\\n    printf(\\\"NO\\\\n\\\");\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 2.422,
+  "ended_utc": "2026-10-17T07:14:42.949812+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3008/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "729f047b8849f80116ca90c9290f71e8d648e48fbd9474bd02695791c6d7d9f6",
+  "request_model": "deepseek-flash",
+  "request_sha256": "f7060e0a1053499e54c9d7ef6aa17c2647657cc7108c110a780178628018d059",
+  "response_id": "be925aea-e0e1-427a-ad6b-82c6d1cb6f80",
+  "started_utc": "2026-10-17T07:14:40.525863+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 561,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2050,
+    "prompt_tokens": 2050,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2611
+  }
+}

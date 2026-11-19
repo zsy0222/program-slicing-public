@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3570/BP0/repair/1",
+  "case_id": "BP17-3570",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "a733787e55d080f45bde4be6c56f80fe065c6d49a6eb77635e00dbeb56e51b96",
+  "started_utc": "2026-11-16T19:11:20.810806+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fca41b58-a1ae-42f7-bece-4994d3b8188d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#define S 30\\n#define N 100\\n\\nint main(int argc, char *argv[]){\\n    typedef struct {\\n            int tope;\\n            char tipo[S];\\n            char sup[S];\\n            }CARACTERISTICAS;\\n\\n    CARACTERISTICAS rango[4] = {\\n                    3,\\\"bytes\\\",\\\"127\\\" ,\\n                    5,\\\"short\\\",\\\"32767\\\" ,\\n                    10,\\\"int\\\",\\\"2147483647\\\" ,\\n                    19,\\\"long\\\",\\\"9223372036854775807\\\"\\n                    };\\n    char valor[N];\\n    int tamanio;\\n    int i;\\n    scanf(\\\"%s\\\",valor);\\n    tamanio=strlen(valor);\\n    while (valor[0]=='0' || tamanio>100) {\\n        scanf(\\\"%s\\\",valor);\\n    }\\n\\n    for (i=0; i<4; i++){\\n        if( tamanio<rango[i].tope || (tamanio==rango[i].tope && strcmp(valor,rango[i].sup)<=0) ) {\\n            printf(\\\"%s\\\\n\\\",rango[i].tipo);\\n            break;\\n        }\\n        if (i==3){\\n            printf(\\\"BigInteger\\\\n\\\");\\n        }\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1008,
+    "completion_tokens": 330,
+    "total_tokens": 1338,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 240
+  },
+  "raw_sha256": "983139e7e3be104f4e26ade43fd2696e6a53ba2edaa8c46b3e4af78102b8a7ab",
+  "ended_utc": "2026-11-16T19:11:22.999215+00:00",
+  "elapsed_seconds": 2.1858
+}

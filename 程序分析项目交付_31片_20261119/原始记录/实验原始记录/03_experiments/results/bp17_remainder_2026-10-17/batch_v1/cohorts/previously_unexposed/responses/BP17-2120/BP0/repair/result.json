@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2120/BP0/repair/1",
+  "case_id": "BP17-2120",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "b3605f779aac74beb23968428bc761ae537b00578601e5adffb3a35c66245d52",
+  "started_utc": "2026-11-16T18:44:11.765863+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3aae4956-3a65-424a-b414-11afcffe2acc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n\\ntypedef struct\\n{\\n    int dis;\\n    int k;\\n} Node_t;\\nNode_t A[1000];\\n\\nint cmp(const void *a, const void *b)\\n{\\n    return (*(Node_t*)a).dis - (*(Node_t*)b).dis;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int N, S, i;\\n    scanf(\\\"%d %d\\\", &N, &S);\\n    for(i = 0; i < N; ++i)\\n    {\\n        int x, y;\\n        scanf(\\\"%d %d %d\\\", &x, &y, &A[i].k);\\n        A[i].dis = x * x + y * y;\\n    }\\n    qsort(A, N, sizeof(Node_t), cmp);\\n    for(i = 0; i < N; ++i)\\n    {\\n        S += A[i].k;\\n        if(S >= 1000000)\\n        {\\n            printf(\\\"%.6lf\\\\n\\\", sqrt(A[i].dis));\\n            break;\\n        }\\n    }\\n    if(i == N)\\n    {\\n        printf(\\\"-1\\\\n\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 971,
+    "completion_tokens": 315,
+    "total_tokens": 1286,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 971
+  },
+  "raw_sha256": "d9becd358275733353d58897a3328d19eac585fbae6a4c7a49ba279f3791dfa3",
+  "ended_utc": "2026-11-16T18:44:14.218094+00:00",
+  "elapsed_seconds": 2.4491
+}

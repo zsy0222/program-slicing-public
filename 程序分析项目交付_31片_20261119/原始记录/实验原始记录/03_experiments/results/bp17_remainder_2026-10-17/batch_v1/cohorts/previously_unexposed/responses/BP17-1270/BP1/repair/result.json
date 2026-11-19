@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1270/BP1/repair/1",
+  "case_id": "BP17-1270",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "0f29e5ef0f394b31007a7f82f43104012aaf67ae945b124fad036c6dbc047ea5",
+  "started_utc": "2026-10-21T07:47:56.277451+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "ce1779d9-3c08-4a07-9834-b96de9906a30",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n  int lstarted = 0;\\n  int quotes = 0;\\n  int n;\\n  int i;\\n  \\n  char* s = (char*)malloc(100010*sizeof(char));\\n  gets(s);\\n  n = strlen(s);\\n  for(i=0;i<n;i++)\\n    {\\n      if(!lstarted)\\n    {\\n      if(s[i]==' ')\\n        continue;\\n      else if (s[i] == '\\\\\\\"')\\n        {\\n          lstarted = 1;\\n          quotes = 1;\\n          printf(\\\"<\\\");\\n        }\\n      else\\n        {\\n          lstarted = 1;\\n          printf(\\\"<\\\");\\n          printf(\\\"%c\\\",s[i]);\\n        }\\n      \\n    }\\n      else\\n    {\\n      if(quotes)\\n        {\\n          if(s[i]=='\\\\\\\"')\\n        {\\n          quotes = 0;\\n          lstarted = 0;\\n          printf(\\\">\\\\n\\\");      \\n        }\\n          else\\n        {\\n          printf(\\\"%c\\\",s[i]);\\n        }\\n        }\\n      else\\n        {\\n          if(s[i]==' ')\\n        {\\n          lstarted = 0;\\n          printf(\\\">\\\\n\\\");\\n        }\\n          else\\n        {\\n          printf(\\\"%c\\\",s[i]);\\n        }\\n        }\\n    }\\n   }\\n  if(lstarted)\\n    printf(\\\">\\\\n\\\");\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1177,
+    "completion_tokens": 400,
+    "total_tokens": 1577,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 153
+  },
+  "raw_sha256": "30b31227218b927fc8b7df255f4c5aa8e770d4bf5dffe244e3b6d2f0c21f664a",
+  "ended_utc": "2026-10-21T07:47:58.222717+00:00",
+  "elapsed_seconds": 1.938
+}

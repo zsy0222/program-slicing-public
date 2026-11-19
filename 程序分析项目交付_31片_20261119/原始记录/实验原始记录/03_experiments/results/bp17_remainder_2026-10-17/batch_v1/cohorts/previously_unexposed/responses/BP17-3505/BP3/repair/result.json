@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3505/BP3/repair/1",
+  "case_id": "BP17-3505",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "71c9c7a56e86fde45fc32a556745afb83272b54e7a12568be47e6e00baf17ed0",
+  "started_utc": "2026-11-16T16:14:16.274172+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "398fc68d-0be1-4521-b6e3-d7ab929cbe87",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdlib.h>\\n\\n#define LEN 7\\n\\nint min=6;\\n\\nint hammingDistance(char* str1, char* str2)\\n{\\n    int hDistance = 0;\\n    int i; \\n    for(i=0; i<LEN; i++)\\n        if(str1[i] != str2[i])\\n            hDistance++;\\n    return hDistance;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int i,j,n,temp;\\n    scanf(\\\"%d\\\", &n);\\n    if(n == 1)\\n    {\\n        printf(\\\"6\\\\n\\\");\\n    }\\n    else\\n    {\\n    \\tchar str[n][LEN]; // strings\\n    \\tfor(i=0; i < n; i++)\\n    \\t{\\n    \\t    scanf(\\\"%6s\\\", str[i]);\\n    \\t}\\n    \\tfor(i=0; i < n-1; i++)\\n    \\t{\\n    \\t\\tfor(j=i+1; j < n; j++)\\n    \\t\\t{\\n        \\t   temp = hammingDistance(str[i], str[j]);\\n        \\t    if (temp < min)\\n        \\t        min = temp;\\n    \\t    }\\n    \\t}\\n    \\tprintf(\\\"%d\\\\n\\\", ((min>1)?((min/2)-1):0));\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1698,
+    "completion_tokens": 362,
+    "total_tokens": 2060,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 674
+  },
+  "raw_sha256": "e1fb47e11d7e3d5f97ac2b80a0b0633a4a62d6a6bdb4dd8f62b2df9dcbfb81b6",
+  "ended_utc": "2026-11-16T16:14:18.389284+00:00",
+  "elapsed_seconds": 2.1119
+}

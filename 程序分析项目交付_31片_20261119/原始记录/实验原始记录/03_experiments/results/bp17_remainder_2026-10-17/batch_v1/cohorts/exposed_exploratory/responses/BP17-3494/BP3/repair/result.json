@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3494/BP3/repair/1",
+  "case_id": "BP17-3494",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "7bbd99042448d6f4b76e26d10b8d8d831b4b6f4b1752bfb48e9e1fb11450baa6",
+  "started_utc": "2026-11-16T18:42:28.046759+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f942f450-5cce-4c0a-9568-e57cb7a7e2de",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int a,b,c,x,y,i,k,cnt=0;\\n    scanf(\\\"%d %d %d\\\",&a,&b,&c);\\n    if(a+b==c)\\n        printf(\\\"Yes\\\");\\n    else if(a%2==0 && b%2==0 && c%2!=0)\\n        printf(\\\"No\\\");\\n    else if(a+b>c)\\n    {\\n        if(c%a==0 || c%b==0)\\n            printf(\\\"Yes\\\");\\n        else\\n            printf(\\\"No\\\");\\n    }\\n    else if(a+b<c)\\n    {\\n        if(c%a==0 || c%b==0)\\n            printf(\\\"Yes\\\");\\n        else if(c%a!=0 && c%b!=0)\\n        {\\n            if(b>=a)\\n            {\\n                x=b;\\n                y=a;\\n            }\\n            else\\n            {\\n                x=a;\\n                y=b;\\n            }\\n            int m=c/x;\\n            k=1;\\n           for(i=0;i<=m;i++)\\n           {\\n                k=(c-(y*i))%x;\\n                if(k==0)\\n                   {\\n                       printf(\\\"Yes\\\");\\n                        break;\\n                   }\\n\\n\\n        }\\n        if(k!=0)\\n            printf(\\\"No\\\");\\n    }\\n}\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1737,
+    "completion_tokens": 347,
+    "total_tokens": 2084,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 713
+  },
+  "raw_sha256": "aaa7b91d0a2d70fe4e8452c6851c9cdd72f1f128d24d3c722cb145fbba210a45",
+  "ended_utc": "2026-11-16T18:42:30.198597+00:00",
+  "elapsed_seconds": 2.089
+}

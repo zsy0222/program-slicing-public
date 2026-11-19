@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3556/BP3/repair/1",
+  "case_id": "BP17-3556",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "b128663c0ac70ce7725f2c4352ea778b19eeb5384172583871b7c698e93fd183",
+  "started_utc": "2026-11-16T02:39:43.529161+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b4769644-6695-4283-b853-08ad957662ae",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#include <math.h>\\n\\n#define pi 3.1415926\\n\\n#define max(a,b) ((a)>(b)?(a):(b))\\nint p[1010];\\nint t[1010];\\n\\nint main(int argc, char *argv[])\\n{\\n   int n, c;\\n   scanf(\\\"%d %d\\\", &n, &c);\\n\\n   int i;\\n   for (i=0;i<n;i++)\\n   {\\n       scanf(\\\"%d\\\", &p[i]);\\n   }\\n   for (i=0;i<n;i++)\\n   {\\n       scanf(\\\"%d\\\", &t[i]);\\n   }\\n\\n   int R = 0;\\n   int L = 0;\\n   int tr = 0;\\n   int tl = 0;\\n   int x;\\n\\n   for (i=0;i<n;i++)\\n   {\\n       tr = tr + t[i];\\n       tl = tl + t[n-1-i];\\n       L = L + max(0,p[i]-c*tr);\\n       R = R + max(0,p[n-1-i]-c*tl);\\n   }\\n   if (L>R)\\n     printf(\\\"Limak\\\");\\n   else if (L==R)\\n     printf(\\\"Tie\\\");\\n   else\\n     printf(\\\"Radewoosh\\\");\\n\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1672,
+    "completion_tokens": 354,
+    "total_tokens": 2026,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1672
+  },
+  "raw_sha256": "d545530f929b8fa1dd5283b1b64faa8c52123ad17817c8d92e8916ff24eea1c3",
+  "ended_utc": "2026-11-16T02:39:45.823340+00:00",
+  "elapsed_seconds": 2.2916
+}

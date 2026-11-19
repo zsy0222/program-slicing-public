@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3210/BP2/repair/1",
+  "case_id": "BP17-3210",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "18f3d7024a1506d8c8e09041c68dcfb7c5e7a256faf8623274aede9508dbc98d",
+  "started_utc": "2026-11-17T04:30:56.230632+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e9b7cad0-12b1-4d2a-a32f-431dca38b14f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdlib.h>\\n#include <stdio.h>\\n#include <string.h>\\n#include <stdbool.h>\\n\\n#define MIN(X,Y) (X < Y ? X : Y)\\n#define MAX(X,Y) (X > Y ? X : Y)\\n\\nint main(int argc, char *argv[]){\\n  int num_days, kg_meat = 0, spent = 0;\\n  char buff[12];\\n  int ** jc_day_prices;\\n\\n  num_days = atoi(fgets(buff, sizeof(buff), stdin));\\n\\n  jc_day_prices = malloc(num_days * sizeof(int*));\\n\\n  int i = 0;\\n  for(i = 0; i < num_days; ++i) {\\n    jc_day_prices[i] = malloc(2 * sizeof(int));\\n    fgets(buff, sizeof(buff), stdin);\\n    jc_day_prices[i][0] = atoi(strtok(buff, \\\" \\\"));\\n    jc_day_prices[i][1] = atoi(strtok(NULL, \\\" \\\"));\\n\\n  }\\n\\n  for(i = 0; i < num_days; ++i) {\\n    if(kg_meat < jc_day_prices[i][0]) {\\n      spent += jc_day_prices[i][0] * jc_day_prices[i][1];\\n      kg_meat += jc_day_prices[i][0];\\n\\n      int j = 1;\\n      while((i + j) < num_days && jc_day_prices[i][1] < jc_day_prices[i + j][1]) {\\n        kg_meat += jc_day_prices[i][1] * jc_day_prices[i + j][0];\\n        spent += jc_day_prices[i][1] * jc_day_prices[i + j][0];\\n        ++j;\\n      }\\n\\n    }\\n    else {\\n      kg_meat -= jc_day_prices[i][0];\\n    }\\n  }\\n\\n  printf(\\\"%d\\\\n\\\", spent);\\n\\n  for(i = 0; i < num_days; ++i) {\\n    free(jc_day_prices[i]);\\n  }\\n  free(jc_day_prices);\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1922,
+    "completion_tokens": 540,
+    "total_tokens": 2462,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1922
+  },
+  "raw_sha256": "5f7317069fa6a54594c904e6456070a69906978af3e6d7e84ae3ee5f4530be17",
+  "ended_utc": "2026-11-17T04:30:58.899325+00:00",
+  "elapsed_seconds": 2.6599
+}

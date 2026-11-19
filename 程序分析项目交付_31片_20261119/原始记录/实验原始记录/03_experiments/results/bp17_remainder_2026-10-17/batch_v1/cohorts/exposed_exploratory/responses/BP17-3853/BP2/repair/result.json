@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3853/BP2/repair/1",
+  "case_id": "BP17-3853",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "4daabf6b3069cd843b5af5fbc55135eb48e140756300999293ee3ca9362a3717",
+  "started_utc": "2026-11-16T06:15:31.751983+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "82b93dda-b6f6-4de9-a7d6-2e751bbb81cf",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n     int n, h, i, j, k, l, m;\\n     long long sum = 0;\\n     long long dp[35][35][35] = {0};\\n\\n     scanf(\\\"%d %d\\\", &n, &h);\\n\\n     for (i = 0; i < n; i++) dp[i][i][0] = 1;\\n\\n     for (i = 1; i < n; i++) {\\n\\t  for (j = 0; j < n - i; j++) {\\n\\t       for (k = 1; k < n; k++) {\\n\\t\\t    for (l = j + 1; l < i + j; l++) {\\n\\t\\t\\t for (m = 0; m < k - 1; m++) {\\n\\t\\t\\t      dp[j][i + j][k] += dp[j][l - 1][m] * dp[l + 1][i + j][k - 1];\\n\\t\\t\\t }\\n\\n\\t\\t\\t dp[j][i + j][k] += dp[j][l - 1][k - 1] * dp[l + 1][i + j][k - 1];\\n\\t\\t    }\\n\\n\\t\\t    dp[j][i + j][k] += dp[j][i + j - 1][k - 1];\\n\\t\\t    dp[j][i + j][k] += dp[j + 1][i + j][k - 1];\\n\\t       }\\n\\t  }\\n     }\\n\\n     for (i = h - 1; i < n; i++) sum += dp[0][n - 1][i];\\n\\n     printf(\\\"%lld\\\\n\\\", sum);\\n\\n     return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1808,
+    "completion_tokens": 430,
+    "total_tokens": 2238,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1808
+  },
+  "raw_sha256": "0cf521ad9df5ea0d3bfea76291e25b7849744f8351d0e9e2c60e6c6e48e3342c",
+  "ended_utc": "2026-11-16T06:15:33.982401+00:00",
+  "elapsed_seconds": 2.2281
+}

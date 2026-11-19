@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0837/BP0/repair/1",
+  "case_id": "BP17-0837",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "bdca8f4531bc569f9b7e4f559a38718dcc27183a906995ad3f8aa65cdfd4c2f1",
+  "started_utc": "2026-11-16T18:11:16.899926+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c1b7aa00-08a2-4749-b6bd-724aeb86842d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define max(a,b) ((a)>(b)?(a):(b))\\n#define N 50\\ntypedef long long ll;\\nll f[N];\\nint main(int argc, char *argv[])\\n{\\n    int s,k;\\n    int i,j,ct=0;\\n    ll ans[N];\\n    scanf(\\\"%d%d\\\",&s,&k);\\n     f[0]=f[1]=1;\\n     f[2]=2;\\n    for(i=3;i<N;i++)\\n    {\\n        if(i>=k+1)\\n            f[i]=2*f[i-1]-f[i-k-1];\\n        else for(j=i-1;j>=max(i-k,0);j--)\\n            f[i]+=f[j];\\n    }\\n    for(i=N-1;i>0;i--)\\n    {\\n       if((s>=f[i]))\\n        {\\n            s-=f[i];\\n            ans[ct++]=f[i];\\n        }\\n        if(s==0)\\n        {\\n            if(ct==1){\\n                    printf(\\\"%d\\\\n\\\",ct+1);\\n                printf(\\\"0 \\\");\\n            }\\n            for(j=0;j<ct;j++)\\n                printf(\\\"%lld%c\\\",ans[j],j==ct-1?'\\\\n':' ');\\n            return 0;\\n        }\\n    }\\n        return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1017,
+    "completion_tokens": 341,
+    "total_tokens": 1358,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 249
+  },
+  "raw_sha256": "c7390f6ad8a3b4ade5047378e6dc48152572133ae4123ea5c273962e6aa26fee",
+  "ended_utc": "2026-11-16T18:11:19.114379+00:00",
+  "elapsed_seconds": 2.2053
+}

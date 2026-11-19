@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2718/BP1/repair/1",
+  "case_id": "BP17-2718",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "55153dd833e0430a573c978458934e2b33b8f38eb5d1ea703b9d69bd4708dc0a",
+  "started_utc": "2026-11-16T06:04:48.275319+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8557e237-c4d0-4147-a566-759f0401e7ea",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint d[105][105][105] = {0};\\nint main(int argc, char *argv[]){\\n    int n, m;\\n    int a, b, c;\\n    int q, u, v;\\n    int i, j, k, h, tot, yes;\\n    while(scanf(\\\"%d%d\\\", &n , &m)!= EOF){\\n        for(i = 1; i <= m; i ++){\\n            for(j = 1; j <= n; j ++){\\n                for(k = 1; k <= n; k ++){\\n                    d[i][j][k] = 0;\\n                }\\n            }\\n        }\\n        int t = m;\\n        while(t --)\\n        {\\n            scanf(\\\"%d%d%d\\\", &a, &b, &c);\\n            d[c][a][b] = 1;\\n            d[c][b][a] = 1;\\n        }\\n        for(i = 1; i <= m; i ++){\\n            yes = 1;\\n            while(yes){\\n            yes = 0;\\n            for(j = 1; j <= n; j ++){\\n                for(k = 1; k <= n; k ++){\\n                    if(d[i][j][k] == 1) {\\n                        for(h = 1; h <= n; h ++){\\n                            if(d[i][k][h] == 1 && d[i][j][h] != 1) {\\n                                d[i][j][h] = 1;\\n                                d[i][h][j] = 1;\\n                                yes = 1;\\n                            }\\n                        }\\n                    }\\n                }\\n            }\\n            }\\n        }\\n        scanf(\\\"%d\\\", &q);\\n        while(q --){\\n            tot = 0;\\n            scanf(\\\"%d%d\\\", &u, &v);\\n            for(i = 1; i <= m; i ++){\\n                if(d[i][u][v]) tot ++;\\n            }\\n            printf(\\\"%d\\\\n\\\", tot);\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1516,
+    "completion_tokens": 497,
+    "total_tokens": 2013,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1516
+  },
+  "raw_sha256": "a7cfe61a20d579844973129ac4c77d6144407ed027b3cfd553cd5ff21ea1e5cb",
+  "ended_utc": "2026-11-16T06:04:51.001429+00:00",
+  "elapsed_seconds": 2.7232
+}

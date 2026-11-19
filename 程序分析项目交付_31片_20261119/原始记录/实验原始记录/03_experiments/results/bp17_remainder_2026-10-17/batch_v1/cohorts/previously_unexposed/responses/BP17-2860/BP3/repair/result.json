@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2860/BP3/repair/1",
+  "case_id": "BP17-2860",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "2106ef15712e78e574a3454b7e799a855c275ea9f7321a5583028a324cb65ee4",
+  "started_utc": "2026-11-16T18:53:55.032088+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "bf62ffac-89aa-492c-9975-0abda1c53958",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[])\\n{\\n\\tint n,i,j,width,height;\\n\\tscanf(\\\"%d\\\",&n);\\n      int hw[200001][2];\\n      for(i=0;i<n;i++)\\n      {\\n      \\tscanf(\\\"%d%d\\\",&hw[i][0],&hw[i][1]);\\n      }\\n      width=0,height=0;\\n      int isize=0;\\n      int maxHeight=0;\\n      for(i=0;i<n;i++)  ////find the max height\\n      {\\n      \\t    width+=hw[i][0];\\n            if(maxHeight<hw[i][1])\\n                  maxHeight=hw[i][1];\\n      }\\n      int maxWidth=width;\\n      for(i=0;i<n;i++)\\n      {\\n            if(hw[i][1]==maxHeight)\\n            {\\n                  isize++;\\n                  if(isize>2)\\n                        break;\\n            }\\n      }\\n      int secondHeight=0;\\n      for(i=0;i<n;i++)//find the second height\\n      {\\n            if(hw[i][1]==maxHeight)  continue;\\n            if(secondHeight<hw[i][1])\\n                  secondHeight=hw[i][1];\\n      }\\n      for(i=0;i<n;i++)\\n      {\\n      \\theight=maxHeight;\\n      \\twidth=maxWidth-hw[i][0];\\n      \\tif(hw[i][1]==maxHeight)\\n      \\t{\\n      \\t\\tif(isize>=2)\\n                        ;\\n                  else height=secondHeight;\\n      \\t}\\n      \\tprintf(\\\"%d  \\\",height*width);\\n      }\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1904,
+    "completion_tokens": 428,
+    "total_tokens": 2332,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1904
+  },
+  "raw_sha256": "df0cd87dee581388205a3a3082d3ff7c847317bc30abd1b2624f39753978caae",
+  "ended_utc": "2026-11-16T18:53:57.445343+00:00",
+  "elapsed_seconds": 2.4096
+}

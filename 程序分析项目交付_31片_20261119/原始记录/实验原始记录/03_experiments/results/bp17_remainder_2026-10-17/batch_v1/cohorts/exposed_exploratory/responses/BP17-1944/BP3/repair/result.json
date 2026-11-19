@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1944/BP3/repair/1",
+  "case_id": "BP17-1944",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "16ef46c3de284b70d2e7d48e9038a81fb3cae0e9202f3bf9566b4c0bfcb3ef7f",
+  "started_utc": "2026-10-17T13:52:43.420322+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b1dbd2d0-c7bb-4804-80d7-75e73749c2c6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <math.h>\\n\\n#define oo 2000000000\\n#define min(a,b) ((a)<(b)?(a):(b))\\n#define max(a,b) ((a)>(b)?(a):(b))\\n#define abs(a) ((a)<0?-(a):(a))\\n#define eps 1e-8\\n\\nlong a[5005][5005]={0};\\n\\nint main(int argc, char *argv[])\\n{\\n long n,m,x;\\n long i,j;\\n long k;\\n long ans=0;\\n \\n scanf(\\\"%ld%ld%ld\\\",&n,&m,&x);\\n \\n for(i=1,j=1;i<=n-i+1&&j<=m-j+1;i++,j++)\\n   {\\n    for(k=j;k<=m-j+1;k++)\\n      a[i][k]=a[n-i+1][k]=i;\\n    for(k=i;k<=n-i+1;k++)\\n      a[k][j]=a[k][m-j+1]=i;\\n   }\\n   for(i=1;i<=n;i++)\\n     for(j=1;j<=m;j++)\\n       if(((i+j)&1)==0&&a[i][j]==x)\\n        ans++;\\n printf(\\\"%ld\\\\n\\\",ans);\\n \\n return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1502,
+    "completion_tokens": 325,
+    "total_tokens": 1827,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1502
+  },
+  "raw_sha256": "0e60e7f6d018937be30c823451d01a8650f81503ddeebb1c71fa6fb287ef3151",
+  "ended_utc": "2026-10-17T13:52:45.148033+00:00",
+  "elapsed_seconds": 1.734
+}

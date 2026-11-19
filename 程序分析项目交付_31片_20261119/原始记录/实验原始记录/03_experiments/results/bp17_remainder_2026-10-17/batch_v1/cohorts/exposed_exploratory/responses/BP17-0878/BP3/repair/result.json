@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0878/BP3/repair/1",
+  "case_id": "BP17-0878",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "f8000209e9755e55db5fe7b388cc366c6ecd358060a45cec8ed934106fc0b94a",
+  "started_utc": "2026-11-18T09:35:52.145589+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "94f4ef76-fcd7-4ff4-af7a-e91cf31d3573",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\nint digits(long long a)\\n{\\n    int i=0;\\n    while(a>0)\\n    {\\n        i+=(a%10);\\n        a/=10;\\n    }\\n    return i;\\n}\\nint main(int argc, char *argv[])\\n{\\n    long long i,j,k,l,min=1000000000;\\n    scanf(\\\"%I64d\\\",&i);\\n    for(j=1;j<=90;j++)\\n    {\\n        k=sqrt(j*j+4*i);\\n        if(k*k!=(j*j+4*i))\\n        continue;\\n        if(k-j>0)\\n        {\\n            if((k-j)%2==0)\\n            {\\n                if(digits((k-j)/2)!=j)\\n                continue;\\n                l=(k-j)/2;\\n                if(min>l)\\n                min=l;\\n            }\\n        }\\n    }\\n    if(min==1000000000)\\n    min=-1;\\n    printf(\\\"%lld\\\",min);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1464,
+    "completion_tokens": 260,
+    "total_tokens": 1724,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 696
+  },
+  "raw_sha256": "d0a36fe596aa45a16502c4ed523bb8d25f0a4dc8770b1ba328b3210a54df30db",
+  "ended_utc": "2026-11-18T09:35:54.140512+00:00",
+  "elapsed_seconds": 1.9922
+}

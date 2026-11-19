@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0898/BP1/repair/1",
+  "case_id": "BP17-0898",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "3945624fc5ced9da8fd67950b02044894d6d6ded89d6ad9ed41f2fd82796278a",
+  "started_utc": "2026-10-18T12:34:39.855393+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b06f449e-101a-445f-a218-deb30f0a5eb5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdbool.h>\\n\\n#define maxN 1000001\\n\\nbool isP[maxN];\\nint ps[maxN];\\n\\nbool isPrime( int n ) {\\n\\tint i;\\n\\n\\tfor( i = 2; (long long) i * i <= n; i++ )\\n\\t\\tif( n % i == 0 ) return false;\\n\\t\\n\\treturn true;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint i, j, c;\\n\\n\\tisP[2] = isP[3] = isP[5] = 1;\\n\\n\\tfor( i = 7; i < maxN; i += 2 )\\n\\t\\tif( isPrime(i) ) isP[i] = 1;\\n\\t\\n\\tps[0] = 0;\\n\\tfor( i = 1; i < maxN; i++ )\\n\\t\\tps[i] = ps[i-1] + isP[i];\\n\\t\\n\\tint a, b, k;\\n\\tscanf(\\\"%i %i %i\\\", &a, &b, &k);\\n\\t\\n\\tint lo = 0, hi = b - a + 1, ans = -1, mid;\\n\\twhile( lo <= hi ) {\\n\\t\\tmid = (lo + hi) / 2;\\n\\n\\t\\tint cnt = ps[a+mid-1] - ps[a-1];\\n\\t\\t\\n\\t\\tbool ok = 1;\\n\\t\\tif( cnt < k ) ok = 0;\\n\\n\\t\\tfor( i = a+1; i <= b-mid+1; i++ )\\n\\t\\t\\tif( ps[i+mid-1] - ps[i-1] < k ) ok = 0;\\n\\n\\t\\tif( ok ) {\\n\\t\\t\\tans = mid;\\n\\t\\t\\thi = mid - 1;\\n\\t\\t} else lo = mid + 1;\\n\\n\\t}\\n\\n\\tprintf(\\\"%i\\\\n\\\", ans);\\n\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1291,
+    "completion_tokens": 485,
+    "total_tokens": 1776,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1291
+  },
+  "raw_sha256": "7a6d2ca327319b4676e5ca3a3f4a3c99c3caec5ddd20e6d664df173264cd7e6c",
+  "ended_utc": "2026-10-18T12:34:41.896727+00:00",
+  "elapsed_seconds": 2.047
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0016/BP1/repair/1",
+  "case_id": "BP17-0016",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "4f6ab37b731d616c32dcdc762315b87883e6080bd1af42f7a573726e1b8311c6",
+  "started_utc": "2026-11-16T06:11:49.285074+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fdd1ccfa-6245-41b2-a88c-f3347f9612b1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint q[10000],u[10000],v[10000],n,m;\\nint find(int a,int b);\\nint main(int argc, char *argv[])\\n{\\n    int i,a,b,c,j,d,s=0,l=10000000;\\n    scanf(\\\"%d %d\\\",&n,&m);\\n    for(i=0;i<n;i++)\\n    scanf(\\\"%d\\\",&q[i]);\\n    for(i=0;i<m;i++)\\n    scanf(\\\"%d %d\\\",&u[i],&v[i]);\\n    if(m<3)\\n    printf(\\\"-1\\\");\\n    else \\n    {\\n         for(i=0;i<m-1;i++)\\n         {\\n                           a=u[i];\\n                           b=v[i];\\n                           for(j=i+1;j<m;j++)\\n                           {\\n                                 if(u[j]==a)\\n                                 {\\n                                               c=v[j];\\n                                               d=find(b,c);\\n                                               if(d==1)\\n                                               s=q[a-1]+q[b-1]+q[c-1];\\n                                               if(l>s&&(s!=0))\\n                                                l=s;\\n                                                }\\n                                  else if(a==v[j]) \\n                                  {\\n                                       c=u[j];\\n                                               d=find(b,c);\\n                                               if(d==1)\\n                                               s=q[a-1]+q[b-1]+q[c-1];\\n                                               if(l>s&&(s!=0))\\n                                                l=s;\\n                                                }\\n                           }\\n                           a=v[i];\\n                           b=u[i];\\n                           for(j=i+1;j<m;j++)\\n                           {\\n                                 if(u[j]==a)\\n                                 {\\n                                               c=v[j];\\n                                               d=find(b,c);\\n                                               if(d==1)\\n                                               s=q[a-1]+q[b-1]+q[c-1];\\n                                               if(l>s&&(s!=0))\\n                                                l=s;\\n                                                }\\n                                  else if(a==v[j]) \\n                                  {\\n                                       c=u[j];\\n                                               d=find(b,c);\\n                                               if(d==1)\\n                                               s=q[a-1]+q[b-1]+q[c-1];\\n                                               if(l>s&&(s!=0))\\n                                                l=s;\\n                                                }\\n                                                }\\n                           }\\n                           if(l==10000000)\\n                           l=-1;\\n                           printf(\\\"%d\\\\n\\\",l);\\n                           }\\n                           return(0);\\n}\\nint find(int a,int b)\\n{\\n    int i;\\n    for(i=0;i<m;i++)\\n    {\\n                    if(((a==u[i])&&(b==v[i]))||((b==u[i])&&(a==v[i])))\\n                       return(1);\\n                       }\\n                       return(0);\\n}\\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n                                                                                                                                          \"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1579,
+    "completion_tokens": 685,
+    "total_tokens": 2264,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 171
+  },
+  "raw_sha256": "2cb89d5db71086aba9f5b7c953f51ec51e0a37de1f9ef192fa5d60a90e3acaac",
+  "ended_utc": "2026-11-16T06:11:52.934135+00:00",
+  "elapsed_seconds": 3.6457
+}

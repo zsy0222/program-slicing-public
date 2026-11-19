@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3411/BP2/repair/1",
+  "case_id": "BP17-3411",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "48702270072a6a38e850a3c19b074b176d4d30e5fdf7946579075ee171f33f31",
+  "started_utc": "2026-11-16T03:58:10.700644+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dfc4d47b-2ff2-44d2-b277-31106b436401",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<limits.h>\\nint is_duplicate(long ai, long *a, int n){\\n    int i;\\n    for(i=0; i<n; i++){\\n\\tif(a[i] == ai) return 1;\\n    }\\n    return 0;\\n\\n}\\n\\nint main(int argc, char *argv[]){\\n    int i, n;\\n    long long sum = 0, sump=0;\\n    long a[26];\\n    scanf(\\\"%d\\\", &n);\\n    for(i=0; i<n; i++){\\n\\tscanf(\\\"%ld\\\", &a[i]);\\n\\tCHECK : if(is_duplicate(a[i], a, i)){\\n\\t    a[i]--;\\n\\t    if(a[i] == 0) break;\\n\\t    goto CHECK;\\n\\t}\\n\\tsump = sum;\\n\\tsum = sump + a[i];\\n    }\\n\\n    printf(\\\"%lld\\\\n\\\", sum);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1449,
+    "completion_tokens": 237,
+    "total_tokens": 1686,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 553
+  },
+  "raw_sha256": "26c8971f6c274c0fadaef4f6de80b11ff7487fb41e7da99f6b85789fc7053909",
+  "ended_utc": "2026-11-16T03:58:12.048464+00:00",
+  "elapsed_seconds": 1.2833
+}

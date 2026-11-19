@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-0237",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nconst int inf  = 1 << 30;\\n\\nint f[110][55][2];\\nchar s[110];\\n\\n#define max(a, b) (a > b ? a : b)\\n\\nint main(int argc, char *argv[]) {\\n\\tint n, m, i, j, c, k;\\n\\tscanf(\\\"%s %i\\\", s, &m);\\n\\n\\tn = strlen(s);\\n\\n\\tfor( i = 0; i < n; i++ )\\n\\t\\ts[i] = (s[i] == 'F') ? 0 : 1;\\n\\t\\n\\t/*for( i = 0; i < n; i++) \\n\\t\\tprintf(\\\"%i\\\", s[i]);\\n\\tputs(\\\"\\\");*/\\n\\t\\n\\tfor( i = 0; i < 110; i++ )\\n\\t\\tfor( j = 0; j < 55; j++ )\\n\\t\\t\\tf[i][j][0] = f[i][j][1] = -inf;\\n\\n\\tf[n][0][0] = f[n][0][1] = 0;\\n\\tfor( i = n-1; i >= 0; i-- )\\n\\t\\tfor( j = m; j >= 0; j-- )\\n\\t\\t\\tfor( k = 0; k < 2; k++ ) {\\n\\t\\t\\t\\tf[i][j][k] = -inf;\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tint sign = (k == 0) ? 1 : -1;\\n\\t\\t\\t\\tfor( c = 0; c <= j; c++ ) {\\n\\t\\t\\t\\t\\tint new_c = (c % 2) ? s[i] ^ 1 : s[i], cost;\\n\\n\\t\\t\\t\\t\\tif( new_c == 0 ) cost = sign;\\n\\t\\t\\t\\t\\telse\\t\\t\\t cost = 0;\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tint new_k = (new_c == 1) ? k ^ 1 : k;\\n\\t\\t\\t\\t\\tf[i][j][k] = max(f[i][j][k], f[i+1][j-c][new_k] + cost);\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\n\\tprintf(\\\"%i\\\\n\\\", f[0][m][0]);\\n\\t\\n\\t\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 2.265,
+  "ended_utc": "2026-10-17T07:03:49.652350+00:00",
+  "finish_reason": "stop",
+  "group": "BP1",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0237/BP1/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "aad3066900244219489aaafaf6d268a9113dc8c1be1cdcc82d841f2597eaac2a",
+  "request_model": "deepseek-flash",
+  "request_sha256": "7bf94e716f8cce05c7b23451bf69642271886c533dc9f747ef9fe16aa2d12f29",
+  "response_id": "084a4456-6072-464e-9b7d-d44e3a28a25a",
+  "started_utc": "2026-10-17T07:03:47.382672+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 575,
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 140,
+    "prompt_tokens": 1420,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "total_tokens": 1995
+  }
+}

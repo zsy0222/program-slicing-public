@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3126/BP0/repair/1",
+  "case_id": "BP17-3126",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "9eab9dff15a71c65139ddb554d4263b6040d2dbd2bce735cadf6145d2c5809da",
+  "started_utc": "2026-11-15T13:05:14.347593+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "92551d44-81b7-4a25-99a4-224c32b64a52",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<string.h>\\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, s, a, b, i;\\n    int B[100002], S[100003], aray[100002][2];\\n    memset(B, 0, sizeof(B));\\n    memset(S, 0, sizeof(S));\\n    char ch;\\n    scanf(\\\"%d %d\\\", &n, &s);\\n    int count=0;\\n    int p ,q;\\n    for(i=0;i<n;i++){\\n        ch=getchar();\\n        while(ch!='B' && ch!='S'){\\n            ch=getchar();\\n        }\\n        if(ch=='B'){\\n            scanf(\\\"%d %d\\\" ,&p, &q);\\n            B[p]+=q;\\n\\n        }\\n        else{\\n            scanf(\\\"%d %d\\\", &p, &q);\\n            S[p]+=q;\\n        }\\n    }\\n    for(i=0;i<=100000;i++){\\n        if(S[i]!=0 && count<s){\\n            aray[count][0]=i;\\n            aray[count][1]=S[i];\\n            count++;\\n        }\\n\\n    }\\n    b=count-1;\\n    count=0;\\n    for(i=b;i>=0;i--){\\n        printf(\\\"S %d %d\\\\n\\\", aray[i][0], aray[i][1]);\\n    }\\n    count=0;\\n    for(i=100000;i>=0;i--){\\n        if(count==s){\\n            break;\\n        }\\n        if(B[i]!=0){\\n            printf(\\\"B %d %d\\\\n\\\", i, B[i]);\\n            count++;\\n        }\\n\\n    }\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1202,
+    "completion_tokens": 439,
+    "total_tokens": 1641,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 178
+  },
+  "raw_sha256": "057a2a88a0c8f9fd9b5e49393702b85790a63efccad1703cfdcb2705c5fcd7cd",
+  "ended_utc": "2026-11-15T13:05:16.747602+00:00",
+  "elapsed_seconds": 2.397
+}

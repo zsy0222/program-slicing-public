@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0492/BP2/repair/1",
+  "case_id": "BP17-0492",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "90c927dc992b2a4a5dc51fccb0b21e6c69ceea540fd86a67f29175660c077c23",
+  "started_utc": "2026-10-18T12:27:54.062783+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0e0882f3-7d26-4c96-bff8-62daaa7fe287",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define MAX 200\\n\\ntypedef struct {\\n    long long a, b;\\n} warehouse;\\n\\nint cmp (const void *a, const void *b) {\\n    warehouse *x = (warehouse *)a, *y = (warehouse *)b;\\n\\n    if (x->b < y->b) return 1;\\n    if (x->b > y->b) return -1;\\n    return 0;\\n}\\nint main(int argc, char *argv[]) {\\n    long long int n, m, i, j;\\n    warehouse container[MAX + 1];\\n    long long max = 0, tmp;\\n\\n    scanf (\\\"%lld %lld\\\", &n, &m);\\n\\n    for (i = 0; i < m; i++)\\n        scanf(\\\"%lld %lld\\\", &container[i].a, &container[i].b);\\n\\n    qsort (container, m, sizeof (warehouse), cmp);\\n\\n    for (i = 0, j = 0; i != n; j++) {\\n        if ((n - i) > container[j].a)\\n            tmp = container[j].a;\\n        else\\n            tmp = (n - i);\\n\\n        i += tmp;\\n        max += container[j].b * tmp;\\n    }\\n\\n    printf(\\\"%lld\\\\n\\\", max);\\n    return 0;\\n    \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1476,
+    "completion_tokens": 343,
+    "total_tokens": 1819,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1476
+  },
+  "raw_sha256": "f49879395b78d1a3283434c85df9bdced3629df2bc122c26ed8ef74cde9fb9d7",
+  "ended_utc": "2026-10-18T12:27:56.031825+00:00",
+  "elapsed_seconds": 1.969
+}

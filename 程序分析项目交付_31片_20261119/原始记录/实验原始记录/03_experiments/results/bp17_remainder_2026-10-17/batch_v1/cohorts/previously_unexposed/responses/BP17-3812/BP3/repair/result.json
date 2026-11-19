@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3812/BP3/repair/1",
+  "case_id": "BP17-3812",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "b2d90957b287a48c6d1d86f353b1b17cb402053ef74522f2505db797131f4f30",
+  "started_utc": "2026-11-16T16:14:38.710297+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5a815459-d6a2-4fa6-a716-e6ff712b2a21",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\n#define DEGREES_IN_CIRCLE 360\\n#define HOURS_ON_CLOCK 12\\n#define MINUTES_ON_CLOCK 60\\n#define DEGREES_PER_HOUR (DEGREES_IN_CIRCLE/HOURS_ON_CLOCK)\\n#define DEGREES_PER_MINUTE (DEGREES_IN_CIRCLE/MINUTES_ON_CLOCK)\\n\\n\\nint main (int argc, char *argv[]){\\n    \\n    int hh, mm;\\n    int min;\\n    float minOffset, hour;\\n\\n    scanf(\\\"%d %d\\\", &hh, &mm);\\n\\n    //printf(\\\"%d %d\\\\n\\\", hh, mm);\\n\\n    //Correct 24 Hour clock\\n    if (hh >= 12){\\n        hh -= 12;\\n    }\\n\\n    //Calculate\\n    min = mm * DEGREES_PER_MINUTE;\\n    minOffset = ((float)mm/MINUTES_ON_CLOCK) * DEGREES_PER_HOUR;\\n    hour = ((float)hh * DEGREES_PER_HOUR) + minOffset;\\n\\n    //Display the results\\n    printf(\\\"%f %d\\\\n\\\", hour, min);\\n\\n    return EXIT_SUCCESS;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1169,
+    "completion_tokens": 292,
+    "total_tokens": 1461,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1169
+  },
+  "raw_sha256": "6b4a74ad37b99a1f42f7ab9c532948fc36e1afc6c92214ef377008e4cec8ab05",
+  "ended_utc": "2026-11-16T16:14:40.642714+00:00",
+  "elapsed_seconds": 1.8759
+}

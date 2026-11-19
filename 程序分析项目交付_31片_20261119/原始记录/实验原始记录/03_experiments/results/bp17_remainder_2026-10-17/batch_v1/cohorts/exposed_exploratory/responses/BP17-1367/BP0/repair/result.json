@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1367/BP0/repair/1",
+  "case_id": "BP17-1367",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "896daa4d46a58add002517e08d25a4f7c69b0d49821bf7a1988aff3dd8e6d6d3",
+  "started_utc": "2026-11-16T17:47:46.045570+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "54889d7e-ecee-46ed-909f-b62657efcf60",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint md[13] = {0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365};\\n\\nint day(int y, int m, int d){\\n    int ans = (y - 1900) * 365 + md[m] + d;\\n    ans += (y - 1900 + 3) / 4;\\n    ans -= (y - 1900 + 99) / 100;\\n    ans += (y - 1900 + 399) / 400;\\n    if (!(y % 4) && ((y % 100) || !(y % 400)) && m > 2)++ans;\\n    return ans;\\n}\\n\\nint main(int argc, char *argv[]){\\n    int y, m, d, y2, m2, d2;\\n    scanf(\\\"%d:%d:%d\\\", &y, &m, &d);\\n    scanf(\\\"%d:%d:%d\\\", &y2, &m2, &d2);\\n    int day1 = day(y, m, d), day2 = day(y2, m2, d2);\\n    printf(\\\"%d\\\\n\\\", day1 > day2 ? day1 - day2 : day2 - day1);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 984,
+    "completion_tokens": 328,
+    "total_tokens": 1312,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 216
+  },
+  "raw_sha256": "0773173e8233456ee45100651dcda7260ee51bf2dd2968fd5dda601a597a9423",
+  "ended_utc": "2026-11-16T17:47:48.334505+00:00",
+  "elapsed_seconds": 2.2867
+}

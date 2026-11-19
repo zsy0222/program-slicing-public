@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2775/BP1/repair/1",
+  "case_id": "BP17-2775",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "0e408dea3a0368a83df8a6c6ba76ad1af4a0532c795189d3beff2568625c9a7f",
+  "started_utc": "2026-11-16T03:56:02.461692+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "162839fe-52a7-44cd-bce3-582a00a10517",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nlong long count(int n) {\\n\\treturn 1ll<<(long long)(n-1);\\n}\\nint res[50];\\nint main(int argc, char *argv[]) {\\n\\tint n,m;\\n\\tscanf(\\\"%d%d\\\", &n, &m);\\n\\tint left = 0, right = n-1;\\n\\tint c = 1, k = n;\\n\\twhile(n--) {\\n\\t\\tif ((long long)m > count(n)) {\\n\\t\\t\\tres[right] = c;\\n\\t\\t\\tright--;\\n\\t\\t} else {\\n\\t\\t\\tres[left] = c;\\n\\t\\t\\tleft++;\\n\\t\\t}\\n\\t\\tc++;\\n\\t}\\n\\tint i;\\n\\tfor(i = 0; i < k-1; i++)\\n\\t\\tprintf(\\\"%d \\\", res[i]);\\n\\tprintf(\\\"%d\\\\n\\\", res[k-1]);\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 939,
+    "completion_tokens": 228,
+    "total_tokens": 1167,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 939
+  },
+  "raw_sha256": "1d31ac71506a2e6d97146e23fa7fe5ca2d49ff0b4e139f1af11697786bdcf27b",
+  "ended_utc": "2026-11-16T03:56:03.842966+00:00",
+  "elapsed_seconds": 1.3793
+}

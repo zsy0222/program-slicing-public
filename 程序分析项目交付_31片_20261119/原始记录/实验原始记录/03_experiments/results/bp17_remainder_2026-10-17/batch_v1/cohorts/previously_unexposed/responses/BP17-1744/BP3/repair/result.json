@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1744/BP3/repair/1",
+  "case_id": "BP17-1744",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "96ea0659366b145fed36333bdc14683d9967e675005e627aa4c49ef4c9e87fe8",
+  "started_utc": "2026-10-21T07:39:26.286328+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c3a262b3-1f0f-482f-98b8-6e3ed383cb12",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define MAXN 100*100*10\\n#define max(a,b) ((a) > (b) ? (a) : (b))\\nint a[101],b[101],f[101][2*MAXN+1];\\nint main(int argc, char *argv[])\\n{\\n    int n,k,i,j;\\n    scanf(\\\"%d %d\\\",&n,&k);\\n    for (i=1;i<=n;i++)\\n        scanf(\\\"%d\\\",&a[i]);\\n    for (i=1;i<=n;i++)\\n        scanf(\\\"%d\\\",&b[i]);\\n    for (i=1;i<=n;i++)\\n        for (j=-MAXN;j<=MAXN;j++)\\n            f[i][j+MAXN] = -MAXN;\\n    int t = a[1] - k * b[1] + MAXN;\\n    f[1][MAXN] = 0;\\n    if (t >= 0 && t <= 2*MAXN)\\n        f[1][t] = a[1];\\n    for (i=2;i<=n;i++)\\n        for (j=-MAXN;j<=MAXN;j++)\\n        {\\n            t = j + k * b[i] - a[i] + MAXN;\\n            if (t >=0 && t <= 2*MAXN)\\n            {\\n                f[i][j+MAXN] = max(f[i-1][j+MAXN],f[i-1][t]+a[i]);\\n            }else\\n            {\\n                f[i][j+MAXN] = f[i-1][j+MAXN];\\n            }\\n        }\\n    int max = 0;\\n    for (i=1;i<=n;i++)\\n        if (f[i][MAXN] > max)\\n            max = f[i][MAXN];\\n    if (max == 0) printf(\\\"-1\\\"); else\\n        printf(\\\"%d\\\",max);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1862,
+    "completion_tokens": 472,
+    "total_tokens": 2334,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 710
+  },
+  "raw_sha256": "8cb3a2e6730cf1b297571c0a985ede4eaefe8eeaa4f3bbb3ac94ae88e928182a",
+  "ended_utc": "2026-10-21T07:39:28.400246+00:00",
+  "elapsed_seconds": 2.031
+}

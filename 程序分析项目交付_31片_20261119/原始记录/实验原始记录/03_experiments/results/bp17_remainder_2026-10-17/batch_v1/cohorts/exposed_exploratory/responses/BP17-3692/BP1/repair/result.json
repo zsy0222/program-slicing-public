@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3692/BP1/repair/1",
+  "case_id": "BP17-3692",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "2161bb6a2aab7ac699e28a7a2e57547fd3a206b4bcb1658a4acb5559729e3c5e",
+  "started_utc": "2026-10-17T08:20:56.548066+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1451fe6e-3251-4e14-ac76-00725f37c778",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\n#define m 1000000007u\\ntypedef unsigned u;\\ntypedef double d;\\nd Lg[16],Lv[2222][2222],Uv[2222][2222];u w;\\nu L[2222][2222],R[2222][2222],U[2222][2222],D[2222][2222];\\nd F(char(*X)[2222],u n,u diag,u ppp)\\n{\\n\\tu i,j,k,l,x,y,z;d r=-1.0,v;x=y=z=-1;\\n\\tfor(i=0;++i<=n;R[i][n+1]=D[n+1][i]=n+1)for(j=0;++j<=n;)\\n\\t{\\n\\t\\tLv[i][j]=Lv[i][j-1]+Lg[X[i][j]&15];\\n\\t\\tUv[i][j]=Uv[i-1][j]+Lg[X[i][j]&15];\\n\\t\\tif(X[i][j]=='0')\\n\\t\\t{\\n\\t\\t\\tL[i][j]=j;\\n\\t\\t\\tU[i][j]=i;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tL[i][j]=L[i][j-1];\\n\\t\\t\\tU[i][j]=U[i-1][j];\\n\\t\\t}\\n\\t}\\n\\tfor(i=n+1;--i;)for(j=n+1;--j;)\\n\\t{\\n\\t\\tif(X[i][j]=='0')\\n\\t\\t{\\n\\t\\t\\tR[i][j]=j;\\n\\t\\t\\tD[i][j]=i;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tR[i][j]=R[i][j+1];\\n\\t\\t\\tD[i][j]=D[i+1][j];\\n\\t\\t}\\n\\t}\\n\\tfor(i=0;++i<=n;)for(j=0;++j<=n;)if(X[i][j]!='0'&&(!diag||(((i^j^ppp)&1))))\\n\\t{\\n\\t\\tl=-1;\\n\\t\\tif(l>(k=i-U[i][j]))l=k;\\n\\t\\tif(l>(k=D[i][j]-i))l=k;\\n\\t\\tif(l>(k=j-L[i][j]))l=k;\\n\\t\\tif(l>(k=R[i][j]-j))l=k;\\n\\t\\tv=Uv[i+l-1][j]-Uv[i-l][j]+Lv[i][j+l-1]-Lv[i][j-l]-Lg[X[i][j]&15];\\n\\t\\tif(r<v){r=v;x=i;y=j;z=l;}\\n\\t}\\n\\tif(r>-0.5&&x!=-1u&&y!=-1u&&z!=-1u)\\n\\t{\\n\\t\\tw=X[x][y]&15;\\n\\t\\tfor(i=0;++i<z;)\\n\\t\\t{\\n\\t\\t\\tw=w*(X[x+i][y]&15)%m;\\n\\t\\t\\tw=w*(X[x][y+i]&15)%m;\\n\\t\\t\\tw=w*(X[x-i][y]&15)%m;\\n\\t\\t\\tw=w*(X[x][y-i]&15)%m;\\n\\t\\t}\\n\\t}\\n\\telse{r=0.0;w=0;}\\n\\treturn r;\\n}\\nchar A[2222][2222],B[2222][2222];\\nint main(int argc, char *argv[])\\n{\\n\\tu n,l,i=1,j,s=0,o=1;d r=-1.0,v;\\n\\tscanf(\\\"%u\\\",&n);\\n\\tfor(l=(n<<1)-1;++i<16;)Lg[i]=log((d)i);\\n\\tfor(i=0;++i<=l;)for(j=0;++j<=l;)B[i][j]='0';\\n\\tfor(i=0;++i<=n;)scanf(\\\"%s\\\",A[i]+1);\\n\\tfor(i=0;++i<=n;)for(j=0;++j<=n;)\\n\\t{\\n\\t\\tif((B[n+i-j][i+j-1]=A[i][j])!='0')o=0;\\n\\t\\tif(i!=n&&j!=n)B[n+i-j][i+j]='1';\\n\\t}\\n\\tif(o){printf(\\\"0\\\\n\\\");return 0;}\\n\\tif(r<(v=F(A,n,0,0))){r=v;s=w;}\\n\\tif(r<(v=F(B,l,1,n))){r=v;s=w;}\\n\\tprintf(\\\"%u\\\\n\\\",s);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2116,
+    "completion_tokens": 1112,
+    "total_tokens": 3228,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 196
+  },
+  "raw_sha256": "0bf6d082b6179bb954ea23f7cbdf0d33683d63d55c5fefa252a2d6cba5ccc855",
+  "ended_utc": "2026-10-17T08:21:00.227640+00:00",
+  "elapsed_seconds": 3.672
+}

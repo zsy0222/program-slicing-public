@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2137/BP2/repair/1",
+  "case_id": "BP17-2137",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f51b1e8751872528c8963cf08860bd8c8b318700540007d07eb1983a3317656e",
+  "started_utc": "2026-11-15T13:01:35.756543+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "47373fa3-0429-47d1-9114-dc333501f29c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\ntypedef struct node\\n{\\n\\tint data;\\n\\tstruct node *next;\\n}node;\\nnode * head[100005];\\nint status[100005];\\n\\nnode* insert(node* root,int val)\\n{\\n\\tnode *temp=malloc(sizeof(node));\\n\\ttemp->data=val;\\n\\ttemp->next=root;\\n\\treturn temp;\\n}\\nint orig[100005],tar[100005];\\nint count=0;\\nint ans[100005];\\n\\nvoid swap(int src)\\n{\\n\\tif(orig[src]==0)\\n\\t\\torig[src]=1;\\n\\telse \\n\\t\\torig[src]=0;\\n}\\n\\nvoid change_dfs(int src,int level)\\n{\\n\\tif(level%2==0)\\n\\t{\\n\\t\\tif(orig[src]!=tar[src])\\n\\t\\t\\tswap(src);\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tans[count]=src;\\n\\t\\t\\tcount++;\\n\\t\\t}\\n\\t}\\n\\tnode * temp=head[src];\\n\\twhile(temp!=NULL)\\n\\t{\\n\\t\\tif(status[temp->data]==0)\\n\\t\\t{\\n\\t\\t\\tstatus[temp->data]=2;\\n\\t\\t\\tchange_dfs(temp->data,level+1);\\n\\t\\t\\tstatus[temp->data]=0;\\n\\t\\t}\\n\\t\\ttemp=temp->next;\\n\\t}\\n}\\n\\n\\nvoid dfs(int src)\\n{\\n\\tif(orig[src]!=tar[src])\\n\\t{\\n\\t\\tans[count]=src;\\n\\t\\tcount++;\\n\\t\\tswap(src);\\n\\t\\tchange_dfs(src,0);\\n\\t}\\n\\n\\tnode*temp=head[src];\\n\\twhile(temp!=NULL)\\n\\t{\\n\\t\\tif(status[temp->data]!=1)\\n\\t\\t{\\n\\t\\t\\tstatus[temp->data]=1;\\n\\t\\t\\tdfs(temp->data);\\n\\t\\t}\\n\\t\\ttemp=temp->next;\\n\\t}\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n,i,j;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tint var=n-1;\\n\\twhile(var--)\\n\\t{\\n\\t\\tint l,k;\\n\\t\\tscanf(\\\"%d%d\\\",&l,&k);\\n\\t\\thead[l]=insert(head[l],k);\\n\\t\\thead[k]=insert(head[k],l);\\n\\t}\\n\\t\\n\\tfor(i=1;i<=n;i++)\\n\\t\\tscanf(\\\"%d\\\",&orig[i]);\\n\\tfor(i=1;i<=n;i++)\\n\\t\\tscanf(\\\"%d\\\",&tar[i]);\\n\\tstatus[1]=1;\\n\\tdfs(1);\\n\\tprintf(\\\"%d\\\\n\\\",count);\\n\\tfor(i=0;i<count;i++)\\n\\t\\tprintf(\\\"%d\\\\n\\\",ans[i]);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3010,
+    "completion_tokens": 718,
+    "total_tokens": 3728,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3010
+  },
+  "raw_sha256": "620f33e35548dd8aaad3b97924f155a50f91e3963e3d8a8325b949e83b9feac7",
+  "ended_utc": "2026-11-15T13:01:38.735368+00:00",
+  "elapsed_seconds": 2.9764
+}

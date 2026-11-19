@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0450/BP3/repair/1",
+  "case_id": "BP17-0450",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "efc93c760bdad8895f91e4b392f1c3f757792df970211f35313af188c4e503ff",
+  "started_utc": "2026-11-16T17:54:27.879907+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dd547f41-2614-441f-8eab-3d9d6118c1a2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#include<string.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n;\\n  int x1, x2, a, b, fg, fgg;\\n  int mod;\\n  int stone;\\n\\n  while(scanf(\\\"%d%d%d%d\\\",&x1,&x2,&a,&b)==4){\\n    stone = x2 - x1;\\n    fg = 0;\\n    if(stone < 0) stone *= -1, k = a, a = b, b = k, a *= -1, b *= -1, fg = 1;\\n    if(b <= 0){ puts(\\\"DRAW\\\"); continue; }\\n\\n    fgg = 0;\\n    if(a <= 0) fgg = 1, a = 1;\\n    mod = stone % (a+b);\\n    if(mod == 0){\\n      if(fgg) puts(\\\"DRAW\\\"); else puts(\\\"SECOND\\\");\\n      continue;\\n    }\\n    if(mod < a){\\n      puts(\\\"DRAW\\\");\\n      continue;\\n    }\\n\\n    if(stone > b && fgg){\\n      puts(\\\"DRAW\\\");\\n      continue;\\n    }\\n\\n    stone -= mod;\\n    puts(\\\"FIRST\\\");\\n    if(fg==0) printf(\\\"%d\\\\n\\\",x2-stone);\\n    else      printf(\\\"%d\\\\n\\\",x2+stone);\\n  }\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1694,
+    "completion_tokens": 404,
+    "total_tokens": 2098,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1694
+  },
+  "raw_sha256": "f7253cb110cdf24bfd23c271cc6100b941f03954adb367e99d8c02f2a41ba371",
+  "ended_utc": "2026-11-16T17:54:30.495717+00:00",
+  "elapsed_seconds": 2.6136
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2262/BP3/repair/1",
+  "case_id": "BP17-2262",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "d4d9885527b0e7c366de7881b6fa6e3061fa28bccde9a8e645f663c9c576e992",
+  "started_utc": "2026-11-16T06:19:34.541106+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2620d8b0-fe96-4708-85c3-2246353b8be0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"// 라인 월드 2\\n\\n#include <stdio.h>\\n#define max2(x,y) (x>y?x:y)\\n\\nint n, a[100010], d[2][100010];\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, print = 0, sum;\\n\\n    scanf(\\\"%d\\\", &n);\\n    for (i = 1; i <= n; i++) scanf(\\\"%d\\\", &a[i]);\\n\\n    a[0] = -1, d[0][1] = d[1][1] = print = 1;\\n    for (i = 2; i <= n; i++)\\n    {\\n        if (a[i - 1] < a[i]) d[0][i] = d[0][i - 1] + 1;\\n        else d[0][i] = 1;\\n\\n        sum = 0;\\n        if (a[i - 2] + 1 < a[i]) sum = 1, d[1][i] = d[0][i - 2] + 2;\\n        if (a[i - 1] < a[i]) sum = 1, d[1][i] = max2(d[1][i], d[1][i - 1] + 1);\\n        if (sum == 0) d[1][i] = 2;\\n\\n        print = max2(print, max2(max2(d[0][i], d[0][i - 1] + 1), d[1][i]));\\n    }\\n    printf(\\\"%d\\\", print);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1533,
+    "completion_tokens": 389,
+    "total_tokens": 1922,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1533
+  },
+  "raw_sha256": "797051073dc80a5c811b89aa8cd8fd4320497d8a7bb6cc764fdc492c496b091d",
+  "ended_utc": "2026-11-16T06:19:36.927568+00:00",
+  "elapsed_seconds": 2.3831
+}

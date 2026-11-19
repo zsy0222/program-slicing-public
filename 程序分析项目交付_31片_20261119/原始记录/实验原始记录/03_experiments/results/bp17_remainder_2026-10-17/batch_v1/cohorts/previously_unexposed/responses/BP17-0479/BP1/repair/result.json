@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0479/BP1/repair/1",
+  "case_id": "BP17-0479",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "dcf990844d6a6ebae81774a34054cf6e5b6317d27c02c86284089f8b209ff66f",
+  "started_utc": "2026-10-21T06:43:50.625252+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1ad5f814-e8ca-4667-adcc-e96121350af4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint pointer=1;\\n\\n\\t\\n\\tint n,i;\\n\\tscanf(\\\"%d\\\",&n); \\n\\tgetchar();\\n\\tchar a[2000][2005];\\n\\ta[0][0]=47;\\n\\ta[0][1]='\\\\0';\\n\\n\\tfor(i=0;i<n;i++)\\n\\t{\\n\\t\\tchar c;\\n\\t\\tc=getchar();\\n\\n\\t\\tif(c=='c')\\n\\t\\t{\\n\\t\\t\\tgetchar();\\n\\t\\t\\tgetchar();\\n\\n\\t\\t\\tint temp=0,flag=0;\\n\\t\\t\\tchar d;\\n\\n\\t\\t\\t\\n\\t\\t\\td=getchar();\\n\\t\\t\\tif(d==47) d=getchar();\\n\\n\\t\\t\\twhile(d!='\\\\n' && d!=EOF)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(d==47 && flag!=2)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\ta[pointer][temp]=47;\\n\\t\\t\\t\\t\\ta[pointer][temp+1]='\\\\0';\\n\\t\\t\\t\\t\\tpointer++;\\n\\t\\t\\t\\t\\ttemp=0;\\n\\t\\t\\t\\t\\tflag=1;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse if(d=='.')\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tgetchar();\\n\\n\\t\\t\\t\\t\\tif(pointer>1)\\n\\t\\t\\t\\t\\t{\\tpointer--;\\n\\t\\t\\t\\t\\t\\ttemp=0;\\n\\t\\t\\t\\t\\t\\ta[pointer][temp]='\\\\0';\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\tflag=2;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse if(d!=47)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\ta[pointer][temp]=d;\\n\\t\\t\\t\\t\\ttemp++;\\n\\t\\t\\t\\t\\tflag=3;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\td=getchar();\\n\\t\\t\\t}\\n\\t\\t\\tif(flag==3)\\n\\t\\t\\t{\\t\\n\\t\\t\\ta[pointer][temp]=47;\\n\\t\\t\\ta[pointer][temp+1]='\\\\0';\\n\\t\\t\\tpointer++;\\n\\t\\t\\ttemp=0;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse if(c=='p')\\n\\t\\t{\\n\\t\\t\\tgetchar();\\n\\t\\t\\tgetchar();\\n\\t\\t\\tgetchar();\\n\\n\\t\\t\\tint j;\\n\\t\\t\\tif(pointer==0) printf(\\\"/\\\");\\n\\t\\t\\tfor(j=0;j<pointer;j++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tint p=0;\\n\\t\\t\\t\\twhile(a[j][p]!='\\\\0')\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tprintf(\\\"%c\\\",a[j][p]);\\n\\t\\t\\t\\t\\tp++;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\n\\t\\t\\tprintf(\\\"\\\\n\\\");\\n\\t\\t}\\t\\n\\n\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1838,
+    "completion_tokens": 741,
+    "total_tokens": 2579,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 174
+  },
+  "raw_sha256": "052b0b1e96cf402d19e8be29871315921c00e6cd6aef80f800ec654192a99717",
+  "ended_utc": "2026-10-21T06:43:53.438269+00:00",
+  "elapsed_seconds": 2.813
+}

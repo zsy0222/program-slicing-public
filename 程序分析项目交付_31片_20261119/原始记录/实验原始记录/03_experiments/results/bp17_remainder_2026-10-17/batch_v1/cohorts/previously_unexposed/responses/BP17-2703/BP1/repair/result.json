@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2703/BP1/repair/1",
+  "case_id": "BP17-2703",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "02f7134d1611b8721302284b50406fdb58a10d8091593e73d1bf0f32cd0469a8",
+  "started_utc": "2026-11-16T05:29:24.861874+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "510dd131-0245-435b-ac9a-d2eab6a89994",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint w[510],fl[510],st[510],ord[510];\\nint main(int argc, char *argv[])\\n{\\n  int i,j,k=0,n,t,tt,m,sm=0,l;\\n  w[0]=0;\\n  scanf(\\\"%d%d\\\",&n,&m);\\n  for(i=1;i<=n;i++)\\n  scanf(\\\"%d\\\",&w[i]);\\n\\n  for(i=0;i<m;i++)\\n  {\\n      scanf(\\\"%d\\\",&ord[i]);\\n      if(fl[ord[i]]==0)\\n      st[k++]=ord[i];\\n      fl[ord[i]]=1;\\n  }\\n  for(i=0;i<m;i++)\\n  {\\n      j=0;\\n      while(j<k&&ord[i]!=st[j])\\n      {\\n          sm+=w[st[j]];\\n          j++;\\n      }\\n      for(t=j;t>0;t--)\\n      st[t]=st[t-1];\\n      st[0]=ord[i];\\n\\n  }\\n\\n  printf(\\\"%d\\\\n\\\",sm);\\n        return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1229,
+    "completion_tokens": 282,
+    "total_tokens": 1511,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 205
+  },
+  "raw_sha256": "d0d3cd83fa56e29c106b95fc943766559cbb1322f784c0c371c2e0848e4de370",
+  "ended_utc": "2026-11-16T05:29:26.772795+00:00",
+  "elapsed_seconds": 1.877
+}

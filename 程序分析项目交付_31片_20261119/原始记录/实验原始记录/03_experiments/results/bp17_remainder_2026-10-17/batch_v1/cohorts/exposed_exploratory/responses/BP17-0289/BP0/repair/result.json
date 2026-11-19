@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0289/BP0/repair/1",
+  "case_id": "BP17-0289",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "f1add0f25273eaca94dbff87fc6966396e05e260ae887de32a70114108969803",
+  "started_utc": "2026-10-17T08:28:50.501121+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0eee0d41-3924-457a-9eee-c672cae681df",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include<string.h>\\n\\nint sum[8];\\nint main(int argc, char *argv[])\\n{\\n\\tint n, w;\\n\\tscanf(\\\"%d\\\", &n);\\n\\tfor (int i = 1; i < 8; i++)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\", &w);\\n\\t\\tsum[i] = sum[i - 1] + w;\\n\\t}\\n\\tn %= sum[7];\\n\\tif (n == 0)\\n\\t{\\n\\t\\tprintf(\\\"%d\\\\n\\\", 7);\\n\\t\\treturn 0;\\n\\t}\\n\\tfor (int i = 1; i < 8; i++)\\n\\t{\\n\\t\\tif (sum[i] >= n)\\n\\t\\t{\\n\\t\\t\\tprintf(\\\"%d\\\\n\\\", i);\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 864,
+    "completion_tokens": 236,
+    "total_tokens": 1100,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 224
+  },
+  "raw_sha256": "2984cd7b04e84cca0a629e2ae28341048d2b0d5c01bf2a14405fb8d87c267f43",
+  "ended_utc": "2026-10-17T08:28:51.892582+00:00",
+  "elapsed_seconds": 1.39
+}

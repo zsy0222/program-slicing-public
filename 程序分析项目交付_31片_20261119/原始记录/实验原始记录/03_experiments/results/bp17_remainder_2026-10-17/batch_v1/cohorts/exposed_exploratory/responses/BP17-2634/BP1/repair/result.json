@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2634/BP1/repair/1",
+  "case_id": "BP17-2634",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "be565e889c4bee503a5cbc94b508643ffb51bb12f8d133e4a6e207e55b44aa39",
+  "started_utc": "2026-10-21T06:54:26.168669+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f4428df3-d41d-487e-8fc5-d73440b66d0c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\nint number,county[99][99],n;\\nchar s1[25],s2[25],t[10],color[10];\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%s %s %d\\\",s1,s2,&n);\\n    int i,min;\\n    memset(county,0,sizeof(county));\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d  %s %d %s\\\",&min,t,&number,color);\\n        int temp;\\n        if(t[0] =='a')\\n            temp=0;\\n        else if(t[0]=='h')\\n            temp=1;\\n        county[temp][number]++;\\n        if(color[0]=='r' && county[temp][number]!=100)\\n        {\\n            county[temp][number]=100;\\n            if(temp==1)\\n                printf(\\\"%s %d %d\\\\n\\\",s1,number,min);\\n            else \\n                printf(\\\"%s %d %d\\\\n\\\",s2,number,min);\\n        }\\n        else if(county[temp][number]==2)\\n        {\\n            if(temp==1)\\n                printf(\\\"%s %d %d\\\\n\\\",s1,number,min);\\n            else \\n                printf(\\\"%s %d %d\\\\n\\\",s2,number,min);\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1114,
+    "completion_tokens": 358,
+    "total_tokens": 1472,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1114
+  },
+  "raw_sha256": "8fcd666dc0d33471f62e5ce3d1d5fa7ea6046cc9c91079faef0231340ce38b4d",
+  "ended_utc": "2026-10-21T06:54:28.028915+00:00",
+  "elapsed_seconds": 1.859
+}

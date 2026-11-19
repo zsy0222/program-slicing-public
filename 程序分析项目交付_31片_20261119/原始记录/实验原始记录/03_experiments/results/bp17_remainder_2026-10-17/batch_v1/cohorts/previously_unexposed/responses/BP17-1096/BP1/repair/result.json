@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1096/BP1/repair/1",
+  "case_id": "BP17-1096",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "0859ef3870049883c4eed7f4e46f54d0e94c8ff7081a2b01b60ac1ec2ba07b49",
+  "started_utc": "2026-10-21T07:06:29.458211+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "21c9ad21-b196-4a41-bd51-5480b32e0bea",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nvoid selectionSort(int a[], int n);\\nint main(int argc, char *argv[])\\n{\\n    int n, win[3001], i;\\n    scanf(\\\"%d\\\", &n);\\n    for(i=0; i<n; i++){\\n        scanf(\\\"%d\\\", &win[i]);\\n    }\\n    selectionSort(win, n);\\n    /*for(i=0; i<n; i++){\\n        printf(\\\"%d\\\", win[i]);\\n    }*/\\n    for(i=0; i<n; i++){\\n        if(win[i]!=i+1){\\n            printf(\\\"%d\\\\n\\\", i+1);\\n            return 0;\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\", n+1);\\n    return 0;\\n}\\n\\nvoid selectionSort(int a[], int n){\\n    int min, idx, i, t, j;\\n    for(j=0; j<n-1; j++){\\n        idx = j;\\n        min = a[j];\\n        for(i=j+1; i<n; i++){\\n            if(min>a[i]){\\n                min = a[i];\\n                idx= i;\\n            }\\n        }\\n        t = a[j];\\n        a[j] = a[idx];\\n        a[idx] = t;\\n\\n    }\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1027,
+    "completion_tokens": 325,
+    "total_tokens": 1352,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 259
+  },
+  "raw_sha256": "ab2c4b1bfbfcd3c3c7d17e04e7b7344ad163dbc1766e0c91ebf37397cd6e964e",
+  "ended_utc": "2026-10-21T07:06:31.154822+00:00",
+  "elapsed_seconds": 1.703
+}

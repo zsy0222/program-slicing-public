@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-0369",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n\\ntypedef struct{\\n    int i;\\n    int j;\\n    int r;\\n}radiator;\\n\\nradiator rad[1000];\\nint cnt, n;\\nvoid distance(int x, int y)\\n{\\n    int i;\\n    for(i = 0;i < n;i++)\\n    {\\n        if(sqrt((rad[i].i - x) * (rad[i].i - x) + (rad[i].j - y) * (rad[i].j -y)) <= rad[i].r)\\n        {\\n            cnt--;\\n            break;\\n        }\\n    }\\n    return;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int x1, y1, x2, y2;\\n    scanf(\\\"%d%d%d%d\\\",&x1,&y1,&x2,&y2);\\n    cnt = (abs(x1 - x2) + 1)*2 + (abs(y1 - y2) - 1)*2;\\n    scanf(\\\"%d\\\",&n);\\n    int i, j, k;\\n    for(i = 0;i < n;i++)\\n        scanf(\\\"%d%d%d\\\",&rad[i].i,&rad[i].j,&rad[i].r);\\n    for(i = x1 < x2 ? x1 : x2, j = y1 < y2 ? y1 : y2, k = y1 > y2 ? y1 : y2;j <= k;j++)\\n        distance(i,j);\\n    for(i = (x1 < x2 ? x1 : x2) + 1, j = y1 > y2 ? y1 : y2, k = x1 > x2 ? x1 : x2;i <= k;i++)\\n        distance(i,j);\\n    for(i = x1 > x2 ? x1 : x2, j = (y1 > y2 ? y1 : y2) - 1, k = y1 < y2 ? y1 : y2;j >= k;j--)\\n        distance(i,j);\\n    for(i = (x1 < x2 ? x1 : x2) + 1, j = y1 < y2 ? y1 : y2, k = (y1 > y2 ? y1 : y2) - 1;i <= k;i++)\\n        distance(i,j);\\n    printf(\\\"%d\\\\n\\\",cnt);\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 2.406,
+  "ended_utc": "2026-10-17T07:11:18.475987+00:00",
+  "finish_reason": "stop",
+  "group": "BP1",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0369/BP1/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "91f2f91aeed2118d36805384e2bf9c1353a6854874e694e94aa805ccf8dd2487",
+  "request_model": "deepseek-flash",
+  "request_sha256": "e67fee93b5190a635c1c132983b68291112937a04ae874db9a93fa79142147ff",
+  "response_id": "04b409b4-ac94-4fca-92c7-28ab37d22d06",
+  "started_utc": "2026-10-17T07:11:16.071781+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 579,
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 181,
+    "prompt_tokens": 1333,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "total_tokens": 1912
+  }
+}

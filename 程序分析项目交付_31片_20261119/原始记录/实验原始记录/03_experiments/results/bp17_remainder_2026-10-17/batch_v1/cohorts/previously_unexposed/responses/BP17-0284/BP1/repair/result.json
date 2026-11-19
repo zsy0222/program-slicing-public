@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0284/BP1/repair/1",
+  "case_id": "BP17-0284",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "64eb1a10b5ef5485d7c53326e73e60ae70cc65cf92c1d6d259f97a09e6d50f95",
+  "started_utc": "2026-11-16T16:07:57.690593+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "92793f4a-41af-42d0-9ea5-ceaddbde56d1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint min(int a, int b)\\n{\\n    if (a < b) {\\n\\treturn a;\\n    } else {\\n\\treturn b;\\n    }\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, m, p = 0, num = -1, i, j;\\n    char s[100001];\\n    char c1[100001], c2[100001];\\n    int a[10] = {0};\\n    int b[10] = {0};\\n\\n    scanf(\\\"%s\\\", s);\\n\\n    n = strlen(s);\\n\\n    for (i = 0; i < n; i++) {\\n\\ta[s[i] - '0']++;\\n\\tb[s[i] - '0']++;\\n    }\\n\\n    c1[n] = c2[n] = '\\\\0';\\n\\n    n--;\\n\\n    for (i = 0; i < a[0] - a[9]; i++) {\\n\\tc1[n - i] = c2[n - i] = '0';\\n    }\\n\\n    if (a[0] > a[9]) {\\n\\tn -= a[0] - a[9];\\n\\n\\ta[0] = b[0] = a[9];\\n    }\\n\\n    for (i = 1; i <= 5; i++) {\\n\\tint c = 1;\\n\\n\\ta[i]--;\\n\\tb[10 - i]--;\\n\\n\\tif (a[i] < 0 || b[10 - i] < 0) {\\n\\t    a[i]++;\\n\\t    b[10 - i]++;\\n\\n\\t    continue;\\n\\t}\\n\\n\\tfor (j = 0; j < 5; j++) {\\n\\t    c += min(a[j], b[9 - j]);\\n\\t}\\n\\n\\tif (c > p) {\\n\\t    p = c;\\n\\t    num = i;\\n\\t}\\n\\n\\ta[i]++;\\n\\tb[10 - i]++;\\n    }\\n\\n    if (num > 0) {\\n\\tif (num == 1 && a[0] > 0) {\\n\\t    c1[n] = '0';\\n\\t    c2[n--] = '0';\\n\\n\\t    a[0]--;\\n\\t    b[0]--;\\n\\t}\\n\\n\\tc1[n] = num + '0';\\n\\tc2[n--] = 10 - num + '0';\\n\\n\\ta[num]--;\\n\\tb[10 - num]--;\\n    }\\n\\n    for (i = 0; i < 10; i++) {\\n\\twhile (1) {\\n\\t    if (a[i] > 0 && b[9 - i] > 0) {\\n\\t\\tc1[n] = i + '0';\\n\\t\\tc2[n--] = 9 - i + '0';\\n\\n\\t\\ta[i]--;\\n\\t\\tb[9 - i]--;\\n\\t    } else {\\n\\t\\tbreak;\\n\\t    }\\n\\t}\\n    }\\n\\n    m = n;\\n\\n    for (i = 0; i < 10; i++) {\\n\\tfor (j = 0; j < a[i]; j++) {\\n\\t    c1[n--] = i + '0';\\n\\t}\\n\\tfor (j = 0; j < b[i]; j++) {\\n\\t    c2[m--] = i + '0';\\n\\t}\\n    }\\n\\n    printf(\\\"%s\\\\n\\\", c1);\\n    printf(\\\"%s\\\\n\\\", c2);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1915,
+    "completion_tokens": 889,
+    "total_tokens": 2804,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1915
+  },
+  "raw_sha256": "d594d246ea226ea750cf6fbadbb8f9e2d84a22a3dcadf4b81c0aeec245383447",
+  "ended_utc": "2026-11-16T16:08:01.663507+00:00",
+  "elapsed_seconds": 3.9035
+}

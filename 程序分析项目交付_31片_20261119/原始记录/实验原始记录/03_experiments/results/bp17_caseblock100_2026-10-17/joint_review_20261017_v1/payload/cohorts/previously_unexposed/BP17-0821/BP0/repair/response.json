@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-0821",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nenum { N=1000, M=1000, K=500000 };\\n\\nvoid swap(void *v1, void *v2, size_t n) {\\n\\tchar *a=v1, *b=v2;\\n\\twhile (n-->0) { char c=*a; *a++=*b; *b++=c; }\\n}\\n\\n\\nint n,m,k,i,t[N][M],r[N],c[M],x,y;\\nchar s;\\n\\nint main(int argc, char *argv[]) {\\n\\tscanf(\\\"%d %d %d\\\", &n, &m, &k);\\n\\tfor (i=0; i<n; ++i) {\\n\\t\\tint j;\\n\\t\\tfor (j=0; j<m; ++j) {\\n\\t\\t\\tscanf(\\\"%d\\\", &t[i][j]);\\n\\t\\t}\\n\\t}\\n\\tfor (i=0; i<n; ++i) r[i]=i;\\n\\tfor (i=0; i<m; ++i) c[i]=i;\\n\\tfor (i=0; i<k; ++i) {\\n\\t\\tscanf(\\\"\\\\n%c %d %d\\\", &s, &x, &y);\\n\\t\\t--x; --y;\\n\\t\\tswitch (s) {\\n\\t\\t\\tcase 'g':\\n\\t\\t\\t\\tprintf(\\\"%d\\\\n\\\", t[r[x]][c[y]]);\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\tcase 'r':\\n\\t\\t\\t\\tswap(r+x, r+y, sizeof *r);\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\tcase 'c':\\n\\t\\t\\t\\tswap(c+x, c+y, sizeof *c);\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\tdefault: break;\\n\\t\\t}\\n\\t}\\n\\texit(EXIT_SUCCESS);\\nreturn 0;\\n}\"}",
+  "elapsed_seconds": 1.844,
+  "ended_utc": "2026-10-17T06:55:49.280033+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0821/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "bca9bef51e81ba782e8a03d378b892bb66a6d2a3a34f7c3fa98a609bac4a2de4",
+  "request_model": "deepseek-flash",
+  "request_sha256": "4758d10666706fe8aa9f06e631d2c746a97b7455ddfee938d9be0797f25160a6",
+  "response_id": "a6a5b6d4-a2f6-4a5c-92d2-9d7af539d11c",
+  "started_utc": "2026-10-17T06:55:47.434251+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 458,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1229,
+    "prompt_tokens": 1229,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1687
+  }
+}

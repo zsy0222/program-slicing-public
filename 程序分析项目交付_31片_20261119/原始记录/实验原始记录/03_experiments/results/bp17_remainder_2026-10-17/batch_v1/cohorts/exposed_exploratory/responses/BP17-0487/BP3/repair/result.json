@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0487/BP3/repair/1",
+  "case_id": "BP17-0487",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "09fce80355bfd459134721bd7ca50f7414a9042c66ecc39589a7a9ded5ea1df6",
+  "started_utc": "2026-11-16T05:07:04.445556+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d951fdce-0fb8-4d7b-b937-e7963312ff15",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"//      Burglar and Matches.c\\n//      \\n//      Copyright 2012 Administrator <cpy@ubuntu>\\n//      \\n//      This program is free software; you can redistribute it and/or modify\\n//      it under the terms of the GNU General Public License as published by\\n//      the Free Software Foundation; either version 2 of the License, or\\n//      (at your option) any later version.\\n//      \\n//      This program is distributed in the hope that it will be useful,\\n//      but WITHOUT ANY WARRANTY; without even the implied warranty of\\n//      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\\n//      GNU General Public License for more details.\\n//      \\n//      You should have received a copy of the GNU General Public License\\n//      along with this program; if not, write to the Free Software\\n//      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,\\n//      MA 02110-1301, USA.\\n\\n\\n#include <stdio.h>\\n#include <stdlib.h>\\n\\nstruct matchbox\\n{\\n    int a;\\n    int b;\\n} c[20];\\n\\nint cmp(const void *x, const void *y)\\n{\\n    struct matchbox *p = (struct matchbox *)x;\\n    struct matchbox *q = (struct matchbox *)y;\\n    return q->b - p->b;\\n}\\n\\nvoid func(int n, int m)\\n{\\n    int ans = 0, i = 0;\\n    qsort(c, m, sizeof(struct matchbox), cmp);\\n    while (n > 0 && i < m)\\n    {\\n        if (n >= c[i].a)\\n        {\\n            n -= c[i].a;\\n            ans += c[i].a * c[i].b;\\n        }\\n        else\\n        {\\n            ans += n * c[i].b;\\n            n = 0;\\n        }\\n        i ++;\\n    }\\n    printf(\\\"%d\\\\n\\\", ans);\\n}\\n\\nint main(int argc, char **argv)\\n{\\n    int n, m, i;\\n    while (scanf(\\\"%d%d\\\", &n, &m) == 2)\\n    {\\n        for (i = 0; i < m; i ++)\\n        {\\n            scanf(\\\"%d%d\\\", &c[i].a, &c[i].b);\\n        }\\n        func(n, m);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1889,
+    "completion_tokens": 568,
+    "total_tokens": 2457,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 609
+  },
+  "raw_sha256": "cc83a95b9ebf5ce21fbb6acda23cc39de3d7cd8a9a16d839ac7c1269e2d22913",
+  "ended_utc": "2026-11-16T05:07:07.495443+00:00",
+  "elapsed_seconds": 3.0477
+}

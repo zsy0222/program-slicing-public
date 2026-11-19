@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2675/BP2/repair/1",
+  "case_id": "BP17-2675",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "9ea0bc4118bf8e34d5e11f25bcc602277ba0728ccfd9dfb17e0c9f27d356ea68",
+  "started_utc": "2026-11-16T18:45:01.442640+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8f642e13-0b2b-4214-a978-f85b5a0e3730",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nchar a[3004][12] ,b[3003][12],str[3004][12],temp[12];\\nint n,m,i,j,len1,len2;\\n\\nint main(int argc, char *argv[])\\n{\\n    scanf(\\\"%d %d\\\",&n,&m);\\n    for(i=0;i<m;i++){\\n        scanf(\\\"%s %s\\\",a[i],b[i]);\\n    }\\n    for(i=0;i<m;i++){\\n        len1=strlen(a[i]);\\n        len2=strlen(b[i]);\\n        if(len1<=len2){\\n            strcpy(temp,a[i]);\\n            strcpy(a[i],b[i]);\\n            strcpy(b[i],temp);\\n        }\\n    }\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%s\\\",str[i]);\\n    }\\n    for(i=0;i<n;i++){\\n        for(j=0;j<m;j++){\\n            if(strcmp(a[j],str[i])==0){\\n                strcpy(str[i],b[j]);\\n            }\\n        }\\n    }\\n    for(i=0;i<n;i++){\\n        printf(\\\"%s \\\",str[i]);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2083,
+    "completion_tokens": 304,
+    "total_tokens": 2387,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2083
+  },
+  "raw_sha256": "40c897ee788bec5943d36a8b3ec725c2d9d2afaf6598d7e1541acb72a52adcf5",
+  "ended_utc": "2026-11-16T18:45:03.535611+00:00",
+  "elapsed_seconds": 2.0891
+}

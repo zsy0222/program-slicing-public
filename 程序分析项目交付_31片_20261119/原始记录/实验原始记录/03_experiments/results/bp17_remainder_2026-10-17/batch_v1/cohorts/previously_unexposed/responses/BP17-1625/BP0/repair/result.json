@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1625/BP0/repair/1",
+  "case_id": "BP17-1625",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "a1fe318a60588ea2ac0f7cfc1f49ddddc859048c7c84bbba72c68f35dfe30b97",
+  "started_utc": "2026-11-16T18:26:02.848044+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d2616966-4f5d-4d1d-95e3-c7d5cb3f710e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint a[200];\\nint gcd(int x,int y){\\n return x==0?y:gcd(y,x%y);\\n }\\nint main(int argc, char *argv[]){\\n\\n    int n, i;\\n\\n    while(scanf(\\\"%d\\\",&n)!=EOF){\\n\\n          int max=0;\\n\\n          for(i=0;i<n;i++){\\n            scanf(\\\"%d\\\",&a[i]);\\n            if(a[i]>max)\\n                max=a[i];\\n            }\\n\\n          int m=a[0];\\n\\n          for(i=1;i<n;i++){\\n            m=gcd(m,a[i]);\\n          }\\n\\n          (max/m-n)&1?printf(\\\"Alice\\\\n\\\"):printf(\\\"Bob\\\\n\\\");\\n   }\\n    return 0;\\n}\\n\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 875,
+    "completion_tokens": 201,
+    "total_tokens": 1076,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 235
+  },
+  "raw_sha256": "9b6d32fe2a7b354e5ce18658cf3ccdace86fa7f05a60f91da059ee28845447b3",
+  "ended_utc": "2026-11-16T18:26:04.939993+00:00",
+  "elapsed_seconds": 2.0458
+}

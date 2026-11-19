@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3092/BP2/repair/1",
+  "case_id": "BP17-3092",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "279e3c0506b6acf145773d260f19b221c486c6320bb5aff771609bb10dbf8b19",
+  "started_utc": "2026-10-18T13:42:55.217123+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "29e44df3-964b-4458-9b7a-e24370c24673",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"\\n//http://codeforces.com/contest/569/problem/B\\n\\n#include <stdio.h>\\n#include <stdlib.h>\\n    int a[1000001]={0};\\n    int list[100000]={0};\\n    int empty[100000]={0};\\n    int overlapped[100000]={0};\\n\\nint main(int argc, char *argv[]){\\n    int i,j=0,k=0;\\n    int num,time;\\n    int temp;\\n    scanf(\\\"%d\\\",&num);\\n    for(i=0;i<num;i++){\\n        scanf(\\\"%d\\\",&temp);\\n        list[i]=temp;\\n        if(temp<1 || temp>num || a[temp]>0){\\n            overlapped[j]=i;\\n            j++;\\n        }\\n        else{\\n            a[temp]++;\\n        }\\n\\n    }\\n\\n\\n    for(i=1;i<=num;i++){\\n        if(a[i]==0){\\n            empty[k]=i;\\n            k++;\\n        }\\n    }\\n    time=j;\\n    for(i=0;i<time;i++){\\n        list[overlapped[i]]=empty[i];\\n    }\\n    for(i=0;i<num;i++){\\n        printf(\\\"%d \\\",list[i]);\\n    }\\n    printf(\\\"\\\\n\\\");\\nreturn 0;\\n}\\n\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1623,
+    "completion_tokens": 329,
+    "total_tokens": 1952,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1623
+  },
+  "raw_sha256": "15beb6be10f8f37f5c8da39177934f2fb93b915aabada39fe4f73d190d8e78b4",
+  "ended_utc": "2026-10-18T13:42:57.126795+00:00",
+  "elapsed_seconds": 1.813
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2203/BP2/repair/1",
+  "case_id": "BP17-2203",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "835ea9fab33e8fef6b2413ffa5ef10947786c788d50ecbf55771c7be0f5e5d79",
+  "started_utc": "2026-11-16T17:25:54.045142+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8bb8574f-f9dd-4bb2-9f86-47e0065efd0d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[]) {\\n        int sum, limit, i, size, count, numberplace, fauxi;\\n        size = 0;\\n        int mask = 1;\\n        fscanf(stdin, \\\"%d %d\\\", &sum, &limit);\\n        int *numbers = malloc(sizeof(int)*limit);\\n        for(i = limit; i > 0; i--) {\\n                count = 1;\\n                fauxi = i;\\n                while((mask & fauxi) == 0) {\\n                        count = count*2;\\n                        fauxi >>= 1;\\n                }\\n\\n                if(sum - count > 0) {\\n                        sum = sum - count;\\n                        numbers[size] = i;\\n                        size++;\\n                }\\n\\n                if (sum - count == 0) {\\n                        sum = sum - count;\\n                        numbers[size] = i;\\n                        size++;\\n                        break;\\n                }\\n        }\\n\\n        if(sum == 0) {\\n                printf(\\\"%d\\\\n\\\", size);\\n                for (i = 0; i < size; i++) {\\n                        printf(\\\"%d\\\", numbers[i]);\\n                        if(i != size-1) printf(\\\" \\\");\\n                        }\\n        }\\n\\n        else printf(\\\"-1\\\");\\n        free(numbers);\\n\\n        exit(0);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 4643,
+    "completion_tokens": 344,
+    "total_tokens": 4987,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 4643
+  },
+  "raw_sha256": "ecad065462a5f2d5351bcd9a68c2f797bf6078017949ede118450cad584157fa",
+  "ended_utc": "2026-11-16T17:25:56.612806+00:00",
+  "elapsed_seconds": 2.5069
+}

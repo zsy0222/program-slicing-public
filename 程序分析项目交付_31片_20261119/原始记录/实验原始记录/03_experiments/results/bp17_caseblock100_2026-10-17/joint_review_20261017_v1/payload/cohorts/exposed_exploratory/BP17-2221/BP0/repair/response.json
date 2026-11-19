@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-2221",
+  "content": "{\"source\":\"\\n#include <stdio.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[]) {\\n    char leaves[101][21]; // leaves\\n    int i, j, k, l, new, nleaves,tleaves, ncasos;\\n    char tree[11], color[11], leaf[21];\\n\\n        scanf(\\\"%d\\\",&tleaves);\\n        scanf(\\\"%s%s\\\",tree,color);\\n        strcpy(leaf,tree);\\n        strcat(leaf,\\\" \\\");\\n        strcat(leaf,color);\\n\\n        strcpy(leaves[0],leaf); /*min is 1 */\\n        nleaves = 1;\\n\\n        for (i=1;i<tleaves;i++) {\\n            scanf(\\\"%s%s\\\",tree,color);\\n            strcpy(leaf,tree);\\n            strcat(leaf,\\\" \\\");\\n            strcat(leaf,color);\\n             //printf(\\\"[%s]\\\\n\\\",&leaf);\\n\\n            new =1;\\n            for (l=0; l<nleaves; l++)\\n              if (!strcmp(leaf,leaves[l])) {\\n                  new = 0;\\n                  break;\\n                  }\\n            if (new==1) {\\n            strcpy(leaves[nleaves],leaf);\\n            nleaves++;\\n            }\\n        }\\n        //printf(\\\"nleaves=\\\");\\n        printf(\\\"%d\\\\n\\\",nleaves);\\n        return 0;\\n}\"}",
+  "elapsed_seconds": 1.891,
+  "ended_utc": "2026-10-17T07:09:13.544197+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2221/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "12502f9193dd250e984ce55b180d04b3058c70f7032ec569e54d1578aadc9fa6",
+  "request_model": "deepseek-flash",
+  "request_sha256": "853a25f36981b51d26a20d71d75ba7923b4e7f22d0296c87c8b89fb02afcae31",
+  "response_id": "516b5c4d-1938-4aaa-b53e-2721780483b2",
+  "started_utc": "2026-10-17T07:09:11.643544+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 363,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1093,
+    "prompt_tokens": 1093,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1456
+  }
+}

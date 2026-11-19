@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1934/BP1/repair/1",
+  "case_id": "BP17-1934",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "f8edd3c9cc2d705b7c914fb0e0fd8f2486842f4d46171083c422e49c2dc1d21c",
+  "started_utc": "2026-11-16T05:29:42.565458+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2b7ffa72-6c46-4066-9039-dcd7942781d2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int d,sum;\\n    scanf(\\\"%d%d\\\",&d,&sum);\\n    int arr[d][2];\\n    int i,j;\\n    int result[d];\\n    int max_sum=0,min_sum=0;\\n\\n    for(i=0;i<d;i++)\\n    {\\n        for(j=0;j<2;j++)\\n        {\\n            scanf(\\\"%d\\\",&arr[i][j]);\\n        }\\n        max_sum+=arr[i][1];\\n        min_sum+=arr[i][0];\\n        result[i]=arr[i][0];\\n\\n    }\\n    if(min_sum > sum || sum > max_sum)\\n    {\\n        printf(\\\"NO\\\\n\\\");\\n        return 0;\\n    }\\n\\n    else\\n    {\\n        printf(\\\"YES\\\\n\\\");\\n        int rem = sum - min_sum;\\n        for(i=0;i<d && rem>0;i++)\\n        {\\n            int cap = arr[i][1] - arr[i][0];\\n            int add = cap < rem ? cap : rem;\\n            result[i] += add;\\n            rem -= add;\\n        }\\n        for(j=0;j<d;j++)\\n        {\\n            printf(\\\"%d \\\",result[j]);\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1424,
+    "completion_tokens": 342,
+    "total_tokens": 1766,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 144
+  },
+  "raw_sha256": "5ec4a3e68865f2b95ffa47edf8e4f8011c58cc178c87a133c099aec42270834a",
+  "ended_utc": "2026-11-16T05:29:45.547533+00:00",
+  "elapsed_seconds": 2.9792
+}

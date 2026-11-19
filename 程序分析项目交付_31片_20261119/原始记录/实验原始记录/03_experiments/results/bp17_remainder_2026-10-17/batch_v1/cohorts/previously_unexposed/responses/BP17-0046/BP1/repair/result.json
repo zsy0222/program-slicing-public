@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0046/BP1/repair/1",
+  "case_id": "BP17-0046",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "f750456a311bd7f60a8df73a1f8d0efb33ca77351cb69db24f1648f2b349988a",
+  "started_utc": "2026-10-21T08:26:10.365843+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "77e50d28-1dc8-4436-8473-989f7238e2e6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#include <math.h>\\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, j, n, m, k;\\n    int a[11], b[11], c[11], d[11];\\n    int da[1001][11];\\n    scanf(\\\"%d%d%d%d\\\", &n, &m, &c[0], &d[0]);\\n    a[0] = 1000;\\n    b[0] = 1;\\n    for (i = 1; i <= m; i++){\\n        scanf(\\\"%d%d%d%d\\\", a + i, b + i, c + i, d + i);\\n        da[0][i] = 0;\\n    }\\n    for(i = 1; i <= n; i++){\\n        for(j = 0; j <= m; j++){\\n            da[i][j] = 0;\\n            for(k = 0; k <= a[j]/b[j] && c[j] * k <= i; k++){\\n                da[i][j] = fmax(da[i][j], da[i - c[j] * k][j - 1] + d[j] * k);\\n            }\\n\\n        }\\n    }\\n\\n    printf(\\\"%d\\\", da[n][m]);\\n\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1123,
+    "completion_tokens": 334,
+    "total_tokens": 1457,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 227
+  },
+  "raw_sha256": "2a1e24e6f925f3925b14ec4407f89fe867fa49ecac8bfe36a2c084eee60b6351",
+  "ended_utc": "2026-10-21T08:26:12.253684+00:00",
+  "elapsed_seconds": 1.875
+}

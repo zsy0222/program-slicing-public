@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1486/BP2/repair/1",
+  "case_id": "BP17-1486",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "b73a32b97df332eff24da87ffbaed28d0d738cb73af5e1965fd49b80cf2b6d06",
+  "started_utc": "2026-11-16T16:09:53.519933+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "605b697f-65c3-4230-ba59-c1d597c81bfe",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"\\n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n/*               Author : Sarvesh Mahajan\\n                        IIIT, Hyderabad                                  */\\n//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\n#include<stdio.h>\\n#include<string.h>\\n#include<math.h>\\n#include<stdlib.h>\\n#define max(a,b) ((a)>(b))?(a):(b)\\n#define min(a,b) ((a)<(b))?(a):(b)\\n#define si(n) scanf(\\\"%d\\\",&n)\\n#define ss(s) scanf(\\\"%s\\\",s)\\n#define sort(a,n) qsort(a,n,sizeof(int),compare)\\n#define pi(n) printf(\\\"%d \\\",n)\\n#define ps(s) printf(\\\"%s\\\",s)\\n#define loop(i,n) for(i=0;i<n;i++)\\n#define Loop(i,n) for(i=1;i<=n;i++)\\n#define For(i,j,n) for(i=j;i<=n;++i)\\ntypedef long long int lld;\\n//#define MAX 100005\\n//int a[MAX];\\n       int compare(const void *a,const void *b)\\n       {\\n       return *(int *)a-*(int *)b;\\n       }\\nint freqi[15],freq[15];\\nchar s[100005],s1[100000];\\nint main(int argc, char *argv[])\\n{\\n    int i,n,ans,k,l,m,t;\\n   ss(s1);\\n   l=strlen(s1);\\n   loop(i,l)\\n   {\\n\\t   if(s1[i]=='9')\\n\\t\\t   s1[i]='6';\\n\\t   if(s1[i]=='5')\\n\\t\\t   s1[i]='2';\\n   }\\n   loop(i,l)\\n\\t   freqi[s1[i]-'0']++;\\n   ss(s);\\n   l=strlen(s);\\n   loop(i,l)\\n   {\\n\\t   if(s[i]=='9')\\n\\t\\t   s[i]='6';\\n\\t   if(s[i]=='5')\\n\\t\\t   s[i]='2';\\n   }\\n\\n   loop(i,l)\\n\\t   freq[s[i]-'0']++;\\n   int mini=999999999;\\n   loop(i,10)\\n   {\\n\\t   if(freqi[i])\\n\\t   {\\n\\t\\t   ans=freq[i]/freqi[i];\\n\\t\\t   if(ans<mini)\\n\\t\\t\\t   mini=ans;\\n\\t   }\\n   }\\n   if(mini==999999999)\\n\\t   mini=0;\\n   pi(mini);\\n\\n\\n\\n  \\n  // while(t--)\\n   // {\\n\\t  \\n\\n    \\n     \\n    return 0;\\n    \\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2311,
+    "completion_tokens": 639,
+    "total_tokens": 2950,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 903
+  },
+  "raw_sha256": "813778c626ea9cc029bebf2b5ed28efed2f8340fc0e9a411b2b38049b92c12a3",
+  "ended_utc": "2026-11-16T16:09:56.342769+00:00",
+  "elapsed_seconds": 2.8205
+}

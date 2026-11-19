@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2327/BP0/repair/1",
+  "case_id": "BP17-2327",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "1373a297a38aeb538b1ef8176aa829f98ab0877bced6ba2eefa16da91e3ace3e",
+  "started_utc": "2026-10-18T12:28:40.029155+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a7421525-6d19-4fd4-b8d5-ef4f2d40f9ad",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nint main(int argc, char *argv[]) {\\n  int n;\\n  scanf(\\\"%d\\\",&n);\\n  char pattern[8+1];\\n  char name[8][8+1];\\n  strcpy(name[7],\\\"vaporeon\\\");\\n  strcpy(name[3],\\\"jolteon\\\");\\n  strcpy(name[1],\\\"flareon\\\");\\n  strcpy(name[0],\\\"espeon\\\");\\n  strcpy(name[6],\\\"umbreon\\\");\\n  strcpy(name[4],\\\"leafeon\\\");\\n  strcpy(name[2],\\\"glaceon\\\");\\n  strcpy(name[5],\\\"sylveon\\\");\\n  int is_you[8];\\n  scanf(\\\"%s\\\",pattern);\\n  int npattern=strlen(pattern);\\n  int i,j;\\n  for(i=0;i<8;i++) {\\n    is_you[i]=1;\\n  }\\n  for(i=0;i<npattern;i++) {\\n    if(pattern[i]!='.') {\\n      for(j=0;j<8;j++) {\\n        if(is_you[j]) {\\n          if(pattern[i]!=name[j][i]) {\\n            is_you[j]=0;\\n          }\\n        }\\n      }\\n    }\\n  }\\n  for(i=0;i<8;i++) {\\n    if(is_you[i]) {\\n      printf(\\\"%s\\\\n\\\",name[i]);\\n      break;\\n    }\\n  }\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1068,
+    "completion_tokens": 376,
+    "total_tokens": 1444,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1068
+  },
+  "raw_sha256": "cd940520fbcf62a687b30236a6956021e426e53c9d0c07906027cd0111259786",
+  "ended_utc": "2026-10-18T12:28:41.589765+00:00",
+  "elapsed_seconds": 1.516
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1437/BP1/repair/1",
+  "case_id": "BP17-1437",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "60c8d54e2bd3348474cb558d127e5934d3f9853df5f02b0fc5603d73c45ddc29",
+  "started_utc": "2026-11-16T04:56:04.911395+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8d3e28db-0dae-4aef-843e-2838c5c7f4cb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<math.h>\\n#include<ctype.h>\\n#define MAX 100010\\nchar s[MAX];\\nint tag[10];\\nlong long count=1;\\nint main(int argc, char *argv[])\\n{\\n    int flag=0;\\n    int m,i,n;\\n    m=n=0;\\n    gets(s);\\n    int len;\\n    if(isalpha(s[0]))\\n        flag=1;\\n        else if(s[0]=='?')\\n            flag=2;\\n    for(len=strlen(s),i=0;i<len;i++)\\n    {\\n        if(isalpha(s[i])&&tag[s[i]-'A']==0)\\n        {\\n            m++;\\n            tag[s[i]-'A']=1;\\n        }\\n        else if(s[i]=='?')\\n            n++;\\n    }\\n    for(i=0;i<m;i++)\\n    {\\n        if(flag==1)\\n        {\\n            count*=9;\\n            flag=0;\\n        }\\n        else count*=10-i;\\n    }\\n    if(flag==2)\\n        count*=9,flag=1;\\n    printf(\\\"%lld\\\",count);\\n    for(i=0;i<n;i++)\\n        printf(\\\"0\\\");\\n    puts(\\\"\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1072,
+    "completion_tokens": 323,
+    "total_tokens": 1395,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1072
+  },
+  "raw_sha256": "8e8dd4b8cdea4becd49c9a53b4566ce770b130252b7a95a889eed58e14dacdf6",
+  "ended_utc": "2026-11-16T04:56:06.907004+00:00",
+  "elapsed_seconds": 1.9936
+}

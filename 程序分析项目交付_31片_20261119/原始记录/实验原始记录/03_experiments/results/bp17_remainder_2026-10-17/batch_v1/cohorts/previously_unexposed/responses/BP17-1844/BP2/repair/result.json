@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1844/BP2/repair/1",
+  "case_id": "BP17-1844",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "96237979bc58aecccd2d5096be401b2430d22fdbd6005ce1ad4ea7316d286cf6",
+  "started_utc": "2026-10-21T07:21:35.362406+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "38e00f26-2374-4026-b62c-a90593106956",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"//\\n//  main.c\\n//  386D\\n//\\n\\n#include <stdio.h>\\n#import <stdlib.h>\\n\\nint* read_input(int* size) {\\n    int i=0;\\n    int* numbers;\\n\\n    scanf(\\\"%d\\\", size);\\n    numbers = (int*) malloc(sizeof(int) * (*size));\\n\\n    for ( i = 0 ; i < *size; i ++)\\n        scanf(\\\"%d\\\", &numbers[i]);\\n\\n    return numbers;\\n}\\n\\nint intcmpdesc (const void * a, const void * b)\\n{\\n    return ( *(int*)b - *(int*)a );\\n}\\n\\nint intcmpasc (const void * a, const void * b)\\n{\\n    return ( *(int*)a - *(int*)b );\\n}\\n\\n\\nvoid print_numbers(int* numbers, int size) {\\n    int i;\\n    for ( i = 0 ; i < size; i++ )\\n        if ( numbers[i] != 0)\\n        printf(\\\"%d, \\\", numbers[i]);\\n    printf(\\\"\\\\n\\\");\\n}\\n\\n\\n\\n\\nint main(int argc, const char * argv[])\\n{\\n    int size, i;\\n    int* numbers;\\n    int*out;\\n    int max;\\n    int middle;\\n    int li, ri, maxr;\\n    int discarded = 0;\\n\\n\\n\\n    numbers = read_input(&size);\\n    out = calloc((size_t) size, sizeof(int));\\n\\n    qsort (numbers, (size_t) size, sizeof(int), intcmpasc);\\n\\n    middle = size/2;\\n    li = 0; ri = size-1;\\n    max = numbers[size-1];\\n    //printf(\\\"max=%d\\\\n\\\",max);\\n    out[middle] = max;\\n    maxr = size-2;\\n\\n    while ( maxr >= 0 && numbers[maxr] == max ) {/*printf(\\\"%d discarded (max)\\\\n\\\",\\n    numbers[maxr]); */discarded++; maxr--;}\\n\\n    if ( maxr == -1 )\\n        out[li++] = numbers[0];\\n    for ( i = 1 ; i <= maxr ; i++) {\\n        //printf(\\\"---\\\\n\\\");\\n        //printf(\\\"numbers[i]=%d, %d\\\\n\\\",numbers[i], i);\\n        //print_numbers(out, size);\\n        //printf(\\\"---\\\\n\\\");\\n\\n        if ( numbers[i] == out[li-1]) {\\n            if ( ri < size-1 && numbers[i] == out[ri+1] ) {\\n                discarded ++;\\n                //printf(\\\"%d discarded (repeated)\\\\n\\\", numbers[i]);\\n                continue;\\n            }\\n\\n            if ( ri == middle ) {\\n                //printf(\\\"[MOVING MIDDLE BACKWARD]\\\\n\\\");\\n                out[middle-1] = out[middle];\\n                middle--;\\n            }\\n            //printf(\\\"[RIGHT] %d put at %d\\\\n\\\", numbers[i], ri);\\n            out[ri--] = numbers[i];\\n        } else {\\n            if ( li == middle )   {\\n                //printf(\\\"[MOVING MIDDLE FORWARD]\\\\n\\\");\\n                out[middle+1] = out[middle];\\n                ++middle;\\n            }\\n            //printf(\\\"[LEFT] %d put at %d\\\\n\\\", numbers[i], li);\\n            out[li++] = numbers[i];\\n\\n        }\\n\\n    }\\n\\n    printf(\\\"%d\\\\n\\\", size-discarded);\\n    for ( i = 0; i < size; i ++)\\n        if ( out[i] != 0 )\\n            printf(\\\"%d \\\", out[i]);\\n    printf(\\\"\\\\n\\\");\\n    //print_numbers(out, size);\\n    //printf(\\\"\\\\n\\\");\\n\\n    free(numbers);\\n    free(out);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3111,
+    "completion_tokens": 946,
+    "total_tokens": 4057,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3111
+  },
+  "raw_sha256": "7230942ee2455ed379ade92558a8174d376ff0c5250597a952870ded3ec21f79",
+  "ended_utc": "2026-10-21T07:21:39.077226+00:00",
+  "elapsed_seconds": 3.578
+}

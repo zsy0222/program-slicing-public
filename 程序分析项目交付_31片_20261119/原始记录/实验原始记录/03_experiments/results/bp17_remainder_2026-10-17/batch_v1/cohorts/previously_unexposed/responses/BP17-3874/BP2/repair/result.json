@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3874/BP2/repair/1",
+  "case_id": "BP17-3874",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "bad71f99fec3c262df48368e8a834cfb98f921b2dfbbce2e3bfa9f62e6102daa",
+  "started_utc": "2026-10-18T12:24:36.011910+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "247d0bfe-c662-4868-a006-618f29ca0258",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\nint main(int argc, char *argv[])\\n{\\n    int m;\\n    int i, j, k;\\n    int a, b;\\n    int map[11][11];\\n    while (scanf(\\\"%d\\\", &m) == 1 && m) {\\n        memset(map, 0, sizeof(map));\\n        for (i = 0; i < m; i++) {\\n            scanf(\\\"%d%d\\\", &a, &b);\\n            map[a][b] = map[b][a] = 1;\\n        }\\n        for (i = 1; i <= 5; i++) {\\n        for (j = i+1; j <= 5; j++) {\\n        for (k = j+1; k <= 5; k++) {\\n            if (map[i][j] && map[j][k] && map[k][i]) {\\n                printf(\\\"WIN\\\\n\\\");\\n                goto X;\\n            }\\n            if (!map[i][j] && !map[j][k] && !map[k][i]) {\\n                printf(\\\"WIN\\\\n\\\");\\n                goto X;\\n            }\\n        }\\n        }\\n        }\\n        printf(\\\"FAIL\\\\n\\\");\\nX: ;\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1678,
+    "completion_tokens": 315,
+    "total_tokens": 1993,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 782
+  },
+  "raw_sha256": "8baeb05a2fb7c68ebd54a02024ce680c000d4aa66b33fd036cc430a57b87be90",
+  "ended_utc": "2026-10-18T12:24:37.719074+00:00",
+  "elapsed_seconds": 1.657
+}

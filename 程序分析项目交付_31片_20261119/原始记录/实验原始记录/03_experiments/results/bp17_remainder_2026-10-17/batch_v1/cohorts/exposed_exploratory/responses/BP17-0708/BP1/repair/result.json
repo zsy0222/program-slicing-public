@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0708/BP1/repair/1",
+  "case_id": "BP17-0708",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "c1be6a19e6d97e276353b51384dbf0e12de63ecbf9e7ce1348ca27000fbdce85",
+  "started_utc": "2026-11-16T04:27:34.765873+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f1dc1b62-64fb-42d0-8090-dee269de8e14",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[]){\\n    int x,t,a,b,da,db;\\n    scanf(\\\"%d%d%d%d%d%d\\\",&x,&t,&a,&b,&da,&db);\\n    int aScore[t],bScore[t];\\n    int i;\\n    for(i=0;i<t;i++){\\n        aScore[i]=a-i*da;\\n        bScore[i]=b-i*db;\\n    }\\n    \\n    int j;\\n    for(i=0;i<t;i++){\\n        for(j=0;j<t;j++){\\n            if(aScore[i]+bScore[j]==x){\\n                printf(\\\"YES\\\\n\\\");\\n                return 0;\\n            }\\n        }\\n    }\\n    for(i=0;i<t;i++){\\n        if(aScore[i]==x || bScore[i]==x){\\n            printf(\\\"YES\\\\n\\\");\\n            return 0;\\n        }\\n    }\\n    if(x==0){\\n        printf(\\\"YES\\\\n\\\");\\n        return 0;\\n    }\\n    printf(\\\"NO\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 891,
+    "completion_tokens": 276,
+    "total_tokens": 1167,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 251
+  },
+  "raw_sha256": "cd77a81a45f1404356d2d44c13a16104d6bc6627cd11fbb03bc0b2405a62bc6e",
+  "ended_utc": "2026-11-16T04:27:36.618446+00:00",
+  "elapsed_seconds": 1.8496
+}

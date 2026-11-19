@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1184/BP2/repair/1",
+  "case_id": "BP17-1184",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "8d60e8fcc7c8e4651ebc6f317d9031da5e81d4cfc3988b9609995d561d59113f",
+  "started_utc": "2026-10-17T13:32:55.591607+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a81ba8cf-0efb-4bf9-be3d-5f07d7190d40",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int prime;\\n    scanf(\\\"%d\\\",&prime);\\n\\n    long long int i, j, aux, q, count=0;\\n\\n    for(i=1;i<prime;i++)\\n    {\\n        aux = 1;\\n        q = 0;\\n        for(j=1;j<prime-1;j++)\\n        {\\n            aux*=i;\\n            aux%=prime;\\n            if((aux-1)%prime==0)\\n            {\\n                q=1;\\n                break;\\n            }\\n        }\\n        aux*=i;\\n        if(q==0 && (aux-1)%prime==0)\\n            count++;\\n    }\\n\\n    printf(\\\"%lld\\\",count);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1285,
+    "completion_tokens": 196,
+    "total_tokens": 1481,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 389
+  },
+  "raw_sha256": "06dddac0fc28bbe976e6040119bfabae7faf144f834acb7dc909213745cf15a8",
+  "ended_utc": "2026-10-17T13:32:56.945370+00:00",
+  "elapsed_seconds": 1.359
+}

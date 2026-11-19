@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-2284",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    long long int n,m,k,max,min,rem,ans,var;\\n    scanf(\\\"%lld%lld%lld\\\", &n, &m, &k);\\n    if(n>=m)\\n    {\\n        max = n;\\n        min = m;\\n    }\\n    else\\n    {\\n        max = m;\\n        min = n;\\n    }\\n    if(k<max)\\n    {\\n        if((min%(k+1)==0) && (k < min))\\n        {\\n            ans = (min/(k+1))*max;\\n        }\\n        else if(max%(k+1)==0)\\n            ans = (max/(k+1))*min;\\n        else\\n        {\\n            ans = (min/(k+1))*max;\\n            var = (max/(k+1))*min;\\n            if(var>ans)\\n                ans = var;\\n        }\\n    }\\n    else\\n    {\\n        rem = k - (max-1);\\n        if(rem < min)\\n        {\\n            if(min%(rem+1)==0)\\n                ans = min/(rem + 1);\\n            else\\n                ans = min%(rem + 1);\\n        }\\n        else\\n            ans = -1;\\n    }\\n    printf(\\\"%lld\\\\n\\\", ans);\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 1.656,
+  "ended_utc": "2026-10-17T07:07:52.811280+00:00",
+  "finish_reason": "stop",
+  "group": "BP3",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2284/BP3/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "6f9c9e7de46f085bdc42afdf36df240ea01abd1f194c30e8753ac186e9731a01",
+  "request_model": "deepseek-flash",
+  "request_sha256": "478c77273fc6c138376dcbd171f3444bc457e8863db345a6219c49aebff08b32",
+  "response_id": "adf10080-dbf8-4ced-a74f-1d705236d7d8",
+  "started_utc": "2026-10-17T07:07:51.140315+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 333,
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 537,
+    "prompt_tokens": 1561,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "total_tokens": 1894
+  }
+}

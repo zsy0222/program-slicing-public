@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2148/BP1/repair/1",
+  "case_id": "BP17-2148",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "4caa95f9eeeff0a5ef82ea52f6730387e02161985d7057de56ad0fc48b5abf09",
+  "started_utc": "2026-11-16T16:37:18.437948+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c1efca3e-6e3a-457f-a729-824c90c7a2c7",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nstruct point {\\n    int x, idx, rk;\\n};\\n\\nint cmp1 (const void *a, const void *b)\\n{\\n    struct point *m = (struct point *)a, *n = (struct point *)b;\\n    return m->x - n->x;\\n}\\n\\nint cmp2 (const void *a, const void *b)\\n{\\n    struct point *m = (struct point *)a, *n = (struct point *)b;\\n    return m->idx - n->idx;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, n, m;\\n    scanf (\\\"%d %d\\\", &n, &m);\\n\\n    struct point pts[n];\\n    for (i = 0; i < n; i++) {\\n        scanf (\\\"%d\\\", &pts[i].x);\\n        pts[i].idx = i;\\n    }\\n\\n    for (i = 0; i < m; i++) {\\n        int x, y;\\n        scanf (\\\"%d %d\\\", &x, &y);\\n    }\\n\\n    qsort (pts, n, sizeof (struct point), cmp1);\\n    for (i = 0; i < n; i++) {\\n        pts[i].rk = i % 2;\\n    }\\n\\n    qsort (pts, n, sizeof (struct point), cmp2);\\n    for (i = 0; i < n; i++) {\\n        printf (\\\"%d \\\", pts[i].rk);\\n    }\\n\\n    printf (\\\"\\\\n\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1262,
+    "completion_tokens": 399,
+    "total_tokens": 1661,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1262
+  },
+  "raw_sha256": "63f2b298b9ac249c6ffa14568d13367c7cd1f7321394c2cf57180d728bf50039",
+  "ended_utc": "2026-11-16T16:37:20.416465+00:00",
+  "elapsed_seconds": 1.9752
+}

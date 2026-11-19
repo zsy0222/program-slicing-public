@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3861/BP2/repair/1",
+  "case_id": "BP17-3861",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "73ebb7506c519746eab45b785dd107d92eb53b897613ce2cbd70b18297105384",
+  "started_utc": "2026-11-16T16:14:57.405595+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5246f2cb-8143-4791-8c4c-26dea2a6a313",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<math.h>\\n#include<time.h>\\n#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\n#define oo 1000000000\\n#define mod 1000000009\\n#define pi 3.14159265359\\n#define zero(a) (abb(a)<=1e-7)\\n#define lowbit(a) ((a)&(-(a)))\\n#define min(a,b) ((a)<(b)?(a):(b))\\n#define max(a,b) ((a)>(b)?(a):(b))\\n#define abb(a) ((a)>0?(a):(-(a)))\\n#define cj(x1,y1,x2,y2) ((x1)*(y2)-(x2)*(y2))\\n#define dj(x1,y1,x2,y2) ((x1)*(y1)+(y1)*(y2))\\n#define dis(x1,y1,x2,y2) sqrt(((x2)-(x1))*((x2)-(x1))+((y2)-(y1))*((y2)-(y1)))\\n\\nint f[100001];\\n\\nint getf(int now)\\n{\\n   if (f[now]==now)\\n      return now;\\n   return f[now]=getf(f[now]);\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n   int i,n,m,a,b,t=1;\\n   scanf(\\\"%d%d\\\",&n,&m);\\n   for (i=1;i<=n;i++)\\n      f[i]=i;\\n   for (i=1;i<=m;i++)\\n   {\\n      scanf(\\\"%d%d\\\",&a,&b);\\n      a=getf(a);\\n      b=getf(b);\\n      if (a==b)\\n         t=t*2%mod;\\n      else\\n         f[a]=b;\\n      printf(\\\"%d\\\\n\\\",(t+mod-1)%mod);\\n   }\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1672,
+    "completion_tokens": 447,
+    "total_tokens": 2119,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 520
+  },
+  "raw_sha256": "6c779b08bf0171fb6c5339cfec805225c9534b7b326f4c756ece2ec1ea2cdfc8",
+  "ended_utc": "2026-11-16T16:14:59.830013+00:00",
+  "elapsed_seconds": 2.4223
+}

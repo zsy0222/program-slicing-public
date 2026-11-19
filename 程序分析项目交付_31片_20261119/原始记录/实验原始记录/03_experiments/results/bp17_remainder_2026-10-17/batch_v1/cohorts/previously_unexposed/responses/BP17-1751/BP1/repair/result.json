@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1751/BP1/repair/1",
+  "case_id": "BP17-1751",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "301fb76ce1eea1054e38cdb1b153ca895f8135f49bd0941b635421af5c7dcdbb",
+  "started_utc": "2026-11-16T03:55:27.433322+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8e75ece0-f39c-47c4-9425-14406ddaba53",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n\\tint n,m,a[200004],i;\\n\\tscanf(\\\"%d %d\\\",&n,&m);\\n\\tint x,ans[100005]={0},hash[200004]={0};\\n\\tfor(i=0;i<n;i++)\\n\\t\\tscanf(\\\"%d\\\",&a[i]);\\n\\tans[n-1]=1;\\n\\thash[a[n-1]]=1;\\n\\tfor(i=n-2;i>=0;i--)\\n\\t{\\t\\n\\t\\tif(hash[a[i]]==0)\\n\\t\\t{\\n\\t\\t\\tans[i]=ans[i+1]+1;\\n\\t\\t\\thash[a[i]]=1;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t\\tans[i]=ans[i+1];\\n\\t}\\n\\tfor(i=0;i<m;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\",&x);\\n\\t\\tprintf(\\\"%d\\\\n\\\",ans[x-1]);\\n\\t}\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 974,
+    "completion_tokens": 265,
+    "total_tokens": 1239,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 974
+  },
+  "raw_sha256": "bb87ca8d6376698e26d68886cc959ffa83ede1ee9b7080b369621a1c29ea2f78",
+  "ended_utc": "2026-11-16T03:55:28.856190+00:00",
+  "elapsed_seconds": 1.4211
+}

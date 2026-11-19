@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1097/BP0/repair/1",
+  "case_id": "BP17-1097",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ef4280b3b80ffa21ae4ab22422510bf6247033d7e1ef24d710310ffb2975bb24",
+  "started_utc": "2026-10-17T08:25:43.685988+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e4ae99c7-50b1-44ec-a75c-244fe8832a41",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint cmpfun(const void*a, const void*b)\\n{\\n    return (*(int*)a - *(int*)b);\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int a[3001], b[3001], i, n;\\n    scanf(\\\"%d\\\", &n);\\n    for(i=0; i<n; i++)\\n        scanf(\\\"%d\\\", &a[i]);\\n    qsort(a, n, sizeof(int), cmpfun);\\n    for(i=0; i<3001; i++)\\n        b[i]=i+1;\\n    for(i=0; i<n; i++)\\n    {\\n        if(a[i]!=b[i])\\n        {\\n            printf(\\\"%d\\\\n\\\", b[i]);\\n            break;\\n        }\\n    }\\n    if(i==n)\\n        printf(\\\"%d\\\\n\\\", n+1);\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 853,
+    "completion_tokens": 230,
+    "total_tokens": 1083,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 213
+  },
+  "raw_sha256": "25c4463ee2f4bc2ae81f8c0b4d3120ce91274943258804a2499bddc2af53ad03",
+  "ended_utc": "2026-10-17T08:25:44.843952+00:00",
+  "elapsed_seconds": 1.14
+}

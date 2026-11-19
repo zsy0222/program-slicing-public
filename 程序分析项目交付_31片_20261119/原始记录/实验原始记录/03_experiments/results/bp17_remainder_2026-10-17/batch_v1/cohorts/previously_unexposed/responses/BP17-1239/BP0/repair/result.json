@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1239/BP0/repair/1",
+  "case_id": "BP17-1239",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "4ace7cf75eea234c0e53e5b53b6c3b8641c86f5c5e7710a26c28297847a658b5",
+  "started_utc": "2026-10-17T13:57:17.692711+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "996e9d1c-85ef-4e22-ba36-f24c9d4923d8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define GREEN 0\\n#define RED 1\\n\\nint main(int argc, char *argv[])\\n{\\n  double l, d, v, g, r;\\n  double time;\\n  double sv_time;\\n  int sv_flag;\\n  \\n  scanf(\\\"%lf %lf %lf %lf %lf\\\", &l, &d, &v, &g, &r);\\n  \\n  time = d/v;\\n  \\n  sv_time = 0;\\n  sv_flag = GREEN;\\n  while (sv_time < time)\\n  {\\n    sv_flag = sv_flag == GREEN ? RED : GREEN;\\n    sv_time += sv_flag == GREEN ? g : r;\\n  }\\n  \\n  if (sv_flag == RED)\\n    time = sv_time;\\n  \\n  time += (l - d) / v;\\n  \\n  printf(\\\"%.8lf\\\\n\\\", time);\\n  \\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 912,
+    "completion_tokens": 232,
+    "total_tokens": 1144,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 912
+  },
+  "raw_sha256": "dc5d3c1552572434e3669c1eaca6c83dc293d375fcb87881a34fff97fad6ac40",
+  "ended_utc": "2026-10-17T13:57:19.022831+00:00",
+  "elapsed_seconds": 1.266
+}

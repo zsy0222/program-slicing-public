@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0661/BP0/repair/1",
+  "case_id": "BP17-0661",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "5dcc663087a7c05adbaff9e61dbdca5955d60dbd46371bbbe2eb93be8210c0fa",
+  "started_utc": "2026-11-16T17:43:43.336710+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d24e32e5-6def-4e2c-810d-abbe18a54cfb",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n#include <ctype.h>\\n\\n#define MAX_EXCEPTION 21\\n#define MAX_LINE 51\\n\\nenum commands {THROW, CATCH};\\nenum tries {TRY_N_OCCURED, TRY_OCCURED};\\n\\ntypedef struct node_\\n{\\n  char command;\\n  struct node_ *next;\\n} node;\\n\\ntypedef struct\\n{\\n  char type[MAX_EXCEPTION], occured;\\n} exception;\\n\\nnode* new (char command)\\n{\\n  node *n = malloc (sizeof (node));\\n  n->command = command;\\n  n->next = NULL;\\n\\n  return n;\\n}\\n\\nint pop (node ** sp, char *command)\\n{\\n  if (*sp == NULL)\\n    {\\n      //puts(\\\"NEGDE SI POGRESIO!\\\");\\n      return 0;\\n    }\\n  node *tmp = *sp;\\n  *command = tmp->command;\\n  *sp = (*sp)->next;\\n  free (tmp);\\n\\n  return 1;\\n}\\n\\nvoid push (node ** sp, char command)\\n{\\n  if (*sp == NULL)\\n    {\\n      *sp = new (command);\\n      return;\\n    }\\n\\n  node *tmp = new (command);\\n  tmp->next = *sp;\\n  *sp = tmp;\\n  return;\\n}\\n\\nvoid remove_blanks (char* line)\\n{\\n  int i=0,j=0;\\n  while(line[i] == ' ' || line[i] == '\\\\t')\\n    i++;\\n  \\n  if (i==0)\\n    return;\\n  \\n  while(line[i])\\n    line[j++] = line[i++];\\n  \\n  line[j] = '\\\\0'; \\n}\\n\\nvoid remove_blanks_end (char* line)\\n{\\n  int i = strlen(line) - 1;\\n  while(i >= 0 && (line[i] == ' ' || line[i] == '\\\\t' || line[i] == '\\\\r' || line[i] == '\\\\n'))\\n    i--;\\n  line[++i] = '\\\\0';\\n}\\n\\n\\nint parse(char* line, char* catch_type, char* catch_message)\\n{\\n  int type_return, i=0, j=0;\\n  \\n  if (line[i] == 't')\\n  {\\n    type_return = THROW;\\n    i+=5;\\n    while(line[i] != '(')\\n      i++;\\n    i++;\\n    \\n    while(line[i] == ' ')\\n      i++;\\n    \\n    while(line[i] != ' ' && line[i] != ')')\\n      catch_type[j++] = line[i++];\\n    catch_type[j] = '\\\\0';\\n  }\\n  else\\n  {\\n    type_return = CATCH;\\n    i+=5;\\n    while(line[i] != '(')\\n      i++;\\n    i++;\\n    \\n    while(line[i] == ' ')\\n      i++;\\n    \\n    while(line[i] != ',')\\n      catch_type[j++] = line[i++];\\n    catch_type[j] = '\\\\0';\\n    j=0;\\n    \\n    i++;\\n    while(line[i] != '\\\\\\\"')\\n      i++;\\n    i++;\\n    \\n    while(line[i] != '\\\\\\\"')\\n      catch_message[j++] = line[i++];\\n    catch_message[j] = '\\\\0';\\n  }\\n  \\n  return type_return;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n  char line[MAX_LINE], catch_type[MAX_EXCEPTION], catch_message[MAX_EXCEPTION],command;\\n  node* stack = NULL;\\n  exception e;\\n  e.occured = 0;\\n  e.type[0] = '\\\\0';\\n  int n,i;\\n  \\n  scanf(\\\"%d\\\", &n); getchar();\\n  for(i=0; i<n; i++)\\n  {\\n    gets(line); remove_blanks(line); remove_blanks_end(line);\\n    if (strlen(line) == 0)\\n      continue;\\n    //printf(\\\"-%s-\\\\n\\\",line);\\n    if (strcmp(line,\\\"try\\\") == 0)\\n    {\\n      if (e.occured == 0)\\n        push(&stack, TRY_N_OCCURED);\\n      else\\n        push(&stack, TRY_OCCURED);      \\n    }\\n    else\\n    {\\n      if (parse(line, catch_type, catch_message) == CATCH)\\n      {\\n        if (stack == NULL)\\n        {\\n          puts(\\\"Unhandled Exception\\\");\\n          return 0;\\n        }\\n        pop(&stack, &command);\\n        \\n        if (command == TRY_N_OCCURED)\\n        {\\n          if (strcmp(e.type, catch_type) == 0)\\n          {\\n            puts(catch_message);\\n            return 0;\\n          }\\n        }\\n      }\\n      else\\n      {\\n        e.occured = 1;\\n        strcpy(e.type, catch_type);\\n      }\\n    }\\n  }\\n  \\n  puts(\\\"Unhandled Exception\\\");\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2373,
+    "completion_tokens": 1287,
+    "total_tokens": 3660,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176
+    },
+    "prompt_cache_hit_tokens": 2176,
+    "prompt_cache_miss_tokens": 197
+  },
+  "raw_sha256": "d15e680a526cbc34627b41d8eb6071ad3c369d84293f39259ec7262a4e7225cd",
+  "ended_utc": "2026-11-16T17:43:48.325283+00:00",
+  "elapsed_seconds": 4.9864
+}

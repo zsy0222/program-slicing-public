@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3129/BP0/repair/1",
+  "case_id": "BP17-3129",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "982e08feb66fb0d788ec09d18124de7bb6378cbdc251b10ff81b88b1e292659f",
+  "started_utc": "2026-11-16T06:24:02.591696+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "89a2485f-74cc-4d28-a845-e02b50d11f5f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint map1[4001][4001];\\nint cnt[4001];\\nint main(int argc, char *argv[]) {\\n    int i,j,k;\\n    int n,m,a,b;\\n    while(scanf(\\\"%d%d\\\",&n,&m)!=EOF)\\n    {\\n        memset(map1,0,sizeof(map1));\\n        memset(cnt,0,sizeof(cnt));\\n        while(m--)\\n        {\\n            scanf(\\\"%d%d\\\",&a,&b);\\n            map1[a][b]=1;\\n            map1[b][a]=1;\\n            cnt[a]++;\\n            cnt[b]++;\\n        }\\n        \\n        int temp=n+1;\\n        int count=0;\\n        int flag=0;\\n        for(i=1;i<=n;i++)\\n        {\\n            for(j=1;j!=i && j<=n;j++)\\n            {\\n                if(map1[i][j])\\n                {\\n                    for(k=1;k!=i && k!=j && k<=n;k++)\\n                    {\\n                        if(map1[i][k] && map1[j][k])\\n                        {\\n                            count=cnt[i]+cnt[j]+cnt[k]-6;\\n                            if(count<temp)\\n                            {\\n                                temp=count;\\n                                flag=1;\\n                            }\\n                                \\n                        }\\n                        \\n                    }\\n                }\\n            }\\n        }\\n        if(flag==0)\\n            printf(\\\"-1\\\\n\\\");\\n        else\\n            printf(\\\"%d\\\\n\\\",temp);\\n    }\\n    return 0;   \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1368,
+    "completion_tokens": 389,
+    "total_tokens": 1757,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 216
+  },
+  "raw_sha256": "5a2b35d022be4dc31c6af8fb710f009e1fe5bb66b5d4db75b3da33fee1d3dbb6",
+  "ended_utc": "2026-11-16T06:24:04.727017+00:00",
+  "elapsed_seconds": 2.1328
+}

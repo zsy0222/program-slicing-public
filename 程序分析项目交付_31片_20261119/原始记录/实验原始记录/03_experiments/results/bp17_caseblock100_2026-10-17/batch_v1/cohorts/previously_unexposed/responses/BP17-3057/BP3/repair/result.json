@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3057/BP3/repair/1",
+  "case_id": "BP17-3057",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "f7dc36a720748857272fbc02d93bb18f894f086d05fdf15ffa5fd9a56279f4dd",
+  "started_utc": "2026-10-17T06:56:30.082202+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cd7b7e45-3b70-48f8-b3e9-b7623e8f52cf",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <limits.h>\\n#include <string.h>\\n#include <inttypes.h>\\n#include <assert.h>\\n\\n\\n/* CF312Div2 - D */\\ntypedef\\tlong long int ll;\\n\\ntypedef\\tstruct map_s {\\n\\tll\\tle;\\n\\tll \\tri;\\n} map_t;\\n\\nmap_t\\tmp[100005];\\n\\nint\\nascomp (const void *a, const void *b)\\n{\\n        ll     x = ((map_t *)a)->le;\\n        ll     y = ((map_t *)b)->le;\\n\\tll     s = x-y;\\n\\n\\tif (s < 0) {\\n\\t\\treturn -1;\\n\\t} else if (s > 0) {\\n\\t\\treturn 1;\\n\\t}\\n\\t\\n        return 0;\\n}\\n\\n#define LC(_v, _h) ((_v) << (_h))\\n#define RC(_v, _h) ((_v+1) << (_h))\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint\\ti;\\n\\tint\\tth, nq, nb = 0;\\n\\tll\\tml, mr;\\n\\tll\\tres = -1;\\n\\n\\tscanf(\\\"%d%d\\\", &th, &nq);\\n\\n\\tml = LC(1ll, th-1);\\n\\tmr = RC(1ll, th-1);\\n\\n\\tfor (i = 0; i < nq; i++) {\\n\\t\\tint\\th, a;\\n\\t\\tll\\tl, r;\\n\\t\\tscanf(\\\"%d%lld%lld%d\\\", &h, &l, &r, &a);\\n\\n\\t\\tl = LC(l, th-h);\\n\\t\\tr = RC(r, th-h);\\n\\t\\tif (a) {\\n\\t\\t\\tif (l > ml) {\\n\\t\\t\\t\\tml = l;\\n\\t\\t\\t}\\n\\t\\t\\tif (r < mr) {\\n\\t\\t\\t\\tmr = r;\\n\\t\\t\\t}\\t\\n\\t\\t} else {\\n\\t\\t\\tmp[nb].le = l;\\n\\t\\t\\tmp[nb++].ri = r;\\n\\t\\t}\\n\\t}\\n\\n\\tmp[nb].ri = mr;\\n\\tmp[nb++].le = mr;\\n\\tqsort (mp, nb, sizeof (*mp), ascomp);\\n\\n\\tfor (i = 0; i < nb; i++) {\\n\\t\\tll tl = mp[i].le;\\n\\t\\tll tr = mp[i].ri;\\n\\t\\t\\n\\t\\tif (ml >= mr) {\\n\\t\\t\\tbreak;\\n\\t\\t}\\n\\n\\t\\tif (tl > ml+1) {\\n\\t\\t\\tputs (\\\"Data not sufficient!\\\");\\n\\t\\t\\treturn 0;\\n\\t\\t} else if (tl == ml+1) {\\n\\t\\t\\tif (res != -1) {\\n\\t\\t\\t\\tputs (\\\"Data not sufficient!\\\");\\n\\t\\t\\t\\treturn 0;\\n\\t\\t\\t}\\n\\t\\t\\tres = ml;\\n\\t\\t}\\n\\n\\t\\tif (tr > ml) {\\n\\t\\t\\tml = tr;\\n\\t\\t}\\n\\t}\\n\\n\\tif (res == -1) {\\n\\t\\tputs (\\\"Game cheated!\\\");\\n\\t} else {\\n\\t\\tprintf(\\\"%lld\\\\n\\\", res);\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2597,
+    "completion_tokens": 812,
+    "total_tokens": 3409,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "prompt_cache_hit_tokens": 1792,
+    "prompt_cache_miss_tokens": 805
+  },
+  "raw_sha256": "02c8c839cbdc930656162ab2667c33d154713eb541f8956e10741f6ff35210bf",
+  "ended_utc": "2026-10-17T06:56:33.149123+00:00",
+  "elapsed_seconds": 2.953
+}

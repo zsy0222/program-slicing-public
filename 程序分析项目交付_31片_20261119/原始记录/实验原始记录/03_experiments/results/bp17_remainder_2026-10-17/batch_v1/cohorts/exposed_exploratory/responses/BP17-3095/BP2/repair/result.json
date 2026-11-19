@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3095/BP2/repair/1",
+  "case_id": "BP17-3095",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "0976003a218e4e4997673484880694d76eb296e937460232a515e944962c3abc",
+  "started_utc": "2026-10-21T07:20:40.467041+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "31c07fed-3934-492d-abd0-2b96908de8f8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n#include <string.h>\\n\\n#define MAX (1L << 22)\\n\\nchar iscomp[MAX];\\n\\nvoid do_comp (void)\\n{\\n\\tint i;\\n\\n\\tiscomp[1] = 1;\\n\\n        for (i = 2; i < MAX; i++) {\\n                int     jx;\\n                int     sx;\\n\\n                if (iscomp[i]) {\\n                        continue;\\n                }\\n\\n\\t\\tif ((long long)i * i > MAX) {\\n\\t\\t\\tbreak;\\n\\t\\t}\\n                for (jx = i; (long long)(jx * i) < MAX ;jx++) {\\n                        sx = jx * i;\\n                        if (!iscomp[sx]) iscomp[sx] = 1;\\n                }\\n        }\\n}\\n\\nint ispal (int inp)\\n{\\n\\tint\\ti, j;\\n\\tchar\\ttmp[32];\\n\\tint\\tlen;\\n\\n\\tsprintf(tmp, \\\"%d\\\", inp);\\n\\tlen = strlen(tmp)-1;\\n\\t\\n\\tfor (i = 0, j = len; i <= j; i++, --j) {\\n\\t\\tif (tmp[i] != tmp[j]) {\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t} \\n\\t\\n\\treturn 1;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint\\ti,n = 1;\\n\\tint\\tp, q;\\n\\tint\\tnpr = 0, npa = 0;\\n\\tint\\tans = 0;\\n\\n\\tdo_comp();\\n\\tscanf (\\\"%d%d\\\", &p, &q);\\n\\n\\tfor (i = 1; i < MAX; i++) {\\n\\t\\tnpa += ispal (i);\\n\\t\\tnpr += !(iscomp[i]);\\n\\n\\t\\tif (q * npr <= p * npa) {\\n\\t\\t\\tans = i;\\n\\t\\t}\\n\\t}\\n\\tif (ans) {\\n\\t\\tprintf (\\\"%d\\\\n\\\", ans);\\n\\t} else {\\n\\t\\tputs (\\\"Palindromic tree is better than splay tree\\\");\\n\\t}\\n\\t\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2276,
+    "completion_tokens": 541,
+    "total_tokens": 2817,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 868
+  },
+  "raw_sha256": "08e12d2ff714b14cbe445760248855723411a4201584e40fc471447214d49fb5",
+  "ended_utc": "2026-10-21T07:20:42.889006+00:00",
+  "elapsed_seconds": 2.406
+}

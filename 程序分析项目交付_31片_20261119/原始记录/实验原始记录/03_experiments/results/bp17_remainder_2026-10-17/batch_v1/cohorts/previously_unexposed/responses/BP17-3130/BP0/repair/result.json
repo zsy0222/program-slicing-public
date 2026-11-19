@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3130/BP0/repair/1",
+  "case_id": "BP17-3130",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "89430616f9c81aafe701e953042f3ccb5ff1c3c06208265270fd5e0d80e05184",
+  "started_utc": "2026-11-16T19:06:08.011965+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fd9f8823-3348-4df6-b8b3-0ead52f8e9b4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint c[4001][4001],f[4001];\\n\\nint main(int argc, char *argv[]) {\\n\\tint a,b,t,n,m,i,j,k,l;\\n\\tscanf(\\\"%d %d\\\\n\\\",&n,&m);\\n\\tfor (i=0;i<m;i++) {\\n\\t\\tscanf(\\\"%d %d\\\\n\\\",&a,&b);\\n\\t\\tc[a][b]=c[b][a]=1;\\n\\t\\tf[a]++;\\n\\t\\tf[b]++;\\n\\t}\\n\\tint min=1e9;\\n\\tfor (i=1;i<=n;i++)\\n\\t\\tfor (j=1;j<=n;j++)\\n\\t\\t\\tif (c[i][j]) {\\n\\t\\t\\t\\tfor (k=1;k<=n;k++)\\n\\t\\t\\t\\t\\tif (c[i][k]&&c[j][k])\\n\\t\\t\\t\\t\\t\\tif (f[i]+f[j]+f[k]<min) min=f[i]+f[j]+f[k];\\n\\t\\t\\t}\\n\\tif (min==1e9) min=5;\\n\\tprintf(\\\"%d\\\\n\\\",min-6);\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1033,
+    "completion_tokens": 294,
+    "total_tokens": 1327,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 137
+  },
+  "raw_sha256": "126e83155415b6093caff71e2cd02b7d764caeb591433ede32812039100626e0",
+  "ended_utc": "2026-11-16T19:06:10.207771+00:00",
+  "elapsed_seconds": 2.1926
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0714/BP3/repair/1",
+  "case_id": "BP17-0714",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "9a5c01902033beffad347b78848ba632828ddbd7b5d5c4daa105a50ff1dc7b02",
+  "started_utc": "2026-11-17T03:48:40.799772+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a80ab05e-2746-4c1b-8f67-faa6a597136b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\ndouble a,b,m;\\nint vx,vy,vz;\\nint main(int argc, char *argv[])\\n{\\n    double t,d;\\n    scanf(\\\"%lf%lf%lf%d%d%d\\\",&a,&b,&m,&vx,&vy,&vz);\\n    t = m/-vy;\\n    \\n    d = (vx>0?vx:-vx)*t;\\n    if(d<a/2) printf(\\\"%.9f \\\",vx>0?a/2+d:a/2-d);\\n    else\\n    {\\n        for(d-=a/2,vx=-vx;d>a;d-=a,vx=-vx);\\n        printf(\\\"%.9f \\\",vx>0?d:a-d);\\n    }\\n    \\n    d = (vz>0?vz:-vz)*t;\\n    for(;d>b;d-=b,vz=-vz);\\n    printf(\\\"%.9f\\\",vz>0?b-d:d);\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1509,
+    "completion_tokens": 257,
+    "total_tokens": 1766,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1509
+  },
+  "raw_sha256": "51c66f69516a9a49ec1fbefb8191751d6538426043e24251456b5646de6cb15c",
+  "ended_utc": "2026-11-17T03:48:43.375969+00:00",
+  "elapsed_seconds": 2.5692
+}

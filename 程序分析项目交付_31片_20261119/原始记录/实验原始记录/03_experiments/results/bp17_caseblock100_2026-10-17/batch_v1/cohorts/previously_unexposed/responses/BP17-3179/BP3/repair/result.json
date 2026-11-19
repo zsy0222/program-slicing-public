@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3179/BP3/repair/1",
+  "case_id": "BP17-3179",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "e41c1b6fc8d8d23d943e71b86874b9162341f4a07cd497d387588f300e85792e",
+  "started_utc": "2026-10-17T07:08:45.288617+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3bc932be-ead2-4547-b260-aaa0403e2341",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdbool.h>\\n\\n#define MAX 102\\n#define LIM 303\\n#define clr(ar) memset(ar, 0, sizeof(ar))\\n#define read() freopen(\\\"lol.txt\\\", \\\"r\\\", stdin)\\n\\nbool visited[MAX][MAX][LIM][2];\\nint n, t, counter[1010], ar[MAX], dp[MAX][MAX][LIM][2];\\n\\nint F(int i, int l, int r, int flag){\\n    if (i > n){\\n        if (r == t || r == LIM){\\n            if (!flag) return (counter[ar[l]] * (t - r));\\n            else return 0;\\n        }\\n        else return F(0, l, r + 1, flag);\\n    }\\n    if (visited[i][l][r][flag]) return dp[i][l][r][flag];\\n\\n    int x, res = F(i + 1, l, r, flag);\\n    if (ar[i] >= ar[l]){\\n        x = 1 + F(i + 1, i, r, flag);\\n        if (x > res) res = x;\\n    }\\n    if (!flag && t > LIM){\\n        x = F(i, l, r, 1) + (counter[ar[l]] * (t - LIM));\\n        if (x > res) res = x;\\n    }\\n\\n    visited[i][l][r][flag] = true;\\n    return (dp[i][l][r][flag] = res);\\n}\\n\\nint main(int argc, char *argv[]){\\n    int i, j, k;\\n\\n    while (scanf(\\\"%d %d\\\", &n, &t) != EOF){\\n        if (!n) break;\\n\\n        ar[0] = 0;\\n        clr(counter);\\n        for (i = 1; i <= n; i++){\\n            scanf(\\\"%d\\\", &ar[i]);\\n            counter[ar[i]]++;\\n        }\\n\\n        clr(visited);\\n        int res = F(1, 0, 1, 0);\\n        printf(\\\"%d\\\\n\\\", res);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2028,
+    "completion_tokens": 531,
+    "total_tokens": 2559,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 748
+  },
+  "raw_sha256": "5740751792a2de3d6b8fe296c4d9c80fa3fd1e0b261a7db650195ead4e4f0851",
+  "ended_utc": "2026-10-17T07:08:48.328615+00:00",
+  "elapsed_seconds": 3.047
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0037/BP0/repair/1",
+  "case_id": "BP17-0037",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "e87d92fdff50b79c05df1af1d13759d98c99b6363b0d9c34e7bd7642c61635c2",
+  "started_utc": "2026-10-18T14:14:14.837486+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e8809b87-5b4b-469a-9bd3-ddc0e313f930",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n#include <stdlib.h>\\nint max=0;\\nint a[10];\\nint p[100];\\ntypedef struct\\n{\\n\\tint val;\\n\\tint mvrg;\\n\\tint thrg;\\n}Ch;\\ntypedef Ch CA[4];\\nint movethrow(CA,int);\\nint search(int pe)\\n{\\n\\tint i,t;\\n\\tfor (i=1;i<45;i++)\\t\\n\\t{\\n\\t\\tif (p[i]>0)\\n\\t\\t{\\n\\t\\t\\tt=p[i];\\n\\t\\t\\twhile (t)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif ((t%10)==pe)\\n\\t\\t\\t\\t\\treturn i;\\n\\t\\t\\t\\tt=t/10;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\\nint change(int pe,int pos)\\n{\\n\\tint t;\\n\\tt=search(pe);\\n\\tp[t]=0;\\n\\tp[pos]=pe;\\n\\treturn 0;\\n}\\nint tr(CA C,int pe)\\n{\\n\\tint i,j;\\n\\tint f,m,r,t[4];\\n\\tint temp;\\n\\tt[1]=search(1);\\n\\tt[2]=search(2);\\n\\tt[3]=search(3);\\n\\tm=t[pe];\\n\\ttemp=p[m];\\n\\tf=m-C[pe].thrg;\\n\\tr=m+C[pe].thrg;\\n\\tif (r>max)\\n\\t\\tmax=r;\\n\\tif (f<=0)\\n\\t\\tf=1;\\n\\tfor (i=f;i<=r;i++)\\n\\t{\\n\\t\\tif (i!=m&&p[i]==0&&\\n\\t\\t\\t(abs(i-t[1])==1||abs(i-t[2])==1||abs(i-t[3])==1||i==r))\\n\\t\\t{\\n\\t\\t\\t\\n\\t\\t\\tp[i]=temp/10;\\n\\t\\t\\tp[m]=temp%10;\\n\\t\\t\\tfor (j=1;j<=9;j++)\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tif (a[j]==0)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\ta[j]=1;a[0]++;\\n\\t\\t\\t\\t\\tmovethrow(C,j);\\n\\t\\t\\t\\t\\ta[j]=0;a[0]--;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\tp[i]=0;\\n\\t\\t\\tp[m]=temp;\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\\nint mv(CA C,int pe)\\n{\\n\\tint i,j;\\n\\tint f,m,r,t[4];\\n\\tt[1]=search(1);\\n\\tt[2]=search(2);\\n\\tt[3]=search(3);\\n\\tint temp;\\n\\ttemp=t[pe];\\n\\tm=t[pe];\\n\\tt[pe]=t[3];\\n\\tt[3]=temp;\\n\\tf=m-C[pe].mvrg;\\n\\tr=m+C[pe].mvrg;\\n\\tif (r>max)\\n\\t\\tmax=r;\\n\\tif (f<=0)\\n\\t\\tf=1;\\n\\tfor (i=f;i<=r;i++)\\n\\t{\\n\\t\\tif (i!=m&&p[i]==0&&\\n\\t\\t\\t(abs(i-t[1])<=2||abs(i-t[2])<=2||i==r))\\n\\t\\t{\\n\\t\\t\\tchange(pe,i);\\n\\t\\t\\t\\n\\t\\t\\tfor (j=1;j<=9;j++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif (a[j]==0)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\ta[j]=1;a[0]++;\\n\\t\\t\\t\\t\\tmovethrow(C,j);\\n\\t\\t\\t\\t\\ta[j]=0;a[0]--;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tchange(pe,m);\\n\\treturn 0;\\n}\\n\\nint movethrow(CA C,int fr)\\n{\\n\\tint i,j;\\n\\tint rt;\\n\\tif (fr%3==1)\\n\\t{\\n\\t\\trt=fr/3+1;\\n\\t\\tif (a[fr+1]==1&&a[fr+2]==0)\\n\\t\\t{\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t\\telse if (p[search(rt)]>10)\\n\\t\\t{\\n\\t\\t\\treturn 0;\\n\\t \\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\tmv(C,rt);\\n\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t\\t\\n\\t}\\n\\tif (fr%3==2)\\n\\t{\\n\\t\\tint px;\\n\\t\\trt=fr/3+1;\\n\\t\\tpx=search(rt);\\n\\t\\tif (p[px]>10)\\n\\t\\t{\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t\\telse if (p[px-1]>0)\\n\\t\\t{\\n\\t\\t\\tint temp;\\n\\t\\t\\tp[px]+=p[px-1]*10;\\n\\t\\t\\ttemp=p[px-1];\\n\\t\\t\\tp[px-1]=0;\\n\\t\\t\\tfor (j=1;j<=9;j++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif (a[j]==0)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\ta[j]=1;a[0]++;\\n\\t\\t\\t\\t\\tmovethrow(C,j);\\n\\t\\t\\t\\t\\ta[j]=0;a[0]--;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\tp[px]=rt;\\n\\t\\t\\tp[px-1]=temp;\\n\\t\\t}\\n\\t\\telse if (p[px+1]>0)\\n\\t\\t{\\n\\t\\t\\tint temp;\\n\\t\\t\\tp[px]+=p[px+1]*10;\\n\\t\\t\\ttemp=p[px+1];\\n\\t\\t\\tp[px+1]=0;\\n\\t\\t\\tfor (j=1;j<=9;j++)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif (a[j]==0)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\ta[j]=1;a[0]++;\\n\\t\\t\\t\\t\\tmovethrow(C,j);\\n\\t\\t\\t\\t\\ta[j]=0;a[0]--;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\tp[px]=rt;\\n\\t\\t\\tp[px+1]=temp;\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t\\telse\\n\\t\\t{\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t}\\n\\tif (fr%3==0)\\n\\t{\\n\\t\\trt=fr/3;\\n\\t\\tint px;\\n\\t\\tpx=search(rt);\\n\\t\\tif (a[fr-1]==0)\\n\\t\\t{\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t\\telse if (p[px]%10!=rt)\\n\\t\\t{\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t\\telse \\n\\t\\t{\\n\\t\\t\\ttr(C,rt);\\n\\t\\t\\treturn 0;\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tCA C;\\n\\tint i,j;\\n\\tfor (i=1;i<100;i++)\\n\\t{\\n\\t\\tp[i]=0;\\n\\t}\\n\\tfor (i=1;i<=3;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d %d %d\\\",&C[i].val,&C[i].mvrg,&C[i].thrg);\\n\\t\\tp[C[i].val]=i;\\n\\t}\\n\\tfor (i=0;i<=9;i++)\\n\\t{\\n\\t\\ta[i]=0;\\n\\t}\\n\\tfor (i=1;i<=9;i++)\\n\\t{\\n\\t\\ta[i]=1;a[0]++;\\n\\t\\tmovethrow(C,i);\\n\\t\\ta[i]=0;a[0]--;\\n\\t}\\n\\t\\n\\tprintf(\\\"%d\\\",max);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3208,
+    "completion_tokens": 1946,
+    "total_tokens": 5154,
+    "prompt_tokens_details": {
+      "cached_tokens": 3072
+    },
+    "prompt_cache_hit_tokens": 3072,
+    "prompt_cache_miss_tokens": 136
+  },
+  "raw_sha256": "beb551bca0f8f7bdbe942394d1b32cbf3edf28d792bd58fc661c08f9b050965c",
+  "ended_utc": "2026-10-18T14:14:20.817597+00:00",
+  "elapsed_seconds": 5.828
+}

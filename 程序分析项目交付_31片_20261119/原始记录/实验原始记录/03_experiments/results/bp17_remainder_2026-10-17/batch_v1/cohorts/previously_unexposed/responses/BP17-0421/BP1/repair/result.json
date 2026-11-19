@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0421/BP1/repair/1",
+  "case_id": "BP17-0421",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "dfda244f7586b568b8dd6ee6773436fe2a4634eb58a2978f4beb6839fb0aa09d",
+  "started_utc": "2026-11-16T17:50:31.993836+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "719bc5cf-5268-45fd-911c-7f72cb2bb561",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\nint value(char c){\\n    if(c>='0' && c<='9') return c-'0';\\n    else if(c>='A' && c<='Z' ) return c-'A'+10;\\n    else {\\n        printf(\\\"Error radix\\\\n\\\");\\n        return -1;\\n    }\\n}\\nint valueR(char* num,int radix){\\n    int i;\\n    int rt=0;\\n    for(i=0;i<strlen(num);i++){\\n        rt=rt*radix+value(num[i]);\\n    }\\n    return rt;\\n}\\nint main(int argc, char *argv[]){\\n    char num[20];\\n    char num1[6];\\n    char num2[6];\\n    \\n    int max=0;\\n    int i,j;\\n    int check,c;\\n    \\n    scanf(\\\"%s\\\",num);\\n    check=0;//count 0\\n    c=0;\\n    for(i=0;num[i]!=':';i++){\\n        if(num[i]!='0') check=1;\\n        if(check==1){\\n            num1[c++]=num[i];\\n            if(value(num[i])>max) max= value(num[i]);\\n        }\\n    }\\n    num1[c]='\\\\0';\\n    \\n    check=0;\\n    c=0;\\n    i++;\\n    for(;num[i]!='\\\\0';i++){\\n        if(num[i]!='0') check=1;\\n        if(check==1) {\\n            num2[c++]=num[i];\\n            if(value(num[i])>max) max= value(num[i]);\\n        }\\n    }\\n    num2[c]='\\\\0';\\n\\n    //printf(\\\"\\\\n%s:%s %d\\\\n\\\",num1,num2,max);\\n    \\n    //caculate\\n    if(strlen(num1)==0&&strlen(num2)==0) printf(\\\"-1\\\\n\\\");\\n    else if(strlen(num1)<=1&&value(num1[0])<24&&strlen(num2)<=1&&value(num2[0])<60) printf(\\\"-1\\\\n\\\");\\n    else{\\n        i=max+1;\\n        check=0;\\n        while(1){\\n            //check radix i\\n            if(valueR(num1,i)<24 && valueR(num2,i)<60){\\n                printf(\\\"%d \\\",i);\\n                check=1;\\n            }else{\\n                if(check==0) printf(\\\"0\\\");\\n                break;\\n            }\\n            i++;\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1476,
+    "completion_tokens": 650,
+    "total_tokens": 2126,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 196
+  },
+  "raw_sha256": "2536f6692d4a19169874590684d8748200e1c97a0116ca937455ff056ccbd81c",
+  "ended_utc": "2026-11-16T17:50:35.276095+00:00",
+  "elapsed_seconds": 3.1502
+}

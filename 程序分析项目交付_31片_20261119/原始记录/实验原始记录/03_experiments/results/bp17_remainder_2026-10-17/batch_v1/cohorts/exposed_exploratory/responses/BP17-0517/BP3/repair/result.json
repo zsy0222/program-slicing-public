@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0517/BP3/repair/1",
+  "case_id": "BP17-0517",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "3d4d3049e98a42416adaf0e30b51cb573345abd4ce44a76f896150916e944e39",
+  "started_utc": "2026-11-16T05:40:13.476697+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "737ed815-38f4-4868-ae1a-a052710eb575",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int ara[55][55], i, n, k, j, x, cnt=1;\\n    scanf(\\\"%d %d\\\", &n, &k);\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d %d\\\", &ara[i][0], &ara[i][1]);\\n    }\\n    for(i=0;i<n-1;i++)\\n    {\\n        for(j=i+1;j<n;j++)\\n        {\\n            if(ara[i][0] < ara[j][0])\\n            {\\n                x = ara[i][0], ara[i][0] = ara[j][0], ara[j][0] = x;\\n                x = ara[i][1], ara[i][1] = ara[j][1], ara[j][1] = x;\\n            }\\n            else if(ara[i][0] == ara[j][0])\\n            {\\n                if(ara[i][1] < ara[j][1])\\n                    x = ara[i][1], ara[i][1] = ara[j][1], ara[j][1] = x;\\n            }\\n        }\\n    }\\n    i = 0;\\n    while(k-1+i+1 < n && ara[k-1+i][0] == ara[k+i][0] && ara[k-1+i][1] == ara[k+i][1])\\n    {\\n        i++, cnt++;\\n    }\\n    i = 0;\\n    while(k-1+i-1 >= 0 && ara[k-1+i][0] == ara[k-2+i][0] && ara[k-1+i][1] == ara[k-2+i][1])\\n    {\\n        i--, cnt++;\\n    }\\n    printf(\\\"%d\\\\n\\\", cnt);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1904,
+    "completion_tokens": 438,
+    "total_tokens": 2342,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 624
+  },
+  "raw_sha256": "0237bc9e2645fd2619b828df6952ad21eb3dcaa74020b9739f6706681284f191",
+  "ended_utc": "2026-11-16T05:40:15.852840+00:00",
+  "elapsed_seconds": 2.3677
+}

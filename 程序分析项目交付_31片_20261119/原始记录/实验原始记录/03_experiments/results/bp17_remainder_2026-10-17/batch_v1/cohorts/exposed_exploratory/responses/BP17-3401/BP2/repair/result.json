@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3401/BP2/repair/1",
+  "case_id": "BP17-3401",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "dc46c2121a08976cc52d5e9dc39d3be063b0861edc14f665c06d57c4c18a6db8",
+  "started_utc": "2026-11-16T02:50:12.617539+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cf603cf7-ea47-4212-9250-4c188501e0b6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define M 1000000007\\nint n,k,i,c,d;\\nlong long y,z,u,v,r;\\nint F(int a,int b){\\n    int r=1;\\n    for (;b;b>>=1,a=(long long)a*a%M){\\n        if (b&1)r=(long long)r*a%M;\\n    }\\n    return r;\\n}\\nint main(int argc, char *argv[]){\\n    scanf(\\\"%d%d\\\",&n,&k);\\n    if (n<=++k){for(i=1;i<=n;i++)r+=F(i,k-1);}\\n    else{\\n        for (u=v=1;i<=k;i++){u=(u*(n-i))%M;if (i)v=((v*-i)%M+M)%M;}\\n        for (i=0,c=1,d=k;i<=k;i++,c++,d--){\\n            z=(z+F(i,k-1))%M;\\n            y=u*z%M*F(n-i,M-2)%M*F(v,M-2)%M;\\n            v=v*c%M*F(d,M-2)%M;\\n            if(i&1)y=M-y;\\n            r+=y;\\n        }\\n    }\\n    if (!--k)r--;\\n    printf(\\\"%lld\\\\n\\\",r%M);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1682,
+    "completion_tokens": 321,
+    "total_tokens": 2003,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1682
+  },
+  "raw_sha256": "2f96706c53de78e6ead6379e118e3031c3afb765ff1d816c2fd05dcbe67c8bbc",
+  "ended_utc": "2026-11-16T02:50:14.716490+00:00",
+  "elapsed_seconds": 2.0972
+}

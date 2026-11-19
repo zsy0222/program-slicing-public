@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2007/BP2/repair/1",
+  "case_id": "BP17-2007",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "622feca3c0d03ca4cdd9e91e0caee804ca330e054d7d2aefefd73b074896885c",
+  "started_utc": "2026-10-21T08:04:24.340582+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c62d1c44-dd5e-4afb-b0c1-70bdf6116778",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define Nmax 1000001\\nint a[Nmax];\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, i, scn, count = 0;\\n\\n    scanf( \\\"%d\\\", &n );\\n    for ( i = 0; i < n; i++ ) {\\n        scanf( \\\"%d\\\", &scn );\\n        a[scn] = 1;\\n        if ( a[n-scn] ) {\\n            count++;\\n        }\\n    }\\n    printf( \\\"%d\\\\n\\\", n );\\n    for ( i = 1; i < Nmax; i++ ) {\\n        if ( a[i] == 1 && a[Nmax-i] == 0 ) {\\n            printf( \\\"%d \\\", Nmax-i );\\n        } else if ( a[i] == 0 && a[Nmax-i] == 0 && count > 0 ) {\\n            count--;\\n            printf( \\\"%d %d \\\", i, Nmax-i );\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1417,
+    "completion_tokens": 262,
+    "total_tokens": 1679,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1417
+  },
+  "raw_sha256": "e7c823061bda904084e55ba7b67d77932f4f41bb911b99fb65622f31bb0851dd",
+  "ended_utc": "2026-10-21T08:04:26.212923+00:00",
+  "elapsed_seconds": 1.875
+}

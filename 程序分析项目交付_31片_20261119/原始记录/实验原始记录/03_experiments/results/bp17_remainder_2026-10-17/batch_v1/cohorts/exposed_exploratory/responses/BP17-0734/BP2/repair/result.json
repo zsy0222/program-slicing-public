@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0734/BP2/repair/1",
+  "case_id": "BP17-0734",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "fd22f1a078a4a82f16c676d40f192fe2193f08c60f627cca7f99d2ec190fa220",
+  "started_utc": "2026-10-18T12:05:32.607737+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6cfbd605-da68-4d83-b279-1f53e5b75966",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n    {\\n        int i,j,k,test;\\n        char s[101];\\n        scanf(\\\"%s\\\",s);\\n        i = 0;\\n        while ((s[i]!='\\\\0') && (s[i]!='@') && ((('a'<=s[i]) && (s[i]<='z')) || (('A'<=s[i]) && (s[i]<='Z')) || (('0'<=s[i]) && (s[i]<='9')) || (s[i]=='_'))) i++;\\n        if ((s[i]=='\\\\0') || (s[i]!='@') || (i==0) || (16<i)) printf(\\\"NO\\\");\\n        else\\n            {\\n                test = 0;\\n                k = 0;\\n                j = 0;\\n                while ((s[i+j+1]!='\\\\0') && (s[i+j+1]!='/') && ((('a'<=s[i+j+1]) && (s[i+j+1]<='z')) || (('A'<=s[i+j+1]) && (s[i+j+1]<='Z')) || (('0'<=s[i+j+1]) && (s[i+j+1]<='9')) || (s[i+j+1]=='_') || (s[i+j+1]=='.')) && (test==0))\\n                    {\\n                        if (s[i+j+1]=='.')\\n                            {\\n                                if((k==0) || (16<k)) test = 1;\\n                                else k = 0;\\n                            }\\n                        else k++;\\n                        j++;\\n                    }\\n                if ((test==1) || (j==0) || (32<j)) printf(\\\"NO\\\");\\n                else\\n                    {\\n                        if (s[i+j+1]=='\\\\0') printf(\\\"YES\\\");\\n                        else\\n                            {\\n                                if (s[i+j+1]!='/') printf(\\\"NO\\\");\\n                                else\\n                                    {\\n                                        k = 0;\\n                                        while ((s[i+j+k+2]!='\\\\0') && ((('a'<=s[i+j+k+2]) && (s[i+j+k+2]<='z')) || (('A'<=s[i+j+k+2]) && (s[i+j+k+2]<='Z')) || (('0'<=s[i+j+k+2]) && (s[i+j+k+2]<='9')) || (s[i+j+k+2]=='_'))) k++;\\n                                        if ((s[i+j+k+2]!='\\\\0') || (k==0) || (16<k)) printf(\\\"NO\\\");\\n                                        else printf(\\\"YES\\\");\\n                                    }\\n                            }\\n                    }\\n            }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2777,
+    "completion_tokens": 658,
+    "total_tokens": 3435,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 1497
+  },
+  "raw_sha256": "5ea75b1b0f57c1bedae0f9299464509c729c40ce303597e56b6675f2941dae28",
+  "ended_utc": "2026-10-18T12:05:35.217437+00:00",
+  "elapsed_seconds": 2.594
+}

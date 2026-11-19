@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3815/BP0/repair/1",
+  "case_id": "BP17-3815",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ed063bd0b28f58e12e9ce61c530d4e18e1f654bc44c405ed35d2b55acc64162c",
+  "started_utc": "2026-10-17T08:35:21.791349+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "40c21edc-65ba-4daf-9007-d83d7e96ae6b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <ctype.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    char input[500];\\n    char output[600];\\n    int i,k=0;\\n    gets(input);\\n    for(i=0;i<strlen(input);i++)\\n    {\\n        if(input[i]==',')\\n        {\\n            output[k]=',';\\n            output[k+1]=' ';\\n            k+=2;\\n        }\\n        else if (input[i]=='.' && input[i+1]=='.' && input[i+2]=='.')\\n        {\\n            output[k]=' ';\\n            output[k+1]='.';\\n            output[k+2]='.';\\n            output[k+3]='.';\\n            i+=2;\\n            k+=4;\\n        }\\n        else\\n        {\\n            output[k]=input[i];\\n            k++;\\n        }\\n    }\\n    int flag=0;\\n    char print[500];\\n    int j=0;\\n    for(i=0;i<k;i++)\\n    {\\n        if(output[i]==' ' && (output[i+1]==' ' || i==k-1 || flag==0))\\n        {\\n            continue;\\n        }\\n        print[j]=output[i];\\n        j++;\\n        flag=1;\\n    }\\n    for(i=0;i<j;i++)\\n    {\\n        if((print[i]==' ' && isdigit(print[i-1]) && print[i+1]==',') || (print[i]==' ' && print[i-1] == '.' && isdigit(print[i+1])))\\n        {\\n            continue;\\n        }\\n        printf(\\\"%c\\\",print[i]);\\n    }\\n    printf(\\\"\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1153,
+    "completion_tokens": 431,
+    "total_tokens": 1584,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 257
+  },
+  "raw_sha256": "84381af7748dff1d2c2a35158d7c80e75cfa9a77e66c89426ad62bde0c08a796",
+  "ended_utc": "2026-10-17T08:35:23.630034+00:00",
+  "elapsed_seconds": 1.766
+}

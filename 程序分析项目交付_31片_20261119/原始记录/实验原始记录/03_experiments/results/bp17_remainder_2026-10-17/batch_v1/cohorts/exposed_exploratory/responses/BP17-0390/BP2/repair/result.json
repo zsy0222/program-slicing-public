@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0390/BP2/repair/1",
+  "case_id": "BP17-0390",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "73d85d5e144ed844a6252f486cecc0958085b2f6f9322016f85aa2fb35edac8d",
+  "started_utc": "2026-10-21T07:09:05.488359+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d108f165-c5fc-419d-84d3-eeff7ac7b5a9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint max(int a, int b) {\\n\\treturn a > b ? a : b;\\n}\\n\\nint n;\\n\\nint mul(int a[300][300], int b[300][300]) {\\n\\tint u, v, w, t[300][300];\\n\\n\\tfor (u = 0; u < n; u++)\\n\\t\\tfor (v = 0; v < n; v++) {\\n\\t\\t\\tt[u][v] = -1000000000;\\n\\t\\t\\tfor (w = 0; w < n; w++)\\n\\t\\t\\t\\tt[u][v] = max(t[u][v], a[u][w] + b[w][v]);\\n\\t\\t}\\n\\n\\tmemcpy(a, t, sizeof(t));\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint m;\\n\\tscanf(\\\"%d%d\\\", &n, &m);\\n\\n\\tint i, u, v, a[300][300];\\n\\n\\tfor (u = 0; u < n; u++)\\n\\t\\tfor (v = 0; v < n; v++)\\n\\t\\t\\ta[u][v] = u == v ? 0 : -1000000000;\\n\\n\\tfor (i = 0; i < m; i++) {\\n\\t\\tscanf(\\\"%d%d\\\", &u, &v);\\n\\t\\tu--; v--;\\n\\t\\tscanf(\\\"%d%d\\\", &a[u][v], &a[v][u]);\\n\\t}\\n\\n\\tint b[10][300][300];\\n\\n\\tmemcpy(b[1], a, sizeof(a));\\n\\tfor (i = 2; i <= 9; i++) {\\n\\t\\tmemcpy(b[i], b[i-1], sizeof(a));\\n\\t\\tmul(b[i], a);\\n\\t}\\n\\n\\tint l = 2, h = n + 1;\\n\\twhile (l < h) {\\n\\t\\tm = (l + h) / 2;\\n\\n\\t\\t/* int b[300][300];\\n\\t\\tmemcpy(b, a, sizeof(b)); */\\n\\n\\t\\tint c[300][300];\\n\\t\\tfor (u = 0; u < n; u++)\\n\\t\\t\\tfor (v = 0; v < n; v++)\\n\\t\\t\\t\\tc[u][v] = u == v ? 0 : -1000000000;\\n\\n\\t\\ti = m;\\n\\t\\tint j = 1;\\n\\t\\twhile (i) {\\n\\t\\t\\tif (i & 1)\\n\\t\\t\\t\\tmul(c, b[j]);\\n\\t\\t\\tj++;\\n\\t\\t\\ti >>= 1;\\n\\t\\t}\\n\\n\\t\\tfor (u = 0; u < n; u++)\\n\\t\\t\\tif (c[u][u] > 0)\\n\\t\\t\\t\\tbreak;\\n\\n\\t\\tif (u != n)\\n\\t\\t\\th = m;\\n\\t\\telse\\n\\t\\t\\tl = m + 1;\\n\\t}\\n\\t\\n\\tif (l == n + 1)\\n\\t\\tputs(\\\"0\\\");\\n\\telse\\n\\t\\tprintf(\\\"%d\\\\n\\\", l);\\n\\t\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3121,
+    "completion_tokens": 781,
+    "total_tokens": 3902,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3121
+  },
+  "raw_sha256": "11c4cea344886722c57cf717a1e44ef5d4138ac58ca457e4493c3a995b374214",
+  "ended_utc": "2026-10-21T07:09:08.435297+00:00",
+  "elapsed_seconds": 2.922
+}

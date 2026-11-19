@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0741/BP3/repair/1",
+  "case_id": "BP17-0741",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0d3ecf76d3aab140c4851968d1d2f8c3dce2517b7b94fcfeb592c01d5c9f26db",
+  "started_utc": "2026-10-18T12:15:18.862864+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2f4a1e23-336c-4c85-b206-908ab5a3ef6d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int p, i, j;\\n    char s[101];\\n\\n    scanf(\\\"%s\\\", s);\\n\\n    for (i = 0; i < strlen(s); i++) {\\n\\tif ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9') || s[i] == '_') continue;\\n\\n\\tif (s[i] == '@') break;\\n\\n\\tputs(\\\"NO\\\");\\n\\n\\treturn 0;\\n    }\\n\\n    if (i == 0 || i > 16 || s[i + 1] == '\\\\0') {\\n\\tputs(\\\"NO\\\");\\n\\n\\treturn 0;\\n    }\\n\\n    p = i;\\n\\n    for (i++; i < strlen(s); i++) {\\n\\tfor (j = i; j < strlen(s); j++) {\\n\\t    if ((s[j] >= 'a' && s[j] <= 'z') || (s[j] >= 'A' && s[j] <= 'Z') || (s[j] >= '0' && s[j] <= '9') || s[j] == '_') continue;\\n\\n\\t    if (s[j] == '.' || s[j] == '/' || s[j] == '\\\\0') break;\\n\\n\\t    puts(\\\"NO\\\");\\n\\n\\t    return 0;\\n\\t}\\n\\n\\tif (j == i || j - i > 16) {\\n\\t    puts(\\\"NO\\\");\\n\\n\\t    return 0;\\n\\t}\\n\\n\\ti = j;\\n\\n\\tif (s[i] != '.') break;\\n    }\\n\\n    if (i - p > 32 || (s[i] == '\\\\0' && s[i - 1] == '.')) {\\n\\tputs(\\\"NO\\\");\\n\\n\\treturn 0;\\n    }\\n\\n    p = i + 1;\\n\\n    if (s[i] == '/') {\\n\\tfor (i++; i < strlen(s); i++) {\\n\\t    if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= '0' && s[i] <= '9') || s[i] == '_') continue;\\n\\n\\t    if (s[i] == '\\\\0') break;\\n\\n\\t    puts(\\\"NO\\\");\\n\\n\\t    return 0;\\n\\t}\\n\\n\\tif (i == p || i - p > 16) {\\n\\t    puts(\\\"NO\\\");\\n\\n\\t    return 0;\\n\\t}\\n    }\\n\\n    puts(\\\"YES\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2931,
+    "completion_tokens": 677,
+    "total_tokens": 3608,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 1395
+  },
+  "raw_sha256": "20de65de38e2362b47934d3a564ee5a377da73adeafff9ea9c62dbfc2d4457c8",
+  "ended_utc": "2026-10-18T12:15:21.089441+00:00",
+  "elapsed_seconds": 2.157
+}

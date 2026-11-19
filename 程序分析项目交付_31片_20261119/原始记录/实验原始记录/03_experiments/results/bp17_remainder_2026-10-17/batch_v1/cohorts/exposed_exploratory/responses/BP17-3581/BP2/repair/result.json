@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3581/BP2/repair/1",
+  "case_id": "BP17-3581",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "fab8e6e41b86bc3ff894cb74d6b2f2a27901266283dff0ea25431269ddedcb9e",
+  "started_utc": "2026-11-18T09:53:26.948912+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d3cadacb-fe66-4124-94bc-a096e7a6f746",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#include <stdbool.h>\\n\\n#define clr(ar) memset(ar, 0, sizeof(ar))\\n#define read() freopen(\\\"lol.txt\\\", \\\"r\\\", stdin)\\n\\nchar str[100], sign[100];\\nint n, p, m, ar[100], pos[100], neg[100];\\n\\nint main(int argc, char *argv[]){\\n    int i, j, k, l, d, x, minval, maxval;\\n\\n    while (!feof(stdin)){\\n        l = 0, p = 0, n = 0, k = 0;\\n        while (scanf(\\\"%s\\\", str) != EOF){\\n            if (str[0] == '+') l = 0;\\n            else if (str[0] == '-') l = 1;\\n            else if (str[0] == '=') l = 2;\\n            else{\\n                if (l == 2){\\n                    m = atoi(str);\\n                    break;\\n                }\\n                else if (l == 1) sign[k] = '-', neg[n++] = k++;\\n                else sign[k] = '+', pos[p++] = k++;\\n            }\\n        }\\n        if (feof(stdin)) break;\\n\\n        minval = p - (n * m), maxval = (p * m) - n;\\n        if (m >= minval && m <= maxval){\\n            puts(\\\"Possible\\\");\\n            k = p, l = n, d = m;\\n\\n            for (i = 0; i < k; i++){\\n                for (j = 1; j <= d; j++){\\n                    minval = (p - 1) - (n * d), maxval = ((p - 1) * d) - n;\\n                    if ((m - j) >= minval && (m - j) <= maxval){\\n                        ar[pos[i]] = j, p--, m -= j;\\n                        break;\\n                    }\\n                }\\n            }\\n\\n            for (i = 0; i < l; i++){\\n                for (j = 1; j <= d; j++){\\n                    minval = ((n - 1) * d), maxval = -(n - 1);\\n                    if ((m + j) >= minval && (m + j) <= maxval){\\n                        ar[neg[i]] = j, n--, m += j;\\n                        break;\\n                    }\\n                }\\n            }\\n\\n            for (i = 0; i < (k + l); i++){\\n                if (i) printf(\\\" %c \\\", sign[i]);\\n                printf(\\\"%d\\\", ar[i]);\\n            }\\n            printf(\\\" = %d\\\\n\\\", d);\\n        }\\n        else puts(\\\"Impossible\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3773,
+    "completion_tokens": 681,
+    "total_tokens": 4454,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3773
+  },
+  "raw_sha256": "04908ce18a18100de8615743469e559829e0923be1c7d7cc018604f0ba1cb008",
+  "ended_utc": "2026-11-18T09:53:29.933856+00:00",
+  "elapsed_seconds": 2.9763
+}

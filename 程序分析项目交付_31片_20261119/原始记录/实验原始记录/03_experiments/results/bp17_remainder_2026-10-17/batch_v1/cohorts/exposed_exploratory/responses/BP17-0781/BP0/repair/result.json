@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0781/BP0/repair/1",
+  "case_id": "BP17-0781",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "c6663239a43cdf55e6a0b726ba190940dfdd0d0eda57ae95dff4840ab323ac81",
+  "started_utc": "2026-10-17T13:29:38.295759+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "bac25c8d-9816-449a-a129-9da7646aa342",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[]){\\n    int n,k,i;\\n    scanf(\\\"%d %d\\\",&n,&k);\\n    int length=2*n+1,A[length],B[length];\\n    \\n    for(i=0;i<length;i++){\\n        scanf(\\\"%d\\\",&A[i]);\\n    }\\n    \\n    for(i=0;i<length;i++)\\n        B[i]=A[i];\\n    \\n    for(i=1;i<length-1;i++){\\n        if(k<0)\\n            break;\\n        if(A[i]<A[i-1] && A[i]<A[i+1]){\\n            B[i]=A[i];\\n            continue;\\n        } else if((A[i]>A[i-1] && A[i]>A[i+1]) && (A[i]-1>A[i-1] && A[i]-1>A[i+1])){\\n            B[i]=A[i]-1;\\n            k--;\\n        }\\n    }\\n    for(i=0;i<length;i++)\\n        printf(\\\"%d \\\",B[i]);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 955,
+    "completion_tokens": 282,
+    "total_tokens": 1237,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 955
+  },
+  "raw_sha256": "71d40710e6ebc78031e78ebce9c35ccbc653b07069ac8dc0e321d27444283822",
+  "ended_utc": "2026-10-17T13:29:39.783565+00:00",
+  "elapsed_seconds": 1.453
+}

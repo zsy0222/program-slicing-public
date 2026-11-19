@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3069/BP1/repair/1",
+  "case_id": "BP17-3069",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "2bd3bb0704f97d76190dc80e165ec0fcdfe08042983bbcacf33484bb8ee86611",
+  "started_utc": "2026-11-16T17:18:28.909013+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0bb048a4-ede4-44d1-a9f2-98fdb6de0809",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint board[2],\\n\\t\\tpaint[4],\\n\\t\\ti, j, k;\\n\\tint flag = 0;\\n\\n\\tscanf(\\\"%d%d\\\", &board[0], &board[1]);\\n\\tfor(i = 0; i < 4; i++)\\n\\t\\tscanf(\\\"%d\\\", paint+i);\\n\\t\\t\\n\\tfor(i = 0; i < 2; i++){\\n\\t\\tfor( j = 2; j < 4; j++){\\n\\t\\t\\tfor(k = 0; k < 2; k++){\\n\\t\\t\\tif(paint[i]+paint[j] <= board[k]){\\n\\t\\t\\t\\tif(paint[1-i] <= paint[5-j]){\\n\\t\\t\\t\\t\\tif(paint[5-j] <= board[1-k]){\\n\\t\\t\\t\\t\\t\\tflag = 1;\\n\\t\\t\\t\\t\\t\\tprintf(\\\"%d %d %d %d \\\\n\\\", paint[i], paint[1-i], paint[j], paint[5-j]);\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse if(paint[5-j] < paint[1-i]){\\n\\t\\t\\t\\t\\tif(paint[1-i] <= board[1-k]){\\n\\t\\t\\t\\t\\t\\tflag = 1;\\n\\t\\t\\t\\t\\t\\tprintf(\\\"%d %d %d %d\\\\n\\\", paint[i], paint[1-i], paint[j], paint[5-j]);\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\t\\n\\tif(flag == 0)\\n\\t\\tprintf(\\\"NO\\\\n\\\");\\n\\telse\\n\\t\\tprintf(\\\"YES\\\\n\\\");\\n\\t\\t\\t\\t\\t\\t\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1245,
+    "completion_tokens": 456,
+    "total_tokens": 1701,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1245
+  },
+  "raw_sha256": "af979a99f508ed32e147b6b665774419ed18a814ddc345e59d3dc24abe08a900",
+  "ended_utc": "2026-11-16T17:18:31.519566+00:00",
+  "elapsed_seconds": 2.6076
+}

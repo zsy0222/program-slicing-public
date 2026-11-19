@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2202/BP1/repair/1",
+  "case_id": "BP17-2202",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "91915fba1d9a78cb814e54bb2f2a94ea7a47864cb3059dd082111bcc61962bbc",
+  "started_utc": "2026-11-16T19:11:53.828699+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a8cb644c-97f2-4ec5-be84-662ff4d548f4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\nint main(int argc, char *argv[])\\n{\\n    long long int sum,lim,i,a[10001],cnt,j,ans[10001];\\n    scanf(\\\"%lld %lld\\\",&sum,&lim);\\n    {\\n        for(i=1;i<=lim;i++)\\n        {\\n            {\\n                j=i;\\n                cnt=0;\\n                while(j%2==0)\\n                {\\n                    cnt++;\\n                    j=j/2;\\n                }\\n                a[i]=(long long int)pow(2,cnt);\\n            }\\n        }\\n        j=0;\\n        for(i=lim;i>0;i--)\\n        {\\n            if(sum>=a[i])\\n            {\\n                sum=sum-a[i];\\n                ans[j]=i;\\n                j++;\\n            }\\n            if(sum==0)\\n            break;\\n        }\\n        if(sum==0)\\n        {\\n            printf(\\\"%lld \\\\n\\\",j);\\n            for(i=0;i<j;i++)\\n            printf(\\\"%lld \\\",ans[i]);\\n        }\\n        else\\n        printf(\\\"-1\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 4149,
+    "completion_tokens": 290,
+    "total_tokens": 4439,
+    "prompt_tokens_details": {
+      "cached_tokens": 3968
+    },
+    "prompt_cache_hit_tokens": 3968,
+    "prompt_cache_miss_tokens": 181
+  },
+  "raw_sha256": "f3897793c46602f7f9d2fbdcdcd379108d4512fedefbc38550b8ed672f8126b4",
+  "ended_utc": "2026-11-16T19:11:55.669020+00:00",
+  "elapsed_seconds": 1.778
+}

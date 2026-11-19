@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0737/BP3/repair/1",
+  "case_id": "BP17-0737",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "18f32ec95dbd37950164e6261f4e9e9ea0be1e0aebf02312b8d0c7cb40b0a467",
+  "started_utc": "2026-11-16T17:12:07.682269+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "23f8de08-b225-455e-8fce-e9899e64d20c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<ctype.h>\\n#define input(l) while((c=getchar())&&(isalnum(c)||c=='_')) l++\\n#define check(l) if(l==0||l>16) {printf(\\\"NO\\\");flag=0;}\\nint main(int argc, char *argv[])\\n{\\n  char c;\\n  int l=0,flag=1,fflag=0;\\n  input(l);\\n  if(c!='@') {printf(\\\"NO\\\");flag=0;}\\n  else check(l)\\n  if(flag)\\n  {\\n    int L=0;\\n    newl:\\n         l=0;\\n         input(l);\\n         if(c=='.') {check(l)\\n                     L+=l;\\n                    if(flag) goto newl;\\n                    }\\n         else if(c=='/') {check(l)\\n                             L+=l;\\n                          if(L==0||L>32) {printf(\\\"NO\\\");flag=0;}\\n                          fflag=1;}\\n         else if(c==EOF||c=='\\\\n') {check(l)\\n                             L+=l;\\n                          if(flag&&(L==0||L>32)) {printf(\\\"NO\\\");flag=0;}\\n                          if(flag) printf(\\\"YES\\\");}\\n         else {printf(\\\"NO\\\");flag=0;}\\n  } \\n  if(flag&&fflag)\\n  {\\n            l=0;\\n            input(l);\\n            if(c!=EOF&&c!='\\\\n') {printf(\\\"NO\\\");flag=0;}\\n            else check(l)\\n            if (flag) printf(\\\"YES\\\");\\n  }\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2367,
+    "completion_tokens": 406,
+    "total_tokens": 2773,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2367
+  },
+  "raw_sha256": "8c6667f77e8647b6fd048df2731a00082406d0e4c1a60056106de29f6f65d7df",
+  "ended_utc": "2026-11-16T17:12:10.017161+00:00",
+  "elapsed_seconds": 2.332
+}

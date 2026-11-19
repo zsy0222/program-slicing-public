@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0603/BP0/repair/1",
+  "case_id": "BP17-0603",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ddf8af0b785a80dd94481a7f5e4b8ac8824b42ff6e6ea624c30fa2d7fed3e91e",
+  "started_utc": "2026-10-18T12:44:30.016940+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dac8c271-44a2-45b3-81c7-6d0c97ba02ed",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\ntypedef struct sPOINT{\\n    int x,y;\\n} sPOINT;\\n\\nint isright(sPOINT p[3]);\\n\\nint main(int argc, char *argv[])\\n{\\n    sPOINT p[3];\\n    scanf(\\\"%d %d %d %d %d %d\\\", &p[0].x, &p[0].y, &p[1].x, &p[1].y, &p[2].x, &p[2].y);\\n    if(isright(p)){\\n        printf(\\\"RIGHT\\\");\\n        return 0;\\n    }\\n    else{\\n        int i;\\n        for(i = 0; i < 3; i++){\\n            p[i].x++;\\n            if(isright(p)){\\n                printf(\\\"ALMOST\\\");\\n                return 0;\\n            }\\n            p[i].x -= 2;\\n            if(isright(p)){\\n                printf(\\\"ALMOST\\\");\\n                return 0;\\n            }\\n            p[i].x++;\\n            p[i].y++;\\n            if(isright(p)){\\n                printf(\\\"ALMOST\\\");\\n                return 0;\\n            }\\n            p[i].y -= 2;\\n            if(isright(p)){\\n                printf(\\\"ALMOST\\\");\\n                return 0;\\n            }\\n            p[i].y++;\\n        }\\n        printf(\\\"NEITHER\\\");\\n    }\\n    return 0;\\n}\\n\\nint isright(sPOINT p[3]){\\n    int lengthsqr[3];\\n    lengthsqr[0] = (p[0].x-p[1].x)*(p[0].x-p[1].x)+(p[0].y-p[1].y)*(p[0].y-p[1].y);\\n    lengthsqr[1] = (p[1].x-p[2].x)*(p[1].x-p[2].x)+(p[1].y-p[2].y)*(p[1].y-p[2].y);\\n    lengthsqr[2] = (p[0].x-p[2].x)*(p[0].x-p[2].x)+(p[0].y-p[2].y)*(p[0].y-p[2].y);\\n    int i, j;\\n    for(i = 0; i < 3; i++){\\n        for(j = i + 1; j < 3; j++)\\n            if(lengthsqr[j]<lengthsqr[i]){\\n                int templen = lengthsqr[j];\\n                lengthsqr[j] = lengthsqr[i];\\n                lengthsqr[i] = templen;\\n            }\\n    }\\n    if(lengthsqr[0] == 0) return 0;\\n    return (lengthsqr[0]+lengthsqr[1]) == lengthsqr[2];\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1417,
+    "completion_tokens": 696,
+    "total_tokens": 2113,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 137
+  },
+  "raw_sha256": "b19ebeb972c9b7877101eb2101a6dc31901576eaf388d7808bf38625bd1bdb9e",
+  "ended_utc": "2026-10-18T12:44:32.888241+00:00",
+  "elapsed_seconds": 2.859
+}

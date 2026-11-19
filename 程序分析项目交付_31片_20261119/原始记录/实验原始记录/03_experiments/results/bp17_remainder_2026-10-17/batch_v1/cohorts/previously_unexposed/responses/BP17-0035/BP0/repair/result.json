@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0035/BP0/repair/1",
+  "case_id": "BP17-0035",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ef96c8f108288ef0c004ad305a208f6a9c1b3255e41255f933437c0b000e7bbf",
+  "started_utc": "2026-10-21T08:31:03.549174+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "ebd2d2fe-7106-48c2-abf7-8f7151e1d6ca",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint a[100];\\n\\nint get(int u){\\n    if (a[u] == u)\\n        return u;\\n    return (a[u] = get(a[u]));\\n}\\n\\nint main(int argc, char *argv[]){\\n    int n, m, i, u, v;\\n    scanf(\\\"%d %d\\\", &n, &m);\\n    if (n != m){\\n        printf(\\\"NO\\\");\\n        return 0;\\n    }\\n    for (i = 1; i <= n; i++)\\n        a[i] = i;\\n    for (i = 0; i < m; i++){\\n        scanf(\\\"%d %d\\\", &u, &v);\\n        u = get(u);\\n        v = get(v);\\n        if (u != v){\\n            a[v] = u;\\n            n--;\\n        }\\n    }\\n    if (n != 1)\\n        printf(\\\"NO\\\");\\n    else\\n        printf(\\\"FHTAGN!\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 965,
+    "completion_tokens": 264,
+    "total_tokens": 1229,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 965
+  },
+  "raw_sha256": "1e5757e50c690db11f8b506d26f124c5bb06e5b977c4a728204b90e9820ed462",
+  "ended_utc": "2026-10-21T08:31:05.157292+00:00",
+  "elapsed_seconds": 1.593
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1737/BP2/repair/1",
+  "case_id": "BP17-1737",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "e69053919aeef6cfc27f79f0a92d1ebff6b007439ec4eb3ece6d4996d8e37ede",
+  "started_utc": "2026-11-16T18:26:25.195829+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "ac7f1ab3-4ca5-4ae2-843b-f9fc4975934c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint a[110];\\nint n;\\nint count;\\n\\nint visit(int i)\\n{\\n    if (a[i] == (a[i-1] + a[i-2]))\\n        return 1;\\n    return 0;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int i, j, k;\\n\\n    memset(a, 0, sizeof(a));\\n\\n    scanf(\\\"%d\\\\n\\\", &n);\\n    for (i=1; i<=n; i++) {\\n        scanf(\\\"%d\\\", &a[i]);\\n    }\\n\\n    if (n <= 2) {\\n        printf(\\\"%d\\\\n\\\", n);\\n        return 0;\\n    }\\n\\n    for (i=3, k=2, count=2; i<=n; i++) {\\n        j = visit(i);\\n        if (j == 1)\\n            count++;\\n        else\\n            count = 2;\\n        if (k < count)\\n            k = count;\\n    }\\n    printf(\\\"%d\\\\n\\\", k);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1951,
+    "completion_tokens": 282,
+    "total_tokens": 2233,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1951
+  },
+  "raw_sha256": "dad83b7f927ba601049d57ccd76f3444006dfe4ae6adab065640d8910a3ff60e",
+  "ended_utc": "2026-11-16T18:26:27.260023+00:00",
+  "elapsed_seconds": 2.0614
+}

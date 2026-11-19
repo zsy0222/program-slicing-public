@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1021/BP2/repair/1",
+  "case_id": "BP17-1021",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "e1cc4ce37191e8037e6d0fc79af01d8fbee3a8b8f5349749826a5b9e3a0addcf",
+  "started_utc": "2026-11-16T16:24:15.595401+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8ed15fe7-6150-4f8c-9e7b-2539de04f08b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n \\nint main(int argc, char *argv[]) {\\n \\n    long int i,j;\\n    long int a[3][3];\\n \\n \\n    for(i=0;i<3;i++)\\n    for(j=0;j<3;j++)\\n    scanf(\\\"%ld\\\",&a[i][j]);\\n \\n  long int low=1;\\n  long int high=100000;\\n \\n    while(low<=high){\\n    i=low+(high-low)/2;\\n    \\n    if(a[0][1]+a[0][2]>(((i+a[0][1]+a[0][2])-(a[2][0]+a[2][1]))+((i+a[0][1]+a[0][2])-(a[1][0]+a[1][2]))))\\n    low=i+1;\\n  else if(a[0][1]+a[0][2]<(((i+a[0][1]+a[0][2])-(a[2][0]+a[2][1]))+((i+a[0][1]+a[0][2])-(a[1][0]+a[1][2]))))\\n    high=i-1;\\n    else\\n    break;\\n}\\n \\n    a[0][0]=i-1;\\n    a[1][1]=((i+a[0][1]+a[0][2])-(a[1][0]+a[1][2]));\\n    a[2][2]=((i+a[0][1]+a[0][2])-(a[2][0]+a[2][1]));\\n \\n    for(i=0;i<3;i++){\\n    for(j=0;j<3;j++){\\n    printf(\\\"%ld \\\",a[i][j]);}\\n    printf(\\\"\\\\n\\\");}\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1745,
+    "completion_tokens": 440,
+    "total_tokens": 2185,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1745
+  },
+  "raw_sha256": "e8910755a763e503865e361bb9b57b58d624df84b62fd350293141e9765cf776",
+  "ended_utc": "2026-11-16T16:24:18.034399+00:00",
+  "elapsed_seconds": 2.4372
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1226/BP1/repair/1",
+  "case_id": "BP17-1226",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "adcaac79c4e473fe98378ffc9392455513f3d5a60b2c0b5e3d5e0993683bf78f",
+  "started_utc": "2026-11-16T15:57:42.900585+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1cd014e9-8431-408b-85bb-f67091a723c6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint n, a[1<<20];\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint i, j, k;\\n\\tlong long res = 0;\\n\\tscanf(\\\"%d\\\", &n);\\n\\tfor ( k = n; k; --k )\\n\\t{\\n\\t\\tfor ( j = k + 1; j != (j&-j); j += j&-j ) ;\\n\\t\\t--j;\\n\\t\\tfor ( i = j - k; i <= k; ++i )\\n\\t\\t\\tres += (a[i] = j - i) ^ i;\\n\\t\\tk = j - k;\\n\\t}\\n\\tprintf(\\\"%lld\\\\n\\\", res);\\n\\tfor ( i = 0; i <= n; ++i )\\n\\t\\tprintf(\\\" %d\\\"+!i, a[i]);\\n\\tputs(\\\"\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 974,
+    "completion_tokens": 228,
+    "total_tokens": 1202,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 206
+  },
+  "raw_sha256": "f426f141e48684d1c81582b05a821885e809b9fded18b902b3f53429f138ee11",
+  "ended_utc": "2026-11-16T15:57:44.834206+00:00",
+  "elapsed_seconds": 1.9299
+}

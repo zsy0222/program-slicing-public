@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0263/BP0/repair/1",
+  "case_id": "BP17-0263",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "7667fc97b8e28722b86a416af617e8597a56d9980c17404dfa63a4dc64a941f4",
+  "started_utc": "2026-10-21T08:16:57.095440+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "15349815-fae8-4c04-adc0-bc601c71eb62",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint cmp(const void *a,const void *b)\\n{\\n  int x=*(const int*)a, y=*(const int*)b;\\n  return (x>y)-(x<y);\\n}\\nint main(int argc, char *argv[])\\n{\\n  int n, a[100005],check=0;\\n  scanf(\\\"%d\\\",&n);\\n  int i;\\n  for(i=0;i<n;i++)\\n  {\\n    scanf(\\\"%d\\\",&a[i]);\\n    if(check==0 && a[i]!=1)\\n      check=1;\\n  }\\n  qsort(a,n,sizeof(int),cmp);\\n  if(check==1)\\n  {\\n  printf(\\\"1 \\\");\\n  for(i=0;i<n-1;i++)\\n    printf(\\\"%d \\\",a[i]);\\n  }\\n  else\\n  {\\n    for(i=0;i<n-1;i++)\\n      printf(\\\"%d \\\",a[i]);\\n    printf(\\\"2\\\");\\n  }\\n  printf(\\\"\\\\n\\\");\\n  return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 965,
+    "completion_tokens": 275,
+    "total_tokens": 1240,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 965
+  },
+  "raw_sha256": "06b83cfbda3697d92fd9e624e157122727e1b453c227985b85df45936ac75cd5",
+  "ended_utc": "2026-10-21T08:16:58.594390+00:00",
+  "elapsed_seconds": 1.5
+}

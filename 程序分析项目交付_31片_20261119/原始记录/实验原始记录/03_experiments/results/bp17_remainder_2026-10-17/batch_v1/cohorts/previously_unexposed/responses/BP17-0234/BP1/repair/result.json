@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0234/BP1/repair/1",
+  "case_id": "BP17-0234",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "fe1b7e072b6ec2bfffbc994f5a6702964e5a1f8e1069a74d9f57ec9757c6a33b",
+  "started_utc": "2026-10-17T13:15:29.801069+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5f518a58-60eb-4283-8ba8-e2a8145ff69b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nunsigned long long combinaison (short n, short m){\\n    int i;\\n    unsigned long long c=1;\\n    short aux=n;\\n    if (n<m) return 0;\\n    else{\\n        if (!(n==0 && m==0)){\\n            for (i=1;i<=m;i++){\\n                c*=aux;\\n                c/=i;\\n                aux--;\\n            }\\n        }\\n        return c;\\n    }\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    short n,m,t;\\n    scanf (\\\"%hd%hd%hd\\\", &n, &m, &t);\\n    unsigned long long w=0;\\n    short i;\\n    for (i=4;i<=t;i++){\\n        if (t-i>=1){\\n            w+=combinaison(n,i)*combinaison(m,t-i);\\n        }\\n    }\\n    printf(\\\"%llu\\\", w);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 994,
+    "completion_tokens": 248,
+    "total_tokens": 1242,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 994
+  },
+  "raw_sha256": "18fbc490ef1e38a340c587b897fd5670cc2715fca1048ec175dc8dabb78a1f1a",
+  "ended_utc": "2026-10-17T13:15:31.241737+00:00",
+  "elapsed_seconds": 1.438
+}

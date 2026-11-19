@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3835/BP3/repair/1",
+  "case_id": "BP17-3835",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "a6c270d9c5aa1fdf7bc598d7888d5bb2ed2b4bb6149a7ffe5d09e75c469e651e",
+  "started_utc": "2026-11-16T17:31:45.943989+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "099a3199-a08c-4cbd-8147-780e621b6716",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define lowbit(i) ((i)&-(i))\\n\\nlong a[200005]={0};\\nlong hash[1000006]={0};\\n\\nstruct case1\\n{\\n long l,r;\\n long num;\\n}ques[200005]={0};\\n\\nlong long ans[200005]={0};\\nlong s[200005]={0};\\nlong long d[200005]={0};\\nlong n,next[200005]={0};\\nlong pre[200005]={0};\\nlong pos[1000006]={0};\\n\\nlong quick(long x,long y)\\n{\\n long l=(x+y)/2,i=x,j=y;\\n struct case1 temp;\\n \\n for(;i<=j;)\\n   {\\n    for(;ques[i].r<ques[l].r;i++);\\n    if(i<=j)\\n     {\\n      temp=ques[i];\\n      ques[i]=ques[l];\\n      ques[l]=temp;\\n      l=i++;\\n     }\\n    for(;ques[j].r>ques[l].r;j--);\\n    if(i<=j)\\n     {\\n      temp=ques[j];\\n      ques[j]=ques[l];\\n      ques[l]=temp;\\n      l=j--;\\n     }\\n   }\\n \\n return l;\\n}\\n\\nvoid quicksort(long x,long y)\\n{\\n long l;\\n \\n if(x<y)\\n  {\\n   l=quick(x,y);\\n   quicksort(x,l-1);\\n   quicksort(l+1,y);\\n  }\\n}\\n\\nvoid ins(long x,long long data)\\n{\\n for(;x<=n;x+=lowbit(x))\\n   d[x]+=data;\\n}\\n\\nlong long search(long x)\\n{\\n long long s=0;\\n for(;x;x-=lowbit(x))\\n   s+=d[x];\\n return s;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n long q,i,j,k;\\n long long ss=0;\\n \\n scanf(\\\"%ld%ld\\\",&n,&q);\\n for(i=1;i<=n;i++)\\n   {\\n    scanf(\\\"%ld\\\",&a[i]);\\n    hash[a[i]]++;\\n   }\\n for(i=1;i<=q;i++)\\n   {\\n    scanf(\\\"%ld%ld\\\",&ques[i].l,&ques[i].r);\\n    ques[i].num=i;\\n   }\\n quicksort(1,q);\\n \\n for(i=1;i<=1000000;i++)\\n   if(hash[i]>=400)\\n    {\\n     for(j=1;j<=n;j++)\\n       s[j]=s[j-1]+(a[j]==i);\\n     for(j=1;j<=q;j++)\\n       ans[ques[j].num]+=(long long)i*(s[ques[j].r]-s[ques[j].l-1])*(s[ques[j].r]-s[ques[j].l-1]);\\n    }\\n \\n for(i=1;i<=n;i++)\\n   {\\n    pre[i]=pos[a[i]];\\n    next[pos[a[i]]]=i;\\n    pos[a[i]]=i;\\n   }\\n \\n for(i=1,j=0;i<=q;i++)\\n   {\\n    for(;j<ques[i].r;)\\n      {\\n       j++;\\n       if(hash[a[j]]<400)\\n        {\\n         for(k=j;k;k=pre[k])\\n           {\\n            ins(k,a[j]+(j!=k)*a[j]);\\n            ss+=a[j]+(j!=k)*a[j];\\n           }\\n        }\\n      }\\n    ans[ques[i].num]+=ss-search(ques[i].l-1);\\n   }\\n   \\n for(i=1;i<=q;i++)\\n   printf(\\\"%lld\\\\n\\\",ans[i]);\\n \\n return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3399,
+    "completion_tokens": 943,
+    "total_tokens": 4342,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048
+    },
+    "prompt_cache_hit_tokens": 2048,
+    "prompt_cache_miss_tokens": 1351
+  },
+  "raw_sha256": "3bd4a1d74adc799f7c8f050e19159c52824b682784dafc5c45dee32ddf04ab5d",
+  "ended_utc": "2026-11-16T17:31:50.578619+00:00",
+  "elapsed_seconds": 4.5768
+}

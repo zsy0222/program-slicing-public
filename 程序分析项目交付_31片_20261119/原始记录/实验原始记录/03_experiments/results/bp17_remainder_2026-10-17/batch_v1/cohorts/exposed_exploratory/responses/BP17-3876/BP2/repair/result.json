@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3876/BP2/repair/1",
+  "case_id": "BP17-3876",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "847a999be196244063371ec2d7178439fb13941b3bc6e66216dcaa5e0a3fca2a",
+  "started_utc": "2026-10-21T06:59:25.480354+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fa60070c-aa9b-4337-9fa3-77821b9c4cc6",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint a[32];\\nint p[32][3];\\nint r[32][3];\\nint ans;\\nint n;\\n\\nvoid dfs(int t) {\\n\\tint i,j;\\n\\tif (a[t]==n) {\\n\\t\\tif (t<ans) {\\n\\t\\t\\tans=t;\\n\\t\\t\\tfor(i=0;i<=ans;i++) for(j=0;j<3;j++) r[i][j]=p[i][j];\\n\\t\\t}\\n\\t\\treturn ;\\n\\t}\\n\\tif (t>=ans) return ;\\n\\tfor(i=t;i>=0;i--) for(j=1;j<=8;j*=2) {\\n\\t\\tif (a[i]+a[t]*j<=n) {\\n\\t\\t\\ta[t+1]=a[i]+a[t]*j;\\n\\t\\t\\tp[t+1][0]=i,p[t+1][1]=t,p[t+1][2]=j;\\n\\t\\t\\tdfs(t+1);\\n\\t\\t}\\n\\t\\tif (j!=1 && a[i]*j+a[t]<=n) {\\n\\t\\t\\ta[t+1]=a[t]+a[i]*j;\\n\\t\\t\\tp[t+1][0]=t,p[t+1][1]=i,p[t+1][2]=j;\\n\\t\\t\\tdfs(t+1);\\n\\t\\t}\\n\\t}\\n\\tfor(j=2;j<=8 && a[t]*j<=n;j*=2) {\\n\\t\\ta[t+1]=a[t]*j;\\n\\t\\tp[t+1][0]=-1,p[t+1][1]=t,p[t+1][2]=j;\\n\\t\\tdfs(t+1);\\n\\t}\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint i;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tfor(ans=i=0;i<8;i++) if (n&(1<<i)) ans++;\\n\\ta[0]=1;\\n\\tdfs(0);\\n\\tprintf(\\\"%d\\\\n\\\",ans);\\n\\tfor(i=1;i<=ans;i++) {\\n\\t\\tif (r[i][0]==-1) {\\n\\t\\t\\tprintf(\\\"lea e%cx, [%d*e%cx]\\\\n\\\",'a'+i,r[i][2],'a'+r[i][1]);\\n\\t\\t} else if (r[i][2]==1) {\\n\\t\\t\\tprintf(\\\"lea e%cx, [e%cx + e%cx]\\\\n\\\",'a'+i,'a'+r[i][0],'a'+r[i][1]);\\n\\t\\t} else {\\n\\t\\t\\tprintf(\\\"lea e%cx, [e%cx + %d*e%cx]\\\\n\\\",'a'+i,'a'+r[i][0],r[i][2],'a'+r[i][1]);\\n\\t\\t}\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2572,
+    "completion_tokens": 685,
+    "total_tokens": 3257,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 1164
+  },
+  "raw_sha256": "47b5bd58f9305924d113d0e8a7107e583ee11e47976a5fb76148450a5ed3e0d2",
+  "ended_utc": "2026-10-21T06:59:28.149182+00:00",
+  "elapsed_seconds": 2.625
+}

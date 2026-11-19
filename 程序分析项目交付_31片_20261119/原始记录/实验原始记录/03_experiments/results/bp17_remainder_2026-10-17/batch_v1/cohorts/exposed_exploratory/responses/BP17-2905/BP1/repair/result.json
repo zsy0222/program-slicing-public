@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2905/BP1/repair/1",
+  "case_id": "BP17-2905",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "beb99e1cff51cc4bf9f01ea4b5c9e940b11f4c16221d24b7b12e97603a210cf3",
+  "started_utc": "2026-11-16T02:49:47.718883+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d9b4ea8b-57d2-495e-bd3c-7b7f20491137",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int v1,v2,t,d,sum,i,x,j;\\n    scanf(\\\"%d%d%d%d\\\",&v1,&v2,&t,&d);\\n    int ara[t+1];\\n    ara[1]=v1;ara[t]=v2;\\n    sum=v1+v2;\\n    for(i=2;i<t;i++){\\n        ara[i]=ara[i-1]+d;\\n        sum+=ara[i];\\n        if((ara[i]-((t-i-1)*d))>ara[t]){\\n            sum-=ara[i];\\n            break;\\n        }\\n    }\\n    for(j=t-1;j>=i;j--){\\n        ara[j]=ara[j+1]+d;\\n        sum+=ara[j];\\n    }\\n    if(ara[i]-ara[i-1]>d){\\n        sum-=ara[i];\\n        ara[i]=ara[i-1]+d;\\n        sum+=ara[i];\\n    }\\n    printf(\\\"%d\\\",sum);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1085,
+    "completion_tokens": 260,
+    "total_tokens": 1345,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1085
+  },
+  "raw_sha256": "4221ead69048a382b607f10d8d801ef427dc21a7f08a0444f23052253001be06",
+  "ended_utc": "2026-11-16T02:49:49.724061+00:00",
+  "elapsed_seconds": 2.0032
+}

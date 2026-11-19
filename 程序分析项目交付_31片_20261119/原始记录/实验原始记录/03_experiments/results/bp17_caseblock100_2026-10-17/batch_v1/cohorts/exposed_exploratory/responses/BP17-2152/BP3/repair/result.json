@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-2152/BP3/repair/1",
+  "case_id": "BP17-2152",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "05bb4ff8a7372da6b911d528cb68b1c87656fcb932e228feace951878a70a35c",
+  "started_utc": "2026-10-17T07:10:59.987814+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "88f57c20-943f-4756-8b50-f7166e4ab446",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#define sf scanf\\nint init[100001],goal[100002],visited[100002]={};\\nint print[100001];\\nint count=0;\\ntypedef struct node{\\n\\tint data;\\n\\tstruct node* next;\\n\\n}node;\\nnode* vertex[100001]={NULL};\\nnode* insert(node *head, int data)\\n{\\n\\tif(head==NULL)\\n\\t{\\n\\t\\thead=(node* )malloc(sizeof(node));\\n\\t\\thead->data=data;\\n\\t\\thead->next=NULL;\\n\\t}\\n\\telse\\n\\t\\t{\\n\\t\\t\\tnode* temp;\\n\\t\\t\\ttemp=(node*)malloc(sizeof(node));\\n\\t\\t\\ttemp->data=data;\\n\\t\\t\\ttemp->next=head;\\n\\t\\t\\thead=temp;\\n\\t\\t}\\nreturn head;\\n}\\nvoid dfs(int parentNode,int flipCur,int flipNext)\\n{\\n\\tif(!visited[parentNode])\\n\\t\\tvisited[parentNode]=1;\\n\\telse\\n\\t\\treturn ;\\n\\tif(!flipCur)\\n\\t{\\n\\t\\tint flipped=0;\\n\\t\\tif(init[parentNode]!=goal[parentNode])\\n\\t\\t{\\n\\t\\t\\tflipped=1;\\n\\t\\t\\tprint[count++]=parentNode;\\n\\t\\t}\\n\\t\\t\\tint i;\\n\\t\\t\\tnode * temp=vertex[parentNode];\\n\\t\\t\\twhile(temp!=NULL)\\n\\t\\t\\t{\\n\\t\\t\\t\\tdfs(temp->data,flipNext,flipped);\\n\\t\\t\\t\\t//printf(\\\"%d \\\",temp->data);\\n\\t\\t\\t\\ttemp=temp->next;\\n\\t\\t\\t}\\n\\t\\t\\t\\n\\t}\\n\\telse\\n\\t{\\n\\t\\tint flipped=0;\\n\\t\\tif(init[parentNode]==goal[parentNode])\\n\\t\\t{\\n\\t\\t\\tflipped=1;\\n\\t\\t\\tprint[count++]=parentNode;\\n\\t\\t}\\n\\n\\t\\tnode *temp=vertex[parentNode];\\n\\t\\t\\twhile(temp!=NULL)\\n\\t\\t\\t{\\n\\t\\t\\t\\tdfs(temp->data,flipNext,flipped);\\n\\t\\t\\t\\ttemp=temp->next;\\n\\t\\t\\t}\\n\\t}\\n}\\nint  main(int argc, char *argv[])\\n{\\n\\tint N,i,a,b;\\n\\tsf(\\\"%d\\\",&N);\\n\\n\\tnode *temp;\\n\\tfor(i=0;i<N-1;i++)\\n\\t{\\n\\t\\tsf(\\\"%d%d\\\",&a,&b);\\n\\t\\tvertex[a]=insert(vertex[a],b);\\n\\t\\tvertex[b]=insert(vertex[b],a);\\n\\t}\\n\\n\\tfor(i=1;i<N+1;i++)\\n\\t\\tsf(\\\"%d\\\",&init[i]);\\n\\tfor(i=1;i<N+1;i++)\\n\\t\\tsf(\\\"%d\\\",&goal[i]);\\n\\tdfs(1,0,0);\\n\\tprintf(\\\"%d\\\\n\\\",count);\\n\\tfor(i=0;i<count;i++)\\n\\t\\tprintf(\\\"%d\\\\n\\\",print[i]);\\n\\t//printf(\\\"%d\\\\n\\\",count );\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2645,
+    "completion_tokens": 776,
+    "total_tokens": 3421,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2645
+  },
+  "raw_sha256": "347d25d7ba59177058e2eebf28a981322d1a289219f8b14f886fa1101e025b28",
+  "ended_utc": "2026-10-17T07:11:02.861974+00:00",
+  "elapsed_seconds": 2.875
+}

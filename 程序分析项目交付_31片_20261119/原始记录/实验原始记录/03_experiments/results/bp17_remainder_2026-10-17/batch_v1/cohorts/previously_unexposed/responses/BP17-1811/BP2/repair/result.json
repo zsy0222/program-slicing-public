@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1811/BP2/repair/1",
+  "case_id": "BP17-1811",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "6c3f05d69f6cbfe22f951e568e074b8ed0f85eebb711c007c06455a9d9083b46",
+  "started_utc": "2026-10-21T06:54:01.323045+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "764f00d2-0bc3-4f62-96cb-e026a8321ebf",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nchar mat[5005][5005];\\nint max[5005][5005];\\nint col[5005];\\n\\nint main(int argc, char *argv[]) {\\n    int n, m;\\n    int i, j;\\n    int res;\\n    int aux;\\n\\n    scanf(\\\" %d %d\\\", &n, &m);\\n\\n    for (i = 1; i <= m; i++) {\\n        col[i] = 0;\\n    }\\n\\n    while((getchar()) != '\\\\n') {\\n        ;\\n    }\\n\\n    for (i = 1; i <= n; i++) {\\n        for (j = 1; j <= m; j++) {\\n            mat[i][j] = getchar();\\n        }\\n        while((getchar()) != '\\\\n') {\\n            ;\\n        }\\n    }\\n\\n    for (i = 1; i <= n; i++) {\\n        if (mat[i][m] == '1') {\\n            max[i][m] = 1;\\n        } else {\\n            max[i][m] = 0;\\n        }\\n        for (j = m - 1; j >= 1; j--) {\\n            if (mat[i][j] == '1') {\\n                max[i][j] = 1 + max[i][j + 1];\\n            } else {\\n                max[i][j] = 0;\\n            }\\n        }\\n    }\\n\\n    res = 0;\\n    for (j = 1; j <= m; j++) {\\n        for (i = 0; i <= n; i++) {\\n            col[i] = 0;\\n        }\\n        for (i = 1; i <= n; i++) {\\n            col[max[i][j]]++;\\n        }\\n        for (i = n; i >= 0; i--) {\\n            aux = col[i] * i;\\n            if (aux > res) {\\n                res = aux;\\n            }\\n            if (i > 0) {\\n                col[i - 1] += col[i];\\n            }\\n        }\\n    }\\n\\n    printf(\\\"%d\\\\n\\\", res);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2650,
+    "completion_tokens": 534,
+    "total_tokens": 3184,
+    "prompt_tokens_details": {
+      "cached_tokens": 1664
+    },
+    "prompt_cache_hit_tokens": 1664,
+    "prompt_cache_miss_tokens": 986
+  },
+  "raw_sha256": "b942cc759d3d35df784dd385f95e9890be89a50e61d42e980178f63c310bab73",
+  "ended_utc": "2026-10-21T06:54:03.709893+00:00",
+  "elapsed_seconds": 2.375
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3050/BP0/repair/1",
+  "case_id": "BP17-3050",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "b9693d9452f0f4d14ea637788cc32cc80a13e8b629891eb1a07954853af8790e",
+  "started_utc": "2026-11-16T04:19:45.217399+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "98f88358-53c4-4295-850a-1d27a483dce0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]){\\n\\n    int n;\\n    scanf(\\\"%d\\\", &n);\\n\\n    int ppplus[100010] = {0}, ppminus[100010] = {0};\\n    int i, point, apple, nnplus = 0, nnminus = 0, ans = 0;\\n\\n    for(i=0; i<n; i++){\\n        scanf(\\\"%d%d\\\", &point, &apple);\\n        if(point>0){\\n            nnplus++;\\n            ppplus[point] = apple;\\n        }\\n        else{\\n            nnminus++;\\n            ppminus[-point] = apple;\\n        }\\n        ans += apple;\\n    }\\n\\n\\n    int diff, np = 100000;\\n    diff = nnplus - nnminus;\\n\\n\\n    if(diff==1||diff==0||diff==-1){\\n        printf(\\\"%d\\\\n\\\", ans);\\n    }\\n    else if(diff>0){\\n        for(i=0; i<diff-1; i++){\\n            while(ppplus[np]==0){\\n                np--;\\n            }\\n            ans-=ppplus[np];\\n            np--;\\n        }\\n        printf(\\\"%d\\\\n\\\", ans);\\n    }\\n    else{\\n        for(i=0; i<-diff-1; i++){\\n            while(ppminus[np]==0){\\n                np--;\\n            }\\n            ans-=ppminus[np];\\n            np--;\\n        }\\n        printf(\\\"%d\\\\n\\\", ans);\\n    }\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1151,
+    "completion_tokens": 395,
+    "total_tokens": 1546,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1151
+  },
+  "raw_sha256": "ac6ca3646b8bf97e054329c8a1066fcc28e820b3e23d86e2ddfe6c06b3edd4cd",
+  "ended_utc": "2026-11-16T04:19:47.386206+00:00",
+  "elapsed_seconds": 2.1656
+}

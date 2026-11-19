@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0518/BP3/repair/1",
+  "case_id": "BP17-0518",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "612611b1db6b4ae61395b5e8c628751a60025a1576eacb62cd354460206b45c9",
+  "started_utc": "2026-11-16T05:11:28.905134+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fc9be5d6-df0b-4c53-9b81-80c8b23b397e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\nint n,r,i,ans=0,temp1,temp2,k;\\nint solved[50];\\nint penalty[50];\\n\\n\\nscanf(\\\"%d%d\\\",&n,&r);\\n\\nfor(i=0;i<n;i++)\\n    scanf(\\\"%d%d\\\",&solved[i],&penalty[i]);\\n\\n\\n\\nfor(i=0;i<n;i++){\\n    for(k=0;k<n-1;k++){\\n        if(penalty[k]>penalty[k+1]){\\n            temp1=penalty[k];\\n            penalty[k]=penalty[k+1];\\n            penalty[k+1]=temp1;\\n\\n            temp2=solved[k];\\n            solved[k]=solved[k+1];\\n            solved[k+1]=temp2;\\n        }\\n    }\\n}\\n\\n\\n\\nfor(i=0;i<n;i++){\\n    for(k=0;k<n-1;k++){\\n        if(solved[k]<solved[k+1]){\\n\\n            temp1=solved[k];\\n            solved[k]=solved[k+1];\\n            solved[k+1]=temp1;\\n\\n            temp2=penalty[k];\\n            penalty[k]=penalty[k+1];\\n            penalty[k+1]=temp2;\\n        }\\n    }\\n}\\n\\n\\n\\nfor(i=0;i<n;i++){\\n    if(solved[i]==solved[r-1])\\n        ans++;\\n}\\n\\n\\n\\n\\nprintf(\\\"%d\\\\n\\\",ans);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1762,
+    "completion_tokens": 388,
+    "total_tokens": 2150,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1762
+  },
+  "raw_sha256": "d89071e2e2b36e0b13c3e6a19b2ed29708c9c5145560ed50e26f690ea9391cfd",
+  "ended_utc": "2026-11-16T05:11:31.235114+00:00",
+  "elapsed_seconds": 2.3277
+}

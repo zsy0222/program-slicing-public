@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1934/BP0/repair/1",
+  "case_id": "BP17-1934",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "1ed653fcb812b78cfbd4adc3896ccf173f4a5974a706af976a9def7d45d75acb",
+  "started_utc": "2026-11-16T05:29:48.268184+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dd453ccc-6d33-44f0-85a0-6ea51c01a82c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int d,sum;\\n    scanf(\\\"%d%d\\\",&d,&sum);\\n    int arr[d][2];\\n    int i,j;\\n    int result[d];\\n    int max_sum=0,min_sum=0;\\n\\n    for(i=0;i<d;i++)\\n    {\\n        for(j=0;j<2;j++)\\n        {\\n            scanf(\\\"%d\\\",&arr[i][j]);\\n        }\\n        max_sum+=arr[i][1];\\n        min_sum+=arr[i][0];\\n        result[i]=arr[i][0];\\n\\n    }\\n    if(min_sum > sum || sum > max_sum)\\n    {\\n        printf(\\\"NO\\\\n\\\");\\n        return 0;\\n    }\\n\\n    else\\n    {\\n        printf(\\\"YES\\\\n\\\");\\n        int flag = 0;\\n        for(;min_sum <= sum;)\\n        {\\n           for(i=0;i<d;i++)\\n           {\\n               if(sum == min_sum)\\n               {\\n                   for(j=0;j<d;j++)\\n                   {\\n                       printf(\\\"%d \\\",result[j]);\\n                   }\\n                   flag =1;\\n                   break;\\n               }\\n               if(result[i]+1 <= arr[i][1])\\n               {\\n                   result[i]++;\\n                   min_sum++;\\n               }\\n           }\\n           if(flag==1)\\n            break;\\n\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1356,
+    "completion_tokens": 379,
+    "total_tokens": 1735,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 204
+  },
+  "raw_sha256": "91ae7441715112a83d765883d051d3b5a725be9ab07a3cf322f1791fb0982239",
+  "ended_utc": "2026-11-16T05:29:50.302604+00:00",
+  "elapsed_seconds": 2.0317
+}

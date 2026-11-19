@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2704/BP1/repair/1",
+  "case_id": "BP17-2704",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "55a74990457c809a64d85c48a3a62e8bb0a9c3dc32613bf79427786d89b1b162",
+  "started_utc": "2026-11-16T17:15:19.646371+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c4e4cd12-14a3-4b2e-84d4-10906c2a8048",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdbool.h>\\n#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define MAX_N (500)\\n#define MAX_M (1000)\\n\\nint ws[MAX_N+1];\\nint bs[MAX_M];\\nbool sn[MAX_N+1];\\n\\nint simulate(int * xs, int n, int m) {\\n  int i,j,acc,wt;\\n\\n  for ( i=wt=0; i < m; ++i ) {\\n    for ( j=0,acc=0; xs[j] != bs[i]; ++j, acc+=ws[xs[j]] );\\n    wt += acc;\\n    for ( ; j ; --j ) xs[j] = xs[j-1];\\n    xs[0] = bs[i];\\n  }\\n  return wt;\\n}\\n\\nint main(int argc, char *argv[]) {\\n  int stk[MAX_M];\\n  int i,bot,n,m;\\n\\n  scanf(\\\"%d %d\\\", &n, &m);\\n  for ( i=1; i <= n; ++i )\\n    scanf(\\\"%d\\\", ws+i);\\n  for ( i=0; i < m; ++i )\\n    scanf(\\\"%d\\\", bs+i);\\n  for ( i=bot=0; i < m; ++i )\\n    if ( !sn[bs[i]] )\\n      sn[bs[i]]=true, stk[bot++]=bs[i];\\n  printf(\\\"%d\\\\n\\\", simulate(stk, bot, m));\\n  return EXIT_SUCCESS;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1108,
+    "completion_tokens": 365,
+    "total_tokens": 1473,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1108
+  },
+  "raw_sha256": "95323b09f62231cb1f633a0db42ca886f4b5a22f46e6a2f2ee27b86ba51468ad",
+  "ended_utc": "2026-11-16T17:15:22.197780+00:00",
+  "elapsed_seconds": 2.5493
+}

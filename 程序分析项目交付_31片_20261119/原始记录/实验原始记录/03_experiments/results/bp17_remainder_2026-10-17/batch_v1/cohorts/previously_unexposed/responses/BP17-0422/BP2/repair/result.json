@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0422/BP2/repair/1",
+  "case_id": "BP17-0422",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "9c0a7be158d565652d63770dab923c6539ee91a0173cd879cf80adf0b51db80c",
+  "started_utc": "2026-10-18T12:28:46.260791+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b73d0d28-c2a8-4404-b398-a8e9257afd86",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#include<ctype.h>\\nint main(int argc, char *argv[])\\n{\\n    char a[20];\\n    int b[10], c[10], i, j, bnum, cnum, num = 0, x, y, z, t = 0,k;\\n\\n    scanf(\\\"%s\\\", a);\\n    for (i = 0; a[i] != ':'; ++i)\\n    {\\n        if (isalpha(a[i]))\\n        {\\n            b[i] = (int)a[i] - 55;\\n        }\\n        else if (isdigit(a[i]))\\n        {\\n            b[i] = (int)a[i] - 48;\\n        }\\n    }\\n    bnum = i;\\n    ++i;\\n    for (; i < strlen(a); ++i)\\n    {\\n        if (isalpha(a[i]))\\n        {\\n            c[i-bnum-1] = (int)a[i] - 55;\\n        }\\n        else if (isdigit(a[i]))\\n        {\\n            c[i-bnum-1] = (int)a[i] - 48;\\n        }\\n    }\\n    cnum = i - bnum - 1;\\n    x = b[0];\\n    y = c[0];\\n    for (i = 0; i < bnum; i++)\\n    {\\n        if (x < b[i])\\n            x = b[i];\\n    }\\n    for (i = 0; i < cnum; i++)\\n    {\\n        if (y <c[i])\\n            y = c[i];\\n    }\\n    if (x<y)\\n        x = y;\\n    for (i = 0; i <= bnum - 2; i++)\\n    {\\n        if (b[i] != 0)\\n        {\\n            t = 1;\\n            break;\\n        }\\n    }\\n    if (t == 0)\\n    {\\n        for (i = 0; i <= cnum - 2; i++)\\n        {\\n            if (c[i] != 0)\\n            {\\n                t = 1;\\n                break;\\n            }\\n        }\\n    }\\n    if (b[bnum - 1] > 23)\\n    {\\n        printf(\\\"0\\\");\\n        return 0;\\n    }\\n    if (t==0||((bnum==1&&cnum==1)&&(b[0]<24)))\\n        printf(\\\"-1\\\");\\n    else\\n    {\\n        num = x + 1;\\n        for (i = x+1;; i++)\\n        {\\n            y = 0;\\n            z = 0;\\n            k= 1;\\n            for (j = bnum-1; j >=0; j--)\\n            {\\n                y += b[j] *k ;\\n                k *= i;\\n            }\\n            k = 1;\\n            for (j = cnum-1; j >= 0;j--)\\n            {\\n                z += c[j] * k;\\n                k *= i;\\n            }\\n            if (y>23 || z>59)\\n                break;\\n            else\\n                ++num;\\n        }\\n        if (num <= x + 1)\\n            printf(\\\"0\\\");\\n        else\\n        {\\n            for (i = x + 1; i < num; i++)\\n                printf(\\\"%d \\\", i);\\n        }\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3241,
+    "completion_tokens": 839,
+    "total_tokens": 4080,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3241
+  },
+  "raw_sha256": "8007bedaf7fc841ed3942dd1032287bf2b1fb7ed5ac481ade0c17bbaf9f8d10f",
+  "ended_utc": "2026-10-18T12:28:49.430325+00:00",
+  "elapsed_seconds": 3.109
+}

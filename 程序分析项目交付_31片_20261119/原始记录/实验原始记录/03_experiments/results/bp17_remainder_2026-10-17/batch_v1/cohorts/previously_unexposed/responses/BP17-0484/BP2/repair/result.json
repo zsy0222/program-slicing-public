@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0484/BP2/repair/1",
+  "case_id": "BP17-0484",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "868fc45b51b7e069f21d81b82e8c0b6492f56363e09d74ee2d79447c9f8b2903",
+  "started_utc": "2026-11-16T03:48:41.732287+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "26c1cf7c-661b-48dd-b020-aab6e664d6b9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include \\\"stdio.h\\\"\\n\\n#define min(a,b) ((a)<(b)?(a):(b))\\n#define max(a,b) ((a)>(b)?(a):(b))\\n\\nint dp[4005], n, k, t, d, i, ans;\\n\\nint main(int argc, char *argv[])\\n{\\n\\tscanf( \\\"%d%d\\\", &n, &k );\\n\\twhile(n--)\\n\\t{\\n\\t\\tscanf( \\\"%d%d\\\", &t, &d );\\n\\t\\tans = max( ans, t - 1 - dp[k] );\\n\\t\\tfor( i = k; i >= 1; i-- ) dp[i] = min( dp[i-1], max( dp[i], t-1 ) + d );\\n\\t\\tdp[0] = max( dp[0], t - 1 ) + d;\\n\\t}\\n\\tans = max( ans, 86400 - dp[k] );\\n\\tprintf( \\\"%d\\\\n\\\", ans );\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1330,
+    "completion_tokens": 252,
+    "total_tokens": 1582,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 562
+  },
+  "raw_sha256": "a54929000e754c633f1f2e9840b85f2131119b50a8e31e9387e5349809605c3c",
+  "ended_utc": "2026-11-16T03:48:43.464730+00:00",
+  "elapsed_seconds": 1.73
+}

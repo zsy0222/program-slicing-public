@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3040/BP0/repair/1",
+  "case_id": "BP17-3040",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "6a623a6de5c8cbaa74a2af90d0dab43145293248a58fc0fccba10924697d4800",
+  "started_utc": "2026-10-17T08:29:20.589447+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "17e633b2-41c8-4ff0-95bc-1c53d3ef8fee",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n    int a[1000];\\n    int num;\\nint check(void);\\nint main(int argc, char *argv[]){\\n\\n    int i,ans=0,j;\\n    scanf(\\\"%d\\\",&num);\\n    for(i=0;i<num;i++){\\n        scanf(\\\"%d\\\",&a[i]);\\n    }\\n    if(check()){\\n        ans=1;\\n        goto end;\\n    }\\n    for(i=0;i<num;i++){\\n        for(j=0;j<num;j++){\\n            if(j%2==0){ //plus\\n                if(a[j]==num-1){\\n                    a[j]=0;\\n                }\\n                else{\\n                    a[j]++;\\n                }\\n            }\\n            else{ //minus\\n                if(a[j]==0){\\n                    a[j]=num-1;\\n                }\\n                else{\\n                    a[j]--;\\n                }\\n            }\\n        }\\n        /**for(j=0;j<num;j++){\\n            printf(\\\"%d \\\",a[j]);\\n        }\\n        printf(\\\"\\\\n\\\");**/\\n        if(check()){\\n            ans=1;\\n            goto end;\\n        }\\n    }\\n\\nend:\\n    if(ans){\\n        printf(\\\"Yes\\\");\\n    }\\n    else{\\n        printf(\\\"No\\\");\\n    }\\n\\n\\n\\n    return 0;\\n\\n}\\n\\nint check(void){\\n    int i;\\n    if(a[0]!=0) return 0;\\n    for(i=1;i<num;i++){\\n        if((a[i]-a[i-1])==0) {\\n            return 0;\\n        }\\n    }\\n    return 1;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1159,
+    "completion_tokens": 417,
+    "total_tokens": 1576,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 135
+  },
+  "raw_sha256": "2aac1c1279c55bf4ccfe2988dd91b999694f5b3ab6c6573cbca0c5070fbf6ad3",
+  "ended_utc": "2026-10-17T08:29:22.506219+00:00",
+  "elapsed_seconds": 1.922
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3424/BP3/repair/1",
+  "case_id": "BP17-3424",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "a8e8909794654121224e2b7a1cd4c5e7737513d4c389ba27501f7cd759d4d259",
+  "started_utc": "2026-11-16T16:01:47.630565+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2d58acc5-e05d-4cff-bfaf-886384fa84d9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/* Problem: 625B - War of the Corporations */\\n/* Solver: Gusztav Szmolik */\\n\\n#include <stdio.h>\\n#include <string.h>\\n#include <ctype.h>\\n\\nunsigned char na[100002];\\nunsigned char np[32];\\n\\nint main(int argc, char *argv[])\\n    {\\n    unsigned int sl;\\n    unsigned int i;\\n    unsigned char* p;\\n    unsigned int c;\\n    \\n    if (scanf(\\\"%100001s\\\",na) != 1)\\n        return -1;\\n    sl = strlen (na);\\n    if (sl > 100000)\\n        return -1;\\n    for (i = 0; i < sl; i++)\\n        if (!islower(na[i]))\\n            return -1;\\n    if (scanf(\\\"%31s\\\",np) != 1)\\n        return -1;\\n    sl = strlen (np);\\n    if (sl > 30)\\n        return -1;\\n    for (i = 0; i < sl; i++)\\n        if (!islower(np[i]))\\n            return -1;\\n    p = strstr (na,np);\\n    c = 0;\\n    while (p != NULL)\\n        {\\n        c++;\\n        p += sl;\\n        p = strstr (p,np);\\n        }\\n    printf (\\\"%u\\\\n\\\",c);\\n    return 0;\\n    }\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1594,
+    "completion_tokens": 347,
+    "total_tokens": 1941,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1594
+  },
+  "raw_sha256": "57f1bd619c9c6cb1bb75a6b2028cbe68e65e31358213efeb8b47e2507f46e391",
+  "ended_utc": "2026-11-16T16:01:50.086316+00:00",
+  "elapsed_seconds": 2.4537
+}

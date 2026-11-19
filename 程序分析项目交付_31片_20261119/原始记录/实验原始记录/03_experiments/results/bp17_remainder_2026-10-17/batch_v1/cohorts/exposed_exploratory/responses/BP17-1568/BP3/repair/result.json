@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1568/BP3/repair/1",
+  "case_id": "BP17-1568",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "bdf18b456de8e0db6e4cd1602fba06dbfe8d9bc64fb27c59216ef63e55b05d90",
+  "started_utc": "2026-11-16T05:32:32.053559+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4422f094-7119-4bde-a7a7-0b9fdcffc072",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#define ll long long int\\nlong long int array[270000];\\nlong long int inp[131703];\\nint invindex[131703];\\nint n,m,turn;\\nlong long int build(int node,int a,int b) {\\n\\tif (a==b) {\\n\\t\\tturn=1;\\n\\t\\tarray[node]=inp[a];\\n\\t\\tinvindex[a]=node;\\n\\t\\treturn inp[a];\\n\\t}\\n\\telse {\\n\\t\\tint mid=(a+b)/2;\\n\\t\\tll p=build(node*2,a,mid);\\n\\t\\tll q=build(node*2+1,mid+1,b);\\n\\t\\tif (turn==1) p=(p|q);\\n\\t\\telse p=(p^q);\\n\\t\\tturn=1-turn;\\n\\t\\tarray[node]=p;\\n\\t\\treturn array[node];\\n\\t}\\n}\\n\\nll update(int node, ll value) {\\n\\tturn=1;\\n\\tll nval;\\n\\tarray[node]=value;\\n\\twhile (node!=1) {\\n\\t\\tif (node%2==1) {\\n\\t\\t\\tif (turn==1) {\\n\\t\\t\\t\\tnval=array[node]|array[node-1];\\n\\t\\t\\t\\tnode/=2;\\n\\t\\t\\t\\tarray[node]=nval;\\n\\t\\t\\t}\\n\\t\\t\\telse {\\n\\t\\t\\t\\tnval=array[node]^array[node-1];\\n\\t\\t\\t\\tnode/=2;\\n\\t\\t\\t\\tarray[node]=nval;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\telse {\\n\\t\\t\\tif (turn==1) {\\n\\t\\t\\t\\tnval=array[node]|array[node+1];\\n\\t\\t\\t\\tnode/=2;\\n\\t\\t\\t\\tarray[node]=nval;\\n\\t\\t\\t}\\n\\t\\t\\telse {\\n\\t\\t\\t\\tnval=array[node]^array[node+1];\\n\\t\\t\\t\\tnode/=2;\\n\\t\\t\\t\\tarray[node]=nval;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tturn=1-turn;\\n\\t}\\n\\treturn array[1];\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tll limit,p,b;\\n\\tll i;\\n\\tint j,k;\\n\\tscanf(\\\"%d %d\\\",&n,&m);\\n\\tlimit=(1<<n);\\n\\tfor (i=1;i<=limit;i++) {\\n\\t\\tscanf(\\\"%lld\\\",&inp[i]);\\n\\t}\\n\\tbuild(1,1,limit);\\n\\tfor (j=1;j<=m;j++) {\\n\\t\\tscanf(\\\"%lld %lld\\\",&p,&b);\\n\\t\\tprintf(\\\"%lld\\\\n\\\",update(invindex[p],b));\\n\\t}\\n\\treturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2357,
+    "completion_tokens": 682,
+    "total_tokens": 3039,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2357
+  },
+  "raw_sha256": "7df5293df92d8282ded61f01b4c2cf15b263efb9d73e91f0ae26a82bedde013e",
+  "ended_utc": "2026-11-16T05:32:35.068224+00:00",
+  "elapsed_seconds": 3.0117
+}

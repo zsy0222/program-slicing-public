@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1028/BP0/repair/1",
+  "case_id": "BP17-1028",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "876f23f93b77b1dfa6cc6e6622a3a2094adbda76d784d50e13235f848231e934",
+  "started_utc": "2026-11-16T03:50:15.620684+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8ce07010-c08e-4c5e-a492-b88fc9f02969",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nvoid A(a, b)\\n{\\n\\tint c;\\n\\n\\tprintf(\\\"%d\\\", a);\\n\\tfor (c = 0; c < b; ++c)\\n\\t\\tprintf(\\\"0\\\");\\n\\tprintf(\\\"\\\\n\\\");\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint a, b, c;\\n\\n\\tscanf(\\\"%d%d%d\\\", &a, &b, &c);\\n\\ta *= 10;\\n\\tif (a == b)\\n\\t\\tA(a, c - 1);\\n\\telse if (a < b) {\\n\\t\\tif (b - a > 9)\\n\\t\\t\\tprintf(\\\"-1\\\\n\\\");\\n\\t\\telse\\n\\t\\t\\tA(b, c - 1);\\n\\t} else {\\n\\t\\tif (a % b > 9)\\n\\t\\t\\tprintf(\\\"-1\\\\n\\\");\\n\\t\\telse\\n\\t\\t\\tA(a + b - a % b, c - 1);\\n\\t}\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2513,
+    "completion_tokens": 263,
+    "total_tokens": 2776,
+    "prompt_tokens_details": {
+      "cached_tokens": 2304
+    },
+    "prompt_cache_hit_tokens": 2304,
+    "prompt_cache_miss_tokens": 209
+  },
+  "raw_sha256": "d0c8e4dc48ba61d71d49444637f2c36d3bfa8bb4263a7b4cd8b09c24adc5c694",
+  "ended_utc": "2026-11-16T03:50:17.576837+00:00",
+  "elapsed_seconds": 1.9538
+}

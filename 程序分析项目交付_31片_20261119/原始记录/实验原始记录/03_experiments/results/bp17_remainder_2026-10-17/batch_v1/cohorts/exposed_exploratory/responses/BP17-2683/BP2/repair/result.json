@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2683/BP2/repair/1",
+  "case_id": "BP17-2683",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "22eb54edcc5f4bbf116ffb2e2da491498cce7b42ee475cc4a4b3b4c6ce3ccf98",
+  "started_utc": "2026-10-17T08:33:21.208486+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fd847daf-ac8c-4d29-8a4a-e86702954df2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n#define N 1001\\n\\nint main(int argc, char *argv[])\\n{\\n  char lines[N][N];\\n  int l, ml=0, i, ll=0, res=0;\\n\\n  while (gets(lines[ll])) {\\n    \\n    l = strlen(lines[ll]);\\n    \\n    if (l > ml) {\\n        ml = l;\\n    }\\n    \\n    ll ++;\\n  }\\n  \\n  for (i = 0; i < ml + 2; i ++) {\\n    printf(\\\"*\\\");\\n  }\\n  \\n  printf(\\\"\\\\n\\\");\\n  \\n  int j, sl;\\n  int left = 0;\\n  \\n  for (i = 0; i < ll; i ++) {\\n      printf(\\\"*\\\");\\n      \\n      l = strlen(lines[i]);\\n      \\n      if (((ml - l) % 2) == 0) {\\n          sl = (ml - l) / 2;\\n      } else {\\n          if ((left % 2) == 0) {\\n            sl = (ml - l) / 2;\\n          } else {\\n            sl = (ml - l) / 2 + 1;\\n          }\\n          \\n          left = (left + 1) % 2;\\n      }\\n      \\n      for (j = 0; j < sl; j ++) {\\n          printf(\\\" \\\");\\n      }\\n      \\n      printf(\\\"%s\\\", lines[i]);\\n      \\n      for (j = 0; j < (ml - l - sl); j ++) {\\n          printf(\\\" \\\");\\n      }\\n      \\n      printf(\\\"*\\\\n\\\");\\n  }\\n  \\n  for (i = 0; i < ml + 2; i ++) {\\n    printf(\\\"*\\\");\\n  }\\n  \\n  printf(\\\"\\\\n\\\");\\n  \\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2246,
+    "completion_tokens": 493,
+    "total_tokens": 2739,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 710
+  },
+  "raw_sha256": "08c4404ac75fc277beba351e868f48a4ae36ecc1268f0eeab0d67f201908f98c",
+  "ended_utc": "2026-10-17T08:33:23.378465+00:00",
+  "elapsed_seconds": 2.172
+}

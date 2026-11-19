@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2678/BP0/repair/1",
+  "case_id": "BP17-2678",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "181ae94f0868994e9b71d7d735968bbf4257d765b544624e2adc5f2606a0c4e9",
+  "started_utc": "2026-10-17T08:55:20.498138+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2f3588b5-d18a-4fb1-a2c9-1ef908bb43d2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <string.h>\\nint main(int argc, char *argv[])\\n{\\n\\tchar raw_input[110];\\n\\tint clients = 0,traffic = 0, data_length = 0,i,name_length;\\n\\twhile(gets(raw_input))\\n\\t{\\n\\t\\tif(raw_input[0] == '+')\\n\\t\\t\\tclients++;\\n\\t\\telse if(raw_input[0] == '-')\\n\\t\\t\\tclients--;\\n\\t\\telse {\\n\\t\\t\\t\\ti = 0;\\n\\t\\t\\t\\tname_length = 0;\\n\\t\\t\\t\\tdata_length = 0;\\n\\t\\t\\t\\twhile(raw_input[i] != ':' && raw_input[i] != '\\\\0') {\\n\\t\\t\\t\\t\\tname_length++;\\n\\t\\t\\t\\t\\ti++;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\tif(raw_input[i] == ':')\\n\\t\\t\\t\\t\\tdata_length = strlen(raw_input) - name_length - 1;\\n\\t\\t\\t\\telse\\n\\t\\t\\t\\t\\tdata_length = 0;\\n\\t\\t\\t\\ttraffic += data_length * clients;\\t\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d\\\",traffic);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 971,
+    "completion_tokens": 291,
+    "total_tokens": 1262,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 203
+  },
+  "raw_sha256": "84041d76d098e7b509c62921b18f4b0424d8006adcb36ebec51c3e4a3ca5afaa",
+  "ended_utc": "2026-10-17T08:55:22.247761+00:00",
+  "elapsed_seconds": 1.734
+}

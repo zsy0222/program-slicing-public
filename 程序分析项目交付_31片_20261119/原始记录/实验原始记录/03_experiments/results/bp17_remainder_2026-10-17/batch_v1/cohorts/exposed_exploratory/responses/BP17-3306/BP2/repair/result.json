@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3306/BP2/repair/1",
+  "case_id": "BP17-3306",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "7da7476a30bd2ca7cbe4e2f3618c1f17b889ca824e6ca2924fc4fad2478f1671",
+  "started_utc": "2026-11-16T16:13:01.406735+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4ac36c9a-b5ce-45c4-ad8d-5e6effd479db",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nvoid sortelements(int n,int a[])\\n{\\n    int min,idx,i,j,t;\\n    for(i=0; i<n-1; i++)\\n    {\\n        min=a[i];\\n        idx=i;\\n        for(j=i+1; j<n; j++)\\n        {\\n            if(a[j]<min)\\n            {\\n                min=a[j];\\n                idx=j;\\n            }\\n        }\\n        t=a[i];\\n        a[i]=a[idx];\\n        a[idx]=t;\\n\\n    }\\n}\\n\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,m,i;\\n    scanf(\\\"%d%d\\\",&m,&n);\\n    int a[m];\\n    for(i=0; i<m; i++)\\n    {\\n        scanf(\\\"%d\\\",&a[i]);\\n    }\\n    sortelements(m,a);\\n\\n    int sum=a[m-1],k=1;\\n     for(i=m-2;i>=0;i--)\\n     {\\n         if(sum>=n)break;\\n         k++;\\n         sum=sum+a[i];\\n     }\\n\\n\\n     printf(\\\"%d\\\",k);\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1674,
+    "completion_tokens": 297,
+    "total_tokens": 1971,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 778
+  },
+  "raw_sha256": "21d1700360e07fc6fbd7fbd07856e7043cd4f6e731f853ce712e8737f16853c6",
+  "ended_utc": "2026-11-16T16:13:03.244841+00:00",
+  "elapsed_seconds": 1.8357
+}

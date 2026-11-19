@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3336/BP3/repair/1",
+  "case_id": "BP17-3336",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "fa4c5486a97b62db07aba90fff1afd669ae9bf7f592485730200fd8e190cca58",
+  "started_utc": "2026-10-21T07:55:43.724256+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "abf3843e-f063-471e-85df-78c14cc75318",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n# include <string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int i,n,p,q,x,d,flag=0,s,rem;\\n    char text[101];\\n    scanf(\\\"%d %d %d\\\\n\\\",&n,&p,&q);\\n    for (i=0;i<n;i++)\\n    scanf(\\\"%c\\\",&text[i]);\\n    text[n]='\\\\0';\\n    rem=n%(p+q);\\n    if ((rem==0)&&((p+q)<=n))\\n    {\\n        flag=1;\\n        s=(n/(q+p));\\n        printf(\\\"%d\\\\n\\\",(s*2));\\n        int j=0,k,z;\\n        for (i=1;i<=s;i++)\\n        {\\n           for(k=j;k<(j+p);k++)\\n           printf(\\\"%c\\\",text[k]);\\n           printf(\\\"\\\\n\\\");\\n           for(z=(p+j);z<(j+q+p);z++)\\n           printf(\\\"%c\\\",text[z]);\\n           printf(\\\"\\\\n\\\");\\n           j=j+(p+q);\\n        }\\n    }\\n\\n    else if (((n%p)==0)&&(p<=n))\\n    {\\n        flag=1;\\n        s=n/p;\\n        int j=0,k;\\n        printf(\\\"%d\\\\n\\\",s);\\n        for (i=1;i<=s;i++)\\n        {\\n           for(k=j;k<(i*p);k++)\\n           printf(\\\"%c\\\",text[k]);\\n           printf(\\\"\\\\n\\\");\\n           j=j+p;\\n        }\\n    }\\n    else if (((n%q)==0)&&(q<=n))\\n    {\\n\\n       flag=1;\\n        s=n/q;\\n        int j=0,k;\\n        printf(\\\"%d\\\\n\\\",s);\\n        for (i=1;i<=s;i++)\\n        {\\n           for(k=j;k<(i*q);k++)\\n           printf(\\\"%c\\\",text[k]);\\n           printf(\\\"\\\\n\\\");\\n           j=j+q;\\n        }\\n    }\\n\\n    else if ((rem%p==0) && (rem>=p))\\n    {\\n        flag=1;\\n        s=(n/(q+p));\\n        printf(\\\"%d\\\\n\\\",((s*2)+(rem/p)));\\n        int j=0,k,z;\\n        for (i=1;i<=s;i++)\\n        {\\n           for(k=j;k<(j+p);k++)\\n           printf(\\\"%c\\\",text[k]);\\n           printf(\\\"\\\\n\\\");\\n           for(z=(p+j);z<(j+q+p);z++)\\n           printf(\\\"%c\\\",text[z]);\\n           printf(\\\"\\\\n\\\");\\n           j=j+(p+q);\\n        }\\n\\n     for (i=1;i<=(rem/p);i++)\\n        {\\n           for(k=j;k<(j+p);k++)\\n           printf(\\\"%c\\\",text[k]);\\n           printf(\\\"\\\\n\\\");\\n           j=j+p;\\n        }\\n    }\\n    else if ((rem%q==0) && (rem>=q))\\n    {\\n        flag=1;\\n        s=(n/(q+p));\\n        printf(\\\"%d\\\\n\\\",((s*2)+(rem/q)));\\n        int j=0,k,z;\\n        for (i=1;i<=s;i++)\\n        {\\n           for(k=j;k<(j+p);k++)\\n           printf(\\\"%c\\\",text[k]);\\n           printf(\\\"\\\\n\\\");\\n           for(z=(p+j);z<(j+q+p);z++)\\n           printf(\\\"%c\\\",text[z]);\\n           printf(\\\"\\\\n\\\");\\n           j=j+(p+q);\\n        }\\n\\n     for (i=1;i<=(rem/q);i++)\\n        {\\n\\n           for(k=j;k<(j+q);k++)\\n           printf(\\\"%c\\\",text[k]);\\n           printf(\\\"\\\\n\\\");\\n           j=j+q;\\n        }\\n    }\\n  else\\n  {\\n\\n    int j,k,check=0;\\n\\n    j=n/p;\\n\\n    while ((j>0)&&(!check))\\n    {\\n        k=n-(j*p);\\n        if ((k%q==0)&&(k>=q))\\n        {\\n          flag=1;\\n          check=1;\\n          s=j+(k/q);\\n          printf(\\\"%d\\\\n\\\",s);\\n          for (i=1;i<=j;i++)\\n           {\\n            for(x=(i-1)*p;x<(i*p);x++)\\n             printf(\\\"%c\\\",text[x]);\\n            printf(\\\"\\\\n\\\");\\n           }\\n            for (d=1;d<=(k/q);d++)\\n           {\\n            for(i=(x+((d-1)*q));i<(x+((d)*q));i++)\\n             printf(\\\"%c\\\",text[i]);\\n            printf(\\\"\\\\n\\\");\\n           }\\n\\n        }\\n        else\\n        j--;\\n    }\\n\\n  }\\n    if (flag==0)\\n        printf(\\\"-1\\\");\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 4286,
+    "completion_tokens": 1258,
+    "total_tokens": 5544,
+    "prompt_tokens_details": {
+      "cached_tokens": 2176
+    },
+    "prompt_cache_hit_tokens": 2176,
+    "prompt_cache_miss_tokens": 2110
+  },
+  "raw_sha256": "55a24e8ca1bca4fd497e32e24b978244d15b91d5acfd185491b2c3ee306890f5",
+  "ended_utc": "2026-10-21T07:55:47.900064+00:00",
+  "elapsed_seconds": 4.171
+}

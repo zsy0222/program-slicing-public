@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2194/BP0/repair/1",
+  "case_id": "BP17-2194",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "0d390566a114e7489488bca2b486b129b9d46034c00a8517cbe0fcf4703fdbbc",
+  "started_utc": "2026-10-17T10:14:04.313635+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e489952c-d277-44e3-b476-de66ba36203c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\nint main(int argc, char *argv[])\\n{\\n    int i,j,k=0,b[4],flag=0,ans=0;\\n    char a[4][101];\\n    for(i=0;i<4;i++)\\n    scanf(\\\"%s\\\",a[i]);\\n    for(i=0;i<4;i++)\\n    b[i]= strlen(a[i])-2;\\n    for(i=0;i<4;i++)\\n    {\\n        for(j=0;j<4;j++)\\n        {\\n            if(b[i]>=2*b[j])\\n            k++;\\n        }\\n        if(k==3)\\n        {\\n            flag++;\\n            ans=i;\\n        }\\n        k=0;\\n    }\\n    k=0;\\n    for(i=0;i<4;i++)\\n    {\\n        for(j=0;j<4;j++)\\n        {\\n            if(b[i]*2<=b[j])\\n            k++;\\n        }\\n        if(k==3)\\n        {\\n            flag++;\\n            ans=i;\\n        }\\n        k=0;\\n    }\\n    if(flag==1)\\n    printf(\\\"%c\\\\n\\\",a[ans][0]);\\n    else\\n    printf(\\\"C\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1479,
+    "completion_tokens": 322,
+    "total_tokens": 1801,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1479
+  },
+  "raw_sha256": "16ff2bb75e43fbc078439457209aa8c1fef942c9d51c1a63a8834e2000fd86af",
+  "ended_utc": "2026-10-17T10:14:06.018722+00:00",
+  "elapsed_seconds": 1.703
+}

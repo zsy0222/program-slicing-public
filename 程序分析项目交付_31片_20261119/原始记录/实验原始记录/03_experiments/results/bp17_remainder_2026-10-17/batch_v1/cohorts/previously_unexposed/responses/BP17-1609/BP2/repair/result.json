@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1609/BP2/repair/1",
+  "case_id": "BP17-1609",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "5528820928b57c1e57a773b954447aa2266428a0e8ef4b2c25cee66e2239edad",
+  "started_utc": "2026-10-17T08:51:08.893696+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "b4668bc5-432d-45ee-89a0-3d2de3633201",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int a, b, c, i, j, k=0, aray[3], mx, mn, md;\\n    scanf(\\\"%d %d %d\\\", &a, &b, &c);\\n    if(a==b && b==c){\\n        printf(\\\"Impossible\\\");\\n        return 0;\\n    }\\n    else if(a+b==c){\\n        printf(\\\"%d %d %d\\\", 0, b, a);\\n    }\\n    else if(b+c==a){\\n        printf(\\\"%d %d %d\\\", b, 0, c);\\n    }\\n    else if(c+a==b){\\n        printf(\\\"%d %d %d\\\", a, c, 0);\\n    }\\n    else{\\n        aray[0]=a;\\n        aray[1]=b;\\n        aray[2]=c;\\n        for(i=1;i<3;i++){\\n            j=i;\\n            while(j>0 && aray[j]<aray[j-1]){\\n                aray[j]^=aray[j-1];\\n                aray[j-1]^=aray[j];\\n                aray[j]^=aray[j-1];\\n                j--;\\n            }\\n        }\\n        mx=aray[2];\\n        mn=aray[0];\\n        md=aray[1];\\n        if(mn+md<mx){\\n            printf(\\\"Impossible\\\");\\n            return 0;\\n        }\\n        else{\\n            if(a+b>c){\\n                while(a+b!=c){\\n                    k++;\\n                    a--;\\n                    b--;\\n                    if(a+b<c){\\n                        break;\\n                    }\\n                }\\n                if(a+b==c){\\n                    printf(\\\"%d %d %d\\\", k, b, a);\\n                }\\n                else{\\n                    printf(\\\"Impossible\\\");\\n                }\\n            }\\n            else if(b+c>a){\\n                while(c+b!=a){\\n                    k++;\\n                    c--;\\n                    b--;\\n                    if(c+b<a){\\n                        break;\\n                    }\\n                }\\n                if(c+b==a){\\n                    printf(\\\"%d %d %d\\\",b, k, c);\\n                }\\n                else{\\n                    printf(\\\"Impossible\\\");\\n                }\\n            }\\n            else if(c+a>b){\\n                while(a+c!=b){\\n                    k++;\\n                    a--;\\n                    c--;\\n                    if(a+c<b){\\n                        break;\\n                    }\\n                }\\n                if(a+c==b){\\n                    printf(\\\"%d %d %d\\\", a, c, k);\\n                }\\n                else{\\n                    printf(\\\"Impossible\\\");\\n                }\\n            }\\n        }\\n\\n\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2700,
+    "completion_tokens": 695,
+    "total_tokens": 3395,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 1292
+  },
+  "raw_sha256": "79cc09a672f4db4152c0e29e7fe9d767ae0a5d118a3ca80d6d0c694a109b5807",
+  "ended_utc": "2026-10-17T08:51:11.786603+00:00",
+  "elapsed_seconds": 2.86
+}

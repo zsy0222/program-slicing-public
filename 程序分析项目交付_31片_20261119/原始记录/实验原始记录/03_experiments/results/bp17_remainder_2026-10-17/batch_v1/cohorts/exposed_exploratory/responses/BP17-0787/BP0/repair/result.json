@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0787/BP0/repair/1",
+  "case_id": "BP17-0787",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "b1511008b2663239b6b1a2aa3c39da9f8dd940a6c194faf6169d7c23650a5812",
+  "started_utc": "2026-11-17T01:18:14.115306+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6a926064-3ec5-41a0-96e7-ebbb07e9ac5b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,k,i;\\n    scanf(\\\"%d%d\\\",&n,&k);\\n    long long r[1000];\\n    for(i=1;i<=2*n+1;i++)\\n    {\\n        scanf(\\\"%lld\\\",&r[i]);\\n    }\\n    int cnt=0;\\n\\n    for(i=2*n+1;i>=1;i--)\\n    {\\n        if(i%2==0)\\n        {\\n            r[i]=r[i]-1;\\n            if(r[i]>r[i+1] && r[i]>r[i-1])\\n            {\\n                 cnt++;\\n                if(cnt==k)\\n                break;\\n            }\\n            else\\n            {\\n                r[i]=r[i]+1;\\n                continue ;\\n            }\\n\\n        }\\n    }\\n    for(i=1;i<=2*n+1;i++)\\n    printf(\\\"%lld \\\",r[i]);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1469,
+    "completion_tokens": 244,
+    "total_tokens": 1713,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 189
+  },
+  "raw_sha256": "dcbd9dc09b42089c59f1311864849271412bc3e1750ac11da9644f8f87432fb0",
+  "ended_utc": "2026-11-17T01:18:15.860700+00:00",
+  "elapsed_seconds": 1.7432
+}

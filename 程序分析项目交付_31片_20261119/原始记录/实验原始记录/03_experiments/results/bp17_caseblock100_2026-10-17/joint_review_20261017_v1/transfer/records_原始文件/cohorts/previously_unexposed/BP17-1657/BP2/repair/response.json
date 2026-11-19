@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-1657",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\nint t[1000005];\\nchar str[1000005];\\n\\nint main(int argc, char *argv[]){\\n\\twhile (~scanf(\\\"%s\\\", str)) {\\n\\t\\tint len = strlen(str), cnt = 0, i, pos=0;\\n\\t\\tfor (i=0; i<len; i++) {\\n\\t\\t\\tif (str[i] == 'F') {\\n\\t\\t\\t\\tcnt++;\\n\\t\\t\\t\\tt[cnt] = (i+1) - cnt;\\n\\t\\t\\t\\tif (cnt == 2) {\\n\\t\\t\\t\\t\\tpos = i;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif (cnt ==0 ) {\\n\\t\\t\\tputs(\\\"0\\\"); continue;\\n\\t\\t}\\n\\t\\telse if (cnt == 1) {\\n\\t\\t\\tprintf(\\\"%d\\\\n\\\", t[1]); continue;\\n\\t\\t}\\n\\t\\tint cur = 2;\\n\\t\\tfor (i=pos; i<len; i++) {\\n\\t\\t\\tif (str[i] == 'M') {\\n\\t\\t\\t\\tcontinue;\\n\\t\\t\\t}\\n\\t\\t\\tif (t[cur] == 0) {\\n\\t\\t\\t\\tcur++;\\n\\t\\t\\t\\tcontinue;\\n\\t\\t\\t}\\n\\t\\t\\tif (t[cur] <= t[cur-1]) {\\n\\t\\t\\t\\tt[cur] = t[cur-1] + 1;\\n\\t\\t\\t}\\n\\t\\t\\tcur++;\\n\\t\\t}\\n\\n\\t\\tprintf(\\\"%d\\\\n\\\", t[cnt]);\\n\\t}\\n\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 2.532,
+  "ended_utc": "2026-10-17T07:07:39.466535+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1657/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "fa4b573a41f7edf2120612ba7c6582d7322496b0f49573dbc7328df46031b6f3",
+  "request_model": "deepseek-flash",
+  "request_sha256": "899670baf4db95232b393cdb1f028f40a49ddbf0ea25b6a5e56eedbe3b5e53df",
+  "response_id": "d939c4b1-53e4-4a94-afd4-bd2634b41f7d",
+  "started_utc": "2026-10-17T07:07:36.929601+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 395,
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 780,
+    "prompt_tokens": 1804,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "total_tokens": 2199
+  }
+}

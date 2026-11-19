@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3705/BP0/repair/1",
+  "case_id": "BP17-3705",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "ba29b3e3b75ab1e4ef61dc765fb9326bf793d6c3fe30eb0a70917ba80e0d807c",
+  "started_utc": "2026-11-16T16:50:52.730874+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cf7e81cb-1831-4efc-bc46-8dbd45b5a1cd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define TAM 5\\n\\nint main(int argc, char *argv[]) {\\n\\n\\tint vec[TAM],i,k,j;\\n\\tint vecAux[2];\\n\\tint aux = 3;\\n\\tint suma = 0;\\n\\tint actual = 0;\\n\\n\\tfor(i=0;i<TAM;i++){\\n\\t\\tscanf(\\\"%d\\\", &vec[i]);\\n\\t}\\n\\n\\tk = 0;\\n\\tj = 0;\\n\\n\\tvecAux[0] = 0;\\n\\tvecAux[1] = 0;\\n\\n\\tdo{\\n\\t\\tfor( i = k; i < TAM-1; i++ ) {\\n\\t\\t\\tif( vec[i+1] == vec[k] && vec[i+1] != vecAux[0] ){\\n\\t\\t\\t\\tvecAux[j] = vec[k];\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tif( vecAux[0] > 0 ){\\n\\t\\t\\tj = 1;\\n\\t\\t}\\n\\t\\t++k;\\n\\t} while( k < TAM-1); \\n\\t\\n\\tint cantA = 0;\\n\\tint cantB = 0;\\n\\n\\tfor(i = 0; i < TAM; i++ ){\\n\\t\\tif( vec[i] == vecAux[0] ) {\\n\\t\\t\\tcantA++;\\n\\t\\t}\\n\\t\\tif( vec[i] == vecAux[1] ) {\\n\\t\\t\\tcantB++;\\n\\t\\t}\\n\\t}\\n\\tint mayor;\\n\\tif( (vecAux[0] * cantA) > (vecAux[1]*cantB) ) {\\n\\t\\tmayor = vecAux[0]; \\t\\n\\t}\\n\\telse {\\n\\t\\tmayor = vecAux[1];\\n\\t}\\n\\ti = 0;\\n\\t\\n\\tdo{\\n\\t\\tif( vec[i] == mayor ){\\n\\t\\t\\tvec[i] = 0;\\n\\t\\t\\t--aux;\\n\\t\\t}\\n\\t\\t++i;\\n\\t} while(aux > 0 && i < TAM);\\n\\n\\tfor(i=0;i<TAM;i++){\\n\\t\\tsuma+= vec[i];\\n\\t}\\t\\n\\n\\tprintf(\\\"%d\\\\n\\\", suma);\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1385,
+    "completion_tokens": 559,
+    "total_tokens": 1944,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1385
+  },
+  "raw_sha256": "5fa08d64eee5d18d16e1e4bf38e0395bfaf19c7cdac4763e956e7fa57bdd87e5",
+  "ended_utc": "2026-11-16T16:50:55.320823+00:00",
+  "elapsed_seconds": 2.5806
+}

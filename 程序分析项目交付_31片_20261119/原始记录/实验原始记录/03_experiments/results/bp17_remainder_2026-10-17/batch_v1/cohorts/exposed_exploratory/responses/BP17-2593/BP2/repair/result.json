@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2593/BP2/repair/1",
+  "case_id": "BP17-2593",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "c5b941eb7dad880c36a12fb0e3f3a93ec578b1ea6412addbf3771519b0ddca59",
+  "started_utc": "2026-10-18T11:46:26.445475+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c4742c05-d25d-4a72-b5c6-5c9878d33915",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\n#include<stdlib.h>\\nint flag ;\\nint steps = 1000000;\\nint main(int argc, char *argv[]){\\n    // C. Given Length and Sum of Digits...\\n   int n , sum ,i;\\n    flag = 0;\\n    scanf(\\\"%d%d\\\",&n,&sum);\\n    if(sum == 0) {\\n        if(n == 1) printf(\\\"0 0\\\\n\\\");\\n        else printf(\\\"-1 -1\\\\n\\\");\\n        return 0;\\n    }\\n    if(sum > 9*n){\\n        printf(\\\"-1 -1\\\\n\\\");\\n        return 0;\\n    }\\n    if(sum == 1){\\n\\n          printf(\\\"1\\\");\\n          for(i=0 ; i < n-1 ; i++) printf(\\\"0\\\");\\n          printf(\\\" \\\");\\n          printf(\\\"1\\\");\\n          for(i=0 ; i < n-1 ; i++) printf(\\\"0\\\");\\n          printf(\\\"\\\\n\\\");\\n          return 0;\\n\\n    }\\n    int min[n] , max[n];\\n    get_min(n,n,sum,min);\\n    if(flag == 1){\\n        get_max(n,n,sum,max);\\n    }\\n    else{\\n        printf(\\\"-1 -1\\\\n\\\");\\n        return 0;\\n    }\\n    for(i=n-1;i>=0;i--){\\n         printf(\\\"%d\\\",min[i]);\\n    }\\n    printf(\\\" \\\");\\n    for(i=n-1;i>=0;i--){\\n         printf(\\\"%d\\\",max[i]);\\n    }\\n    printf(\\\"\\\\n\\\");\\n\\n\\n\\n\\nreturn 0;\\n}\\n\\nint get_min(int n, int index , int sum , int *min){\\n    if(index == 0){\\n         flag = 1;\\n         return 0;\\n    }\\n    if(sum == 0 || sum > 9*index) return 0;\\n    int i = (index == n)? 1:0;\\n    for(i;i<=9;i++){\\n          if(sum - i <= 9*(index-1)){\\n            min[index-1] = i;\\n            get_min(n,index-1,sum-i,min);\\n            break;\\n          }\\n    }\\n    return 0;\\n}\\nint get_max(int n, int index , int sum , int *max){\\n    if(index == 0){\\n         flag = 1;\\n         return 0;\\n    }\\n    int i = 9;\\n    for(i;i>=0;i--){\\n          if(sum >= i && sum - i <= 9*(index-1)){\\n            max[index-1] = i;\\n            get_max(n,index-1,sum-i,max);\\n            break;\\n          }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2638,
+    "completion_tokens": 691,
+    "total_tokens": 3329,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2638
+  },
+  "raw_sha256": "f390a6311b364d46f8d94041c5d03ea212b30a384e17c1efc5465c16fcab7319",
+  "ended_utc": "2026-10-18T11:46:28.980307+00:00",
+  "elapsed_seconds": 2.531
+}

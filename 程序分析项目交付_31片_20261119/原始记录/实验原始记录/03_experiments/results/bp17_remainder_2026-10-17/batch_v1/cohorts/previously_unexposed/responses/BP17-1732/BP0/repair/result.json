@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1732/BP0/repair/1",
+  "case_id": "BP17-1732",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "54fa25e41cd039df855d8d8538ba93faf68a3d45f60e7d49a234b99e5f5e6404",
+  "started_utc": "2026-11-16T02:54:02.149118+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "287e69af-5e86-4b36-986f-3903bfe8df14",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint array[100005];\\nint cnt=2, max=2;\\n\\nvoid checker(int array[],int i)\\n{\\n    if(array[i]==array[i-1]+array[i-2]){\\n        cnt++;\\n    }\\n    else{\\n    if(cnt>max)\\n        max=cnt;\\n        cnt=2;\\n    }\\n    return;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int N,i;\\n    scanf(\\\"%d\\\",&N);\\n\\n    if(N==1 || N==2){\\n        printf(\\\"%d\\\",N);\\n        return 0;\\n    }\\n\\n    for(i=0;i<N;i++)\\n        scanf(\\\"%d\\\",&array[i]);\\n\\n    for(i=2;i<N;i++){\\n        checker(array,i);\\n    }\\n\\n    if(cnt>max)\\n        max=cnt;\\n\\n    printf(\\\"%d\\\",max);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 921,
+    "completion_tokens": 240,
+    "total_tokens": 1161,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 921
+  },
+  "raw_sha256": "bf3df47ff0a7b02e199dc84a6e1d8c728d6d91a2d99ca7b3cf11e93e58e41952",
+  "ended_utc": "2026-11-16T02:54:04.589401+00:00",
+  "elapsed_seconds": 2.4381
+}

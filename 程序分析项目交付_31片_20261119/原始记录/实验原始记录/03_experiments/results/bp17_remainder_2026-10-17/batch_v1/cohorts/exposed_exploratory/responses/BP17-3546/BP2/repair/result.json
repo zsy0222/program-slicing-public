@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3546/BP2/repair/1",
+  "case_id": "BP17-3546",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "a77a1cb561925949891e4c0b0e722ed4eabb158e3e19897b8ddac472f0b3fb23",
+  "started_utc": "2026-10-17T14:04:05.857200+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "254b3133-41cc-4dd3-ac54-368105d354dc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n;\\n    scanf(\\\"%d\\\",&n);\\n    int a[n],i,j,tem;\\n    for(i=0; i<n; i++)\\n    {\\n        scanf(\\\"%d\\\",&a[i]);\\n    }\\n    for(i=0; i<n-1; i++)\\n    {\\n        for(j=0; j<n-1-i; j++)\\n        {\\n            if(a[j]>a[j+1])\\n            {\\n                tem=a[j];\\n                a[j]=a[j+1];\\n                a[j+1]=tem;\\n            }\\n        }\\n    }\\n    int count=0;\\n    for(i=1; i<n; i++)\\n    {\\n        if(a[i]-a[i-1]==1)\\n            count++;\\n        else\\n            count=0;\\n        if(count==2)\\n        {\\n            printf(\\\"YES\\\\n\\\");\\n            return 0;\\n        }\\n    }\\n    if(i>=n)\\n        printf(\\\"NO\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1615,
+    "completion_tokens": 277,
+    "total_tokens": 1892,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1615
+  },
+  "raw_sha256": "6057c85f08d8a23ae7d415874e77c821e87b24e768093a8f8625d058113071f5",
+  "ended_utc": "2026-10-17T14:04:07.568690+00:00",
+  "elapsed_seconds": 1.719
+}

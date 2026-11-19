@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2162/BP3/repair/1",
+  "case_id": "BP17-2162",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "467a422fb7a8c242f5f61dc8fe6f538dddcb29ec9fc7bc50c4d504f9b3de4a1d",
+  "started_utc": "2026-11-15T12:54:14.380275+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6b30b2eb-34d0-4db6-848e-d1d46ce28a99",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\n\\n#define MAXN    101\\n#define MOD     1000000007\\n\\n\\nvoid Fun(int Dp[MAXN][MAXN], const int N, const int K, int *Ans)\\n{\\n    int i, j, k;\\n    memset(Dp, 0, sizeof(int)*MAXN * MAXN);\\n    if(K <= 0)\\n    {\\n        *Ans = 0;\\n        return;\\n    }\\n    for(i = 1; i <= K && i <= N; ++i)\\n    {\\n        Dp[1][i] = 1;\\n    }\\n    *Ans = Dp[1][N];\\n    for(i = 2; i <= N; ++i)\\n    {\\n        for(j = i - 1; j <= N; ++j)\\n        {\\n            for(k = 1; k <= K && j + k <= N; ++k)\\n            {\\n                Dp[i][j + k] += Dp[i - 1][j];\\n                Dp[i][j + k] %= MOD;\\n            }\\n        }\\n        *Ans += Dp[i][N];\\n        *Ans %= MOD;\\n    }\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int N, K, D, Ans, R;\\n    int Dp[MAXN][MAXN];\\n    scanf(\\\"%d %d %d\\\", &N, &K, &D);\\n    Fun(Dp, N, K, &Ans);\\n    Fun(Dp, N, D - 1, &R);\\n    printf(\\\"%d\\\\n\\\", (Ans - R + MOD) % MOD);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1529,
+    "completion_tokens": 411,
+    "total_tokens": 1940,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 505
+  },
+  "raw_sha256": "90a3b9c8efd46959c914fce23cf3566c3bdc0629ac95807493b6470dbc2a37a1",
+  "ended_utc": "2026-11-15T12:54:16.759331+00:00",
+  "elapsed_seconds": 2.2588
+}

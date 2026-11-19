@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3148/BP0/repair/1",
+  "case_id": "BP17-3148",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "6eae891bce652bd6865e85f207105aef9862ec41f40bcf721f0e8ba80820d654",
+  "started_utc": "2026-10-21T06:38:03.524712+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0c5d06ef-8c77-4ec3-bd70-15510dba91d2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n#include <stdlib.h>\\n#include <string.h>\\n//||\\n//\\\\n\\nint cmpfunc (const void * a, const void * b)\\n{\\n   return ( *(int*)b - *(int*)a );\\n}\\n\\n//  qsort(values, 5, sizeof(int), cmpfunc);\\nlong long n, k, x, ar[200009] = {0}, i, j, m, a, b, mul = 1;\\nlong long pre[200009]= {0}, post[200009] = {0}, ans = 0;\\n\\nint main(int argc, char *argv[])\\n{\\n\\n    scanf(\\\"%lld %lld %lld\\\", &n, &k, &x);\\n\\n    for (i = 1; i <= n; i++)\\n    {\\n        scanf(\\\"%lld\\\", &ar[i]);\\n    }\\n\\n    for (i = 1; i <=  k; i++)\\n    {\\n        mul *= x;\\n    }\\n\\n    for (i = 1; i <= n; i++)\\n    {\\n        pre[i] = pre[i-1] | ar[i];\\n    }\\n\\n    for (i = n; i >= 1; i--)\\n    {\\n        post[i] = post[i+1] | ar[i];\\n    }\\n\\n    for (i = 1; i <= n; i++)\\n    {\\n        if ( (pre[i-1] | (mul * ar[i]) | post[i+1]) > ans)\\n        {\\n            ans = pre[i-1] | (mul * ar[i]) | post[i+1];\\n        }\\n    }\\n\\n    printf(\\\"%lld\\\\n\\\", ans);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1120,
+    "completion_tokens": 425,
+    "total_tokens": 1545,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 224
+  },
+  "raw_sha256": "bb9fff827a7b3b211f344eefa3ac3e4fb7facf3cc26e88c598ebefd3031e9535",
+  "ended_utc": "2026-10-21T06:38:05.284492+00:00",
+  "elapsed_seconds": 1.75
+}

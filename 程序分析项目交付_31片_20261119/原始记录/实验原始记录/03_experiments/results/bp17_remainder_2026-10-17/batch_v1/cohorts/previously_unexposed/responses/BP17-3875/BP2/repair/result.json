@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3875/BP2/repair/1",
+  "case_id": "BP17-3875",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "8e1498276d6a6de8e5a8adfe8c94e21beef70f0a4bf82cc211de3c4b98f464d7",
+  "started_utc": "2026-11-16T18:39:36.725967+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "69131a93-b041-4139-8aa5-3fddb5d50e06",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n     int m, i, j, k;\\n     int a[5][5] = {0};\\n\\n     scanf(\\\"%d\\\", &m);\\n\\n     for (i = 0; i < m; i++) {\\n\\t  int x, y;\\n\\n\\t  scanf(\\\"%d %d\\\", &x, &y);\\n\\n\\t  a[x - 1][y - 1]++;\\n\\t  a[y - 1][x - 1]++;\\n     }\\n\\n     for (i = 0; i < 5; i++) {\\n\\t  for (j = i + 1; j < 5; j++) {\\n\\t       for (k = j + 1; k < 5; k++) {\\n\\t\\t    if (a[i][j] == 1 && a[j][k] == 1 && a[k][i] == 1) {\\n\\t\\t\\t puts(\\\"WIN\\\");\\n\\n\\t\\t\\t return 0;\\n\\t\\t    }\\n\\t\\t    if (a[i][j] == 0 && a[j][k] == 0 && a[k][i] == 0) {\\n\\t\\t\\t puts(\\\"WIN\\\");\\n\\n\\t\\t\\t return 0;\\n\\t\\t    }\\n\\t       }\\n\\t  }\\n     }\\n\\n     puts(\\\"FAIL\\\");\\n\\n     return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1704,
+    "completion_tokens": 346,
+    "total_tokens": 2050,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1704
+  },
+  "raw_sha256": "b5dba060f23074f333358a87774d0e91b6fb88936642a6b9540a95e4905ef1fa",
+  "ended_utc": "2026-11-16T18:39:39.016252+00:00",
+  "elapsed_seconds": 2.2878
+}

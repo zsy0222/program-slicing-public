@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3710/BP1/repair/1",
+  "case_id": "BP17-3710",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e8d92c704900bf2ba48874dc83bac036b89d44365fab36eb452fec34f59ccf51",
+  "started_utc": "2026-11-16T04:11:42.712519+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "ca52ab5a-f735-4173-8624-e5e45d755daa",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, a, i, j, k, crim_count=0;\\n    scanf(\\\"%d %d\\\", &n, &a);\\n    int crim[n];\\n    for(i=0; i<n; i++)\\n    {\\n        scanf(\\\"%d\\\", & crim[i]);\\n    }\\n    if(crim[a-1])\\n    {\\n        crim_count++;\\n    }\\n    for(j=a-2,k=a; j>=0 || k<n; j--,k++)\\n    {\\n        if( j>=0 && k<n && (crim[j]+crim[k])!=1)\\n        {\\n            crim_count+=(crim[j]+crim[k]);\\n\\n        }\\n        else if( j>=0 && k>=n)\\n        {\\n            crim_count+=crim[j];\\n\\n        }\\n        else if(j<0 && k<n)\\n        {\\n            crim_count+=crim[k];\\n\\n        }\\n    }\\n    printf(\\\"%d\\\", crim_count);\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 991,
+    "completion_tokens": 269,
+    "total_tokens": 1260,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 223
+  },
+  "raw_sha256": "9e796100d85bfb1183b2a10351d3bfe6d436902541e5c498d8678799435200d9",
+  "ended_utc": "2026-11-16T04:11:44.352062+00:00",
+  "elapsed_seconds": 1.6368
+}

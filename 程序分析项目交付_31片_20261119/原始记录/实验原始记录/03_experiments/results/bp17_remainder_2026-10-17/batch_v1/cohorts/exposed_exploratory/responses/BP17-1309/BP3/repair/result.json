@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1309/BP3/repair/1",
+  "case_id": "BP17-1309",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "3a07f483f736f001fcd33300493b76374f2909668d953784be5c1cc9b5ab5d20",
+  "started_utc": "2026-10-17T08:48:30.438848+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "30b8adc8-61ed-4102-adf5-d1e00a3b3784",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define N 10000\\n\\nint intcmp (const void *u, const void *v) {\\n  const int a = *(int *)u, b = *(int *)v;\\n  return a < b ? -1 : a == b ? 0 : 1;\\n}\\n\\nint main(int argc, char *argv[]) {\\n  int n, m, k, i, j, a[N], b[N] = {0}, res = 0, *bb;\\n  scanf (\\\"%d %d %d\\\", &n, &m, &k);\\n  for (i = 0; i < n; ++i) scanf (\\\"%d\\\", &a[i]);\\n  for (i = 0; i < m; ++i) scanf (\\\"%d\\\", &b[i]);\\n  if (m < n) m = n;\\n  qsort (a, n, sizeof *a, intcmp);\\n  qsort (b, m, sizeof *b, intcmp);\\n  bb = b + m - n;\\n  for (i = j = 0; i < n && j < m && !res; ++i, ++j) {\\n    if (a[i] > bb[j]) res = 1;\\n  }\\n  printf (\\\"%s\\\\n\\\", res ? \\\"YES\\\" : \\\"NO\\\");\\n  exit (EXIT_SUCCESS);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1860,
+    "completion_tokens": 335,
+    "total_tokens": 2195,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1860
+  },
+  "raw_sha256": "88474afb00b54b7025961fb2a2e845d90300ae054f71fa1d1739459da9285992",
+  "ended_utc": "2026-10-17T08:48:32.313489+00:00",
+  "elapsed_seconds": 1.875
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0423/BP0/repair/1",
+  "case_id": "BP17-0423",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "f79d6fe594524a92276440a43f16df6ad3249db19e63774a3c0945386358f86a",
+  "started_utc": "2026-10-17T13:47:42.675045+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "271a80de-b760-4327-a4c9-b90f4ca40e34",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <math.h>\\n#include <string.h>\\n#include <ctype.h>\\n\\nint cmp(const void *x, const void *y)\\n{\\n\\ttypedef struct\\n\\t{\\n\\t\\tint power;\\n\\t\\tint from;\\n\\t} boy;\\n\\treturn ((boy *)y)->power - ((boy *)x)->power;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\ttypedef struct\\n\\t{\\n\\t\\tint power;\\n\\t\\tint from;\\n\\t} boy;\\n\\tint n, i;\\n\\tboy a[100001];\\n\\t//freopen(\\\"input.txt\\\", \\\"r\\\", stdin);\\n\\t//freopen(\\\"output.txt\\\", \\\"w\\\", stdout);\\n\\n\\tscanf(\\\"%d\\\", &n);\\n\\tfor (i = 0; i < n; i++)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\", &a[i].power);\\n\\t\\ta[i].from = i + 1;\\n\\t}\\n\\tqsort(a, n, sizeof(boy), cmp);\\n\\n\\tprintf(\\\"%d\\\\n\\\", (n + 1) / 2);\\n\\tfor (i = 0; i < n; i++)\\n\\t\\tif (!(i & 1))\\n\\t\\t\\tprintf(\\\"%d \\\", a[i].from); \\n\\n\\tprintf(\\\"\\\\n%d\\\\n\\\", n / 2);\\n\\tfor (i = 0; i < n; i++)\\n\\t\\tif (i & 1)\\n\\t\\t\\tprintf(\\\"%d \\\", a[i].from);\\n\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1286,
+    "completion_tokens": 387,
+    "total_tokens": 1673,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 134
+  },
+  "raw_sha256": "1468710d24b24c5c1ba4380c5cdd70061f8e9c23308ff666ff46bcb2ae9e5225",
+  "ended_utc": "2026-10-17T13:47:44.398940+00:00",
+  "elapsed_seconds": 1.641
+}

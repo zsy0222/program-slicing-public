@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0453/BP0/repair/1",
+  "case_id": "BP17-0453",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "bef4cd7cdf9c734e34cd316f315a16901424d6e80e82625cf036cf53612d1264",
+  "started_utc": "2026-11-16T02:40:45.197535+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dbb1b829-5818-4963-b98d-e546761f091c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\ntypedef struct{\\n   int a;\\n   int b;\\n}d;\\nd card[1001];\\nint cmp(const void *m,const void *n){\\n    if ((*(d*)m).b>(*(d*)n).b)\\n        return -1;\\n     if ((*(d*)m).b==(*(d*)n).b){\\n         if ((*(d*)m).a>(*(d*)n).a)\\n            return -1;\\n         else\\n            return 1;\\n     }\\n     return 1;\\n}\\nint main(int argc, char *argv[]){\\n    int n,i,counter=1,point=0;\\n    scanf(\\\"%d\\\",&n);\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d%d\\\",&card[i].a,&card[i].b);\\n    qsort(card,n,sizeof(card[0]),cmp);\\n    i=0;\\n    while(counter&&i<n){\\n        point+=card[i].a;\\n        counter+=card[i].b;\\n        i++;\\n        counter--;\\n    }\\n  printf(\\\"%d\\\\n\\\",point);\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 970,
+    "completion_tokens": 291,
+    "total_tokens": 1261,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 202
+  },
+  "raw_sha256": "57eebf66004e1382d508472beeb582e246c538f969eb30e60df413c3803ccaa6",
+  "ended_utc": "2026-11-16T02:40:47.429144+00:00",
+  "elapsed_seconds": 2.0715
+}

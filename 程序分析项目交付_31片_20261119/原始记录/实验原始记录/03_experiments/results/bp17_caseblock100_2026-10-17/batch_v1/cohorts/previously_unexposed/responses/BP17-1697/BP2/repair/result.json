@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1697/BP2/repair/1",
+  "case_id": "BP17-1697",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "fc98bf8fac6ee9db6a3c6f45485b27a61737600f37bea0865b85879803579533",
+  "started_utc": "2026-10-17T07:14:51.450095+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8b6947fd-2336-42fa-a5a1-a6faa007be1a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\n#define MIN(a, b) (a < b ? a : b)\\n#define ABS(a) ((a) < 0 ? -(a) : (a))\\n\\nint n, k, dp[2222];\\nlong long a[2222];\\n\\nint func(long long thre) {\\n    int i, j;\\n    dp[0] = 0;\\n    for (i = 1; i < n; i++)\\n        for (dp[i] = i, j = 0; j < i; j++)\\n            if (ABS(a[j] - a[i]) <= (long long)(i - j) * thre)\\n                dp[i] = MIN(dp[i], dp[j] + j - i - 1);\\n    for (i = 0; i < n; i++)\\n        if (dp[i] + n - 1 - i <= k)\\n            return 1;\\n    return 0;\\n}\\n\\nint main(int argc, char** argv) {\\n    int i;\\n    long long low, up, mid, ac;\\n\\n    scanf(\\\"%d%d\\\", &n, &k);\\n    for (i = 0; i < n; i++)\\n        scanf(\\\"%lld\\\", &a[i]);\\n\\n    low = 0;\\n    up = 0x7fffffffLL;\\n    ac = up;\\n    while (low <= up) {\\n        mid = (low + up) >> 1;\\n        if (func(mid)) {\\n            ac = mid;\\n            up = mid - 1LL;\\n        }\\n        else\\n            low = mid + 1LL;\\n    }\\n\\n    printf(\\\"%lld\\\\n\\\", ac);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1884,
+    "completion_tokens": 425,
+    "total_tokens": 2309,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1884
+  },
+  "raw_sha256": "7442cd1d5a870e288cd209f18c405c3f1d0b2f79ae41a75c02040310c8e24932",
+  "ended_utc": "2026-10-17T07:14:53.376498+00:00",
+  "elapsed_seconds": 1.907
+}

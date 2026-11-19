@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0402/BP3/repair/1",
+  "case_id": "BP17-0402",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "b1af882f3ccf74702f947bcba6db8cc06b62a0ad9003d75f3eb2cdbdb9b2b983",
+  "started_utc": "2026-10-18T11:53:43.089643+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3769902c-d0e0-43d8-a6d4-db62f36b7eb9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,a,b,i,now=1,total=1;\\n    scanf(\\\"%d%d%d\\\",&n,&a,&b);\\n    if(a+b>=n)  printf(\\\"-1\\\");\\n    else if(n==1)   printf(\\\"%d\\\",now);\\n    else if(a==(n-1)&&b==0) printf(\\\"-1\\\");\\n    else if(b==0){\\n        printf(\\\"%d %d \\\",now,now);   \\n        total++; \\n        for(i=2;i<n;i++){\\n            if(a>0){\\n                now=total+1;\\n                total+=now;\\n                printf(\\\"%d \\\",now);\\n                a--;\\n            }\\n            else    printf(\\\"%d \\\",now);\\n        }\\n    }\\n    else{\\n        printf(\\\"%d \\\",now);\\n        for(i=1;i<n;i++){\\n            if(b>0){\\n                now=total+1;\\n                total+=now;\\n                printf(\\\"%d \\\",now);\\n                b--;\\n            }   \\n            else if(a>0){\\n                now++;\\n                total++;\\n                printf(\\\"%d \\\",now);\\n                a--;    \\n            }\\n            else{\\n                printf(\\\"%d \\\",now);\\n            }\\n        }    \\n      \\n    }\\n    return 0;    \\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1717,
+    "completion_tokens": 363,
+    "total_tokens": 2080,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 565
+  },
+  "raw_sha256": "a21a3a61e73233979c98a8f6a45da59f40397b2472bae635ab4767ea1bd0d8b4",
+  "ended_utc": "2026-10-18T11:53:44.739763+00:00",
+  "elapsed_seconds": 1.594
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1954/BP2/repair/1",
+  "case_id": "BP17-1954",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "bd4e6a0441d2ec805725f11b536d99efbd33b030e27df311b4ec964b8beddeb2",
+  "started_utc": "2026-11-16T05:04:59.243458+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "87dc04b0-26e8-4e73-b1e9-3f2ce3b174a1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint s[2000];\\nint abs(int x)\\n{\\n    if(x<0) return x*=(-1);\\n    else return x;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,x,i,sum=0,rest,ans=0;\\n    scanf(\\\"%d%d\\\",&n,&x);\\n    for(i=1;i<=n;i++){\\n        scanf(\\\"%d\\\",&s[i]);\\n        sum+=s[i];\\n    }\\n    rest=0-sum;\\n    if(rest==0) {printf(\\\"0\\\\n\\\");return 0;}\\n    else if(abs(rest)<=x) {ans++;printf(\\\"%d\\\\n\\\",ans);return 0;}\\n    else if(abs(rest)>x){\\n        int p,d=0;\\n        if(rest<0){\\n            p=x;\\n            while(rest!=0){\\n                if(abs(rest)>=p) {rest+=p;d++;}\\n                else if(abs(rest)<p) p-=1;\\n            }\\n        }\\n        else if(rest>0){\\n            p=-x;\\n            while(rest!=0){\\n                if(abs(rest)>=abs(p)) {rest+=p;d++;}\\n                else if(abs(rest)<abs(p)) p+=1;\\n            }\\n        }\\n        printf(\\\"%d\\\\n\\\",d);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1851,
+    "completion_tokens": 349,
+    "total_tokens": 2200,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1851
+  },
+  "raw_sha256": "a26db4a7407d0d5a13741233088c51d28eed46eb3b49e8535bc38bc80ce239c0",
+  "ended_utc": "2026-11-16T05:05:01.328390+00:00",
+  "elapsed_seconds": 2.0827
+}

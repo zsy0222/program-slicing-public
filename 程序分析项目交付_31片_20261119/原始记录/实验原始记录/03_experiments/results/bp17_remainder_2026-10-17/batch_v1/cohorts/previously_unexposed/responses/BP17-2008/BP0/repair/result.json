@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2008/BP0/repair/1",
+  "case_id": "BP17-2008",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "5c9c97205e8fcbc20b8b4519e2b952007b0369df4eac7c768fd55cad43aa1fbf",
+  "started_utc": "2026-11-17T03:55:16.982647+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e8291847-b19c-4c9d-ae3f-40ade827648e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/* ****\\n* @Codeforces Problem 407A\\n* @author:ckmoonfish\\n* @Date: 2014.4.4\\n* @tag:brute force, implementation, math\\n*******/\\n\\n#include <stdio.h>\\n\\n\\nint main(int argc, char *argv[]){\\n    int a, b;\\n    scanf(\\\"%d%d\\\", &a, &b);\\n    int ia, ja, ib, jb;\\n    int i, j;\\n    int flag = 0;\\n    i = 1; j = 2;\\n\\n    for(ia = 1; ia < a; ++ia)\\n        for(ja = 1; ja < a; ++ja){\\n            if(ia*ia + ja*ja == a*a){\\n                for(ib = 1; ib < b; ++ib)\\n                    for(jb = 1; jb < b; ++jb)\\n                        if(ib*ib + jb*jb == b*b){\\n                            if(ia != ib){\\n                                if((ja+jb)*(ja+jb) + (ia-ib)*(ia-ib) == a*a + b*b){\\n                                    flag = 1;\\n                                    goto pt1;\\n                                }\\n                            }\\n                            else if(ia != jb)\\n                                if((ib+ja)*(ib+ja) + (ia-jb)*(ia-jb) == a*a + b*b){\\n                                    flag = 2;\\n                                    goto pt2;\\n                                }\\n                        }\\n            }\\n        }\\n    pt1: if(flag == 1){\\n        printf(\\\"YES\\\\n\\\");\\n        printf(\\\"%d %d\\\\n\\\", i, j);\\n        printf(\\\"%d %d\\\\n\\\", i + jb, j + ib);\\n        printf(\\\"%d %d\\\\n\\\", i - ja, j + ia);\\n    }\\n\\n    pt2: if(flag == 2){\\n        printf(\\\"YES\\\\n\\\");\\n        printf(\\\"%d %d\\\\n\\\", i, j);\\n        printf(\\\"%d %d\\\\n\\\", i + ib, j + jb);\\n        printf(\\\"%d %d\\\\n\\\", i - ja, j + ia);\\n    }\\n\\n    if(flag == 0)\\n        printf(\\\"NO\\\\n\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1265,
+    "completion_tokens": 547,
+    "total_tokens": 1812,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1265
+  },
+  "raw_sha256": "568cdeadbfd6426522b223b93d7ca8f0d0c8b1342fcc055fcb76b74498b8c8f3",
+  "ended_utc": "2026-11-17T03:55:21.182089+00:00",
+  "elapsed_seconds": 4.1925
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3881/BP0/repair/1",
+  "case_id": "BP17-3881",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "8ae715be55edb6c56876c8df3f8b9858cd97024a3f764d5233076105e60cd7f6",
+  "started_utc": "2026-11-17T03:54:31.623942+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cd2048b0-a5a2-438a-b072-e549a7eec5cf",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define oo 200000000000000000LL\\n\\nlong long dist[1006][1006]={0};\\n\\nlong e[5005]={0};\\nlong last[5005]={0};\\nlong totm=0;\\nlong now[1006]={0};\\nlong long value[5005]={0};\\nlong long f[5005]={0};\\n\\nlong n,stx,sty;\\n\\nlong hash[5005]={0};\\nlong dui[5005]={0};\\n\\nlong long c[1006]={0};\\nlong long t[1006]={0};\\n\\nvoid spfa(long x,long long dist[])\\n{\\n long i;\\n long closed=2000000,open=2000000;\\n \\n for(i=1;i<=n;i++)\\n   dist[i]=oo;\\n dist[x]=0;\\n \\n dui[(open++)&1023]=x;\\n hash[x]=1;\\n for(;closed<open;)\\n   {\\n    x=dui[(closed++)&1023];\\n    hash[x]=0;\\n    \\n    for(i=now[x];i;i=last[i])\\n      if(dist[x]+value[i]<dist[e[i]])\\n       {\\n        dist[e[i]]=dist[x]+value[i];\\n        if(!hash[e[i]])\\n         {\\n          hash[e[i]]=1;\\n          if(dist[e[i]]<dist[dui[closed&1023]])\\n           dui[(--closed)&1023]=e[i];\\n          else\\n           dui[(open++)&1023]=e[i];\\n         }\\n       }\\n   }\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n long m,i,j;\\n long x,y,k;\\n long long v;\\n long long min=oo;\\n \\n scanf(\\\"%ld%ld\\\",&n,&m);\\n scanf(\\\"%ld%ld\\\",&stx,&sty);\\n for(i=1;i<=m;i++)\\n   {\\n    scanf(\\\"%ld%ld\\\",&x,&y);\\n    scanf(\\\"%lld\\\",&v);\\n    e[++totm]=y;\\n    last[totm]=now[x];now[x]=totm;\\n    value[totm]=v;\\n    \\n    e[++totm]=x;\\n    last[totm]=now[y];now[y]=totm;\\n    value[totm]=v;\\n   }\\n \\n for(i=1;i<=n;i++)\\n   spfa(i,dist[i]);\\n for(i=1;i<=n;i++)\\n   {\\n    scanf(\\\"%lld%lld\\\",&t[i],&c[i]);\\n    f[i]=oo;\\n   }\\n f[stx]=0;\\n for(i=1;i<=n;i++)\\n   {\\n    for(j=1,min=oo,x=0;j<=n;j++)\\n      if(f[j]<min&&!hash[j])\\n       {\\n        min=f[j];\\n        x=j;\\n       }\\n    if(min>=oo)\\n     {\\n      printf(\\\"-1\\\\n\\\");\\n      return 0;\\n     }\\n    if(x==sty)\\n     {\\n      printf(\\\"%lld\\\\n\\\",min);\\n      return 0;\\n     }\\n    hash[x]=1;\\n    for(j=1;j<=n;j++)\\n      if(dist[x][j]<=t[x]&&f[x]+c[x]<f[j]&&!hash[j])\\n       f[j]=f[x]+c[x];\\n   }\\n \\n return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1758,
+    "completion_tokens": 862,
+    "total_tokens": 2620,
+    "prompt_tokens_details": {
+      "cached_tokens": 1536
+    },
+    "prompt_cache_hit_tokens": 1536,
+    "prompt_cache_miss_tokens": 222
+  },
+  "raw_sha256": "96be7a6555015878080facbeeb2f753d456f532576376133eea00f9f2f94ce58",
+  "ended_utc": "2026-11-17T03:54:35.805334+00:00",
+  "elapsed_seconds": 4.1719
+}

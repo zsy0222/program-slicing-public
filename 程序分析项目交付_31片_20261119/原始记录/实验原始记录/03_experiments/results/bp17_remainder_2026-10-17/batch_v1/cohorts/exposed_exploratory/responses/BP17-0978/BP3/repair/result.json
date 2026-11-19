@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0978/BP3/repair/1",
+  "case_id": "BP17-0978",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "24b2f91a40c41abf2aa9da5cdb7342246a8d6b917a07156e85358e34c8ebd521",
+  "started_utc": "2026-11-16T17:57:01.449925+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "eca37f31-f54a-4461-b8a1-40ee1a80103a",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nvoid unionInit(int d[],int s){int i;rep(i,s)d[i]=i;}\\nint unionGet(int d[],int n){int t=n,k;while(d[t]!=t)t=d[t];while(d[n]!=n)k=d[n],d[n]=t,n=k;return n;}\\nint unionConnect(int d[],int a,int b){a=unionGet(d,a);b=unionGet(d,b);if(a==b)return 0;d[a]=b;return 1;}\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n;\\n  int a[1200], b[1200], unused[1200];\\n  int ind[1200];\\n  int cnt[1200];\\n  int res_a[1200], res_b[1200], res_c[1200], res_d[1200];\\n  int shima;\\n  int res, bef;\\n\\n  scanf(\\\"%d\\\",&n);\\n  m=n-1;\\n  rep(i,m) scanf(\\\"%d%d\\\",a+i,b+i), a[i]--, b[i]--;\\n\\n  unionInit(ind,n);\\n  rep(i,m) unionConnect(ind,a[i],b[i]);\\n\\n  shima = 0;\\n  rep(i,n) cnt[i]=0;\\n  rep(i,n) cnt[unionGet(ind,i)]=1;\\n  rep(i,n) shima += cnt[i];\\n\\n  res=0; bef=-1;\\n  rep(i,n) if(cnt[i]){\\n    if(bef>=0){\\n      res_c[res] = bef; res_d[res++] = i;\\n    }\\n    bef = i;\\n  }\\n\\n  res=0;\\n  rep(k,m) unused[k]=0;\\n  \\n  rep(k,m){\\n    unionInit(ind,n);\\n    rep(i,m) if(unused[i]==0) if(i!=k) unionConnect(ind,a[i],b[i]);\\n    rep(i,n) cnt[i]=0;\\n    rep(i,n) cnt[unionGet(ind,i)]=1;\\n    j=0; rep(i,n) j+=cnt[i];\\n    if(j==shima){\\n      unused[k]=1;\\n      res_a[res]=a[k]; res_b[res++]=b[k];\\n    }\\n  }\\n\\n  printf(\\\"%d\\\\n\\\",res);\\n  rep(i,res) printf(\\\"%d %d %d %d\\\\n\\\",res_a[i]+1,res_b[i]+1,res_c[i]+1,res_d[i]+1);\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2807,
+    "completion_tokens": 653,
+    "total_tokens": 3460,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2807
+  },
+  "raw_sha256": "8d6f0c24c6b5430901a926611280cf0702a103f2672926d0f58512c1a9c8c41f",
+  "ended_utc": "2026-11-16T17:57:04.785046+00:00",
+  "elapsed_seconds": 3.3315
+}

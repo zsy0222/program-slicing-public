@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3566",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#define N 100000\\nint compare(const void *a,const void *b){\\n\\treturn *(int *)a-*(int *)b;\\n}\\nvoid sort(int a[],int n){\\n\\tqsort(a,n,sizeof(int),compare);\\n}\\nint main(int argc, char *argv[]) {\\n\\tint n,m;\\n\\tscanf(\\\"%d%d\\\",&n,&m);\\n\\tint i;\\n\\tint a[N];\\n\\tfor(i=0;i<n;i++){\\n\\t\\tscanf(\\\"%d\\\",&a[i]);\\n\\t}\\n\\tsort(a,n);\\n\\tint j=0;\\n\\tint t[N];\\n\\tint nt=0;\\n\\tint sum=0;\\n\\tfor(i=1;i<=m;i++){\\n\\t\\tif(j<n && a[j]==i){\\n\\t\\t\\tj++;\\n\\t\\t}else{\\n\\t\\t\\tif(sum+i<=m){\\n\\t\\t\\t\\tt[nt]=i;\\n\\t\\t\\t\\tnt++;\\n\\t\\t\\t\\tsum+=i;\\n\\t\\t\\t}else{\\n\\t\\t\\t\\tbreak;\\n\\t\\t\\t}\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d\\\\n\\\",nt);\\n\\tfor(i=0;i<nt;i++){\\n\\t\\tprintf(\\\" %d\\\",t[i]);\\n\\t}\\n\\tprintf(\\\"\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 1.547,
+  "ended_utc": "2026-10-17T07:16:53.501792+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3566/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "0058af9949cd546da0e3a6f013f59ef174a8a617b39a01b9b9c68b16c27a626c",
+  "request_model": "deepseek-flash",
+  "request_sha256": "6c60098ab7a31490882df7836b95170e447a969479b0b809c6033b18840676ce",
+  "response_id": "d4a06bba-6f4f-48dd-a530-229c1f562c00",
+  "started_utc": "2026-10-17T07:16:51.957089+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 340,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1062,
+    "prompt_tokens": 1062,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 1402
+  }
+}

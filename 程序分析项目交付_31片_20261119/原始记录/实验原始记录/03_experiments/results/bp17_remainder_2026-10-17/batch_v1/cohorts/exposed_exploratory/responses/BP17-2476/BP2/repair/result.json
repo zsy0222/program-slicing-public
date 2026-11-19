@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2476/BP2/repair/1",
+  "case_id": "BP17-2476",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "108d3a996f5f118c3eca7399ada2d879b30bd95a2a490a3989d051be7b615958",
+  "started_utc": "2026-11-16T18:35:00.170631+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "18fd6a52-2bec-4909-b042-d00a1734042e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint comparator(const void* a,const void *b)\\n{\\n    return (*(int *)b-*(int*)a);\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,k;\\n    scanf(\\\"%d %d\\\",&n,&k);\\n    int *arr=(int *)malloc(sizeof(int)*n);\\n    int i;\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&arr[i]);\\n    qsort(arr,n,sizeof(int),comparator);\\n    int l=0;\\n    int ans=0;\\n    while(l+k-1<n)\\n    {\\n        ans+=2*(arr[l]-1);\\n        l=l+k;\\n    }\\n    if(l != n)\\n        ans+=(2*(arr[n-1]-1));\\n    printf(\\\"%d\\\\n\\\",ans);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1352,
+    "completion_tokens": 226,
+    "total_tokens": 1578,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1352
+  },
+  "raw_sha256": "78963a0c1fec30ae779cb823ef690f0ad9be6eb9d314656c83e52284f77a0a55",
+  "ended_utc": "2026-11-16T18:35:02.490044+00:00",
+  "elapsed_seconds": 2.3158
+}

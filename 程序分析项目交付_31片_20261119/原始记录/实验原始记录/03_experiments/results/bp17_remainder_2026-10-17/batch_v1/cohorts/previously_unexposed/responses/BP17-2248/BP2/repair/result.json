@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2248/BP2/repair/1",
+  "case_id": "BP17-2248",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "233cee59d0dc3a8c80a69c1b6a52ef3d892f4e5b66f8cf82529eb9764fb0e007",
+  "started_utc": "2026-11-16T05:31:39.631233+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a3f92209-c9c1-4b30-a1c7-6153a1e82451",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint nodes[500];\\n\\nstruct edge\\n{\\n    int a;\\n    int b;\\n    double value;\\n};\\n\\nstruct edge edges[124750];\\n\\nint cmp(const void* a,const void* b)\\n{\\n    struct edge *c,*d;\\n    c=(struct edge*)a;\\n    d=(struct edge*)b;\\n    if(c->value < d->value) return 1;\\n    if(c->value > d->value) return -1;\\n    return 0;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,m;\\n    int i;\\n    double max;\\n    memset(nodes,0,sizeof(nodes));\\n    memset(edges,0,sizeof(edges));\\n    scanf(\\\"%d %d\\\",&n,&m);\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&nodes[i]);\\n    if(m==0)\\n    {\\n        printf(\\\"0.000000000000000\\\\n\\\");\\n        return 0;\\n    }\\n    max=0.0;\\n    for(i=0;i<m;i++)\\n    {\\n        scanf(\\\"%d %d %lf\\\",&edges[i].a,&edges[i].b,&edges[i].value);\\n        edges[i].value=(nodes[edges[i].a-1]+nodes[edges[i].b-1])/edges[i].value;\\n        if(edges[i].value>max)\\n            max=edges[i].value;\\n    }\\n    printf(\\\"%.*lf\\\\n\\\",15,max);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1611,
+    "completion_tokens": 399,
+    "total_tokens": 2010,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 587
+  },
+  "raw_sha256": "54b6b8b01de2324a7b4be6cdacee48a52c242f07b4984c6c12e39f5f94c0f99e",
+  "ended_utc": "2026-11-16T05:31:41.826106+00:00",
+  "elapsed_seconds": 2.192
+}

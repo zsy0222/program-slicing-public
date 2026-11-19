@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3300/BP1/repair/1",
+  "case_id": "BP17-3300",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "9da8c62d399656ecf5bf8fd6d827fa35c8e6744a317bf61b9d2398eb65b6ff5b",
+  "started_utc": "2026-11-16T18:39:06.173361+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "735a3260-e786-497f-9567-480e5c69bfe2",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint ai[1000027],bi[1000027];\\nint table[1000027];\\nint main(int argc, char *argv[])\\n{\\n    int n,i,j,a,b,k,kk;\\n    scanf(\\\"%d\\\",&n);\\n    for (i=0,j=0;i<n;++i){\\n        scanf(\\\"%d%d\\\",&a,&b);\\n        ai[a]=b;\\n        bi[a]=1;\\n       \\n    }\\n\\n    for (i=0;i<=1000000;++i){\\n          if (i-ai[i]-1>=0)\\n            k=i-ai[i]-1;\\n          else\\n            k=1000001;\\n          if (bi[i])\\n            table[i]+=table[k]+1;\\n          else\\n            table[i]+=table[k];\\n            //printf(\\\"%d\\\\n\\\",table[i]);\\n    }\\n    for (i=0,k=0,kk=0;i<=1000000;++i){\\n        if (k<table[i]){\\n            k=table[i];\\n            kk=i;\\n        }\\n\\n\\n    }\\n    printf(\\\"%d\\\\n\\\",n-table[kk]);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1017,
+    "completion_tokens": 293,
+    "total_tokens": 1310,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 249
+  },
+  "raw_sha256": "80a486cbcdfee7270b6c5b60cf8033c85c7141ed097d44f753e85b405658061c",
+  "ended_utc": "2026-11-16T18:39:08.326299+00:00",
+  "elapsed_seconds": 2.1026
+}

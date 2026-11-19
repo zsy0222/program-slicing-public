@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1426/BP3/repair/1",
+  "case_id": "BP17-1426",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "9657c4f02d1a450b88f5029b7fcd2b5f25d9eb531a0c3d2654b9b48537c0216c",
+  "started_utc": "2026-11-16T05:25:23.872035+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "047e2e17-488b-4b40-a070-49a40aeec7e1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\nchar s[100001];\\nint dp[100001];\\nvoid memoize(int len)\\n{\\n\\tint i;\\n\\n\\tfor(i=1;i<len;i++)\\n\\t{\\n\\t\\tif(s[i]==s[i-1])\\n\\t\\t\\tdp[i]=dp[i-1]+1;\\n\\t\\telse\\n\\t\\t\\tdp[i]=dp[i-1];\\n\\t}\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint t,l,r,i;\\n\\tlong long int n;\\n\\tscanf(\\\"%s\\\",s);\\n\\tmemoize(strlen(s));\\n\\tscanf(\\\"%d\\\",&t);\\n\\twhile(t--)\\n\\t{\\n\\t\\tscanf(\\\"%d %d\\\",&l,&r);\\n\\t\\tn=dp[r-1]-dp[l-1];\\n\\t\\tprintf(\\\"%lld\\\\n\\\",n);\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1374,
+    "completion_tokens": 242,
+    "total_tokens": 1616,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1374
+  },
+  "raw_sha256": "7e1a28d7fb3009a8ba749974f7b48800cfbb60582fe6b680819da641cb21fdc4",
+  "ended_utc": "2026-11-16T05:25:26.021620+00:00",
+  "elapsed_seconds": 1.9175
+}

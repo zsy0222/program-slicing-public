@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2809/BP2/repair/1",
+  "case_id": "BP17-2809",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "4fab8f384481eb47b5182c75a008ce745c472fbce9c2f8ddb5cda9a76a85bd2a",
+  "started_utc": "2026-11-16T17:00:41.289094+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2dc1ff00-b761-47a4-99bf-f23727a33f22",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include \\\"stdio.h\\\"\\nint main(int argc, char *argv[]){\\n    int n,m,b,g,i,j,k=0,flag=1;\\n    int s[100]={0},l[100]={0};\\n    scanf(\\\"%d %d %d\\\",&n,&m,&b);\\n    for(i=0;i<b;i++){\\n        scanf(\\\"%d\\\",&j);\\n        s[j] = 1;\\n    }\\n    scanf(\\\"%d\\\",&g);\\n    for(i=0;i<g;i++){\\n        scanf(\\\"%d\\\",&j);\\n        l[j] = 1;\\n    }\\n    while(k<m*n){\\n        if(s[k%n]==1||l[k%m]==1){\\n            s[k%n] = 1;\\n            l[k%m] = 1;\\n        }\\n        k++;\\n    }\\n    for(i=0;i<n;i++){\\n        if(s[i]==0){\\n            flag = 0;\\n            break;\\n        }\\n    }\\n    if(flag!=0)\\n        for(i=0;i<m;i++){\\n        if(l[i]==0){\\n            flag = 0;\\n            break;\\n        }\\n    }\\n    if(flag==0)\\n        printf(\\\"No\\\\n\\\");\\n    else\\n        printf(\\\"Yes\\\\n\\\");\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1790,
+    "completion_tokens": 336,
+    "total_tokens": 2126,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 894
+  },
+  "raw_sha256": "7d2e0c2d9276f3aead2c4afa4d0199c325c747c4ac7772beb36ed4a7e7c8403b",
+  "ended_utc": "2026-11-16T17:00:43.346210+00:00",
+  "elapsed_seconds": 2.0543
+}

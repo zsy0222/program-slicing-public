@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3720/BP1/repair/1",
+  "case_id": "BP17-3720",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "bced141ebc3f369ebc40cc867dac72da29c95d7528b696a7e1467e654093dd0d",
+  "started_utc": "2026-11-18T03:17:27.151822+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "40952896-0ed2-4a5b-9e06-2fc0406bc100",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\n#define NUM 100\\n\\ntypedef struct{\\n  int st;\\n  int go;\\n  int t;\\n  int c;\\n}runner;\\n\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,n,m;\\n  runner per[NUM],max;\\n  int profit=0,maximum,flg;\\n\\n  scanf(\\\"%d %d\\\",&m,&n);\\n  for(i=0;i<n;i++) \\n    scanf(\\\"%d %d %d %d\\\",&per[i].st,&per[i].go,&per[i].t,&per[i].c);\\n  for(i=1;i<=m;i++){\\n    maximum=0;\\n    flg=0;\\n    for(j=0;j<n;j++){\\n      if(i>=per[j].st && i<=per[j].go){\\n        if(flg==0){\\n          flg=1;\\n          max=per[j];\\n          maximum=max.c;\\n        }else if(max.t>per[j].t){\\n          max=per[j];\\n          maximum=max.c;\\n        }else if(max.t==per[j].t && max.c<per[j].c){\\n          max=per[j];\\n          maximum=max.c;\\n        }\\n      }\\n    }\\n    profit+=maximum;\\n  }\\n  printf(\\\"%d\\\\n\\\",profit);\\n  return 0;        \\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1119,
+    "completion_tokens": 338,
+    "total_tokens": 1457,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 223
+  },
+  "raw_sha256": "e23b8e92068c95549888db2df81d69591d7cc47ee334dea1c0a42fd1f682e762",
+  "ended_utc": "2026-11-18T03:17:29.154083+00:00",
+  "elapsed_seconds": 1.9288
+}

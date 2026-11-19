@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1811/BP1/repair/1",
+  "case_id": "BP17-1811",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e06e9d60b85fe9c259278c47f33b16c59708c0096d9059e5d378e9cff3a09636",
+  "started_utc": "2026-10-21T06:53:56.526211+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8a2aa3a4-a190-42ce-ae14-b2a3fa3262e8",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nchar mat[5005][5005];\\nint max[5005][5005];\\nint col[5005];\\n\\nint main(int argc, char *argv[]) {\\n    int n, m;\\n    int i, j;\\n    int res;\\n    int aux;\\n\\n    scanf(\\\" %d %d\\\", &n, &m);\\n\\n    for (i = 1; i <= m; i++) {\\n        col[i] = 0;\\n    }\\n\\n    while((getchar()) != '\\\\n') {\\n        ;\\n    }\\n\\n    for (i = 1; i <= n; i++) {\\n        for (j = 1; j <= m; j++) {\\n            mat[i][j] = getchar();\\n        }\\n        while((getchar()) != '\\\\n') {\\n            ;\\n        }\\n    }\\n\\n    for (i = 1; i <= n; i++) {\\n        if (mat[i][m] == '1') {\\n            max[i][m] = 1;\\n        } else {\\n            max[i][m] = 0;\\n        }\\n        for (j = m - 1; j >= 1; j--) {\\n            if (mat[i][j] == '1') {\\n                max[i][j] = 1 + max[i][j + 1];\\n            } else {\\n                max[i][j] = 0;\\n            }\\n        }\\n    }\\n\\n    res = 0;\\n    for (j = 1; j <= m; j++) {\\n        for (i = 1; i <= n; i++) {\\n            col[i] = 0;\\n        }\\n        for (i = 1; i <= n; i++) {\\n            col[max[i][j]]++;\\n        }\\n        for (i = m; i >= 1; i--) {\\n            aux = col[i] * i;\\n            if (aux > res) {\\n                res = aux;\\n            }\\n            col[i - 1] += col[i];\\n        }\\n    }\\n\\n    printf(\\\"%d\\\\n\\\", res);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1737,
+    "completion_tokens": 521,
+    "total_tokens": 2258,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1737
+  },
+  "raw_sha256": "649185fbb8f9532c8c9f66288f193040d8a44c11444d5325e757e2c07a8b5873",
+  "ended_utc": "2026-10-21T06:53:58.385456+00:00",
+  "elapsed_seconds": 1.86
+}

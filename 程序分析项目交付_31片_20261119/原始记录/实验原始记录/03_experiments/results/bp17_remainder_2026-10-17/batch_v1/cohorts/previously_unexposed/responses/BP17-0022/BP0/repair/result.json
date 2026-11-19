@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0022/BP0/repair/1",
+  "case_id": "BP17-0022",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "6f96ce4757c91266f29e841f9ca72bf42adb704d7666bb6194e816085ebff669",
+  "started_utc": "2026-11-16T03:53:56.299839+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c59ceec9-41cf-4da8-84dc-18c14f40480e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<string.h>\\nlong long int answers[103];\\nlong long int clicks[103];\\nint main(int argc, char *argv[])\\n{\\n    int n, i, click = 0;\\n    scanf(\\\"%d\\\", &n);\\n    for(i = 0; i < n; i++)\\n        scanf(\\\"%lld\\\", &answers[i]);\\n    for(i = 0; i < n; i++)\\n    {\\n        clicks[i] = answers[i] + i;\\n        if(i > 0)\\n            clicks[i] = clicks[i] + clicks[i - 1];\\n    }\\n    printf(\\\"%lld\\\\n\\\", clicks[n - 1] - (n - 1));\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 825,
+    "completion_tokens": 190,
+    "total_tokens": 1015,
+    "prompt_tokens_details": {
+      "cached_tokens": 640
+    },
+    "prompt_cache_hit_tokens": 640,
+    "prompt_cache_miss_tokens": 185
+  },
+  "raw_sha256": "1636283c4cbcac11e55bc5f6d6c98155ed1af48fca5754abc8965cd176eb42a3",
+  "ended_utc": "2026-11-16T03:53:58.220174+00:00",
+  "elapsed_seconds": 1.6073
+}

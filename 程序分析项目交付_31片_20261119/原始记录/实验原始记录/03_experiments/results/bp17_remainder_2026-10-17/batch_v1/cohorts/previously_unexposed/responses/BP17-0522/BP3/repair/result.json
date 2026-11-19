@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0522/BP3/repair/1",
+  "case_id": "BP17-0522",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "c3ff46269b4296be3a8e3e23420cde58bb3a9020383c778eadd98879727a7f85",
+  "started_utc": "2026-10-17T08:18:09.795328+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7788c855-822b-46f9-8b05-f334b0da5cbd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define N 500\\n\\nvoid sort (int *l, int *r) {\\n  int *i = l, *j = r, p = l[(r - l + 1)/2], tmp;\\n  while (i <= j) {\\n    while (*i < p) ++i;\\n    while (p < *j) --j;\\n    if (i <= j) {\\n      tmp = *i; *i = *j; *j = tmp;\\n      ++i; --j;\\n    }\\n  }\\n  if (i < r) sort (i, r);\\n  if (l < j) sort (l, j);\\n}\\n\\n\\nint main(int argc, char *argv[]) {\\n  int n, x, a[2*N + 1], res = 0, i;\\n  scanf (\\\"%d %d\\\", &n, &x);\\n  for (i = 0; i < n; ++i) scanf (\\\"%d\\\", &a[i]);\\n  while (sort (a, a+n-1), a[(n-1)/2] != x) { ++res; a[n++] = x; }\\n  printf (\\\"%d\\\\n\\\", res);\\n  exit (EXIT_SUCCESS);\\n return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1605,
+    "completion_tokens": 313,
+    "total_tokens": 1918,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 709
+  },
+  "raw_sha256": "fe28156a652f4384fb4dc868514ee1b2efda26d2269aa446449159efb7456fd3",
+  "ended_utc": "2026-10-17T08:18:11.324416+00:00",
+  "elapsed_seconds": 1.516
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1004/BP3/repair/1",
+  "case_id": "BP17-1004",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "3f1907a646da8c0194953f7a1b0daf8570e3ce436ff6c7785bd0e8e2f9a3f981",
+  "started_utc": "2026-11-16T16:26:30.609145+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "372232f4-5bf2-485b-b982-a11e085cd5d4",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"/*Sockets*/\\n#include<stdio.h>\\nint qsort(int *a,int low,int high)\\n{\\n    if(low>=high)\\n    return 0;\\n    int pivot=a[low],i=low+1,j=high,temp,x=1;\\n    while(x)\\n    {   while(i<=high&&a[i]<pivot)\\n        {   i++;\\n        }\\n        while(j>low&&a[j]>pivot)\\n        {   --j;\\n        }\\n        if(i>=j)\\n        {   x=0;\\n        }\\n        else\\n        {   temp=a[i];\\n            a[i]=a[j];\\n            a[j]=temp;\\n            ++i;\\n            --j;\\n        }\\n   }\\n   if(low<j)\\n   {    temp=a[low];\\n        a[low]=a[j];\\n        a[j]=temp;\\n   }\\n   qsort(a,low,j-1);\\n   qsort(a,j+1,high);\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,m,k;\\n    scanf(\\\"%d %d %d\\\",&n,&m,&k);\\n    int a[n],i;\\n    for(i=0;i<n;i++)\\n        scanf(\\\"%d\\\",&a[i]);\\n    qsort(a,0,n-1);\\n    if(m<k)\\n    {   printf(\\\"0\\\");\\n        return 0;\\n    }\\n    int count=0,last=n-1;\\n    count++;\\n    k--;\\n    while(last>=0)\\n    {   if(m-a[last]>k)\\n        {   m=m-a[last]+1;\\n            count++;\\n            last--;\\n        }\\n        else\\n            break;\\n    }\\n    if(last<0)\\n    {   printf(\\\"-1\\\");\\n        return 0;\\n    }\\n    printf(\\\"%d\\\",count);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2063,
+    "completion_tokens": 472,
+    "total_tokens": 2535,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2063
+  },
+  "raw_sha256": "5b5d34c4eff00655daa2e235df0fa2d136c1d8e588a01d73d04e34a162f56e7f",
+  "ended_utc": "2026-11-16T16:26:33.000262+00:00",
+  "elapsed_seconds": 2.3883
+}

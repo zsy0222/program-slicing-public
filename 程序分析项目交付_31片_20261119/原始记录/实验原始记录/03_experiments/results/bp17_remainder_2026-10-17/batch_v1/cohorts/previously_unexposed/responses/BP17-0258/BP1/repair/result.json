@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0258/BP1/repair/1",
+  "case_id": "BP17-0258",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "8d2a25213ec288876e78c6e54ca147d51a77017e1f2402ec381750415e36b0a6",
+  "started_utc": "2026-10-21T08:01:10.279200+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c46e5242-8068-495e-9559-f2b8035a39b9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint bit_dec(char *x)\\n{\\n    int i,a,l,shu=0;\\n    a=1;\\n   l=strlen(x);\\n   for(i=1;i<=l;i++)\\n   {\\n     if(x[l-i]=='1')\\n        shu=shu+a;\\n        a<<=1;\\n   }\\n   return(shu);\\n\\n}\\n\\nint reverse(char k)\\n{\\n    char num[9];\\n    memset(num,0,9);\\n    int i;\\n    for(i=0; i<8; i++)\\n    {\\n             if(k%2)\\n                    num[i] = '1';\\n             else\\n                    num[i] = '0';\\n             k /= 2;\\n    }\\n    num[8]=0;\\n    int re = bit_dec(num);\\n    return re;\\n}\\nint main(int argc, char *argv[])\\n{\\n    char *in;\\n    in = (char*)malloc(101);\\n    memset(in,0,101);\\n    int i = 0;\\n    for(i;i<101;i++)\\n    {\\n        scanf(\\\"%c\\\",&in[i]);\\n        if(in[i] < 32 || in[i] > 126)\\n                   break;\\n    }\\n\\n    int len = i;\\n    int bak_ = 0;\\n    int bak = 0;\\n    int num;\\n    for(i=0; i<len; i++)\\n    {\\n           bak = bak_;\\n           int r = reverse(in[i]);\\n           bak_ = r;\\n           num = (bak - r)%256;\\n           if(num < 0)\\n                  printf(\\\"%d\\\\n\\\",num+256);\\n           else\\n                  printf(\\\"%d\\\\n\\\",num);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1366,
+    "completion_tokens": 455,
+    "total_tokens": 1821,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 214
+  },
+  "raw_sha256": "81386fef5d75f939021a5034d191eb70de6e4a916bfee90e3467b7b09fd221db",
+  "ended_utc": "2026-10-21T08:01:12.436890+00:00",
+  "elapsed_seconds": 2.157
+}

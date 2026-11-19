@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3783/BP2/repair/1",
+  "case_id": "BP17-3783",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "2c3bda8fd4fe5ccab69a2fa0aed741d1789801ecfec96cc0f2188ca0ab96057e",
+  "started_utc": "2026-11-16T05:24:20.688814+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9172e5ce-5b06-4983-a3c2-48616747fb16",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n\\nint a[100010][2];\\nint b[100010];\\nint n,v;\\n\\nint cmp(const void *aa,const void *bb) {\\n\\tint *a=(int *)aa,*b=(int *)bb;\\n\\tif (a[0]<b[0]) return -1; else if (a[0]>b[0]) return 1;\\n\\telse if (a[1]>b[1]) return -1; else if (a[1]<b[1]) return 1;\\n\\treturn 0;\\n}\\n\\nint cal(int a[][2],int n) {\\n\\tint l,r,i,ret=0;\\n\\tb[ret++]=a[0][1];\\n\\tfor(i=1;i<n;i++) {\\n\\t\\tif (a[i][0]<a[0][0]) continue;\\n\\t\\tfor(l=0,r=ret;l<r;)\\n\\t\\t\\tif (b[(l+r)/2]>=a[i][1]) l=(l+r)/2+1; else r=(l+r)/2;\\n\\t\\tif (l==0) continue;\\n\\t\\tb[l]=a[i][1];\\n\\t\\tif (l==ret) ret++;\\n\\t}\\n\\treturn ret;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint i,x,t;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tfor(i=1;i<=n;i++) scanf(\\\"%d %d\\\",&a[i][0],&a[i][1]);\\n\\tscanf(\\\"%d\\\",&v);\\n\\tfor(i=1;i<=n;i++) {\\n\\t\\tx=a[i][0],t=a[i][1];\\n\\t\\ta[i][0]=x+v*t;\\n\\t\\ta[i][1]=x-v*t;\\n\\t}\\n\\tqsort(a+1,n,sizeof(a[0]),cmp);\\n\\ta[0][0]=a[0][1]=0;\\n\\tt=cal(a,n+1);\\n\\ta[0][1]=2000000000;\\n\\tprintf(\\\"%d %d\\\\n\\\",t-1,cal(a,n));\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2313,
+    "completion_tokens": 521,
+    "total_tokens": 2834,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 1033
+  },
+  "raw_sha256": "aba752087aebbc0caabbec9babe8c95814113e91823e828052fa529e5d738106",
+  "ended_utc": "2026-11-16T05:24:23.184127+00:00",
+  "elapsed_seconds": 2.4434
+}

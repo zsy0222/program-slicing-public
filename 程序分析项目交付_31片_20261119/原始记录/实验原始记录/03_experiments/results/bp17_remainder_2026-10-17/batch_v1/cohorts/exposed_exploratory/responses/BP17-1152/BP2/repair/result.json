@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1152/BP2/repair/1",
+  "case_id": "BP17-1152",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "dabe54f885400a0c2db9fed469d25107cbab22fb673e61bc65bfa2a0e742322f",
+  "started_utc": "2026-11-17T03:51:53.002060+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "12803d8d-db9a-466f-a7f2-14ad6b5c5c40",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\nint bin1[100],bin2[100];\\nint main(int argc, char *argv[])\\n{\\n    long long l,r,m;\\n    scanf(\\\"%lld%lld\\\",&l,&r);\\n    int no_of_elem1,no_of_elem2,i,time=0;\\n    while(l!=0)\\n    {\\n       m=1;i=0;\\n       while(m<=l)\\n            {\\n                m*=2;\\n                i++;\\n            }\\n        bin1[i-1]=1;\\n        if(time==0)\\n        no_of_elem1=i;\\n        time++;\\n        m/=2;\\n        l-=m;\\n    }\\n    time=0;\\n    while(r!=0)\\n    {\\n       m=1;i=0;\\n       while(m<=r)\\n            {\\n                m*=2;\\n                i++;\\n            }\\n        bin2[i-1]=1;\\n        if(time==0)\\n        no_of_elem2=i;\\n        time++;\\n        m/=2;\\n        r-=m;\\n    }\\n    if(no_of_elem2>no_of_elem1)\\n            printf(\\\"%lld\\\",(long long)(pow(2,no_of_elem2))-1);\\n    else\\n    {\\n        i=no_of_elem2-1;\\n        while(i>=0&&bin1[i]==bin2[i])\\n            i--;\\n        printf(\\\"%lld\\\",(long long)(pow(2,i+1))-1);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1781,
+    "completion_tokens": 381,
+    "total_tokens": 2162,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1781
+  },
+  "raw_sha256": "bb46a78a87c962d740cccdf3d3d04ff49fbb34744667dd667b4c3cb9e292ed42",
+  "ended_utc": "2026-11-17T03:51:55.893320+00:00",
+  "elapsed_seconds": 2.8809
+}

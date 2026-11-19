@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3003/BP3/repair/1",
+  "case_id": "BP17-3003",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "d7de52c8fa7c17886dcb09183d80846197599b9d7bde1e429bba81da57f2ecc5",
+  "started_utc": "2026-10-21T07:18:17.784579+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "87755d25-6c54-4b78-a7df-26e30d720fdc",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\n#define ll long long\\n#define M 2520\\n\\nint GCD(int a,int b){int r; while(a){r=b; b=a; a=r%a;} return b;}\\nint LCM(int a,int b){ return a/GCD(a,b)*b; }\\n\\nll *dp1, *dp2, *nx1, *nx2, *swap;\\nll dp1__[M], dp2__[M];\\nll nx1__[M], nx2__[M];\\n\\nll dp[323][M];\\nint bc[323];\\n\\nint nex[M][10];\\n\\nll solve(ll mx){\\n  int i,j,k,mask,use[10],us,now,nn;\\n  int go[20],gos,g;\\n  ll res;\\n\\n  dp1=dp1__; dp2=dp2__; nx1=nx1__; nx2=nx2__;\\n\\n  gos=0;\\n  while(mx) go[gos++]=mx%10, mx/=10;\\n\\n  rep(mask,1<<8){\\n    if( (mask&1<<2) && !(mask&1<<0) ) continue;\\n    if( (mask&1<<4) && (!(mask&1<<0)||!(mask&1<<1)) ) continue;\\n    if( (mask&1<<6) && (!(mask&1<<0)||!(mask&1<<2)) ) continue;\\n    if( (mask&1<<7) && (mask&1<<1) ) continue;\\n    us=2; use[0]=0; use[1]=1;\\n    rep(i,8) if(mask&1<<i) use[us++]=i+2;\\n\\n    rep(i,M) dp1[i]=dp2[i]=0;\\n    dp1[0]=1;\\n\\n    rep(i,M) rep(j,us) nex[i][j] = (i*10+use[j])%M;\\n\\n    for(now=gos-1;now>=0;now--){\\n      rep(i,M) nx1[i]=nx2[i]=0;\\n\\n      rep(i,M) if(dp2[i]) rep(k,us) nx2[nex[i][k]] += dp2[i];\\n      \\n      rep(i,M) if(dp1[i]) rep(k,us){\\n        if(go[now]==use[k]) nx1[nex[i][k]] += dp1[i];\\n        if(go[now]> use[k]) nx2[nex[i][k]] += dp1[i];\\n      }\\n\\n      swap=dp1, dp1=nx1, nx1=swap;\\n      swap=dp2, dp2=nx2, nx2=swap;\\n    }\\n\\n    rep(i,M) dp[mask][i] = dp1[i] + dp2[i];\\n  }\\n\\n  res = 0;\\n  rep(mask,1<<8){\\n    g=1;\\n    rep(i,8) if(mask&1<<i) g=LCM(g,i+2);\\n    \\n    rep(i,mask+1) if( (i&mask)==i ){\\n      for(j=0;j<M;j+=g){\\n        if( (bc[mask] - bc[i])%2 ) res -= dp[i][j];\\n        else                       res += dp[i][j];\\n      }\\n    }\\n  }\\n\\n  return res;\\n}\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,n;\\n  ll a, b, res;\\n  int size;\\n\\n  bc[0]=0;\\n  REP(i,1,1<<8) bc[i] = bc[i&(i-1)]+1;\\n\\n  scanf(\\\"%d\\\",&size);\\n  while(size--){\\n    scanf(\\\"%lld%lld\\\",&a,&b);\\n    res = solve(b) - solve(a-1);\\n    printf(\\\"%lld\\\\n\\\",res);\\n  }\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3812,
+    "completion_tokens": 981,
+    "total_tokens": 4793,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792
+    },
+    "prompt_cache_hit_tokens": 1792,
+    "prompt_cache_miss_tokens": 2020
+  },
+  "raw_sha256": "8c1ab8a8dcb4e8611220b4762745336b9aa14c8054fdac565e8c0e556ca06c4e",
+  "ended_utc": "2026-10-21T07:18:21.364810+00:00",
+  "elapsed_seconds": 3.579
+}

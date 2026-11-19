@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1434/BP3/repair/1",
+  "case_id": "BP17-1434",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "c77b21961417e99a78b50be5bbedbc6451ba81aa7e9fea16b376825d2b2a40ca",
+  "started_utc": "2026-10-17T14:10:11.945347+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "396dbb13-60bd-48a6-bb9a-68cc53cb73e3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\nchar a[101],c[101];\\nint before[101][101];\\nint beforeI[101][101];\\nint main(int argc, char *argv[]){\\n    int i,j,k,l,b,d,lenL=0,lenS=0,curChk=0,maxL,maxS,usebefore,first=-1,last=-1,point=i,memo,ans=0,remain,tmpa,tmpb,tmpChk;\\n    scanf (\\\"%d%d\\\",&b,&d);\\n    scanf (\\\"%s%s\\\",a,c);\\n    while (a[lenL]!=0)lenL++;\\n    while (c[lenS]!=0)lenS++;\\n    if (lenL*b<lenS*d){\\n        printf (\\\"0\\\");\\n        exit(0);\\n    }\\n    maxL=lenL*b;\\n    maxS=lenS*d;\\n    for (i=0;i<maxL;i++){\\n            if (curChk==0&&i>lenS){\\n                printf (\\\"0\\\");\\n                exit(0);\\n            }\\n            if (before[i%lenL][curChk%lenS]==0){\\n                before[i%lenL][curChk%lenS]=curChk;\\n                beforeI[i%lenL][curChk%lenS]=i;\\n                if (a[i%lenL]==c[curChk%lenS]) curChk++;\\n            }else if (maxL-i>i-beforeI[i%lenL][curChk%lenS]){\\n                tmpChk=curChk;\\n                tmpa=beforeI[i%lenL][curChk%lenS];\\n                tmpb=before[i%lenL][curChk%lenS];\\n                before[i%lenL][curChk%lenS]=curChk;\\n                beforeI[i%lenL][curChk%lenS]=i;\\n                curChk+=(curChk-tmpb)*((maxL-i)/(i-tmpa));\\n                i+=(i-tmpa)*((maxL-i)/(i-tmpa))-1;\\n            }else{\\n                if (a[i%lenL]==c[curChk%lenS])curChk++;\\n            }\\n    }\\n    printf (\\\"%d\\\",curChk/maxS);\\n    exit(0);\\n\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2444,
+    "completion_tokens": 576,
+    "total_tokens": 3020,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2444
+  },
+  "raw_sha256": "4ba6bd86eb345eeb89ddd5779f71616f6dbae2d877771c8721a23ec8705617a0",
+  "ended_utc": "2026-10-17T14:10:14.357009+00:00",
+  "elapsed_seconds": 2.406
+}

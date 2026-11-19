@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3076/BP3/repair/1",
+  "case_id": "BP17-3076",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "26d8f6d7107216f7d8dbf4b6a0c138e5f945c47d9cefe9f6076a40b7b7aef184",
+  "started_utc": "2026-11-18T09:39:31.202594+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4812f774-60e5-4b8f-9216-0cbd6f389819",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nlong long int mut(long long int a){return (a<0)?-a:a;}\\nlong long int min(long long int a,long long int b){return (a>b)?b:a;}\\nlong long int max(long long int a,long long int b){return (a<b)?b:a;}\\nint main(int argc, char *argv[]){\\n\\tlong long int i,n,x[100005] = {0};\\n\\tscanf(\\\"%lld\\\",&n);\\n\\tfor(i = 0 ; i < n ; i++)\\n\\t\\tscanf(\\\"%lld\\\",&x[i]);\\n\\tprintf(\\\"%lld %lld\\\\n\\\",x[1]-x[0],x[n-1]-x[0]);\\n\\tfor(i = 1 ; i < n-1 ; i++)\\n\\t\\tprintf(\\\"%lld %lld\\\\n\\\",max(mut(x[i]-x[0]),mut(x[i]-x[n-1])),min(mut(x[i]-x[i-1]),mut(x[i]-x[i+1])));\\n\\tprintf(\\\"%lld %lld\\\\n\\\",x[n-1]-x[n-2],x[n-1]-x[0]);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1427,
+    "completion_tokens": 288,
+    "total_tokens": 1715,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1427
+  },
+  "raw_sha256": "bfc60d47d6d2a9e92a4bc9be03e539b47297c5682f2ca62fa3139420a1fee3a7",
+  "ended_utc": "2026-11-18T09:39:33.166327+00:00",
+  "elapsed_seconds": 1.9617
+}

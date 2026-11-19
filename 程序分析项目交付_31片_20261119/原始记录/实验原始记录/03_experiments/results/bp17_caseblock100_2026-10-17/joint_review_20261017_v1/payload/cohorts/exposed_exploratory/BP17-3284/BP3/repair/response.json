@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3284",
+  "content": "{\"source\":\"#include<stdio.h>\\n#define min(a,b) (a<b)?a:b;\\nint main(int argc, char *argv[])\\n{ int infi=401,t,n,m,max,a[402][402]={0},j,k,sum=0,ns,l1,l2,i,flag=0;\\n scanf(\\\"%d%d\\\",&n,&m);\\n\\n for(i=1;i<=m;i++)\\n {scanf(\\\"%d%d\\\",&l1,&l2); a[l1][l2]=1; a[l2][l1]=1; \\n if(a[1][n]==1) \\n flag=1;\\n }\\n if(flag==1)\\n {\\n for(i=1;i<=n;i++)\\n{\\n for(j=1;j<=n;j++)\\n{a[i][j]=!a[i][j];  \\n\\n}}\\n \\n \\n }\\n\\nfor(i=1;i<=n;i++)\\n{\\n for(j=1;j<=n;j++)\\n{if(a[i][j]==0)\\n a[i][j]=infi;\\n}} \\n \\n \\n \\n \\n \\n for(k=1;k<=n;k++)\\n{\\nfor(i=1;i<=n;i++)\\n{\\n for(j=1;j<=n;j++)\\n{\\n \\n if(i!=j)\\n a[i][j] = min( a[i][j] , a[i][k]+a[k][j]); \\n \\n}}} \\n\\n\\n\\n\\nif(a[1][n]>=infi)\\nprintf(\\\"-1\\\");\\nelse\\nprintf(\\\"%d\\\",a[1][n]);\\n\\nreturn 0;\\n} \"}",
+  "elapsed_seconds": 1.782,
+  "ended_utc": "2026-10-17T07:06:34.963295+00:00",
+  "finish_reason": "stop",
+  "group": "BP3",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3284/BP3/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "233e0accecd5e6cd1979ad82859d5470c5c21994b7f2a6711ea62da362b38160",
+  "request_model": "deepseek-flash",
+  "request_sha256": "bf42b0774424c102f954c97d625455388a75fde444186779995f8e5478781562",
+  "response_id": "f03400f5-a292-4b66-9784-9476ca28c32d",
+  "started_utc": "2026-10-17T07:06:33.087882+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 386,
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 769,
+    "prompt_tokens": 1921,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "total_tokens": 2307
+  }
+}

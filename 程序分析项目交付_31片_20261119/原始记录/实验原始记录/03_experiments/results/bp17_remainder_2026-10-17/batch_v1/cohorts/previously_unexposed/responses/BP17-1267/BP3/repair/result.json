@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1267/BP3/repair/1",
+  "case_id": "BP17-1267",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "e711c476e99c46af02d9699a8906d9fba5f6fb3d70f671ed1ff5d405a8f7e636",
+  "started_utc": "2026-10-21T08:17:37.929336+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a0eddf22-4f11-436a-a151-15b8ff13412d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdbool.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    bool inside = false;\\n    bool new_l = true;\\n    bool n_first = false;\\n    int ch;\\n    while((ch = getchar()) != EOF)\\n    {\\n        if(inside)\\n        {\\n            if(ch == '\\\"')\\n            {\\n                inside = false;\\n                new_l = true;\\n                putchar('>');\\n            }\\n            else\\n            {\\n                putchar(ch);\\n            }\\n        }\\n        else\\n        {\\n            if(ch == '\\\"')\\n            {\\n                inside = true;\\n                if(new_l)\\n                {\\n                    if(n_first)\\n                        putchar('\\\\n');\\n                    putchar('<');\\n                    new_l = false;\\n                    n_first = true;\\n                }\\n            }\\n            else if(ch == ' ')\\n            {\\n                if(new_l)\\n                {\\n                    continue;\\n                }\\n                else\\n                {\\n                    putchar('>');\\n                    new_l = true;\\n                }\\n            }\\n            else\\n            {\\n                if(new_l)\\n                {\\n                    if(n_first)\\n                        putchar('\\\\n');\\n                    putchar('<');\\n                    putchar(ch);\\n                    new_l = false;\\n                    n_first = true;\\n                }\\n                else\\n                {\\n                    putchar(ch);\\n                }\\n            }\\n        }\\n    }\\n    if(!new_l)\\n    {\\n        putchar('>');\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1872,
+    "completion_tokens": 381,
+    "total_tokens": 2253,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 720
+  },
+  "raw_sha256": "582940a607dba6ea15ce17529bf27795c0176f59e0afc6bc25ffe53511cb6834",
+  "ended_utc": "2026-10-21T08:17:39.722428+00:00",
+  "elapsed_seconds": 1.734
+}

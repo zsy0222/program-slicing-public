@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1933/BP1/repair/1",
+  "case_id": "BP17-1933",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "a566679767ee3d66c1ce607a6bb1afe85423f39008aedbc91fdb8e6a472dc25c",
+  "started_utc": "2026-11-16T06:10:25.990679+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a8faf523-bbf0-47c2-bb66-064bddf52845",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint x[31],y[31],d[31];\\nint main(int argc, char *argv[])\\n{\\n    int n,i,h,max=0,min=0;\\n    scanf(\\\"%d%d\\\",&n,&h);\\n    for(i=1;i<=n;++i)\\n    {\\n        scanf(\\\"%d%d\\\",x+i,y+i);\\n        min+=x[i];\\n        max+=y[i];\\n    }\\n    if(min>h || max<h)\\n    {\\n        printf(\\\"NO\\\");\\n        return 0;\\n    }\\n    else\\n    {\\n        int lack=h-min;\\n        printf(\\\"YES\\\\n\\\");\\n        for(i=1;i<=n;++i)\\n        {\\n            if(lack>y[i]-x[i])\\n            {\\n                lack-=(y[i]-x[i]);\\n                d[i]=y[i];\\n            }\\n            else if(lack)\\n            {\\n                d[i]=x[i]+lack;\\n                lack=0;\\n            }\\n            else\\n                d[i]=x[i];\\n            printf(\\\"%d \\\",d[i]);\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1019,
+    "completion_tokens": 290,
+    "total_tokens": 1309,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1019
+  },
+  "raw_sha256": "4de43656ba368c1a18a01bc09da363255fcf49424348ecbec8db3db5d79e44dd",
+  "ended_utc": "2026-11-16T06:10:28.177745+00:00",
+  "elapsed_seconds": 2.1823
+}

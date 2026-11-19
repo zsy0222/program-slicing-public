@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-0238",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#include<string.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nchar in[1100000];\\nint fg[1100000], res[1100000], res_size;\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n;\\n\\n  scanf(\\\"%s\\\",in);\\n  n = strlen(in);\\n\\n  res_size = 0;\\n  rep(i,n) if(in[i]=='1'){\\n    if(i+1==n || in[i+1]=='0'){\\n      res[res_size] = n-i-1;\\n      fg[res_size] = 1;\\n      res_size++;\\n      continue;\\n    }\\n\\n    res[res_size] = n-i;\\n    fg[res_size] = 1;\\n    res_size++;\\n    \\n    for(j=i+1;j<=n;j++){\\n      if(j==n || (in[j]=='0' && (j+1==n || in[j+1]=='0'))){\\n        res[res_size] = n-j;\\n        fg[res_size] = -1;\\n        res_size++;\\n        i = j; continue;\\n      }\\n\\n      if(in[j]=='0'){\\n        res[res_size] = n-j-1;\\n        fg[res_size] = -1;\\n        res_size++;\\n      }\\n    }\\n  }\\n\\n  printf(\\\"%d\\\\n\\\",res_size);\\n  rep(i,res_size){\\n    if(fg[i]==1) putchar('+'); else putchar('-');\\n    printf(\\\"2^%d\\\\n\\\",res[i]);\\n  }\\n\\n  return 0;\\n}\"}",
+  "elapsed_seconds": 2.14,
+  "ended_utc": "2026-10-17T07:15:15.430625+00:00",
+  "finish_reason": "stop",
+  "group": "BP2",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0238/BP2/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "1e82ab11f5b5a260249e05bd28aab2ea6cfa1a33741baec052cc955ef5b314b4",
+  "request_model": "deepseek-flash",
+  "request_sha256": "23c33802cff753dfc5ca991b483dfa0e5efec1c1bacae31f4110aae59612102f",
+  "response_id": "c4145815-3473-4822-b480-8ef366954bae",
+  "started_utc": "2026-10-17T07:15:13.291623+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 435,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1919,
+    "prompt_tokens": 1919,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2354
+  }
+}

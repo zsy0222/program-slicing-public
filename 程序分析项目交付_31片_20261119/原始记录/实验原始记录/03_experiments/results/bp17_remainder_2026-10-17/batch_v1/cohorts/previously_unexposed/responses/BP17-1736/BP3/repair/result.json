@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1736/BP3/repair/1",
+  "case_id": "BP17-1736",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "503e7da7a303e52ef34417bb9ad0150f7f9e499572b7b2603adcf20407c98042",
+  "started_utc": "2026-10-17T08:17:25.896814+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6e8a6a94-3d40-4bae-9d09-8bebcb7b3d6e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint n,i,cnt,maxi;\\n\\tscanf(\\\"%d\\\",&n);\\n\\tint ara[100000];\\n\\t\\n\\tfor (i=0;i<n;i++){\\n\\t\\tscanf(\\\"%d\\\",&ara[i]);\\n\\t}\\n\\tif (n==1){\\n\\t\\tprintf(\\\"1\\\");\\n\\t\\treturn 0;\\n\\t}\\n\\telse if (n==2){\\n\\t\\tprintf(\\\"2\\\");\\n\\t\\treturn 0;\\n\\t}\\n\\tcnt=2;\\n\\tmaxi=0;\\n\\tfor (i=2;i<n;i++){\\n\\t\\tif (ara[i-1]+ara[i-2]==ara[i]){\\n\\t\\t\\tcnt++;\\n\\t\\t}\\n\\t\\telse{\\n\\t\\t\\tif (maxi<cnt){\\n\\t\\t\\t\\tmaxi=cnt;\\n\\t\\t\\t}\\n\\t\\t\\tcnt=2;\\n\\t\\t}\\n\\t}\\n\\tif (maxi<cnt){\\n\\t\\t\\t\\tmaxi=cnt;\\n\\t\\t\\t}\\n\\tprintf(\\\"%d\\\",maxi);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1545,
+    "completion_tokens": 289,
+    "total_tokens": 1834,
+    "prompt_tokens_details": {
+      "cached_tokens": 1024
+    },
+    "prompt_cache_hit_tokens": 1024,
+    "prompt_cache_miss_tokens": 521
+  },
+  "raw_sha256": "6ad84903a3908caf83798871d84957fc06decdb321e822df596b13ea337efc3d",
+  "ended_utc": "2026-10-17T08:17:27.591342+00:00",
+  "elapsed_seconds": 1.688
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1001/BP3/repair/1",
+  "case_id": "BP17-1001",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "478e76b3bc0d7fede53fd60fae33fe04dd76a15f87ccb466ce8d239adfc0c871",
+  "started_utc": "2026-11-16T19:01:06.030294+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d98f583c-00dd-4ab1-aae8-e7bff9694e76",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\nint n,m,k,i=0,x,y,s,t,sum=1,count=0;\\nint a[50];\\nscanf(\\\"%d %d %d\\\",&n,&m,&k);\\ns=n;\\nwhile(n--)\\nscanf(\\\"%d\\\",&a[i++]);\\nfor(x=0;x<=s-2;x++)\\n{\\n    for(y=0;y<=s-2-x;y++)\\n    {\\n        if(a[y]<a[y+1])\\n        {\\n            t=a[y];\\n            a[y]=a[y+1];\\n            a[y+1]=t;\\n        }\\n    }\\n}\\nif(m<k)\\n{\\n    printf(\\\"0\\\\n\\\");\\n    return 0;\\n}\\nsum=k;\\nfor(x=0;x<=s-1;x++)\\n{\\n    sum=sum-1;\\n    if(k>0)\\n    {\\n    k=k-1;\\n    sum=sum+a[x];\\n    count++;\\n    if(sum>=m)\\n    {\\n\\n        printf(\\\"%d\\\\n\\\",count);\\n        return 0;\\n    }\\n    }\\n    else\\n    {\\n        sum=(sum)+a[x];\\n        count++;\\n        if(sum>=m)\\n    {\\n        printf(\\\"%d\\\\n\\\",count);\\n        return 0;\\n    }\\n    }\\n}\\nprintf(\\\"-1\\\\n\\\");\\nreturn 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1699,
+    "completion_tokens": 372,
+    "total_tokens": 2071,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 547
+  },
+  "raw_sha256": "e6d817ebde8239405bb0bda51896f2a7fa1d2131a0a8547cd2e58fec32915030",
+  "ended_utc": "2026-11-16T19:01:08.746165+00:00",
+  "elapsed_seconds": 2.7121
+}

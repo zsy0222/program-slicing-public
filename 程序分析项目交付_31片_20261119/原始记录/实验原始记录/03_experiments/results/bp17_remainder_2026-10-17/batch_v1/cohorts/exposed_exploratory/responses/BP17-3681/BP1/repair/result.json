@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3681/BP1/repair/1",
+  "case_id": "BP17-3681",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "d65426258d72adea7099fb2f86adbbc25b8b9899f810cba7ae1033b0213c102d",
+  "started_utc": "2026-11-16T18:05:20.104251+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "dee359fc-3912-4ce8-9c2c-73c43e7d3017",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\nchar t='x',c;\\nint a[100010];\\nint b[100010];\\na[0]=0;\\nb[0]=0;\\nint i,j=1,k=1;\\nint n,m;\\nscanf(\\\"%d %d\\\\n\\\",&n,&m);\\n\\nfor(i=1;i<=n;i++)\\n{\\n    scanf(\\\"%c\\\",&c);\\n    if(c=='a'){a[j++]=i;}\\n    if(c=='b'){b[k++]=i;}\\n    t=c;\\n}\\na[j]=n+1;\\nb[k]=n+1;\\n\\nint max=0;\\nint x;\\n\\n\\nfor(i=0;i+m+1<=j;i++)\\n{\\n    x=a[i+m+1]-a[i]-1;\\n    if(x>max){max=x;}\\n}\\n//printf(\\\"\\\\n\\\");\\n\\nfor(i=0;i+m+1<=k;i++)\\n{\\n    x=b[i+m+1]-b[i]-1;\\n    if(x>max){max=x;}\\n}\\n//printf(\\\"\\\\n\\\");\\n\\nprintf(\\\"%d\\\\n\\\",max);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1053,
+    "completion_tokens": 305,
+    "total_tokens": 1358,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 157
+  },
+  "raw_sha256": "eec3bd0743c309823c8ef9da0f25d9248ff416ac1b558f00cf03ddc232907665",
+  "ended_utc": "2026-11-16T18:05:22.432781+00:00",
+  "elapsed_seconds": 2.3255
+}

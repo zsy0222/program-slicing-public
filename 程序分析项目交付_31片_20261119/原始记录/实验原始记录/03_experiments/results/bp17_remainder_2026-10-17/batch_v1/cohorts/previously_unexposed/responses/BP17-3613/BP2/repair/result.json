@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3613/BP2/repair/1",
+  "case_id": "BP17-3613",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "ce6cac1e417671dbf15918d372ecda7d7db6852d39879578faa91cbdb6bab2cf",
+  "started_utc": "2026-11-16T18:48:41.531394+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "9e6c45bb-a4bc-4203-81f2-084b72e90657",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint n, q;\\nint point, sum;\\nint ans[1000100];\\n\\nvoid boymove() {\\n    for(int i=1;i<=n;i++) {\\n        if((i+sum)%2==0) ans[i]=(i+sum)%n;\\n        else ans[i]=(i+n-sum)%n;\\n        if(ans[i]<=0) ans[i]+=n;\\n    }\\n    return;\\n}\\n\\nint main(int argc, char *argv[]) {\\n    scanf(\\\"%d %d\\\", &n, &q);\\n    int ord, mv;\\n    for(int i=0;i<q;i++) {\\n        scanf(\\\"%d\\\", &ord);\\n        if(ord==1) {\\n            scanf(\\\"%d\\\", &mv);\\n            point=(point+n-mv)%n;\\n        }\\n        if(ord==2) {\\n            if(point%2==0) sum++, sum%=n;\\n            else sum--, sum%=n;\\n        }\\n    }\\n    boymove();\\n    for(int i=point+1;i<=n;i++) printf(\\\"%d \\\", ans[i]);\\n    for(int i=1;i<=point;i++) printf(\\\"%d \\\", ans[i]);\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1744,
+    "completion_tokens": 299,
+    "total_tokens": 2043,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1744
+  },
+  "raw_sha256": "491a6dab79c49f6afd3b503d4e980fa7cecb2454c08d0c687cd440f9d7cf1fb8",
+  "ended_utc": "2026-11-16T18:48:43.824152+00:00",
+  "elapsed_seconds": 2.2292
+}

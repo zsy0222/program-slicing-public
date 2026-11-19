@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0841/BP1/repair/1",
+  "case_id": "BP17-0841",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "d0892a086a6eddce85dc96f559235d18efa4a79c5e010eef7790f76d2d0440eb",
+  "started_utc": "2026-11-16T04:41:27.465199+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "321c701f-857e-4182-b13c-68367ff667a1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[]){\\nlong int a[3][2];\\nint i,j,m1,m2,ans;\\n//freopen(\\\"d.txt\\\",\\\"r\\\",stdin);\\n//freopen(\\\"d1.txt\\\",\\\"w\\\",stdout);\\nfor(i=0;i<3;i++)\\n    for(j=0;j<2;j++)\\n        scanf(\\\"%ld\\\",&a[i][j]);\\nif((a[0][0]!=a[1][0])&&(a[0][1]!=a[1][1])){\\nm1=(a[1][1]-a[0][1])/(a[1][0]-a[0][0]);m2=(a[2][1]-a[1][1])/(a[2][0]-a[1][0]);\\nif(m1==m2) ans=0;\\nelse{\\n    if(a[1][1]>a[0][1]){if(a[2][0]>a[1][0])ans=1;else ans=-1;}\\n    else{if(a[2][0]<a[1][0])ans=1;else ans=-1;}\\n}\\n}\\nelse{\\n    if(a[0][0]==a[1][0]){\\n        if(a[0][0]==a[2][0])ans=0;\\n        else{\\n            if(a[1][1]>a[0][1]){if(a[2][0]>a[1][0])ans=1;else ans=-1;}\\n    else{if(a[2][0]<a[1][0])ans=1;else ans=-1;}\\n        }\\n    }\\n    else{\\n        if(a[1][1]==a[2][1])ans=0;\\n        else{\\n            if(a[0][0]<a[1][0]){if(a[2][1]>a[1][1])ans=-1;else ans=1;}\\n    else{if(a[2][1]<a[1][1])ans=1;else ans=-1;}\\n        }\\n    }\\n}\\nif(ans==0)printf(\\\"TOWARDS\\\");\\nelse if(ans==1)printf(\\\"RIGHT\\\");\\nelse printf(\\\"LEFT\\\");\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1310,
+    "completion_tokens": 540,
+    "total_tokens": 1850,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1310
+  },
+  "raw_sha256": "01063ec51be077737a94fabc7463ae9c8a10e46d5cfe073217c736ab16598f95",
+  "ended_utc": "2026-11-16T04:41:29.824101+00:00",
+  "elapsed_seconds": 2.3149
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3232/BP0/repair/1",
+  "case_id": "BP17-3232",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "47cd1527e85d6e2f0c492cf3eef04378d5bc82fc10efdffb0ef65d1ab963cc02",
+  "started_utc": "2026-11-16T17:54:44.985051+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "15c28b92-3df6-4348-ae64-7c8396eac800",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdlib.h>\\n#include <stdio.h>\\n#include <math.h>\\n\\nint findWayUp(int a[8][8], int, int);\\nint findWayDown(int a[8][8], int, int);\\n\\nint findWayUp(int a[8][8], int currI, int currJ)\\n{\\n    int result = 0;\\n    if (currI == 0) result = 1;\\n    else\\n    {\\n        if (a[currI-1][currJ] == 0) result = 1 * findWayUp(a, currI-1, currJ);\\n        else result = 0;\\n    }\\n    return result;\\n}\\n\\nint findWayDown(int a[8][8], int currI, int currJ)\\n{\\n    int result = 0;\\n    if (currI == 7) result = 1;\\n    else\\n    {\\n        if (a[currI+1][currJ] == 0) result = 1 * findWayDown(a, currI+1, currJ);\\n        else result = 0;\\n    }\\n    return result;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int board[8][8];\\n    char ch;\\n    \\n    for (int i = 0; i < 8; i++)\\n    { \\n        for (int j = 0; j < 8; j++)\\n        {\\n            scanf(\\\"%c\\\", &ch);\\n            switch (ch)\\n            {\\n                case '.': \\n                    board[i][j] = 0;\\n                    break;\\n                    \\n                case 'W':\\n                    board[i][j] = 1;\\n                    break;\\n                    \\n                case 'B':\\n                    board[i][j] = 2;\\n                    break;\\n            }\\n        }\\n       scanf(\\\"%*c\\\");\\n    }\\n    \\n    int movesA = 0, movesB = 0;\\n    for (int i = 0; i < 8; i++)\\n        for (int j = 0; j < 8; j++)\\n        {\\n            if (board[i][j] == 1) \\n                if (findWayUp(board, i, j)) \\n                    if ((movesA == 0) || (i < movesA)) movesA = i;\\n            if (board[i][j] == 2)\\n                if (findWayDown(board, i, j))\\n                    if ((movesB == 0) || ((7-i) < movesB)) movesB = 7-i;  \\n        }\\n    char winner;\\n    if (movesA < movesB) winner = 'A';\\n    else winner = 'B';\\n    printf(\\\"%c\\\\n\\\", winner);\\n    \\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1499,
+    "completion_tokens": 676,
+    "total_tokens": 2175,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1499
+  },
+  "raw_sha256": "93cdef7925b93f7f927db77edb683a5c6b3880d36cf9ba584d4c4e008db6bfb7",
+  "ended_utc": "2026-11-16T17:54:48.027078+00:00",
+  "elapsed_seconds": 3.0391
+}

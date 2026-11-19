@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1502/BP3/repair/1",
+  "case_id": "BP17-1502",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "87ec4c361b2627c67c00f548c97a3132ba888e519b7e07e2ab642464e2ed5638",
+  "started_utc": "2026-10-17T13:41:34.370866+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1c380099-48ff-4015-b4bc-7e29bbe762fd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <unistd.h>\\n#include <stdio.h>\\n#include <stdlib.h>\\n\\nlong int min(long int a, long int b, long int min_a, long int min_b)\\n{\\n    if (a < b)\\n    {\\n        return min_a;\\n    }\\n    else\\n    {\\n        return min_b;\\n    }\\n}\\n\\nlong int min_(long int v, long int *check, long int *count)\\n{\\n    long int min_a = 0, min_ind = 0, i;\\n    //min_ind = 0;\\n    for (i = 1; i <= v; i++)\\n    {\\n        if (!check[i])\\n        {\\n            min_ind = min(min_a, count[i], min_ind, i);\\n        }\\n    }\\n    check[min_ind] = 1;\\n    return min_ind;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    long int i = 0, count[101] = {0}, count_ = 0, v, not_v, p, a[101][101] = {0}, min_ind, check[101] = {0};\\n    scanf(\\\"%ld%ld\\\", &v, &not_v);\\n    //p = fork();\\n    for ( ; i < not_v; i++)\\n    {\\n        long int v1, v2;\\n        scanf(\\\"%ld%ld\\\", &v1, &v2);\\n        count[v1]++;\\n        count[v2]++;\\n        a[v1][v2] = a[v2][v1] = -1;\\n    }\\n    min_ind = min_(v, check, count);\\n    count_ = 0;\\n    while (min_ind != 0)\\n    {\\n        for (i = 1; i <= v; i++)\\n        {\\n            if (a[min_ind][i] != -1 && i != min_ind )\\n            {\\n                a[min_ind][i] = a[i][min_ind] = 1;\\n                check[i] = 1;\\n                count_++;\\n            }\\n        }\\n        min_ind = min_(v, check, count);\\n    }\\n    printf(\\\"%ld\\\\n\\\", count_);\\n    for (i = 1; i <= v; i++)\\n    {\\n        long int j = 1;\\n        for (j = i; j <= v; j++)\\n        {\\n            if (a[i][j] == 1)\\n            printf(\\\"%ld %ld\\\\n\\\", i, j);\\n        }\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3985,
+    "completion_tokens": 618,
+    "total_tokens": 4603,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 3985
+  },
+  "raw_sha256": "c74d4735ffc0e15f33f530840c9fdbfaf48d8794be1e17aeb39fcf6af939052a",
+  "ended_utc": "2026-10-17T13:41:36.846359+00:00",
+  "elapsed_seconds": 2.469
+}

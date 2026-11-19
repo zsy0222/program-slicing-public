@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0306/BP2/repair/1",
+  "case_id": "BP17-0306",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "b4c86b1fb213bcb7ba28fcbc00567209975e8a8d10df8fc40608c8c4229fea69",
+  "started_utc": "2026-11-16T05:04:18.210400+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "5c27c15a-8141-4415-8de2-608ede5dc761",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    int n,x,i,temp;\\n    scanf(\\\"%d %d\\\",&n,&x);\\n    int a[n][2];\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d %d\\\",&a[i][0],&a[i][1]);\\n        if(a[i][0]>a[i][1])\\n        {\\n            temp=a[i][0];\\n            a[i][0]=a[i][1];\\n            a[i][1]=temp;\\n        }\\n    }\\n    int max=a[0][0],min=a[0][1];\\n    for(i=0;i<n;i++)\\n    {\\n        if(a[i][0]>max)\\n            max=a[i][0];\\n        if(a[i][1]<min)\\n            min=a[i][1];\\n    }\\n    if(max>min)\\n    {\\n        printf(\\\"-1\\\");\\n        return 0;\\n    }\\n    else\\n    {\\n        if(x<min && x<max)\\n        {\\n            printf(\\\"%d\\\",max-x);\\n            return 0;\\n        }\\n        if(x>min && x>max)\\n        {\\n            printf(\\\"%d\\\",x-min);\\n            return 0;\\n        }\\n        printf(\\\"0\\\");\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1666,
+    "completion_tokens": 340,
+    "total_tokens": 2006,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 770
+  },
+  "raw_sha256": "a95ce2a53b5278190c828c9c3d3164d45d17381b9915b2d485c68f5f9074674f",
+  "ended_utc": "2026-11-16T05:04:20.326747+00:00",
+  "elapsed_seconds": 2.0084
+}

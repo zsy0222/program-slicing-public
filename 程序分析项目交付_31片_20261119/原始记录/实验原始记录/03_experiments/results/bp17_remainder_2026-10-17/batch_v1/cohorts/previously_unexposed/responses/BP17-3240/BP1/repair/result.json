@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3240/BP1/repair/1",
+  "case_id": "BP17-3240",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "b4e8ae4a25abb18561e655331b9a96d35f1040cafc0a5e420d56a7a7f1714f01",
+  "started_utc": "2026-10-18T13:43:05.468658+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2f76b93f-8917-4ec5-be49-3e50d2dc0b21",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\ntypedef long long ll;\\nll gcd(ll x,ll y)\\n{\\n    if(x%y==0)\\n        return y;\\n    return gcd(y,x%y);\\n}\\nll max(ll x,ll y)\\n{\\n    return x>y?x:y;\\n}\\nll min(ll x,ll y)\\n{\\n    return x<y?x:y;\\n}\\nint main(int argc, char *argv[])\\n{\\n    ll k,t,a,b,x,y,m,l;\\n    scanf(\\\"%lld%lld%lld\\\",&t,&a,&b);\\n    x=max(a,b);\\n    y=min(a,b);\\n    if(t==1 && y==1 && x!=y)\\n    {\\n        printf(\\\"0/1\\\");\\n        return 0;\\n    }\\n    m=gcd(x,y);\\n    if((((x/m)*(y/m))*m)/(x/m)==y)\\n    {\\n        k=((x/m)*(y/m))*m;\\n        l=t/k;\\n        a=y*l;\\n        b=t%k;\\n        if(b<y)\\n            a+=b;\\n        else\\n            a+=y-1;\\n        b=gcd(t,a);\\n        printf(\\\"%lld/%lld\\\",a/b,t/b);\\n    }\\n    else if(t>=y)\\n    {\\n        b=gcd(t,y-1);\\n        printf(\\\"%lld/%lld\\\",(y-1)/b,t/b);\\n    }\\n    else\\n        printf(\\\"1/1\\\");\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1156,
+    "completion_tokens": 380,
+    "total_tokens": 1536,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1156
+  },
+  "raw_sha256": "54582b0e684a5406f1de47eeb33a1bde2746f560f249a3a258ccd28eda97722a",
+  "ended_utc": "2026-10-18T13:43:07.416024+00:00",
+  "elapsed_seconds": 1.953
+}

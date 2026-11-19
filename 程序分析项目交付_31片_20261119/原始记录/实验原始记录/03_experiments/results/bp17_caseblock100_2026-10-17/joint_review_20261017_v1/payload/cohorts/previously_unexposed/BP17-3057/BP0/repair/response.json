@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-3057",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <limits.h>\\n#include <string.h>\\n#include <inttypes.h>\\n#include <assert.h>\\n\\n\\n/* CF312Div2 - D */\\ntypedef\\tlong long int ll;\\n\\ntypedef\\tstruct map_s {\\n\\tll\\tle;\\n\\tll \\tri;\\n} map_t;\\n\\nmap_t\\tmp[100005];\\n\\nint\\nascomp (const void *a, const void *b)\\n{\\n        ll     x = ((map_t *)a)->le;\\n        ll     y = ((map_t *)b)->le;\\n\\tll     s = x-y;\\n\\n\\tif (s < 0) {\\n\\t\\treturn -1;\\n\\t} else if (s > 0) {\\n\\t\\treturn 1;\\n\\t}\\n\\t\\n        return 0;\\n}\\n\\n#define LC(_v, _h) ((_v) << (_h))\\n#define RC(_v, _h) ((_v+1) << (_h))\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint\\ti;\\n\\tint\\tth, nq, nb = 0;\\n\\tll\\tml, mr;\\n\\tll\\tres = -1;\\n\\n\\tscanf(\\\"%d%d\\\", &th, &nq);\\n\\n\\tml = LC(1ll, th-1);\\n\\tmr = RC(1ll, th-1);\\n\\n\\tfor (i = 0; i < nq; i++) {\\n\\t\\tint\\th, a;\\n\\t\\tll\\tl, r;\\n\\t\\tscanf(\\\"%d%lld%lld%d\\\", &h, &l, &r, &a);\\n\\n\\t\\tl = LC(l, th-h);\\n\\t\\tr = RC(r, th-h);\\n\\t\\tif (a) {\\n\\t\\t\\tif (l > ml) {\\n\\t\\t\\t\\tml = l;\\n\\t\\t\\t}\\n\\t\\t\\tif (r < mr) {\\n\\t\\t\\t\\tmr = r;\\n\\t\\t\\t}\\t\\n\\t\\t} else {\\n\\t\\t\\tmp[nb].le = l;\\n\\t\\t\\tmp[nb++].ri = r;\\n\\t\\t}\\n\\t}\\n\\n\\tmp[nb].ri = mr;\\n\\tmp[nb++].le = mr;\\n\\tqsort (mp, nb, sizeof (*mp), ascomp);\\n\\n\\tfor (i = 0; i < nb; i++) {\\n\\t\\tll tl = mp[i].le;\\n\\t\\tll tr = mp[i].ri;\\n\\t\\t\\n\\t\\tif (ml >= mr) {\\n\\t\\t\\tbreak;\\n\\t\\t}\\n\\n\\t\\tif (tl > ml+1) {\\n\\t\\t\\tputs (\\\"Data not sufficient!\\\");\\n\\t\\t\\treturn 0;\\n\\t\\t} else if (tl == ml+1) {\\n\\t\\t\\tif (res != -1) {\\n\\t\\t\\t\\tputs (\\\"Data not sufficient!\\\");\\n\\t\\t\\t\\treturn 0;\\n\\t\\t\\t}\\n\\t\\t\\tres = ml;\\n\\t\\t}\\n\\n\\t\\tif (tr > ml) {\\n\\t\\t\\tml = tr;\\n\\t\\t}\\n\\t}\\n\\n\\tif (res == -1) {\\n\\t\\tputs (\\\"Game cheated!\\\");\\n\\t} else {\\n\\t\\tprintf(\\\"%lld\\\\n\\\", res);\\n\\t}\\n\\treturn 0;\\n}\"}",
+  "elapsed_seconds": 3.078,
+  "ended_utc": "2026-10-17T06:56:24.648999+00:00",
+  "finish_reason": "stop",
+  "group": "BP0",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3057/BP0/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "64516a103e993710b5dc022a874dd8e6d3372355eb4bd7c859d76e16b992a0a7",
+  "request_model": "deepseek-flash",
+  "request_sha256": "aeef6d331d37babcbc20f3dd653a206cb14fe42511291006fb08df133893838e",
+  "response_id": "aaafdd83-554f-4880-9140-829573681d4b",
+  "started_utc": "2026-10-17T06:56:21.564225+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 812,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1748,
+    "prompt_tokens": 1748,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 2560
+  }
+}

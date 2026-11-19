@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3447/BP0/repair/1",
+  "case_id": "BP17-3447",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "8bf5d982971119a27e970c01d71b8a4a39ba9d477783fb269dc5ca507fc37d6e",
+  "started_utc": "2026-10-21T08:32:03.193891+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "143d0fcb-bc8e-40ff-b114-a91f0eab8a93",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n#define min(x,y) (x>y ? y:x)\\n#define max(x,y) (x>y ? x:y)\\nint v[400][2];\\nint main(int argc, char *argv[])\\n{\\n\\tfreopen(\\\"C343B.txt\\\",\\\"r\\\",stdin);\\n\\tint N,a,b,ans;\\n\\tchar sex;\\n\\tmemset(v,0,sizeof(v));\\n\\tscanf(\\\"%d\\\",&N);\\n\\tfor (int i=0;i<N;i++)\\n\\t{\\n\\t\\tgetchar();\\n\\t\\tscanf(\\\"%c%d%d\\\",&sex,&a,&b);\\n\\t\\tif (sex=='F') sex=0;\\n\\t\\telse sex=1;\\n\\t\\tfor (int j=a;j<=b;j++) v[j][sex]++;\\n\\t}\\n\\tans=0;\\n\\tfor (int i=1;i<=366;i++) ans=max(ans,min(v[i][0],v[i][1])*2);\\n\\tprintf(\\\"%d\\\\n\\\",ans);\\n\\tfclose(stdin);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 973,
+    "completion_tokens": 274,
+    "total_tokens": 1247,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 205
+  },
+  "raw_sha256": "38c8168163fd3a3fa39b4879ba6c6bc74846cb2eb9efe3b29c1e3edd95306d35",
+  "ended_utc": "2026-10-21T08:32:05.338029+00:00",
+  "elapsed_seconds": 2.109
+}

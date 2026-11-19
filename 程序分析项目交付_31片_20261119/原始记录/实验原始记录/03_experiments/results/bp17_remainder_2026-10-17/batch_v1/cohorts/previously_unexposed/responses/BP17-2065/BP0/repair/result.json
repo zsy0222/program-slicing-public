@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2065/BP0/repair/1",
+  "case_id": "BP17-2065",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "7dd14f4ea7a2e4beead64ab7bad235c8e71bcd5ca2b46b3be1101307bb8e25ef",
+  "started_utc": "2026-11-17T01:21:54.864031+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "940968fd-4c2b-4ad1-8727-2d0d6e2993ab",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdlib.h>\\n#include <stdio.h>\\n#include <stdbool.h>\\n#include <stdint.h>\\n\\nint main(int argc, char *argv[]){\\n\\tint n = 0; //number of integers (distinct)\\n\\tint k = 0; //desired score\\n\\tscanf(\\\"%d %d\\\", &n, &k);\\n\\tif(n==1){\\n\\t\\tif(k==0){printf(\\\"%d\\\\n\\\", 1);}\\n\\t\\telse{printf(\\\"%d\\\\n\\\", -1);}\\n\\t\\treturn 0;\\n\\t}\\n\\tif(n/2>k){\\n\\t\\tprintf(\\\"%d\\\\n\\\", -1);\\n\\t\\treturn 0;\\n\\t}\\n\\tint nums[n];\\n\\tint firstScore = (n-2)/2;\\n\\tint endScore = k-firstScore;\\n\\tint index = 0;\\n\\twhile(index<(n-2-(n%2))){\\n\\t\\tnums[index] = 2*endScore+1+index;\\n\\t\\tindex++;\\n\\t}\\n\\tnums[index] = endScore;\\n\\tindex++;\\n\\tnums[index] = 2*endScore;\\n\\tindex++;\\n\\tif(index<n)\\n\\t\\tnums[index] = 2*endScore-1+index;\\n\\tindex = 0;\\n\\twhile(index<n){\\n\\t\\tprintf(\\\"%d \\\", nums[index]);\\n\\t\\tindex++;\\n\\t}\\n\\tprintf(\\\"\\\\n\\\");\\n\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1080,
+    "completion_tokens": 363,
+    "total_tokens": 1443,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 184
+  },
+  "raw_sha256": "fa61108c778f1632c92339b01598cdab5aee9af5e18eee05a563e34f3474222f",
+  "ended_utc": "2026-11-17T01:21:57.245360+00:00",
+  "elapsed_seconds": 2.3774
+}

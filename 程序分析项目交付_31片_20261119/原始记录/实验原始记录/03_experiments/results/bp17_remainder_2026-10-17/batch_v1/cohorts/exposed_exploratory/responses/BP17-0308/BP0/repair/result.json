@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0308/BP0/repair/1",
+  "case_id": "BP17-0308",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "486370d1414c7626ecaebe4a07935428e2ef7b1256d678463b2fe19c286249d3",
+  "started_utc": "2026-11-16T05:24:25.349244+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e8cd318f-26fe-4fbd-83fb-faeb0348b07c",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nint main(int argc, char *argv[])\\n\\n{\\n    int n,x0,temp1,temp2;\\n    scanf(\\\"%d%d\\\",&n,&x0);\\n    int a[n],b[n];\\n    int i,j;\\n    for(i=0; i<n; i++)\\n\\n    {\\n        scanf(\\\"%d %d\\\",&a[i],&b[i]);\\n        if(b[i]<a[i])\\n        {\\n            j=b[i];\\n            b[i]=a[i];\\n            a[i]=j;\\n\\n        }\\n    }\\n    temp1=a[0];\\n    temp2=b[0];\\n    for(i=1;i<n;i++)\\n\\n    {\\n        if(a[i]>temp1)temp1=a[i];\\n        else temp1=temp1;\\n        if(b[i]<temp2)temp2=b[i];\\n        else temp2=temp2;\\n        if(temp1>temp2)\\n        {\\n            printf(\\\"%d\\\\n\\\",-1);\\n            return 0;\\n        }\\n    }\\n    if(temp1>x0)printf(\\\"%d\\\\n\\\",temp1-x0);\\n    else printf(\\\"%d\\\\n\\\",x0-temp2);\\n\\n\\n    //printf(\\\"%d\\\",count);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1009,
+    "completion_tokens": 322,
+    "total_tokens": 1331,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1009
+  },
+  "raw_sha256": "2b41b97b563893458c89cf59fa32a8a3e187d450977bce963b818fc6a81020c4",
+  "ended_utc": "2026-11-16T05:24:27.314150+00:00",
+  "elapsed_seconds": 1.9624
+}

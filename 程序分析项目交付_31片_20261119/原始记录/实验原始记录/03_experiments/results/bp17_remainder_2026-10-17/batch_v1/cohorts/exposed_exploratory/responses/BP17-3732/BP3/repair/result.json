@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3732/BP3/repair/1",
+  "case_id": "BP17-3732",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "39c8a3180f3e30c3de9643893e89f44d4e8f147ab2c78ff17602cebb0d01cec1",
+  "started_utc": "2026-11-16T06:21:08.327664+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "68dc206a-dba5-44e3-b5e9-91bd25828846",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\n#include<math.h>\\n#define REP(i,a,b) for(i=a;i<b;i++)\\n#define rep(i,n) REP(i,0,n)\\n\\nint main(int argc, char *argv[]){\\n  int i,j,k,l,m,n,q,t=1,ok;\\n  int mem[120], tmp[120];\\n  char com[100]; int arg;\\n\\n  scanf(\\\"%d%d\\\",&q,&n);\\n  rep(i,n) mem[i]=0; mem[n]=10000;\\n  while(q--){\\n    scanf(\\\"%s\\\",com);\\n    if(com[0]!='d') scanf(\\\"%d\\\",&arg);\\n    if(com[0]=='a'){\\n      ok=0;\\n      rep(i,n+1-arg){\\n        k=0; rep(j,arg) if(mem[i+j]) k++;\\n        if(k==0){\\n          rep(j,arg) mem[i+j]=t;\\n          printf(\\\"%d\\\\n\\\",t++);\\n          ok=1;\\n          break;\\n        }\\n      }\\n      if(!ok) puts(\\\"NULL\\\");\\n    }\\n    if(com[0]=='e'){\\n      k=0;\\n      rep(i,n) if(mem[i]==arg) mem[i]=0, k++;\\n      if(!k) puts(\\\"ILLEGAL_ERASE_ARGUMENT\\\");\\n    }\\n    if(com[0]=='d'){\\n      rep(i,n) tmp[i]=0; k=0;\\n      rep(i,n) if(mem[i]) tmp[k++]=mem[i];\\n      rep(i,n) mem[i]=tmp[i];\\n    }\\n  }\\n\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2188,
+    "completion_tokens": 413,
+    "total_tokens": 2601,
+    "prompt_tokens_details": {
+      "cached_tokens": 1280
+    },
+    "prompt_cache_hit_tokens": 1280,
+    "prompt_cache_miss_tokens": 908
+  },
+  "raw_sha256": "99e3ec7d050298dd1ae9df6970a27af43f1302530331e993bb14beebb7632b60",
+  "ended_utc": "2026-11-16T06:21:10.877888+00:00",
+  "elapsed_seconds": 2.5473
+}

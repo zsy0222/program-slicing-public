@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1666/BP1/repair/1",
+  "case_id": "BP17-1666",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "305c08e567cce342aabb348708fb5d5c2706e8d55589e7881f93436892bb55b8",
+  "started_utc": "2026-10-18T11:55:42.856136+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "cb51fe14-3c0e-4b0e-a3ce-c99fc9659b0d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"//\\twriteInt(i)-> power(10,9)->max limit\\n//\\twritelongInt(l)->power(10,9)->max limit\\n//\\twritelonglongInt(ll)->power(10,19)->max limit\\n\\n#include<stdio.h>\\n#include<stdlib.h>\\n\\n\\n/***** start of scanning and printing part*****/\\n#define getcx getchar_unlocked\\n#define pc(x) putchar_unlocked(x);\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint c1,c2,c3,c4,n,m,bus[1001],trolley[1001],i,j,costbus[1001],costtrolley[1001],totalbuscost,totaltrolleycost,cost=0;\\n\\tscanf(\\\"%d%d%d%d%d%d\\\",&c1,&c2,&c3,&c4,&n,&m);\\n\\tfor(i=0;i<n;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\",&bus[i]);\\n\\t\\tcostbus[i]=c1*bus[i]<c2?c1*bus[i]:c2;\\n//\\t\\tprintf(\\\"cost for bus %d is %d\\\\n\\\",i,costbus[i]);\\n\\t\\tcost+=costbus[i];\\n\\t}\\n\\ttotalbuscost=cost<c3?cost:c3;\\n//\\tprintf(\\\"total cost for bus is:%d\\\\n\\\",totalbuscost);\\n\\tcost=0;\\n\\tfor(i=0;i<m;i++)\\n\\t{\\n\\t\\tscanf(\\\"%d\\\",&trolley[i]);\\n\\t\\tcosttrolley[i]=c1*trolley[i]<c2?c1*trolley[i]:c2;\\n//\\t\\tprintf(\\\"cost for trolley %d is %d\\\\n\\\",i,costtrolley[i]);\\n\\t\\tcost+=costtrolley[i];\\n\\t}\\n\\ttotaltrolleycost=cost<c3?cost:c3;\\n//\\tprintf(\\\"total cost for trolley is:%d\\\\n\\\",totaltrolleycost);\\n\\tint total=totaltrolleycost+totalbuscost;\\n\\tcost=total<c4?total:c4;\\n\\tprintf(\\\"%d\\\\n\\\",cost);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1313,
+    "completion_tokens": 537,
+    "total_tokens": 1850,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1313
+  },
+  "raw_sha256": "a672f80ad7bc8623b612da1f92602c555ed81e4525096cd1c50c1dd15f27a560",
+  "ended_utc": "2026-10-18T11:55:45.589197+00:00",
+  "elapsed_seconds": 2.735
+}

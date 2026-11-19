@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-1564/BP3/repair/1",
+  "case_id": "BP17-1564",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "aee44ddd6875058c6025c1d9d18bd4d35b8d72a9aa19a2098b87786636eee144",
+  "started_utc": "2026-10-17T07:16:29.958206+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "da263e55-7a80-4be5-886a-e89a8cdf7030",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <string.h>\\nint path[1005];\\nint we[11];\\nint main(int argc, char *argv[])\\n{\\n    int i, j, flag = 0, m, k;\\n    char weight[11], count = 0;\\n    for(i = 1; i <= 10; i++)\\n        scanf(\\\"%c\\\", weight + i);\\n    for(i = 1; i <= 10; i++)\\n    {\\n        if(weight[i] == '1')\\n            we[i] = i;\\n        else we[i] = 0;\\n    }\\n    scanf(\\\"%d\\\", &m);\\n    int left, right;\\n    for(k = 1; k <= 10; k++)\\n    {\\n        left = 0; right = 0;\\n        if(we[k])\\n        {\\n            path[1] = k;\\n            left += we[k];\\n        }\\n        else continue;\\n    for(i = 2; i <= m; i++)\\n    {\\n        flag = 0;\\n        if(i % 2)\\n        {\\n            for(j = 1; j <= 10; j++)\\n                if((we[j] + left > right) && (j != path[i - 1]) && we[j])\\n            {\\n                path[i] = j;\\n                left += we[j];\\n                flag = 1;\\n                break;\\n            }\\n        }\\n        else\\n        {\\n            for(j = 1; j <= 10; j++)\\n                if((we[j] + right > left) && (j != path[i - 1]) && we[j])\\n            {\\n                path[i] = j;\\n                right += we[j];\\n                flag = 1;\\n                break;\\n            }\\n        }\\n        if(flag == 0) break;\\n    }\\n    if(flag == 1) break;\\n    }\\n    if(flag == 0) printf(\\\"NO\\\\n\\\");\\n    else\\n    {\\n        printf(\\\"YES\\\\n\\\");\\n        for(i = 1; i < m; i++)\\n            printf(\\\"%d \\\", path[i]);\\n        printf(\\\"%d\\\\n\\\", path[i]);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2298,
+    "completion_tokens": 551,
+    "total_tokens": 2849,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2298
+  },
+  "raw_sha256": "a7a27fb351591abd4152b9fc3f3fbe9a90441477b0585aa4be16c6a3914ff996",
+  "ended_utc": "2026-10-17T07:16:32.174453+00:00",
+  "elapsed_seconds": 2.218
+}

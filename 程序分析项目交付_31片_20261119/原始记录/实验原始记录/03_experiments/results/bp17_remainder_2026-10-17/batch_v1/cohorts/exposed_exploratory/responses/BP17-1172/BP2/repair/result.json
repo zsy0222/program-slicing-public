@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1172/BP2/repair/1",
+  "case_id": "BP17-1172",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "64804e05189645d18a4027bee669dbee1a032827728b0f109aed56bd55b2e788",
+  "started_utc": "2026-11-16T05:12:45.155469+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "c3b8d26b-44b8-401e-a0d6-709ead04be74",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\ndouble dabs(double a)\\n{\\n\\tif (a<0)\\n\\t\\treturn -a;\\n\\treturn a;\\n}\\nint main(int argc, char *argv[])\\n{\\n\\tint b,a,x,y,mina,minb,n;\\n\\tdouble fmin=1000000;\\n\\tscanf(\\\"%d%d%d\\\",&x,&y,&n);\\n\\tfor(b=1;b<=n;b++){\\n\\t\\tdouble d = (double) x * b / y;\\n\\t\\ta = round(d);\\n\\t\\tif((x*b)%2==1&&y%2==0)\\n\\t\\t\\ta--;\\n\\t\\t\\n\\t\\tif(fmin>dabs((double)x/(double)y-(double)a/(double)b)){\\n\\t\\t\\tfmin=dabs((double)x/(double)y-(double)a/(double)b);\\n\\t\\t\\tmina=a;\\n\\t\\t\\tminb=b;\\n\\t\\t}\\n\\t}\\n\\tprintf(\\\"%d/%d\\\\n\\\",mina,minb);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1456,
+    "completion_tokens": 263,
+    "total_tokens": 1719,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 560
+  },
+  "raw_sha256": "1337dab31469a1790c73bd5d66105d46d23ae67e47c1e236d599c951c3e38f9d",
+  "ended_utc": "2026-11-16T05:12:47.083285+00:00",
+  "elapsed_seconds": 1.8039
+}

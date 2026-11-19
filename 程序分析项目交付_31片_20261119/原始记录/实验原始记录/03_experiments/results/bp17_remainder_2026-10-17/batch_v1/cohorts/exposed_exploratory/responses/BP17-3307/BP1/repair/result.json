@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3307/BP1/repair/1",
+  "case_id": "BP17-3307",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "e967f8d415e41f5b63fb70dd4a54e8f9e68e2e33fe57c638acfd5f222b671dc2",
+  "started_utc": "2026-10-21T08:11:59.788356+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0011fc1e-0d9d-49ee-9530-8d5bc9fa87dd",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint cmpfunc (const void * a, const void * b)\\n{\\n   return ( *(int*)a - *(int*)b );\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int n, i; long m;\\n    scanf(\\\"%d %ld\\\", &n, &m);\\n    int arr[n];\\n    for (i = 0; i < n; i++) scanf(\\\"%d\\\", &arr[i]);\\n    qsort(arr, n, sizeof(int), cmpfunc);\\n    i = n-1;\\n    int count = 0;\\n    while (i >= 0 && m > 0){\\n        m -= arr[i--];\\n        count++;\\n    }\\n    printf(\\\"%d\\\\n\\\", count);\\n    return 0;\\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 873,
+    "completion_tokens": 206,
+    "total_tokens": 1079,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 873
+  },
+  "raw_sha256": "e0564da398f144ed089d76444231d4b3dcb8b886fee49952c12eb1ac1b7b87e6",
+  "ended_utc": "2026-10-21T08:12:01.155946+00:00",
+  "elapsed_seconds": 1.359
+}

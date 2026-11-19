@@ -1,0 +1,28 @@
+{
+  "case_id": "BP17-0313",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int a[301][301],i,j,k,f,n;\\n    scanf(\\\"%d\\\",&n);\\n    for(i=1; i<=n; i++)\\n    {\\n        for(j=1; j<=n; j++)\\n        {\\n            scanf(\\\"%d\\\",&a[i][j]);\\n        }\\n    }\\n    for(j=1; j<=n; j++)\\n    {\\n        scanf(\\\"%d\\\",&a[0][j]);\\n    }\\n    for(i=1; i<=n; i++)\\n    {\\n        j=1;\\n        f=0;\\n        while(1)\\n        {\\n            f=0;\\n            if(a[i][j]!=i)\\n            {\\n                k=1;\\n                while(1)\\n                {\\n                    if(a[0][k]==a[i][j])\\n                    {\\n                        f=1;\\n                        printf(\\\"%d \\\",a[i][j]);\\n                    }\\n                    else if((a[0][k]<a[i][j])&&(a[0][k]!=i))\\n                    {\\n                        f=2;\\n                    }\\n                    if(f>0)\\n                    {\\n                        break;\\n                    }\\n                    k++;\\n                }\\n            }\\n            else\\n            {\\n                j++;\\n            }\\n            if(f==2)\\n            {\\n                f=0;\\n                j++;\\n            }\\n            if(f==1)\\n            {\\n                break;\\n            }\\n\\n        }\\n    }\\n    printf(\\\"\\\\n\\\");\\n\\n    return 0;\\n}\"}",
+  "elapsed_seconds": 1.782,
+  "ended_utc": "2026-10-17T06:59:39.251284+00:00",
+  "finish_reason": "stop",
+  "group": "BP3",
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-0313/BP3/repair/1",
+  "model_returned": "deepseek-flash",
+  "raw_sha256": "3393346d0caa4a7aeb3c204bd962229e5fa3d90b91d1ddb783c8a45126b5f52d",
+  "request_model": "deepseek-flash",
+  "request_sha256": "abf1eab6308badc8e6c866fe5a8facaad4d0bef00ef32598e6c5d5175b8c0a05",
+  "response_id": "c056bf79-3aa6-4f5a-a71b-a0d007602332",
+  "started_utc": "2026-10-17T06:59:37.381458+00:00",
+  "status": "completed",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "task": "repair",
+  "usage": {
+    "completion_tokens": 405,
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 721,
+    "prompt_tokens": 1873,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "total_tokens": 2278
+  }
+}

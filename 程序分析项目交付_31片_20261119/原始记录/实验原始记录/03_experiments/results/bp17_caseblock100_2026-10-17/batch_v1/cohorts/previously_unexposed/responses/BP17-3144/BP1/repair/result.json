@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-100-newfingerprint-20261017-v1/BP17-3144/BP1/repair/1",
+  "case_id": "BP17-3144",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "21d2036f52fbda7695bf76254516888810cfb5ae1ebc04dac28ae8d38dca7580",
+  "started_utc": "2026-10-17T07:15:53.921759+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "f9b51cd5-06e5-4d8b-a7e9-46e6d27edabf",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint main(int argc, char *argv[])\\n{\\n\\tint n;\\n\\tint **a;\\n\\tint i,j,max=0,x=0,y=0,k,l;\\n\\tint *ans;\\n\\tscanf(\\\"%d\\\",&n);\\n\\n\\ta = (int **)malloc((2*n) * sizeof(int *));\\n        for (i=0; i<2*n; i++)\\n             a[i] =(int *)malloc((2*n) * sizeof(int));\\n\\n\\tans = (int *)calloc((2*n) , sizeof(int));\\n\\t\\n\\tfor(i=1;i<=(2*n-1);i++)\\n\\t{\\t\\n\\t\\tfor(j=0;j<i;j++)\\n\\t\\t{\\t\\t\\t\\n\\t\\t\\tscanf(\\\"%d\\\",&a[i][j]);\\n\\t\\t}\\n\\t}\\n\\tfor(k=0;k<=(2*n-1)/2;k++)\\n\\t{\\n\\t\\tmax = -1;\\n\\t\\tfor(i=1;i<=(2*n-1);i++)\\n\\t\\t{\\t\\n\\t\\t\\tfor(j=0;j<i;j++)\\n\\t\\t\\t{\\t\\t\\t\\n\\t\\t\\t\\tif(a[i][j] > max)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tmax = a[i][j];\\n\\t\\t\\t\\t\\tx = i;\\n\\t\\t\\t\\t\\ty = j;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\tans[x] = y;\\n\\t\\tans[y] = x;\\n\\t\\tfor(l=0;l<2*n;l++)\\n\\t\\t{\\n\\t\\t\\ta[x][l] = a[y][l] = a[l][x] = a[l][y] = 0;\\n\\t\\t}\\n\\t\\t\\n\\t}\\n\\tfor(i=0;i<2*n;i++)\\n\\t\\tprintf(\\\"%d \\\",ans[i]+1);\\n\\tprintf(\\\"\\\\n\\\");\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1295,
+    "completion_tokens": 482,
+    "total_tokens": 1777,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 143
+  },
+  "raw_sha256": "1d6ec443707a9ece9648cb9f67b403ab9c627351fe701e99fbaf9859d2f6348c",
+  "ended_utc": "2026-10-17T07:15:55.926524+00:00",
+  "elapsed_seconds": 1.968
+}

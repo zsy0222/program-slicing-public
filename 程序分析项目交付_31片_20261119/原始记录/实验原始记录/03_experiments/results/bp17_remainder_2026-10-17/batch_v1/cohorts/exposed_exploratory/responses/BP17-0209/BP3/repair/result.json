@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0209/BP3/repair/1",
+  "case_id": "BP17-0209",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "5a2a16462e51f89f3fcf51e158f8e5d75c5e878d3a04110598fb3bb9b05d1ab7",
+  "started_utc": "2026-11-16T16:56:16.176918+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "e435c18a-1e0e-4104-9062-7c01941f16d5",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n\\ndouble dist(double x, double x2, double y, double y2) {\\n\\treturn sqrt((x-x2)*(x-x2)+(y-y2)*(y-y2));\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tint n,k,i;\\n\\tdouble sumlen=0;\\n\\tdouble Ax,Ay,Apx=0,Apy=0;\\n\\tscanf(\\\"%d %d\\\",&n,&k);\\n\\t\\n\\tfor(i=0;i<n;++i) {\\n\\t\\tscanf(\\\"%lf %lf\\\",&Ax,&Ay);\\n\\t\\tif(i>0) sumlen+=dist(Ax,Apx,Ay,Apy);\\n\\t\\tApx=Ax;Apy=Ay;\\n\\t}\\n\\tprintf(\\\"%.9lf\\\",sumlen/k);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1196,
+    "completion_tokens": 213,
+    "total_tokens": 1409,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1196
+  },
+  "raw_sha256": "ff039df0379b13a0e0f4b0f560d9a0551fc1c6e50f1293f5fff6e95eb7fd9dca",
+  "ended_utc": "2026-11-16T16:56:18.109337+00:00",
+  "elapsed_seconds": 1.8887
+}

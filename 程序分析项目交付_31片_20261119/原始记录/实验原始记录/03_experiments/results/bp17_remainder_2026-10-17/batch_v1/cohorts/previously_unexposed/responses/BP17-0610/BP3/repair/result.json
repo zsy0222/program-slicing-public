@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0610/BP3/repair/1",
+  "case_id": "BP17-0610",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "7c1237e44735c0cb125b935a6ac033f05be10382b8b7367574c279cce78c2e60",
+  "started_utc": "2026-10-17T13:50:57.382077+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "1f2f6009-11ce-4d9b-ae6a-39e1e0fad149",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\n#define N 100000\\n\\nchar s1[N+2], s2[N+2];\\n\\nint d(int i) {\\n\\tchar c[N+1]={0}, *s;\\n\\tint ret=1;\\n\\tstrncpy(c, s1, i);\\n\\tfor(s=s1;*s;s+=i) if(strncmp(s, c, i)) ret=0;\\n\\tfor(s=s2;*s;s+=i) if(strncmp(s, c, i)) ret=0;\\n\\treturn ret;\\n}\\n\\nint ndiv(void) {\\n\\tint l1=strlen(s1), l2=strlen(s2), i, ret=0;\\n\\tfor(i=1;i<=l1&&i<=l2;++i) if(l1%i==0 && l2%i==0)\\n\\t\\tret+=d(i);\\n\\treturn ret;\\n}\\n\\nint main(int argc, char *argv[]) {\\n\\tfgets(s1, N+2, stdin);\\n\\tfgets(s2, N+2, stdin);\\n\\ts1[strlen(s1)-1]='\\\\0';\\n\\ts2[strlen(s2)-1]='\\\\0';\\n\\tprintf(\\\"%d\\\\n\\\", ndiv());\\n\\texit(0);\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1595,
+    "completion_tokens": 323,
+    "total_tokens": 1918,
+    "prompt_tokens_details": {
+      "cached_tokens": 896
+    },
+    "prompt_cache_hit_tokens": 896,
+    "prompt_cache_miss_tokens": 699
+  },
+  "raw_sha256": "0b21e3e4fe658d4295cbf6332fb12a130ec69880f2cc85f20325446a57f2caa1",
+  "ended_utc": "2026-10-17T13:50:59.402128+00:00",
+  "elapsed_seconds": 2.016
+}

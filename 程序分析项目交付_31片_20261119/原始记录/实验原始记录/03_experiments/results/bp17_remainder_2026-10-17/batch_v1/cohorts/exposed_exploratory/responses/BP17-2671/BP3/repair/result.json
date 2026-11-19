@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2671/BP3/repair/1",
+  "case_id": "BP17-2671",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "0f3eadb0291747f15425fd0c4b7b37b36b56334e61c66676f879a480858c7d7e",
+  "started_utc": "2026-11-18T03:06:36.547834+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "fcf6de59-b933-48f9-a436-976f6db5bec3",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\nint main(int argc, char *argv[]){\\n    int  n;\\n\\n    scanf(\\\"%d\\\", &n);\\n    int arr[n];\\n    for(int i=0; i<n; i++){\\n        scanf(\\\"%d\\\", &arr[i] );\\n    }\\n    int min=999999999, max=0;\\n    for (int i=1; i<n-1; i++){\\n        max=0;\\n        for (int j=0; j<n-1; j++){\\n            if (j+1==i){\\n                if (max< arr[j+2]-arr[j]){\\n                    max=arr[j+2]-arr[j];\\n                    j++;\\n                }\\n            }else {\\n                if (max< arr[j+1]-arr[j]){\\n                    max= arr[j+1]-arr[j];\\n                }\\n\\n\\n            }\\n\\n        }\\n\\n        if (max<min){\\n            min=max;\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",min);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1401,
+    "completion_tokens": 266,
+    "total_tokens": 1667,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1401
+  },
+  "raw_sha256": "01c3e436e82dc44c4b75841addb1a42d88e993fad707069cb3bd3d19e0e9d8b0",
+  "ended_utc": "2026-11-18T03:06:38.717771+00:00",
+  "elapsed_seconds": 2.151
+}

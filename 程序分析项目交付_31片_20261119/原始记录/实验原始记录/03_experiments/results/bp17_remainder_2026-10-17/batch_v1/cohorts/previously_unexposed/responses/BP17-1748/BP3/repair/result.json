@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1748/BP3/repair/1",
+  "case_id": "BP17-1748",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "d5c2e2085bf06c8900e261e6275f6d07a69c8907f748da10e56da6150bfa6976",
+  "started_utc": "2026-10-17T13:11:50.924233+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "db879c4e-0794-40c2-a340-e28f7c57dd6f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<stdlib.h>\\nint comp(const void* a, const void* b)\\n{\\n    return *(int *)a - *(int *)b;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int n,d;\\n    scanf(\\\"%d %d\\\",&n,&d);\\n    int *arr=(int *)malloc(sizeof(int)*n);\\n    int i;\\n    int sum=0;\\n    for(i=0;i<n;i++)\\n    {\\n        scanf(\\\"%d\\\",&arr[i]);\\n        sum+=arr[i];\\n    }\\n    qsort(arr,n,sizeof(int),comp);\\n    int m,ans=0;\\n    scanf(\\\"%d\\\",&m);\\n    if(m>n)\\n        ans=sum-((m-n)*d);\\n    else\\n    {\\n        for(i=0;i<m;i++)\\n        {\\n            ans+=arr[i];\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",ans);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1291,
+    "completion_tokens": 250,
+    "total_tokens": 1541,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1291
+  },
+  "raw_sha256": "972017990337c725b246a9ca82e40b09e741385cb5e13774764f67e018330e19",
+  "ended_utc": "2026-10-17T13:11:52.544570+00:00",
+  "elapsed_seconds": 1.625
+}

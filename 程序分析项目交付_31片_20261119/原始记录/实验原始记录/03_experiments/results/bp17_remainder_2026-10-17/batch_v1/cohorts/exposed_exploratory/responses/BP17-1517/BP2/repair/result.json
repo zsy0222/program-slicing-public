@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1517/BP2/repair/1",
+  "case_id": "BP17-1517",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "f682530a8d99a01a4e902c82215b6861b9a0176b97d75412fec5b6e5069caa59",
+  "started_utc": "2026-11-16T18:19:49.394969+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "922c459f-27ed-47b7-a84a-8f58a94da2f9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\nint n,m;\\nint map[1010][1010];\\nint mn = 1000000000,mx = -1;\\nshort flag[1010][1010];\\nshort check(int lim)\\n{\\n    int i,j,k,cnt,tmp[1010];\\n    memset(flag,0,sizeof(flag));\\n    for(i=1;i<=n;i++)\\n    {\\n        cnt = 0;\\n        for(j=1;j<=m;j++) if(map[i][j]>=lim) tmp[++cnt] = j;\\n        for(j=1;j<=cnt;j++) for(k=j+1;k<=cnt;k++)\\n        {\\n            if(!flag[tmp[j]][tmp[k]]) flag[tmp[j]][tmp[k]] = 1;\\n            else return 1;\\n        }\\n    }\\n    return 0;\\n}\\nint work()\\n{\\n    int head = mn,tail = mx,mid;\\n    while(head<tail)\\n    {\\n        mid = (head+tail+1)>>1;\\n        if(check(mid)) head = mid;\\n        else tail = mid-1;\\n    }\\n    return head;\\n}\\nint main(int argc, char *argv[])\\n{\\n    int i,j;\\n    scanf(\\\"%d%d\\\",&n,&m);\\n    for(i=1;i<=n;i++) for(j=1;j<=m;j++)\\n    {\\n        scanf(\\\"%d\\\",&map[i][j]);\\n        mn = mn<map[i][j]?mn:map[i][j];\\n        mx = mx>map[i][j]?mx:map[i][j];\\n    }\\n    printf(\\\"%d\\\",work());\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2093,
+    "completion_tokens": 413,
+    "total_tokens": 2506,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2093
+  },
+  "raw_sha256": "ca1702ec2883edac715c5e0793ec3080ff68bee8fd8f4f21708bc3a409f36e62",
+  "ended_utc": "2026-11-16T18:19:51.671123+00:00",
+  "elapsed_seconds": 2.2732
+}

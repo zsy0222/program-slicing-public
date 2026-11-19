@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1381/BP2/repair/1",
+  "case_id": "BP17-1381",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "1a4c61d626dde8a879e9bc713f56d86dfa928a66ee4a925acbf415ec71296aaa",
+  "started_utc": "2026-11-16T17:40:55.629067+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "810dd968-5bfb-4288-8ca5-fb87dfac2163",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <math.h>\\n#include <stdlib.h>\\n\\ndouble rad(double radius, int i, int n) {\\n  if (i <= n / 2)\\n    return radius * (1 - 2 * i / 5000.0);\\n  else\\n    return radius * (1 - (1.98 * (n - i) + 1.1) / 5000.0);\\n}\\n\\nint main(int argc, char *argv[]) {\\n  int n;\\n  scanf(\\\"%d\\\", &n);\\n\\n  if (n == 3 || n == 4) {\\n    printf(\\\"No solution\\\");\\n    return 0;\\n  }\\n\\n  int i;\\n  double t = 3.14159265358979323 * 2 / n;\\n  double denominator = sin(t);\\n  double radius = sqrt((950.0 * 950.0) / (2 - 2 * cos(t)));\\n  for (i = 0; i < n; i++) {\\n    double r1 = rad(radius, i, n);\\n    double r2;\\n    if (i < n - 1)\\n      r2 = rad(radius, i + 1, n);\\n    else\\n      r2 = rad(radius, 0, n);\\n\\n    double t1 = t * i;\\n    double t2 = t * (i + 1);\\n    \\n    double x = (r1 * sin(t2) - r2 * sin(t1)) / denominator;\\n    double y = (r2 * cos(t1) - r1 * cos(t2)) / denominator;\\n    printf(\\\"%.3f %.3f\\\", x, y);\\n    if (i < n - 1)\\n      printf(\\\"\\\\n\\\");\\n  }\\n  \\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1967,
+    "completion_tokens": 443,
+    "total_tokens": 2410,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 559
+  },
+  "raw_sha256": "c7e9cbb803b684033f3d9f35eb8cb1337a8ba44e6d2ac5d573717475bf0f8a54",
+  "ended_utc": "2026-11-16T17:40:58.085833+00:00",
+  "elapsed_seconds": 2.4544
+}

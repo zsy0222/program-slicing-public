@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3612/BP2/repair/1",
+  "case_id": "BP17-3612",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "ec98a3b72233975bec6bab9e607ddbc3bf84087648948d06b7bd01fd1a2dc8c8",
+  "started_utc": "2026-11-16T17:27:58.168405+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "743edea5-3f22-499e-b5a5-45961f6f8e62",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"int NRows;\\nint MColums;\\nint NoMatches;\\nint Operations[10000][4];\\nint Cells[100][100];\\nvoid SetCell(int pos){\\n    Cells[Operations[pos][1]-1][Operations[pos][2]-1] = Operations[pos][3];\\n}\\nvoid Row(int pos) {\\n    int i;\\n    int NumRow = Operations[pos][1]-1;\\n    int first = Cells[NumRow][MColums-1];\\n    for (i = MColums-2; i >= 0; i--) {\\n        Cells[NumRow][i+1] = Cells[NumRow][i];\\n    }\\n    Cells[NumRow][0] = first;\\n}\\nvoid Colum(int pos) {\\n    int i;\\n    int NumCol = Operations[pos][1]-1;\\n    int first = Cells[NRows-1][NumCol];\\n    for (i = NRows-2; i >= 0; i--) {\\n        Cells[i+1][NumCol] = Cells[i][NumCol];\\n\\n    }\\n    Cells[0][NumCol] = first;\\n}\\nvoid print() {\\n    int i, j;\\n    for (i = 0; i< NRows; i++) {\\n        for (j = 0; j < MColums; j++) printf(\\\"%d \\\", Cells[i][j]);\\n        printf(\\\"\\\\n\\\");\\n\\n    }\\n    printf(\\\"\\\\n\\\");\\n}\\nint main(int argc, char *argv[]) {\\n    scanf(\\\"%d%d%d\\\", &NRows, &MColums, &NoMatches);\\n    int i, j;\\n    for (i = 0; i < NoMatches; i++) {\\n        scanf(\\\"%d\\\", &Operations[i][0]);\\n\\n        if (Operations[i][0] == 3) {\\n            for (j = 1; j < 4; j++) scanf(\\\"%d\\\", &Operations[i][j]);\\n\\n        } else {\\n            for (j = 1; j < 2; j++) scanf(\\\"%d\\\", &Operations[i][j]);\\n        }\\n    }\\n\\n\\n    for (i = NoMatches-1; i >= 0 && Operations[i][0] != 3; i--);\\n    for (; i >= 0; i--) {\\n        if (Operations[i][0] == 3) {\\n            SetCell(i);\\n\\n        }\\n        else if (Operations[i][0] == 1) { Row(i);} else {\\n            Colum(i);\\n\\n        }\\n        print();\\n    }\\n\\n\\n\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2688,
+    "completion_tokens": 628,
+    "total_tokens": 3316,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2688
+  },
+  "raw_sha256": "31439290d3c1699727839a2921025c98848d41991e6a85ef797e21f83961fdf3",
+  "ended_utc": "2026-11-16T17:28:01.176044+00:00",
+  "elapsed_seconds": 3.0051
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2149/BP2/repair/1",
+  "case_id": "BP17-2149",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "a4457487368487a50154984784bd7d2330a49187ede5ad446bc394bbf468fff8",
+  "started_utc": "2026-10-18T12:14:49.166785+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2167967b-9b69-4ef5-8935-a6259b64cdf9",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAXN 101\\n\\nint main(int argc, char *argv[]) {\\n    int n, m;\\n    scanf(\\\"%d %d\\\\n\\\", &n, &m);\\n    int pts[MAXN];\\n    int ans[MAXN];\\n    int i, temp;\\n    for (i = 0; i < MAXN; i++) {\\n        pts[i] = 0;\\n    }\\n    for (i = 1; i <= n; i++) {\\n        scanf(\\\"%d\\\", &temp);\\n        pts[temp] = i;\\n    }\\n    int mod = 0;\\n    for (i = 1; i < MAXN; i++) {\\n        if(pts[i] != 0) {\\n            ans[pts[i]] = mod%2;\\n            mod++;\\n        }\\n    }\\n    for (i = 1; i < n; i++) {\\n        printf(\\\"%d \\\", ans[i]);\\n    }\\n    printf(\\\"%d \\\\n\\\", ans[n]);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1476,
+    "completion_tokens": 256,
+    "total_tokens": 1732,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1476
+  },
+  "raw_sha256": "08220aba40ab17bc65fbcaea42ca563a6317c2ad7f3bd93e2566ae9384b25877",
+  "ended_utc": "2026-10-18T12:14:50.482902+00:00",
+  "elapsed_seconds": 1.281
+}

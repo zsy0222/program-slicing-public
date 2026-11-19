@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1100/BP0/repair/1",
+  "case_id": "BP17-1100",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "20f351b16e733d288471b85aa4189335838d3161327c8ba477933aa86f40f691",
+  "started_utc": "2026-11-16T05:40:18.811601+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "77f5dd12-e2c5-4490-b3f2-db9bc7c61664",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\n#define MAX(a, b) (a > b ? a : b)\\n#define MIN(a, b) (a < b ? a : b)\\n#define AV(a, b, c) ((MIN(a,c) < b && b < MAX(a,c)) ? b : ((MIN(b,c) < a && a < MAX(b,c)) ? a : c))\\n\\nint main(int argc, char *argv[]) {\\n    int n, a[100000], i, min, max;\\n\\n    scanf (\\\"%d\\\", &n);\\n\\n    for (i = 0; i < n; i++)\\n        scanf (\\\"%d\\\", &a[i]);\\n\\n    min = max = 1;\\n\\n    for (i = 0; i < n; i++) {\\n        if ((a[i] > a[min - 1] && a[i] < a[max - 1]) || a[i] > a[max-1])\\n            break;\\n        if (a[i] > a[max-1]) max = i+1;\\n        if (a[i] < a[min-1]) min = i+1;\\n    }\\n\\n    if (max != min && i < n)\\n        printf(\\\"3\\\\n%d %d %d\\\\n\\\", MIN(min, MIN(max, i+1)), AV(min, max, i+1), MAX(max, MAX(max, i+1)));\\n    else\\n        printf(\\\"0\\\\n\\\");\\n    return 0;   \\n}\\n\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1069,
+    "completion_tokens": 352,
+    "total_tokens": 1421,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1069
+  },
+  "raw_sha256": "18565e59b0896eb24e81b9a76ab7e69fcdc275406ccebcc0e50b30b1ea54485f",
+  "ended_utc": "2026-11-16T05:40:20.876878+00:00",
+  "elapsed_seconds": 1.9483
+}

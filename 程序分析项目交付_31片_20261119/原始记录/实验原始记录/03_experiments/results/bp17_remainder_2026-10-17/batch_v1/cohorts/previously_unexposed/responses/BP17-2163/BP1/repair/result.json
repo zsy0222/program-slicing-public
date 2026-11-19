@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2163/BP1/repair/1",
+  "case_id": "BP17-2163",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1911cfbcc5d5d002f107dcf9cd1f4cf07f2ac9f7a1fe2b09544b5963077811f3",
+  "started_utc": "2026-11-16T05:52:12.516986+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a3da1a63-ea11-4d95-889e-03c694fc88ec",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n\\n#define MAX_N (100)\\n#define MOD   (1000000007)\\n\\nint dp[2][MAX_N+1];\\n\\nvoid build_dp(int n, int k, int d) {\\n  int j,m;\\n\\n  dp[0][0] = 1;\\n  for ( j=1; j <= n; ++j )\\n    for ( m=1; m <= k; ++m )\\n      dp[0][j] += j-m >= 0 ? dp[0][j-m] : 0, dp[0][j] %= MOD;\\n  for ( j=1; j <= n; ++j ) {\\n    for ( m=1; m < d; ++m )\\n      dp[1][j] += j-m >= 0 ? dp[1][j-m] : 0, dp[1][j] %= MOD;\\n    for ( m=d; m <= k; ++m )\\n      dp[1][j] += j-m >= 0 ? dp[0][j-m] : 0, dp[1][j] %= MOD;\\n  }\\n}\\n\\nint main(int argc, char *argv[]) {\\n  int n,k,d;\\n\\n  scanf(\\\"%d %d %d\\\", &n, &k, &d);\\n  build_dp(n, k, d);\\n  printf(\\\"%d\\\\n\\\", dp[1][n]);\\n  return EXIT_SUCCESS;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1067,
+    "completion_tokens": 352,
+    "total_tokens": 1419,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1067
+  },
+  "raw_sha256": "94747da59969bb07a0b281ddb39f6a259c67b7fa2e9774e9d782e88ba603277e",
+  "ended_utc": "2026-11-16T05:52:14.472675+00:00",
+  "elapsed_seconds": 1.9528
+}

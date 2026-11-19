@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2663/BP3/repair/1",
+  "case_id": "BP17-2663",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "a471ae4f8bf3e4557a4a6103ed51c5dba0c334bc3a06e0208597122ef1b2f004",
+  "started_utc": "2026-11-16T06:04:34.319379+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a6cfc01f-bd64-42b2-b6b3-533ba3424253",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<math.h>\\n#include<stdio.h>\\nint main(int argc, char *argv[])\\n{\\n    long long a,b,count=0;\\n    scanf(\\\"%lld %lld\\\",&a,&b);\\n    if(a==b){\\n        printf(\\\"infinity\\\");\\n        return 0;}\\n    if(a<b)\\n        count=0;\\n    else {\\n\\n        long long ans=a-b,i;\\n\\n        for(i=1;i<=sqrt(ans);i++)\\n        {\\n            if(ans%i==0)\\n            {\\n               if(ans/i>b)\\n                count++;\\n                if(i>b)\\n                    count++;\\n                if(i*i==ans && i>b)\\n                    count--;\\n        }\\n    }}\\n    printf(\\\"%lld\\\",count);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1219,
+    "completion_tokens": 198,
+    "total_tokens": 1417,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 451
+  },
+  "raw_sha256": "0a4c4cb3d02b47b2fe4db354d1fbe88d1a6a56a087dc08bcadfecd35a4af9dca",
+  "ended_utc": "2026-11-16T06:04:35.927166+00:00",
+  "elapsed_seconds": 1.5514
+}

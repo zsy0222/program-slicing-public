@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2299/BP0/repair/1",
+  "case_id": "BP17-2299",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "29abf6ecd9ed372345aac572914ef5b73aa2a93d456df42342d8ad9758bb2e4f",
+  "started_utc": "2026-11-16T03:56:27.259165+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "53cbd1a5-560a-4c66-ad87-ab9ae2fec11f",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[]){\\n\\n    int n;\\n    int m;\\n    scanf(\\\"%d %d\\\", &n, &m);\\n\\n    int i;\\n    int storage[n];\\n\\n    for(i=0; i<n; i++){\\n        scanf(\\\"%d\\\", &storage[i]);\\n    }\\n\\n    int candy[n];\\n    for(i=0; i<n; i++){\\n        candy[i]=0;\\n    }\\n    int counter=0;\\n    if(n==1){\\n        printf(\\\"1\\\");\\n        return 0;\\n    }\\n    for(i=0; ; ){\\n        candy[i]=candy[i]+m;\\n        if(storage[i]!=-1 && candy[i]>=storage[i]){\\n            storage[i]=-1;\\n            counter++;\\n        }\\n        if(counter==n-1){\\n            break;\\n        }\\n        if(i==n-1){\\n            i=0;\\n        }\\n        else{\\n            i++;\\n        }\\n    }\\n    for(i=0; i<n; i++){\\n        if(storage[i]!=-1){\\n            printf(\\\"%d\\\\n\\\", i+1);\\n            break;\\n        }\\n    }\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1022,
+    "completion_tokens": 317,
+    "total_tokens": 1339,
+    "prompt_tokens_details": {
+      "cached_tokens": 768
+    },
+    "prompt_cache_hit_tokens": 768,
+    "prompt_cache_miss_tokens": 254
+  },
+  "raw_sha256": "79d92245d68dd88b930bd56f6c7aa7c2a7e14bb1180f27e1d75edb301f49fc16",
+  "ended_utc": "2026-11-16T03:56:28.723298+00:00",
+  "elapsed_seconds": 1.4619
+}

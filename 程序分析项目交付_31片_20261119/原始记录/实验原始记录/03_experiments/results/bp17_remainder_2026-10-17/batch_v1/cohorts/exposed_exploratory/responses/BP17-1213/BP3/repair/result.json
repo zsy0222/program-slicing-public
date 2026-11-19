@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1213/BP3/repair/1",
+  "case_id": "BP17-1213",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "7ae6430f73c3eeee71b007964371bb60b9e914fb3d3005c4fef9d34706d02fa4",
+  "started_utc": "2026-11-18T09:30:52.749083+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "8993f71b-8124-414d-ada1-579195e20fec",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<math.h>\\n#define min(a,b) ((a)>(b)?(b):(a))\\n#define esp 1e-6\\n\\nint main(int argc, char *argv[])\\n{\\n    long long n,k;\\n    scanf(\\\"%lld%lld\\\",&n,&k);\\n    n--,k--;\\n    if((1+k)*k/2<=n)\\n        printf(\\\"%lld\\\\n\\\",(1+k)*k/2==n?k:-1);\\n    else\\n    {\\n        double a=2*k+1,b=sqrt(a*a-8*n);\\n        double ans=(a+b)/2;\\n        double ans1=(a-b)/2;\\n        ans=min(ans,ans1);\\n        if(fabs(ans-floor(ans))<esp)\\n        printf(\\\"%lld\\\\n\\\",(long long)(ans+0.5));\\n        else if(fabs(ans-floor(ans))>0.5)\\n            printf(\\\"%lld\\\\n\\\",(long long)ans+1);\\n        else printf(\\\"%lld\\\\n\\\",(long long)(ans+0.5)+1);\\n    }\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1325,
+    "completion_tokens": 278,
+    "total_tokens": 1603,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1325
+  },
+  "raw_sha256": "c91e572caf24be2b2e949eee93d16821e5909fae888aa3cf129a368d3002febc",
+  "ended_utc": "2026-11-18T09:30:55.222748+00:00",
+  "elapsed_seconds": 2.4709
+}

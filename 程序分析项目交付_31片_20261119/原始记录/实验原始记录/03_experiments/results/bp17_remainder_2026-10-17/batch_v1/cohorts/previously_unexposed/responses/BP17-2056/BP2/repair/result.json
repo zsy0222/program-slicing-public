@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2056/BP2/repair/1",
+  "case_id": "BP17-2056",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "2d6fccac354bd99078c2f907eec05fcd094bbfb3c5a921ae4a3b1fef3829881b",
+  "started_utc": "2026-10-21T06:54:43.428292+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "6eac683a-89be-4ba3-b2fa-65d2203b84e0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\ntypedef long long unsigned llu;\\ntypedef unsigned u;\\n#define m 1000000007u\\nu D[2002][2050],V[2002],Z[2002],T[2002];\\nint main(int argc, char *argv[])\\n{\\n\\tu n,i,j,k,r=0;\\n\\tscanf(\\\"%u%u\\\",&n,&k);\\n\\tfor(T[i=0]=1;i<n;i++)\\n\\t{\\n\\t\\tif((T[i+1]=T[i]<<1)>=m)T[i+1]-=m;\\n\\t\\tscanf(\\\"%u\\\",&j);\\n\\t\\tV[i]=(j>>=1);\\n\\t\\tif(j==0)Z[i]++;\\n\\t}\\n\\tfor(i=n;i--;)if((Z[i]+=Z[i+1])>=m)Z[i]-=m;\\n\\tk=1u<<(k-1);\\n\\tif(!(V[0]&1))D[0][2]=1;\\n\\tif(!((V[0]>>1)&1))D[0][1]=1;\\n\\tfor(i=0;++i<n;)\\n\\t{\\n\\t\\tif(!(V[i]&1))for(j=1;j<k;j++)if(D[i-1][j])\\n\\t\\t{\\n\\t\\t\\tif(j&1){if((D[i][2]+=D[i-1][j])>=m)D[i][2]-=m;}\\n\\t\\t\\telse if((D[i][j+2]+=D[i-1][j])>=m)D[i][j+2]-=m;\\n\\t\\t}\\n\\t\\tif(!((V[i]>>1)&1))for(j=1;j<k;j++)if(D[i-1][j])\\n\\t\\tif((D[i][j+1]+=D[i-1][j])>=m)D[i][j+1]-=m;\\n\\t\\tif(D[i][k])r=(r+(llu)D[i][k]*T[Z[i]])%m;\\n\\t}\\n\\tprintf(\\\"%u\\\\n\\\",r);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2129,
+    "completion_tokens": 506,
+    "total_tokens": 2635,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2129
+  },
+  "raw_sha256": "12c8a11ba465c6e2a4c0bedaee0dc20bea9c58882a8a64f9cd3e3d3c2d5d0909",
+  "ended_utc": "2026-10-21T06:54:45.411627+00:00",
+  "elapsed_seconds": 1.968
+}

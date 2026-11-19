@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0514/BP0/repair/1",
+  "case_id": "BP17-0514",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "a15b16dd659c0c676aeca19e47ac1bf0d530a8c93daee6b4c749d020029fc964",
+  "started_utc": "2026-10-18T12:40:27.451018+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "2185bd47-58f6-48cf-a4ad-dcfa216b55d0",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\nstruct object\\n{\\n    int problems;\\n    int time;\\n};\\nvoid swap(struct object a[],int x, int y)\\n{\\n    struct object temp= a[x];\\n    a[x]=a[y];\\n    a[y]=temp;\\n}\\nvoid BubbleSort (struct object A[], int arraySize)\\n{\\n    int i, j;\\n    for(i = 0; i < arraySize; i++)\\n    {\\n        for(j = 0; j < arraySize-1; j++)\\n        {\\n            if((A[j].problems < A[j+1].problems)||((A[j].problems ==A[j+1].problems)&&(A[j].time <A[j+1].time)))\\n                swap(A, j, j+1);\\n\\n        }\\n    }\\n}\\nint main(int argc, char *argv[])\\n{\\n    struct object arr[50];\\n    int i,num,place,j;\\n    scanf(\\\"%d %d\\\",&num, &place);\\n    for(i=0; i<num; i++)\\n    {\\n        scanf(\\\"%d %d\\\", &arr[i].problems, &arr[i].time);\\n    }\\n    BubbleSort(arr,num);\\n    int counter=0;\\n    struct object target=arr[place-1];    /*starting from 0*/\\n    for(j=0; j<num; j++)\\n    {\\n        if((arr[j].problems==target.problems)&&(arr[j].time==target.time))\\n        {\\n            counter++;\\n        }\\n        if(arr[j].problems<target.problems)\\n        {\\n            break;\\n        }\\n    }\\n    printf(\\\"%d\\\\n\\\",counter);\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1320,
+    "completion_tokens": 425,
+    "total_tokens": 1745,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1320
+  },
+  "raw_sha256": "27886637382306341f197489a3afa3dd9ee2d0057bfe7bd34847b8e5cf2cf4b7",
+  "ended_utc": "2026-10-18T12:40:29.648879+00:00",
+  "elapsed_seconds": 2.141
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0619/BP1/repair/1",
+  "case_id": "BP17-0619",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "55d011c97a91b85a1bc8368d0c1901859b82307a910b5aa8f0cbb49b9c5dfb87",
+  "started_utc": "2026-10-21T08:03:36.351281+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "30a5dbb3-6842-4b91-8ced-2bcbdd9524c1",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\n#include<string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n\\tint i,l1,l2,a[1001],b[1001],z,ind1=-1,ind2=-1;\\n\\tchar s1[1000001],s2[1000001],c;\\n\\t\\n\\tscanf(\\\"%s%s\\\",s1,s2);\\n\\t\\n\\tl1=strlen(s1);\\n\\tl2=strlen(s2);\\n\\t\\n\\t\\n\\tif(l1!=l2)\\n\\t{\\n\\t\\tprintf(\\\"NO\\\");\\n\\t\\tgoto label;\\n\\t}\\n\\n\\t\\n\\t\\n\\telse if(l1==1&&l2==1)\\n\\t{\\n\\t\\t   printf(\\\"NO\\\");\\n\\t\\t   goto label;\\n\\t}\\n\\t\\n\\t\\n\\t\\n\\t\\n\\telse\\n\\t{\\t\\t\\t\\t\\n\\t\\tfor(i=0;i<l1;i++)\\n\\t\\t{\\n\\t\\t\\tif(s1[i]!=s2[i])\\n\\t\\t\\t{\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tif(ind2==0)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tind2=i;\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tc=s1[ind1];\\n\\t\\t\\t\\t\\ts1[ind1]=s1[ind2];\\n\\t\\t\\t\\t\\ts1[ind2]=c;\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tz=strcmp(s1,s2);\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\tif(z==0)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tprintf(\\\"YES\\\");\\n\\t\\t\\t\\t\\t\\tgoto label;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t\\telse \\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tprintf(\\\"NO\\\");\\n\\t\\t\\t\\t\\t\\tgoto label;\\n\\t\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tif(ind1==-1)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tind1=i;\\n\\t\\t\\t\\t\\tind2=0;\\n\\t\\t\\t\\t\\t\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\n\\t\\t\\t\\t\\n\\t\\t\\t}\\n\\t\\t}\\n\\n\\t\\t\\n\\t}\\n\\t\\n\\tprintf(\\\"NO\\\");\\n\\t\\n\\tlabel:\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1527,
+    "completion_tokens": 577,
+    "total_tokens": 2104,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1527
+  },
+  "raw_sha256": "b6899a9bf1ba3851af9cb3d2c7240a551a87f0c98ac64730469eae24476019da",
+  "ended_utc": "2026-10-21T08:03:38.943445+00:00",
+  "elapsed_seconds": 2.578
+}

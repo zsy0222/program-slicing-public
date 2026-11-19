@@ -1,0 +1,61 @@
+citation_key,cluster,evidence_direction,rq_mapped,contradictions,strength,notes
+Weiser1984,C1: Traditional Slicing,foundational,J-context,Behavior-preserving slicing is not arbitrary source truncation,scoped,Foundational definition; not direct evidence of LLM repair gain
+KorelLaski1988,C1: Traditional Slicing,foundational,J-context,Specific execution differs from all-input repair requirements,scoped,Dynamic-slicing foundation; corrected DOI in matrix
+Ferrante1987,C1: Traditional Slicing,foundational,J-context;F-content,Graph dependencies and abstract-state predicates answer different questions,scoped,PDG foundation; no reuse of obsolete Phase 1/2 claims
+JacksonRollins1994,C1: Traditional Slicing,foundational,J-context;F-content,Ordinary graph intersection must not be confused with feasible interprocedural paths,scoped,Corrected title to author-verified FSE1994 paper; historical key retained
+ZhangGupta2004,C1: Traditional Slicing,supports,RQ3,,medium,Practical binary dynamic slicing; compressed DDG for large traces
+ZhangGupta2006,C1: Traditional Slicing,supports,RQ3,,medium,Confidence-based pruning of backward dynamic slices; fault-localization baseline
+Barros2010,C1: Traditional Slicing,supports,RQ2,,medium,Assertions as slicing criteria; slice graphs for comparison; directly supports assertion-guided approach
+MultiStageISSTA2026,C1: Traditional Slicing,supports,RQ2,,medium,"Coarse-to-fine iterative slicing; multi-threaded; similar philosophy to cascaded stages"
+SLICEFORMER2026,C2: Neural/LLM Slicing,neutral,RQ3,,medium,"Dataflow-aware seq2seq slicing; not directly comparable to hybrid approach"
+SLICET52025,C2: Neural/LLM Slicing,neutral,RQ3,copy mechanism improves ExactMatch +27% over SOTA,medium,Seq2seq slicing; incomplete slice handling relevant
+NSSlicer2024,C2: Neural/LLM Slicing,neutral,RQ3,F1=97.41% but only on static slicing,medium,First neural static slicing; PDG-free approach
+NDSlicer2024,C2: Neural/LLM Slicing,neutral,RQ3,"Predictive dynamic vs. actual dynamic slicing gap unknown",medium,No actual execution needed; relevant as alternative
+Zhang2007,C5: FL Baseline,contrast,RQ1,RQ5,high,"Key baseline: MPS requires 3 input points; your framework requires only 1; MPS intersection may miss bugs"
+Wong2016,C5: FL Baseline,foundational,RQ3,,high,Comprehensive survey; FL landscape context
+Chang2025,C2: Neural/LLM Slicing,related_prior_art,J-context,Generating slices is a different task from consuming tool-generated slices,scoped,Agent verification is not a formal guarantee; neither label makes outputs inherently uncheckable
+Shahandashti2025,C2: Neural/LLM Slicing,qualifies_hypothesis,J-context,Slice-generation accuracy does not directly measure downstream repair,scoped,COMPSAC2025 identity with arXiv2024 method source; not two independent studies
+Arora2024,C5: FL Baseline,supports,RQ3,,medium,MASAI multi-agent architecture reference
+ASSERTIFY2024,C3: Assertion Generation,supports-core,RQ4,"SNE 97.4% but NO runtime correctness evaluation",high,Core assertion generation tool; lack of runtime eval is a research gap
+TOGLL2024,C3: Assertion Generation,supports-core,RQ4,"3.8x more correct assertion oracles and 4.9x more exception oracles than the stated neural baseline",high,Directly applicable test-oracle evidence; ICSE 2025 version
+Laurel2024,C3: Assertion Generation,supports,RQ4,SMT-solver verified assertions,high,"Dafny inline assertions; AVM-verified; most directly related approach"
+CIll2026,C3: Assertion Generation,supports,RQ4,,medium,Counterexample-guided LLM iteration for invariants
+PALM2025,C3: Assertion Generation,supports,RQ2;RQ4,"AST path enumeration and executable path variants; not a direct fault-localization evaluation",medium,"Historical Phase 2 mapping; study focuses on LLM-based test generation"
+PSCSelector2026,C3: Assertion Generation,supports,RQ1,Parameter-efficient lightweight LLM selects criteria; 74% defect detection with 69% slice reduction,medium,Criteria selection approach; relevant for automation
+ChatUniTest2023,C4: LLM Test Generation,supports,RQ1,Generate-verify-repair pipeline,medium,Framework for LLM-based unit test generation
+EvoOtter2026,C4: LLM Test Generation,supports-core,RQ4,"SOTA BRT; successive halving + crossover; low API cost",high,"Can directly generate failing tests for your framework; arXiv:2607.02854"
+LLMvsHuman2026,C4: LLM Test Generation,supports-core,RQ4,"LLM detects 69% bugs vs 17.2% human; coverage not proxy",high,"Proves LLM test generation effective; arXiv:2606.08588"
+SpecCoder2026,C4: LLM Test Generation,supports-core,RQ4,"Assertions hold on correct exec, reject faulty exec; +55.8%",high,Core alignment: executable assertions as evidence framework
+CunhaMacedo2026,C4: LLM Test Generation,supports,RQ4,"GPT-5 generates pos/neg tests; detects wrong Alloy specs",high,LLM can generate meaningful passing/failing test pairs
+OracleUnderstanding2026,C4: LLM Test Generation,neutral,RQ4,Semantic understanding is key gap in LLM oracle generation,medium,Failure mode analysis for LLM-generated oracles
+NESA2026,C6: Hybrid Analysis Framework,supports,RQ2;RQ3,Do not reinterpret the reported taint-analysis metric as slicing or repair accuracy,high,Historical mapping retained; see matrix task description
+codebadger2026,C7: Implementation Tools,neutral,RQ3,Uses CPG rather than Error Invariants and reports use cases rather than a fault-localization benchmark,medium,Implementation alternative: an MCP wrapper over Joern for slicing taint tracking and data-flow analysis
+code2prompt,C7: Implementation Tools,neutral,RQ3,,low,Codebase-to-prompt software utility; engineering reference only and not empirical evidence
+CLDK2025,C7: Implementation Tools,related_prior_art,F-content;F-format,CLDK supplies program-analysis context but is not an Error-Invariant engine,scoped,Automatic context integration is existing work; not direct validation of the project hypothesis
+FMAgent2026,C6: Hybrid Analysis Framework,supports,RQ3,,medium,LLM+Hoare reasoning for large systems
+WALA,C7: Implementation Tools,foundational,RQ3,,high,Java-oriented static-analysis framework using its own SSA IR; implementation candidate only
+dg,C7: Implementation Tools,foundational,RQ3,,medium,LLVM-bitcode analysis library and static slicer; implementation candidate only
+giri,C7: Implementation Tools,neutral,RQ3,Legacy availability and maintenance constrain reproducibility,low,Historical LLVM static/dynamic slicing infrastructure; not a current benchmark
+Slicer4J,C7: Implementation Tools,foundational,J-context,Full slice and actual prompt projection must be distinguished,scoped,Java dynamic slicing tool; neither benchmark dataset nor formal Error-Invariant generator
+AssertMsg2025,C3: Assertion Generation,neutral,RQ1,Measures failure-message quality rather than oracle correctness,low,Relevant to presentation and interpretability only; not evidence for fault-localization effectiveness
+Dimovski2023,C8: Abstract Interpretation,foundational,F-content;F-format,Concept predates 2023; see Ermis2012,scoped,Program-level abstract analysis; not the historical GPT-curated constraints
+Dimovski2024,C8: Abstract Interpretation,foundational,F-content;F-format,BDD partitions may already be encoded in the Map; avoid double counting,scoped,Formal source with semantic slicing and mutation-repair application; no original LLM experiment
+Dimovski2025,C8: Abstract Interpretation,supports,RQ3,,medium,Extends Error Invariants to software product-line variability; supports the extensibility argument but is outside the main single-program setting
+Gallagher2025,C1: Traditional Slicing,foundational,RQ3,,medium,Retrospective survey used to position the historical development of slicing; not direct evidence for the LLM-invariant hypothesis
+GitIngest,C7: Implementation Tools,neutral,RQ3,,low,Repository-to-prompt engineering tool; not empirical evidence for fault localization
+Cousot1977,C8: Abstract Interpretation,foundational,F-content,Formal-analysis foundation; no claim of zero cost,scoped,Author summary and bibliography
+Ermis2012,C8: Abstract Interpretation,foundational,F-content,Distinguish error-trace explanation from later program-level abstract analysis,scoped,Abstract; Introduction; error-invariant definition
+Katana2023,C10: Analysis Context and Repair,direct_prior_art,J-context,Direct prior art; paired-version data is not permission to expose reference patches at inference,scoped,Sections 3.1-3.4 and training/inference description; author repo confirms 2023 publication
+ReduceBeforeRepair2025,C10: Analysis Context and Repair,related_prior_art,J-context,Efficiency-related prior art; detailed results not independently read,scoped,Conference abstract only
+ChatRepair2024,C10: Analysis Context and Repair,direct_prior_art,J-context;F-content,Feedback is an existing component and must be controlled separately,scoped,Official conference abstract; author paper feedback description
+ContrastRepair2025,C10: Analysis Context and Repair,direct_prior_art,J-context;F-content,Test-derived behavioral evidence is not automatically an Error Invariant,scoped,Published metadata and abstract; early arXiv Section 3 inspected separately
+AutoCodeRover2024,C10: Analysis Context and Repair,direct_prior_art,J-context,Analysis-guided context is established prior art,scoped,Abstract; official repository Overview and Highlights
+Agentless2025,C10: Analysis Context and Repair,direct_prior_art,J-context,A workflow alone is not a unique contribution,scoped,Published first page and abstract; distinguish arXiv 2024 title
+ASAP2024,C10: Analysis Context and Repair,related_prior_art,F-content;F-format;understanding,Semantic augmentation prior art; not a test of Error-Invariant repair,scoped,Abstract; Introduction and contribution list; v3 publication block
+FLContext2026,C10: Analysis Context and Repair,qualifies_hypothesis,J-context,Important counterevidence to more-context-is-always-better; not a dynamic-slicing verdict,scoped,Sections 1; 3; 7.3; 8; 9
+CausalRepair2026,C10: Analysis Context and Repair,direct_prior_art,J-context,Closest Java prior art; audit oracle location and budget before numerical comparison,scoped,Sections 3; 4.5; 5.1; 5.3; 6.2; official ISSTA entry
+CRUXEval2024,C9: Evaluation,measurement,understanding,Measurement inspiration; short Python tasks do not establish Java repair validity,scoped,Abstract; official repository benchmark construction and scoring
+Defects4J2014,C9: Evaluation,measurement,evaluation,Dataset and trigger definition; not a universal correctness oracle,scoped,Original paper indexed abstract; official repository documentation
+SWEbench2024,C9: Evaluation,measurement,evaluation,Different task from known-method Java repair; do not pool rates,scoped,ICLR official publication and abstract
+Smith2015,C9: Evaluation,measurement,evaluation,Require staged and independent evaluation; test adequacy is not universal correctness,scoped,Published version abstract and independent test-suite methodology
+

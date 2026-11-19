@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2628/BP1/repair/1",
+  "case_id": "BP17-2628",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "962259c5eee564a82556c0d54cbe41d41784f2f93cbaf4a84cef41f65a00b90e",
+  "started_utc": "2026-10-17T10:13:05.574477+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "34239c1a-93ff-4a02-a265-c308c725b729",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<stdio.h>\\nint merge(long long int* a,long long int* b,long long int* c,long long int* d,long long int s,long long int e){\\n\\tif(s>=e)\\n\\t\\treturn 0;\\n\\tmerge(a,b,c,d,s,(s+e)/2);\\n\\tmerge(a,b,c,d,((s+e)/2)+1,e);\\n\\tlong long int i = s,j=((s+e)/2)+1,n = s;\\n\\twhile(i <= (s+e)/2 || j <= e)\\n\\t\\tif(i <= (s+e)/2 && (j > e || a[i] <= a[j])){\\n\\t\\t\\tb[n] = a[i];\\n\\t\\t\\td[n] = c[i];\\n\\t\\t\\ti++;\\n\\t\\t\\tn++;\\n\\t\\t}\\n\\t\\telse {\\n\\t\\t\\tb[n] = a[j];\\n\\t\\t\\td[n] = c[j];\\n\\t\\t\\tj++;\\n\\t\\t\\tn++;\\n\\t\\t}\\n\\tfor(i=s;i<=e;i++) {\\n\\t\\ta[i] = b[i];\\n\\t\\tc[i] = d[i];\\n\\t}\\n\\treturn 0;\\n}\\nint main(int argc, char *argv[]){\\n\\tlong long int i,j,k,l,n,m,r,avg,a[200005],b[200005],c[200005],d[200005],o;\\n\\tscanf(\\\"%lld%lld%lld\\\",&n,&r,&avg);\\n\\tavg = n*avg;\\n\\tfor(i=0;i<n;i++) {\\n\\t\\tscanf(\\\"%lld%lld\\\",&a[i],&b[i]);\\n\\t\\tavg -= a[i];\\n\\t}\\n\\tmerge(b,c,a,d,0,n-1);\\n\\tlong long int ans=0;\\n\\tfor(i=0;i<n && avg>0;i++){\\n\\t\\tif(a[i]<r)\\n\\t\\t\\tif(r-a[i] < avg) {\\n\\t\\t\\t\\tavg -= (r-a[i]);\\n\\t\\t\\t\\tans += b[i]*(r-a[i]);\\n\\t\\t\\t}\\n\\t\\t\\telse {\\n\\t\\t\\t\\tans += b[i]*avg;\\n\\t\\t\\t\\tavg = 0;\\n\\t\\t\\t}\\t\\n\\t}\\n\\tprintf(\\\"%lld\\\\n\\\",ans);\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 3583,
+    "completion_tokens": 558,
+    "total_tokens": 4141,
+    "prompt_tokens_details": {
+      "cached_tokens": 3328
+    },
+    "prompt_cache_hit_tokens": 3328,
+    "prompt_cache_miss_tokens": 255
+  },
+  "raw_sha256": "8f809fb627cbdf81ef650c1a77f0c2dd004dca572cc9e0e18ceb2e20c833bec0",
+  "ended_utc": "2026-10-17T10:13:07.963640+00:00",
+  "elapsed_seconds": 2.219
+}

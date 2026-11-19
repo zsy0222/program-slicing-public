@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1210/BP1/repair/1",
+  "case_id": "BP17-1210",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "eef9274dc6c474b441daef6f729b52d2c90be1d9a7791b52342239fc47f07605",
+  "started_utc": "2026-10-21T06:47:21.937634+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "7f06bc82-93b3-432c-8305-b84ea7a44cad",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <ctype.h>\\n\\n#define N\\t\\t 4\\n#define BLACK\\t'a'\\n#define WHITE\\t'.'\\n\\n\\n\\nint main(int argc, char *argv[])\\n{\\n\\tchar a[N][N];\\n\\tint i, j, bc, wc;\\n\\n\\tfor (i=0; i<N; ++i)\\n\\t\\tfor (j=0; j<N; ++j) {\\n\\t\\t\\twhile (isspace(a[i][j] = getchar()))\\n\\t\\t\\t\\t;\\n\\t\\t\\tif ((i>0) && (j>0)) {\\n\\t\\t\\t\\tbc = (a[i][j]==BLACK) + (a[i-1][j]==BLACK) + (a[i][j-1]==BLACK) + (a[i-1][j-1]==BLACK);\\n\\t\\t\\t\\twc = (a[i][j]==WHITE) + (a[i-1][j]==WHITE) + (a[i][j-1]==WHITE) + (a[i-1][j-1]==WHITE);\\n\\t\\t\\t\\tif ((bc>2) || (wc>2)) {\\n\\t\\t\\t\\t\\tputs(\\\"YES\\\");\\n\\t\\t\\t\\t\\tgoto EXIT;\\n\\t\\t\\t\\t}\\n\\t\\t\\t}\\n\\t\\t}\\n\\t\\n\\tputs(\\\"NO\\\");\\nEXIT:\\n\\treturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1082,
+    "completion_tokens": 335,
+    "total_tokens": 1417,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1082
+  },
+  "raw_sha256": "3011f023b5ff8d7ac3d2a3b8b9581dc71e05993071ceb451d3a2f5790f0c923c",
+  "ended_utc": "2026-10-21T06:47:23.742522+00:00",
+  "elapsed_seconds": 1.797
+}

@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0506/BP0/repair/1",
+  "case_id": "BP17-0506",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "7e2f46dd5f0889a5dd969b20166250db691c2f8014d8dbc9db1884439dba6be5",
+  "started_utc": "2026-11-16T18:12:31.441721+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "a95872e6-a101-4fa7-89a3-20950d42a76d",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\nstruct point{\\n  int x,y;\\n};\\nstruct point points[200];\\nint main(int argc, char *argv[]){\\n  int i,n,j,c=0;\\n  scanf(\\\"%d\\\",&n);\\n  for (i=0;i<n;i++){\\n    scanf(\\\"%d %d\\\",&(points[i].x),&(points[i].y));\\n  }\\n  for (i=0;i<n;i++){\\n    int a[4]={0,0,0,0};\\n    for (j=0;j<n;j++){\\n      if ((points[i].x>points[j].x) && (points[i].y==points[j].y)) a[0]=1;\\n      if ((points[i].x<points[j].x) && (points[i].y==points[j].y)) a[1]=1;\\n      if ((points[i].x==points[j].x) && (points[i].y<points[j].y)) a[2]=1;\\n      if ((points[i].x==points[j].x) && (points[i].y>points[j].y)) a[3]=1;\\n    }\\n    if (a[0]==1 && a[1]==1 && a[2]==1 && a[3]==1) c++;\\n  }\\nprintf(\\\"%d\\\\n\\\", c);\\nreturn 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 997,
+    "completion_tokens": 325,
+    "total_tokens": 1322,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 997
+  },
+  "raw_sha256": "1b4f23f3d89a4d1660b2bcc38c2ae0653c78d17bd87eec830d959b3c7d206f9f",
+  "ended_utc": "2026-11-16T18:12:33.399464+00:00",
+  "elapsed_seconds": 1.9032
+}

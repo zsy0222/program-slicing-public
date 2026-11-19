@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2109/BP0/repair/1",
+  "case_id": "BP17-2109",
+  "group": "BP0",
+  "task": "repair",
+  "request_sha256": "a5ee355dd97984c9cf579f5cd75f4f80087fd75a510deb037e796b4bc3554cb7",
+  "started_utc": "2026-11-16T18:06:17.288095+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "409eb278-95bc-4492-a5d6-4a22bb08444b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"// David Wise - 5/28/13\\n\\n#include <stdio.h>\\n\\nint circle[4];\\nint largeind;\\n\\nint indexoflargest() {\\n  int largest = 0;\\n  int index = -1;\\n  int i;\\n  for (i = 0; i < 4; i++) {\\n    if (circle[i] > largest) {\\n      largest = circle[i];\\n      index = i;\\n    }\\n  }\\n  return index;\\n}\\n\\nvoid plus(int ind) {\\n  circle[(largeind + ind) % 4]++;\\n  circle[(largeind + ind + 1) % 4]++;\\n  printf(\\\"+%d\\\\n\\\", (largeind + ind) % 4 + 1);\\n}\\n\\nvoid div(int ind) {\\n  circle[(largeind + ind) % 4] /= 2;\\n  circle[(largeind + ind + 1) % 4] /= 2;\\n  printf(\\\"/%d\\\\n\\\", (largeind + ind) % 4 + 1);\\n}\\n\\nint main(int argc, char *argv[]) {\\n  scanf(\\\"%d%d%d%d\\\", circle, circle + 1, circle + 2, circle + 3);\\n  \\n  while (1) {\\n    largeind = indexoflargest();\\n    \\n    if (circle[largeind] == 1)\\n      break;\\n    else if (circle[largeind] == 2) {\\n      if (circle[(largeind + 1) % 4] == 2) {\\n\\tif (circle[(largeind + 2) % 4] == 2) {\\n\\t  if (circle[(largeind + 3) % 4] == 2) {\\n\\t    div(0); div(2);\\n\\t  } else { // 2 2 2 1\\n\\t    div(0); plus(1); plus(2); div(1); div(2);\\n\\t  }\\n\\t} else { // 2 2 1 _\\n          if (circle[(largeind + 3) % 4] == 2) {\\n\\t    div(3); plus(0); plus(1); div(0); div(1);\\n          } else { // 2 2 1 1\\n\\t    div(0);\\n          }\\n\\t}\\n      } else { // 2 1 _ _\\n\\tif (circle[(largeind + 2) % 4] == 2) {\\n\\t  if (circle[(largeind + 3) % 4] == 2) {\\n\\t    div(2); plus(3); plus(0); div(3); div(0);\\n\\t  } else { // 2 1 2 1\\n\\t    plus(1); div(0); plus(1); div(1); plus(1); plus(2); div(1); div(2);\\n\\t  }\\n\\t} else { // 2 1 1 _\\n\\t  if (circle[(largeind + 3) % 4] == 2) {\\n\\t    div(3);\\n\\t  } else { // 2 1 1 1\\n\\t    plus(0); plus(3); div(0); div(3);\\n\\t  }\\n\\t}\\n      }\\n      break;\\n    }\\n\\n    if (circle[largeind] % 2 == 1) {\\n      if (circle[(largeind + 1) % 4] % 2 == 1) {\\n\\tplus(0);\\n\\tdiv(0);\\n      } else if (circle[(largeind + 3) % 4] % 2 == 1) {\\n\\tplus(3);\\n\\tdiv(3);\\n      } else {\\n\\tplus(3);\\n\\tdiv(1);\\n      }\\n    } else {\\n      if (circle[(largeind + 1) % 4] % 2 == 0) {\\n\\tdiv(0);\\n      } else if (circle[(largeind + 3) % 4] % 2 == 0) {\\n\\tdiv(3);\\n      } else {\\n\\tplus(1);\\n\\tdiv(0);\\n      }\\n    }\\n  }\\n  return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2689,
+    "completion_tokens": 1011,
+    "total_tokens": 3700,
+    "prompt_tokens_details": {
+      "cached_tokens": 2432
+    },
+    "prompt_cache_hit_tokens": 2432,
+    "prompt_cache_miss_tokens": 257
+  },
+  "raw_sha256": "49b951fad33bffae73f8a6bff55cf143c36fe22ea457dab40389bfef14f65f39",
+  "ended_utc": "2026-11-16T18:06:21.297214+00:00",
+  "elapsed_seconds": 4.0057
+}

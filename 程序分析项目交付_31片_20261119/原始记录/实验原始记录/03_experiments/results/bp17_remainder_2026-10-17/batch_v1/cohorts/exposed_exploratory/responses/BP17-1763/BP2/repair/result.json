@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-1763/BP2/repair/1",
+  "case_id": "BP17-1763",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "8d2d9564567d3a57caa5ec3d9d0a7fd9743ce50eae2dd8a186233a4467fef94a",
+  "started_utc": "2026-11-17T03:45:10.232925+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "d24b4fd4-9f1d-4547-8135-e9d782d1b763",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,k,l,r,sk, sall;\\n    int a[1001];\\n    int i, j;\\n\\n    scanf(\\\"%d %d %d %d %d %d\\\", &n, &k, &l, &r, &sall, &sk);\\n    int ss = sall-sk;\\n    for (i = 0; i < k; i++) {\\n        a[i] = sk/k;\\n    }\\n    i = 0;\\n    sk = sk - (sk/k)*k;\\n    while (sk > 0) {\\n        a[i]++;\\n        i++;\\n        sk--;\\n    }\\n    for (i = k; i < n; i++) {\\n        a[i] = ss/(n-k);\\n    }\\n    i = k;\\n    ss = ss - (ss/(n-k))*(n-k);\\n    while (ss > 0) {\\n        a[i]++;\\n        i++;\\n        ss--;\\n    }\\n    for (i = 0; i < n; i++) {\\n        printf(\\\"%d \\\", a[i]);\\n    }\\n    printf(\\\"\\\\n\\\");\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1779,
+    "completion_tokens": 310,
+    "total_tokens": 2089,
+    "prompt_tokens_details": {
+      "cached_tokens": 1152
+    },
+    "prompt_cache_hit_tokens": 1152,
+    "prompt_cache_miss_tokens": 627
+  },
+  "raw_sha256": "e9e790cf28e2f879cf26970fb1fcc79f23e9d955f999edd0dacca54647946ca1",
+  "ended_utc": "2026-11-17T03:45:13.683678+00:00",
+  "elapsed_seconds": 3.4442
+}

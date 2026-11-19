@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2294/BP3/repair/1",
+  "case_id": "BP17-2294",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "dc1cdb56898da30124c3c4aa156a6b33a1c7e196b21081fc636d18596358b658",
+  "started_utc": "2026-10-17T08:39:34.560136+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "3dc052fe-2959-4c28-baf7-aa209555717e",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include<math.h>\\n#include<time.h>\\n#include<stdio.h>\\n#include<string.h>\\n#include<stdlib.h>\\n#define oo 1000000000\\n#define pi 3.14159265359\\n#define zero(a) (abb(a)<=1e-7)\\n#define lowbit(a) ((a)&(-(a)))\\n#define min(a,b) ((a)<(b)?(a):(b))\\n#define max(a,b) ((a)>(b)?(a):(b))\\n#define abb(a) ((a)>0?(a):(-(a)))\\n#define cj(x1,y1,x2,y2) ((x1)*(y2)-(x2)*(y2))\\n#define dj(x1,y1,x2,y2) ((x1)*(y1)+(y1)*(y2))\\n#define dis(x1,y1,x2,y2) sqrt(((x2)-(x1))*((x2)-(x1))+((y2)-(y1))*((y2)-(y1)))\\n\\nlong f[10001]={0},hash[10001]={0},d[10001]={0},ans[101]={0},l[101]={0},r[101]={0};\\nlong flag=0,tot=0;\\n\\nlong find(long x)\\n{\\n   long i;\\n   for (i=1;i<=tot;i++)\\n      if (d[i]==x)\\n         return i;\\n   d[++tot]=x;\\n   return tot;\\n}\\n\\nlong match(long now)\\n{\\n   long i,key;\\n   for (i=l[now];i<=r[now];i++)\\n   {\\n      key=find(i);\\n      if (hash[key]!=flag)\\n      {\\n         hash[key]=flag;\\n         if (!f[key]||match(f[key]))\\n         {\\n            f[key]=now;\\n            return 1;\\n         }\\n      }\\n   }\\n   return 0;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n   long i,n;\\n   scanf(\\\"%ld\\\",&n);\\n   for (i=1;i<=n;i++)\\n      scanf(\\\"%ld%ld\\\",&l[i],&r[i]);\\n   for (i=1;i<=n;i++)\\n   {\\n      flag++;\\n      match(i);\\n   }\\n   for (i=1;i<=tot;i++)\\n      if (f[i])\\n         ans[f[i]]=d[i];\\n   for (i=1;i<=n;i++)\\n      printf(\\\"%ld\\\\n\\\",ans[i]);\\n   return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2227,
+    "completion_tokens": 610,
+    "total_tokens": 2837,
+    "prompt_tokens_details": {
+      "cached_tokens": 1408
+    },
+    "prompt_cache_hit_tokens": 1408,
+    "prompt_cache_miss_tokens": 819
+  },
+  "raw_sha256": "f0741500f45fcd94d096e9074f9c6552df9b4433a77301decf7a4350ce8f914e",
+  "ended_utc": "2026-10-17T08:39:36.830239+00:00",
+  "elapsed_seconds": 2.266
+}

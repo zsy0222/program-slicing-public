@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-3653/BP2/repair/1",
+  "case_id": "BP17-3653",
+  "group": "BP2",
+  "task": "repair",
+  "request_sha256": "19736310f3924a6511fee02d7f9ea7b3996364a72a373e59a5a8a67f456f71b4",
+  "started_utc": "2026-11-16T17:28:15.957700+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "47a222f2-3da0-42ac-808d-21da544a309b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include<stdio.h>\\n \\n    int main(int argc, char *argv[])\\n    {\\n    \\tint A[100001] ;\\n    \\tint n,m;\\n    \\tscanf(\\\"%d\\\",&n);\\n    \\tscanf(\\\"%d\\\",&m);\\n    \\tint i;\\n    \\tfor(i=0;i<n+1;++i)\\n    \\t  A[i] = 0;\\n    \\t int flag = 0;\\n\\t\\t if(m== 0)\\n\\t\\t   {\\n\\t\\t   \\tprintf(\\\"%d\\\\n\\\",n);\\n\\t\\t   \\treturn 0 ;\\n\\t\\t\\t} \\n    \\tfor(i=0;i<m;++i)\\n\\t\\t{\\n\\t\\t\\tint a,b;\\n\\t\\t\\tscanf(\\\"%d %d\\\",&a,&b);\\n\\t\\t\\t\\n\\t\\t\\tif( b > a)\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(A[b] != 1)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tA[b] = 2;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse \\n\\t\\t\\t\\t flag =1;\\n\\t\\t\\t\\t \\n\\t\\t\\t\\tif( A[a] != 2)\\n\\t\\t\\t\\t  A[a] = 1;\\n\\t\\t\\t\\t  \\n\\t\\t\\t\\t else \\n\\t\\t\\t\\t flag = 1;  \\n\\t\\t\\t}\\n\\t\\t\\telse\\n\\t\\t\\t{\\n\\t\\t\\t\\tif(A[a] != 1)\\n\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\tA[a] = 2;\\n\\t\\t\\t\\t}\\n\\t\\t\\t\\telse \\n\\t\\t\\t\\t flag =1;\\n\\t\\t\\t\\t \\n\\t\\t\\t\\tif( A[b] != 2)\\n\\t\\t\\t\\t  A[b] = 1;\\n\\t\\t\\t\\t  \\n\\t\\t\\t\\t else \\n\\t\\t\\t\\t flag = 1; \\n\\t\\t\\t}\\n\\t\\t\\t\\n\\t\\t  }\\n\\t\\t //  printf(\\\"%d\\\\n\\\",flag);\\n\\t\\t  if(flag == 1)\\n\\t\\t    printf(\\\"0\\\\n\\\");\\n\\t\\t    \\n\\t\\t  else\\n\\t\\t   { \\n\\t\\t     int flag1 = 0;\\n\\t\\t   \\tfor(i=1;i<n+1;++i)\\n\\t\\t   \\t{   //printf(\\\"%d \\\\n\\\",A[i]);\\n\\t\\t   \\t\\tif( A[i] == 2 && flag1 == 0)\\n\\t\\t   \\t\\t    flag1 = 1;\\n\\t\\t   \\t\\t    \\n\\t\\t   \\t\\t    \\n\\t\\t   \\t\\tif(flag1 == 1 && A[i] == 1)\\n\\t\\t\\t\\t    flag1 = 2;    \\n\\t\\t   \\t }\\n\\t\\t   \\t \\n\\t\\t   \\t //printf(\\\"%d\\\\n\\\",flag1);\\n\\t\\t   \\t if(flag1 == 2)\\n\\t\\t   \\t  printf(\\\"0\\\\n\\\");\\n\\t\\t   \\t  \\n\\t\\t   \\t  else\\n\\t\\t   \\t  {\\n\\t\\t   \\t  \\tint count1=0,count2=0;\\n\\t\\t   \\t  \\tfor(i=1;i<n+1;++i)\\n\\t\\t   \\t  \\t{\\n\\t\\t   \\t  \\t\\tif(A[i]  == 1)\\n\\t\\t   \\t  \\t\\t     count1 = i;\\n\\t\\t   \\t  \\t    if(A[i] == 2 && count2 == 0)\\n\\t\\t\\t\\t\\t{\\n\\t\\t\\t\\t\\t\\tcount2 = i;\\n\\t\\t\\t\\t\\t\\tbreak;\\n\\t\\t\\t\\t\\t\\t\\t   }\\t\\t   \\n\\t\\t   \\t  \\t }\\n\\t\\t\\t\\t //printf(\\\"%d %d \\\",count2,count1);\\t \\n\\t\\t\\t\\t printf(\\\"%d\\\\n\\\",count2 - count1 );\\t \\n\\t\\t\\t\\t }\\n\\t\\t\\t }  \\n\\t\\t\\t \\n\\t\\t\\t return 0;\\n\\t\\t    \\n\\t}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2992,
+    "completion_tokens": 1000,
+    "total_tokens": 3992,
+    "prompt_tokens_details": {
+      "cached_tokens": 1920
+    },
+    "prompt_cache_hit_tokens": 1920,
+    "prompt_cache_miss_tokens": 1072
+  },
+  "raw_sha256": "af9c8d706a3a74c7535757b3486eda8047354d455c2e3d9958675e8ba452bb5f",
+  "ended_utc": "2026-11-16T17:28:19.956286+00:00",
+  "elapsed_seconds": 3.9958
+}

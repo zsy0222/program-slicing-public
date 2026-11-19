@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-0011/BP1/repair/1",
+  "case_id": "BP17-0011",
+  "group": "BP1",
+  "task": "repair",
+  "request_sha256": "1e58185f776bc321e011e9b06bc70dca1468a9f0d2b20386061199bc799bfff1",
+  "started_utc": "2026-10-17T13:41:54.433881+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "0d5134f1-5886-42ef-8b79-7720db49172b",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+  "content": "{\"source\":\"#include <stdio.h>\\n#include <stdlib.h>\\n#include <string.h>\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,p1,p2,p3,t1,t2,a,b,i,lr=0,power=0;\\n    scanf(\\\"%d %d %d %d %d %d\\\",&n,&p1,&p2,&p3,&t1,&t2);\\n    scanf(\\\"%d %d\\\",&a,&b);\\n    power+=(b-a)*p1;\\n    lr=b;\\n    for(i=1;i<n;i++)\\n    {\\n        scanf(\\\"%d %d\\\",&a,&b);\\n        power+=(b-a)*p1;\\n        if(lr+t1<=a)\\n        {\\n            power+=(t1*p1);\\n            if(lr+t1+t2<=a)\\n                power+=(t2*p2)+(a-lr-t1-t2)*p3;\\n            else\\n                power+=(a-lr-t1)*p2;\\n        }\\n        else\\n            power+=(a-lr)*p1;\\n        lr=b;\\n    }\\n    printf(\\\"%d\\\",power);\\n\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 1022,
+    "completion_tokens": 290,
+    "total_tokens": 1312,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1022
+  },
+  "raw_sha256": "fb22d00b4e21f53f80e736f847c2b93ab9803ccdb3a71ab1e9a727b0a4bfcf93",
+  "ended_utc": "2026-10-17T13:41:55.882802+00:00",
+  "elapsed_seconds": 1.453
+}

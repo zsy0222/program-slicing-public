@@ -1,0 +1,28 @@
+{
+  "job_id": "BP17-caseblocked-remainder-20261017-v1/BP17-2747/BP3/repair/1",
+  "case_id": "BP17-2747",
+  "group": "BP3",
+  "task": "repair",
+  "request_sha256": "ed0c9cda99f3fe3342389c61be28252ddfd25a1da26bfa0470cb3df426d4c548",
+  "started_utc": "2026-11-16T02:40:08.140458+00:00",
+  "request_model": "deepseek-flash",
+  "status": "completed",
+  "response_id": "4e5b40f0-096a-491f-bd2e-2b038e315709",
+  "model_returned": "deepseek-flash",
+  "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+  "content": "{\"source\":\"#include <stdio.h>\\n#define max 100\\n\\nint comp(const void*a,const void*b)\\n{\\n    return *(int*)b-*(int*)a;\\n}\\n\\nint main(int argc, char *argv[])\\n{\\n    int n,k;\\n    int pile[max]={0},pilecopy[max]={0};\\n//    int sum=0,tall[max]={0},sub[max]={0};\\n    int i=0,j=0,t=0,tall=0;\\n//    int m=0,l=0,t=-1,tp=-1;\\n\\n    scanf(\\\"%d%d\\\",&n,&k);\\n    for(i=0;i<n;i++){\\n        scanf(\\\"%d\\\",&pile[i]);\\n        pilecopy[i]=pile[i];\\n    }\\n\\n    qsort(pile,n,sizeof(int),comp);\\n    for(i=n-1;i>0;i--){\\n        if(pile[i-1]>pile[i])\\n            break;\\n    }\\n    tall=pile[i]+1;\\n    if(pile[0]-tall+1>k){\\n        printf(\\\"No\\\\n\\\");\\n        return 0;\\n    }\\n    else{\\n        printf(\\\"YES\\\\n\\\");\\n        for(i=0;i<n;i++){\\n            if(pilecopy[i]<=tall){\\n                for(j=0;j<pilecopy[i];j++)\\n                    printf(\\\"1 \\\");\\n            }\\n            else{\\n                for(j=0;j<tall;j++)\\n                    printf(\\\"1 \\\");\\n                t=2;\\n                for(j=tall;j<pilecopy[i];j++){\\n                    printf(\\\"%d \\\",t++);\\n                }\\n            }\\n            printf(\\\"\\\\n\\\");\\n        }\\n    }\\n\\n\\n\\n\\n/*\\n    for(i=n-1;i>0;i--){\\n        if(pile[i-1]>pile[i]){\\n            sum+=1;\\n            if(t==-1){\\n                sub[++t]=pile[i-1];\\n            }\\n            else{\\n                sub[++t]=pile[i-1]-pile[i];\\n            }\\n            if(tp==-1){\\n                tall[++tp]=pile[i-1];\\n            }\\n            else{\\n                tall[++tp]=tall[tp-1]+pile[i-1]-pile[i];\\n            }\\n        }\\n    }\\n    if(sum>k){\\n        printf(\\\"NO\\\\n\\\");\\n        return 0;\\n    }\\n    else{\\n        printf(\\\"YES\\\\n\\\");\\n\\n        for(i=0;i<n;i++){\\n            for(j=0;j<=tp;j++){\\n                if(pilecopy[i]<=tall[j])\\n                    break;\\n            }\\n            if(j>0){\\n                for(m=0;m<j;m++){\\n                    for(l=0;l<sub[m];l++){\\n                        printf(\\\"%d \\\",m+1);\\n                    }\\n                }\\n                for(m=0;m<pilecopy[i]-tall[j-1];m++)\\n                    printf(\\\"%d \\\",j+1);\\n            }\\n            else{\\n                for(m=0;m<pilecopy[i];m++){\\n                    printf(\\\"%d \\\",1);\\n                }\\n            }\\n            printf(\\\"\\\\n\\\");\\n        }\\n    }\\n*/\\n    return 0;\\n}\"}",
+  "finish_reason": "stop",
+  "usage": {
+    "prompt_tokens": 2341,
+    "completion_tokens": 814,
+    "total_tokens": 3155,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2341
+  },
+  "raw_sha256": "15d68b05896faaf6eac9c6d1dc2ea067102a152bddd10e7b0d053f1f64916a8b",
+  "ended_utc": "2026-11-16T02:40:11.796467+00:00",
+  "elapsed_seconds": 3.653
+}
