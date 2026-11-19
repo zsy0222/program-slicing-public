@@ -1,4 +1,4 @@
-# program-slicing
+# program-slicing-public
 
 本项目探索程序分析信息如何帮助大语言模型理解和修复程序错误。研究过程从程序切片与依赖分析入手，逐步发展为基于同一缺陷的多组对照实验。
 
@@ -12,4 +12,4 @@
 
 现存31片归档回执覆盖3,057个案例、24,456条任务记录；另有先行共同验收的100例。这些记录包含不同模型指纹的探索性观察；独立确认样本尚不能支持控制流程信息带来稳定显著增益的结论。原始记录中的早期版本保留当时的认识，不应直接替代后续核验结果。
 
-原始资料含较长路径。Windows 用户可使用 `git -c core.longpaths=true clone https://github.com/zsy0222/program-slicing.git`，仓库内的文件属性用于保持原始字节。
+原始资料含较长路径。Windows 用户可使用 `git -c core.longpaths=true clone https://github.com/zsy0222/program-slicing-public.git`，仓库内的文件属性用于保持原始字节。
